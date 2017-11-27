@@ -3,11 +3,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.agsigurdsson</groupId>
-    <artifactId>mavenproject1</artifactId>
+    <artifactId>app4sea</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
-    <name>mavenproject1</name>
+    <name>app4sea</name>
 
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>

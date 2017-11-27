@@ -43,13 +43,18 @@ App4Sea.MapView = (function(){
         //init Leaflet map with MapBox tiles on Reykjavik
         myMap = L.map('MapContainer').setView(areaCenter,initialZoom);
         myMap.on('click', onMapClick);
+        /*
         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoiYXJuaWdlaXIiLCJhIjoiY2o2dGw4NmgzMHNiMDJxbzRhNjV6M3N2dSJ9.j6qbWrXD69LjlSjxZCY3mA', {
                          attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
                          maxZoom: 18,
                          id: 'mapbox.streets'
                      }).addTo(myMap);
-                     
+        */             
 
+        var Esri_NatGeoWorldMap = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/NatGeo_World_Map/MapServer/tile/{z}/{y}/{x}', {
+                attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
+                maxZoom: 16
+        }).addTo(myMap);
                      
         update();
                      
