@@ -17,75 +17,12 @@
         
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" type="text/css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="" />
         <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"  type="text/javascript"  integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin=""></script>
+        <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
         
+        <link href="css/main.css" rel="stylesheet" type="text/css" />
         <script src="scripts/App4Sea.MapView.js" type="text/javascript"></script>
         
-        <style type="text/css">
-            *{
-                font-family: "Montserrat","Verdana","sans-serif";
-            }
-            #MapContainer{
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                background-color: beige;
-                left: 0;
-                right: 0;
-            }
-            .DialogHeader{
-                text-align: right;
-            }
-            #MenuPopupContainer{
-                position: absolute;
-                z-index: 10000;
-                top: 1em;
-                right: 1em;
-                overflow: hidden;
-                /* border: solid 3px black; */
-                border-radius: 5px;
-                padding: 0.5em;
-                background-color: white;
-                box-shadow: 0px 0px 6px 1px #5d5c5c;
-                height: 1em;
-                width: 3em;
-            }
-            #MenuPopupContainer:hover{
-                height: 10em;
-                width:13em
-            }
-            #MenuPopupContainer .DialogHeader{
-                margin-bottom: 1em;
-            }
-            
-            #DebugWindow{
-                position: absolute;
-                width: 15rem;
-                height:5rem;
-                bottom: 1.5rem;
-                right: 1em;
-                z-index: 1000;
-                background-color: white;
-                overflow: auto;
-                font-size:xx-small;
-                border-radius: 5px;
-                padding: 0.5em;
-                background-color: white;
-                box-shadow: 0px 0px 6px 1px #5d5c5c;
-            }
-            .MenuItem{
-                cursor:pointer;
-                padding:0.3em;
-                border-bottom: solid 1px silver;
-            }
-            .MenuItem:hover{
-                background-color: silver;
-                color:white;
-                
-            }
 
-            
-            
-        </style>
         <script type="text/javascript">
             $(document).ready(function(){
 

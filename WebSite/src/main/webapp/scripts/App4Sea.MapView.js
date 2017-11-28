@@ -55,6 +55,13 @@ App4Sea.MapView = (function(){
                 attribution: 'Tiles &copy; Esri &mdash; National Geographic, Esri, DeLorme, NAVTEQ, UNEP-WCMC, USGS, NASA, ESA, METI, NRCAN, GEBCO, NOAA, iPC',
                 maxZoom: 16
         }).addTo(myMap);
+        
+        //add the NPA area definition layer
+        var runLayer = omnivore.kml('kmz/NPA.kml').on('ready', function() {
+                myMap.fitBounds(runLayer.getBounds());
+        }).addTo(myMap);
+        
+        
                      
         update();
                      
@@ -63,7 +70,7 @@ App4Sea.MapView = (function(){
 
 
     function update(){
-        initBorderOverlay();
+        //initBorderOverlay();
         
     }
     that.Init = init;
