@@ -37,26 +37,51 @@
             });
 
         </script>
+        <style>
+            .leaflet-interactive{
+             stroke-width : '1' !important;   
+            }
+        </style>
     </head>
     <body>
         <div id="MapContainer"></div>
         <div id="MenuPopupContainer"> 
             <div class="DialogHeader">Menu</div>
             <div class="DialogBody">
-                <div class="MenuItem" data-url="http://app4sea.interreg-npa.eu/" data-target="_blank">
-                    App4Sea Website
-                </div>
-                <div class="MenuItem" data-url="https://www.facebook.com/search/top/?q=app4sea" data-target="_blank">
-                    App4Sea Facebook
+                <div class="MenuSection">
+                    <div>
+                        <input type="checkbox" id="MenuNPALayer_Checkbox" /> NPA layer
+                    </div>
+                    <!-- 
+                    <div>
+                        <select id="TileLayer_Select">
+                            <option selected="selected"  value="MapBox_OpenStreetMap">Mapbox - Open Street Map</option>
+                            <option value="ESRI_NatGeoWorldMap">ESRI - NatGeo World Map</option>
+                        </select>
+                    </div>
+                    -->
                 </div>
                 
-                <div class="MenuItem" data-url="NpaFactsheet.html" data-target="_blank">
-                    About NPA 2014-2020
+                <div class="MenuSection">               
+                    <div class="MenuItem" data-url="http://app4sea.interreg-npa.eu/" data-target="_blank">
+                        App4Sea Website
+                    </div>
+                    <div class="MenuItem" data-url="https://www.facebook.com/search/top/?q=app4sea" data-target="_blank">
+                        App4Sea Facebook
+                    </div>
+
+                    <div class="MenuItem" data-url="https://32145644aam941fnzjoj6nn5-wpengine.netdna-ssl.com/wp-content/uploads/2015/12/npa_2014-2020_factsheet.pdf" data-target="_blank">
+                        About NPA 2014-2020
+                    </div>
                 </div>
+                <div class="MenuSystemLine">
+                    App4Sea website V1.0
+                </div>
+                
             </div>
             
         </div>
-        <div id="DebugWindow" ></div>
+        <div id="DebugWindow" style="display:none;"></div>
       
         
         

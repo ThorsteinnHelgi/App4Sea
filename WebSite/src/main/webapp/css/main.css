@@ -25,8 +25,8 @@
     width: 3em;
 }
 #MenuPopupContainer:hover{
-    height: 10em;
-    width:13em
+    height: initial;
+    width: 13em
 }
 #MenuPopupContainer .DialogHeader{
     margin-bottom: 1em;
@@ -47,15 +47,25 @@
     background-color: white;
     box-shadow: 0px 0px 6px 1px #5d5c5c;
 }
+
+.MenuSection{
+    border-top: solid 1px silver;
+    padding:0.5em 0;
+}
+
 .MenuItem{
     cursor:pointer;
     padding:0.3em;
-    border-bottom: solid 1px silver;
+
 }
 .MenuItem:hover{
     background-color: silver;
     color:white;
 
+}
+.MenuSystemLine{
+    font-size: small;
+    color: gray;
 }
 
 .DialogHeader{
