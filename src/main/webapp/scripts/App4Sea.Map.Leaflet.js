@@ -2,8 +2,8 @@
  * (c) 2018 Arni Geir Sigurðsson  arni.geir.sigurdsson(at)gmail.com
  */
 var App4Sea = App4Sea || {};
-
-App4Sea.MapView = (function(){
+App4Sea.Map = (App4Sea.Map)? App4Sea.Map : {};
+App4Sea.Map.Leaflet = (function(){
     "use strict";
     var myMap;
     var that = {};
@@ -77,6 +77,6 @@ App4Sea.MapView = (function(){
 })();
 
 $(document).ready(function(){
-    App4Sea.MapView.Init();
+    App4Sea.Map.Leaflet.Init();
 });
 
