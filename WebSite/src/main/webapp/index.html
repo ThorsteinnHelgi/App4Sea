@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>App4Sea Demopage</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="shortcut icon" href="favicon.ico"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> 
+        
+        <script src="jquery/jquery-3.2.1.min.js" type="text/javascript"></script>
+        <script src="jquery/jquery-ui.min.js" type="text/javascript"></script>
+        <link href="jquery/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
+        <script type="text/javascript" src="scripts/mustache.js" ></script>
+        <script src="jquery/jquery.growl.js" type="text/javascript"></script>
+        <link href="jquery/jquery.growl.css" rel="stylesheet" type="text/css" />
+        
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" type="text/css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin="" />
+        <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"  type="text/javascript"  integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log==" crossorigin=""></script>
+        <script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-omnivore/v0.2.0/leaflet-omnivore.min.js'></script>
+        
+        <link href="css/main.css" rel="stylesheet" type="text/css" />
+        <script src="scripts/App4Sea.MapView.js" type="text/javascript"></script>
+        
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+
+                $(".MenuItem").click(function(){
+                    var url = $(this).attr("data-url");
+                    var target = $(this).attr("data-target");
+                    window.open(url,target);
+
+                });
+                
+
+            });
+
+        </script>
+        <style>
+            .leaflet-interactive{
+             stroke-width : '1' !important;   
+            }
+        </style>
+    </head>
+    <body>
+        <div id="MapContainer"></div>
+        <div id="MenuPopupContainer"> 
+            <div class="DialogHeader">Menu</div>
+            <div class="DialogBody">
+                <div class="MenuSection">
+                    <div>
+                        <input type="checkbox" id="MenuNPALayer_Checkbox" /> NPA layer
+                    </div>
+                    <!-- 
+                    <div>
+                        <select id="TileLayer_Select">
+                            <option selected="selected"  value="MapBox_OpenStreetMap">Mapbox - Open Street Map</option>
+                            <option value="ESRI_NatGeoWorldMap">ESRI - NatGeo World Map</option>
+                        </select>
+                    </div>
+                    -->
+                </div>
+                
+                <div class="MenuSection">               
+                    <div class="MenuItem" data-url="http://app4sea.interreg-npa.eu/" data-target="_blank">
+                        App4Sea Website
+                    </div>
+                    <div class="MenuItem" data-url="https://www.facebook.com/search/top/?q=app4sea" data-target="_blank">
+                        App4Sea Facebook
+                    </div>
+
+                    <div class="MenuItem" data-url="https://32145644aam941fnzjoj6nn5-wpengine.netdna-ssl.com/wp-content/uploads/2015/12/npa_2014-2020_factsheet.pdf" data-target="_blank">
+                        About NPA 2014-2020
+                    </div>
+                </div>
+                <div class="MenuSystemLine">
+                    App4Sea website V1.0
+                </div>
+                
+            </div>
+            
+        </div>
+        <div id="DebugWindow" style="display:none;"></div>
+      
+        
+        
+    </body>
+</html>
