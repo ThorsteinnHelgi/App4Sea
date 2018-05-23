@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<kml xmlns="http://www.opengis.net/kml/2.2" 
+     xmlns:gx="http://www.google.com/kml/ext/2.2" 
+     xmlns:kml="http://www.opengis.net/kml/2.2" 
+     xmlns:atom="http://www.w3.org/2005/Atom">
 <Document>
-	<name>Incidents.kml</name>
+	<name>Oil Spill Incidents</name>
 	<Style id="sh_caution">
 		<IconStyle>
-			<scale>1.4</scale>
+			<scale>0.44</scale>
 			<Icon>
 				<href>http://maps.google.com/mapfiles/kml/shapes/caution.png</href>
 			</Icon>
 			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
 		</IconStyle>
 	</Style>
-	<StyleMap id="msn_caution">
+	<Style id="sn_caution">
+		<IconStyle>
+			<scale>0.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/caution.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+	</Style>
+        <StyleMap id="msn_caution">
 		<Pair>
 			<key>normal</key>
 			<styleUrl>#sn_caution</styleUrl>
@@ -21,15 +33,7 @@
 			<styleUrl>#sh_caution</styleUrl>
 		</Pair>
 	</StyleMap>
-	<Style id="sn_caution">
-		<IconStyle>
-			<scale>1.2</scale>
-			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/caution.png</href>
-			</Icon>
-			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
-		</IconStyle>
-	</Style>
+
 	<Folder>
 		<name>Incidents</name>
 		<open>1</open>

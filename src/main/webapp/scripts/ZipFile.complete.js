@@ -1,3 +1,5 @@
+/* global n, i */
+
 // ZipFile.complete.js
 //
 // 2/17/2012
@@ -19,7 +21,7 @@
 
 
 (function(){
-    if (typeof JSIO == "object"){
+    if (typeof JSIO === "object"){
         var e1 = new Error("JSIO is already defined");
         e1.source = "JSIO.core.js";
         throw e1;
@@ -33,7 +35,7 @@
         var error = new Error("Error: " + msg);
         error.source = (source || this._typename || 'JSIO') + (sub ? '.'+sub : '');
         throw error;
-    }
+    };
 
     // Format a number as hex.  Quantities over 7ffffff will be displayed properly.
     JSIO.decimalToHexString = function(number, digits) {
@@ -57,40 +59,40 @@
 
 
     JSIO.guessFileType = function(name) {
-       if (name == "makefile")  { return JSIO.FileType.Text; }
+       if (name === "makefile")  { return JSIO.FileType.Text; }
 
         var lastDot = name.lastIndexOf(".");
         if (lastDot <= 0) { return JSIO.FileType.Unknown; }
 
         var ext= name.substring(lastDot);
-        if (ext == ".zip")   { return JSIO.FileType.Binary; }
-        if (ext == ".xlsx")  { return JSIO.FileType.Binary; }
-        if (ext == ".docx")  { return JSIO.FileType.Binary; }
-        if (ext == ".dll")   { return JSIO.FileType.Binary; }
-        if (ext == ".obj")   { return JSIO.FileType.Binary; }
-        if (ext == ".pdb")   { return JSIO.FileType.Binary; }
-        if (ext == ".exe")   { return JSIO.FileType.Binary; }
-        if (ext == ".kmz")   { return JSIO.FileType.Binary; }
+        if (ext === ".zip")   { return JSIO.FileType.Binary; }
+        if (ext === ".xlsx")  { return JSIO.FileType.Binary; }
+        if (ext === ".docx")  { return JSIO.FileType.Binary; }
+        if (ext === ".dll")   { return JSIO.FileType.Binary; }
+        if (ext === ".obj")   { return JSIO.FileType.Binary; }
+        if (ext === ".pdb")   { return JSIO.FileType.Binary; }
+        if (ext === ".exe")   { return JSIO.FileType.Binary; }
+        if (ext === ".kmz")   { return JSIO.FileType.Binary; }
 
-        if (ext == ".xml")      { return JSIO.FileType.XML; }
-        if (ext == ".xsl")      { return JSIO.FileType.XML; }
-        if (ext == ".kml")      { return JSIO.FileType.XML; }
-        if (ext == ".csproj")   { return JSIO.FileType.XML; }
-        if (ext == ".vbproj")   { return JSIO.FileType.XML; }
-        if (ext == ".shfbproj") { return JSIO.FileType.XML; }
-        if (ext == ".resx")     { return JSIO.FileType.XML; }
-        if (ext == ".xslt")     { return JSIO.FileType.XML; }
+        if (ext === ".xml")      { return JSIO.FileType.XML; }
+        if (ext === ".xsl")      { return JSIO.FileType.XML; }
+        if (ext === ".kml")      { return JSIO.FileType.XML; }
+        if (ext === ".csproj")   { return JSIO.FileType.XML; }
+        if (ext === ".vbproj")   { return JSIO.FileType.XML; }
+        if (ext === ".shfbproj") { return JSIO.FileType.XML; }
+        if (ext === ".resx")     { return JSIO.FileType.XML; }
+        if (ext === ".xslt")     { return JSIO.FileType.XML; }
 
-        if (ext == ".sln")  { return JSIO.FileType.Text; }
-        if (ext == ".htm")  { return JSIO.FileType.Text; }
-        if (ext == ".html") { return JSIO.FileType.Text; }
-        if (ext == ".js")   { return JSIO.FileType.Text; }
-        if (ext == ".vb")   { return JSIO.FileType.Text; }
-        if (ext == ".txt")  { return JSIO.FileType.Text; }
-        if (ext == ".rels") { return JSIO.FileType.Text; }
-        if (ext == ".css")  { return JSIO.FileType.Text; }
-        if (ext == ".cs")   { return JSIO.FileType.Text; }
-        if (ext == ".asp")  { return JSIO.FileType.Text; }
+        if (ext === ".sln")  { return JSIO.FileType.Text; }
+        if (ext === ".htm")  { return JSIO.FileType.Text; }
+        if (ext === ".html") { return JSIO.FileType.Text; }
+        if (ext === ".js")   { return JSIO.FileType.Text; }
+        if (ext === ".vb")   { return JSIO.FileType.Text; }
+        if (ext === ".txt")  { return JSIO.FileType.Text; }
+        if (ext === ".rels") { return JSIO.FileType.Text; }
+        if (ext === ".css")  { return JSIO.FileType.Text; }
+        if (ext === ".cs")   { return JSIO.FileType.Text; }
+        if (ext === ".asp")  { return JSIO.FileType.Text; }
 
         return JSIO.FileType.Unknown;
     };
@@ -1063,14 +1065,14 @@
         var ch = this.readChar();
         if (ch === null) return null;
 
-        while(ch != "\r" && ch != "\n") {
+        while(ch !== "\r" && ch !== "\n") {
             s += ch;
             ch = this.readChar();
             if (ch === null) return s;
         }
-        if(ch == "\r") {
+        if(ch === "\r") {
             ch = this.readChar();
-            if(ch !== null && ch != "\n"){
+            if(ch !== null && ch !== "\n"){
                 this.unreadChar(ch);
             }
         }

@@ -1,18 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<kml xmlns="http://www.opengis.net/kml/2.2" 
+     xmlns:gx="http://www.google.com/kml/ext/2.2" 
+     xmlns:kml="http://www.opengis.net/kml/2.2" 
+     xmlns:atom="http://www.w3.org/2005/Atom">
 <Document>
-	<name>APP4SEA Meeting Places.kmz</name>
+	<name>APP4SEA Meeting Places</name>
 	<Style id="s_ylw-pushpin3">
 		<IconStyle>
+			<scale>0.4</scale>
 			<Icon>
 				<href>http://maps.google.com/mapfiles/kml/shapes/ranger_station.png</href>
 			</Icon>
 			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
-		</IconStyle>
+                </IconStyle>
 	</Style>
 	<Style id="s_ylw-pushpin_hl4">
 		<IconStyle>
-			<scale>1.18182</scale>
+			<scale>0.44</scale>
 			<Icon>
 				<href>http://maps.google.com/mapfiles/kml/shapes/ranger_station.png</href>
 			</Icon>
