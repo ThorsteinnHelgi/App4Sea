@@ -38,6 +38,58 @@ App4Sea.Map.OpenLayers = (function(){
         var attributionESRIWSM = new ol.Attribution({
             html: 'Tiles &copy; <a href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/0">ArcGIS</a>'
         });
+        
+        
+        var displayFeatureInfo = function (pixel) {
+            var container =  $("#FeatureInfoContainer");
+            container.empty();
+            var features = [];
+            myMap.forEachFeatureAtPixel(pixel, function (feature) {
+                features.push(feature);
+            });
+            if (features.length > 0) {
+                var description = features[0].get('description');
+                //specific beredsskapdepot data
+                var template;
+                var beredskap;
+                var i;
+                
+                if(description && description.length > 0){
+                    container.append(description).show();
+                }else if(features[0].get('navn')){
+                    beredskap = [];
+                    beredskap.push({key:'navn',value:features[0].get('navn')});
+                    beredskap.push({key:'fylke',value:features[0].get('fylke')});
+                    beredskap.push({key:'kyv_region',value:features[0].get('kyv_region')});
+                    beredskap.push({key:'kommune',value:features[0].get('kommune')});
+                    beredskap.push({key:'gateadresse',value:features[0].get('gateadresse')});
+                    beredskap.push({key:'lenke_faktaark',value:features[0].get('lenke_faktaark')});
+                    /*
+                    beredskap.kyv_region = features[0].get('kyv_region');
+                    beredskap.kommune = features[0].get('kommune');
+                    beredskap.gateadresse = features[0].get('gateadresse');
+                    beredskap.lenke_faktaark = features[0].get('lenke_faktaark');
+                    beredskap.iua = features[0].get('iua');
+                    */
+                    template = "<tr><td>{{key}}</td><td>{{value}}</td></tr>";
+                    Mustache.parse(template);
+                    description = "<table><thead><tr><th>Name</th><th>Value</th></tr></thead><tbody>";
+                    for(i=0;i<beredskap.length;i++){
+                        description += Mustache.render(template,beredskap[i]);
+                    }
+                    description += "</tbody></table>";
+                    container.append(description).show();
+                }
+
+            }
+
+          
+        };
+        
+        myMap.on('click', function(evt) {            
+            displayFeatureInfo(evt.pixel);
+        });
+
    
         
         
@@ -81,9 +133,12 @@ App4Sea.Map.OpenLayers = (function(){
     function loadKml(url){
         var vector = new ol.layer.Vector({
               source: new ol.source.Vector({
-                url: url, // 'https://openlayers.org/en/v4.6.4/examples/data/kml/2012_Earthquakes_Mag5.kml',
+                url: url, 
                 format: new ol.format.KML({
-                  extractStyles: false
+                  extractStyles: true,
+                  extractAttributes: true,
+                  showPointNames: true
+
                 })
               })
             });
@@ -93,6 +148,10 @@ App4Sea.Map.OpenLayers = (function(){
     var npaVector = loadKml('data/NPA.kml');
     var medDeccVector = loadKml('data/DECC_OFF_Median_Line.kml');
     var hydDeccVector = loadKml('data/DECC_OFF_Hydrocarbon_Fields.kml');
+    var insidentsVector = loadKml('data/incidents.kml');
+    var meetingsVector = loadKml('data/MeetingPlaces.kml');
+    var nyBeredskapsdepotVector = loadKml('data/ny_beredskapsdepot.kml');
+
     
     
            
@@ -129,7 +188,25 @@ App4Sea.Map.OpenLayers = (function(){
         myMap.removeLayer(hydDeccVector);
         if($("#MenuHydDeccLayer_Checkbox").is(":checked") && hydDeccVector){
             myMap.addLayer(hydDeccVector);           
-        }        
+        }    
+        myMap.removeLayer(meetingsVector);
+        if($("#MenuMedMeetings_Checkbox").is(":checked") && meetingsVector){
+            myMap.addLayer(meetingsVector);           
+        }
+        
+        myMap.removeLayer(insidentsVector);
+        if($("#MenuIncidents_Checkbox").is(":checked") && insidentsVector){
+            myMap.addLayer(insidentsVector);           
+        }    
+        
+        myMap.removeLayer(nyBeredskapsdepotVector);
+        if($("#MenuBeredskapsdepot_Checkbox").is(":checked") && nyBeredskapsdepotVector){
+            myMap.addLayer(nyBeredskapsdepotVector);           
+        } 
+        
+        
+        
+
     }
     
     

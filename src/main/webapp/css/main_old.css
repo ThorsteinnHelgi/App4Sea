@@ -6,26 +6,29 @@
     top: 0;
     bottom: 0;
     background-color: beige;
-    left: 300px;
+    left: 0;
     right: 0;
 }
 
-#MenuContainer{
+#MenuPopupContainer{
     position: absolute;
     z-index: 10000;
-    top: 0;
-    left: 0;
-
-
+    top: 1em;
+    right: 1em;
+    overflow: hidden;
+    /* border: solid 3px black; */
+    border-radius: 5px;
     padding: 0.5em;
     background-color: white;
-    height: 50%;
-    width: 300px;
-    box-sizing: border-box;
-    overflow:auto;
+    box-shadow: 0px 0px 6px 1px #5d5c5c;
+    height: 1em;
+    width: 3em;
 }
-
-#MenuContainer .DialogHeader{
+#MenuPopupContainer:hover{
+    height: initial;
+    width: 16em
+}
+#MenuPopupContainer .DialogHeader{
     margin-bottom: 1em;
 }
 
@@ -46,6 +49,7 @@
 }
 
 .MenuSection{
+    border-top: solid 1px silver;
     padding:0.5em 0;
 }
 
@@ -96,18 +100,4 @@
 #MapContainer .ol-zoom-out.ol-has-tooltip:hover [role=tooltip],
 #MapContainer .ol-zoom-out.ol-has-tooltip:focus [role=tooltip] {
   top: 232px;
-}
-
-#FeatureInfoContainer{
-    background-color: white;
-    padding: 0.5em;
-    border-top: solid 1px gray;
-    /* box-shadow: 1px 1px 1px grey; */
-    position: fixed;
-    bottom: 0em;
-    left: 0em;
-    width: 300px;
-    height: 50%;
-    overflow: auto;
-    box-sizing: border-box;
 }

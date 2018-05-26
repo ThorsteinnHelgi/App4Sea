@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Incidents.kml</name>
+	<Style id="sh_caution">
+		<IconStyle>
+			<scale>1.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/caution.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+	</Style>
+	<StyleMap id="msn_caution">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_caution</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_caution</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_caution">
+		<IconStyle>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/caution.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+	</Style>
+	<Folder>
+		<name>Incidents</name>
+		<open>1</open>
+		<Placemark>
+			<name>The Antonio Gramsci oil spill 1979</name>
+			<description><![CDATA[<img src="https://c2.staticflickr.com/4/3949/15457159617_439bb880d5_b.jpg"><a href="https://www.abo.fi/fakultet/media/16577/bonsdorff1981_marpollutbull12.pdf">The Antonio Gramsci oil spill 1979</a>]]></description>
+			<LookAt>
+				<longitude>21.60110803729825</longitude>
+				<latitude>57.3806371606665</latitude>
+				<altitude>0</altitude>
+				<heading>0.0306683756587126</heading>
+				<tilt>0</tilt>
+				<range>18628.70030770663</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_caution</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>21.500525,57.38063716066649,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Torrey Canyon oil spill 1967</name>
+			<description><![CDATA[<img src="http://oilspillswiki.pbworks.com/f/07%2520Torrey%2520Canyon%2520ph%2520Maritime%2520Connector%5B1%5D.jpg"><a href="https://en.wikipedia.org/wiki/Torrey_Canyon_oil_spill">https://en.wikipedia.org/wiki/Torrey_Canyon_oil_spill</a>]]></description>
+			<LookAt>
+				<longitude>-6.128833</longitude>
+				<latitude>50.041667</latitude>
+				<altitude>0</altitude>
+				<heading>1.05</heading>
+				<tilt>4.96e-011</tilt>
+				<range>3200</range>
+			</LookAt>
+			<styleUrl>#msn_caution</styleUrl>
+			<Point>
+				<coordinates>-6.128833000000001,50.04166699999999,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>West Cork oil spill 2009</name>
+			<description><![CDATA[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c6/Russian_aircraft_carrier_Kuznetsov.jpg/440px-Russian_aircraft_carrier_Kuznetsov.jpg"><a href="https://en.wikipedia.org/wiki/West_Cork_oil_spill">https://en.wikipedia.org/wiki/West_Cork_oil_spill</a>]]></description>
+			<LookAt>
+				<longitude>-9.410669232889191</longitude>
+				<latitude>51.12466762277418</latitude>
+				<altitude>0</altitude>
+				<heading>4.264263118632618</heading>
+				<tilt>0</tilt>
+				<range>259790.1917833975</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_caution</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-9.696143206586401,50.63725669623756,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>The Server accident 2007</name>
+			<description><![CDATA[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Server_forskip_ccb_2.JPG/200px-Server_forskip_ccb_2.JPG"><a href="http://www.kystverket.no/en/EN_Preparedness-against-acute-pollution/Operations-archive/Server/">http://www.kystverket.no/en/EN_Preparedness-against-acute-pollution/Operations-archive/Server/</a>]]></description>
+			<LookAt>
+				<longitude>4.703736</longitude>
+				<latitude>60.757503</latitude>
+				<altitude>0</altitude>
+				<heading>1.05</heading>
+				<tilt>4.96e-011</tilt>
+				<range>3200</range>
+			</LookAt>
+			<styleUrl>#msn_caution</styleUrl>
+			<Point>
+				<coordinates>4.703736,60.757503,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Full City oil spill 2009</name>
+			<description><![CDATA[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6c/Full_City.jpg/600px-Full_City.jpg"><a href="https://en.wikipedia.org/wiki/Full_City_oil_spill">https://en.wikipedia.org/wiki/Full_City_oil_spill</a>]]></description>
+			<LookAt>
+				<longitude>9.710556</longitude>
+				<latitude>58.970833</latitude>
+				<altitude>0</altitude>
+				<heading>1.05</heading>
+				<tilt>4.96e-011</tilt>
+				<range>3200</range>
+			</LookAt>
+			<styleUrl>#msn_caution</styleUrl>
+			<Point>
+				<coordinates>9.710556,58.970833,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>The Godafoss oil spill 2011</name>
+			<description><![CDATA[<img src="http://www.seanews.com.tr/images/haberler/2011_02/53964/godafosssss.jpg"><a href="https://www.researchgate.net/publication/269039469_Oil_drift_modelling_the_MV_Godafoss_accident">https://www.researchgate.net/publication/269039469_Oil_drift_modelling_the_MV_Godafoss_accident</a>]]></description>
+			<styleUrl>#msn_caution</styleUrl>
+			<Point>
+				<coordinates>10.9725,59.04016666666666,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Ekofisk oil field Bravo blowout 1977</name>
+			<description><![CDATA[<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Ekofisk_complex.jpg/440px-Ekofisk_complex.jpg"><a href="https://en.wikipedia.org/wiki/Ekofisk_oil_field">https://en.wikipedia.org/wiki/Ekofisk_oil_field</a>]]></description>
+			<LookAt>
+				<longitude>3.209986</longitude>
+				<latitude>56.549197</latitude>
+				<altitude>0</altitude>
+				<heading>1.05</heading>
+				<tilt>4.96e-011</tilt>
+				<range>3200</range>
+			</LookAt>
+			<styleUrl>#msn_caution</styleUrl>
+			<Point>
+				<coordinates>3.209986,56.54919700000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Whiddy Island disaster 1979</name>
+			<description><![CDATA[<img src="https://upload.wikimedia.org/wikipedia/en/thumb/4/47/Betelgeuse1.JPG/240px-Betelgeuse1.JPG"><a href="https://en.wikipedia.org/wiki/Whiddy_Island_disaster">https://en.wikipedia.org/wiki/Whiddy_Island_disaster</a>]]></description>
+			<LookAt>
+				<longitude>-9.531110999999999</longitude>
+				<latitude>51.687222</latitude>
+				<altitude>0</altitude>
+				<heading>1.05</heading>
+				<tilt>4.96e-011</tilt>
+				<range>3200</range>
+			</LookAt>
+			<styleUrl>#msn_caution</styleUrl>
+			<Point>
+				<coordinates>-9.531110999999999,51.687222,0</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>
