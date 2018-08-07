@@ -1,7 +1,7 @@
 var App4Sea = App4Sea || {};
 
 App4Sea.EventManager = (function(){
-    "use strit";
+    "use strict";
     var that = {};
     var registry = [];
     

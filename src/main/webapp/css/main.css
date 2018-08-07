@@ -1,5 +1,5 @@
 *{
-    font-family: "Montserrat","Verdana","sans-serif";
+    font-family: "Montserrat","Calibri","sans-serif";
 }
 #MapContainer{
     position: absolute;
@@ -15,11 +15,10 @@
     z-index: 10000;
     top: 0;
     left: 0;
-
+    height: 100%;
 
     padding: 0.5em;
-    background-color: white;
-    height: 50%;
+    background-color: beige;
     width: 300px;
     box-sizing: border-box;
     overflow:auto;
@@ -31,9 +30,9 @@
 
 #DebugWindow{
     position: absolute;
-    width: 15rem;
-    height:5rem;
-    bottom: 1.5rem;
+    width: 25rem;
+    height:50rem;
+    bottom: 3.5rem;
     right: 1em;
     z-index: 1000;
     background-color: white;
@@ -97,12 +96,11 @@
 #MapContainer .ol-zoom-out.ol-has-tooltip:focus [role=tooltip] {
   top: 232px;
 }
-
+/*
 #FeatureInfoContainer{
     background-color: white;
     padding: 0.5em;
     border-top: solid 1px gray;
-    /* box-shadow: 1px 1px 1px grey; */
     position: fixed;
     bottom: 0em;
     left: 0em;
@@ -110,4 +108,64 @@
     height: 50%;
     overflow: auto;
     box-sizing: border-box;
+}
+*/
+
+h1,h2,h3,h4,h5,p,ul { font-family: "Montserrat","Calibri","sans-serif"; }
+
+h1 {
+    font-size: 200%;
+}
+h2 {
+    font-size: 150%;
+}
+h3 {
+    font-size: 100%;
+}
+
+/* Tooltip container */
+.tooltip {
+    padding:0.3em;
+    position: relative;
+    display: inline-block;
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 240px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text */
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+
+    /* Fade in tooltip */
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+/* Tooltip arrow */
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
 }

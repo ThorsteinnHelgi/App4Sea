@@ -1,0 +1,7 @@
+[
+    { "id" : "8L50", "parent" : "LExm0", "text" : "Monthly temperature forecast USA", "children" : false, "a_attr" : { "path" : "data/lead15_temp.kml"} },
+    { "id" : "8L51", "parent" : "LExm0", "text" : "Cloud coverage", "children" : false, "a_attr" : { "path" : "data/Clouds Animation.kmz"} },
+    { "id" : "8L52", "parent" : "LExm0", "text" : "Hydrocarbon fields as kmz", "children" : false, "a_attr" : { "path" : "data/DECC_OFF_Hydrocarbon_Fields.kmz"} },
+    { "id" : "8L53", "parent" : "LExm0", "text" : "NOAA products", "children" : false, "a_attr" : { "path" : "http://www.spc.noaa.gov/products/watch/ActiveWW.kmz"} },
+    { "id" : "8L54", "parent" : "LExm0", "text" : "Buffett Hawaii Tour", "children" : false, "a_attr" : { "path" : "data/buffetthawaiitour.kmz"} }
+]
