@@ -1,8 +1,5 @@
 [
-    { "id" : "LEco0", "parent" : "#", "text" : "Ecosysstem", "state" : { "opened" : false}, "children" : false, "a_attr" : { "path" : ""} },
-    { "id" : "LOil0", "parent" : "#", "text" : "Oil industry, transport and response", "state" : { "opened" : true}, "children" : true, "a_attr" : { "path" : ""} },
-    { "id" : "LPrj0", "parent" : "#", "text" : "Project specific", "state" : { "opened" : true}, "children" : true, "a_attr" : { "path" : ""} },
     { "id" : "LReg0", "parent" : "#", "text" : "Regional boundaries", "state" : { "opened" : true}, "children" : true, "a_attr" : { "path" : ""} },
-    { "id" : "LWth0", "parent" : "#", "text" : "Weather", "state" : { "opened" : false}, "children" : false, "a_attr" : { "path" : ""} },
-    { "id" : "LExm0", "parent" : "#", "text" : "Various sample data", "state" : { "opened" : true}, "children" : true, "a_attr" : { "path" : ""} }
+    { "id" : "LOil0", "parent" : "#", "text" : "Oil industry, transport and response", "state" : { "opened" : true}, "children" : true, "a_attr" : { "path" : ""} },
+    { "id" : "LPrj0", "parent" : "#", "text" : "Project specific", "state" : { "opened" : true}, "children" : true, "a_attr" : { "path" : ""} }
 ]

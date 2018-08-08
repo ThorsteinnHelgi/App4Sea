@@ -1,14 +1,20 @@
 /* 
  * (c) 2018 Arni Geir Sigurðsson            arni.geir.sigurdsson(at)gmail.com
  *          Þorsteinn Helgi Steinarsson     thorsteinn(at)asverk.is
+ *              Added treeview in menu (reading json over ajax) and kmz support
  */
 /* global ol, Mustache */
+
+//import ImageLayer from 'ol/layer/Image.js';
+//import Projection from 'ol/proj/Projection.js';
+//import Static from 'ol/source/ImageStatic.js';
 
 var App4Sea = App4Sea || {};
 App4Sea.Map = (App4Sea.Map)? App4Sea.Map : {};
 App4Sea.Map.OpenLayers = (function(){
-    "use strict";
+    "use strict";      
     var myMap;
+    //var imageLayer;
     var currentLayer;
     var osmTileLayer;
     var esriWSPTileLayer;
@@ -23,7 +29,7 @@ App4Sea.Map.OpenLayers = (function(){
     var networklinkarray = [];
     var indNow = 0;
     var layers = []; // array to hold layers as they are created    
-    var layerNode = { id: "", text: "", path: "" };
+    //var layerNode = { id: "", text: "", path: "" };
 
 // Declare layer
 var vectorKMZ = new ol.layer.Vector({
@@ -49,7 +55,16 @@ var vectorKMZ = new ol.layer.Vector({
                 duration: 250
             }
         });
-    
+
+//        imageLayer = new ol.ImageLayer({
+//            source: new ol.Static({
+//                //attributions: '© <a href="http://xkcd.com/license.html">xkcd</a>',
+//                //url: 'https://imgs.xkcd.com/comics/online_communities.png',
+//                projection: projection,
+//                imageExtent: extent
+//            })
+//        });
+          
        // Add a click handler to hide the popup.
        // @return {boolean} Don't follow the href.
         closer.onclick = function() {
@@ -70,6 +85,8 @@ var vectorKMZ = new ol.layer.Vector({
                 maxZoom: 18
             })
         });
+      
+//        myMap.addLayer(imageLayer);
       
         // Add a click handler to the map to render the popup.
         myMap.on('singleclick', function(evt) {
@@ -181,7 +198,7 @@ var vectorKMZ = new ol.layer.Vector({
             layers: [currentLayer],
             collapsed: false
         }));        
-        myMap.addControl(new ol.control.ScaleLine());        
+        //myMap.addControl(new ol.control.ScaleLine());        Not correct scale
                 
         // Hook events to menu
         $(".MenuSection input[type='checkbox']").click(function(){
@@ -273,7 +290,7 @@ var vectorKMZ = new ol.layer.Vector({
                         var theUrl = node.id === '#' ?
                             'data/a4s.json' : 
                             'data/'+node.id+'.json';                        
-                        console.log("theUrl: " + theUrl);
+                        //console.log("theUrl: " + theUrl);
                         return theUrl;
                     },
                     data : function (node) { 
@@ -398,7 +415,7 @@ var vectorKMZ = new ol.layer.Vector({
                     url : function (node) { 
                         var theUrl = node.id === '#' ?
                             'data/info.json' : 
-                            'data/info_ch.json';                        
+                            'data/'+node.id+'.json';                        
                         console.log("theUrl: " + theUrl);
                         return theUrl;
                     },
@@ -406,7 +423,7 @@ var vectorKMZ = new ol.layer.Vector({
                     'dataType': 'json',
                     'contentType':'application/json; charset=utf-8',
                     data : function (node) { 
-                        console.log("Node.id: " + node.id);
+                        //console.log("Node.id: " + node.id);
                         return { 'id' : node.id }; //, 'parent' : node.parent };//, 'text' : node.text, 'a_attr.path' : node.a_attr.path }; 
                     }
                 }
@@ -465,7 +482,8 @@ var vectorKMZ = new ol.layer.Vector({
 
         var vector = new ol.layer.Heatmap({
             source: new ol.source.Vector({
-                url: 'https://openlayers.org/en/v4.6.5/examples/data/kml/2012_Earthquakes_Mag5.kml',
+                //url: 'https://openlayers.org/en/v4.6.5/examples/data/kml/2012_Earthquakes_Mag5.kml',
+                url: 'data/2012_Earthquakes_Mag5.kml',
                 format: new ol.format.KML({
                     extractStyles: false
                 })
@@ -711,9 +729,15 @@ var vectorKMZ = new ol.layer.Vector({
        $("#DebugWindow").append("["+e.latlng.lat+","+e.latlng.lng+"],<br/>");
     } 
 
+    ////////////////////////////////////////////////////////////////////////////
     /// KMZ start
     // https://rawgit.com/webgeodatavore/ol3-extras-demos/master/kmz/static/js/demo-kmz.js
-// Declare worker scripts path for zip manipulation
+    // 
+    // 
+    ////////////////////////////////////////////////////////////////////////////
+    
+
+    // Declare worker scripts path for zip manipulation
 zip.workerScriptsPath = 'static/js/';
 
 
@@ -743,17 +767,35 @@ var map = new ol.Map({
 // var url = '/proxy/www.spc.noaa.gov/products/watch/ActiveWW.kmz';
 
 // Function to ease KML feature reading
-function addFeatures(text) {
+function addFeatures(text, name) {
     var formatter = new ol.format.KML();
     var kml_features = formatter.readFeatures(text, {
         dataProjection: 'EPSG:4326',
         featureProjection: 'EPSG:3857'
     });
     vectorKMZ.getSource().addFeatures(kml_features);
-    console.log("addFeatures" + kml_features);
+    console.log("addFeatures: " + name + " DONE");
 }
 
-// Function to parse KML text to get link reference to other KMZ
+//function addImage(text, name) {
+//    myMap.removeLayer(imageLayer);
+//
+//    imageLayer = new ol.ImageLayer({
+//            source: new ol.Static({
+//              attributions: '© <a href=' + name + '>xkcd</a>',
+//              url: name,
+//              projection: projection,
+//              imageExtent: extent
+//            })
+//          });
+//    
+//    myMap.addLayer(imageLayer);
+//          
+//    console.log("addImage: " + name + " DONE");
+//}
+
+// Function to parse KML text to get link reference to list any other 
+// nested files (kmz or kml)
 function parseKmlText(text) {
     var oParser = new DOMParser();
     var oDOM = oParser.parseFromString(text, 'text/xml');
@@ -774,27 +816,32 @@ function unzipFromBlob(callback) {
         function (reader) {
             // get all entries (array of objects) from the zip
             reader.getEntries(function (entries) {
-                if (entries.length) {
-                    // get first entry content as text (there is always only one in KMZ, namely the doc.kml)
-                    console.log("unzipFromBlob entry " + entries[0].filename + "[" + entries[0].compressedSize + " -> " +entries[0].uncompressedSize + "]");
-                    entries[0].getData(/* writer, onend, onprogress, checkCrc32 */
-                        new zip.TextWriter(), 
-                        function (text) {
-                            // text contains the entry data as a String
-                            callback(text);
+                for (let ind=0; ind<entries.length; ind++) {
+                    var str = entries[ind].filename.toLowerCase();
+                    console.log(str);
+                    //if (str.endsWith("kml")) 
+                    {
+                        // there is always only one KML in KMZ, namely the doc.kml (name can differ).
+                        // we get the kml content as text
+                        //console.log("unzipFromBlob entry " + str + "[" + entries[ind].compressedSize + " -> " + entries[ind].uncompressedSize + "]");
+                        entries[ind].getData(/* writer, onend, onprogress, checkCrc32 */
+                            new zip.TextWriter(), 
+                            function (text) {
+                                // text contains the entry data as a String
+                                callback(text, str);
 
-                            // close the zip reader
-                            reader.close(function () {
-                                // onclose callback
-                            });
-
-                        }, 
-                        function (current, total) {
-                            // onprogress callback
-                            //$("#DebugWindow").append("unzipFrom Blob Total: " + total.toString() + "<br/>");
-                            //console.log("unzipFromBlob Total: " + total.toString() + ", Current: " + current.toString());
-                        }
-                    );
+                                // close the zip reader
+                                reader.close(function () {
+                                    // onclose callback
+                                });
+                            }, 
+                            function (current, total) {
+                                // onprogress callback
+                                //$("#DebugWindow").append("unzipFrom Blob Total: " + total.toString() + "<br/>");
+                                //console.log("unzipFromBlob Total: " + total.toString() + ", Current: " + current.toString());
+                            }
+                        )
+                    };
                 }
             });
         }, 
@@ -809,19 +856,23 @@ function unzipFromBlob(callback) {
 // Function to make ajax call and make a callback on success
 function ajaxKMZ(url, callback) {
     //$("#DebugWindow").append("ajaxKMZ: " + url + "<br/>");
-    console.log("ajaxKMZ: " + url);
+    //console.log("ajaxKMZ: " + url);
+
     // See: https://github.com/pyrsmk/qwest for get documentation
+    // See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS for Cors documentation
     qwest.get(url, null, {
         responseType: 'blob'
-        ,headers: {'x-requested-with': 'XMLHttpRequest'}
+        ,headers: {'x-requested-with': 'XMLHttpRequest'
+            //,origin:'http://localhost:8080/App4Sea/'
+        }
         //,family: '4'
         //,port: '80'
     })
     .then(function (response) {
         // Run when the request is successful
         //$("#DebugWindow").append("ajaxKMZ Response: " + response + "<br/>");
-        console.log("ajaxKMZ OK: " + url);
-        callback(response);
+        //console.log("ajaxKMZ OK: " + url);
+        callback(response, url);
     })
     .catch(function (e, url) {
         //$("#DebugWindow").append("ajaxKMZ Error: " + e + "<br/>" + url + "<br/>");
@@ -830,32 +881,48 @@ function ajaxKMZ(url, callback) {
     })
     .complete(function () {
         // Always run
-        console.log("ajaxKMZ DONE: " + url);
+        //console.log("ajaxKMZ DONE: " + url);
     });
 }
 
 // Read reference to other KMZ and add them to the vector layer
-var readAndAddFeatures = function (text) {
-    var listFilesKMZ = parseKmlText(text);
-    //console.log(listFilesKMZ);
-    listFilesKMZ.forEach(function (el) {
-        console.log("readAndAddFeatures -----------------------------------------");
-        console.log("readAndAddFeatures element: " + el);
+var readAndAddFeatures = function (text, name) {
+    console.log("readAndAddFeatures >>>> " + name);
+    var listFilesNested = parseKmlText(text);
+    
+    let str = name.toLowerCase();
+    if (listFilesNested.length === 0) {
+        //console.log("No nested files");
+        if (str.endsWith("kml")) {
+            addFeatures(text, name);
+            return;
+        }
+        else {
+            addFeatures(text, name);
+        }
+    };
+    
+    //console.log(listFilesNested);
+    listFilesNested.forEach(function (el) {
+        console.log("readAndAddFeatures ----------");
         // Nested calls. Acceptable for a demo
         // but could be "promisified" instead
-        var str = el.toLowerCase();
-        console.log(str);
-        if (str.endsWith("kmz"))
-            ajaxKMZ(el, unzipFromBlob(addFeatures));//unzipFromBlob(readAndAddFeatures));
-        else
-            ajaxKMZ(el, unzipFromBlob(addFeatures));//kml
+        str = el.toLowerCase();
+        if (str.endsWith("kmz")) {
+            console.log("readAndAddFeatures kmz element: " + el);
+            ajaxKMZ(el, unzipFromBlob(readAndAddFeatures));
+        }
+        else {
+            console.log("readAndAddFeatures kml element: " + el);
+            ajaxKMZ(el, readAndAddFeatures);//kml
+        }
     });
-    console.log("readAndAddFeatures =========================================");
+    console.log("readAndAddFeatures <<<<");
 };
 
 function repeat_kmz_calls(url) {
     //$("#DebugWindow").append("repeat_kmz_calls: " + url + "<br/>");
-    console.log("repeat_kmz_calls: " + url);
+    //console.log("repeat_kmz_calls: " + url);
     
     var combinedCallback = unzipFromBlob(readAndAddFeatures);
     // make the ajax call to kmz that unzip and read the file
@@ -867,7 +934,7 @@ function repeat_kmz_calls(url) {
 }
 
 vectorKMZ.on('render', function (event) {
-    console.log("Render event: " + event);
+    //console.log("Render event: " + event);
     var ctx = event.context;
     ctx.fillStyle = "red";
     ctx.font = "72px Arial";
