@@ -22,7 +22,9 @@ App4Sea.Map.OpenLayers = (function(){
     var cloudNow;
     var that = {};
     var zoom = 4;
-    var center = ol.proj.transform([-3, 65], 'EPSG:4326', 'EPSG:3857'); 
+    let prefProj = 'EPSG:4326';
+    let prefViewProj = 'EPSG:3857'; //Default is EPSG:3857 (Spherical Mercator).
+    var center = ol.proj.transform([-3, 65], prefProj, prefViewProj);//'EPSG:3857'); 
     var interaction = new ol.interaction.DragRotateAndZoom(); // create an interaction to add to the map that isn't there by default
     var timespan = {begin: "", end: ""};
 //    var networklink = {timespan, link: ""};
@@ -31,14 +33,6 @@ App4Sea.Map.OpenLayers = (function(){
     var layers = []; // array to hold layers as they are created    
     //var layerNode = { id: "", text: "", path: "" };
 
-// Declare layer
-var vectorKMZ = new ol.layer.Vector({
-    source: new ol.source.Vector({
-        format: new ol.format.KML({
-            extractStyles: true
-        })
-    })
-});
     ////////////////////////////////////////////////////////////////////////////
     //initialize maps and models when page DOM is ready..
     function init(){
@@ -77,7 +71,7 @@ var vectorKMZ = new ol.layer.Vector({
         myMap = new ol.Map({
             target: 'MapContainer',
             interaction: interaction,
-            overlays: [overlay, vectorKMZ],
+            overlays: [overlay],
             view: new ol.View({
                 center: center,
                 zoom: zoom,
@@ -188,7 +182,7 @@ var vectorKMZ = new ol.layer.Vector({
         myMap.addControl(new ol.control.FullScreen());        
         myMap.addControl(new ol.control.Rotate({autoHide: true}));  
         let ctrl = new ol.control.MousePosition({
-            projection: 'EPSG:4326',
+            projection: prefProj,
             coordinateFormat: function(coordinate) {
                 return ol.coordinate.format(coordinate, '{x}, {y}', 4);
             }
@@ -415,7 +409,7 @@ var vectorKMZ = new ol.layer.Vector({
                     url : function (node) { 
                         var theUrl = node.id === '#' ?
                             'data/info.json' : 
-                            'data/'+node.id+'.json';                        
+                            'data/' + node.id + '.json';                        
                         console.log("theUrl: " + theUrl);
                         return theUrl;
                     },
@@ -580,7 +574,7 @@ var vectorKMZ = new ol.layer.Vector({
            // return new Date(Math.round(Date.now() / 3600000) * 3600000 - 3600000 * hours);
         //}
         
-        var extent = ol.proj.transformExtent([-126, 24, -66, 50], 'EPSG:4326', 'EPSG:3857');
+        var extent = ol.proj.transformExtent([-126, 24, -66, 50], prefProj, prefViewProj);//'EPSG:3857');
         //var startDate = someHoursAgo(3);
 
         //var cloudTileLayer = new ol.layer.Tile({
@@ -650,7 +644,7 @@ var vectorKMZ = new ol.layer.Vector({
         return new Date(Math.round(Date.now() / 3600000) * 3600000 - 3600000 * hours);
       }
 
-      var extent = ol.proj.transformExtent([-126, 24, -66, 50], 'EPSG:4326', 'EPSG:3857');
+      var extent = ol.proj.transformExtent([-126, 24, -66, 50], prefProj, prefViewProj);//'EPSG:3857');
       var startDate = someHoursAgo(3);
       var frameRate = 0.5; // frames per second
       var animationId = null;
@@ -761,21 +755,71 @@ var map = new ol.Map({
     })
 });
 */
+    
+    ////////////////////////////////////////////////////////////////////////////
+    //load kml and return as Vector
+    // See https://developers.google.com/kml/documentation/kmlreference
+    function loadKmlText(text, name){
+        console.log("loadKmlText: " + name);
+        
+        var formatter = new ol.format.KML({
+            extractStyles: true,
+            extractAttributes: true,
+            showPointNames: true
+        });
+        
+        var proj = formatter.readProjection(text);
+        console.log("Projection: " + proj.wb);
+        
+        var kml_features = formatter.readFeatures(text, {
+            //dataProjection: proj.wb,//'EPSG:4326'//, //Projection of the data we are reading.
+            //featureProjection: proj.wb//'EPSG:3857' // Projection of the feature geometries created by the format reader.
+            dataProjection: prefProj, //Projection of the data we are reading.
+            featureProjection: prefViewProj//'EPSG:3857' // Projection of the feature geometries created by the format reader.
+        });
+        
+        console.log("kml_features are: " + kml_features.length);
+
+        // http://geoadmin.github.io/ol3/apidoc/ol.layer.Vector.html
+        var vector = new ol.layer.Vector({
+            source: new ol.source.Vector({
+                format: formatter
+            })
+        });
+        vector.getSource().addFeatures(kml_features);
+        
+        return vector;
+    }
 
 // Url to KMZ file (in fact, it's a kml zipped file and not a gzipped file)
-//var url = 'http://www.spc.noaa.gov/products/watch/ActiveWW.kmz';
+// var url = 'http://www.spc.noaa.gov/products/watch/ActiveWW.kmz';
 // var url = '/proxy/www.spc.noaa.gov/products/watch/ActiveWW.kmz';
 
 // Function to ease KML feature reading
 function addFeatures(text, name) {
-    var formatter = new ol.format.KML();
-    var kml_features = formatter.readFeatures(text, {
-        dataProjection: 'EPSG:4326',
-        featureProjection: 'EPSG:3857'
-    });
-    vectorKMZ.getSource().addFeatures(kml_features);
+    var vect = loadKmlText(text, name);
+    myMap.addLayer(vect);
+    
+//    var formatter = new ol.format.KML();
+//    var kml_features = formatter.readFeatures(text, {
+//        dataProjection: 'EPSG:4326',
+//        featureProjection: 'EPSG:3857'
+//    });
+//    vectorKMZ.getSource().addFeatures(kml_features);
     console.log("addFeatures: " + name + " DONE");
 }
+
+// Declare layer
+//var vectorKMZ = new ol.layer.Vector({
+//    source: new ol.source.Vector({
+//        format: new ol.format.KML({
+//            extractStyles: true
+//        })
+//    })
+//});
+
+
+//var vect =  loadKml(path);
 
 //function addImage(text, name) {
 //    myMap.removeLayer(imageLayer);
@@ -818,8 +862,8 @@ function unzipFromBlob(callback) {
             reader.getEntries(function (entries) {
                 for (let ind=0; ind<entries.length; ind++) {
                     var str = entries[ind].filename.toLowerCase();
-                    console.log(str);
-                    //if (str.endsWith("kml")) 
+                    console.log("Entry " + ind + ": " + str);
+                    if (str.endsWith("kml")) 
                     {
                         // there is always only one KML in KMZ, namely the doc.kml (name can differ).
                         // we get the kml content as text
@@ -828,6 +872,7 @@ function unzipFromBlob(callback) {
                             new zip.TextWriter(), 
                             function (text) {
                                 // text contains the entry data as a String
+                                console.log("About to call back " + str + ": " + text);
                                 callback(text, str);
 
                                 // close the zip reader
@@ -924,29 +969,29 @@ function repeat_kmz_calls(url) {
     //$("#DebugWindow").append("repeat_kmz_calls: " + url + "<br/>");
     //console.log("repeat_kmz_calls: " + url);
     
-    var combinedCallback = unzipFromBlob(readAndAddFeatures);
+    //var combinedCallback = ;
     // make the ajax call to kmz that unzip and read the file
     // this file reference other KMZ so we call each of them
     // and add their content
     //ajaxKMZ(url, combinedCallback);
-    ajaxKMZ(url, combinedCallback);
+    ajaxKMZ(url, unzipFromBlob(readAndAddFeatures));
     //setTimeout(repeat_kmz_calls, 60000);
 }
 
-vectorKMZ.on('render', function (event) {
-    //console.log("Render event: " + event);
-    var ctx = event.context;
-    ctx.fillStyle = "red";
-    ctx.font = "72px Arial";
-    // get the metrics with font settings
-    var metrics = ctx.measureText("WaterMark Demo");
-    var width = metrics.width;
-
-    if (vectorKMZ.getSource().getFeatures().length === 0) {
-        ctx.fillText("WaterMark Demo", ctx.canvas.width / 2 - (width / 2), ctx.canvas.height / 2);
-    }
-    ctx.restore();
-});
+//vectorKMZ.on('render', function (event) {
+//    //console.log("Render event: " + event);
+//    var ctx = event.context;
+//    ctx.fillStyle = "red";
+//    ctx.font = "72px Arial";
+//    // get the metrics with font settings
+//    var metrics = ctx.measureText("WaterMark Demo");
+//    var width = metrics.width;
+//
+//    if (vectorKMZ.getSource().getFeatures().length === 0) {
+//        ctx.fillText("WaterMark Demo", ctx.canvas.width / 2 - (width / 2), ctx.canvas.height / 2);
+//    }
+//    ctx.restore();
+//});
 
     that.Init = init;
 
