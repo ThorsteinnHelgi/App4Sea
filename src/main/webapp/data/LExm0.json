@@ -1,13 +1,9 @@
 [
     { "id" : "8L50", "parent" : "LExm0", "text" : "Monthly temperature forecast USA as kml", "children" : false, "a_attr" : { "path" : "data/lead15_temp.kml"} },
-    { "id" : "8L51", "parent" : "LExm0", "text" : "Cloud coverage as kmz", "children" : false, "a_attr" : { "path" : "data/Clouds Animation.kmz"} },
-    { "id" : "8L52", "parent" : "LExm0", "text" : "Hydrocarbon fields as kmz", "children" : false, "a_attr" : { "path" : "data/DECC_OFF_Hydrocarbon_Fields.kmz"} },
-    { "id" : "8L53", "parent" : "LExm0", "text" : "Median lines as kmz", "children" : false, "a_attr" : { "path" : "data/DECC_OFF_Median_Line.kmz"} },
-    { "id" : "8L54", "parent" : "LExm0", "text" : "Meeting places as kmz", "children" : false, "a_attr" : { "path" : "data/APP4SEA Meeting Places.kmz"} },
-    { "id" : "8L55", "parent" : "LExm0", "text" : "NPA as kmz", "children" : false, "a_attr" : { "path" : "data/NPA.kmz"} },
-    { "id" : "8L56", "parent" : "LExm0", "text" : "Marine regions as kmz", "children" : false, "a_attr" : { "path" : "data/MarineRegions-eez_boundaries.kmz"} },
-    { "id" : "8L57", "parent" : "LExm0", "text" : "NOAA products as kmz", "children" : false, "a_attr" : { "path" : "http://www.spc.noaa.gov/products/watch/ActiveWW.kmz"} },
-    { "id" : "8L58", "parent" : "LExm0", "text" : "Tank terminals as kmz", "children" : false, "a_attr" : { "path" : "data/TankTerminals.kmz"} },
-    { "id" : "8L59", "parent" : "LExm0", "text" : "Dynamic earth as kmz", "children" : false, "a_attr" : { "path" : "data/dynamic_earth_kmz_file.v2.kmz"} },
-    { "id" : "8L510", "parent" : "LExm0", "text" : "Bufft Hawaii Tour as kmz", "children" : false, "a_attr" : { "path" : "data/buffetthawaiitour.kmz"} }
+    { "id" : "8L51", "parent" : "LExm0", "text" : "*Cloud coverage as kmz", "children" : false, "a_attr" : { "path" : "data/Clouds Animation.kmz"} },
+    { "id" : "8L56", "parent" : "LExm0", "text" : "*Marine regions as kmz", "children" : false, "a_attr" : { "path" : "data/MarineRegions-eez_boundaries.kmz"} },
+    { "id" : "8L57", "parent" : "LExm0", "text" : "*NOAA products as kmz", "children" : false, "a_attr" : { "path" : "http://www.spc.noaa.gov/products/watch/ActiveWW.kmz"} },
+    { "id" : "8L571", "parent" : "LExm0", "text" : "*NOAA sea analysis as kmz", "children" : false, "a_attr" : { "path" : "data/NOAA.kmz"} },
+    { "id" : "8L59", "parent" : "LExm0", "text" : "Dynamic earth as kmz", "children" : false, "a_attr" : { "path" : "data/Dynamic Earth.kmz"} },
+    { "id" : "8L510", "parent" : "LExm0", "text" : "*Bufft Hawaii Tour as kmz", "children" : false, "a_attr" : { "path" : "data/buffetthawaiitour.kmz"} }
 ]

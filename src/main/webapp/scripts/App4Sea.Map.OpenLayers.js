@@ -232,10 +232,10 @@ App4Sea.Map.OpenLayers = (function(){
     ////////////////////////////////////////////////////////////////////////////
     //load kmz and return as Vector
     // See https://developers.google.com/kml/documentation/kmzarchives
-    function loadKmz(url){
+    function loadKmz(url, id){
         //$("#DebugWindow").append("loadKmz: " + url + "<br/>");
-        console.log("loadKmz: " + url);
-        repeat_kmz_calls(url);
+        console.log("loadKmz: " + id + " from " + url);
+        repeat_kmz_calls(url, id);
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -357,7 +357,12 @@ App4Sea.Map.OpenLayers = (function(){
                 if (path.length > 3){
                     var ext = path.substr(path.length-3, 3);
                     if (ext === "kmz") {
-                        loadKmz(path);
+                        if (index === -1){
+                            var vect =  loadKmz(path, nod.id);
+                        }
+                        else{
+                            myMap.addLayer(layers[index].vector);
+                        }
                     }
                     else {
                         if (index === -1){
@@ -734,28 +739,6 @@ App4Sea.Map.OpenLayers = (function(){
     // Declare worker scripts path for zip manipulation
 zip.workerScriptsPath = 'static/js/';
 
-
-/*
-// Declare map and add MapQuest layer and KML layer
-var map = new ol.Map({
-    target: 'map',
-    layers: [
-        new ol.layer.Tile({
-            source: new ol.source.OSM()
-        }),
-        vector
-    ],
-    view: new ol.View({
-        center: ol.proj.transform(
-                [-98.579416, 39.828328],
-                'EPSG:4326',
-                'EPSG:3857'
-                ),
-        zoom: 4
-    })
-});
-*/
-    
     ////////////////////////////////////////////////////////////////////////////
     //load kml and return as Vector
     // See https://developers.google.com/kml/documentation/kmlreference
@@ -765,11 +748,12 @@ var map = new ol.Map({
         var formatter = new ol.format.KML({
             extractStyles: true,
             extractAttributes: true,
-            showPointNames: true
+            showPointNames: false
         });
         
         var proj = formatter.readProjection(text);
-        console.log("Projection: " + proj.wb);
+        if (proj !== null)
+            console.log("Projection: " + proj.wb);
         
         var kml_features = formatter.readFeatures(text, {
             //dataProjection: proj.wb,//'EPSG:4326'//, //Projection of the data we are reading.
@@ -796,47 +780,13 @@ var map = new ol.Map({
 // var url = '/proxy/www.spc.noaa.gov/products/watch/ActiveWW.kmz';
 
 // Function to ease KML feature reading
-function addFeatures(text, name) {
+function addFeatures(text, name, id) {
     var vect = loadKmlText(text, name);
+    layers.push({"id": id, "vector" : vect});
     myMap.addLayer(vect);
-    
-//    var formatter = new ol.format.KML();
-//    var kml_features = formatter.readFeatures(text, {
-//        dataProjection: 'EPSG:4326',
-//        featureProjection: 'EPSG:3857'
-//    });
-//    vectorKMZ.getSource().addFeatures(kml_features);
-    console.log("addFeatures: " + name + " DONE");
+
+    console.log("addFeatures: " + id + " in file " + name + " DONE");
 }
-
-// Declare layer
-//var vectorKMZ = new ol.layer.Vector({
-//    source: new ol.source.Vector({
-//        format: new ol.format.KML({
-//            extractStyles: true
-//        })
-//    })
-//});
-
-
-//var vect =  loadKml(path);
-
-//function addImage(text, name) {
-//    myMap.removeLayer(imageLayer);
-//
-//    imageLayer = new ol.ImageLayer({
-//            source: new ol.Static({
-//              attributions: '© <a href=' + name + '>xkcd</a>',
-//              url: name,
-//              projection: projection,
-//              imageExtent: extent
-//            })
-//          });
-//    
-//    myMap.addLayer(imageLayer);
-//          
-//    console.log("addImage: " + name + " DONE");
-//}
 
 // Function to parse KML text to get link reference to list any other 
 // nested files (kmz or kml)
@@ -853,7 +803,7 @@ function parseKmlText(text) {
 
 // Function to unzip content from blob and execute callback on
 // first entry (not generic but assumed for the demo)
-function unzipFromBlob(callback) {
+function unzipFromBlob(callback, id) {
     return function unzip(blob) {
         // use a BlobReader to read the zip from a Blob object
         zip.createReader(new zip.BlobReader(blob), 
@@ -872,8 +822,9 @@ function unzipFromBlob(callback) {
                             new zip.TextWriter(), 
                             function (text) {
                                 // text contains the entry data as a String
-                                console.log("About to call back " + str + ": " + text);
-                                callback(text, str);
+                                console.log("About to call back " + str);
+                                console.log(text);
+                                callback(text, str, id);
 
                                 // close the zip reader
                                 reader.close(function () {
@@ -899,7 +850,7 @@ function unzipFromBlob(callback) {
 }
 
 // Function to make ajax call and make a callback on success
-function ajaxKMZ(url, callback) {
+function ajaxKMZ(url, id, callback) {
     //$("#DebugWindow").append("ajaxKMZ: " + url + "<br/>");
     //console.log("ajaxKMZ: " + url);
 
@@ -917,7 +868,7 @@ function ajaxKMZ(url, callback) {
         // Run when the request is successful
         //$("#DebugWindow").append("ajaxKMZ Response: " + response + "<br/>");
         //console.log("ajaxKMZ OK: " + url);
-        callback(response, url);
+        callback(response, url, id);
     })
     .catch(function (e, url) {
         //$("#DebugWindow").append("ajaxKMZ Error: " + e + "<br/>" + url + "<br/>");
@@ -931,19 +882,19 @@ function ajaxKMZ(url, callback) {
 }
 
 // Read reference to other KMZ and add them to the vector layer
-var readAndAddFeatures = function (text, name) {
-    console.log("readAndAddFeatures >>>> " + name);
+var readAndAddFeatures = function (text, name, id) {
+    console.log("readAndAddFeatures >>>> " + id + " from file " + name);
     var listFilesNested = parseKmlText(text);
     
     let str = name.toLowerCase();
     if (listFilesNested.length === 0) {
         //console.log("No nested files");
         if (str.endsWith("kml")) {
-            addFeatures(text, name);
+            addFeatures(text, name, id);
             return;
         }
         else {
-            addFeatures(text, name);
+            addFeatures(text, name, id);
         }
     };
     
@@ -955,17 +906,17 @@ var readAndAddFeatures = function (text, name) {
         str = el.toLowerCase();
         if (str.endsWith("kmz")) {
             console.log("readAndAddFeatures kmz element: " + el);
-            ajaxKMZ(el, unzipFromBlob(readAndAddFeatures));
+            ajaxKMZ(el, id, unzipFromBlob(readAndAddFeatures, id));
         }
         else {
             console.log("readAndAddFeatures kml element: " + el);
-            ajaxKMZ(el, readAndAddFeatures);//kml
+            ajaxKMZ(el, id, readAndAddFeatures);//kml
         }
     });
     console.log("readAndAddFeatures <<<<");
 };
 
-function repeat_kmz_calls(url) {
+function repeat_kmz_calls(url, id) {
     //$("#DebugWindow").append("repeat_kmz_calls: " + url + "<br/>");
     //console.log("repeat_kmz_calls: " + url);
     
@@ -974,7 +925,7 @@ function repeat_kmz_calls(url) {
     // this file reference other KMZ so we call each of them
     // and add their content
     //ajaxKMZ(url, combinedCallback);
-    ajaxKMZ(url, unzipFromBlob(readAndAddFeatures));
+    ajaxKMZ(url, id, unzipFromBlob(readAndAddFeatures, id));
     //setTimeout(repeat_kmz_calls, 60000);
 }
 

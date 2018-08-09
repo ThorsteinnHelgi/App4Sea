@@ -31,6 +31,7 @@
 
         <script type="text/javascript">
             "use strict";
+
             $(document).ready(function () {
 
                 $(".MenuItem").click(function () {
@@ -40,6 +41,28 @@
                 });
             });
 
+            // https://hibbard.eu/display-ui-blocking-overlay-on-page-load/
+            $(window).on('load', function() {
+                $.fn.center = function () {
+                  this.css("position", "absolute");
+                  this.css("top", Math.max(0, (
+                    ($(window).height() - $(this).outerHeight()) / 2) + 
+                     $(window).scrollTop()) + "px"
+                  );
+                  this.css("left", Math.max(0, (
+                    ($(window).width() - $(this).outerWidth()) / 2) + 
+                     $(window).scrollLeft()) + "px"
+                  );
+                  return this;
+                }
+
+                $("#overlay").show();
+                $("#overlay-content").show().center();
+
+                setTimeout(function(){    
+                  $("#overlay").fadeOut();
+                }, 100);
+            });
         </script>
         <!--style>
             .leaflet-interactive{
@@ -79,6 +102,29 @@
         <link rel="stylesheet" href="static/js/dist/themes/default/style.min.css" />
         <script src="static/js/dist/jstree.min.js"></script>
     <style>
+        #overlay{
+            display: none;
+            position: fixed;
+            top: 0%;
+            left: 0%;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 0.8;
+            z-index:10001;
+        }
+
+        #overlay-content{ 
+            position: absolute;
+            display: none;
+            width: 80%;
+            padding: 0px;
+            border: 0px white;
+            background-color: white;
+            opacity: 1.0;
+            z-index:10002;
+        }        
+        
       .ol-popup {
         position: absolute;
         background-color: white;
@@ -133,15 +179,27 @@
     </head>
     
     <body>
+        <!-- Splash overlay -->
+        <div id="overlay">
+            <div id="overlay-content">
+                <image src="data/PosterHor.jpg" alt="App4Sea is an NPA-project" style="width:100%;" >
+            </div>
+        </div>
+        
         <!-- This is the left side menu container -->
         <div id="MenuContainer"> 
+            <div>
+                <a href="http://app4sea.interreg-npa.eu"><image src="data/App4SeaWhite.jpg" alt="App4Sea is an NPA-project" style="width:100%;" ></a>
+            </div>
             
             <h3>Animation (Under construction)</h3>
             <div class="MenuSection" style="background-color: grey">
                 <div>
                     <form>
+                      <label>progress</label>
+                      <input id="progress" type="range" min="0" max="99" step="1" value="0"/><br/>
                       <label>radius size</label>
-                      <input id="radius" type="range" min="1" max="50" step="1" value="5"/>
+                      <input id="radius" type="range" min="1" max="50" step="1" value="5"/><br/>
                       <label>blur size</label>
                       <input id="blur" type="range" min="1" max="50" step="1" value="15"/>
                     </form>
