@@ -97,6 +97,30 @@ var vectorKMZ = new ol.layer.Vector({
                     var template = $('#RescueSite').html();
                     Mustache.parse(template);
                     description = Mustache.to_html(template, beredskap);
+                }else if(features[0].get('Id')){  //drake passage example
+                    var shipinfo = {name: "", callsign: "", type: "", cargotype: "", flag: ""};
+                    /*
+                    <SimpleData name="Id">0</SimpleData>
+                    <SimpleData name="mmsi">215739000</SimpleData>
+                    <SimpleData name="IMO">9.43372e+06</SimpleData>
+                    <SimpleData name="Name">CASTILLO-SANTISTEBAN</SimpleData>
+                    <SimpleData name="Call_Sign">9HA2217</SimpleData>
+                    <SimpleData name="Type">Tanker</SimpleData>
+                    <SimpleData name="Cargo_Type">Carrying DG,HS or MP,IMO hazard or Pollutant Category X</SimpleData>
+                    <SimpleData name="Length">300</SimpleData>
+                    <SimpleData name="Width">46</SimpleData>
+                    <SimpleData name="Flag">Malta</SimpleData>
+                    <SimpleData name="Destinatio">KAWAGOE</SimpleData>
+                    <SimpleData name="Nav_Status">Under Way Using Engine</SimpleData>
+                    */
+                    shipinfo.name =  features[0].get('Name');
+                    shipinfo.callsign =  features[0].get('Call_Sign');
+                    shipinfo.type =  features[0].get('Type');
+                    shipinfo.cargotype =  features[0].get('Cargo_Type');
+                    shipinfo.flag =  features[0].get('Flag');
+                    var template = $('#ShipInfo').html();
+                    Mustache.parse(template);
+                    description = Mustache.to_html(template, shipinfo);
                 }
 //                else {
 //                    var template = $('#DefaultPop').html();
