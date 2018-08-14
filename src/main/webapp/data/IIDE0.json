@@ -15,6 +15,8 @@
     { "id" : "I4D", "parent" : "IIDE0", "text" : "NOAA", "children" : false, "a_attr" : { "path" : "https://response.restoration.noaa.gov/updated-environmental-sensitivity-index-maps-and-data-some-atlantic-states.html"} },
     { "id" : "I4E", "parent" : "IIDE0", "text" : "Electricity Map", "children" : false, "a_attr" : { "path" : "https://www.electricitymap.org/?page=country&solar=false&remote=true&wind=false&countryCode=CN"} },
     { "id" : "I4F", "parent" : "IIDE0", "text" : "Shipmap", "children" : false, "a_attr" : { "path" : "https://www.shipmap.org/"} },
+    { "id" : "I4F1", "parent" : "IIDE0", "text" : "National Ocean Service", "children" : false, "a_attr" : { "path" : "https://oceanservice.noaa.gov/facts/esimap.html"} },
+    { "id" : "I4F2", "parent" : "IIDE0", "text" : "NOAA Office of Response and Restoration", "children" : false, "a_attr" : { "path" : "https://response.restoration.noaa.gov/esi_downloading"} },
     { "id" : "I4G", "parent" : "IIDE0", "text" : "ITOPF for Kids", "children" : false, "a_attr" : { "path" : "https://kids.itopf.com/"} },
     { "id" : "I4H", "parent" : "IIDE0", "text" : "The puffin", "children" : false, "a_attr" : { "path" : "https://www1.nams.is/fuglar/birdinfo.php?val=1&id=46"} },
     { "id" : "I4I", "parent" : "IIDE0", "text" : "In flight", "children" : false, "a_attr" : { "path" : "https://www.theguardian.com/world/ng-interactive/2014/aviation-100-years"} }

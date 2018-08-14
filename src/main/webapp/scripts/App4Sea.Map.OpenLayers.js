@@ -2,19 +2,21 @@
  * (c) 2018 Arni Geir Sigurðsson            arni.geir.sigurdsson(at)gmail.com
  *          Þorsteinn Helgi Steinarsson     thorsteinn(at)asverk.is
  *              Added treeview in menu (reading json over ajax) and kmz support
+ *              Added tooltip, all data reading is recursive, animation stylished
  */
-/* global ol, Mustache */
+/* global ol, Mustache, zip, qwest */
 
 //import ImageLayer from 'ol/layer/Image.js';
 //import Projection from 'ol/proj/Projection.js';
 //import Static from 'ol/source/ImageStatic.js';
 
 var App4Sea = App4Sea || {};
-App4Sea.Map = (App4Sea.Map)? App4Sea.Map : {};
-App4Sea.Map.OpenLayers = (function(){
-    "use strict";      
+App4Sea.Map = (App4Sea.Map) ? App4Sea.Map : {};
+App4Sea.Map.OpenLayers = (function () {
+    "use strict";
     var myMap;
     //var imageLayer;
+
     var currentLayer;
     var osmTileLayer;
     var esriWSPTileLayer;
@@ -22,8 +24,8 @@ App4Sea.Map.OpenLayers = (function(){
     var cloudNow;
     var that = {};
     var zoom = 4;
-    let prefProj = 'EPSG:4326';
-    let prefViewProj = 'EPSG:3857'; //Default is EPSG:3857 (Spherical Mercator).
+    var prefProj = 'EPSG:4326';
+    var prefViewProj = 'EPSG:3857'; //Default is EPSG:3857 (Spherical Mercator).
     var center = ol.proj.transform([-3, 65], prefProj, prefViewProj);//'EPSG:3857'); 
     var interaction = new ol.interaction.DragRotateAndZoom(); // create an interaction to add to the map that isn't there by default
     var timespan = {begin: "", end: ""};
@@ -35,8 +37,8 @@ App4Sea.Map.OpenLayers = (function(){
 
     ////////////////////////////////////////////////////////////////////////////
     //initialize maps and models when page DOM is ready..
-    function init(){
-        
+    function init() {
+
         var container = document.getElementById('popup');
         var content = document.getElementById('popup-content');
         var closer = document.getElementById('popup-closer');
@@ -46,7 +48,7 @@ App4Sea.Map.OpenLayers = (function(){
             element: container,
             autoPan: true,
             autoPanAnimation: {
-                duration: 250
+                duration: 1000
             }
         });
 
@@ -58,10 +60,10 @@ App4Sea.Map.OpenLayers = (function(){
 //                imageExtent: extent
 //            })
 //        });
-          
-       // Add a click handler to hide the popup.
-       // @return {boolean} Don't follow the href.
-        closer.onclick = function() {
+
+        // Add a click handler to hide the popup.
+        // @return {boolean} Don't follow the href.
+        closer.onclick = function () {
             overlay.setPosition(undefined);
             closer.blur();
             return false;
@@ -75,15 +77,53 @@ App4Sea.Map.OpenLayers = (function(){
             view: new ol.View({
                 center: center,
                 zoom: zoom,
-                minZoom: 3,
+                minZoom: 2,
                 maxZoom: 18
             })
         });
-      
-//        myMap.addLayer(imageLayer);
-      
+
+        myMap.on('pointermove', function(evt) {
+            if (evt.dragging) {
+                info.tooltip('hide');
+                return;
+            }
+            displayFeatureInfo(myMap.getEventPixel(evt.originalEvent));
+        });
+
+        $(myMap.getViewport()).on('mousemove', function (evt) {
+            displayFeatureInfo(myMap.getEventPixel(evt.originalEvent));
+        });
+
+        var displayFeatureInfo = function (pixel) {
+            info.css({
+                left: pixel[0] + 'px',
+                top: (pixel[1] - 15) + 'px'
+            });
+            var feature = myMap.forEachFeatureAtPixel(pixel, function (feature, layer) {
+                return feature;
+            });
+            if (feature) {
+                var name = feature.get('name');
+                if (!name) {// for vaare norske venner
+                    name = feature.get('navn');
+                }
+                if (name) {
+                    info.tooltip('hide')
+                            .attr('data-original-title', name)
+                            .tooltip('fixTitle')
+                            .tooltip('show');
+                }
+                else {
+                    info.tooltip('hide');
+                }
+            } 
+            else {
+                info.tooltip('hide');
+            }
+        };        //        myMap.addLayer(imageLayer);
+ 
         // Add a click handler to the map to render the popup.
-        myMap.on('singleclick', function(evt) {
+        myMap.on('singleclick', function (evt) {
             var coordinate = evt.coordinate;
             //var hdms = ol.coordinate.toStringHDMS(ol.proj.transform(coordinate, 'EPSG:3857', 'EPSG:4326'));
             //content.innerHTML = '<p>You clicked here:</p><code>' + hdms + '</code>';
@@ -95,7 +135,7 @@ App4Sea.Map.OpenLayers = (function(){
                 var description = features[0].get('description');
                 var template;
 
-                if(features[0].get('navn')){
+                if (features[0].get('navn')) {
                     var beredskap = {name: "", region: "", region2: "", region3: "", region4: "", address: "", link: ""};
                     beredskap.name = features[0].get('navn');
                     beredskap.address = features[0].get('gateadresse');
@@ -120,15 +160,14 @@ App4Sea.Map.OpenLayers = (function(){
                 content.innerHTML = description;
 
                 overlay.setPosition(coordinate);
-            }            
-            else {
+            } else {
                 overlay.setPosition(undefined);
                 closer.blur();
             }
         });
 
         // Init osmTileLayer base map
-        osmTileLayer =   new ol.layer.Tile({
+        osmTileLayer = new ol.layer.Tile({
             source: new ol.source.OSM()
         });
         osmTileLayer.name = "osmTileLayer";
@@ -137,16 +176,16 @@ App4Sea.Map.OpenLayers = (function(){
         var attributionESRIWSM = new ol.Attribution({
             html: 'Tiles &copy; <a href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/0">ArcGIS</a>'
         });
-                        
+
         esriWSPTileLayer = new ol.layer.Tile({
             source: new ol.source.XYZ({
                 attributions: [attributionESRIWSM],
                 rendermode: 'image',
                 url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}'
             })
-        });  
+        });
         esriWSPTileLayer.name = "esriWSPTileLayer";
-        
+
         // Init esriWITileLayer base map
         var attributionWIM = new ol.Attribution({
             html: 'Tiles &copy; <a href="https://http://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/0">ArcGIS</a>'
@@ -157,9 +196,9 @@ App4Sea.Map.OpenLayers = (function(){
                 rendermode: 'image',
                 url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
             })
-        });  
+        });
         esriWITileLayer.name = "esriWITileLayer";
-       
+
         // Set current base map layer
         currentLayer = esriWSPTileLayer;
         myMap.addLayer(currentLayer);
@@ -171,50 +210,52 @@ App4Sea.Map.OpenLayers = (function(){
         setUpInfoTree();
 
         // Prepare animation
-        //animationMap();
+        //animationMapOld();
 
         // Test heatMap
         heatMap();
-        
+
         // Add standard map controls
-        myMap.addControl(new ol.control.ZoomSlider());        
-        myMap.addControl(new ol.control.Zoom());        
-        myMap.addControl(new ol.control.FullScreen());        
-        myMap.addControl(new ol.control.Rotate({autoHide: true}));  
-        let ctrl = new ol.control.MousePosition({
+        myMap.addControl(new ol.control.ZoomSlider());
+        myMap.addControl(new ol.control.Zoom());
+        //myMap.addControl(new ol.control.FullScreen());
+        myMap.addControl(new ol.control.Rotate({autoHide: true}));
+        var ctrl = new ol.control.MousePosition({
             projection: prefProj,
-            coordinateFormat: function(coordinate) {
+            coordinateFormat: function (coordinate) {
                 return ol.coordinate.format(coordinate, '{x}, {y}', 4);
             }
         });
-        myMap.addControl(ctrl);        
+        myMap.addControl(ctrl);
         myMap.addControl(new ol.control.OverviewMap({
             layers: [currentLayer],
             collapsed: false
-        }));        
+        }));
         //myMap.addControl(new ol.control.ScaleLine());        Not correct scale
-                
+
         // Hook events to menu
-        $(".MenuSection input[type='checkbox']").click(function(){
+        $(".MenuSection input[type='checkbox']").click(function () {
             update();
         });
-        $(".MenuSection select").change(function(){
+        $(".MenuSection select").change(function () {
             update();
         });
-        
+
         // Update the page
         update();
     }
+    
 
+            
     ////////////////////////////////////////////////////////////////////////////
     //load kml and return as Vector
     // See https://developers.google.com/kml/documentation/kmlreference
-    function loadKml(url){
+    function loadKml(url) {
         //$("#DebugWindow").append("loadKml: " + url + "<br/>");
         console.log("loadKml: " + url);
         var vector = new ol.layer.Vector({
             source: new ol.source.Vector({
-                url: url, 
+                url: url,
                 rendermode: 'image',
                 format: new ol.format.KML({
                     extractStyles: true,
@@ -223,16 +264,16 @@ App4Sea.Map.OpenLayers = (function(){
                 })
             })
         });
-        
+
         // TBD also retuen an array of external kml or kmz files together with timestamps if applicable
-        
+
         return vector;
     }
-    
+
     ////////////////////////////////////////////////////////////////////////////
     //load kmz and return as Vector
     // See https://developers.google.com/kml/documentation/kmzarchives
-    function loadKmz(url, id){
+    function loadKmz(url, id) {
         //$("#DebugWindow").append("loadKmz: " + url + "<br/>");
         console.log("loadKmz: " + id + " from " + url);
         repeat_kmz_calls(url, id);
@@ -246,14 +287,14 @@ App4Sea.Map.OpenLayers = (function(){
         xhttp.send();
         return loadResonse(xhttp);
     }
-    
+
     ////////////////////////////////////////////////////////////////////////////
     //load xml file and return as Vector
     function loadResonse(xml) {
         var theXmlDoc = xml.responseXML;
         return theXmlDoc;
-    }    
-    
+    }
+
     ////////////////////////////////////////////////////////////////////////////
     // Set up MenuTree
     // https://www.jstree.com
@@ -263,39 +304,40 @@ App4Sea.Map.OpenLayers = (function(){
 
         // First we load the tree based on a json file that we fetch using ajax (core)
         $('#MenuTree').jstree({
-            'checkbox' : { 'keep_selected_style' : false, 'real_checkboxes': true },
-            'core' : {
-                'check_callback' : false,
-                'themes' : { 
+            'checkbox': {'keep_selected_style': false, 'real_checkboxes': true},
+            'core': {
+                'check_callback': false,
+                'themes': {
                     'dots': false,
-                    'icons': false 
+                    'icons': false
                 },
-                'error' : function (e) {
+                'error': function (e) {
                     console.log('Error: ' + e.error);
                     console.log('Id: ' + e.id);
                     console.log('Plugin: ' + e.plugin);
                     console.log('Reason: ' + e.reason);
                     console.log('Data: ' + e.data);
                 },
-                'data' : {
+                'data': {
                     'dataType': 'json',
-                    'contentType':'application/json; charset=utf-8',
-                    url : function (node) { 
+                    'contentType': 'application/json; charset=utf-8',
+                    'cache':false,
+                    url: function (node) {
                         var theUrl = node.id === '#' ?
-                            'data/a4s.json' : 
-                            'data/'+node.id+'.json';                        
+                                'data/a4s.json' :
+                                'data/' + node.id + '.json';
                         //console.log("theUrl: " + theUrl);
                         return theUrl;
                     },
-                    data : function (node) { 
-                        let nodeObj = {"id":node.id, "text":"", "path":""};
-                        if (node.id !== '#') 
+                    data: function (node) {
+                        var nodeObj = {"id": node.id, "text": "", "path": ""};
+                        if (node.id !== '#')
                         {
                             nodeObj.text = node.text;
                             nodeObj.path = node.a_attr.path;
                         }
                         console.log("Node.id: " + node.id + ", text: " + nodeObj.text + ", path: " + nodeObj.path);
-                        return nodeObj; 
+                        return nodeObj;
                     }
                 }
             },
@@ -317,20 +359,20 @@ App4Sea.Map.OpenLayers = (function(){
 //                    "valid_children" : []
 //                }
 //            },
-            'plugins' : [ "checkbox" ]
+            'plugins': ["checkbox"]
         });
 
         // 
         $('#MenuTree').on("changed.jstree", function (e, data) {
             console.log("On Action: " + data.action);
-     
-           if (typeof data.node === 'undefined')
+
+            if (typeof data.node === 'undefined')
                 return;
-            
-            for (let lind=0; lind<layers.length; lind++)
+
+            for (var lind = 0; lind < layers.length; lind++)
             {
-                let isSel = false;
-                for (let sind=0; sind<data.selected.length; sind++) {
+                var isSel = false;
+                for (var sind = 0; sind < data.selected.length; sind++) {
                     if (data.selected[sind].id === layers[lind].id) {
                         isSel = true;
                     }
@@ -342,39 +384,38 @@ App4Sea.Map.OpenLayers = (function(){
             }
 
             // Add layer
-            for (let ind=0; ind<data.selected.length; ind++){
-                let nod = $(this).jstree('get_node', data.selected[ind]);
-                let path = nod.a_attr.path;
-                
+            for (var ind = 0; ind < data.selected.length; ind++) {
+                var nod = $(this).jstree('get_node', data.selected[ind]);
+                var path = nod.a_attr.path;
+
                 if (path === "" || nod.children.length > 0) {//This is a folder/parent node
                     continue;
                 }
-                
+
                 console.log("Layer being added: " + nod.text);
 
                 var index = alreadyLayer(nod.id, layers);
 
-                if (path.length > 3){
-                    var ext = path.substr(path.length-3, 3);
-                    if (ext === "kmz") {
-                        if (index === -1){
-                            var vect =  loadKmz(path, nod.id);
-                        }
-                        else{
-                            myMap.addLayer(layers[index].vector);
-                        }
+                if (path.length > 3) {
+                    var ext = path.substr(path.length - 3, 3);
+                    //if (ext === "kmz") {
+                    if (index === -1) {
+                        var vect = loadKmz(path, nod.id);
+                    } else {
+                        myMap.addLayer(layers[index].vector);
                     }
-                    else {
-                        if (index === -1){
-                            var vect =  loadKml(path);
-                            layers.push({"id": nod.id, "vector" : vect});
-
-                            myMap.addLayer(vect);
-                        }
-                        else{
-                            myMap.addLayer(layers[index].vector);
-                        }
-                    }
+//                    }
+//                    else {
+//                        if (index === -1){
+//                            var vect =  loadKml(path);
+//                            layers.push({"id": nod.id, "vector" : vect});
+//
+//                            myMap.addLayer(vect);
+//                        }
+//                        else{
+//                            myMap.addLayer(layers[index].vector);
+//                        }
+//                    }
                 }
             }
         });
@@ -385,8 +426,9 @@ App4Sea.Map.OpenLayers = (function(){
 //            $('#jstree').jstree('select_node', 'child_node_1');
 //            $.jstree.reference('#jstree').select_node('child_node_1');
 //        });
-    };
-    
+    }
+    ;
+
     ////////////////////////////////////////////////////////////////////////////
     // Set up setUpInfoTree
     // https://www.jstree.com
@@ -396,34 +438,35 @@ App4Sea.Map.OpenLayers = (function(){
 
         // First we load the tree based on a json file that we fetch using ajax (core)
         $('#InfoTree').jstree({
-            'core' : {
-                'check_callback' : false,
+            'core': {
+                'check_callback': false,
                 //'themes' : { 'stripes' : false },
-                'themes' : { 
+                'themes': {
                     'dots': false,
-                    'icons': false 
+                    'icons': false
                 },
-                'error' : function (e) {
+                'error': function (e) {
                     console.log('Error: ' + e.error);
                     console.log('Id: ' + e.id);
                     console.log('Plugin: ' + e.plugin);
                     console.log('Reason: ' + e.reason);
                     console.log('Data: ' + e.data);
                 },
-                'data' : {
-                    url : function (node) { 
+                'data': {
+                    url: function (node) {
                         var theUrl = node.id === '#' ?
-                            'data/info.json' : 
-                            'data/' + node.id + '.json';                        
+                                'data/info.json' :
+                                'data/' + node.id + '.json';
                         console.log("theUrl: " + theUrl);
                         return theUrl;
                     },
                     //'type': 'GET',
                     'dataType': 'json',
-                    'contentType':'application/json; charset=utf-8',
-                    data : function (node) { 
+                    'contentType': 'application/json; charset=utf-8',
+                    'cache':false,
+                    data: function (node) {
                         //console.log("Node.id: " + node.id);
-                        return { 'id' : node.id }; //, 'parent' : node.parent };//, 'text' : node.text, 'a_attr.path' : node.a_attr.path }; 
+                        return {'id': node.id}; //, 'parent' : node.parent };//, 'text' : node.text, 'a_attr.path' : node.a_attr.path }; 
                     }
                 }
             },
@@ -445,37 +488,40 @@ App4Sea.Map.OpenLayers = (function(){
 //                    "valid_children" : []
 //                }
 //            },
-            'plugins' : [  ]
-            }
+            'plugins': []
+        }
         );
 
         // 
         $('#InfoTree').on("changed.jstree", function (e, data) {
             console.log("On: " + data.selected);
-            
+
             if (typeof data.node !== 'undefined')
                 if (data.node.a_attr.path !== '')
                     window.open(data.node.a_attr.path);
         });
 
-    };
-    
+    }
+    ;
+
     ////////////////////////////////////////////////////////////////////////////
     // alreadyLayer checks if a node is alreay in the layer array and returns
     // the index if so. Else it returns -1
     function alreadyLayer(id, arr)
     {
-        var count=arr.length;
-        for(var i=0;i<count;i++)
+        var count = arr.length;
+        for (var i = 0; i < count; i++)
         {
-            if(arr[i].id === id){return i;}
+            if (arr[i].id === id) {
+                return i;
+            }
         }
         return -1;
     }
-    
+
     ////////////////////////////////////////////////////////////////////////////
     // heatMap
-    function heatMap () {
+    function heatMap() {
         var blur = document.getElementById('blur');
         var radius = document.getElementById('radius');
 
@@ -491,7 +537,7 @@ App4Sea.Map.OpenLayers = (function(){
             radius: parseInt(radius.value, 10)
         });
 
-        vector.getSource().on('addfeature', function(event) {
+        vector.getSource().on('addfeature', function (event) {
             // 2012_Earthquakes_Mag5.kml stores the magnitude of each earthquake in a
             // standards-violating <magnitude> tag in each Placemark.  We extract it from
             // the Placemark's name instead.
@@ -502,22 +548,22 @@ App4Sea.Map.OpenLayers = (function(){
 
         myMap.addLayer(vector);
 
-        blur.addEventListener('input', function() {
+        blur.addEventListener('input', function () {
             vector.setBlur(parseInt(blur.value, 10));
         });
 
-        radius.addEventListener('input', function() {
+        radius.addEventListener('input', function () {
             vector.setRadius(parseInt(radius.value, 10));
         });
     }
-    
+
     ////////////////////////////////////////////////////////////////////////////
     // animationMap 
-    function animationMap(){
-        
+    function animationMap() {
+
         function toArray(list) {
             var i, array = [];
-            for  (i=0; i<list.length;i++) {
+            for (i = 0; i < list.length; i++) {
                 array[i] = list[i];
             }
             return array;
@@ -526,16 +572,16 @@ App4Sea.Map.OpenLayers = (function(){
             var val = tag.textContent;
             return val;
         }
-        function getNetWorkLink (element) {
+        function getNetWorkLink(element) {
             var nodeTimeSpan = element.children[0];
             var nodeLink = element.children[1];
 
             var ts = {begin: "", end: ""};
-            var nwl = {timespan, link: ""};
-            
+            var nwl = {timespan: "", link: ""};
+
             ts.begin = getXmlValue(nodeTimeSpan.children[0]);
             ts.end = getXmlValue(nodeTimeSpan.children[1]);
-            
+
             nwl.timespan = ts;
             nwl.link = getXmlValue(nodeLink.children[0]);
             if (networklinkarray.length % 2 === 1)
@@ -543,7 +589,7 @@ App4Sea.Map.OpenLayers = (function(){
 
             return nwl;
         }
-        
+
         var xmlDoc = loadXMLDoc('data/animation.kml');
 
         // The the url for next kmz
@@ -563,47 +609,47 @@ App4Sea.Map.OpenLayers = (function(){
         var docSection = xmlDoc.getElementsByTagName("Document")[0];
         var networkLinks = toArray(docSection.childNodes);
 
-        var length = networkLinks.length-1;
-        for (var ind = 0; ind < length; ind += 2) { 
-            networklinkarray[ind/2] = getNetWorkLink(networkLinks[ind+1]);
+        var length = networkLinks.length - 1;
+        for (var ind = 0; ind < length; ind += 2) {
+            networklinkarray[ind / 2] = getNetWorkLink(networkLinks[ind + 1]);
         }
     }
 
     ////////////////////////////////////////////////////////////////////////////
     // animationGo starts the animation
-    function animationGo (){
+    function animationGo() {
         var frameRate = 0.5; // frames per second
         var animationId = null;
-        
+
         ///function someHoursAgo(hours) {
-           // return new Date(Math.round(Date.now() / 3600000) * 3600000 - 3600000 * hours);
+        // return new Date(Math.round(Date.now() / 3600000) * 3600000 - 3600000 * hours);
         //}
-        
+
         var extent = ol.proj.transformExtent([-126, 24, -66, 50], prefProj, prefViewProj);//'EPSG:3857');
         //var startDate = someHoursAgo(3);
 
         //var cloudTileLayer = new ol.layer.Tile({
-          //  extent: extent,
-            //source: new ol.source.TileWMS({
-              //  attributions: ['Animated Google Cloude Maps'],
-                //url: networklinkarray[indNow].link
+        //  extent: extent,
+        //source: new ol.source.TileWMS({
+        //  attributions: ['Animated Google Cloude Maps'],
+        //url: networklinkarray[indNow].link
 //            })
-  //      });
+        //      });
 
         function setTime() {
             function updateInfo() {
                 var el = document.getElementById('info');
-                el.innerHTML = indNow.toString() + '<br>' + 
-                        networklinkarray[indNow].timespan.begin + '<br>' + 
-                        networklinkarray[indNow].timespan.end + '<br>' + 
+                el.innerHTML = indNow.toString() + '<br>' +
+                        networklinkarray[indNow].timespan.begin + '<br>' +
+                        networklinkarray[indNow].timespan.end + '<br>' +
                         networklinkarray[indNow].link;
             }
-            
+
             var cloudVector;
             var link = networklinkarray[indNow].link;
-            
-            if (link.length > 3){
-                var ext = link.substr(link.length-3, 3);
+
+            if (link.length > 3) {
+                var ext = link.substr(link.length - 3, 3);
                 if (ext === "kmz")
                     cloudVector = loadKmz(networklinkarray[indNow].link);
                 else
@@ -612,24 +658,24 @@ App4Sea.Map.OpenLayers = (function(){
             myMap.removeLayer(cloudNow);
             myMap.addLayer(cloudVector);
             cloudNow = cloudVector;
-            
+
             updateInfo();
-            
+
             indNow++;
-            if (indNow > networklinkarray.length-1)
+            if (indNow > networklinkarray.length - 1)
                 indNow = 0;
         }
 
         setTime();
 
-        var stop = function() {
+        var stop = function () {
             if (animationId !== null) {
                 window.clearInterval(animationId);
                 animationId = null;
             }
         };
 
-        var play = function() {
+        var play = function () {
             stop();
             animationId = window.setInterval(setTime, 1000 / frameRate);
         };
@@ -638,95 +684,125 @@ App4Sea.Map.OpenLayers = (function(){
         startButton.addEventListener('click', play, false);
 
         var stopButton = document.getElementById('pause');
-        stopButton.addEventListener('click', stop, false);        
+        stopButton.addEventListener('click', stop, false);
     }
-    
+
     ////////////////////////////////////////////////////////////////////////////
     // animationMapOld 
-    function animationMapOld(){
-        
-      function someHoursAgo(hours) {
-        return new Date(Math.round(Date.now() / 3600000) * 3600000 - 3600000 * hours);
-      }
+    function animationMapOld() {
 
-      var extent = ol.proj.transformExtent([-126, 24, -66, 50], prefProj, prefViewProj);//'EPSG:3857');
-      var startDate = someHoursAgo(3);
-      var frameRate = 0.5; // frames per second
-      var animationId = null;
+        function someHoursAgo(hours) {
+            return new Date(Math.round(Date.now() / 3600000) * 3600000 - 3600000 * hours);
+        }
+
+        function initInfo() {
+            var el = document.getElementById('start');
+            el.innerHTML = startDate.toLocaleTimeString('de-DE');
+            el = document.getElementById('current');
+            el.innerHTML = currentDate.toLocaleTimeString('de-DE');
+            el = document.getElementById('end');
+            el.innerHTML = endDate.toLocaleTimeString('de-DE');
+
+            el = document.getElementById('startDate');
+            el.innerHTML = startDate.toLocaleDateString('en-US', dateOpt);
+            el = document.getElementById('currentDate');
+            el.innerHTML = currentDate.toLocaleDateString('en-US', dateOpt);
+            el = document.getElementById('endDate');
+            el.innerHTML = endDate.toLocaleDateString('en-US', dateOpt);
+        }
+
+        function updateInfo() {
+            var el = document.getElementById('current');
+            el.innerHTML = currentDate.toLocaleTimeString('de-DE');
+
+            el = document.getElementById('currentDate');
+            el.innerHTML = currentDate.toLocaleDateString('en-US', dateOpt);
+
+            var progress = document.getElementById('progress');
+            progress.value = parseInt(progress.value, 10) + 1;
+            console.log("Progress " + progress.value);
+        }
+
+        function setTime() {
+            currentDate.setMinutes(currentDate.getMinutes() + 15);
+            if (currentDate > Date.now()) {
+                currentDate = someHoursAgo(3);
+            }
+            cloudTileLayer.getSource().updateParams({'TIME': currentDate.toISOString()});
+            updateInfo();
+        }
+
+        var playStop = function () {
+            stop();
+
+            var btn = document.getElementById('playStop');
+            if (btn.innerText === "Play") { // Playing
+                btn.innerText = "Stop";
+                animationId = window.setInterval(setTime, 1000 / frameRate);
+            } else { // Stopping
+                btn.innerText = "Play";
+
+                if (animationId !== null) {
+                    window.clearInterval(animationId);
+                    animationId = null;
+                }
+            }
+        };
+
+        var button = document.getElementById('playStop');
+        button.addEventListener('click', playStop, false);
+
+        var dateOpt = {weekday: 'short', year: 'numeric', month: 'short', day: 'numeric'};
+        var extent = ol.proj.transformExtent([-126, 24, -66, 50], prefProj, prefViewProj);
+        var endDate = someHoursAgo(0);
+        var startDate = someHoursAgo(3);
+        var currentDate = startDate;
+        var frameRate = 0.2; // frames per second
+        var animationId = null;
+
+        document.getElementById('title').innerText = "Animated Google Cloude Maps";
 
         var cloudTileLayer = new ol.layer.Tile({
-          extent: extent,
-          source: new ol.source.TileWMS({
-            attributions: ['Animated Google Cloude Maps'],
-            //url: 'data/animation.kml',
-            url: 'https://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r-t.cgi',
-            params: {'LAYERS': 'nexrad-n0r-wmst'}
-          })
+            extent: extent,
+            source: new ol.source.TileWMS({
+                attributions: ['Animated Google Cloude Maps'],
+                //url: 'data/animation.kml',
+                url: 'https://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r-t.cgi',
+                params: {'LAYERS': 'nexrad-n0r-wmst'}
+            })
         });
 
         myMap.addLayer(cloudTileLayer);
+        initInfo();
 
-      function updateInfo() {
-        var el = document.getElementById('info');
-        el.innerHTML = startDate.toISOString();
-      }
-
-      function setTime() {
-        startDate.setMinutes(startDate.getMinutes() + 15);
-        if (startDate > Date.now()) {
-          startDate = someHoursAgo(3);
-        }
-        cloudTileLayer.getSource().updateParams({'TIME': startDate.toISOString()});
-        updateInfo();
-      }
-      setTime();
-
-      var stop = function() {
-        if (animationId !== null) {
-          window.clearInterval(animationId);
-          animationId = null;
-        }
-      };
-
-      var play = function() {
-        stop();
-        animationId = window.setInterval(setTime, 1000 / frameRate);
-      };
-
-      var startButton = document.getElementById('play');
-      startButton.addEventListener('click', play, false);
-
-      var stopButton = document.getElementById('pause');
-      stopButton.addEventListener('click', stop, false);
-
-      updateInfo();
+        setTime();
     }
-    
+
     ////////////////////////////////////////////////////////////////////////////
     // Update layers
-    function update(){
+    function update() {
         // Set base map
         var selectedMapLayer = $("#MenuLayer_Select").val();
-        if(selectedMapLayer !== currentLayer.name){
+        if (selectedMapLayer !== currentLayer.name) {
             myMap.removeLayer(currentLayer);
-            if(selectedMapLayer === 'osmTileLayer'){
+            if (selectedMapLayer === 'osmTileLayer') {
                 currentLayer = osmTileLayer;
-            }else if (selectedMapLayer === 'esriWSPTileLayer'){
-                currentLayer = esriWSPTileLayer; 
-            }else if (selectedMapLayer === 'esriWITileLayer'){
-                currentLayer = esriWITileLayer; 
+            } else if (selectedMapLayer === 'esriWSPTileLayer') {
+                currentLayer = esriWSPTileLayer;
+            } else if (selectedMapLayer === 'esriWITileLayer') {
+                currentLayer = esriWITileLayer;
             }
             myMap.addLayer(currentLayer);
         }
-        
+
         //animationGo();
     }
-    
+
     ////////////////////////////////////////////////////////////////////////////
     // Put a text on the window with location info for where you clicked
     function onMapClick(e) {
-       $("#DebugWindow").append("["+e.latlng.lat+","+e.latlng.lng+"],<br/>");
-    } 
+        $("#DebugWindow").append("[" + e.latlng.lat + "," + e.latlng.lng + "],<br/>");
+    }
 
     ////////////////////////////////////////////////////////////////////////////
     /// KMZ start
@@ -734,44 +810,55 @@ App4Sea.Map.OpenLayers = (function(){
     // 
     // 
     ////////////////////////////////////////////////////////////////////////////
-    
+
 
     // Declare worker scripts path for zip manipulation
-zip.workerScriptsPath = 'static/js/';
+    zip.workerScriptsPath = 'static/js/';
 
     ////////////////////////////////////////////////////////////////////////////
     //load kml and return as Vector
     // See https://developers.google.com/kml/documentation/kmlreference
-    function loadKmlText(text, name){
+    function loadKmlText(text, name) {
         console.log("loadKmlText: " + name);
-        
+
         var formatter = new ol.format.KML({
             extractStyles: true,
             extractAttributes: true,
             showPointNames: false
         });
-        
+
         var proj = formatter.readProjection(text);
         if (proj !== null)
             console.log("Projection: " + proj.wb);
-        
+
         var kml_features = formatter.readFeatures(text, {
             //dataProjection: proj.wb,//'EPSG:4326'//, //Projection of the data we are reading.
             //featureProjection: proj.wb//'EPSG:3857' // Projection of the feature geometries created by the format reader.
             dataProjection: prefProj, //Projection of the data we are reading.
             featureProjection: prefViewProj//'EPSG:3857' // Projection of the feature geometries created by the format reader.
         });
-        
+
         console.log("kml_features are: " + kml_features.length);
+        
+        if (kml_features.length > 0) {
+            var description = kml_features[0].get('description');
+            
+            if (description) {
+                document.getElementById("DebugWindow").innerHTML=description;
+
+                //$("#DebugWindow").val(description);
+            }
+        }
 
         // http://geoadmin.github.io/ol3/apidoc/ol.layer.Vector.html
         var vector = new ol.layer.Vector({
             source: new ol.source.Vector({
+                rendermode: 'image',
                 format: formatter
             })
         });
         vector.getSource().addFeatures(kml_features);
-        
+
         return vector;
     }
 
@@ -779,155 +866,279 @@ zip.workerScriptsPath = 'static/js/';
 // var url = 'http://www.spc.noaa.gov/products/watch/ActiveWW.kmz';
 // var url = '/proxy/www.spc.noaa.gov/products/watch/ActiveWW.kmz';
 
-// Function to ease KML feature reading
-function addFeatures(text, name, id) {
-    var vect = loadKmlText(text, name);
-    layers.push({"id": id, "vector" : vect});
-    myMap.addLayer(vect);
+    function b64toBlob(b64Data, contentType, sliceSize) {
+        contentType = contentType || '';
+        sliceSize = sliceSize || 512;
 
-    console.log("addFeatures: " + id + " in file " + name + " DONE");
-}
+        var byteCharacters = atob(b64Data);
+        var byteArrays = [];
+
+        for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+            var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+            var byteNumbers = new Array(slice.length);
+            for (var i = 0; i < slice.length; i++) {
+                byteNumbers[i] = slice.charCodeAt(i);
+            }
+
+            var byteArray = new Uint8Array(byteNumbers);
+
+            byteArrays.push(byteArray);
+        }
+
+        var blob = new Blob(byteArrays, {type: contentType});
+        return blob;
+    }
+    
+// Function to ease KML feature reading
+    function addFeatures(text, name, id) {
+        if (!name.endsWith("kml")) {
+//                var uInt8Array = new Uint8Array(text);
+//    var i = uInt8Array.length;
+//    var binaryString = new Array(i);
+//    while (i--)
+//    {
+//      binaryString[i] = String.fromCharCode(uInt8Array[i]);
+//    }
+//    var data = binaryString.join('');
+//
+//    var base64 = window.btoa(data);
+            
+            if (name.endsWith("mp3")) {
+                console.log("Not handling video for now");
+                return;
+            }
+            
+            // convert to Base64
+            var str = text.replace(/[\u00A0-\u2666]/g, function(c) {
+                return '&#' + c.charCodeAt(0) + ';';
+            });
+            var base64 = btoa(unescape(encodeURIComponent(str)));
+            var end = name.substr(name.lastIndexOf('.')+1);
+            var blob = b64toBlob(base64, "image/" + end);
+            //var blob = new Blob( [ base64 ], { type: "image/" + end } );
+            var urlCreator = window.URL || window.webkitURL;
+            var imageUrl = urlCreator.createObjectURL( blob );
+            
+            //document.getElementById("photo").src = 'data:image/' + end + ';base64,' + base64;
+            var img = document.querySelector( "#photo" );
+            img.src = imageUrl;
+
+            console.log("addFeatures image: " + id + " in file " + name + " DONE");
+            return;
+        }
+        
+        console.log(text);
+        var vect = loadKmlText(text, name);
+        layers.push({"id": id, "vector": vect});
+        myMap.addLayer(vect);
+
+        console.log("addFeatures: " + id + " in file " + name + " DONE");
+    }
 
 // Function to parse KML text to get link reference to list any other 
 // nested files (kmz or kml)
-function parseKmlText(text) {
-    var oParser = new DOMParser();
-    var oDOM = oParser.parseFromString(text, 'text/xml');
-    var links = oDOM.querySelectorAll('NetworkLink Link href');
-    var files = Array.prototype.slice.call(links).map(function (el) {
-        return el.textContent;
-    });
-    console.log("Files: " + files.length);
-    return files;
-}
+    function parseKmlText(text) {
+        //console.log("parseKmlText: " + text);
+        var oParser = new DOMParser();
+        var oDOM = oParser.parseFromString(text, 'text/xml');
+        var links = oDOM.querySelectorAll('NetworkLink Link href');
+        var urls = oDOM.querySelectorAll('NetworkLink Url href');
+        var files = Array.prototype.slice.call(links).map(function (el) {
+            return el.textContent;
+        });
+
+        if (links.length === 0 && urls.length !== 0) {
+            files = Array.prototype.slice.call(urls).map(function (el) {
+                return el.textContent;
+            });
+        }
+
+        console.log("NetworkLink files: " + files.length);
+        return files;
+    }
 
 // Function to unzip content from blob and execute callback on
 // first entry (not generic but assumed for the demo)
-function unzipFromBlob(callback, id) {
-    return function unzip(blob) {
-        // use a BlobReader to read the zip from a Blob object
-        zip.createReader(new zip.BlobReader(blob), 
-        function (reader) {
-            // get all entries (array of objects) from the zip
-            reader.getEntries(function (entries) {
-                for (let ind=0; ind<entries.length; ind++) {
-                    var str = entries[ind].filename.toLowerCase();
-                    console.log("Entry " + ind + ": " + str);
-                    if (str.endsWith("kml")) 
-                    {
-                        // there is always only one KML in KMZ, namely the doc.kml (name can differ).
-                        // we get the kml content as text
-                        //console.log("unzipFromBlob entry " + str + "[" + entries[ind].compressedSize + " -> " + entries[ind].uncompressedSize + "]");
-                        entries[ind].getData(/* writer, onend, onprogress, checkCrc32 */
-                            new zip.TextWriter(), 
-                            function (text) {
-                                // text contains the entry data as a String
-                                console.log("About to call back " + str);
-                                console.log(text);
-                                callback(text, str, id);
+    function unzipFromBlob(callback, id) {        
+        return function unzip(blob) {
+            // use a BlobReader to read the zip from a Blob object
+            zip.createReader(new zip.BlobReader(blob),
+                function (reader) {
+                    // get all entries (array of objects) from the zip
+                    reader.getEntries(function (entries) {
+                        console.log("Got entries: " + entries.length);
+                        for (var ind = 0; ind < entries.length; ind++) {
+                            var str = entries[ind].filename.toLowerCase();
 
-                                // close the zip reader
-                                reader.close(function () {
-                                    // onclose callback
-                                });
-                            }, 
-                            function (current, total) {
-                                // onprogress callback
-                                //$("#DebugWindow").append("unzipFrom Blob Total: " + total.toString() + "<br/>");
-                                //console.log("unzipFromBlob Total: " + total.toString() + ", Current: " + current.toString());
-                            }
-                        )
-                    };
-                }
-            });
-        }, 
-        function (error) {
-            // onerror callback (error is of type Event)
-            //$("#DebugWindow").append("unzipFromBlob Error: " + error + "<br/>");
-            console.log("unzipFromBlob Error: " + error);
-        });
-    };
-}
+                            var extendedCallback = function (str1, id1) {
+                                console.log("extendedCallback for " + id1 + " at " + str1);
+                                return function (text) {
+                                    // text contains the entry data as a String
+                                    console.log("About to call back " + str1);
+                                    callback(text, str1, id1);
+                                };
+                            };
 
-// Function to make ajax call and make a callback on success
-function ajaxKMZ(url, id, callback) {
-    //$("#DebugWindow").append("ajaxKMZ: " + url + "<br/>");
-    //console.log("ajaxKMZ: " + url);
+                            console.log("Entry " + ind + ": " + str);
+                            // there is always only one KML in KMZ, namely the doc.kml (name can differ).
+                            // we get the kml content as text
+                            //console.log("unzipFromBlob entry " + str + "[" + entries[ind].compressedSize + " -> " + entries[ind].uncompressedSize + "]");
+                            entries[ind].getData(/* writer, onend, onprogress, checkCrc32 */
+                                new zip.TextWriter(),
+                                extendedCallback (str, id),
+                                function (current, total) {
+                                    // onprogress callback
+                                    //$("#DebugWindow").append("unzipFrom Blob Total: " + total.toString() + "<br/>");
+                                    //console.log("unzipFromBlob Total: " + total.toString() + ", Current: " + current.toString());
+                                }
+                            );
+                        }
+                    });
+                },
+                function (error) {
+                    // onerror callback (error is of type Event)
+                    //$("#DebugWindow").append("unzipFromBlob Error: " + error + "<br/>");
+                    console.log("unzipFromBlob Error: " + error);
+                });
+        };
+    }
 
-    // See: https://github.com/pyrsmk/qwest for get documentation
-    // See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS for Cors documentation
-    qwest.get(url, null, {
-        responseType: 'blob'
-        ,headers: {'x-requested-with': 'XMLHttpRequest'
-            //,origin:'http://localhost:8080/App4Sea/'
+    // Fix for ie11 not supporting endsWith (polyfill)
+    //https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith
+    if (!String.prototype.endsWith) {
+      String.prototype.endsWith = function(searchString, position) {
+          var subjectString = this.toString();
+          if (typeof position !== 'number' || !isFinite(position) || Math.floor(position) !== position || position > subjectString.length) {
+            position = subjectString.length;
+          }
+          position -= searchString.length;
+          var lastIndex = subjectString.indexOf(searchString, position);
+          return lastIndex !== -1 && lastIndex === position;
+      };
+    }
+
+    function parseURL(url) {
+        var parser = document.createElement('a'),
+            searchObject = {},
+            queries, split, i;
+        // Let the browser do the work
+        parser.href = url;
+        // Convert query string to object
+        queries = parser.search.replace(/^\?/, '').split('&');
+        for( i = 0; i < queries.length; i++ ) {
+            split = queries[i].split('=');
+            searchObject[split[0]] = split[1];
         }
-        //,family: '4'
-        //,port: '80'
-    })
-    .then(function (response) {
-        // Run when the request is successful
-        //$("#DebugWindow").append("ajaxKMZ Response: " + response + "<br/>");
-        //console.log("ajaxKMZ OK: " + url);
-        callback(response, url, id);
-    })
-    .catch(function (e, url) {
-        //$("#DebugWindow").append("ajaxKMZ Error: " + e + "<br/>" + url + "<br/>");
-        console.log("ajaxKMZ Error: " + e + ": " + url);
-        // Process the error
-    })
-    .complete(function () {
-        // Always run
-        //console.log("ajaxKMZ DONE: " + url);
-    });
-}
+        return {
+            protocol: parser.protocol,
+            host: parser.host,
+            hostname: parser.hostname,
+            port: parser.port,
+            pathname: parser.pathname,
+            search: parser.search,
+            searchObject: searchObject,
+            hash: parser.hash
+        };
+    }
+
+   
+// Function to make ajax call and make a callback on success
+    function ajaxKMZ(url, id, callback) {
+        //$("#DebugWindow").append("ajaxKMZ: " + url + "<br/>");
+        //console.log("ajaxKMZ: " + url);
+
+        // See: https://github.com/pyrsmk/qwest for get documentation
+        // See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS for Cors documentation
+        // See: https://remysharp.com/2011/04/21/getting-cors-working
+        qwest.get(url, null, {
+            responseType: 'blob',
+            timeout: 2000,
+            headers: {'x-requested-with': 'XMLHttpRequest'
+            }
+        })
+        .then(function (response) {
+            // Run when the request is successful
+            //$("#DebugWindow").append("ajaxKMZ Response: " + response + "<br/>");
+            //console.log("ajaxKMZ OK: " + url);
+
+            var str = url.toLowerCase();
+            if (str.endsWith("kml") && typeof (response) === "object") {
+                var reader = new FileReader();
+
+                var extendedCallback = function (str1, id1) {
+                    return function (e) {
+                        var text = e.srcElement.result;
+                        callback(text, str1, id1);
+                    }
+                };
+
+                // This fires after the blob has been read/loaded.
+                reader.addEventListener('loadend', extendedCallback(str, id));
+
+                // Start reading the blob as text.
+                reader.readAsText(response);
+            } else {
+                callback(response, str, id);
+            }
+        })
+        .catch(function (e, url) {
+            //$("#DebugWindow").append("ajaxKMZ Error: " + e + "<br/>" + url + "<br/>");
+            console.log("ajaxKMZ Error: " + e + ": " + url);
+            // Process the error
+        })
+        .complete(function () {
+            // Always run
+            //console.log("ajaxKMZ DONE: " + url);
+        });
+    }
 
 // Read reference to other KMZ and add them to the vector layer
-var readAndAddFeatures = function (text, name, id) {
-    console.log("readAndAddFeatures >>>> " + id + " from file " + name);
-    var listFilesNested = parseKmlText(text);
-    
-    let str = name.toLowerCase();
-    if (listFilesNested.length === 0) {
-        //console.log("No nested files");
-        if (str.endsWith("kml")) {
-            addFeatures(text, name, id);
-            return;
-        }
-        else {
-            addFeatures(text, name, id);
-        }
-    };
-    
-    //console.log(listFilesNested);
-    listFilesNested.forEach(function (el) {
-        console.log("readAndAddFeatures ----------");
-        // Nested calls. Acceptable for a demo
-        // but could be "promisified" instead
-        str = el.toLowerCase();
-        if (str.endsWith("kmz")) {
-            console.log("readAndAddFeatures kmz element: " + el);
-            ajaxKMZ(el, id, unzipFromBlob(readAndAddFeatures, id));
-        }
-        else {
-            console.log("readAndAddFeatures kml element: " + el);
-            ajaxKMZ(el, id, readAndAddFeatures);//kml
-        }
-    });
-    console.log("readAndAddFeatures <<<<");
-};
+    var readAndAddFeatures = function (text, name, id) {
+        console.log("readAndAddFeatures >>>> " + id + " from file " + name);
 
-function repeat_kmz_calls(url, id) {
-    //$("#DebugWindow").append("repeat_kmz_calls: " + url + "<br/>");
-    //console.log("repeat_kmz_calls: " + url);
-    
-    //var combinedCallback = ;
-    // make the ajax call to kmz that unzip and read the file
-    // this file reference other KMZ so we call each of them
-    // and add their content
-    //ajaxKMZ(url, combinedCallback);
-    ajaxKMZ(url, id, unzipFromBlob(readAndAddFeatures, id));
-    //setTimeout(repeat_kmz_calls, 60000);
-}
+        var listFilesNested = parseKmlText(text);
+
+        var str = name.toLowerCase();
+        if (listFilesNested.length === 0) {
+            //console.log("No nested files");
+
+            addFeatures(text, str, id);
+        };
+
+        console.log("listFilesNested are " + listFilesNested.length);
+        listFilesNested.forEach(function (el) {
+            console.log("readAndAddFeatures ----------");
+            // Nested calls. Acceptable for a demo
+            // but could be "promisified" instead
+            str = el.toLowerCase();
+            if (str.endsWith("kml")) {
+                console.log("readAndAddFeatures kml element: " + el);
+                ajaxKMZ(el, id, readAndAddFeatures);//kml
+            } else {
+                console.log("readAndAddFeatures kmz element: " + el);
+                ajaxKMZ(el, id, unzipFromBlob(readAndAddFeatures, id));
+            }
+        });
+        console.log("readAndAddFeatures <<<<");
+    };
+
+    function repeat_kmz_calls(url, id) {
+        //$("#DebugWindow").append("repeat_kmz_calls: " + url + "<br/>");
+        //console.log("repeat_kmz_calls: " + url);
+
+        // make the ajax call to kmz that unzip and read the file
+        // this file reference other KMZ so we call each of them
+        // and add their content
+        var str = url.toLowerCase();
+        if (str.endsWith("kml") || str.endsWith("png")) {
+            console.log("readAndAddFeatures kml element: " + url);
+            ajaxKMZ(url, id, readAndAddFeatures);//kml
+        } else {
+            console.log("readAndAddFeatures kmz element: " + url);
+            ajaxKMZ(url, id, unzipFromBlob(readAndAddFeatures, id));
+        }
+    }
 
 //vectorKMZ.on('render', function (event) {
 //    //console.log("Render event: " + event);
@@ -949,8 +1160,14 @@ function repeat_kmz_calls(url, id) {
     return that;
 })();
 
-$(document).ready(function(){
+$(document).ready(function () {
     console.log("Ready ==============================================================================");
     App4Sea.Map.OpenLayers.Init();
+});
+
+$( window ).on( "load", function() {
+    console.log( "window loaded" );
+
+    //$("#MenuTree").jstree(true).close_all(); Does come too early => does not work
 });
 

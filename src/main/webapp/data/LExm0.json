@@ -1,9 +1,3 @@
 [
-    { "id" : "8L50", "parent" : "LExm0", "text" : "Monthly temperature forecast USA as kml", "children" : false, "a_attr" : { "path" : "data/lead15_temp.kml"} },
-    { "id" : "8L51", "parent" : "LExm0", "text" : "*Cloud coverage as kmz", "children" : false, "a_attr" : { "path" : "data/Clouds Animation.kmz"} },
-    { "id" : "8L56", "parent" : "LExm0", "text" : "*Marine regions as kmz", "children" : false, "a_attr" : { "path" : "data/MarineRegions-eez_boundaries.kmz"} },
-    { "id" : "8L57", "parent" : "LExm0", "text" : "*NOAA products as kmz", "children" : false, "a_attr" : { "path" : "http://www.spc.noaa.gov/products/watch/ActiveWW.kmz"} },
-    { "id" : "8L571", "parent" : "LExm0", "text" : "*NOAA sea analysis as kmz", "children" : false, "a_attr" : { "path" : "data/NOAA.kmz"} },
-    { "id" : "8L59", "parent" : "LExm0", "text" : "Dynamic earth as kmz", "children" : false, "a_attr" : { "path" : "data/Dynamic Earth.kmz"} },
-    { "id" : "8L510", "parent" : "LExm0", "text" : "*Bufft Hawaii Tour as kmz", "children" : false, "a_attr" : { "path" : "data/buffetthawaiitour.kmz"} }
+    { "id" : "L50", "parent" : "LExm0", "text" : "Monthly temperature forecast USA", "children" : false, "a_attr" : { "path" : "data/lead15_temp.kml"} }
 ]

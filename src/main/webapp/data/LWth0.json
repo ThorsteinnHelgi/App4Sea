@@ -1,0 +1,3 @@
+[
+    { "id" : "LWth00", "parent" : "LWth0", "text" : "Monthly temperature forecast USA", "children" : false, "a_attr" : { "path" : "data/lead15_temp.kml"} }
+]
