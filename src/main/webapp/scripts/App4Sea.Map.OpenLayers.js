@@ -3,32 +3,34 @@
  *          Þorsteinn Helgi Steinarsson     thorsteinn(at)asverk.is
  *              Added treeview in menu (reading json over ajax) and kmz support
  *              Added tooltip, all data reading is recursive, animation stylished
+ *              Refactoring a bit. Update from OpenLayers v4.6.4 to v5.1.3
+ *              OpenWeatherMaps support. Flex menu.
  */
 /* global ol, Mustache, zip, qwest */
-
-//import ImageLayer from 'ol/layer/Image.js';
-//import Projection from 'ol/proj/Projection.js';
-//import Static from 'ol/source/ImageStatic.js';
 
 var App4Sea = App4Sea || {};
 App4Sea.Map = (App4Sea.Map) ? App4Sea.Map : {};
 App4Sea.Map.OpenLayers = (function () {
     "use strict";
     var myMap;
-    //var imageLayer;
-
     var currentLayer;
     var osmTileLayer;
     var esriWSPTileLayer;
     var esriWITileLayer;
     var cloudNow;
+    var imageLayer;
     var that = {};
     var zoom = 4;
+    var minZoom = 2;
+    var maxZoom = 18;
+    var overlayLayerPopUp;
     var prefProj = 'EPSG:4326';
     var prefViewProj = 'EPSG:3857'; //Default is EPSG:3857 (Spherical Mercator).
     var center = ol.proj.transform([-3, 65], prefProj, prefViewProj);//'EPSG:3857'); 
     var interaction = new ol.interaction.DragRotateAndZoom(); // create an interaction to add to the map that isn't there by default
-    var timespan = {begin: "", end: ""};
+    var extent = ol.proj.transformExtent([-180, 90, 180, -90], prefProj, prefViewProj);
+//    var origin = ol.proj.transformExtent([-90, -90, 90, 90], prefProj, prefViewProj);
+//    var timespan = {begin: "", end: ""};
 //    var networklink = {timespan, link: ""};
     var networklinkarray = [];
     var indNow = 0;
@@ -38,50 +40,193 @@ App4Sea.Map.OpenLayers = (function () {
     ////////////////////////////////////////////////////////////////////////////
     //initialize maps and models when page DOM is ready..
     function init() {
-
-        var container = document.getElementById('popup');
-        var content = document.getElementById('popup-content');
-        var closer = document.getElementById('popup-closer');
         
+        myMap = initBasemapLayerTiles();
+
+        initToolTip();
+
+        initMenu();
+
+        // Prepare animation
+        //animationMapOld();
+
+        // Test heatMap
+        heatMap();
+        
+        // Update the base map
+        updateBaseMap();
+    }
+
+    var test = function () {
+        console.log("Testing ...");
+
+        var pdf = 'data/2017-05-09-EPPR-COSRVA-guts-and-cover-letter-size-digital-complete.pdf';
+        var btn = document.getElementById('testBtn');
+        //var oNewDoc = this.extractPages({42, 42, pdf});
+    };
+
+    function initBasemapLayerTiles() {
+        var popupContainer = document.getElementById('popup');
+        var popupContent = document.getElementById('popup-content');
+        var popupCloser = document.getElementById('popup-closer');
+
         // Create an overlay to anchor the popup to the map.
-        var overlay = new ol.Overlay({
-            element: container,
-            autoPan: true,
-            autoPanAnimation: {
-                duration: 1000
-            }
+        overlayLayerPopUp = initOverlay(popupContainer, popupCloser);
+        // Create an overlay to anchor images to the map.
+        //var overlayLayerPhotos = initOverlay(container);
+
+        // Init osmTileLayer base map
+        osmTileLayer = new ol.layer.Tile({
+            name: "osmTileLayer",
+            source: new ol.source.OSM()
         });
 
-//        imageLayer = new ol.ImageLayer({
-//            source: new ol.Static({
-//                //attributions: '© <a href="http://xkcd.com/license.html">xkcd</a>',
-//                //url: 'https://imgs.xkcd.com/comics/online_communities.png',
-//                projection: projection,
-//                imageExtent: extent
-//            })
-//        });
-
-        // Add a click handler to hide the popup.
-        // @return {boolean} Don't follow the href.
-        closer.onclick = function () {
-            overlay.setPosition(undefined);
-            closer.blur();
-            return false;
-        };
-
-        //init OpenLayer map with MapBox tiles
-        myMap = new ol.Map({
-            target: 'MapContainer',
-            interaction: interaction,
-            overlays: [overlay],
-            view: new ol.View({
-                center: center,
-                zoom: zoom,
-                minZoom: 2,
-                maxZoom: 18
+        // Init esriWSPTileLayer base map
+        esriWSPTileLayer = new ol.layer.Tile({
+            name: "esriWSPTileLayer",
+            source: new ol.source.XYZ({
+                attributions: ['&copy; <a href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/0">ArcGIS World Street Map</a>'],
+                rendermode: 'image',
+                url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}'
             })
         });
 
+        // Init esriWITileLayer base map (Satelite Images)
+        esriWITileLayer = new ol.layer.Tile({
+            name: "esriWITileLayer",
+            source: new ol.source.XYZ({
+                attributions: ['&copy; <a href="https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/0">ArcGIS World Imagery Map</a>'],
+                rendermode: 'image',
+                url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
+            })
+        });
+
+        //init OpenLayer map with MapBox tiles
+        var map = new ol.Map({
+            target: 'MapContainer',
+            interaction: interaction,
+            overlays: [overlayLayerPopUp],
+            view: new ol.View({
+                center: center,
+                zoom: zoom,
+                minZoom: minZoom,
+                maxZoom: maxZoom
+            })
+        });
+        
+        // Set current base map layer
+        currentLayer = esriWSPTileLayer;
+        //map.addLayer(currentLayer);
+
+         // Add a click handler to the map to render the popup.
+        map.on('singleclick', function (evt) {
+            var coordinate = evt.coordinate;
+            //var hdms = ol.coordinate.toStringHDMS(ol.proj.transform(coordinate, 'EPSG:3857', 'EPSG:4326'));
+            //popupContent.innerHTML = '<p>You clicked here:</p><code>' + hdms + '</code>';
+            var features = [];
+            map.forEachFeatureAtPixel(evt.pixel, function (feature) {
+                features.push(feature);
+            });
+            if (features.length > 0) {
+                var description = features[0].get('description');
+
+                if (features[0].get('navn')) {
+                    description = setNorwegianOSRInfo(features);
+                }else if(features[0].get('Id')){  //drake passage example
+                    description = setShipPassageInfo(features);
+                }
+                popupContent.innerHTML = description;
+
+                overlayLayerPopUp.setPosition(coordinate);
+            } else {
+                overlayLayerPopUp.setPosition(undefined);
+                popupCloser.blur();
+            }
+        });
+        
+        map.on('singlerightclick', function (evt) {
+            var coordinate = evt.coordinate;
+            
+            // Widget 11
+//            var description = "<div id='openweathermap-widget-11'></div>";
+//            popupContent.innerHTML = description;
+//
+//            window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];//daily?lat=35&lon=139&cnt=7   cityid: '3413829',     lat:135,lon:39, cnt:5,
+//            window.myWidgetParam.push({id: 11,cityid: '3413829',appid: '1326faa296b7e865683b67cdf8e5c6e4',units: 'metric',containerid: 'openweathermap-widget-11'});
+//            (
+//                function() {
+//                    var script = document.createElement('script');
+//                    script.async = true;
+//                    script.charset = 'utf-8';
+//                    script.src = 'http://openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js';
+//                    var s = document.getElementsByTagName('script')[0];
+//                    s.parentNode.insertBefore(script, s);
+//                }
+//            )();
+
+            // Widget 15
+            var description = "<div id='openweathermap-widget-15' style='zoom: 0.8'></div>";
+            popupContent.innerHTML = description;
+
+            window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
+            window.myWidgetParam.push({id:15, cityid: '3413829', appid:'1326faa296b7e865683b67cdf8e5c6e4', units:'metric', containerid:'openweathermap-widget-15'});
+            (
+                function() {
+                    var script = document.createElement('script');
+                    script.async = true;
+                    script.charset = "utf-8";
+                    script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
+                    var s = document.getElementsByTagName('script')[0];
+                    s.parentNode.insertBefore(script, s);
+                }
+            )();
+
+            // End
+            overlayLayerPopUp.setPosition(coordinate);
+        });
+        
+        // Add standard map controls
+        //map.addControl(new ol.control.ZoomSlider());
+        map.addControl(new ol.control.Zoom());
+        //map.addControl(new ol.control.FullScreen());
+        //map.addControl(new ol.control.Rotate({autoHide: true}));
+        var ctrl = new ol.control.MousePosition({
+            projection: prefProj,
+            coordinateFormat: function (coordinate) {
+                return ol.coordinate.format(coordinate, '{x}, {y}', 4);
+            }
+        });
+        map.addControl(ctrl);
+        map.addControl(new ol.control.OverviewMap({
+            layers: [currentLayer],
+            collapsed: false
+        }));
+        //map.addControl(new ol.control.ScaleLine());        Not correct scale
+        
+        return map;
+    }
+    
+    function initOverlay(container, closer) {
+        var overlayLayer = new ol.Overlay({
+            element: container,
+            autoPan: true,
+            autoPanAnimation: {
+                duration: 2000
+            }
+        });
+        
+        // Add a click handler to hide the overlay.
+        // @return {boolean} Don't follow the href.
+        closer.onclick = function () {
+            overlayLayer.setPosition(undefined);
+            closer.blur();
+            return false;
+        };
+        
+        return overlayLayer;
+    }
+    
+    function initToolTip () {
         myMap.on('pointermove', function(evt) {
             if (evt.dragging) {
                 info.tooltip('hide');
@@ -120,157 +265,113 @@ App4Sea.Map.OpenLayers = (function () {
             else {
                 info.tooltip('hide');
             }
-        };        //        myMap.addLayer(imageLayer);
- 
-        // Add a click handler to the map to render the popup.
-        myMap.on('singleclick', function (evt) {
-            var coordinate = evt.coordinate;
-            //var hdms = ol.coordinate.toStringHDMS(ol.proj.transform(coordinate, 'EPSG:3857', 'EPSG:4326'));
-            //content.innerHTML = '<p>You clicked here:</p><code>' + hdms + '</code>';
-            var features = [];
-            myMap.forEachFeatureAtPixel(evt.pixel, function (feature) {
-                features.push(feature);
-            });
-            if (features.length > 0) {
-                var description = features[0].get('description');
-                var template;
+        };
+    }
 
-                if (features[0].get('navn')) {
-                    var beredskap = {name: "", region: "", region2: "", region3: "", region4: "", address: "", link: ""};
-                    beredskap.name = features[0].get('navn');
-                    beredskap.address = features[0].get('gateadresse');
-                    beredskap.region = features[0].get('fylke');
-                    beredskap.region2 = features[0].get('kyv_region');
-                    beredskap.region3 = features[0].get('kommune');
-                    beredskap.region4 = features[0].get('lua');
-                    beredskap.link = features[0].get('lenke_faktaark');
-
-                    var template = $('#RescueSite').html();
-                    Mustache.parse(template);
-                    description = Mustache.to_html(template, beredskap);
-                }else if(features[0].get('Id')){  //drake passage example
-                    var shipinfo = {name: "", callsign: "", type: "", cargotype: "", flag: ""};
-                    /*
-                    <SimpleData name="Id">0</SimpleData>
-                    <SimpleData name="mmsi">215739000</SimpleData>
-                    <SimpleData name="IMO">9.43372e+06</SimpleData>
-                    <SimpleData name="Name">CASTILLO-SANTISTEBAN</SimpleData>
-                    <SimpleData name="Call_Sign">9HA2217</SimpleData>
-                    <SimpleData name="Type">Tanker</SimpleData>
-                    <SimpleData name="Cargo_Type">Carrying DG,HS or MP,IMO hazard or Pollutant Category X</SimpleData>
-                    <SimpleData name="Length">300</SimpleData>
-                    <SimpleData name="Width">46</SimpleData>
-                    <SimpleData name="Flag">Malta</SimpleData>
-                    <SimpleData name="Destinatio">KAWAGOE</SimpleData>
-                    <SimpleData name="Nav_Status">Under Way Using Engine</SimpleData>
-                    */
-                    shipinfo.name =  features[0].get('Name');
-                    shipinfo.callsign =  features[0].get('Call_Sign');
-                    shipinfo.type =  features[0].get('Type');
-                    shipinfo.cargotype =  features[0].get('Cargo_Type');
-                    shipinfo.flag =  features[0].get('Flag');
-                    var template = $('#ShipInfo').html();
-                    Mustache.parse(template);
-                    description = Mustache.to_html(template, shipinfo);
-                }
-//                else {
-//                    var template = $('#DefaultPop').html();
-//                    var cont = {"description": description};
-//                    Mustache.parse(template);
-//                    description = Mustache.to_html(template, cont);
-//                }
-//                content.style.paddingTop = "50px";
-//                content.style.backgroundColor = "#ffffff";
-                content.innerHTML = description;
-
-                overlay.setPosition(coordinate);
-            } else {
-                overlay.setPosition(undefined);
-                closer.blur();
-            }
-        });
-
-        // Init osmTileLayer base map
-        osmTileLayer = new ol.layer.Tile({
-            source: new ol.source.OSM()
-        });
-        osmTileLayer.name = "osmTileLayer";
-
-        // Init esriWSPTileLayer base map
-        var attributionESRIWSM = new ol.Attribution({
-            html: 'Tiles &copy; <a href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/0">ArcGIS</a>'
-        });
-
-        esriWSPTileLayer = new ol.layer.Tile({
-            source: new ol.source.XYZ({
-                attributions: [attributionESRIWSM],
-                rendermode: 'image',
-                url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}'
-            })
-        });
-        esriWSPTileLayer.name = "esriWSPTileLayer";
-
-        // Init esriWITileLayer base map
-        var attributionWIM = new ol.Attribution({
-            html: 'Tiles &copy; <a href="https://http://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/0">ArcGIS</a>'
-        });
-        esriWITileLayer = new ol.layer.Tile({
-            source: new ol.source.XYZ({
-                attributions: [attributionWIM],
-                rendermode: 'image',
-                url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
-            })
-        });
-        esriWITileLayer.name = "esriWITileLayer";
-
-        // Set current base map layer
-        currentLayer = esriWSPTileLayer;
-        myMap.addLayer(currentLayer);
-
+    function initMenu (){
         // Set up MenuTree
         setUpMenuTree();
 
         // Set up InfoTree
         setUpInfoTree();
 
-        // Prepare animation
-        //animationMapOld();
-
-        // Test heatMap
-        heatMap();
-
-        // Add standard map controls
-        myMap.addControl(new ol.control.ZoomSlider());
-        myMap.addControl(new ol.control.Zoom());
-        //myMap.addControl(new ol.control.FullScreen());
-        myMap.addControl(new ol.control.Rotate({autoHide: true}));
-        var ctrl = new ol.control.MousePosition({
-            projection: prefProj,
-            coordinateFormat: function (coordinate) {
-                return ol.coordinate.format(coordinate, '{x}, {y}', 4);
-            }
-        });
-        myMap.addControl(ctrl);
-        myMap.addControl(new ol.control.OverviewMap({
-            layers: [currentLayer],
-            collapsed: false
-        }));
-        //myMap.addControl(new ol.control.ScaleLine());        Not correct scale
+        var button = document.getElementById('testBtn');
+        button.addEventListener('click', test, false);
 
         // Hook events to menu
         $(".MenuSection input[type='checkbox']").click(function () {
-            update();
+            updateBaseMap();
         });
         $(".MenuSection select").change(function () {
-            update();
-        });
+            updateBaseMap();
+        });        
+    }
 
-        // Update the page
-        update();
+    function setNorwegianOSRInfo (features) {
+        var beredskap = {name: "", region: "", region2: "", region3: "", region4: "", address: "", link: ""};
+
+        beredskap.name = features[0].get('navn');
+        beredskap.address = features[0].get('gateadresse');
+        beredskap.region = features[0].get('fylke');
+        beredskap.region2 = features[0].get('kyv_region');
+        beredskap.region3 = features[0].get('kommune');
+        beredskap.region4 = features[0].get('lua');
+        beredskap.link = features[0].get('lenke_faktaark');
+
+        var template = $('#RescueSite').html();
+        Mustache.parse(template);
+        var description = Mustache.to_html(template, beredskap);
+        
+        return description;
+    }
+
+    function setShipPassageInfo (features) {
+        var shipinfo = {name: "", callsign: "", type: "", cargotype: "", flag: ""};
+        /*
+        <SimpleData name="Id">0</SimpleData>
+        <SimpleData name="mmsi">215739000</SimpleData>
+        <SimpleData name="IMO">9.43372e+06</SimpleData>
+        <SimpleData name="Name">CASTILLO-SANTISTEBAN</SimpleData>
+        <SimpleData name="Call_Sign">9HA2217</SimpleData>
+        <SimpleData name="Type">Tanker</SimpleData>
+        <SimpleData name="Cargo_Type">Carrying DG,HS or MP,IMO hazard or Pollutant Category X</SimpleData>
+        <SimpleData name="Length">300</SimpleData>
+        <SimpleData name="Width">46</SimpleData>
+        <SimpleData name="Flag">Malta</SimpleData>
+        <SimpleData name="Destinatio">KAWAGOE</SimpleData>
+        <SimpleData name="Nav_Status">Under Way Using Engine</SimpleData>
+        */
+        shipinfo.name =  features[0].get('Name');
+        shipinfo.callsign =  features[0].get('Call_Sign');
+        shipinfo.type =  features[0].get('Type');
+        shipinfo.cargotype =  features[0].get('Cargo_Type');
+        shipinfo.flag =  features[0].get('Flag');
+        
+        var template = $('#ShipInfo').html();
+        Mustache.parse(template);       
+        var description = Mustache.to_html(template, shipinfo);
+
+        return description;
     }
     
+    function loadNetCDF (url, id) {
+        console.log("loadNetCDF: " + url);
 
+        var options = {
+            //numZoomLevels: 15,
+            isBaseLayer: false,
+            maxResolution: "auto",
+            //resolutions: myMap.layers[0].resolutions,
+            //projection: myMap.getProjectionObject(),
+            //strategies: [new ol.strategy.Fixed()],
+            displayInLayerSwitcher: true
+        };
+
+        imageLayer = new ol.layer.Image({
+          source: new ol.source.ImageWMS({
+            //url: url,
             
+            url: 'http://thredds.socib.es/thredds/wms/operational_models/oceanographical/wave/model_run_aggregation/sapo_ib/sapo_ib_best.ncd',
+            params: {'LAYERS': 'significant_wave_height'},
+            //params: {'LAYERS': 'average_wave_direction'},
+            //params: {'LAYERS': 'direction_of_the_peak_of_the_spectrum'},
+            
+            
+            //url: 'https://ahocevar.com/geoserver/wms',
+            //params: {'LAYERS': 'topp:states'},
+            //ratio: 1,
+            //serverType: 'geoserver'
+          })
+        });
+        
+        //myMap.addControl(new ol.Control.LayerSwitcher());
+//        myMap.removeLayer(currentLayer);
+        myMap.addLayer(imageLayer);
+        //myMap.zoomToExtent(extent);        
+        
+        return;
+    }
+
     ////////////////////////////////////////////////////////////////////////////
     //load kml and return as Vector
     // See https://developers.google.com/kml/documentation/kmlreference
@@ -284,7 +385,7 @@ App4Sea.Map.OpenLayers = (function () {
                 format: new ol.format.KML({
                     extractStyles: true,
                     extractAttributes: true,
-                    showPointNames: true
+                    showPointNames: false
                 })
             })
         });
@@ -303,6 +404,71 @@ App4Sea.Map.OpenLayers = (function () {
         repeat_kmz_calls(url, id);
     }
 
+    function loadCityWeather(url, id) {
+        //var popupContainer = document.getElementById('popup');
+        var popupContent = document.getElementById('popup-content');
+        //var popupCloser = document.getElementById('popup-closer');
+
+        // Create an overlay to anchor the popup to the map.
+        //var overlayLayerPopUp = initOverlay(popupContainer, popupCloser);
+
+        var coordinate = myMap.getView().getCenter();
+        
+        var description = "<div id='openweathermap-widget-15' style='zoom: 0.8'></div>";
+        popupContent.innerHTML = description;
+
+        window.myWidgetParam ? window.myWidgetParam : window.myWidgetParam = [];
+        window.myWidgetParam.push({id:15, cityid: '3413829', appid:'1326faa296b7e865683b67cdf8e5c6e4', units:'metric', containerid:'openweathermap-widget-15'});
+        (
+            function() {
+                var script = document.createElement('script');
+                script.async = true;
+                script.charset = "utf-8";
+                script.src = "//openweathermap.org/themes/openweathermap/assets/vendor/owm/js/weather-widget-generator.js";
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(script, s);
+            }
+        )();
+
+        // End
+        overlayLayerPopUp.setPosition(coordinate);
+    }
+
+    function loadWeather(url, id) {
+        console.log("loadWeather: " + id + " from " + url);
+        
+        var startResolution = ol.extent.getWidth(extent) / 256 / 4;
+        var resolutions = new Array(maxZoom-minZoom+1);
+        for (var i = 0, ii = resolutions.length; i < ii; ++i) {
+            resolutions[i] = startResolution / Math.pow(2, i);
+        }
+        
+        var tileGrid = new ol.tilegrid.TileGrid({
+            extent: extent,
+            origin: [extent[0], extent[1]],
+            resolutions: resolutions,
+            projection: prefViewProj,
+            //minZoom: minZoom,
+            //maxZoom: maxZoom,
+            tileSize: [256, 256]
+        });
+      
+        var weather = new ol.layer.Tile({
+            name: id,
+            preload: 0,
+            opacity: 0.8,
+            extent: extent,
+            minResolution: resolutions[resolutions.length-1],
+            maxResolution: resolutions[0],
+            tileGrid: tileGrid,
+            source: new ol.source.XYZ({
+                attributions: ['&copy; <a href="https://openweathermap.org/">Open Weather Map</a>'],
+                url: url
+            })
+        });
+        
+        return weather;
+    }
     ////////////////////////////////////////////////////////////////////////////
     //load an xml file and return as Vector
     function loadXMLDoc(filename) {
@@ -422,24 +588,52 @@ App4Sea.Map.OpenLayers = (function () {
 
                 if (path.length > 3) {
                     var ext = path.substr(path.length - 3, 3);
-                    //if (ext === "kmz") {
-                    if (index === -1) {
-                        var vect = loadKmz(path, nod.id);
-                    } else {
-                        myMap.addLayer(layers[index].vector);
+                    if (ext === '1cd') { //6a3e86f0825c7e6e605105c24d5ec1cd
+                        if (index === -1) {
+                            var vect = loadWeather(path, nod.id);
+                            layers.push({"id": nod.id, "vector" : vect});
+
+                            myMap.addLayer(vect);
+                        } else {
+                            myMap.addLayer(layers[index].vector);
+                        }
                     }
-//                    }
-//                    else {
-//                        if (index === -1){
-//                            var vect =  loadKml(path);
-//                            layers.push({"id": nod.id, "vector" : vect});
-//
-//                            myMap.addLayer(vect);
-//                        }
-//                        else{
-//                            myMap.addLayer(layers[index].vector);
-//                        }
-//                    }
+                    else if (ext === '6e4') { //1326faa296b7e865683b67cdf8e5c6e4
+                        if (index === -1) {
+                            var vect = loadCityWeather(path, nod.id);
+                            //layers.push({"id": nod.id, "vector" : vect});
+
+                            //myMap.addLayer(vect);
+                        } else {
+                            //myMap.addLayer(layers[index].vector);
+                        }
+                    }
+                    else if (ext === "kmz") {
+                        if (index === -1) {
+                            var vect = loadKmz(path, nod.id);
+                        } else {
+                            myMap.addLayer(layers[index].vector);
+                        }
+                    }
+                    else if (ext === ".nc") {
+                        //if (index === -1) {
+                           // var vect = 
+                           loadNetCDF(path, nod.id);
+                        //} else {
+                          //  myMap.addLayer(layers[index].vector);
+                        //}
+                    }
+                    else {
+                        if (index === -1){
+                            var vect =  loadKmz(path, nod.id);
+                            //layers.push({"id": nod.id, "vector" : vect});
+
+                            //myMap.addLayer(vect);
+                        }
+                        else{
+                            myMap.addLayer(layers[index].vector);
+                        }
+                    }
                 }
             }
         });
@@ -649,7 +843,7 @@ App4Sea.Map.OpenLayers = (function () {
         // return new Date(Math.round(Date.now() / 3600000) * 3600000 - 3600000 * hours);
         //}
 
-        var extent = ol.proj.transformExtent([-126, 24, -66, 50], prefProj, prefViewProj);//'EPSG:3857');
+        //var extent = ol.proj.transformExtent([-126, 24, -66, 50], prefProj, prefViewProj);//'EPSG:3857');
         //var startDate = someHoursAgo(3);
 
         //var cloudTileLayer = new ol.layer.Tile({
@@ -755,7 +949,7 @@ App4Sea.Map.OpenLayers = (function () {
             cloudTileLayer.getSource().updateParams({'TIME': currentDate.toISOString()});
             updateInfo();
         }
-
+        
         var playStop = function () {
             stop();
 
@@ -777,7 +971,6 @@ App4Sea.Map.OpenLayers = (function () {
         button.addEventListener('click', playStop, false);
 
         var dateOpt = {weekday: 'short', year: 'numeric', month: 'short', day: 'numeric'};
-        var extent = ol.proj.transformExtent([-126, 24, -66, 50], prefProj, prefViewProj);
         var endDate = someHoursAgo(0);
         var startDate = someHoursAgo(3);
         var currentDate = startDate;
@@ -803,8 +996,8 @@ App4Sea.Map.OpenLayers = (function () {
     }
 
     ////////////////////////////////////////////////////////////////////////////
-    // Update layers
-    function update() {
+    // Update base map
+    function updateBaseMap() {
         // Set base map
         var selectedMapLayer = $("#MenuLayer_Select").val();
         if (selectedMapLayer !== currentLayer.name) {
@@ -818,8 +1011,6 @@ App4Sea.Map.OpenLayers = (function () {
             }
             myMap.addLayer(currentLayer);
         }
-
-        //animationGo();
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -934,13 +1125,21 @@ App4Sea.Map.OpenLayers = (function () {
             }
             
             // convert to Base64
-            var str = text.replace(/[\u00A0-\u2666]/g, function(c) {
-                return '&#' + c.charCodeAt(0) + ';';
-            });
-            var base64 = btoa(unescape(encodeURIComponent(str)));
-            var end = name.substr(name.lastIndexOf('.')+1);
-            var blob = b64toBlob(base64, "image/" + end);
-            //var blob = new Blob( [ base64 ], { type: "image/" + end } );
+            var blob;
+            if (text.type && text.type === 'application/octet-stream') {
+                blob = text;
+            }
+            else {
+                var str;
+                str = text.replace(/[\u00A0-\u2666]/g, function(c) {
+                    return '&#' + c.charCodeAt(0) + ';';
+                });
+                var base64 = btoa(unescape(encodeURIComponent(str)));
+                var end = name.substr(name.lastIndexOf('.')+1);
+                blob = b64toBlob(base64, "image/" + end);
+                //var blob = new Blob( [ base64 ], { type: "image/" + end } );
+            };
+            
             var urlCreator = window.URL || window.webkitURL;
             var imageUrl = urlCreator.createObjectURL( blob );
             
@@ -1094,7 +1293,7 @@ App4Sea.Map.OpenLayers = (function () {
                     return function (e) {
                         var text = e.srcElement.result;
                         callback(text, str1, id1);
-                    }
+                    };
                 };
 
                 // This fires after the blob has been read/loaded.
@@ -1121,12 +1320,10 @@ App4Sea.Map.OpenLayers = (function () {
     var readAndAddFeatures = function (text, name, id) {
         console.log("readAndAddFeatures >>>> " + id + " from file " + name);
 
-        var listFilesNested = parseKmlText(text);
-
         var str = name.toLowerCase();
+        var listFilesNested = parseKmlText(text);
         if (listFilesNested.length === 0) {
             //console.log("No nested files");
-
             addFeatures(text, str, id);
         };
 
@@ -1136,12 +1333,12 @@ App4Sea.Map.OpenLayers = (function () {
             // Nested calls. Acceptable for a demo
             // but could be "promisified" instead
             str = el.toLowerCase();
-            if (str.endsWith("kml")) {
-                console.log("readAndAddFeatures kml element: " + el);
-                ajaxKMZ(el, id, readAndAddFeatures);//kml
-            } else {
+            if (str.endsWith("kmz")) {
                 console.log("readAndAddFeatures kmz element: " + el);
                 ajaxKMZ(el, id, unzipFromBlob(readAndAddFeatures, id));
+            } else {
+                console.log("readAndAddFeatures kml element: " + el);
+                ajaxKMZ(el, id, readAndAddFeatures);//kml and other
             }
         });
         console.log("readAndAddFeatures <<<<");
@@ -1155,12 +1352,12 @@ App4Sea.Map.OpenLayers = (function () {
         // this file reference other KMZ so we call each of them
         // and add their content
         var str = url.toLowerCase();
-        if (str.endsWith("kml") || str.endsWith("png")) {
-            console.log("readAndAddFeatures kml element: " + url);
-            ajaxKMZ(url, id, readAndAddFeatures);//kml
-        } else {
+        if (str.endsWith("kmz")) {
             console.log("readAndAddFeatures kmz element: " + url);
             ajaxKMZ(url, id, unzipFromBlob(readAndAddFeatures, id));
+        } else {
+            console.log("readAndAddFeatures non-kmz element: " + url);
+            ajaxKMZ(url, id, readAndAddFeatures);//kml
         }
     }
 

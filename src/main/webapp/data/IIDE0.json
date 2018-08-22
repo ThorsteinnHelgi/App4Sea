@@ -1,5 +1,6 @@
 [
     { "id" : "I40", "parent" : "IIDE0", "text" : "Københavnsavtalet", "children" : false, "a_attr" : { "path" : "http://copenhagenagreement.org"} },
+    { "id" : "I401", "parent" : "IIDE0", "text" : "Earth School", "children" : false, "a_attr" : { "path" : "https://earth.nullschool.net"} },
     { "id" : "I41", "parent" : "IIDE0", "text" : "KID'S WORLD MAP INTERACTIVE WALL CHART", "children" : false, "a_attr" : { "path" : "https://www.roundworldproducts.com/kids-world-map-interactive-wall-chart-p/wc04.htm"} },
     { "id" : "I42", "parent" : "IIDE0", "text" : "Kingdom Come Map", "children" : false, "a_attr" : { "path" : "https://kingdomcomemap.github.io/#2/1784.0/1140.0"} },
     { "id" : "I43", "parent" : "IIDE0", "text" : "Visited Countries", "children" : false, "a_attr" : { "path" : "https://www.amcharts.com/visited_countries/#GH"} },

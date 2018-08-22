@@ -3,5 +3,6 @@
     { "id" : "L12", "parent" : "LOil0", "text" : "Incidents", "children" : false, "a_attr" : { "path" : "data/Incidents.kml"} },
     { "id" : "L13", "parent" : "LOil0", "text" : "Tank terminals", "children" : false, "a_attr" : { "path" : "data/TankTerminalsNPA.kmz"} },
     { "id" : "L14", "parent" : "LOil0", "text" : "Drake passage ship tracks", "children" : false, "a_attr" : { "path" : "data/EE_GT_0001.kml"} },
-    { "id" : "L15", "parent" : "LOil0", "text" : "Oil Spill Response Sites", "children" : false, "a_attr" : { "path" : "data/ny_beredskapsdepot.kml"} }
+    { "id" : "L15", "parent" : "LOil0", "text" : "Oil drift in Barents Sea", "children" : false, "a_attr" : { "path" : "data/barents1.nc"} },
+    { "id" : "L16", "parent" : "LOil0", "text" : "Oil Spill Response Sites", "children" : false, "a_attr" : { "path" : "data/ny_beredskapsdepot.kml"} }
 ]
