@@ -17,6 +17,7 @@ App4Sea.Map.OpenLayers = (function () {
     var osmTileLayer;
     var esriWSPTileLayer;
     var esriWITileLayer;
+    var blackTileLayer;
     var cloudNow;
     var imageLayer;
     var that = {};
@@ -100,6 +101,15 @@ App4Sea.Map.OpenLayers = (function () {
                 url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
             })
         });
+        
+        blackTileLayer = new ol.layer.Tile({
+            name: 'blackTileLayer',
+            source: new ol.source.XYZ({
+                attributions: ['&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'],
+                rendermode: 'image',
+                url: 'http://{a-c}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
+            })
+        });        
 
         //init OpenLayer map with MapBox tiles
         var map = new ol.Map({
@@ -514,8 +524,8 @@ App4Sea.Map.OpenLayers = (function () {
                     'cache':false,
                     url: function (node) {
                         var theUrl = node.id === '#' ?
-                                'data/a4s.json' :
-                                'data/' + node.id + '.json';
+                                'json/a4s.json' :
+                                'json/' + node.id + '.json';
                         //console.log("theUrl: " + theUrl);
                         return theUrl;
                     },
@@ -673,8 +683,8 @@ App4Sea.Map.OpenLayers = (function () {
                 'data': {
                     url: function (node) {
                         var theUrl = node.id === '#' ?
-                                'data/info.json' :
-                                'data/' + node.id + '.json';
+                                'json/info.json' :
+                                'json/' + node.id + '.json';
                         console.log("theUrl: " + theUrl);
                         return theUrl;
                     },
@@ -1008,6 +1018,8 @@ App4Sea.Map.OpenLayers = (function () {
                 currentLayer = esriWSPTileLayer;
             } else if (selectedMapLayer === 'esriWITileLayer') {
                 currentLayer = esriWITileLayer;
+            } else if (selectedMapLayer === 'blackTileLayer') {
+                currentLayer = blackTileLayer;
             }
             myMap.addLayer(currentLayer);
         }

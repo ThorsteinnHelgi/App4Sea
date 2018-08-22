@@ -322,20 +322,35 @@
         <!-- Splash overlay -->
         <div id="overlay">
             <div id="overlay-content">
-                <img src="data/PosterHor.jpg" alt="App4Sea is an NPA-project" style="width:100%;" />
+                <img src="images/PosterHor.jpg" alt="App4Sea is an NPA-project" style="width:100%;" />
             </div>
         </div>
         
         <!-- This is the left side menu container -->
         <div id="MenuContainer" class="w3-sidebar w3-bar-block" style="display:none"> 
-            <button onclick="w3_close()" class="w3-button w3-white" style="float:right; font-weight:bold">x</button>
+            <div style="background-color:white; display:inline-block; width:100%;">
+                <button onclick="section_toggle('InfoContainer')" class="w3-button w3-white" style="float:left; font-weight:bold; padding-left:0px; padding-right:3px; ">
+                    <img src="icons/info.png" alt="Information" style="width:1em;" />
+                </button>
+                <button onclick="section_toggle('SettingsContainer')" class="w3-button w3-white" style="float:left; font-weight:bold; padding-left:3px; padding-right:3px; ">
+                    <img src="icons/settings.png" alt="Settings" style="width:1.1em;" />
+                </button>
+                <button onclick="section_toggle('AnimationContainer')" class="w3-button w3-white" style="float:left; font-weight:bold; padding-left:3px; padding-right:3px; ">
+                    <img src="icons/animation.png" alt="Animation" style="width:1.1em;" />
+                </button>
+                <button id="testBtn" class="w3-button w3-white" style="float:left; font-weight:bold; padding-left:0px; padding-right:3px; ">Test</button>
+                <button onclick="w3_close('MenuContainer')" class="w3-button w3-white" style="float:right; font-weight:bold; padding-left:3px; padding-right:0px; ">x</button>
+            </div>
             <div>
                 <a href="http://app4sea.interreg-npa.eu">
-                    <img src="data/App4SeaWhite.jpg" alt="App4Sea is an NPA-project" style="width:100%;"/>
+                    <img src="images/App4Sea.jpg" alt="App4Sea is an NPA-project" style="width:100%;"/>
                 </a>
             </div>
             
-            <div class="MenuSection" style="background-color:lightyellow">
+            <div id='InfoContainer' class="MenuSection" style="background-color:lightgrey; display:none">
+                <button onclick="w3_close('InfoContainer')" class="w3-button w3-white" style="float:right; font-weight:bold">x</button>
+                <h4>Information</h4>
+
                 <div style="font-size:0.8em; color:red">
                     This site currently works best in the Chrome and Vivaldi browsers.<br/>
                     To access cross domain information please add 
@@ -345,103 +360,121 @@
                 </div>
             </div>
             
+            <div id='SettingsContainer' class="MenuSection" style="background-color:lightgrey; display:none">
+                <button onclick="w3_close('SettingsContainer')" class="w3-button w3-white" style="float:right; font-weight:bold">x</button>
+                <h4>Settings</h4>
+
+                <h5>Base map</h5>
+                <div class="MenuSection">
+                    <select id="MenuLayer_Select" >
+                        <option value="esriWSPTileLayer">ESRI World Street Map</option>
+                        <option value="esriWITileLayer">ESRI World Imagery Map</option>
+                        <option value="osmTileLayer">Open Street Map</option>
+                        <option value="blackTileLayer">Carto DB Dark Matter Map</option>
+                    </select>
+                </div>
+                
+                <h5>Heatmap settings</h5>
+                <div class="MenuSection" style="background-color: grey">
+                    <div style="font-size:0.6em; color:white">
+                        <form>
+                            <table width="100%">
+                                <tr>
+                                    <td colspan="4">
+                                        <br/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:right">
+                                        <label>Radius Size</label>
+                                    </td>
+                                    <td>
+                                        <input id="radius" type="range" min="1" max="50" step="1" value="5"/>
+                                    </td>
+                                    <td style="text-align:right">
+                                        <label>Blur Size</label>
+                                    </td>
+                                    <td>
+                                        <input id="blur" type="range" min="1" max="50" step="1" value="15"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div id='AnimationContainer' class="MenuSection" style="background-color:lightgrey; display:none">
+                <button onclick="w3_close('AnimationContainer')" class="w3-button w3-white" style="float:right; font-weight:bold">x</button>
+
+                <h4>Animation</h4>
+                <div class="MenuSection">
+                    <div style="font-size:0.6em; color:white; background-color:grey;">
+                        <form>
+                            <table width="100%">
+                                <tr style="text-align:center">
+                                    <td colspan="4">
+                                        <span id="title">title</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <button id="playStop" type="button" style="font-size:0.5em; color: Grey;">Play</button>
+                                    </td>
+                                    <td colspan="3">
+                                        <input id="progress" type="range" min="0" max="99" step="1" value="0"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="25%">
+                                    </td>
+                                    <td width="25%">
+                                        <span id="startDate">start</span><br/>
+                                        <span id="start">start</span>
+                                    </td>
+                                    <td width="25%" style="text-align:center">
+                                        <span id="currentDate">current</span><br/>
+                                        <span id="current">current</span>
+                                    </td>
+                                    <td width="25%" style="text-align:right">
+                                        <span id="endDate">end</span><br/>
+                                        <span id="end">end</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+
+                    <div role="group" aria-label="Animation controls" >
+                        <div id="popup" class="ol-popup">
+                            <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                            <div id="popup-content"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
             <h4>
                 <div>
-                    <button class="w3-button w3-white" style="padding-left:0; padding-right:0; font-size:0.6em;" onclick="collapse_tree(this, '#MenuTree')">&#9650;</button>
+                    <button class="w3-button w3-white" style="padding-left:0px; padding-right:0px; font-size:0.6em;" onclick="collapse_tree(this, '#MenuTree')">&#9650;</button>
                     Layers
                 </div>
             </h4>
             <div id="MenuTree" class="MenuSection"></div>
-            
+
             <h4>
                 <div>
-                    <button class="w3-button w3-white" style="padding-left:0; padding-right:0; font-size:0.6em;" onclick="collapse_tree(this, '#InfoTree')">&#9660;</button>
+                    <button class="w3-button w3-white" style="padding-left:0px; padding-right:0px; font-size:0.6em;" onclick="collapse_tree(this, '#InfoTree')">&#9660;</button>
                     Further information
                 </div>
             </h4>
             <div id="InfoTree" class="MenuSection"></div>
-
-            <h4>Base map</h4>
-            <div class="MenuSection">
-                <select id="MenuLayer_Select" >
-                    <option value="esriWSPTileLayer">ESRI World Street Map</option>
-                    <option value="esriWITileLayer">ESRI World Imagery Map</option>
-                    <option value="osmTileLayer">Open Street Map</option>
-                </select>
-            </div>
-
-            <h4>Animation</h4>
-            <div class="MenuSection" style="background-color: grey">
-                <button id="testBtn" type="button" style="font-size:0.5em; color: Grey;">Test</button>
-                <div style="font-size:0.6em; color:white">
-                    <form>
-                        <table width="100%">
-                            <!--tr style="text-align:center">
-                                <td colspan="4">
-                                    <span id="title">title</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>
-                                    <button id="playStop" type="button" style="font-size:0.5em; color: Grey;">Play</button>
-                                </td>
-                                <td colspan="3">
-                                    <input id="progress" type="range" min="0" max="99" step="1" value="0"/>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td width="25%">
-                                </td>
-                                <td width="25%">
-                                    <span id="startDate">start</span><br/>
-                                    <span id="start">start</span>
-                                </td>
-                                <td width="25%" style="text-align:center">
-                                    <span id="currentDate">current</span><br/>
-                                    <span id="current">current</span>
-                                </td>
-                                <td width="25%" style="text-align:right">
-                                    <span id="endDate">end</span><br/>
-                                    <span id="end">end</span>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td colspan="4">
-                                    <br/>
-                                </td>
-                            </tr-->
-                            <tr>
-                                <td style="text-align:right">
-                                    <label>Radius Size</label>
-                                </td>
-                                <td>
-                                    <input id="radius" type="range" min="1" max="50" step="1" value="5"/>
-                                </td>
-                                <td style="text-align:right">
-                                    <label>Blur Size</label>
-                                </td>
-                                <td>
-                                    <input id="blur" type="range" min="1" max="50" step="1" value="15"/>
-                                </td>
-                            </tr>
-                        </table>
-                    </form>
-                </div>
-
-                <div role="group" aria-label="Animation controls" >
-                    <div id="popup" class="ol-popup">
-                        <a href="#" id="popup-closer" class="ol-popup-closer"></a>
-                        <div id="popup-content"></div>
-                    </div>
-                </div>
-            </div>
         </div>
-
 
         <!-- This is the main map container. It is populated in code -->
         <div id="MapContainer">
             <div class="ol-custom ol-unselectable ol-control">
-               <button class="ol-zoom-in" onclick="w3_open()">☰</button>
+               <button class="ol-zoom-in" onclick="w3_open('MenuContainer')">☰</button>
             </div>            
             <!-- This is the tool-tip container. It is populated in code -->
             <div id="ToolTipInfo"></div>            
@@ -475,12 +508,21 @@
                     btn.innerText="\u25B2";
                 }
             }
-    
-            function w3_open() {
-                document.getElementById("MenuContainer").style.display = "block";
+
+            function section_toggle(id) {
+                if (document.getElementById(id).style.display === "none") {
+                    w3_open(id);
+                }
+                else {
+                    w3_close(id);
+                }
             }
-            function w3_close() {
-                document.getElementById("MenuContainer").style.display = "none";
+    
+            function w3_open(id) {
+                document.getElementById(id).style.display = "block";
+            }
+            function w3_close(id) {
+                document.getElementById(id).style.display = "none";
             }
            
         </script>
