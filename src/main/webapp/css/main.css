@@ -64,10 +64,17 @@
     color: gray;
 }
 
+.ol-zoom {
+   z-index: 1000;
+   top: .5em;
+   right: .5em;
+   left: auto;
+}
+
 .ol-custom{
    z-index: 1000;
-  top: 7.5em;
-  left: .5em;
+   top: .5em;
+   left: .5em;
 }
 
 .DialogHeader{
@@ -76,6 +83,7 @@
 .DialogBody{
     
 }
+
 
 /* Style the zoom slider */
 

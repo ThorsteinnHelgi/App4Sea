@@ -6,5 +6,9 @@
     { "id" : "8L54", "parent" : "LExm0", "text" : "Buffett Hawaii Tour", "children" : false, "a_attr" : { "path" : "data/buffetthawaiitour.kmz"} },
     { "id" : "8L55", "parent" : "LExm0", "text" : "96 hour Atlantic Forecast (kmz)", "children" : false, "a_attr" : { "path" : "data/96 Hour Atlantic Wind & Wave Forecast.kmz"} },
     { "id" : "8L56", "parent" : "LExm0", "text" : "96 hour Atlantic Forecast (kml)", "children" : false, "a_attr" : { "path" : "data/test.kml"} },
-    { "id" : "8L57", "parent" : "LExm0", "text" : "Marine Ecoregions", "children" : false, "a_attr" : { "path" : "data/meow_ecos.shp.kmz"} }
+    { "id" : "8L57", "parent" : "LExm0", "text" : "Bennevis (kmz)", "children" : false, "a_attr" : { "path" : "data/bennevis.kmz"} },
+    { "id" : "8L58", "parent" : "LExm0", "text" : "doc (kml)", "children" : false, "a_attr" : { "path" : "data/doc.kml"} },
+    { "id" : "8L59", "parent" : "LExm0", "text" : "Open Weather Map (Current in Reykjavik)", "children" : false, "a_attr" : { "path" : "http://api.openweathermap.org/data/2.5/forecast?id=6692263&APPID=1326faa296b7e865683b67cdf8e5c6e4"} },
+    { "id" : "8L5A", "parent" : "LExm0", "text" : "Oil drift in Barents Sea", "children" : false, "a_attr" : { "path" : "data/barents1.nc"} },
+    { "id" : "8L5B", "parent" : "LExm0", "text" : "Marine Ecoregions", "children" : false, "a_attr" : { "path" : "data/meow_ecos.shp.kmz"} }
 ]

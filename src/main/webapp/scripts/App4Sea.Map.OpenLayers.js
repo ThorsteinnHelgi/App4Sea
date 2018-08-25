@@ -28,7 +28,6 @@ App4Sea.Map.OpenLayers = (function () {
     var prefProj = 'EPSG:4326';
     var prefViewProj = 'EPSG:3857'; //Default is EPSG:3857 (Spherical Mercator).
     var center = ol.proj.transform([-3, 65], prefProj, prefViewProj);//'EPSG:3857'); 
-    var interaction = new ol.interaction.DragRotateAndZoom(); // create an interaction to add to the map that isn't there by default
     var extent = ol.proj.transformExtent([-180, 90, 180, -90], prefProj, prefViewProj);
 //    var origin = ol.proj.transformExtent([-90, -90, 90, 90], prefProj, prefViewProj);
 //    var timespan = {begin: "", end: ""};
@@ -44,18 +43,15 @@ App4Sea.Map.OpenLayers = (function () {
         
         myMap = initBasemapLayerTiles();
 
+        // Update the base map
+        updateBaseMap(myMap);
+
         initToolTip();
 
         initMenu();
 
         // Prepare animation
-        //animationMapOld();
-
-        // Test heatMap
-        heatMap();
-        
-        // Update the base map
-        updateBaseMap();
+        //animationMapOld();        
     }
 
     var test = function () {
@@ -70,6 +66,17 @@ App4Sea.Map.OpenLayers = (function () {
         var popupContainer = document.getElementById('popup');
         var popupContent = document.getElementById('popup-content');
         var popupCloser = document.getElementById('popup-closer');
+
+        // Create an observer instance linked to the callback function
+        //var observer = new MutationObserver(scaleToHeight);
+        // Options for the observer (which mutations to observe)
+        //var config = { attributes: true, childList: true, subtree: true };
+        // Start observing the target node for configured mutations
+        //observer.observe(popupContent, config);
+
+        //popupContent.addEventListener("DOMSubtreeModified", scaleToHeight)
+        //popupContent.addEventListener("DOMNodeInserted", scaleToHeight)
+        //popupContent.addEventListener("DOMNodeRemoved", scaleToHeight)
 
         // Create an overlay to anchor the popup to the map.
         overlayLayerPopUp = initOverlay(popupContainer, popupCloser);
@@ -111,6 +118,8 @@ App4Sea.Map.OpenLayers = (function () {
             })
         });        
 
+        var interaction = new ol.interaction.DragZoom(); // create an interaction to add to the map that isn't there by default
+        //
         //init OpenLayer map with MapBox tiles
         var map = new ol.Map({
             target: 'MapContainer',
@@ -128,6 +137,17 @@ App4Sea.Map.OpenLayers = (function () {
         currentLayer = esriWSPTileLayer;
         //map.addLayer(currentLayer);
 
+        function scaleToHeight() {
+            var doc = (new DOMParser).parseFromString(popupContent.innerHTML, 'text/html');
+            if (doc) {
+                var height = getHeight(doc);
+                
+                if (height !== 0) {
+                    popupContent.style.height = height + 'px';
+                }
+            }
+        }
+        
          // Add a click handler to the map to render the popup.
         map.on('singleclick', function (evt) {
             var coordinate = evt.coordinate;
@@ -139,14 +159,18 @@ App4Sea.Map.OpenLayers = (function () {
             });
             if (features.length > 0) {
                 var description = features[0].get('description');
-
+                
                 if (features[0].get('navn')) {
                     description = setNorwegianOSRInfo(features);
                 }else if(features[0].get('Id')){  //drake passage example
                     description = setShipPassageInfo(features);
-                }
-                popupContent.innerHTML = description;
+                } 
 
+                if (!description) {
+                    description = features[0].get('name');
+                }
+                                
+                popupContent.innerHTML = description;
                 overlayLayerPopUp.setPosition(coordinate);
             } else {
                 overlayLayerPopUp.setPosition(undefined);
@@ -154,7 +178,7 @@ App4Sea.Map.OpenLayers = (function () {
             }
         });
         
-        map.on('singlerightclick', function (evt) {
+        map.on('not_working', function (evt) {
             var coordinate = evt.coordinate;
             
             // Widget 11
@@ -195,9 +219,9 @@ App4Sea.Map.OpenLayers = (function () {
             overlayLayerPopUp.setPosition(coordinate);
         });
         
-        // Add standard map controls
+        // Add standard map controls other than those spcified by interactions
         //map.addControl(new ol.control.ZoomSlider());
-        map.addControl(new ol.control.Zoom());
+        //map.addControl(new ol.control.Zoom());
         //map.addControl(new ol.control.FullScreen());
         //map.addControl(new ol.control.Rotate({autoHide: true}));
         var ctrl = new ol.control.MousePosition({
@@ -209,13 +233,36 @@ App4Sea.Map.OpenLayers = (function () {
         map.addControl(ctrl);
         map.addControl(new ol.control.OverviewMap({
             layers: [currentLayer],
-            collapsed: false
+            collapsed: true
         }));
         //map.addControl(new ol.control.ScaleLine());        Not correct scale
         
         return map;
     }
     
+    function getHeight(doc) {
+        var pageHeight = 0;
+
+        function findHighestNode(nodesList) {
+            for (var i = nodesList.length - 1; i >= 0; i--) {
+                if (nodesList[i].scrollHeight && nodesList[i].clientHeight && nodesList[i].offsetHeight) {
+                    var elHeight = Math.max(nodesList[i].scrollHeight, nodesList[i].clientHeight, nodesList[i].offsetHeight);
+                    pageHeight = Math.max(elHeight, pageHeight);
+                }
+                if (nodesList[i].childNodes.length){
+                    findHighestNode(nodesList[i].childNodes);
+                }
+            }
+        }
+
+        findHighestNode(doc.documentElement.childNodes);
+
+        // The entire page height is found
+        console.log('Page height is', pageHeight);
+
+        return pageHeight;
+    }
+
     function initOverlay(container, closer) {
         var overlayLayer = new ol.Overlay({
             element: container,
@@ -290,10 +337,10 @@ App4Sea.Map.OpenLayers = (function () {
 
         // Hook events to menu
         $(".MenuSection input[type='checkbox']").click(function () {
-            updateBaseMap();
+            updateBaseMap(myMap);
         });
         $(".MenuSection select").change(function () {
-            updateBaseMap();
+            updateBaseMap(myMap);
         });        
     }
 
@@ -362,22 +409,19 @@ App4Sea.Map.OpenLayers = (function () {
             //url: url,
             
             url: 'http://thredds.socib.es/thredds/wms/operational_models/oceanographical/wave/model_run_aggregation/sapo_ib/sapo_ib_best.ncd',
-            params: {'LAYERS': 'significant_wave_height'},
-            //params: {'LAYERS': 'average_wave_direction'},
+            //params: {'LAYERS': 'significant_wave_height'},
+            params: {'LAYERS': 'average_wave_direction'},
             //params: {'LAYERS': 'direction_of_the_peak_of_the_spectrum'},
             
             
             //url: 'https://ahocevar.com/geoserver/wms',
             //params: {'LAYERS': 'topp:states'},
-            //ratio: 1,
-            //serverType: 'geoserver'
+            ratio: 1,
+            serverType: 'geoserver'
           })
         });
         
-        //myMap.addControl(new ol.Control.LayerSwitcher());
-//        myMap.removeLayer(currentLayer);
         myMap.addLayer(imageLayer);
-        //myMap.zoomToExtent(extent);        
         
         return;
     }
@@ -587,6 +631,7 @@ App4Sea.Map.OpenLayers = (function () {
             for (var ind = 0; ind < data.selected.length; ind++) {
                 var nod = $(this).jstree('get_node', data.selected[ind]);
                 var path = nod.a_attr.path;
+                var heat = nod.a_attr.heat;
 
                 if (path === "" || nod.children.length > 0) {//This is a folder/parent node
                     continue;
@@ -596,7 +641,17 @@ App4Sea.Map.OpenLayers = (function () {
 
                 var index = alreadyLayer(nod.id, layers);
 
-                if (path.length > 3) {
+                if (heat && heat === true) {
+                    if (index === -1) {
+                        var vect = heatMap(path, nod.id, nod.text);
+                        layers.push({"id": nod.id, "vector" : vect});
+
+                        myMap.addLayer(vect);
+                    } else {
+                        myMap.addLayer(layers[index].vector);
+                    }
+                }
+                else if (path.length > 3) {
                     var ext = path.substr(path.length - 3, 3);
                     if (ext === '1cd') { //6a3e86f0825c7e6e605105c24d5ec1cd
                         if (index === -1) {
@@ -749,14 +804,16 @@ App4Sea.Map.OpenLayers = (function () {
 
     ////////////////////////////////////////////////////////////////////////////
     // heatMap
-    function heatMap() {
+    function heatMap(url, id, name) {
         var blur = document.getElementById('blur');
         var radius = document.getElementById('radius');
+        var title = document.getElementById('titleHeatMap');
 
+        title.innerHTML = name;
         var vector = new ol.layer.Heatmap({
             source: new ol.source.Vector({
                 //url: 'https://openlayers.org/en/v4.6.5/examples/data/kml/2012_Earthquakes_Mag5.kml',
-                url: 'data/2012_Earthquakes_Mag5.kml',
+                url: url,
                 format: new ol.format.KML({
                     extractStyles: false
                 })
@@ -774,7 +831,7 @@ App4Sea.Map.OpenLayers = (function () {
             event.feature.set('weight', magnitude - 5);
         });
 
-        myMap.addLayer(vector);
+       //myMap.addLayer(vector);
 
         blur.addEventListener('input', function () {
             vector.setBlur(parseInt(blur.value, 10));
@@ -783,6 +840,8 @@ App4Sea.Map.OpenLayers = (function () {
         radius.addEventListener('input', function () {
             vector.setRadius(parseInt(radius.value, 10));
         });
+        
+        return vector; 
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -1007,11 +1066,11 @@ App4Sea.Map.OpenLayers = (function () {
 
     ////////////////////////////////////////////////////////////////////////////
     // Update base map
-    function updateBaseMap() {
+    function updateBaseMap(map) {
         // Set base map
         var selectedMapLayer = $("#MenuLayer_Select").val();
         if (selectedMapLayer !== currentLayer.name) {
-            myMap.removeLayer(currentLayer);
+            map.removeLayer(currentLayer);
             if (selectedMapLayer === 'osmTileLayer') {
                 currentLayer = osmTileLayer;
             } else if (selectedMapLayer === 'esriWSPTileLayer') {
@@ -1021,7 +1080,7 @@ App4Sea.Map.OpenLayers = (function () {
             } else if (selectedMapLayer === 'blackTileLayer') {
                 currentLayer = blackTileLayer;
             }
-            myMap.addLayer(currentLayer);
+            map.addLayer(currentLayer);
         }
     }
 
