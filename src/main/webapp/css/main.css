@@ -52,13 +52,13 @@
 .MenuItem{
     cursor:pointer;
     padding:0.3em;
-
 }
+
 .MenuItem:hover{
     background-color: silver;
     color:white;
-
 }
+
 .MenuSystemLine{
     font-size: small;
     color: gray;
@@ -129,10 +129,10 @@
 h1,h2,h3,h4,h5,p,ul { font-family: "Montserrat","Calibri","sans-serif"; }
 
 h1 {
-    font-size: 200%;
+    font-size: 140%;
 }
 h2 {
-    font-size: 150%;
+    font-size: 120%;
 }
 h3 {
     font-size: 100%;

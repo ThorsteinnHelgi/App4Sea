@@ -320,7 +320,23 @@
                height: 0; 
                clear: both;
             }
+
+            /* On screens that are less or equal to max-width, change style */
+            @media screen and (max-width: 400px) {
+              #MenuContainer {
+                width: 300px;
+                background-color: beige;
+              }
+              h4 {
+                  font-size: 12px;
+              }
+              li {
+                  transform: scale(0.7); /* Equal to scaleX(0.7) scaleY(0.7) */
+              }
+            }
+
         </style>
+
     </head>
     
     <body>
