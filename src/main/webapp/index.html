@@ -34,7 +34,7 @@
 
         <script src="static/js/qwest.min.js" type="text/javascript"></script>
         <script src="static/js/zip.js" type="text/javascript"></script>
-        <script src="static/js/cors-public.js" type="text/javascript"></script>
+        <!--script src="static/js/cors-public.js" type="text/javascript"></script-->
         
         <script type="text/javascript">
             "use strict";
@@ -346,7 +346,7 @@
                 <button onclick="section_toggle('AnimationContainer')" class="w3-button w3-white" style="float:left; font-weight:bold; padding-left:3px; padding-right:3px; ">
                     <img src="icons/animation.png" alt="Animation" style="width:1.1em;" />
                 </button>
-                <button id="testBtn" class="w3-button w3-white" style="float:left; font-weight:bold; padding-left:0px; padding-right:3px; ">Test</button>
+                <!--button id="testBtn" class="w3-button w3-white" style="float:left; font-weight:bold; padding-left:0px; padding-right:3px; ">Test</button-->
                 <button onclick="w3_close('MenuContainer')" class="w3-button w3-white" style="float:right; font-weight:bold; padding-left:3px; padding-right:0px; ">x</button>
             </div>
             <div>
@@ -361,10 +361,11 @@
 
                 <div style="font-size:0.8em; color:red">
                     This site currently works best in the Chrome and Vivaldi browsers.<br/>
-                    To access cross domain information please add 
+                    <!--To access cross domain information please add 
                     <a href='https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?brand=CHBD&gclid=EAIaIQobChMIxsz1iebz3AIVwcDACh3yDgHbEAAYASABEgKjnvD_BwE&gclsrc=aw.ds&dclid=CNTTwZHm89wCFdQm4AodmP0Obw' title='Allow CORS'> 
                             this extension
                     </a> to those browsers.
+                    -->
                 </div>
             </div>
             
@@ -458,6 +459,10 @@
                         </form>
                     </div>
 
+                    <div id="legend" style="display:block; overflow: auto; background-color: white;">
+                                                                                
+                    </div>
+
                     <div role="group" aria-label="Animation controls" >
                         <div id="popup" class="ol-popup">
                             <a href="#" id="popup-closer" class="ol-popup-closer"></a>
@@ -491,6 +496,11 @@
             </div>            
             <!-- This is the tool-tip container. It is populated in code -->
             <div id="ToolTipInfo"></div>            
+            <!-- This is the legend (ScreenOverlay) container. It is populated in code -->
+            <div id="LegendInfo">
+                <a id="Legend" href="" style="display:none"/>
+            </div>            
+
             <img id="photo" style="top: 9.5em; left: .5em; display:none; "/>
         </div>
 
@@ -532,6 +542,9 @@
             }
     
             function w3_open(id) {
+                if (id === "MenuContainer") {
+                    $("#MenuTree").jstree(true).close_all();
+                }
                 document.getElementById(id).style.display = "block";
             }
             function w3_close(id) {

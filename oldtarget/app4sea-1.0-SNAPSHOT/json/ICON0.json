@@ -1,0 +1,4 @@
+[
+    { "id" : "I50", "parent" : "ICON0", "text" : "IOSC 2020", "children" : false, "a_attr" : { "path" : "http://iosc.org"} },
+    { "id" : "I51", "parent" : "ICON0", "text" : "2019 ARCTIC FRONTIERS", "children" : false, "a_attr" : { "path" : "https://www.arcticfrontiers.com/"} }
+]

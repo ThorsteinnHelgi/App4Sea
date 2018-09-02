@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Folder>
+	<name>96 Hour Atlantic Wind &amp; Wave Forecast</name>
+	<open>1</open>
+	<description>Composite 96 Hour Atlantic Wind &amp; Wave Forecast</description>
+	<Style>
+		<ListStyle>
+			<listItemType>check</listItemType>
+			<bgColor>00ffffff</bgColor>
+			<maxSnippetLines>2</maxSnippetLines>
+		</ListStyle>
+	</Style>
+	<GroundOverlay>
+		<name>Winds Only - 96 Hour Atlantic Wind &amp; Wave Forecast</name>
+		<Icon>
+			<href>http://ocean.weather.gov/gis/ATL_WW_F96_WINDS.png</href>
+		</Icon>
+		<LatLonBox>
+			<north>72.8</north>
+			<south>17.3</south>
+			<east>20</east>
+			<west>-100</west>
+		</LatLonBox>
+	</GroundOverlay>
+	<GroundOverlay>
+		<name>Ice Edge Only - 96 Hour Wind &amp; Wave Forecast</name>
+		<Icon>
+			<href>http://ocean.weather.gov/gis/ATL_WW_F96_ICE_EDGE.png</href>
+		</Icon>
+		<LatLonBox>
+			<north>72.8</north>
+			<south>17.3</south>
+			<east>20</east>
+			<west>-100</west>
+		</LatLonBox>
+	</GroundOverlay>
+	<GroundOverlay>
+		<name>Symbols Only - 96 Hour Wind &amp; Wave Forecast</name>
+		<Icon>
+			<href>http://ocean.weather.gov/gis/ATL_WW_F96_SYMBOLS.png</href>
+		</Icon>
+		<LatLonBox>
+			<north>72.8</north>
+			<south>17.3</south>
+			<east>20</east>
+			<west>-100</west>
+		</LatLonBox>
+	</GroundOverlay>
+	<GroundOverlay>
+		<name>Text Only - 96 Hour Wind &amp; Wave Forecast</name>
+		<Icon>
+			<href>http://ocean.weather.gov/gis/ATL_WW_F96_TEXT.png</href>
+		</Icon>
+		<LatLonBox>
+			<north>72.8</north>
+			<south>17.3</south>
+			<east>20</east>
+			<west>-100</west>
+		</LatLonBox>
+	</GroundOverlay>
+	<GroundOverlay>
+		<name>Isopleths Only - 96 Hour Wind &amp; Wave Forecast</name>
+		<Icon>
+			<href>http://ocean.weather.gov/gis/ATL_WW_F96_ISOPLETHS.png</href>
+		</Icon>
+		<LatLonBox>
+			<north>72.8</north>
+			<south>17.3</south>
+			<east>20</east>
+			<west>-100</west>
+		</LatLonBox>
+	</GroundOverlay>
+	<GroundOverlay>
+		<name>Gulf Stream Only - 96 Hour Wind &amp; Wave Forecast</name>
+		<Icon>
+			<href>http://ocean.weather.gov/gis/4WWATL_GULF_STREAM.png</href>
+		</Icon>
+		<LatLonBox>
+			<north>73.3</north>
+			<south>16.8</south>
+			<east>20</east>
+			<west>-100</west>
+		</LatLonBox>
+	</GroundOverlay>
+	<GroundOverlay>
+		<name>Label Only - 96 Hour Wind &amp; Wave Forecast</name>
+		<Icon>
+			<href>http://ocean.weather.gov/gis/ATL_WW_F96_LABEL.png</href>
+		</Icon>
+		<LatLonBox>
+			<north>72.8</north>
+			<south>17.3</south>
+			<east>20</east>
+			<west>-100</west>
+		</LatLonBox>
+	</GroundOverlay>
+</Folder>
+</kml> 	

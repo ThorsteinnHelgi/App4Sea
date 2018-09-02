@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<NetworkLink>
+	<name>Exclusive Economic Zones (200 NM) v10</name>
+	<description><![CDATA[Flanders Marine Institute (2018). Maritime Boundaries Geodatabase: Maritime Boundaries and Exclusive Economic Zones (200NM), version 10. Available online at <a href="http://www.marineregions.org">http://www.marineregions.org</a> https://doi.org/10.14284/312. Consulted on YYYY-MM-DD.]]></description>
+	<Link>
+		<href>http://geo.vliz.be/geoserver/gwc/service/kml/MarineRegions:eez.png.kml</href>
+	</Link>
+</NetworkLink>
+</kml>

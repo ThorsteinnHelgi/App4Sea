@@ -1,0 +1,4 @@
+[
+    { "id" : "Phy00", "parent" : "LPhy0", "text" : "Dynamic earth (local) as kmz", "children" : false, "a_attr" : { "path" : "data/Dynamic Earth.kmz"} },
+    { "id" : "Phy01", "parent" : "LPhy0", "text" : "Biggest earthquakes in 2012", "children" : false, "a_attr" : { "path" : "data/2012_Earthquakes_Mag5.kml", "heat" : true} }
+]

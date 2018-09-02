@@ -18,24 +18,18 @@ App4Sea.Map.OpenLayers = (function () {
     var esriWSPTileLayer;
     var esriWITileLayer;
     var blackTileLayer;
-    var cloudNow;
-    var imageLayer;
     var that = {};
     var zoom = 4;
     var minZoom = 2;
     var maxZoom = 18;
-    var overlayLayerPopUp;
+    var overlayLayerPopUp;// Used for popup information when clicking in icons
+    var overlayDescription;// Used for layer description (e.g. legend)
     var prefProj = 'EPSG:4326';
     var prefViewProj = 'EPSG:3857'; //Default is EPSG:3857 (Spherical Mercator).
-    var center = ol.proj.transform([-3, 65], prefProj, prefViewProj);//'EPSG:3857'); 
-    var extent = ol.proj.transformExtent([-180, 90, 180, -90], prefProj, prefViewProj);
-//    var origin = ol.proj.transformExtent([-90, -90, 90, 90], prefProj, prefViewProj);
-//    var timespan = {begin: "", end: ""};
-//    var networklink = {timespan, link: ""};
+    var mapCenter = ol.proj.transform([-3, 65], prefProj, prefViewProj);//'EPSG:3857'); 
+    var mapExtent = ol.proj.transformExtent([-180, 90, 180, -90], prefProj, prefViewProj);
     var networklinkarray = [];
-    var indNow = 0;
     var layers = []; // array to hold layers as they are created    
-    //var layerNode = { id: "", text: "", path: "" };
 
     ////////////////////////////////////////////////////////////////////////////
     //initialize maps and models when page DOM is ready..
@@ -57,15 +51,36 @@ App4Sea.Map.OpenLayers = (function () {
     var test = function () {
         console.log("Testing ...");
 
+        layers.length = 0
+
         var pdf = 'data/2017-05-09-EPPR-COSRVA-guts-and-cover-letter-size-digital-complete.pdf';
         var btn = document.getElementById('testBtn');
         //var oNewDoc = this.extractPages({42, 42, pdf});
     };
 
+    //https://gis.stackexchange.com/questions/121555/wms-server-with-cors-enabled/147403#147403
+    (function() {
+        var cors_api_host = 'cors-anywhere.herokuapp.com';
+        var cors_api_url = 'https://' + cors_api_host + '/';
+        var slice = [].slice;
+        var origin = window.location.protocol + '//' + window.location.host;
+        var open = XMLHttpRequest.prototype.open;
+        XMLHttpRequest.prototype.open = function() {
+            var args = slice.call(arguments);
+            var targetOrigin = /^https?:\/\/([^\/]+)/i.exec(args[1]);
+            if (targetOrigin && targetOrigin[0].toLowerCase() !== origin &&
+                targetOrigin[1] !== cors_api_host) {
+                args[1] = cors_api_url + args[1];
+            }
+            return open.apply(this, args);
+        };
+    })();
+
     function initBasemapLayerTiles() {
         var popupContainer = document.getElementById('popup');
         var popupContent = document.getElementById('popup-content');
         var popupCloser = document.getElementById('popup-closer');
+        var descriptionContainer = document.getElementById('legen');
 
         // Create an observer instance linked to the callback function
         //var observer = new MutationObserver(scaleToHeight);
@@ -82,6 +97,8 @@ App4Sea.Map.OpenLayers = (function () {
         overlayLayerPopUp = initOverlay(popupContainer, popupCloser);
         // Create an overlay to anchor images to the map.
         //var overlayLayerPhotos = initOverlay(container);
+        
+        overlayDescription = initOverlay(descriptionContainer);
 
         // Init osmTileLayer base map
         osmTileLayer = new ol.layer.Tile({
@@ -94,7 +111,7 @@ App4Sea.Map.OpenLayers = (function () {
             name: "esriWSPTileLayer",
             source: new ol.source.XYZ({
                 attributions: ['&copy; <a href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/0">ArcGIS World Street Map</a>'],
-                rendermode: 'image',
+////                rendermode: 'image',
                 url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}'
             })
         });
@@ -104,7 +121,7 @@ App4Sea.Map.OpenLayers = (function () {
             name: "esriWITileLayer",
             source: new ol.source.XYZ({
                 attributions: ['&copy; <a href="https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/0">ArcGIS World Imagery Map</a>'],
-                rendermode: 'image',
+                //rendermode: 'image',
                 url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}'
             })
         });
@@ -113,7 +130,7 @@ App4Sea.Map.OpenLayers = (function () {
             name: 'blackTileLayer',
             source: new ol.source.XYZ({
                 attributions: ['&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'],
-                rendermode: 'image',
+                //rendermode: 'image',
                 url: 'http://{a-c}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
             })
         });        
@@ -126,7 +143,7 @@ App4Sea.Map.OpenLayers = (function () {
             interaction: interaction,
             overlays: [overlayLayerPopUp],
             view: new ol.View({
-                center: center,
+                center: mapCenter,
                 zoom: zoom,
                 minZoom: minZoom,
                 maxZoom: maxZoom
@@ -264,7 +281,7 @@ App4Sea.Map.OpenLayers = (function () {
     }
 
     function initOverlay(container, closer) {
-        var overlayLayer = new ol.Overlay({
+        var overlay = new ol.Overlay({
             element: container,
             autoPan: true,
             autoPanAnimation: {
@@ -272,15 +289,17 @@ App4Sea.Map.OpenLayers = (function () {
             }
         });
         
-        // Add a click handler to hide the overlay.
-        // @return {boolean} Don't follow the href.
-        closer.onclick = function () {
-            overlayLayer.setPosition(undefined);
-            closer.blur();
-            return false;
-        };
+        if (closer) {
+            // Add a click handler to hide the overlay.
+            // @return {boolean} Don't follow the href.
+            closer.onclick = function () {
+                overlay.setPosition(undefined);
+                closer.blur();
+                return false;
+            };
+        }
         
-        return overlayLayer;
+        return overlay;
     }
     
     function initToolTip () {
@@ -332,8 +351,8 @@ App4Sea.Map.OpenLayers = (function () {
         // Set up InfoTree
         setUpInfoTree();
 
-        var button = document.getElementById('testBtn');
-        button.addEventListener('click', test, false);
+//        var button = document.getElementById('testBtn');
+//        button.addEventListener('click', test, false);
 
         // Hook events to menu
         $(".MenuSection input[type='checkbox']").click(function () {
@@ -390,40 +409,66 @@ App4Sea.Map.OpenLayers = (function () {
 
         return description;
     }
-    
-    function loadNetCDF (url, id) {
-        console.log("loadNetCDF: " + url);
 
-        var options = {
-            //numZoomLevels: 15,
-            isBaseLayer: false,
-            maxResolution: "auto",
-            //resolutions: myMap.layers[0].resolutions,
-            //projection: myMap.getProjectionObject(),
-            //strategies: [new ol.strategy.Fixed()],
-            displayInLayerSwitcher: true
-        };
+    function drawSquare(ext) {
 
-        imageLayer = new ol.layer.Image({
-          source: new ol.source.ImageWMS({
-            //url: url,
-            
-            url: 'http://thredds.socib.es/thredds/wms/operational_models/oceanographical/wave/model_run_aggregation/sapo_ib/sapo_ib_best.ncd',
-            //params: {'LAYERS': 'significant_wave_height'},
-            params: {'LAYERS': 'average_wave_direction'},
-            //params: {'LAYERS': 'direction_of_the_peak_of_the_spectrum'},
-            
-            
-            //url: 'https://ahocevar.com/geoserver/wms',
-            //params: {'LAYERS': 'topp:states'},
-            ratio: 1,
-            serverType: 'geoserver'
-          })
+        var extents = { myBox: ext };
+        
+        var overlay = new ol.layer.Tile({
+            extent: extents.myBox,
+            source: new ol.source.TileJSON({
+                url: 'https://api.tiles.mapbox.com/v3/mapbox.world-light.json?secure',
+                crossOrigin: 'anonymous'
+            })
         });
         
-        myMap.addLayer(imageLayer);
-        
-        return;
+        myMap.addLayer(overlay);
+      
+//        var defaults = {
+//            n : north,
+//            s : south,
+//            w : west,
+//            e : east
+//        };
+//        var coords = $.extend(defaults);
+//        var ext = new ol.extent.createEmpty();
+//        ext.extend(new ol.LonLat(coords.w, coords.s));
+//        ext.extend(new ol.LonLat(coords.e, coords.n));
+//                
+//        var boxes = new ol.Layer.Boxes("Boxes");
+//        var box = new ol.Marker.Box(ext, "#008DCF", 4);
+//        boxes.addMarker(box);
+//        myMap.addLayer(boxes);                
+                
+                
+//        var source = new ol.source.Vector({wrapX: false});
+//
+//        var vector = new ol.layer.Vector({
+//          source: source
+//        });
+//        
+//        var style = {
+//          strokeColor: "#00FF00",
+//          strokeOpacity: 1,
+//          strokeWidth: 3,
+//          fillColor: "#00FF00",
+//          fillOpacity: 0.8
+//       }; 
+//
+//       var p1 = new ol.geom.Point(west, north);
+//       var p2 = new ol.geom.Point(east, north);
+//       var p3 = new ol.geom.Point(east, south);
+//       var p4 = new ol.geom.Point(west, south);
+//       var p5 = new ol.geom.Point(west, north);
+//
+//       var pnt= [];
+//       pnt.push(p1,p2,p3,p4,p5);
+//
+//       var ln = new ol.geom.LinearRing(pnt);
+//       var pf = new ol.Feature.Vector(ln, null, style);
+//
+//       vector.addFeatures([pf]);
+//       myMap.addLayer(vector);
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -435,7 +480,7 @@ App4Sea.Map.OpenLayers = (function () {
         var vector = new ol.layer.Vector({
             source: new ol.source.Vector({
                 url: url,
-                rendermode: 'image',
+                //rendermode: 'image',
                 format: new ol.format.KML({
                     extractStyles: true,
                     extractAttributes: true,
@@ -491,15 +536,15 @@ App4Sea.Map.OpenLayers = (function () {
     function loadWeather(url, id) {
         console.log("loadWeather: " + id + " from " + url);
         
-        var startResolution = ol.extent.getWidth(extent) / 256 / 4;
+        var startResolution = ol.extent.getWidth(mapExtent) / 256 / 4;
         var resolutions = new Array(maxZoom-minZoom+1);
         for (var i = 0, ii = resolutions.length; i < ii; ++i) {
             resolutions[i] = startResolution / Math.pow(2, i);
         }
         
         var tileGrid = new ol.tilegrid.TileGrid({
-            extent: extent,
-            origin: [extent[0], extent[1]],
+            extent: mapExtent,
+            origin: [mapExtent[0], mapExtent[1]],
             resolutions: resolutions,
             projection: prefViewProj,
             //minZoom: minZoom,
@@ -511,7 +556,7 @@ App4Sea.Map.OpenLayers = (function () {
             name: id,
             preload: 0,
             opacity: 0.8,
-            extent: extent,
+            extent: mapExtent,
             minResolution: resolutions[resolutions.length-1],
             maxResolution: resolutions[0],
             tileGrid: tileGrid,
@@ -549,8 +594,20 @@ App4Sea.Map.OpenLayers = (function () {
         // First we load the tree based on a json file that we fetch using ajax (core)
         $('#MenuTree').jstree({
             'checkbox': {'keep_selected_style': false, 'real_checkboxes': true},
+            'plugins' : ['dnd', 'checkbox', 'context'],
             'core': {
-                'check_callback': false,
+                'check_callback': function (operation, node, parent, position, more) {
+//                    if(operation === "copy_node" || operation === "move_node") {
+//                        if(parent.id === "#") {
+//                            return false; // prevent moving a child above or below the root
+//                        }
+//                    };
+                    
+                    if (operation === 'create_node')
+                        return true;
+                    else
+                        return true;
+                },
                 'themes': {
                     'dots': false,
                     'icons': false
@@ -608,17 +665,33 @@ App4Sea.Map.OpenLayers = (function () {
 
         // 
         $('#MenuTree').on("changed.jstree", function (e, data) {
-            console.log("On Action: " + data.action);
+            console.log("On Action: " + data.action + " on node " + data.node.id);
 
             if (typeof data.node === 'undefined')
                 return;
 
+            var node = $(this).jstree('get_node', data.node.id);
+
+            // Remove overlay
+            hideMetadata();
+
+            // Remove layer
             for (var lind = 0; lind < layers.length; lind++)
             {
                 var isSel = false;
                 for (var sind = 0; sind < data.selected.length; sind++) {
-                    if (data.selected[sind].id === layers[lind].id) {
-                        isSel = true;
+                    if (node.parent === '#') {
+                        //var nod = $(this).jstree('get_node', data.selected[sind]);
+                        //if (node.parents.length === 2) {
+                            if (data.selected[sind].id === layers[lind].id) {
+                                isSel = true;
+                            }
+                        //}
+                    }
+                    else {
+                        if (node.id === layers[lind].id) {
+                            isSel = true;
+                        }
                     }
                 }
                 if (!isSel) {
@@ -627,17 +700,31 @@ App4Sea.Map.OpenLayers = (function () {
                 }
             }
 
+            // Add overlay
+            if (node.text === 'Description' || node.text === 'Author'){
+                if (node.state.selected) {
+                    showMetadata(node.text, node.id, node.data);
+                }
+            }
+
             // Add layer
             for (var ind = 0; ind < data.selected.length; ind++) {
                 var nod = $(this).jstree('get_node', data.selected[ind]);
+                                
+                // We currently do not support sublayers (below level 2 in tree)
+                if (nod.parents.length > 2) {
+                    ///continue;
+                }
+                
                 var path = nod.a_attr.path;
                 var heat = nod.a_attr.heat;
 
-                if (path === "" || nod.children.length > 0) {//This is a folder/parent node
+                if (!path || path === "") {
                     continue;
                 }
 
-                console.log("Layer being added: " + nod.text);
+                //console.log("Layer being added: " + nod.id + ": " + nod.text);
+                console.log("Layer being added: " + nod.id + ": " + nod.text);
 
                 var index = alreadyLayer(nod.id, layers);
 
@@ -645,6 +732,7 @@ App4Sea.Map.OpenLayers = (function () {
                     if (index === -1) {
                         var vect = heatMap(path, nod.id, nod.text);
                         layers.push({"id": nod.id, "vector" : vect});
+                        console.log("Cached layers now are " + layers.length);
 
                         myMap.addLayer(vect);
                     } else {
@@ -657,6 +745,7 @@ App4Sea.Map.OpenLayers = (function () {
                         if (index === -1) {
                             var vect = loadWeather(path, nod.id);
                             layers.push({"id": nod.id, "vector" : vect});
+                            console.log("Cached layers now are " + layers.length);
 
                             myMap.addLayer(vect);
                         } else {
@@ -666,34 +755,42 @@ App4Sea.Map.OpenLayers = (function () {
                     else if (ext === '6e4') { //1326faa296b7e865683b67cdf8e5c6e4
                         if (index === -1) {
                             var vect = loadCityWeather(path, nod.id);
-                            //layers.push({"id": nod.id, "vector" : vect});
+//                            layers.push({"id": nod.id, "vector" : vect});
+//                            console.log("Cached layers now are " + layers.length);
 
-                            //myMap.addLayer(vect);
-                        } else {
-                            //myMap.addLayer(layers[index].vector);
-                        }
-                    }
-                    else if (ext === "kmz") {
-                        if (index === -1) {
-                            var vect = loadKmz(path, nod.id);
+//                            myMap.addLayer(vect);
                         } else {
                             myMap.addLayer(layers[index].vector);
                         }
                     }
-                    else if (ext === ".nc") {
-                        //if (index === -1) {
-                           // var vect = 
-                           loadNetCDF(path, nod.id);
-                        //} else {
-                          //  myMap.addLayer(layers[index].vector);
-                        //}
+                    else if (ext === "gif" || ext === "cgi" || ext === "wms") {
+                        if (index === -1) {
+                            var vect = loadImageOrTiles(true, path, nod.id, nod.text, nod.a_attr.layers,
+                                nod.a_attr.width, nod.a_attr.height, nod.a_attr.start);
+                            layers.push({"id": nod.id, "vector" : vect});
+                            console.log("Cached layers now are " + layers.length);
+
+                            myMap.addLayer(vect);
+                        } else {
+                            myMap.addLayer(layers[index].vector);
+                        }
                     }
-                    else {
+                    else if (ext === ".nc" || ext === "ncd") {
+                        if (index === -1) {
+                            //var vect = loadNetCDF(path, nod.id, nod.text, nod.a_attr.layers);
+                            var vect = loadImageOrTiles(false, path, nod.id, nod.text, nod.a_attr.layers,
+                                nod.a_attr.width, nod.a_attr.height, nod.a_attr.start);
+                            layers.push({"id": nod.id, "vector" : vect});
+                            console.log("Cached layers now are " + layers.length);
+
+                            myMap.addLayer(vect);
+                        } else {
+                            myMap.addLayer(layers[index].vector);
+                        }
+                    }
+                    else {// Including kmz and kml
                         if (index === -1){
                             var vect =  loadKmz(path, nod.id);
-                            //layers.push({"id": nod.id, "vector" : vect});
-
-                            //myMap.addLayer(vect);
                         }
                         else{
                             myMap.addLayer(layers[index].vector);
@@ -831,8 +928,6 @@ App4Sea.Map.OpenLayers = (function () {
             event.feature.set('weight', magnitude - 5);
         });
 
-       //myMap.addLayer(vector);
-
         blur.addEventListener('input', function () {
             vector.setBlur(parseInt(blur.value, 10));
         });
@@ -903,80 +998,30 @@ App4Sea.Map.OpenLayers = (function () {
     }
 
     ////////////////////////////////////////////////////////////////////////////
-    // animationGo starts the animation
-    function animationGo() {
-        var frameRate = 0.5; // frames per second
-        var animationId = null;
+    // showMetadata
+    function showMetadata(title, id, data) {
 
-        ///function someHoursAgo(hours) {
-        // return new Date(Math.round(Date.now() / 3600000) * 3600000 - 3600000 * hours);
-        //}
-
-        //var extent = ol.proj.transformExtent([-126, 24, -66, 50], prefProj, prefViewProj);//'EPSG:3857');
-        //var startDate = someHoursAgo(3);
-
-        //var cloudTileLayer = new ol.layer.Tile({
-        //  extent: extent,
-        //source: new ol.source.TileWMS({
-        //  attributions: ['Animated Google Cloude Maps'],
-        //url: networklinkarray[indNow].link
-//            })
-        //      });
-
-        function setTime() {
-            function updateInfo() {
-                var el = document.getElementById('info');
-                el.innerHTML = indNow.toString() + '<br>' +
-                        networklinkarray[indNow].timespan.begin + '<br>' +
-                        networklinkarray[indNow].timespan.end + '<br>' +
-                        networklinkarray[indNow].link;
-            }
-
-            var cloudVector;
-            var link = networklinkarray[indNow].link;
-
-            if (link.length > 3) {
-                var ext = link.substr(link.length - 3, 3);
-                if (ext === "kmz")
-                    cloudVector = loadKmz(networklinkarray[indNow].link);
-                else
-                    cloudVector = loadKml(networklinkarray[indNow].link);
-            }
-            myMap.removeLayer(cloudNow);
-            myMap.addLayer(cloudVector);
-            cloudNow = cloudVector;
-
-            updateInfo();
-
-            indNow++;
-            if (indNow > networklinkarray.length - 1)
-                indNow = 0;
-        }
-
-        setTime();
-
-        var stop = function () {
-            if (animationId !== null) {
-                window.clearInterval(animationId);
-                animationId = null;
-            }
-        };
-
-        var play = function () {
-            stop();
-            animationId = window.setInterval(setTime, 1000 / frameRate);
-        };
-
-        var startButton = document.getElementById('play');
-        startButton.addEventListener('click', play, false);
-
-        var stopButton = document.getElementById('pause');
-        stopButton.addEventListener('click', stop, false);
+        var elem = document.getElementById('legend');
+        elem.innerHTML = data;
+        
+        var pos = ol.proj.fromLonLat([0, 55]);
+        var overlay = new ol.Overlay({
+          position: pos,
+          positioning: 'center-center',
+          element: elem,
+          stopEvent: false
+        });
+        
+        myMap.addOverlay(overlay);
     }
-
+    
+    function hideMetadata() {
+        var elem = document.getElementById('legend');
+        elem.innerHTML = "";
+    }
     ////////////////////////////////////////////////////////////////////////////
-    // animationMapOld 
-    function animationMapOld() {
+    // loadImageOrTiles
+    function loadImageOrTiles(image, url, id, name, layers, width, height, start) {
 
         function someHoursAgo(hours) {
             return new Date(Math.round(Date.now() / 3600000) * 3600000 - 3600000 * hours);
@@ -1015,7 +1060,7 @@ App4Sea.Map.OpenLayers = (function () {
             if (currentDate > Date.now()) {
                 currentDate = someHoursAgo(3);
             }
-            cloudTileLayer.getSource().updateParams({'TIME': currentDate.toISOString()});
+            layer.getSource().updateParams({'TIME': currentDate.toISOString()});
             updateInfo();
         }
         
@@ -1042,26 +1087,68 @@ App4Sea.Map.OpenLayers = (function () {
         var dateOpt = {weekday: 'short', year: 'numeric', month: 'short', day: 'numeric'};
         var endDate = someHoursAgo(0);
         var startDate = someHoursAgo(3);
+//        if (start) {
+//            var date = new Date(start);
+//            startDate = new Date(Math.round(date/ 3600000) * 3600000);
+//        }
         var currentDate = startDate;
         var frameRate = 0.2; // frames per second
         var animationId = null;
 
-        document.getElementById('title').innerText = "Animated Google Cloude Maps";
+        document.getElementById('title').innerText = name;
 
-        var cloudTileLayer = new ol.layer.Tile({
-            extent: extent,
-            source: new ol.source.TileWMS({
-                attributions: ['Animated Google Cloude Maps'],
-                //url: 'data/animation.kml',
-                url: 'https://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r-t.cgi',
-                params: {'LAYERS': 'nexrad-n0r-wmst'}
-            })
-        });
+        var startResolution = ol.extent.getWidth(mapExtent) / width / 4;
+        var resolutions = new Array(maxZoom-minZoom+1);
+        for (var i = 0, ii = resolutions.length; i < ii; ++i) {
+            resolutions[i] = startResolution / Math.pow(2, i);
+        }
+        
+        var source;
+        var layer;
+        
+        if (image === true) {
+            source = new ol.source.ImageWMS({
+                url: url,
+                tileGrid: tileGrid,
+                serverType: 'geoserver',
+                params: {'LAYERS': layers}
+            });
 
-        myMap.addLayer(cloudTileLayer);
+            layer = new ol.layer.Image({
+                attributions: [name],
+                extent: mapExtent,
+                source: source
+            });
+        } else {
+            var tileGrid = new ol.tilegrid.TileGrid({
+                extent: mapExtent,
+                origin: [mapExtent[0], mapExtent[1]],
+                maxZoom: maxZoom,
+                minZoom: minZoom,
+                resolutions: resolutions,
+                projection: prefViewProj,
+                tileSize: [height, width]
+            });
+            
+            source = new ol.source.TileWMS({
+                url: url,
+                tileGrid: tileGrid,
+                serverType: 'geoserver',
+                params: {'LAYERS': layers, 'TILED' : true}
+            });
+
+            layer = new ol.layer.Tile({
+                attributions: [name],
+                extent: mapExtent,
+                source: source
+            });
+        }
+
         initInfo();
 
         setTime();
+        
+        return layer;
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -1104,7 +1191,7 @@ App4Sea.Map.OpenLayers = (function () {
     ////////////////////////////////////////////////////////////////////////////
     //load kml and return as Vector
     // See https://developers.google.com/kml/documentation/kmlreference
-    function loadKmlText(text, name) {
+    function loadKmlText(text, id, name) {
         console.log("loadKmlText: " + name);
 
         var formatter = new ol.format.KML({
@@ -1118,28 +1205,23 @@ App4Sea.Map.OpenLayers = (function () {
             console.log("Projection: " + proj.wb);
 
         var kml_features = formatter.readFeatures(text, {
-            //dataProjection: proj.wb,//'EPSG:4326'//, //Projection of the data we are reading.
-            //featureProjection: proj.wb//'EPSG:3857' // Projection of the feature geometries created by the format reader.
             dataProjection: prefProj, //Projection of the data we are reading.
-            featureProjection: prefViewProj//'EPSG:3857' // Projection of the feature geometries created by the format reader.
+            featureProjection: prefViewProj//Projection of the feature geometries created by the format reader.
         });
 
         console.log("kml_features are: " + kml_features.length);
         
-        if (kml_features.length > 0) {
-            var description = kml_features[0].get('description');
-            
-            if (description) {
-                document.getElementById("DebugWindow").innerHTML=description;
+//        if (kml_features.length > 0) {
+//            var description = kml_features[0].get('description');
+//            
+//            if (description) {
+//                addChild('Description', description, $('#MenuTree'), id, false);
+//            }
+//        }
 
-                //$("#DebugWindow").val(description);
-            }
-        }
-
-        // http://geoadmin.github.io/ol3/apidoc/ol.layer.Vector.html
         var vector = new ol.layer.Vector({
             source: new ol.source.Vector({
-                rendermode: 'image',
+                //rendermode: 'image',
                 format: formatter
             })
         });
@@ -1222,22 +1304,189 @@ App4Sea.Map.OpenLayers = (function () {
             return;
         }
         
-        console.log(text);
-        var vect = loadKmlText(text, name);
+        //console.log(text); // log the whole kml file
+        var vect = loadKmlText(text, id, name);
+        
         layers.push({"id": id, "vector": vect});
+        console.log("Cached layers now are " + layers.length);
+
         myMap.addLayer(vect);
 
         console.log("addFeatures: " + id + " in file " + name + " DONE");
     }
 
+    function addChild (text, data, tree, parNode, disabled, icon) {
+        var newNode = { state: {"closed" : true, "checkbox_disabled" : false, "disabled" : false}, 
+            icon: icon, text: text, data: data, selected: true, children : false };
+        var retVal = tree.jstree(true).create_node(parNode, newNode, 'last', false, false);
+        console.log("Adding " + text + " to tree under " + parNode + " returned " + retVal);
+        return retVal;
+    }
+
 // Function to parse KML text to get link reference to list any other 
 // nested files (kmz or kml)
-    function parseKmlText(text) {
+    function parseKmlText(text, id) {
         //console.log("parseKmlText: " + text);
         var oParser = new DOMParser();
         var oDOM = oParser.parseFromString(text, 'text/xml');
         var links = oDOM.querySelectorAll('NetworkLink Link href');
         var urls = oDOM.querySelectorAll('NetworkLink Url href');
+
+        var kml = oDOM.querySelector('kml');
+        
+        function getName(children, defaultName) {
+            for (var ind=0; ind<children.length; ind++){
+                if (children[ind].nodeName === 'name')
+                    return children[ind].innerHTML;
+            }
+            return defaultName;
+        }
+        
+        function addOverlay(overlay, id) {
+            var href = overlay.querySelector('Icon href');
+            var url;
+            var image;
+            
+            if (href)
+                url = href.innerHTML;
+
+            if (overlay.nodeName === "ScreenOverlay") {
+                console.log("ScreenOverlay: " + url);
+                if (url) {
+                    var name, nameIs;
+                    var name = overlay.querySelector('name');
+                    if (name)
+                        nameIs = name.innerHTML;
+
+                    var overlayXY = overlay.querySelector('overlayXY');
+                    var screenXY = overlay.querySelector('screenXY');
+                    var rotationXY = overlay.querySelector('rotationXY');
+                    var size = overlay.querySelector('size');
+
+                    var legend = $("#Legend");
+                    legend.href = url;
+                    legend.style = {diplay : 'block'};
+                
+//                var imageExtent = ol.proj.transformExtent([west, south, east, north], prefProj, prefViewProj);
+//
+//                image = new ol.layer.Image({
+//    //                extent: mapExtent,
+//    //                origin: [mapExtent[0], mapExtent[1]],
+//                    source: new ol.source.ImageStatic({
+//                        url: url,
+//                        crossOrigin: '',
+//                        //projection: 'EPSG:27700',
+//                        imageExtent: imageExtent
+//                    })
+//                });
+                }
+            }
+            else if (overlay.nodeName === "PhotoOverlay") {
+                console.log("PhotoOverlay: " + url);
+                return;
+            }
+            else { // GroundOverlay
+                var west = parseFloat(overlay.querySelector('west').innerHTML);
+                var south = parseFloat(overlay.querySelector('south').innerHTML);
+                var east = parseFloat(overlay.querySelector('east').innerHTML);
+                var north = parseFloat(overlay.querySelector('north').innerHTML);
+
+                var imageExtent = ol.proj.transformExtent([west, south, east, north], prefProj, prefViewProj);
+                
+                var name, nameIs;
+                var name = overlay.querySelector('name');
+                if (name)
+                    nameIs = name.innerHTML;
+
+                image = new ol.layer.Image({
+                    name: nameIs,
+    //                extent: mapExtent,
+    //                origin: [mapExtent[0], mapExtent[1]],
+                    source: new ol.source.ImageStatic({
+                        url: url,
+                        crossOrigin: '',
+                        //projection: 'EPSG:27700',
+                        imageExtent: imageExtent
+                  })
+                });
+            }
+            //drawSquare(imageExtent);
+
+            if (image) {
+                layers.push({"id": id, "vector" : image});
+                console.log("Cached layers now are " + layers.length);
+
+                myMap.addLayer(image);
+            }
+        }
+        
+        function listChildren(id, children){
+
+            for(var cind=0; cind<children.length; cind++){
+
+                var child = children[cind];
+                var newId;
+
+                if (child.nodeName === 'name'){
+//                    var name = child;
+//                    if(name.innerHTML !== "") {
+//                        newId = addChild('Name', name.innerHTML, tree, id, true);
+//                    }
+                }
+                else if (child.nodeName === 'description') {
+                    var description = child;
+                    if (description.innerHTML !== "") {
+                        newId = addChild('Description', description.innerHTML, $('#MenuTree'), id, false, 'icons/description.png');
+                    }
+                }
+                else if (child.nodeName === 'author') {
+                    var author = child;
+
+                    var authText = "<p>";
+                    for (var aind=0; aind<author.children.length; aind++){
+                        if (aind !== 0)
+                            authText += "<br/>";
+                        authText += author.children[aind].innerHTML;
+                    }
+                    authText += "</p>";
+                    newId = addChild('Author', authText, $('#MenuTree'), id, false, 'icons/author.png');
+                }
+                else if(child.nodeName === 'Folder' ||
+                        //child.nodeName === 'NetworkLink' ||
+                        child.nodeName === 'Document') {
+                    newId = addChild(getName(child.children, child.nodeName), child.innerHTML, $('#MenuTree'), id, true, 'icons/folder.png');
+                } 
+                else if(child.nodeName === 'Placemark') { // Can move this later to a selectable section TBD
+                    newId = addChild(getName(child.children, child.nodeName), child.innerHTML, $('#MenuTree'), id, true, 'icons/placemark.png');
+                } 
+                else if(child.nodeName === 'GroundOverlay' ||
+                        child.nodeName === 'PhotoOverlay' ||
+                        child.nodeName === 'ScreenOverlay') {
+                    newId = addChild(getName(child.children, child.nodeName), child.innerHTML, $('#MenuTree'), id, false, 'icons/overlay.png');
+                    addOverlay(child, newId);
+                } 
+                else {
+                    //console.log("Not handling " + child.nodeName);
+                }
+                
+                if (child.children && child.children.length > 0) {
+                    var cur = child;
+                    var predecessors = [];
+                    var par = cur.parentNode;
+                    while (par) {
+                        predecessors.push(par);
+                        par = par.parentNode;
+                    }
+                    if (predecessors && predecessors.length<4)
+                        listChildren(newId, child.children);
+                }
+            };
+        }
+        
+        if (kml) {
+            listChildren(id, kml.children);
+        }
+        
         var files = Array.prototype.slice.call(links).map(function (el) {
             return el.textContent;
         });
@@ -1348,8 +1597,8 @@ App4Sea.Map.OpenLayers = (function () {
         qwest.get(url, null, {
             responseType: 'blob',
             timeout: 2000,
-            headers: {'x-requested-with': 'XMLHttpRequest'
-            }
+//            headers: {'x-requested-with': 'XMLHttpRequest'
+//            }
         })
         .then(function (response) {
             // Run when the request is successful
@@ -1392,28 +1641,79 @@ App4Sea.Map.OpenLayers = (function () {
         console.log("readAndAddFeatures >>>> " + id + " from file " + name);
 
         var str = name.toLowerCase();
-        var listFilesNested = parseKmlText(text);
-        if (listFilesNested.length === 0) {
-            //console.log("No nested files");
-            addFeatures(text, str, id);
-        };
+        
+        if (str.endsWith("kml")) {
+            var listFilesNested = parseKmlText(text, id);
+            if (listFilesNested.length === 0) {
+                //console.log("No nested files");
+                addFeatures(text, str, id);
+            };
 
-        console.log("listFilesNested are " + listFilesNested.length);
-        listFilesNested.forEach(function (el) {
-            console.log("readAndAddFeatures ----------");
-            // Nested calls. Acceptable for a demo
-            // but could be "promisified" instead
-            str = el.toLowerCase();
-            if (str.endsWith("kmz")) {
-                console.log("readAndAddFeatures kmz element: " + el);
-                ajaxKMZ(el, id, unzipFromBlob(readAndAddFeatures, id));
-            } else {
-                console.log("readAndAddFeatures kml element: " + el);
-                ajaxKMZ(el, id, readAndAddFeatures);//kml and other
-            }
-        });
+            console.log("listFilesNested are " + listFilesNested.length);
+            listFilesNested.forEach(function (el) {
+                console.log("readAndAddFeatures ----------");
+                // Nested calls. Acceptable for a demo
+                // but could be "promisified" instead
+                str = el.toLowerCase();
+                if (str.endsWith("kmz")) {
+                    console.log("readAndAddFeatures kmz element: " + el);
+                    ajaxKMZ(el, id, unzipFromBlob(readAndAddFeatures, id));
+                } else {
+                    console.log("readAndAddFeatures kml element: " + el);
+                    ajaxKMZ(el, id, readAndAddFeatures);//kml and other
+                }
+            });
+            console.log("readAndAddFeatures <<<<");
+        }
+        else {
+            console.log("Should store file in " + name);
+//            console.log("Storing file in " + name);
+//            var cors_api_url = 'https://cors-anywhere.herokuapp.com/';
+//            var url = 'http://localhost:11546/WriteFile.php';
+//            var xhr = new XMLHttpRequest();//createCORSRequest('POST', url);
+//            if (!xhr) {
+//              throw new Error('CORS not supported in your browser. Please upgrade your browser or try another one.');
+//            }
+//            else {
+//                // Response handlers.
+//                 xhr.onload = function() {
+//                    var text = xhr.responseText;
+//                    alert('Response from CORS request to ' + url + ': ' + text);
+//                };
+//
+//                xhr.open('POST', cors_api_url+url);
+//                //xhr.setRequestHeader('origin', 'ourUrl'); We can not set this, but the browser does
+//                xhr.setRequestHeader('x-requested-with', 'XMLHttpRequest');
+//                xhr.setRequestHeader('Content-Type', 'text/plain');
+//                xhr.send('F='+name+'&D='+text);
+//            }
+        }
         console.log("readAndAddFeatures <<<<");
     };
+
+    function createCORSRequest(method, url) {
+      var xhr = new XMLHttpRequest();
+      if ("withCredentials" in xhr) {
+
+        // Check if the XMLHttpRequest object has a "withCredentials" property.
+        // "withCredentials" only exists on XMLHTTPRequest2 objects.
+        xhr.open(method, url, true);
+
+      } else if (typeof XDomainRequest != "undefined") {
+
+        // Otherwise, check if XDomainRequest.
+        // XDomainRequest only exists in IE, and is IE's way of making CORS requests.
+        xhr = new XDomainRequest();
+        xhr.open(method, url);
+
+      } else {
+
+        // Otherwise, CORS is not supported by the browser.
+        xhr = null;
+
+      }
+      return xhr;
+    }
 
     function repeat_kmz_calls(url, id) {
         //$("#DebugWindow").append("repeat_kmz_calls: " + url + "<br/>");

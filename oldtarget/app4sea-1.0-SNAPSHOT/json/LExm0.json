@@ -1,0 +1,21 @@
+[
+    { "id" : "8L50", "parent" : "LExm0", "text" : "Monthly temperature forecast USA", "children" : false, "a_attr" : { "path" : "data/lead15_temp.kml"} },
+    { "id" : "8L501", "parent" : "LExm0", "text" : "USA States", "children" : false, "a_attr" : { "path" : "https://ahocevar.com/geoserver/wms", "layers": "topp:states", "width" : "256", "height" : "256"} },
+    { "id" : "8L51", "parent" : "LExm0", "text" : "Cloud coverage", "children" : false, "a_attr" : { "path" : "data/Clouds Animation.kmz"} },
+    { "id" : "8L52", "parent" : "LExm0", "text" : "Majorca wave height (ncd)", "children" : false, "a_attr" : { "path" : "http://thredds.socib.es/thredds/wms/operational_models/oceanographical/wave/model_run_aggregation/sapo_ib/sapo_ib_best.ncd", "layers" : "significant_wave_height"} },
+    { "id" : "8L521", "parent" : "LExm0", "text" : "Majorca wave direction (ncd)", "children" : false, "a_attr" : { "path" : "http://thredds.socib.es/thredds/wms/operational_models/oceanographical/wave/model_run_aggregation/sapo_ib/sapo_ib_best.ncd", "layers" : "average_wave_direction"} },
+    { "id" : "8L522", "parent" : "LExm0", "text" : "Majorca wave peak (ncd)", "children" : false, "a_attr" : { "path" : "http://thredds.socib.es/thredds/wms/operational_models/oceanographical/wave/model_run_aggregation/sapo_ib/sapo_ib_best.ncd", "layers" : "direction_of_the_peak_of_the_spectrum"} },
+    { "id" : "8L53", "parent" : "LExm0", "text" : "NOAA products", "children" : false, "a_attr" : { "path" : "http://www.spc.noaa.gov/products/watch/ActiveWW.kmz"} },
+    { "id" : "8L54", "parent" : "LExm0", "text" : "Buffett Hawaii Tour", "children" : false, "a_attr" : { "path" : "data/buffetthawaiitour.kmz"} },
+    { "id" : "8L55", "parent" : "LExm0", "text" : "96 hour Atlantic Forecast (kmz)", "children" : false, "a_attr" : { "path" : "data/96 Hour Atlantic Wind & Wave Forecast.kmz"} },
+    { "id" : "8L56", "parent" : "LExm0", "text" : "96 hour Atlantic Forecast (kml)", "children" : false, "a_attr" : { "path" : "data/test.kml"} },
+    { "id" : "8L57", "parent" : "LExm0", "text" : "Bennevis (kmz)", "children" : false, "a_attr" : { "path" : "data/bennevis.kmz"} },
+    { "id" : "8L58", "parent" : "LExm0", "text" : "doc (kml)", "children" : false, "a_attr" : { "path" : "data/doc.kml"} },
+    { "id" : "8L59", "parent" : "LExm0", "text" : "Open Weather Map (Current in Reykjavik)", "children" : false, "a_attr" : { "path" : "http://api.openweathermap.org/data/2.5/forecast?id=6692263&APPID=1326faa296b7e865683b67cdf8e5c6e4"} },
+    { "id" : "8L5A", "parent" : "LExm0", "text" : "Oil drift in Barents Sea (nc)", "children" : false, "a_attr" : { "path" : "data/barents1.nc", "layers" : "1"} },
+    { "id" : "8L5B", "parent" : "LExm0", "text" : "Oil drift around Vestmannaeyjar (nc)", "children" : false, "a_attr" : { "path" : "data/Vestmanna.nc", "layers" : "1"} },
+    { "id" : "8L5C", "parent" : "LExm0", "text" : "Oil drift around Vestmannaeyjar (gif)", "children" : false, "a_attr" : { "path" : "data/animation_vestmanna.gif", "layers" : "1", "start" : "2018-08-08T12:00:00", "width" : "998", "height" : "1000"} },
+    { "id" : "8L5D", "parent" : "LExm0", "text" : "Animated Google Cloude Maps (cgi)", "children" : false, "a_attr" : { "path" : "https://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r-t.cgi", "layers" : "nexrad-n0r-wmst", "width" : "998", "height" : "256"} },
+    { "id" : "8L5E", "parent" : "LExm0", "text" : "George Mason Uni: Precipitation (gif)", "children" : false, "a_attr" : { "path" : "data/precip_anim.gif", "layers" : "1", "width" : "1540", "height" : "700"} },
+    { "id" : "8L5F", "parent" : "LExm0", "text" : "Marine Ecoregions", "children" : false, "a_attr" : { "path" : "data/meow_ecos.shp.kmz"} }
+]

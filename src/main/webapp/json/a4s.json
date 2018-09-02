@@ -4,6 +4,5 @@
     { "id" : "LPhy0", "parent" : "#", "text" : "Physical earth", "state" : { "opened" : true}, "children" : true, "a_attr" : { "path" : ""} },
     { "id" : "LEco0", "parent" : "#", "text" : "Ecosysstem", "state" : { "opened" : false}, "children" : false, "a_attr" : { "path" : ""} },
     { "id" : "LWth0", "parent" : "#", "text" : "Weather", "state" : { "opened" : true}, "children" : true, "a_attr" : { "path" : ""} },
-    { "id" : "LPrj0", "parent" : "#", "text" : "Project specific", "state" : { "opened" : true}, "children" : true, "a_attr" : { "path" : ""} },
-    { "id" : "LExm0", "parent" : "#", "text" : "Example data", "state" : { "opened" : true}, "children" : true, "a_attr" : { "path" : ""} }
+    { "id" : "LPrj0", "parent" : "#", "text" : "Project specific", "state" : { "opened" : true}, "children" : true, "a_attr" : { "path" : ""} }
 ]
