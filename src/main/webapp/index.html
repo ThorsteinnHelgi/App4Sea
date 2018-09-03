@@ -324,14 +324,28 @@
             /* On screens that are less or equal to max-width, change style */
             @media screen and (max-width: 400px) {
               #MenuContainer {
-                width: 300px;
-                background-color: beige;
+                transform-origin: top left;
+                -ms-transform: scale(0.9); /* IE 9 */
+                -webkit-transform: scale(0.9);; /* Safari */
+                transform: scale(0.9);
               }
-              h4 {
-                  font-size: 12px;
+            }
+            /* On screens that are less or equal to max-width, change style */
+            @media screen and (max-width: 360px) {
+              #MenuContainer {
+                transform-origin: top left;
+                -ms-transform: scale(0.8); /* IE 9 */
+                -webkit-transform: scale(0.8); /* Safari */
+                transform: scale(0.8);
               }
-              li {
-                  transform: scale(0.7); /* Equal to scaleX(0.7) scaleY(0.7) */
+            }
+            /* On screens that are less or equal to max-width, change style */
+            @media screen and (max-width: 320px) {
+              #MenuContainer {
+                transform-origin: top left;
+                -ms-transform: scale(0.7); /* IE 9 */
+                -webkit-transform: scale(0.7); /* Safari */
+                transform: scale(0.7);
               }
             }
 
@@ -349,21 +363,21 @@
         
         <!-- This is the left side menu container -->
         <div id="MenuContainer" class="w3-sidebar w3-bar-block" style="display:none"> 
-            <div style="background-color:white; display:inline-block; width:100%;">
-                <button onclick="section_toggle('MenuContainer')" class="w3-button w3-white" style="float:left; font-weight:bold; padding-left:0px; padding-right:3px; ">
+            <div id="ButtonMenu" style="display:inline-block; width:100%;">
+                <button onclick="section_toggle('MenuContainer')" class="w3-button w3-transparent" style="float:left; font-weight:bold; padding-left:0px; padding-right:3px; ">
                     <img src="icons/CloseMenu.png" alt="Close menu" style="width:1em;" />
                 </button>
-                <button onclick="section_toggle('InfoContainer')" class="w3-button w3-white" style="float:left; font-weight:bold; padding-left:3px; padding-right:3px; ">
+                <button onclick="section_toggle('InfoContainer')" class="w3-button w3-transparent" style="float:left; font-weight:bold; padding-left:3px; padding-right:3px; ">
                     <img src="icons/info.png" alt="Information" style="width:1em;" />
                 </button>
-                <button onclick="section_toggle('SettingsContainer')" class="w3-button w3-white" style="float:left; font-weight:bold; padding-left:3px; padding-right:3px; ">
+                <button onclick="section_toggle('SettingsContainer')" class="w3-button w3-transparent" style="float:left; font-weight:bold; padding-left:3px; padding-right:3px; ">
                     <img src="icons/settings.png" alt="Settings" style="width:1.1em;" />
                 </button>
-                <button onclick="section_toggle('AnimationContainer')" class="w3-button w3-white" style="float:left; font-weight:bold; padding-left:3px; padding-right:3px; ">
+                <button onclick="section_toggle('AnimationContainer')" class="w3-button w3-transparent" style="float:left; font-weight:bold; padding-left:3px; padding-right:3px; ">
                     <img src="icons/animation.png" alt="Animation" style="width:1.1em;" />
                 </button>
-                <!--button id="testBtn" class="w3-button w3-white" style="float:left; font-weight:bold; padding-left:0px; padding-right:3px; ">Test</button-->
-                <button onclick="w3_close('MenuContainer')" class="w3-button w3-white" style="float:right; font-weight:bold; padding-left:3px; padding-right:0px; ">x</button>
+                <!--button id="testBtn" class="w3-button w3-transparent" style="float:left; font-weight:bold; padding-left:0px; padding-right:3px; ">Test</button-->
+                <button onclick="w3_close('MenuContainer')" class="w3-button w3-transparent" style="float:right; font-weight:bold; padding-left:3px; padding-right:3px; ">x</button>
             </div>
             <div>
                 <a href="http://app4sea.interreg-npa.eu">
@@ -371,11 +385,11 @@
                 </a>
             </div>
             
-            <div id='InfoContainer' class="MenuSection" style="background-color:lightgrey; display:none">
-                <button onclick="w3_close('InfoContainer')" class="w3-button w3-white" style="float:right; font-weight:bold">x</button>
+            <div id='InfoContainer' class="MenuSection" style="color:white; background-color:grey; display:none; padding:3px;">
+                <button onclick="w3_close('InfoContainer')" class="w3-button w3-transparent" style="float:right; font-weight:bold; padding-left:3px; padding-right:0px;">x</button>
                 <h4>Information</h4>
 
-                <div style="font-size:0.8em; color:red">
+                <div style="font-size:0.8em;">
                     This site currently works best in the Chrome and Vivaldi browsers.<br/>
                     <!--To access cross domain information please add 
                     <a href='https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?brand=CHBD&gclid=EAIaIQobChMIxsz1iebz3AIVwcDACh3yDgHbEAAYASABEgKjnvD_BwE&gclsrc=aw.ds&dclid=CNTTwZHm89wCFdQm4AodmP0Obw' title='Allow CORS'> 
@@ -385,13 +399,13 @@
                 </div>
             </div>
             
-            <div id='SettingsContainer' class="MenuSection" style="background-color:lightgrey; display:none">
-                <button onclick="w3_close('SettingsContainer')" class="w3-button w3-white" style="float:right; font-weight:bold">x</button>
+            <div id='SettingsContainer' class="MenuSection" style="color:white; background-color:grey; display:none; padding:3px;">
+                <button onclick="w3_close('SettingsContainer')" class="w3-button w3-transparent" style="float:right; font-weight:bold; padding-left:3px; padding-right:0px;">x</button>
                 <h4>Settings</h4>
 
                 <h5>Base map</h5>
                 <div class="MenuSection">
-                    <select id="MenuLayer_Select" >
+                    <select id="MenuLayer_Select" style="color:white; background-color:grey;">
                         <option value="esriWSPTileLayer">ESRI World Street Map</option>
                         <option value="esriWITileLayer">ESRI World Imagery Map</option>
                         <option value="osmTileLayer">Open Street Map</option>
@@ -416,13 +430,13 @@
                                 </tr>
                                 <tr>
                                     <td style="text-align:right">
-                                        <label>Radius Size</label>
+                                        <span>Radius Size</span>
                                     </td>
                                     <td>
                                         <input id="radius" type="range" min="1" max="50" step="1" value="5"/>
                                     </td>
                                     <td style="text-align:right">
-                                        <label>Blur Size</label>
+                                        <span>Blur Size</span>
                                     </td>
                                     <td>
                                         <input id="blur" type="range" min="1" max="50" step="1" value="15"/>
@@ -434,8 +448,9 @@
                 </div>
             </div>
 
-            <div id='AnimationContainer' class="MenuSection" style="background-color:lightgrey; display:none">
-                <button onclick="w3_close('AnimationContainer')" class="w3-button w3-white" style="float:right; font-weight:bold">x</button>
+            <div id='AnimationContainer' class="MenuSection" style="color:white; background-color:grey; display:none; padding:3px;">
+                <button onclick="w3_close('AnimationContainer')" class="w3-button w3-transparent" style="float:right; font-weight:bold; 
+                        padding-left:3px; padding-right:0px; background-color:Transparent; outline:none;">x</button>
 
                 <h4>Animation</h4>
                 <div class="MenuSection">
@@ -449,7 +464,9 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <button id="playStop" type="button" style="font-size:0.5em; color: Grey;">Play</button>
+                                        <button id="playStop" type="button" style="font-size:0.5em; color: Grey;">
+                                            <img id="playStopImg" src="icons/play.png" alt="Play/Stop" height="14px"/>
+                                        </button>
                                     </td>
                                     <td colspan="3">
                                         <input id="progress" type="range" min="0" max="99" step="1" value="0"/>

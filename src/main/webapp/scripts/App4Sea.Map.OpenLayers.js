@@ -1067,12 +1067,12 @@ App4Sea.Map.OpenLayers = (function () {
         var playStop = function () {
             stop();
 
-            var btn = document.getElementById('playStop');
-            if (btn.innerText === "Play") { // Playing
-                btn.innerText = "Stop";
+            var btnImg = document.getElementById('playStopImg');
+            if (btnImg.src === "icons\play.png") { // Playing
+                btnImg.src = "icons\stop.png";
                 animationId = window.setInterval(setTime, 1000 / frameRate);
             } else { // Stopping
-                btn.innerText = "Play";
+                btnImg.src = "icons\play.png";
 
                 if (animationId !== null) {
                     window.clearInterval(animationId);
@@ -1158,13 +1158,32 @@ App4Sea.Map.OpenLayers = (function () {
         var selectedMapLayer = $("#MenuLayer_Select").val();
         if (selectedMapLayer !== currentLayer.name) {
             map.removeLayer(currentLayer);
+            var el = $('#MenuContainer');
+            var el2 = $('#MenuLayer_Select');
+            var el3 = $('#ButtonMenu');
             if (selectedMapLayer === 'osmTileLayer') {
+                el[0].style.backgroundColor = 'white';
+                el[0].style.color = 'black';
+                //el2[0].style.filter = 'invert(0%)';
+                el3[0].style.filter = 'invert(0%)';
                 currentLayer = osmTileLayer;
             } else if (selectedMapLayer === 'esriWSPTileLayer') {
+                el[0].style.backgroundColor = 'beige';
+                el[0].style.color = 'black';
+                //el2[0].style.filter = 'invert(0%)';
+                el3[0].style.filter = 'invert(0%)';
                 currentLayer = esriWSPTileLayer;
             } else if (selectedMapLayer === 'esriWITileLayer') {
+                el[0].style.backgroundColor = '#163e6f';
+                el[0].style.color = 'beige';
                 currentLayer = esriWITileLayer;
+                //el2[0].style.filter = 'invert(100%)';
+                el3[0].style.filter = 'invert(100%)';
             } else if (selectedMapLayer === 'blackTileLayer') {
+                el[0].style.backgroundColor = '#0d0d0d';
+                el[0].style.color = 'gray';
+                //el2[0].style.filter = 'invert(100%)';
+                el3[0].style.filter = 'invert(100%)';
                 currentLayer = blackTileLayer;
             }
             map.addLayer(currentLayer);
