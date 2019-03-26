@@ -17,7 +17,7 @@
 			<href>http://ocean.weather.gov/gis/ATL_WW_F96_WINDS.png</href>
 		</Icon>
 		<LatLonBox>
-			<north>72.8</north>
+			<north>62.8</north>
 			<south>17.3</south>
 			<east>20</east>
 			<west>-100</west>
@@ -41,7 +41,7 @@
 			<href>http://ocean.weather.gov/gis/ATL_WW_F96_SYMBOLS.png</href>
 		</Icon>
 		<LatLonBox>
-			<north>72.8</north>
+			<north>62.8</north>
 			<south>17.3</south>
 			<east>20</east>
 			<west>-100</west>
@@ -53,7 +53,7 @@
 			<href>http://ocean.weather.gov/gis/ATL_WW_F96_TEXT.png</href>
 		</Icon>
 		<LatLonBox>
-			<north>72.8</north>
+			<north>62.8</north>
 			<south>17.3</south>
 			<east>20</east>
 			<west>-100</west>
@@ -65,7 +65,7 @@
 			<href>http://ocean.weather.gov/gis/ATL_WW_F96_ISOPLETHS.png</href>
 		</Icon>
 		<LatLonBox>
-			<north>72.8</north>
+			<north>62.8</north>
 			<south>17.3</south>
 			<east>20</east>
 			<west>-100</west>
@@ -77,7 +77,7 @@
 			<href>http://ocean.weather.gov/gis/4WWATL_GULF_STREAM.png</href>
 		</Icon>
 		<LatLonBox>
-			<north>73.3</north>
+			<north>63.3</north>
 			<south>16.8</south>
 			<east>20</east>
 			<west>-100</west>
@@ -89,7 +89,7 @@
 			<href>http://ocean.weather.gov/gis/ATL_WW_F96_LABEL.png</href>
 		</Icon>
 		<LatLonBox>
-			<north>72.8</north>
+			<north>62.8</north>
 			<south>17.3</south>
 			<east>20</east>
 			<west>-100</west>

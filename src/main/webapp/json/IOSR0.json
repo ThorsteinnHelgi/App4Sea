@@ -1,0 +1,13 @@
+[
+    { "id" : "OSR000", "parent" : "IOSR0", "text" : "Source: EPPR, 2017, Circumpolar Oil Spill Response Viability Analysis: Technical Report", "children" : false, "a_attr" : { "path" : "2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page2.png"} },
+    { "id" : "OSR001", "parent" : "IOSR0", "text" : "Mechanical Recovery: Two vessels with a boom", "children" : false, "a_attr" : { "path" : "2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page41.png"} },
+    { "id" : "OSR002", "parent" : "IOSR0", "text" : "Mechanical recovery: Single vessel with outrigger", "children" : false, "a_attr" : { "path" : "2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page42.png"} },
+    { "id" : "OSR003", "parent" : "IOSR0", "text" : "Mechanical recovery: Three vessels-of-opportunity with Boom", "children" : false, "a_attr" : { "path" : "2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page43.png"} },
+    { "id" : "OSR004", "parent" : "IOSR0", "text" : "Mechanical recovery: Single vessel in ice", "children" : false, "a_attr" : { "path" : "2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page44.png"} },
+    { "id" : "OSR005", "parent" : "IOSR0", "text" : "Dispersants: Vessel application", "children" : false, "a_attr" : { "path" : "2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page45.png"} },
+    { "id" : "OSR006", "parent" : "IOSR0", "text" : "Dispersants: Airplane Application", "children" : false, "a_attr" : { "path" : "2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page46.png"} },
+    { "id" : "OSR007", "parent" : "IOSR0", "text" : "Dispersants: Helicopter Application", "children" : false, "a_attr" : { "path" : "2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page47.png"} },
+    { "id" : "OSR008", "parent" : "IOSR0", "text" : "In-situ burning: Vessels with fire boom", "children" : false, "a_attr" : { "path" : "2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page48.png"} },
+    { "id" : "OSR009", "parent" : "IOSR0", "text" : "In-situ burning: Helicopter with ice containment", "children" : false, "a_attr" : { "path" : "2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page49.png"} },
+    { "id" : "OSR010", "parent" : "IOSR0", "text" : "In-situ burning: Helicopter with herders", "children" : false, "a_attr" : { "path" : "2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page50.png"} }
+]

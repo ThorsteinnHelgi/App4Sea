@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:gx="http://www.google.com/kml/ext/2.2">
+    <Document id="3">
+        <Camera>
+            <longitude>-21.687908172607422</longitude>
+            <latitude>63.372642517089844</latitude>
+            <altitude>240000</altitude>
+            <tilt>0</tilt>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <roll>0</roll>
+        </Camera>
+        <GroundOverlay id="5">
+            <name>Vestmanna1</name>
+            <visibility>1</visibility>
+            <atom:author>Lars R. Hole</atom:author>
+            <description>Oil spill drift prediction</description>
+            <color>ff0055ff</color>
+            <drawOrder>1</drawOrder>
+            <Icon id="6">
+                <href>Vestmanna1.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>64.10576629638672</north>
+                <south>62.6395149230957</south>
+                <east>-24.480390548706055</east>
+                <west>-18.89542579650879</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="8">
+            <name>Vestmanna2</name>
+            <visibility>1</visibility>
+            <atom:author>Lars R. Hole</atom:author>
+            <description>Oil spill drift prediction</description>
+            <color>ff0055ff</color>
+            <drawOrder>2</drawOrder>
+            <Icon id="9">
+                <href>Vestmanna2.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>64.10576629638672</north>
+                <south>62.6395149230957</south>
+                <east>-24.480390548706055</east>
+                <west>-18.89542579650879</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <ScreenOverlay id="11">
+            <name>Legend</name>
+            <visibility>1</visibility>
+            <Icon id="12">
+                <href>legend.png</href>
+            </Icon>
+            <overlayXY x="0" xunits="fraction" y="0" yunits="fraction"/>
+            <screenXY x="0.015" xunits="fraction" y="0.075" yunits="fraction"/>
+            <size x="0" xunits="fraction" y="0" yunits="fraction"/>
+        </ScreenOverlay>
+    </Document>
+</kml>

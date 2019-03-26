@@ -1,0 +1,4 @@
+[
+    { "id" : "Eco1", "parent" : "LEco0", "text" : "Birds 1",	"children" : false, "a_attr" : { "path" : "data/Birds/Seabirds 001.kml"} },
+    { "id" : "Eco2", "parent" : "LEco0", "text" : "Birds 2",	"children" : false, "a_attr" : { "path" : "data/Birds/Seabirds 002.kml"} }
+]
