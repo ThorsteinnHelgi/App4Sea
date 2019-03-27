@@ -334,7 +334,7 @@ App4Sea.Map.OpenLayers = (function () {
         setUpInfoTree();
 
         var button = document.getElementById('testBtn');
-        button.addEventListener('click', test, false);
+        button.addEventListener('click', test, false, {passive: true});
 
         // Hook events to menu
         $(".MenuSection input[type='checkbox']").click(function () {
@@ -910,11 +910,11 @@ App4Sea.Map.OpenLayers = (function () {
             event.feature.set('weight', magnitude - 5);
         });
 
-        blur.addEventListener('input', function () {
+        blur.addEventListener('input', {passive: true}, function () {
             vector.setBlur(parseInt(blur.value, 10));
         });
 
-        radius.addEventListener('input', function () {
+        radius.addEventListener('input', {passive: true}, function () {
             vector.setRadius(parseInt(radius.value, 10));
         });
         
@@ -1064,7 +1064,7 @@ App4Sea.Map.OpenLayers = (function () {
         };
 
         var button = document.getElementById('playStop');
-        button.addEventListener('click', playStop, false);
+        button.addEventListener('click', playStop, false, {passive: true});
 
         var dateOpt = {weekday: 'short', year: 'numeric', month: 'short', day: 'numeric'};
         var endDate = someHoursAgo(0);
@@ -1591,7 +1591,7 @@ App4Sea.Map.OpenLayers = (function () {
                 };
 
                 // This fires after the blob has been read/loaded.
-                reader.addEventListener('loadend', extendedCallback(str, id));
+                reader.addEventListener('loadend', extendedCallback(str, id), {passive: true});
 
                 // Start reading the blob as text.
                 reader.readAsText(response);

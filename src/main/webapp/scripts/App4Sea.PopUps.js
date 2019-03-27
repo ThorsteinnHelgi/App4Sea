@@ -246,7 +246,7 @@ App4Sea.PopUps = (function () {
                     var inf = $('#ToolTipInfo');
                     inf.tooltip('hide')
                             .attr('data-original-title', name)
-                            .tooltip('fixTitle')
+                            //.tooltip('fixTitle')
                             .tooltip('show');
                 }
                 else {

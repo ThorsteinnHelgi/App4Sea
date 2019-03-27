@@ -155,11 +155,11 @@ App4Sea.Utils = (function () {
             event.feature.set('weight', magnitude - 5);
         });
 
-        blur.addEventListener('input', function () {
+        blur.addEventListener('input', {passive: true}, function () {
             vector.setBlur(parseInt(blur.value, 10));
         });
 
-        radius.addEventListener('input', function () {
+        radius.addEventListener('input', {passive: true}, function () {
             vector.setRadius(parseInt(radius.value, 10));
         });
         
@@ -198,6 +198,17 @@ App4Sea.Utils = (function () {
         for (var i = 0; i < count; i++)
         {
             if (arr[i].id === id) {
+                return i;
+            }
+        }
+        return -1;
+    };
+    my.alreadyActive = function (ol_uid, layers){
+        var arr = layers.array_;
+        var count = arr.length;
+        for (var i = 0; i < count; i++)
+        {
+            if (arr[i].ol_uid === ol_uid) {
                 return i;
             }
         }

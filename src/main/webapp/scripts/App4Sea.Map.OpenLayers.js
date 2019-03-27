@@ -215,7 +215,7 @@ App4Sea.Map.OpenLayers = (function () {
         App4Sea.TreeInfo.setUp();
 
 //        var button = document.getElementById('testBtn');
-//        button.addEventListener('click', test, false);
+//        button.addEventListener('click', test, false, {passive: true});
 
         // Hook events to menu
         $(".MenuSection input[type='checkbox']").click(function () {

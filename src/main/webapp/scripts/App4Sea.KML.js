@@ -12,6 +12,7 @@ App4Sea.KML = (function () {
     "use strict";
     var my = {};
     
+    var title = "";
     ////////////////////////////////////////////////////////////////////////////
     // Declare worker scripts path for zip manipulation
     zip.workerScriptsPath = 'static/js/';
@@ -43,8 +44,9 @@ App4Sea.KML = (function () {
     ////////////////////////////////////////////////////////////////////////////
     //load kmz or kml and recurse through nested files
     // See https://developers.google.com/kml/documentation/kmzarchives
-    my.loadKmlKmz = function (url, id) {
+    my.loadKmlKmz = function (url, id, name) {
         console.log("loadKmz: " + id + " from " + url);
+        title = name;
         repeat_kml_kmz_calls(url, id);
     };
     
@@ -97,7 +99,7 @@ App4Sea.KML = (function () {
                 };
 
                 // This fires after the blob has been read/loaded.
-                reader.addEventListener('loadend', extendedCallback(str, id));
+                reader.addEventListener('loadend', extendedCallback(str, id), {passive: true});
 
                 // Start reading the blob as text.
                 reader.readAsText(response);
@@ -183,15 +185,7 @@ App4Sea.KML = (function () {
                 console.log("readAndAddFeatures ----------");
                 // Nested calls. Acceptable for a demo
                 // but could be "promisified" instead
-                str = el.toLowerCase();
-                if (str.endsWith("kmz")) {
-                    console.log("readAndAddFeatures kmz element: " + el);
-                    ajaxKMZ(el, id, unzipFromBlob(readAndAddFeatures, id));
-                } 
-                else {
-                    console.log("readAndAddFeatures kml element: " + el);
-                    ajaxKMZ(el, id, readAndAddFeatures);//kml and other
-                }
+                repeat_kml_kmz_calls(el, id);
             });
             console.log("readAndAddFeatures <<<<");
         }
@@ -730,7 +724,7 @@ App4Sea.KML = (function () {
             listChildren(id, kml.children);
             
             if (canAnimate)
-                App4Sea.Animation.Animate(path, "Title");
+                App4Sea.Animation.Animate(path, title);
         }
         
         var files = Array.prototype.slice.call(links).map(function (el) {
