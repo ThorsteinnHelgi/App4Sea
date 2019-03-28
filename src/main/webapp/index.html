@@ -1,107 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-
     <head>
         <title>App4Sea</title>
-        <link rel="icon" href="favicon.ico"/>        
 
+        <link rel="icon" href="favicon.ico"/>        
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>        
 
-        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"/> 
-        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+        <script type="text/javascript" crossorigin="anonymous" src="http://code.jquery.com/jquery-3.3.1.min.js" ></script>
+        <script type="text/javascript" crossorigin="anonymous" src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
 
-        <link href="jquery/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
-        <script src="jquery/jquery-3.2.1.min.js" type="text/javascript"></script>
-        <script src="jquery/jquery-ui.min.js" type="text/javascript"></script>
-
-        <link href="jquery/jquery.growl.css" rel="stylesheet" type="text/css" />
-        <script src="jquery/jquery.growl.js" type="text/javascript" async="async"></script>
-
-        <script src="static/js/mustache.js" type="text/javascript" async="async"></script>
+        <link rel="stylesheet" type="text/css" crossorigin="anonymous" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css">
+        <link rel="stylesheet" type="text/css" href="static/css/w3.css"/>
+                    
+        <script type="text/javascript" src="static/js/dist/jstree.min.js" ></script>
         
-        <!-- https://medialize.github.io/URI.js/ -->
-        <script src="static/js/URI.js" type="text/javascript" async="async"></script>
-        <!-- https://github.com/webcomponents/webcomponentsjs/ -->
-        <script src="static/js/webcomponents-bundle.js" type="text/javascript" async="async"></script>
+        <script type="text/javascript" async="async" src="static/js/zip.js" ></script>
+        <script type="text/javascript" async="async" src="static/js/mustache.js" ></script>
+        <script type="text/javascript" async="async" src="static/js/webcomponents-bundle.js" ></script>
+        <script type="text/javascript" async="async" src="static/js/qwest.min.js" ></script>
+        <script type="text/javascript" async="async" src="static/js/URI.js" ></script>
+        <script type="text/javascript" async="async" src="static/js/d3.min.js"></script>
 
-        <script src="static/js/qwest.min.js" type="text/javascript" async="async"></script>
-        <script src="static/js/zip.js" type="text/javascript" async="async"></script>
-        <!--script src="static/js/cors-public.js" type="text/javascript"></script-->
+        <script type="text/javascript" async="async" src="static/js/bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script>
+
+        <script type="text/javascript" async="async" src="scripts/App4Sea.js" ></script>
+        <script type="text/javascript" async="async" src="scripts/App4Sea.Map.OpenLayers.js" ></script>
+        <script type="text/javascript" async="async" src="scripts/App4Sea.KML.js" ></script>
+        <script type="text/javascript" async="async" src="scripts/App4Sea.TreeMenu.js" ></script>
+        <script type="text/javascript" async="async" src="scripts/App4Sea.TreeInfo.js" ></script>
+        <script type="text/javascript" async="async" src="scripts/App4Sea.PopUps.js" ></script>
+        <script type="text/javascript" async="async" src="scripts/App4Sea.Utils.js" ></script>
+        <script type="text/javascript" async="async" src="scripts/App4Sea.Weather.js" ></script>
+        <script type="text/javascript" async="async" src="scripts/App4Sea.Events.js" ></script>
+        <script type="text/javascript" async="async" src="scripts/App4Sea.Animation.js" ></script>
+
+        <link rel="stylesheet" type="text/css" href="static/js/bootstrap-4.3.1-dist/css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="static/js/dist/themes/default/style.min.css" />
+
+        <link rel="stylesheet" type="text/css" href="css/main.css"/>
         
-        <!-- OpenLayers begin -->
-
-        <!--link rel="stylesheet" href="https://openlayers.org/en/v4.6.4/css/ol.css" type="text/css"/>
-        <script src="https://openlayers.org/en/v4.6.4/build/ol.js" type="text/javascript"></script-->
-        <script type="text/javascript" src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.1.3/build/ol.js"></script>
-        <link rel="stylesheet" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.1.3/css/ol.css"/>
-            
-        <!-- OpenWeatherMaps widget -->
-        <script type="text/javascript" src="http://openweathermap.org/themes/openweathermap/assets/vendor/owm/js/d3.min.js" async="async"></script>
-        
-        <script src="scripts/App4Sea.js" type="text/javascript" async="async"></script>
-        <script src="scripts/App4Sea.KML.js" type="text/javascript" async="async"></script>
-        <script src="scripts/App4Sea.PopUps.js" type="text/javascript" async="async"></script>
-        <script src="scripts/App4Sea.Utils.js" type="text/javascript" async="async"></script>
-        <script src="scripts/App4Sea.Weather.js" type="text/javascript" async="async"></script>
-        <script src="scripts/App4Sea.TreeMenu.js" type="text/javascript" async="async"></script>
-        <script src="scripts/App4Sea.TreeInfo.js" type="text/javascript" async="async"></script>
-        <script src="scripts/App4Sea.Events.js" type="text/javascript" async="async"></script>
-        <script src="scripts/App4Sea.Functions.js" type="text/javascript" async="async"></script>
-        <script src="scripts/App4Sea.Animation.js" type="text/javascript" async="async"></script>
-        <script src="scripts/App4Sea.Map.OpenLayers.js" type="text/javascript" async="async"></script>
-        <!-- OpenLayers end -->
-
-        <link href="css/main.css" rel="stylesheet" type="text/css" />
-        
-        <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
-        <!-- This will not work anyway in IE. And it will render coordinates for kml files as 0,0 -->
-        <!--script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
-        <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script-->
-
-        <link rel="stylesheet" href="static/js/dist/themes/default/style.min.css" />
-        <script src="static/js/dist/jstree.min.js" type="text/javascript"></script>
-        
-        <!-- Latest compiled and minified CSS -->
-        <link rel="stylesheet" href="static/js/bootstrap-4.3.1-dist/css/bootstrap.min.css"/>
-
-        <!-- Optional theme 
-        <link rel="stylesheet" href="static/js/bootstrap-4.3.1-dist/css/bootstrap-theme.min.css"/>-->
-
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="static/js/bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js" type="text/javascript"></script>
-
     </head>
-
 
     
     <body>
         <!-- Splash overlay -->
         <div id="splash-overlay">
-            <div id="splash-overlay-content">
-                <img src="images/PosterHor.jpg" alt="App4Sea is an NPA-project" style="width:100%;"/>
-            </div>
+            <!--div id="splash-overlay-content"-->
+                <img id="splash_image" src="images/Poster.jpg" alt="App4Sea is an NPA-project"/>
+            <!--/div-->
         </div>
         
         <!-- This is the left side menu container -->
-        <div id="MenuContainer" class="w3-sidebar w3-bar-block" style="display:none"> 
-            <div id="ButtonMenu" style="display:inline-block; width:100%;">
-                <button onclick="section_toggle('MenuContainer')" class="w3-button w3-transparent" style="float:left; font-weight:bold; padding-left:0px; padding-right:3px; ">
+        <div id="MenuContainer"> 
+            <div id="ButtonContainer" >
+                <button onclick="App4Sea.Utils.section_toggle('MenuContainer')" class="a4s_button">
                     <img src="icons/CloseMenu.png" alt="Close menu" style="width:1em;"/>
                 </button>
-                <button onclick="section_toggle('InfoContainer')" class="w3-button w3-transparent" style="float:left; font-weight:bold; padding-left:3px; padding-right:3px; ">
+                <button onclick="App4Sea.Utils.section_toggle('InfoContainer')" class="a4s_button">
                     <img src="icons/info.png" alt="Information" style="width:1em;"/>
                 </button>
-                <button onclick="section_toggle('SettingsContainer')" class="w3-button w3-transparent" style="float:left; font-weight:bold; padding-left:3px; padding-right:3px; ">
+                <button onclick="App4Sea.Utils.section_toggle('SettingsContainer')" class="a4s_button">
                     <img src="icons/settings.png" alt="Settings" style="width:1.1em;" />
                 </button>
-                <button onclick="section_toggle('AnimationContainer')" class="w3-button w3-transparent" style="float:left; font-weight:bold; padding-left:3px; padding-right:3px; ">
+                <button onclick="App4Sea.Utils.section_toggle('AnimationContainer')" class="a4s_button">
                     <img src="icons/animation.png" alt="Animation" style="width:1.1em;" />
                 </button>
                 <!--button id="testBtn" class="w3-button w3-transparent" style="float:left; font-weight:bold; padding-left:0px; padding-right:3px; ">Test</button-->
-                <button onclick="w3_close('MenuContainer')" class="w3-button w3-transparent" style="float:right; font-weight:bold; padding-left:3px; padding-right:3px; ">x</button>
+                <button onclick="App4Sea.Utils.w3_close('MenuContainer')" class="a4s_button_right" style="width:2.1em;">X</button>
             </div>
             <div>
                 <a href="http://app4sea.interreg-npa.eu">
@@ -110,21 +77,21 @@
             </div>
             
             <div id='InfoContainer' class="MenuSection" style="color:white; background-color:grey; display:none; padding:3px;">
-                <button onclick="w3_close('InfoContainer')" class="w3-button w3-transparent" style="float:right; font-weight:bold; padding-left:3px; padding-right:0px;">x</button>
+                <button onclick="App4Sea.Utils.w3_close('InfoContainer')" class="w3-button w3-transparent" style="float:right; font-weight:bold; padding-left:3px; padding-right:0px;">x</button>
                 <h4>Information</h4>
 
                 <div style="font-size:0.8em;">
                     This site currently works best in the Chrome and Vivaldi browsers.<br/>
                     To access cross domain information please add 
-                    <a style="color:gold" href='https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?brand=CHBD&gclid=EAIaIQobChMIxsz1iebz3AIVwcDACh3yDgHbEAAYASABEgKjnvD_BwE&gclsrc=aw.ds&dclid=CNTTwZHm89wCFdQm4AodmP0Obw' title='Allow CORS'> 
+                    <a style="color:gold" href='https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?brand=CHBD&amp;gclid=EAIaIQobChMIxsz1iebz3AIVwcDACh3yDgHbEAAYASABEgKjnvD_BwE&amp;gclsrc=aw.ds&amp;dclid=CNTTwZHm89wCFdQm4AodmP0Obw' title='Allow CORS'> 
                             this extension
                     </a> to those browsers.<br/>
-                    NOTE: You may have to disable the extension on other sites, e.g. while watching Youtube videos.
+                    NOTE: You may have to disable the extension on other sites, e.g. while watching YouTube videos.
                 </div>
             </div>
             
             <div id='SettingsContainer' class="MenuSection" style="color:white; background-color:grey; display:none; padding:3px;">
-                <button onclick="w3_close('SettingsContainer')" class="w3-button w3-transparent" style="float:right; font-weight:bold; padding-left:3px; padding-right:0px;">x</button>
+                <button onclick="App4Sea.Utils.w3_close('SettingsContainer')" class="w3-button w3-transparent" style="float:right; font-weight:bold; padding-left:3px; padding-right:0px;">x</button>
                 <h4>Settings</h4>
 
                 <h5>Base map</h5>
@@ -174,7 +141,7 @@
 
             <div id='AnimationContainer' class="MenuSection" style="color:white; background-color:grey; display:none; padding:3px;"
                  ondrop="drop(event)" ondragover="allowDrop(event)">
-                <button onclick="w3_close('AnimationContainer')" class="w3-button w3-transparent" style="float:right; font-weight:bold; 
+                <button onclick="App4Sea.Utils.w3_close('AnimationContainer')" class="w3-button w3-transparent" style="float:right; font-weight:bold; 
                         padding-left:3px; padding-right:0px; background-color:Transparent; outline:none;">x</button>
 
                 <h4>Animation</h4>
@@ -228,7 +195,7 @@
             
             <div>
                 <h4>
-                     <button class="w3-button w3-white" style="padding-left:0px; padding-right:0px; font-size:0.6em;" onclick="collapse_tree(this, '#TreeMenu')">&#9650;</button>
+                     <button class="w3-button w3-white" style="padding-left:0px; padding-right:0px; font-size:0.6em;" onclick="App4Sea.Utils.collapse_tree(this, '#TreeMenu')">&#9650;</button>
                     Layers
                 </h4>
             </div>
@@ -236,7 +203,7 @@
 
             <div>
                 <h4>
-                    <button class="w3-button w3-white" style="padding-left:0px; padding-right:0px; font-size:0.6em;" onclick="collapse_tree(this, '#TreeInfo')">&#9660;</button>
+                    <button class="w3-button w3-white" style="padding-left:0px; padding-right:0px; font-size:0.6em;" onclick="App4Sea.Utils.collapse_tree(this, '#TreeInfo')">&#9660;</button>
                     Further information
                 </h4>
             </div>
@@ -246,73 +213,29 @@
         <!-- This is the main map container. It is populated in code -->
         <div id="MapContainer">
             <div class="ol-unselectable ol-custom ol-control">
-               <button class="ol-zoom-in " onclick="w3_open('MenuContainer')">☰</button>
+               <button class="ol-zoom" onclick="App4Sea.Utils.w3_open('MenuContainer')">☰</button>
             </div>            
+            
             <!-- This is the tool-tip container. It is populated in code -->
             <div id="ToolTipInfo"></div>            
             
-                    <div id="legend" style="display:block; overflow: auto; background-color: white;">
-                                                                                
-                    </div>
+            <!-- This is the legend container. It is populated in code -->
+            <div id="legend" style="display:block; overflow: auto; background-color: white;">
 
-            <!-- This is the legend (ScreenOverlay) container. It is populated in code -->
+            </div>
+
+            <!-- This is the overlayLegend (ScreenOverlay) container. It is populated in code -->
             <div id="overlayLegend">
                 <div id="overlayLegend-content">
-                    <!--img id="imgLegend" src="" style="" alt="Legend"/-->
+                    <img id="imgLegend" src="" style="display:none;" alt=""/>
                 </div>
             </div>
 
-            <img id="photo" style="top: 9.5em; left: .5em; display:none;" alt="photo"/>
+            <img id="photo" src="" style="top: 9.5em; left: .5em; display:none;" alt="photo"/>
         </div>
 
         <!-- This is the debug window container that should be hidden in final application. It is populated in code  -->
         <div id="DebugWindow" style="display:none;"></div>
         
-        <script>
-            var info = $("#ToolTipInfo");
-            
-            info.tooltip('hide');
-            info.tooltip({
-                animation: false,
-                trigger: 'manual'
-            });
-            
-            function collapse_tree(btn, elem) {
-                var collapse = false;
-                if($(elem+' li.jstree-open').length)
-                {
-                    collapse = true;
-                }
-                if (collapse) {
-                    $(elem).jstree(true).close_all();
-                    btn.innerText="\u25BC";
-                }
-                else {
-                    $(elem).jstree(true).open_all();
-                    btn.innerText="\u25B2";
-                }
-            }
-
-            function section_toggle(id) {
-                if (document.getElementById(id).style.display === "none") {
-                    w3_open(id);
-                }
-                else {
-                    w3_close(id);
-                }
-            }
-    
-            function w3_open(id) {
-                if (id === "MenuContainer") {
-                    $("#TreeMenu").jstree(true).close_all();
-                }
-                document.getElementById(id).style.display = "block";
-            }
-            function w3_close(id) {
-                document.getElementById(id).style.display = "none";
-            }
-           
-        </script>
-
     </body>
 </html>

@@ -11,7 +11,8 @@ App4Sea.Map = (App4Sea.Map) ? App4Sea.Map : {};
 App4Sea.Map.OpenLayers = (function () {
     "use strict";
     var my = {};
-    
+
+
     my.Map;
     my.styleMaps = []; // array to hold styles as they are created   
     my.layers = []; // array to hold layers as they are created   
@@ -129,7 +130,7 @@ App4Sea.Map.OpenLayers = (function () {
             my.Map.removeLayer(currentLayer);
             var el = $('#MenuContainer');
             var el2 = $('#MenuLayer_Select');
-            var el3 = $('#ButtonMenu');
+            var el3 = $('#ButtonContainer');
             if (selectedMapLayer === 'osmTileLayer') {
                 el[0].style.backgroundColor = 'white';
                 el[0].style.color = 'black';
@@ -169,8 +170,9 @@ App4Sea.Map.OpenLayers = (function () {
         //map.addControl(new ol.control.Rotate({autoHide: true}));
         var ctrl = new ol.control.MousePosition({
             projection: App4Sea.prefProj,
-            coordinateFormat: function (coordinate) {
-                return ol.coordinate.format(coordinate, '{x}, {y}', 4);
+            coordinateFormat: function (coord) {
+                var str = ol.coordinate.toStringHDMS(coord);
+                return str; 
             }
         });
         my.Map.addControl(ctrl);

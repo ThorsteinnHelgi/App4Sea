@@ -1,5 +1,5 @@
 *{
-    font-family: "Montserrat","Calibri","sans-serif";
+    font-family: "Calibri","sans-serif";
 }
 #MapContainer{
     position: absolute;
@@ -23,10 +23,14 @@
     width: 400px;
     box-sizing: border-box;
     overflow:auto;
+    
+    display:none;    
 }
 
-#MenuContainer .DialogHeader{
-    margin-bottom: 1em;
+#ButtonContainer{
+    display:inline-block; 
+    width:100%;
+    margin-bottom: 0.5em;
 }
 
 #DebugWindow{
@@ -83,6 +87,9 @@
 .DialogBody{
     
 }
+
+
+
 
 
 /* Style the zoom slider */
@@ -187,6 +194,7 @@ h3 {
 
 /********************************************************************************************************/
 
+/* Tooltip */
 #ToolTipInfo {
   position: absolute;
   height: 1px;
@@ -204,28 +212,60 @@ h3 {
   border: 2px solid white;
 }
 
-  #splash-overlay{
-      /*display: none;*/
-      position: fixed;
-      top: 0%;
-      left: 0%;
-      width: 100%;
-      height: 100%;
-      background-color: black;
-      opacity: 0.8;
-      z-index:10001;
-  }
+/* Splash window */
+#splash-overlay{
+    /*display: none;*/
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.8;
+    z-index:10001;
+}
 
-  #splash-overlay-content { 
-      position: absolute;
-      display: none;
-      width: 80%;
-      padding: 0px;
-      border: 0px white;
-      background-color: white;
-      opacity: 1.0;
-      z-index:10002;
-  }        
+#splash-overlay-content { 
+    margin: auto;
+    display: block;
+    height: 80%;
+    width: 80%;
+    border: 1px white;
+    background-color: red; /*transparent;*/
+    opacity: 1.0;
+    z-index:10002;
+}        
+
+#splash_image {
+    top: 10%;
+    height: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    position: relative;
+}
+
+a4s_button {
+    border:none;
+    display:inline-block;
+    overflow:hidden;
+    text-decoration:none;
+    color:inherit;
+    background-color:inherit;
+    text-align:center;
+    vertical-align:middle;
+    cursor:pointer;
+    white-space:nowrap;
+    float:left;
+    font-weight:bold; 
+}
+.a4s_button_right {
+    float:right;
+}
+.a4s_button:hover, .a4s_button_right:hover{box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)}
+
+
+
 
   #overlayLegend{
       z-index:1001;
@@ -236,10 +276,15 @@ h3 {
       height: 0%;
   }
 
+  
+  
+  
   #overlayLegend-content { 
       z-index:1002;
   }        
 
+  
+  
   .ol-popup {
   position: absolute;
   background-color: white;

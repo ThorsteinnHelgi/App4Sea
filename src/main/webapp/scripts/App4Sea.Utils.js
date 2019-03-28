@@ -224,5 +224,64 @@ App4Sea.Utils = (function () {
         }
     };
     
+    my.allowDrop = function (ev) {
+        ev.preventDefault();
+    };
+
+    my.drag = function (ev) {
+        console.log("Drag");
+        ev.dataTransfer.setData("id", ev.target.id);
+        ev.dataTransfer.setData("title", ev.target.name);
+        console.log(ev.target.id);
+        console.log(ev.target.name);
+    };
+
+    my.drop = function (ev) {
+        console.log("Drop");
+        ev.preventDefault();
+        var id = ev.dataTransfer.getData("id");
+        //ev.target.appendChild(document.getElementById(data));
+        var title = ev.dataTransfer.getData("title");
+        console.log(id);
+        console.log(title);
+    };
+
+    my.collapse_tree = function (btn, elem) {
+        var collapse = false;
+        if($(elem+' li.jstree-open').length)
+        {
+            collapse = true;
+        }
+        if (collapse) {
+            $(elem).jstree(true).close_all();
+            btn.innerText="\u25BC";
+        }
+        else {
+            $(elem).jstree(true).open_all();
+            btn.innerText="\u25B2";
+        }
+    };
+
+    my.section_toggle = function (id) {
+        if (document.getElementById(id).style.display === "none") {
+            my.w3_open(id);
+        }
+        else {
+            my.w3_close(id);
+        }
+    };
+
+    my.w3_open = function (id) {
+        if (id === "MenuContainer") {
+            $("#TreeMenu").jstree(true).close_all();
+        }
+        document.getElementById(id).style.display = "block";
+    };
+    
+    my.w3_close = function (id) {
+        document.getElementById(id).style.display = "none";
+    };
+
+    
     return my;
 }(App4Sea.Utils || {}));
