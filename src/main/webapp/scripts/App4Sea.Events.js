@@ -24,21 +24,22 @@ App4Sea = App4Sea || {};
     $( window ).on( "load", function() {
         console.log( "Window load" );
 
-    setTimeout(function(){    
-        console.log("setTimeout");
-        
-        $("#splash-overlay").fadeOut();
-    }, 2000);
-    //$("#splash-overlay").show();//Do show
-    //$("#splash-overlay-content").show();//.center();//Do fn.center
-    //$("#splash_image").show();//.center();//Do fn.center
-    
-    var info = $("#ToolTipInfo");
+        setTimeout(function(){    
+            console.log("setTimeout");
 
-    info.tooltip('hide');
-    info.tooltip({
-        animation: false,
-        trigger: 'manual'
-    });
-    
-});
+            $("#splash-overlay").fadeOut();
+        }, 2000);
+
+        //$("#splash-overlay").show();//Do show
+        //$("#splash-overlay-content").show();//.center();//Do fn.center
+        //$("#splash_image").show();//.center();//Do fn.center
+
+        var info = $("#ToolTipInfo");
+
+        info.tooltip('hide');
+        info.tooltip({
+            animation: false,
+            trigger: 'manual'
+        });
+    }
+);

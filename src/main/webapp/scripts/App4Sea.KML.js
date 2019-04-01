@@ -78,39 +78,43 @@ App4Sea.KML = (function () {
         // See: https://remysharp.com/2011/04/21/getting-cors-working
         qwest.get(url, null, {
             responseType: 'blob',
-            timeout: 2000
+            timeout: 5000
 //            headers: {'x-requested-with': 'XMLHttpRequest'
 //            }
         })
-        .then(function (response) {
+        .then(function (xhr, response) {
             // Run when the request is successful
             //$("#DebugWindow").append("ajaxKMZ Response: " + response + "<br/>");
-            //console.log("ajaxKMZ OK: " + url);
+            console.log("ajaxKMZ OK: " + url);
 
             var str = url.toLowerCase();
             if (str.endsWith("kml") && typeof (response) === "object") {
-                var reader = new FileReader();
-
+                
                 var extendedCallback = function (str1, id1) {
+                    //console.log("Callback: " + id1 + ": " + str1);
                     return function (e) {
                         var text = e.srcElement.result;
+                        console.log(text);
                         callback(text, str1, id1);
                     };
                 };
+                
+                var reader = new FileReader();
+
+                console.log(response);
 
                 // This fires after the blob has been read/loaded.
                 reader.addEventListener('loadend', extendedCallback(str, id), {passive: true});
-
-                // Start reading the blob as text.
-                reader.readAsText(response);
+                
+                // Start reading the blob as text. readAsText
+                reader.readAsBinaryString(response);
             } 
             else {
                 callback(response, str, id);
             }
         })
         .catch(function (e, url) {
-            //$("#DebugWindow").append("ajaxKMZ Error: " + e + "<br/>" + url + "<br/>");
-            console.log("ajaxKMZ Error: " + e + ": " + url);
+            console.log("ajaxKMZ Error: " + e + ": Url: " + url + ", id: " + id);
             // Process the error
         })
         .complete(function () {

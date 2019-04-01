@@ -19,83 +19,115 @@ App4Sea.TreeMenu = (function () {
     // http://odonata.tacc.utexas.edu/views/jsTree/reference/_documentation/4_data.html
     // https://stackoverflow.com/questions/26643418/jstree-not-rendering-using-ajax
     my.setUp = function () {
+        
+        let JSONdata = [];
+        let ajaxCount = 0;
+        getData({id : "#"});
 
-        // First we load the tree based on a json file that we fetch using ajax (core)
-        $('#TreeMenu').jstree({
-            'checkbox': {
-                'keep_selected_style': false
-                ,'real_checkboxes': true
-                //,'tie_selection' : false // for checking without selecting and selecting without checking}
-             },
-            'plugins' : ['dnd', 'checkbox', 'context'],
-            'core': {
-                'check_callback': function (operation, node, parent, position, more) {
-//                    if(operation === "copy_node" || operation === "move_node") {
-//                        if(parent.id === "#") {
-//                            return false; // prevent moving a child above or below the root
-//                        }
-//                    };
-                    
-                    if (operation === 'create_node')
-                        return true;
-                    else
-                        return true;
-                },
-                'themes': {
-                    'dots': false,
-                    'icons': false
-                },
-                'error': function (e) {
-                    console.log('Error: ' + e.error);
-                    console.log('Id: ' + e.id);
-                    console.log('Plugin: ' + e.plugin);
-                    console.log('Reason: ' + e.reason);
-                    console.log('Data: ' + e.data);
-                },
-                'data': {
-                    'dataType': 'json',
-                    'contentType': 'application/json; charset=utf-8',
-                    'cache':false,
-                    url: function (node) {
-                        var theUrl = node.id === '#' ?
-                                'json/a4s.json' :
-                                'json/' + node.id + '.json';
-                        //console.log("theUrl: " + theUrl);
-                        return theUrl;
+        function setTree(tree) {
+            $('#TreeMenu').jstree({
+                'checkbox': {
+                    'keep_selected_style': false
+                    ,'real_checkboxes': true
+                    //,'tie_selection' : false // for checking without selecting and selecting without checking}
+                 },
+                'plugins' : ['dnd', 'checkbox', 'context'],
+                'core': {
+                    'check_callback': function (operation, node, parent, position, more) {
+    //                    if(operation === "copy_node" || operation === "move_node") {
+    //                        if(parent.id === "#") {
+    //                            return false; // prevent moving a child above or below the root
+    //                        }
+    //                    };
+
+                        if (operation === 'create_node')
+                            return true;
+                        else
+                            return true;
                     },
-                    data: function (node) {
-                        var nodeObj = {"id": node.id, "text": "", "path": "", "draggable": "", "ondragstart": "" };
-                        if (node.id !== '#')
-                        {
-                            nodeObj.text = node.text;
-                            nodeObj.path = node.a_attr.path;
-                        }
-                        
-                        console.log("Node.id: " + node.id + ", text: " + nodeObj.text + ", path: " + nodeObj.path);
-                        return nodeObj;
-                    }
+                    'themes': {
+                        'dots': false,
+                        'icons': false
+                    },
+                    'error': function (e) {
+                        console.log('Error: ' + e.error);
+                        console.log('Id: ' + e.id);
+                        console.log('Plugin: ' + e.plugin);
+                        console.log('Reason: ' + e.reason);
+                        console.log('Data: ' + e.data);
+                    },
+                    'data': tree
+                }
+            });
+        };
+        
+        function getData(node) {
+            
+            function onSuccess(data, status, jqXHR, parent_node) {
+                for (var i_success = 0; i_success < data.length; i_success++){
+                    let thisNode = data[i_success]; 
+
+//                    let nodeObj = {"parent" : thisNode.parent, "id": thisNode.id, "text": "", "children": thisNode.children, "path": "", "draggable": "", "ondragstart": "" };
+//                    if (thisNode.id !== '#') {
+//                        nodeObj.text = thisNode.text;
+//                        nodeObj.path = thisNode.a_attr.path;
+//                    }
+
+                    let children = thisNode.children;
+                    thisNode.children = false;// Must be set to false as wwe are loading acync (sic!)
+                    JSONdata.push(thisNode);
+
+                    if (children)
+                        getData(thisNode); // Do this recursively
+
+                    console.log(parent_node.id + ': ' + thisNode.id + ", text: " + thisNode.text + ", path: " + thisNode.a_attr.path);
+                }
+
+                ajaxCount--;
+                if (ajaxCount === 0) {
+                  console.log("WE ARE DONE!");
+                  setTree(JSONdata);
+                }
+            };
+            
+            function onError (jqXHR, status, errorThrown, parent_node) {
+                console.log(jqXHR);
+                console.log(status);
+                console.log(errorThrown);
+                console.log(parent_node);
+
+                ajaxCount--;
+                if (ajaxCount === 0) {
+                  console.log("WE ARE DONE!");
+                  setTree(JSONdata);
                 }
             }
-//            'types' : {
-//                "#" : {
-//                    "max_children" : 20,
-//                    "max_depth" : 5,
-//                    "val111id_children" : ["root"]
-//                },
-//                "root" : {
-//                    "icon" : "/data/puffin.ico",
-//                    "valid_children" : ["default"]
-//                },
-//                "default" : {
-//                    "valid_children" : ["default","file"]
-//                },
-//                "file" : {
-//                    "icon" : "glyphicon glyphicon-file",
-//                    "valid_children" : []
-//                }
-//            },
-        });
 
+            let jsonURL;
+            if (node.id === '#') {
+                jsonURL = 'json/a4s.json';
+            }
+            else {
+                jsonURL = 'json/' + node.id + '.json';
+            }
+            
+            ajaxCount++;
+            jQuery.ajax({
+                'url': jsonURL,
+                'contentType': 'application/json; charset=utf-8',
+                'type': 'GET',
+                'dataType': 'JSON',
+                'cache':false,
+                'async': false,
+                success: function(data, status, jqXHR) {
+                    onSuccess(data, status, jqXHR, node);
+                },
+                error: function(jqXHR, status, errorThrown) {
+                    onError(jqXHR, status, errorThrown, node);
+                }
+            });
+        };
+        
         // Catch event: changed
         $('#TreeMenu').on("changed.jstree", function (e, data) {
 
@@ -267,7 +299,7 @@ App4Sea.TreeMenu = (function () {
                 //document.getElementById('legend');
         elem.innerHTML = "";
     }
-        
+    
     return my;
     
 }(App4Sea.TreeMenu || {}));
