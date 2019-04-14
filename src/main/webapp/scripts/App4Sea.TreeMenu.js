@@ -3,11 +3,9 @@
  *
  * ==========================================================================*/
 
-ol = ol || {};
+//ol = ol || {};
+//App4Sea.OpenLayers = (App4Sea.OpenLayers) ? App4Sea.OpenLayers : {};
 App4Sea = App4Sea || {};
-App4Sea.Map = (App4Sea.Map) ? App4Sea.Map : {};
-App4Sea.Map.OpenLayers = (App4Sea.Map.OpenLayers) ? App4Sea.Map.OpenLayers : {};
-
 App4Sea.TreeMenu = (function () {
     "use strict";
     var my = {};
@@ -118,7 +116,7 @@ App4Sea.TreeMenu = (function () {
                 'type': 'GET',
                 'dataType': 'JSON',
                 'cache':false,
-                'async': false,
+                'async': true,
                 success: function(data, status, jqXHR) {
                     onSuccess(data, status, jqXHR, node);
                 },
@@ -144,23 +142,23 @@ App4Sea.TreeMenu = (function () {
             // We add nodes based on the nodes selected, not the node(S) that come in data
 
             // Remove layer if not in the list of selected nodes
-            for (var lind = 0; lind < App4Sea.Map.OpenLayers.layers.length; lind++)
+            for (var lind = 0; lind < App4Sea.OpenLayers.layers.length; lind++)
             {
                 // Check if layer is active
-                var activeLayers = App4Sea.Map.OpenLayers.Map.getLayers();
-                var ol_uid = App4Sea.Map.OpenLayers.layers[lind].vector.ol_uid;
+                var activeLayers = App4Sea.OpenLayers.Map.getLayers();
+                var ol_uid = App4Sea.OpenLayers.layers[lind].vector.ol_uid;
                 var activeIndex = App4Sea.Utils.alreadyActive(ol_uid, activeLayers);
 
                 var isSel = false;
                 for (var sind = 0; sind < data.selected.length; sind++) {
-                    if (data.selected[sind] === App4Sea.Map.OpenLayers.layers[lind].id) {
+                    if (data.selected[sind] === App4Sea.OpenLayers.layers[lind].id) {
                         isSel = true;
                         break;
                     }
                 }
                 if (!isSel && activeIndex !== -1) {
-                    App4Sea.Map.OpenLayers.Map.removeLayer(App4Sea.Map.OpenLayers.layers[lind].vector);
-                    //console.log("Layer removed: " + App4Sea.Map.OpenLayers.layers[lind].id);
+                    App4Sea.OpenLayers.Map.removeLayer(App4Sea.OpenLayers.layers[lind].vector);
+                    //console.log("Layer removed: " + App4Sea.OpenLayers.layers[lind].id);
                 }
             }
 
@@ -176,19 +174,19 @@ App4Sea.TreeMenu = (function () {
                 var nod = $(this).jstree('get_node', data.selected[ind]);
                 
                 //Check if layer exists in cache
-                var index = App4Sea.Utils.alreadyLayer(nod.id, App4Sea.Map.OpenLayers.layers);
+                var index = App4Sea.Utils.alreadyLayer(nod.id, App4Sea.OpenLayers.layers);
 
                 if (index !== -1) {// Layer exists in cache
                     
                     // Check if layer is active
-                    var activeLayers = App4Sea.Map.OpenLayers.Map.getLayers();
-                    var ol_uid = App4Sea.Map.OpenLayers.layers[index].vector.ol_uid;
+                    var activeLayers = App4Sea.OpenLayers.Map.getLayers();
+                    var ol_uid = App4Sea.OpenLayers.layers[index].vector.ol_uid;
                     var activeIndex = App4Sea.Utils.alreadyActive(ol_uid, activeLayers);
                    
                     // Activate if not active
                     if (activeIndex === -1) {// Layer is not active
-                        console.log("Layer being activated from cache: " + nod.id + ": " + nod.text);
-                        App4Sea.Map.OpenLayers.Map.addLayer(App4Sea.Map.OpenLayers.layers[index].vector);
+                        //console.log("Layer being activated from cache: " + nod.id + ": " + nod.text);
+                        App4Sea.OpenLayers.Map.addLayer(App4Sea.OpenLayers.layers[index].vector);
                     }
                     continue;
                 }
@@ -202,15 +200,15 @@ App4Sea.TreeMenu = (function () {
                     continue;
                 }
 
-                console.log("Layer being added: " + nod.id + ": " + nod.text);
+                //console.log("Layer being added: " + nod.id + ": " + nod.text);
 
                 if (heat && heat === true) {
                     if (index === -1) {
                         var vect = App4Sea.Utils.heatMap(path, nod.id, nod.text);
-                        App4Sea.Map.OpenLayers.layers.push({"id": nod.id, "vector" : vect});
-                        console.log("Cached layers now are " + App4Sea.Map.OpenLayers.layers.length);
+                        App4Sea.OpenLayers.layers.push({"id": nod.id, "vector" : vect});
+                        console.log("Cached layers now are " + App4Sea.OpenLayers.layers.length);
 
-                        App4Sea.Map.OpenLayers.Map.addLayer(vect);
+                        App4Sea.OpenLayers.Map.addLayer(vect);
                     }
                 }
                 else if (path.length > 3) {
@@ -218,29 +216,29 @@ App4Sea.TreeMenu = (function () {
                     if (ext === '1cd') { //6a3e86f0825c7e6e605105c24d5ec1cd
                         if (index === -1) {
                             var vect = App4Sea.Weather.loadWeather(path, nod.id);
-                            App4Sea.Map.OpenLayers.layers.push({"id": nod.id, "vector" : vect});
-                            console.log("Cached layers now are " + App4Sea.Map.OpenLayers.layers.length);
+                            App4Sea.OpenLayers.layers.push({"id": nod.id, "vector" : vect});
+                            console.log("Cached layers now are " + App4Sea.OpenLayers.layers.length);
 
-                            App4Sea.Map.OpenLayers.Map.addLayer(vect);
+                            App4Sea.OpenLayers.Map.addLayer(vect);
                         }
                     }
                     else if (ext === '6e4') { //1326faa296b7e865683b67cdf8e5c6e4
                         if (index === -1) {
                             var vect = App4Sea.Weather.loadCityWeather(path, nod.id);
-//                            App4Sea.Map.OpenLayers.layers.push({"id": nod.id, "vector" : vect});
-//                            console.log("Cached layers now are " + App4Sea.Map.OpenLayers.layers.length);
+//                            App4Sea.OpenLayers.layers.push({"id": nod.id, "vector" : vect});
+//                            console.log("Cached layers now are " + App4Sea.OpenLayers.layers.length);
 
-//                            App4Sea.Map.OpenLayers.Map.addLayer(vect);
+//                            App4Sea.OpenLayers.Map.addLayer(vect);
                         }
                     }
                     else if (ext === "gif" || ext === "cgi" || ext === "wms" || ext === "png" || ext === "jpg") {
                         if (index === -1) {
                             var vect = App4Sea.Utils.loadImage(true, path, nod.id, nod.text, nod.a_attr.layers,
                                 nod.a_attr.width, nod.a_attr.height, nod.a_attr.start);
-                            App4Sea.Map.OpenLayers.layers.push({"id": nod.id, "vector" : vect});
-                            console.log("Cached layers now are " + App4Sea.Map.OpenLayers.layers.length);
+                            App4Sea.OpenLayers.layers.push({"id": nod.id, "vector" : vect});
+                            console.log("Cached layers now are " + App4Sea.OpenLayers.layers.length);
 
-                            App4Sea.Map.OpenLayers.Map.addLayer(vect);
+                            App4Sea.OpenLayers.Map.addLayer(vect);
                         }
                     }
                     else {// Including kmz and kml
@@ -258,18 +256,18 @@ App4Sea.TreeMenu = (function () {
             //$('#TreeMenu').jstree(true).check_node(id);
             $.jstree.reference('#TreeMenu').check_node(layerid);
 /*
-            var activeLayers = App4Sea.Map.OpenLayers.Map.getLayers();
-            var ol_uid = App4Sea.Map.OpenLayers.layers[lind].vector.ol_uid;
+            var activeLayers = App4Sea.OpenLayers.Map.getLayers();
+            var ol_uid = App4Sea.OpenLayers.layers[lind].vector.ol_uid;
             var activeIndex = App4Sea.Utils.alreadyActive(ol_uid, activeLayers);
 
             // Make active
             if (activeIndex === -1)
-                App4Sea.Map.OpenLayers.Map.addLayer(App4Sea.Map.OpenLayers.layers[lind].vector);
+                App4Sea.OpenLayers.Map.addLayer(App4Sea.OpenLayers.layers[lind].vector);
   */      }
         else {
             $.jstree.reference('#TreeMenu').uncheck_node(layerid);
             
-    //        App4Sea.Map.OpenLayers.Map.removeLayer(App4Sea.Map.OpenLayers.layers[lind].vector);
+    //        App4Sea.OpenLayers.Map.removeLayer(App4Sea.OpenLayers.layers[lind].vector);
         }
     };
 
@@ -277,7 +275,7 @@ App4Sea.TreeMenu = (function () {
     // showMetadata
     function showMetadata(title, id, data) {
 
-        var elem = App4Sea.Map.OpenLayers.descriptionContainer;
+        var elem = App4Sea.OpenLayers.descriptionContainer;
                 //document.getElementById('legend');
         elem.innerHTML = data;
         
@@ -289,13 +287,13 @@ App4Sea.TreeMenu = (function () {
           stopEvent: false
         });
         
-        App4Sea.Map.OpenLayers.Map.addOverlay(overlay);
+        App4Sea.OpenLayers.Map.addOverlay(overlay);
     }
     
     ////////////////////////////////////////////////////////////////////////////
     // hideMetadata
     function hideMetadata() {
-        var elem = App4Sea.Map.OpenLayers.descriptionContainer;
+        var elem = App4Sea.OpenLayers.descriptionContainer;
                 //document.getElementById('legend');
         elem.innerHTML = "";
     }

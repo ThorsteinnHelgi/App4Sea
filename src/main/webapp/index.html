@@ -5,6 +5,7 @@
         <title>App4Sea</title>
 
         <link rel="icon" href="favicon.ico"/>        
+        <meta name="Description" content="Aðð4Sea is an NPA development project. See: http://app4sea.interreg-npa.eu/">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>        
 
@@ -14,32 +15,29 @@
         <link rel="stylesheet" type="text/css" crossorigin="anonymous" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css">
         <link rel="stylesheet" type="text/css" href="static/css/w3.css"/>
                     
-        <script type="text/javascript" src="static/js/dist/jstree.min.js" ></script>
-        
-        <script type="text/javascript" async="async" src="static/js/zip.js" ></script>
-        <script type="text/javascript" async="async" src="static/js/mustache.js" ></script>
-        <script type="text/javascript" async="async" src="static/js/webcomponents-bundle.js" ></script>
+        <script type="text/javascript" async="async" src="static/js/dist/jstree.min.js" ></script>
+        <script type="text/javascript" async="async" src="static/js/zip.min.js" ></script>
+        <script type="text/javascript" async="async" src="static/js/mustache.min.js" ></script>
+        <script type="text/javascript" async="async" src="static/js/webcomponents-bundle.min.js" ></script>
         <script type="text/javascript" async="async" src="static/js/qwest.min.js" ></script>
-        <script type="text/javascript" async="async" src="static/js/URI.js" ></script>
+        <script type="text/javascript" async="async" src="static/js/URI.min.js" ></script>
         <script type="text/javascript" async="async" src="static/js/d3.min.js"></script>
-
         <script type="text/javascript" async="async" src="static/js/bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script>
 
-        <script type="text/javascript" async="async" src="scripts/App4Sea.js" ></script>
-        <script type="text/javascript" async="async" src="scripts/App4Sea.Map.OpenLayers.js" ></script>
+        <script type="text/javascript" async="async" src="scripts/App4Sea.min.js" ></script>
         <script type="text/javascript" async="async" src="scripts/App4Sea.KML.js" ></script>
-        <script type="text/javascript" async="async" src="scripts/App4Sea.TreeMenu.js" ></script>
-        <script type="text/javascript" async="async" src="scripts/App4Sea.TreeInfo.js" ></script>
-        <script type="text/javascript" async="async" src="scripts/App4Sea.PopUps.js" ></script>
+        <script type="text/javascript" async="async" src="scripts/App4Sea.PopUps.min.js" ></script>
         <script type="text/javascript" async="async" src="scripts/App4Sea.Utils.js" ></script>
-        <script type="text/javascript" async="async" src="scripts/App4Sea.Weather.js" ></script>
-        <script type="text/javascript" async="async" src="scripts/App4Sea.Events.js" ></script>
-        <script type="text/javascript" async="async" src="scripts/App4Sea.Animation.js" ></script>
+        <script type="text/javascript" async="async" src="scripts/App4Sea.Weather.min.js" ></script>
+        <script type="text/javascript" async="async" src="scripts/App4Sea.Animation.min.js" ></script>
+        <script type="text/javascript" async="async" src="scripts/App4Sea.TreeMenu.min.js" ></script>
+        <script type="text/javascript" async="async" src="scripts/App4Sea.TreeInfo.min.js" ></script>
+        <script type="text/javascript" async="async" src="scripts/App4Sea.OpenLayers.min.js" ></script>
 
         <link rel="stylesheet" type="text/css" href="static/js/bootstrap-4.3.1-dist/css/bootstrap.min.css"/>
         <link rel="stylesheet" type="text/css" href="static/js/dist/themes/default/style.min.css" />
 
-        <link rel="stylesheet" type="text/css" href="css/main.css"/>
+        <link rel="stylesheet" type="text/css" href="css/main.min.css"/>
         
     </head>
 
@@ -48,7 +46,7 @@
         <!-- Splash overlay -->
         <div id="splash-overlay">
             <!--div id="splash-overlay-content"-->
-                <img id="splash_image" src="images/Poster.jpg" alt="App4Sea is an NPA-project"/>
+                <img id="splash_image" src="images/Poster.webp" alt="App4Sea is an NPA-project"/>
             <!--/div-->
         </div>
         
@@ -67,12 +65,11 @@
                 <button onclick="App4Sea.Utils.section_toggle('AnimationContainer')" class="a4s_button">
                     <img src="icons/animation.png" alt="Animation" style="width:1.1em;" />
                 </button>
-                <!--button id="testBtn" class="w3-button w3-transparent" style="float:left; font-weight:bold; padding-left:0px; padding-right:3px; ">Test</button-->
                 <button onclick="App4Sea.Utils.w3_close('MenuContainer')" class="a4s_button_right" style="width:2.1em;">X</button>
             </div>
             <div>
                 <a href="http://app4sea.interreg-npa.eu">
-                    <img src="images/App4Sea.jpg" alt="App4Sea is an NPA-project" style="width:100%;"/>
+                    <img src="images/App4Sea.webp" alt="App4Sea is an NPA-project" style="width:100%;" />
                 </a>
             </div>
             

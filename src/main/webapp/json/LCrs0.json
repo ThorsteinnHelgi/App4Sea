@@ -1,0 +1,21 @@
+[
+    { "id" : "Crs1", "parent" : "LCrs0", "text" : "USA States", "children" : false, "a_attr" : { "path" : "https://ahocevar.com/geoserver/wms", "layers": "topp:states", "width" : "256", "height" : "256"} },
+    { "id" : "Crs2", "parent" : "LCrs0", "text" : "Wave Height", "children" : false, "a_attr" : { "path" : "data/sea_dataset-mywavewam8-be_VHM0.kmz"} },
+    { "id" : "Crs4", "parent" : "LCrs0", "text" : "Buffett Hawaii Tour", "children" : false, "a_attr" : { "path" : "data/buffetthawaiitour.kmz"} },
+    { "id" : "Crs5", "parent" : "LCrs0", "text" : "Atlantic 24 Hour Surface Forecast (kml)", "children" : false, "a_attr" : { "path" : "https://ocean.weather.gov/gis/4SWATL.kml"} },
+    { "id" : "Crs6", "parent" : "LCrs0", "text" : "Atlantic 24 Hour Composite Surface Forecast (kml)", "children" : false, "a_attr" : { "path" : "https://ocean.weather.gov/gis/4SWATL_COMPOSITE.kml"} },
+    { "id" : "Crs7", "parent" : "LCrs0", "text" : "Atlantic 24 Hour Wind & Wave Forecast (kml)", "children" : false, "a_attr" : { "path" : "https://ocean.weather.gov/gis/4WWATL.kml"} },
+    { "id" : "Crs8", "parent" : "LCrs0", "text" : "Atlantic 24 Hour Composite Wind & Wave Forecast (kml)", "children" : false, "a_attr" : { "path" : "https://ocean.weather.gov/gis/4WWATL_COMPOSITE.kml"} },
+    { "id" : "Crs9", "parent" : "LCrs0", "text" : "00h Atlantic Surface Analysis (kml)", "children" : false, "a_attr" : { "path" : "http://www.opc.ncep.noaa.gov/gis/ra1.kml"} },
+    { "id" : "Crs10", "parent" : "LCrs0", "text" : "24h Atlantic Wind Forecast (kml)", "children" : false, "a_attr" : { "path" : "http://www.opc.ncep.noaa.gov/gis/4WWATL_COMPOSITE.kml"} },
+    { "id" : "Crs11", "parent" : "LCrs0", "text" : "48h Atlantic Wind Forecast (kml)", "children" : false, "a_attr" : { "path" : "http://www.opc.ncep.noaa.gov/gis/ATL_WW_F48_COMPOSITE.kml"} },
+    { "id" : "Crs12", "parent" : "LCrs0", "text" : "96h Atlantic Wind Forecast (kml)", "children" : false, "a_attr" : { "path" : "http://www.opc.ncep.noaa.gov/gis/ATL_WW_F96_COMPOSITE.kml"} },
+    { "id" : "Crs13", "parent" : "LCrs0", "text" : "00h Atlantic Surface Analysis (kml)", "children" : false, "a_attr" : { "path" : "data/UA_SFC_ANAL.kml"} },
+    { "id" : "Crs14", "parent" : "LCrs0", "text" : "24h Atlantic Surface Forecast (kml)", "children" : false, "a_attr" : { "path" : "http://www.opc.ncep.noaa.gov/gis/4SWATL_COMPOSITE.kml"} },
+    { "id" : "Crs15", "parent" : "LCrs0", "text" : "48h Atlantic Surface Forecast (kml)", "children" : false, "a_attr" : { "path" : "http://www.opc.ncep.noaa.gov/gis/ATL_SFC_F48_COMPOSITE.kml"} },
+    { "id" : "Crs16", "parent" : "LCrs0", "text" : "96h Atlantic Surface Forecast (kml)", "children" : false, "a_attr" : { "path" : "http://www.opc.ncep.noaa.gov/gis/ATL_SFC_F96_COMPOSITE.kml"} },
+    { "id" : "Crs17", "parent" : "LCrs0", "text" : "96 hour Atlantic Forecast (kmz)", "children" : false, "a_attr" : { "path" : "data/96 Hour Atlantic Wind & Wave Forecast.kmz"} },
+    { "id" : "Crs18", "parent" : "LCrs0", "text" : "96 hour Atlantic Forecast (kml)", "children" : false, "a_attr" : { "path" : "data/test.kml"} },
+    { "id" : "Crs19", "parent" : "LCrs0", "text" : "Bennevis (kmz)", "children" : false, "a_attr" : { "path" : "data/bennevis.kmz"} },
+    { "id" : "Crs20", "parent" : "LCrs0", "text" : "Tank terminals", "children" : false, "a_attr" : { "path" : "data/TankTerminalsNPA.kmz"} }
+]

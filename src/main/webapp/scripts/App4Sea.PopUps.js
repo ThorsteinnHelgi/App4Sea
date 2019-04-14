@@ -3,11 +3,9 @@
  *
  * ==========================================================================*/
 
-Mustache = Mustache || {};
+//Mustache = Mustache || {};
+//App4Sea.OpenLayers = App4Sea.OpenLayers || {};
 App4Sea = App4Sea || {};
-App4Sea.Map = App4Sea.Map || {};
-App4Sea.Map.OpenLayers = App4Sea.Map.OpenLayers || {};
-
 App4Sea.PopUps = (function () {
     "use strict";
 
@@ -24,9 +22,9 @@ App4Sea.PopUps = (function () {
         popupCloser = document.getElementById('popup-closer');
 
         // Create an overlay to anchor the popup to the map.
-        my.overlayLayerPopUp = App4Sea.Map.OpenLayers.initOverlay(popupContainer, popupCloser);
+        my.overlayLayerPopUp = App4Sea.OpenLayers.initOverlay(popupContainer, popupCloser);
     
-        App4Sea.Map.OpenLayers.Map.addOverlay(my.overlayLayerPopUp);
+        App4Sea.OpenLayers.Map.addOverlay(my.overlayLayerPopUp);
     };
     
 //        <script id="DefaultPop" type="text/template">
@@ -127,10 +125,10 @@ App4Sea.PopUps = (function () {
         var template;
 
         if (node.nodeName === 'styleUrl') {
-            for (var i = App4Sea.Map.OpenLayers.styleMaps.length - 1; i >= 0; i--) {
+            for (var i = App4Sea.OpenLayers.styleMaps.length - 1; i >= 0; i--) {
                 var styleUrlCore = App4Sea.Utils.parseURL(node.innerHTML);
-                if ("#"+App4Sea.Map.OpenLayers.styleMaps[i].id === styleUrlCore.hash) {
-                    template = FindTemplate(App4Sea.Map.OpenLayers.styleMaps[i].node);
+                if ("#"+App4Sea.OpenLayers.styleMaps[i].id === styleUrlCore.hash) {
+                    template = FindTemplate(App4Sea.OpenLayers.styleMaps[i].node);
                     if (template)
                         return template;
                 }
@@ -173,7 +171,7 @@ App4Sea.PopUps = (function () {
         //var hdms = ol.coordinate.toStringHDMS(ol.proj.transform(coordinate, 'EPSG:3857', 'EPSG:4326'));
         //popupContent.innerHTML = '<p>You clicked here:</p><code>' + hdms + '</code>';
         var features = [];
-        App4Sea.Map.OpenLayers.Map.forEachFeatureAtPixel(evt.pixel, function (feature) {
+        App4Sea.OpenLayers.Map.forEachFeatureAtPixel(evt.pixel, function (feature) {
             features.push(feature);
         });
         
@@ -193,10 +191,10 @@ App4Sea.PopUps = (function () {
 
             var styleUrl = features[0].get('styleUrl');
             var template;
-            for (var i = App4Sea.Map.OpenLayers.styleMaps.length - 1; i >= 0; i--) {
+            for (var i = App4Sea.OpenLayers.styleMaps.length - 1; i >= 0; i--) {
                 var styleUrlCore = App4Sea.Utils.parseURL(styleUrl);
-                if ("#"+App4Sea.Map.OpenLayers.styleMaps[i].id === styleUrlCore.hash) {
-                    template = FindTemplate(App4Sea.Map.OpenLayers.styleMaps[i].node);
+                if ("#"+App4Sea.OpenLayers.styleMaps[i].id === styleUrlCore.hash) {
+                    template = FindTemplate(App4Sea.OpenLayers.styleMaps[i].node);
 
                     if (template)
                         break;
@@ -227,7 +225,7 @@ App4Sea.PopUps = (function () {
     };
    
     my.initToolTip = function () {
-        var map = App4Sea.Map.OpenLayers.Map;
+        var map = App4Sea.OpenLayers.Map;
 
         var displayFeatureInfo = function (pixel) {
             $('#ToolTipInfo').css({

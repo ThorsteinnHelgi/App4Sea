@@ -3,14 +3,12 @@
  *
  * ==========================================================================*/
 
-qwest = qwest || {};
-ol = ol || {};
-zip = zip || {};
 App4Sea = App4Sea || {};
-
 App4Sea.KML = (function () {
     "use strict";
     var my = {};
+
+    let ynd = 0;
     
     var title = "";
     ////////////////////////////////////////////////////////////////////////////
@@ -58,6 +56,7 @@ App4Sea.KML = (function () {
         // this file reference other KMZ so we call each of them
         // and add their content
         var str = url.toLowerCase();
+        console.log(str);
         if (str.endsWith("kmz")) {
             console.log("readAndAddFeatures kmz element: " + url);
             ajaxKMZ(url, id, unzipFromBlob(readAndAddFeatures, id));
@@ -70,6 +69,7 @@ App4Sea.KML = (function () {
 
     ////////////////////////////////////////////////////////////////////////////
     // Function to make ajax call and make a callback on success (both kml and kmz)
+    // We are getting data from the internet
     function ajaxKMZ(url, id, callback) {
         console.log("ajaxKMZ: " + url);
 
@@ -78,43 +78,47 @@ App4Sea.KML = (function () {
         // See: https://remysharp.com/2011/04/21/getting-cors-working
         qwest.get(url, null, {
             responseType: 'blob',
-            timeout: 5000
-//            headers: {'x-requested-with': 'XMLHttpRequest'
-//            }
+            cache: true, // Cors Origin fix (not working!)
+            timeout: 2000,
+            headers: {
+                //'x-requested-with': 'XMLHttpRequest',
+                crossOrigin: 'anonymous'
+            }
         })
         .then(function (xhr, response) {
             // Run when the request is successful
             //$("#DebugWindow").append("ajaxKMZ Response: " + response + "<br/>");
             console.log("ajaxKMZ OK: " + url);
 
-            var str = url.toLowerCase();
+            let str = url.toLowerCase();
             if (str.endsWith("kml") && typeof (response) === "object") {
                 
-                var extendedCallback = function (str1, id1) {
-                    //console.log("Callback: " + id1 + ": " + str1);
+                let extendedCallback = function (str1, id1, callb) {
                     return function (e) {
-                        var text = e.srcElement.result;
+                        console.log("Callback: " + id1 + ": " + str1);
+                        let text = e.srcElement.result;
                         console.log(text);
-                        callback(text, str1, id1);
+                        callb(text, str1, id1);
                     };
                 };
                 
-                var reader = new FileReader();
+                //console.log(response);
 
-                console.log(response);
-
-                // This fires after the blob has been read/loaded.
-                reader.addEventListener('loadend', extendedCallback(str, id), {passive: true});
+                // This will fire after the blob has been read/loaded.
+                let reader = new FileReader();
+                reader.addEventListener('loadend', extendedCallback(str, id, callback), {passive: true});
                 
                 // Start reading the blob as text. readAsText
                 reader.readAsBinaryString(response);
             } 
             else {
+                console.log("Now handlilng " + str);
                 callback(response, str, id);
             }
         })
-        .catch(function (e, url) {
+        .catch(function (e, xhr) {
             console.log("ajaxKMZ Error: " + e + ": Url: " + url + ", id: " + id);
+            //console.log(xhr);
             // Process the error
         })
         .complete(function () {
@@ -124,41 +128,46 @@ App4Sea.KML = (function () {
     }
 
     ////////////////////////////////////////////////////////////////////////////
-    // Function to unzip content from blob and execute callback on
-    // first entry (not generic but assumed for the demo)
+    // Function to unzip content from blob and execute callback
+    // We are getting data from local file
     function unzipFromBlob(callback, id) {        
         return function unzip(blob) {
+            console.log("Unzip id " + id);
             // use a BlobReader to read the zip from a Blob object
-            zip.createReader(new zip.BlobReader(blob),
+            zip.createReader(
+                new zip.BlobReader(blob),
                 function (reader) {
                     // get all entries (array of objects) from the zip
                     reader.getEntries(function (entries) {
                         console.log("Got entries: " + entries.length);
-                        for (var ind = 0; ind < entries.length; ind++) {
-                            var str = entries[ind].filename.toLowerCase();
+                        for (let ind = 0; ind < entries.length; ind++) {
 
-                            var extendedCallback = function (str1, id1) {
-                                console.log("extendedCallback for " + id1 + " at " + str1);
+                            console.log("Entry: " + entries[ind]);
+
+                            let extendedCallback = function (str1, id1, callb, ntries) {
                                 return function (text) {
-                                    // text contains the entry data as a String
-                                    console.log("About to call back " + str1);
-                                    callback(text, str1, id1);
+                                    console.log("extendedCallback for " + id1 + " at " + str1 + " next call " + callb);
+                                    // text contains the entry data as a String (even though it may be a blob)
+                                    //console.log("About to call back for " + str1);
+                                    callb(text, str1, id1, ntries);
                                 };
                             };
 
-                            console.log("Entry " + ind + ": " + str);
-                            // there is always only one KML in KMZ, namely the doc.kml (name can differ).
-                            // we get the kml content as text
-                            //console.log("unzipFromBlob entry " + str + "[" + entries[ind].compressedSize + " -> " + entries[ind].uncompressedSize + "]");
-                            entries[ind].getData(/* writer, onend, onprogress, checkCrc32 */
-                                new zip.TextWriter(),
-                                extendedCallback (str, id),
-                                function (current, total) {
-                                    // onprogress callback
-                                    //$("#DebugWindow").append("unzipFrom Blob Total: " + total.toString() + "<br/>");
-                                    //console.log("unzipFromBlob Total: " + total.toString() + ", Current: " + current.toString());
-                                }
-                            );
+                            let str = entries[ind].filename.toLowerCase();
+
+                            if (str.endsWith(".kml")) {
+                                console.log("Entry " + ind + ": " + str);
+                                // there is always only one KML in KMZ, namely the doc.kml (name can differ).
+                                // we get the kml content as text, but also any other content (as text)
+                                entries[ind].getData(/* writer, onend, onprogress, checkCrc32 */
+                                    new zip.TextWriter(),
+                                    extendedCallback (str, id, callback, entries),
+                                    function (current, total) {
+                                        // onprogress callback
+                                        //console.log("unzipFromBlob Total: " + total.toString() + ", Current: " + current.toString());
+                                    }
+                                );
+                            }
                         }
                     });
                 },
@@ -171,18 +180,20 @@ App4Sea.KML = (function () {
     }
     
     ////////////////////////////////////////////////////////////////////////////
-    // Read reference to other KMZ and add them to the vector layer
-    var readAndAddFeatures = function (text, name, id) {
-        console.log("readAndAddFeatures >>>> " + id + " from file " + name);
+    // Read a KML and add any features to the vector layer recursively
+    // This call will either be called with a kml file or the individual entries (as text)
+    // from the entries in the kmz file (of which the doc.kml file is one).
+    let readAndAddFeatures = function (text, name, id, entries) {
+        console.log("readAndAddFeatures >>>> " + name + " from file " + id);
 
-        var str = name.toLowerCase();
+        let str = name.toLowerCase();
         
         if (str.endsWith("kml")) {
-            var listFilesNested = parseKmlText(name, text, id);
-            if (listFilesNested.length === 0) {
+            let listFilesNested = parseKmlText(name, text, id, entries);
+            //if (listFilesNested.length === 0) {
                 //console.log("No nested files");
-                addFeatures(text, str, id);
-            };
+                addKMLFeatures(text, str, id);
+            //};
 
             console.log("listFilesNested are " + listFilesNested.length);
             listFilesNested.forEach(function (el) {
@@ -191,90 +202,31 @@ App4Sea.KML = (function () {
                 // but could be "promisified" instead
                 repeat_kml_kmz_calls(el, id);
             });
-            console.log("readAndAddFeatures <<<<");
         }
         else {
-            console.log("Should store file in " + name);
-//            console.log("Storing file in " + name);
-//            var cors_api_url = 'https://cors-anywhere.herokuapp.com/';
-//            var url = 'http://localhost:11546/WriteFile.php';
-//            var xhr = new XMLHttpRequest();//createCORSRequest('POST', url);
-//            if (!xhr) {
-//              throw new Error('CORS not supported in your browser. Please upgrade your browser or try another one.');
-//            }
-//            else {
-//                // Response handlers.
-//                 xhr.onload = function() {
-//                    var text = xhr.responseText;
-//                    alert('Response from CORS request to ' + url + ': ' + text);
-//                };
-//
-//                xhr.open('POST', cors_api_url+url);
-//                //xhr.setRequestHeader('origin', 'ourUrl'); We can not set this, but the browser does
-//                xhr.setRequestHeader('x-requested-with', 'XMLHttpRequest');
-//                xhr.setRequestHeader('Content-Type', 'text/plain');
-//                xhr.send('F='+name+'&D='+text);
-//            }
+          ///  addKMLFeatures(text, str, id);
         }
         console.log("readAndAddFeatures <<<<");
     };
 
     ////////////////////////////////////////////////////////////////////////////
     // Function to ease KML feature reading
-    function addFeatures(text, name, id) {
-        if (!name.endsWith("kml")) {
-//                var uInt8Array = new Uint8Array(text);
-//    var i = uInt8Array.length;
-//    var binaryString = new Array(i);
-//    while (i--)
-//    {
-//      binaryString[i] = String.fromCharCode(uInt8Array[i]);
-//    }
-//    var data = binaryString.join('');
-//
-//    var base64 = window.btoa(data);
-            
-            if (name.endsWith("mp3")) {
-                console.log("Not handling video for now");
-                return;
-            }
-            
-            // convert to Base64
-            var blob;
-            if (text.type && text.type === 'application/octet-stream') {
-                blob = text;
-            }
-            else {
-                var str;
-                str = text.replace(/[\u00A0-\u2666]/g, function(c) {
-                    return '&#' + c.charCodeAt(0) + ';';
-                });
-                var base64 = btoa(unescape(encodeURIComponent(str)));
-                var end = name.substr(name.lastIndexOf('.')+1);
-                blob = App4Sea.Utils.b64toBlob(base64, "image/" + end);
-                //var blob = new Blob( [ base64 ], { type: "image/" + end } );
-            };
-            
-            var urlCreator = window.URL || window.webkitURL;
-            var imageUrl = urlCreator.createObjectURL( blob );
-            
-            //document.getElementById("photo").src = 'data:image/' + end + ';base64,' + base64;
-            var img = document.querySelector( "#photo" );
-            img.src = imageUrl;
+    function addKMLFeatures (text, name, id) {
+        console.log(">>> addKMLFeatures: " + name)
 
-            console.log("addFeatures image: " + id + " in file " + name + " DONE");
-            return;
+        if (name.endsWith("kml")) {
+            //console.log(text); // log the whole kml file
+            var vect = loadKmlText(text, id, name);
+            
+            App4Sea.OpenLayers.layers.push({"id": id, "vector": vect});
+            console.log("Cached layers now are " + App4Sea.OpenLayers.layers.length);
+
+            App4Sea.OpenLayers.Map.addLayer(vect);
+
+            console.log("addKMLFeatures: " + id + " in file " + name + " DONE");
         }
         
-        //console.log(text); // log the whole kml file
-        var vect = loadKmlText(text, id, name);
-        
-        App4Sea.Map.OpenLayers.layers.push({"id": id, "vector": vect});
-        console.log("Cached layers now are " + App4Sea.Map.OpenLayers.layers.length);
-
-        App4Sea.Map.OpenLayers.Map.addLayer(vect);
-
-        console.log("addFeatures: " + id + " in file " + name + " DONE");
+        console.log("<<< addKMLFeatures")
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -335,13 +287,13 @@ App4Sea.KML = (function () {
         {
             case 'StyleMap':
                 newStyleMap = getStyleEntry(newID, parentId, node);
-                App4Sea.Map.OpenLayers.styleMaps.push(newStyleMap);
+                App4Sea.OpenLayers.styleMaps.push(newStyleMap);
                 break;
 
             case 'Style':
                 newStyleMap = getStyleEntry(newID, parentId, node);
-                App4Sea.Map.OpenLayers.styleMaps.push(newStyleMap);
-                newID = App4Sea.Map.OpenLayers.styleMaps.length;
+                App4Sea.OpenLayers.styleMaps.push(newStyleMap);
+                newID = App4Sea.OpenLayers.styleMaps.length;
                 break;
 /*
             case 'Pair':
@@ -427,14 +379,14 @@ App4Sea.KML = (function () {
         var newNode = { state: {"closed" : true, "checkbox_disabled" : false, "disabled" : disabled}, // TBD disabled should always be false
             icon: icon, text: text, data: data, selected: true, children : false };
         var retVal = tree.jstree(true).create_node(parNode, newNode, 'last', false, false); //[par, node, pos, callback, is_loaded]
-        console.log("Adding " + text + " to tree under " + parNode + " returned " + retVal);
+        //console.log("Adding " + text + " to tree under " + parNode + " returned " + retVal);
         return retVal;
     }
 
     ////////////////////////////////////////////////////////////////////////////
     // Function to parse KML text to get link reference to list any other 
     // nested files (kmz or kml)
-    function parseKmlText(path, text, id) {
+    function parseKmlText(path, text, id, entries) {
         //console.log("parseKmlText: " + text);
         var oParser = new DOMParser();
         var oDOM = oParser.parseFromString(text, 'text/xml');
@@ -480,7 +432,6 @@ App4Sea.KML = (function () {
         function addOverlay(overlay, id) {
             var href = overlay.querySelector('Icon href');
             var url;
-            var image;
             
             if (href)
                 url = href.innerHTML;
@@ -560,35 +511,89 @@ App4Sea.KML = (function () {
                 
                 url = url.replaceAll(/&amp;/, '&');
                 
-                var west = parseFloat(overlay.querySelector('west').innerHTML);
-                var south = parseFloat(overlay.querySelector('south').innerHTML);
-                var east = parseFloat(overlay.querySelector('east').innerHTML);
-                var north = parseFloat(overlay.querySelector('north').innerHTML);
+                const west = parseFloat(overlay.querySelector('west').innerHTML);
+                const south = parseFloat(overlay.querySelector('south').innerHTML);
+                const east = parseFloat(overlay.querySelector('east').innerHTML);
+                const north = parseFloat(overlay.querySelector('north').innerHTML);
 
                 var imageExtent = ol.proj.transformExtent([west, south, east, north], App4Sea.prefProj, App4Sea.prefViewProj);
-                console.log("GroundOverlay: W:" + west + " S:" + south + " E:" + east + " N:" + north + " Pro:" + App4Sea.prefProj + " ViewProj:" + App4Sea.prefViewProj);                
-                var nameIs;
-                var name = overlay.querySelector('name');
-                if (name)
+                //console.log("GroundOverlay: W:" + west + " S:" + south + " E:" + east + " N:" + north + " Pro:" + App4Sea.prefProj + " ViewProj:" + App4Sea.prefViewProj);                
+                let nameIs = "";
+                const name = overlay.querySelector('name');
+                if (name) {
                     nameIs = name.innerHTML;
+                }
 
-                image = new ol.layer.Image({
-                    name: nameIs,
-    //                extent: mapExtent,
-    //                origin: [mapExtent[0], mapExtent[1]],
-                    source: new ol.source.ImageStatic({
+                function loadImageFromKmz(ent1, url1, ext1, nam1, id1) {
+
+                    let extendedCallback = function (ur, ex, nm, en, id) {
+                        return function (data) {
+                            let kmzurl =  URL.createObjectURL(data);
+                            let source = new ol.source.ImageStatic({
+                                url: kmzurl,
+                                imageExtent: ex
+                            });
+                            let image = new ol.layer.Image({
+                                name: nm,
+                                source: source
+                            });
+                            if (image) {
+                                App4Sea.OpenLayers.layers.push({"id": id, "vector" : image});
+                                console.log("Added image from kmz. Cached layers now are " + App4Sea.OpenLayers.layers.length + ": " + ur);
+            
+                                App4Sea.OpenLayers.Map.addLayer(image);
+                            }
+                            else {
+                                console.log("No image created from kmz");
+                            }
+                        };
+                    };
+                        
+                    ent1.getData(new zip.BlobWriter('text/plain'), extendedCallback(url1, ext1, nam1, ent1, id1));
+                };
+
+                function findIn (filesInKmz, url_, ext, nam, ide) {
+                    for (let ind=0; ind<filesInKmz.length; ind++) {
+                        if (filesInKmz[ind].filename === url_) {
+                            return loadImageFromKmz(filesInKmz[ind], url_, ext, nam, ide);
+                        }
+                    };
+
+                    console.log("Didn't find file in kmz: " + nam);
+
+                    return null;
+                };
+
+                let image;
+                ynd = ynd + 1;// && ynd % 2 === 1
+                if (!url.startsWith("http")) {
+                    if (entries && entries.length > 1) {
+                        //console.log("Getting image from kmz: " + url);
+                        findIn(entries, url, imageExtent, nameIs, id);
+                    } 
+                    else {
+                        console.log("Getting image from same location as parent");
+
+                    }
+
+                }
+                else {
+                    //console.log("Getting image from url: " + url);
+                    let source = new ol.source.ImageStatic({
                         url: url,
-//                        crossOrigin: 'anonymous',
-                        //projection: 'EPSG:27700',
+                        crossOrigin: 'anonymous',
                         imageExtent: imageExtent
-                  })
-                });
-
-                if (image) {
-                    App4Sea.Map.OpenLayers.layers.push({"id": id, "vector" : image});
-                    console.log("Cached layers now are " + App4Sea.Map.OpenLayers.layers.length);
-
-                    App4Sea.Map.OpenLayers.Map.addLayer(image);
+                    });
+                    image = new ol.layer.Image({
+                        name: nameIs,
+                        source: source
+                    });
+                    if (image) {
+                        App4Sea.OpenLayers.layers.push({"id": id, "vector" : image});
+                        console.log("Added image from url. Cached layers now are " + App4Sea.OpenLayers.layers.length + ": " + url);
+    
+                        App4Sea.OpenLayers.Map.addLayer(image);
+                    }
                 }
             }
         }
@@ -601,7 +606,7 @@ App4Sea.KML = (function () {
                 var newId;
 
                 if (child.nodeName === 'name' || child.nodeName === 'atom:name'){
-                    console.log("Name item not handled");
+                    console.log("Name item not handled: " + child.innerHTML);
                     // TBD
 //                    var name = child;
 //                    if(name.innerHTML !== "") {
@@ -631,7 +636,7 @@ App4Sea.KML = (function () {
                     newId = addChild(getName(child.children, child.nodeName), child.innerHTML, $('#TreeMenu'), id, true, 'icons/folder.png');
                 } 
                 else if(child.nodeName === 'Camera') {
-                    console.log("Camera item not handled");
+                    console.log("Camera item not handled: " + child.innerHTML);
                     // TBD
                 } 
                 else if(child.nodeName === 'Placemark') { // Can move this later to a selectable section TBD
@@ -665,10 +670,10 @@ App4Sea.KML = (function () {
                     newId = addStyleMap(id, child);
                 }
                 else if (child.nodeName === 'TimeSpan') {
-                    console.log(child.nodeName + " item not handled");
+                    console.log(child.nodeName + " item not handled: " + child.innerHTML);
                 }
                 else if (child.nodeName === 'TimeStamp') {
-                    console.log(child.nodeName + " item not handled");
+                    console.log(child.nodeName + " item not handled: " + child.innerHTML);
                 }
                 else if(child.nodeName === 'Link' ||
                         child.nodeName === 'atom:link' ||
@@ -703,7 +708,7 @@ App4Sea.KML = (function () {
                         child.nodeName === 'gx:IconStackStyle' || // Included in Style
                         child.nodeName === 'IconStyle') { // Included in Style
                     // Currently not handling this
-                    console.log(child.nodeName + " item not handled");
+                    //console.log(child.nodeName + " item not handled: " + child.innerHTML);
                     // TBD
 
                 } 

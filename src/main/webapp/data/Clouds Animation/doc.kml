@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<NetworkLink id="clouds_animation">
+	<name>Clouds Animation</name>
+	<Snippet maxLines="0"></Snippet>
+	<description><![CDATA[<table width=400>
+<tr><td>
+A Network Link called "Clouds Animation" has been loaded under your "Temporary Places" folder in the "Places" panel on the left of your screen:
+</td></tr>
+
+<tr><td><img src='http://mw1.google.com/mw-weather/base/files/static/nrl/temp_places_clouds.jpg'></td></tr>
+<tr><td></td></tr>
+
+<tr><td>For best results, make sure the "Weather" layer is checked off (invisible) before starting the animation:</td></tr>
+
+<tr><td><img src='http://mw1.google.com/mw-weather/base/files/static/nrl/weather_off.jpg'></td></tr>
+<tr><td></td></tr>
+
+<tr><td>
+To enable the animation, make sure the "Clouds Animation" Network Link has been checked on and has been highlighted:
+</td></tr>
+
+<tr><td><img src='http://mw1.google.com/mw-weather/base/files/static/nrl/checked_highlighted_clouds.jpg'></td></tr>
+<tr><td></td></tr>
+
+<tr><td>
+An animation control should appear at the top right of your screen - click on the "Play" button on the right to animate:
+</td></tr>
+
+<tr><td><img src='http://mw1.google.com/mw-weather/base/files/static/nrl/time_slider.jpg'></td></tr>
+<tr><td></td></tr>
+
+<tr><td>
+Please be patient as the data may require several passes through the animation in order to fully load.
+</td></tr>]]></description>
+	<Style>
+		<ListStyle>
+			<listItemType>checkHideChildren</listItemType>
+			<bgColor>00ffffff</bgColor>
+			<maxSnippetLines>2</maxSnippetLines>
+		</ListStyle>
+	</Style>
+	<Link>
+		<href>http://mw1.google.com/mw-weather/clouds/animation.kml</href>
+		<refreshMode>onInterval</refreshMode>
+		<refreshInterval>3600</refreshInterval>
+	</Link>
+</NetworkLink>
+</kml>

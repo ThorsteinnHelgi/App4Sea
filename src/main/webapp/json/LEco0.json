@@ -1,4 +1,6 @@
 [
-    { "id" : "Eco1", "parent" : "LEco0", "text" : "Birds 1",	"children" : false, "a_attr" : { "path" : "data/Birds/Seabirds 001.kml"} },
-    { "id" : "Eco2", "parent" : "LEco0", "text" : "Birds 2",	"children" : false, "a_attr" : { "path" : "data/Birds/Seabirds 002.kml"} }
+    { "id" : "Eco1", "parent" : "LEco0", "text" : "Seabirds Breeding SOSI",	"children" : false, "a_attr" : { "path" : "data/Birds/BreedingSummedSOSIseabirdICES.kmz"} },
+    { "id" : "Eco2", "parent" : "LEco0", "text" : "Seabirds Non-Breeding SOSI ",	"children" : false, "a_attr" : { "path" : "data/Birds/nonBreedingSummedSOSIseabirdICES.kmz"} },
+    { "id" : "Eco3", "parent" : "LEco0", "text" : "Seabirds 1",	"children" : false, "a_attr" : { "path" : "data/Birds/Seabirds 001.kml"} },
+    { "id" : "Eco4", "parent" : "LEco0", "text" : "Seabirds 2",	"children" : false, "a_attr" : { "path" : "data/Birds/Seabirds 002.kml"} }
 ]

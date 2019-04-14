@@ -11,14 +11,14 @@
             <roll>0</roll>
         </Camera>
         <GroundOverlay id="3">
-            <name>wave_forecast at 2019-03-27 18:00:00</name>
+            <name>wave_forecast at 2019-04-04 18:00:00</name>
             <visibility>0</visibility>
             <TimeSpan id="4">
-                <begin>2019-03-27 18:00:00</begin>
-                <end>2019-03-28 18:00:00</end>
+                <begin>2019-04-04 18:00:00</begin>
+                <end>2019-04-05 18:00:00</end>
             </TimeSpan>
             <Icon id="5">
-                <href>wave_forecast0.png</href>
+                <href>files\wave_forecast0.png</href>
             </Icon>
             <gx:altitudeMode>absolute</gx:altitudeMode>
             <LatLonBox>
@@ -30,14 +30,14 @@
             </LatLonBox>
         </GroundOverlay>
         <GroundOverlay id="7">
-            <name>wave_forecast at 2019-03-28 18:00:00</name>
+            <name>wave_forecast at 2019-04-05 18:00:00</name>
             <visibility>0</visibility>
             <TimeSpan id="8">
-                <begin>2019-03-28 18:00:00</begin>
-                <end>2019-03-29 18:00:00</end>
+                <begin>2019-04-05 18:00:00</begin>
+                <end>2019-04-06 18:00:00</end>
             </TimeSpan>
             <Icon id="9">
-                <href>wave_forecast24.png</href>
+                <href>files\wave_forecast24.png</href>
             </Icon>
             <gx:altitudeMode>absolute</gx:altitudeMode>
             <LatLonBox>
@@ -49,14 +49,14 @@
             </LatLonBox>
         </GroundOverlay>
         <GroundOverlay id="11">
-            <name>wave_forecast at 2019-03-29 18:00:00</name>
+            <name>wave_forecast at 2019-04-06 18:00:00</name>
             <visibility>0</visibility>
             <TimeSpan id="12">
-                <begin>2019-03-29 18:00:00</begin>
-                <end>2019-03-30 18:00:00</end>
+                <begin>2019-04-06 18:00:00</begin>
+                <end>2019-04-07 18:00:00</end>
             </TimeSpan>
             <Icon id="13">
-                <href>wave_forecast48.png</href>
+                <href>files\wave_forecast48.png</href>
             </Icon>
             <gx:altitudeMode>absolute</gx:altitudeMode>
             <LatLonBox>

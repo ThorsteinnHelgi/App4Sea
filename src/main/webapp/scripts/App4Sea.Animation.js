@@ -3,9 +3,8 @@
  *
  * ==========================================================================*/
 
-ol = ol || {};
+//ol = ol || {};
 App4Sea = App4Sea || {};
-
 App4Sea.Animation = (function () {
     "use strict";
     var my = {};
@@ -84,8 +83,8 @@ App4Sea.Animation = (function () {
     }
 
     function findLayerIndex(lind){
-        for (var ynd=0; ynd<App4Sea.Map.OpenLayers.layers.length; ynd++){
-            var item = App4Sea.Map.OpenLayers.layers[ynd];
+        for (var ynd=0; ynd<App4Sea.OpenLayers.layers.length; ynd++){
+            var item = App4Sea.OpenLayers.layers[ynd];
             if (item.id === lind) {
                 return ynd;
             }

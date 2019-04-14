@@ -3,7 +3,7 @@
  *
  * ==========================================================================*/
 
-ol = ol || {};
+//ol = ol || {};
 App4Sea = App4Sea || {};
 App4Sea.Weather = (function () {
     "use strict";
@@ -49,7 +49,7 @@ App4Sea.Weather = (function () {
         )();
 
         // End
-        App4Sea.Map.OpenLayers.overlayLayerPopUp.setPosition(coordinate);
+        App4Sea.PopUps.overlayLayerPopUp.setPosition(coordinate);
     };
 
     my.loadCityWeather = function (url, id) {
@@ -60,7 +60,7 @@ App4Sea.Weather = (function () {
         // Create an overlay to anchor the popup to the map.
         //var overlayLayerPopUp = initOverlay(popupContainer, popupCloser);
 
-        var coordinate = App4Sea.Map.OpenLayers.Map.getView().getCenter();
+        var coordinate = App4Sea.OpenLayers.Map.getView().getCenter();
         
         var description = "<div id='openweathermap-widget-15' style='zoom: 0.8'></div>";
         popupContent.innerHTML = description;
@@ -79,7 +79,7 @@ App4Sea.Weather = (function () {
         )();
 
         // End
-        App4Sea.Map.OpenLayers.overlayLayerPopUp.setPosition(coordinate);
+        App4Sea.PopUps.overlayLayerPopUp.setPosition(coordinate);
     };
 
     my.loadWeather = function(url, id) {
@@ -95,7 +95,7 @@ App4Sea.Weather = (function () {
             extent: App4Sea.mapExtent,
             origin: [App4Sea.mapExtent[0], App4Sea.mapExtent[1]],
             resolutions: resolutions,
-            projection: App4Sea.Map.OpenLayers.prefViewProj,
+            projection: App4Sea.OpenLayers.prefViewProj,
             tileSize: [256, 256]
         });
       

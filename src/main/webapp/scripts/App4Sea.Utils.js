@@ -3,9 +3,7 @@
  *
  * ==========================================================================*/
 
-ol = ol || {};
 App4Sea = App4Sea || {};
-
 App4Sea.Utils = (function () {
     "use strict";
     var my = {};
@@ -44,10 +42,6 @@ App4Sea.Utils = (function () {
         console.log("Testing ...");
 
         my.layers.length = 0;
-
-        var pdf = 'data/2017-05-09-EPPR-COSRVA-guts-and-cover-letter-size-digital-complete.pdf';
-        var btn = document.getElementById('testBtn');
-        //var oNewDoc = this.extractPages({42, 42, pdf});
     };
 
     //https://gis.stackexchange.com/questions/121555/wms-server-with-cors-enabled/147403#147403
@@ -81,7 +75,7 @@ App4Sea.Utils = (function () {
             })
         });
         
-        App4Sea.Map.OpenLayers.Map.addLayer(overlay);
+        App4Sea.OpenLayers.Map.addLayer(overlay);
     };
     
     ////////////////////////////////////////////////////////////////////////////
@@ -100,31 +94,6 @@ App4Sea.Utils = (function () {
         return theXmlDoc;
     };
 
-    ////////////////////////////////////////////////////////////////////////////
-    my.b64toBlob = function (b64Data, contentType, sliceSize) {
-        contentType = contentType || '';
-        sliceSize = sliceSize || 512;
-
-        var byteCharacters = atob(b64Data);
-        var byteArrays = [];
-
-        for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-            var slice = byteCharacters.slice(offset, offset + sliceSize);
-
-            var byteNumbers = new Array(slice.length);
-            for (var i = 0; i < slice.length; i++) {
-                byteNumbers[i] = slice.charCodeAt(i);
-            }
-
-            var byteArray = new Uint8Array(byteNumbers);
-
-            byteArrays.push(byteArray);
-        }
-
-        var blob = new Blob(byteArrays, {type: contentType});
-        return blob;
-    };
-    
     ////////////////////////////////////////////////////////////////////////////
     // heatMap
     my.heatMap = function (url, id, name) {
@@ -165,7 +134,38 @@ App4Sea.Utils = (function () {
         
         return vector; 
     };
-    
+
+    my.loadImage = function (flag, url, id, text, layers, width, height, start) {
+        url = url.replaceAll(/&amp;/, '&');
+            
+// TBD finish this
+
+        /*var west = parseFloat(overlay.querySelector('west').innerHTML);
+        var south = parseFloat(overlay.querySelector('south').innerHTML);
+        var east = parseFloat(overlay.querySelector('east').innerHTML);
+        var north = parseFloat(overlay.querySelector('north').innerHTML);
+
+        var imageExtent = ol.proj.transformExtent([west, south, east, north], App4Sea.prefProj, App4Sea.prefViewProj);*/
+        //console.log("Image: W:" + west + " S:" + south + " E:" + east + " N:" + north + " Pro:" + App4Sea.prefProj + " ViewProj:" + App4Sea.prefViewProj);                
+        var nameIs;
+        //var name = overlay.querySelector('name');
+        //if (name)
+            nameIs = text;//name.innerHTML;
+
+        let scale = 0.2;
+        let imageExtent = ol.proj.transformExtent([10, 50, 0, 60], App4Sea.prefProj, App4Sea.prefViewProj);
+        let image = new ol.layer.Image({
+            name: nameIs,
+            source: new ol.source.ImageStatic({
+                url: url,
+                imageExtent: imageExtent,
+                crossOrigin: 'anonymous'
+            })
+        });
+
+        return image;
+    }
+
     my.createCORSRequest = function (method, url) {
       var xhr = new XMLHttpRequest();
       if ("withCredentials" in xhr) {
@@ -174,19 +174,22 @@ App4Sea.Utils = (function () {
         // "withCredentials" only exists on XMLHTTPRequest2 objects.
         xhr.open(method, url, true);
 
-      } else if (typeof XDomainRequest !== "undefined") {
+      } 
+      else if (typeof XDomainRequest !== "undefined") {
 
         // Otherwise, check if XDomainRequest.
         // XDomainRequest only exists in IE, and is IE's way of making CORS requests.
         xhr = new XDomainRequest();
         xhr.open(method, url);
 
-      } else {
+      } 
+      else {
 
         // Otherwise, CORS is not supported by the browser.
         xhr = null;
 
       }
+
       return xhr;
     };
     
@@ -246,6 +249,15 @@ App4Sea.Utils = (function () {
         console.log(title);
     };
 
+    my.section_toggle = function (id) {
+        if (document.getElementById(id).style.display === "none") {
+            my.w3_open(id);
+        }
+        else {
+            my.w3_close(id);
+        }
+    };
+
     my.collapse_tree = function (btn, elem) {
         var collapse = false;
         if($(elem+' li.jstree-open').length)
@@ -262,15 +274,6 @@ App4Sea.Utils = (function () {
         }
     };
 
-    my.section_toggle = function (id) {
-        if (document.getElementById(id).style.display === "none") {
-            my.w3_open(id);
-        }
-        else {
-            my.w3_close(id);
-        }
-    };
-
     my.w3_open = function (id) {
         if (id === "MenuContainer") {
             $("#TreeMenu").jstree(true).close_all();
@@ -282,6 +285,138 @@ App4Sea.Utils = (function () {
         document.getElementById(id).style.display = "none";
     };
 
+
+    /**
+    *  Base64 encode / decode
+    *  http://www.webtoolkit.info/
+    **/
+
+    //my.Base64 = {
+
+        // private property
+        const _keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+
+        // public method for encoding
+        my.Base64Encode = function (input) {
+            var output = "";
+            var chr1, chr2, chr3, enc1, enc2, enc3, enc4;
+            var i = 0;
+
+            input = _utf8_encode(input);
+
+            while (i < input.length) {
+
+                chr1 = input.charCodeAt(i++);
+                chr2 = input.charCodeAt(i++);
+                chr3 = input.charCodeAt(i++);
+                enc1 = chr1 >> 2;
+                enc2 = ((chr1 & 3) << 4) | (chr2 >> 4);
+                enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
+                enc4 = chr3 & 63;
+
+                if (isNaN(chr2)) {
+                    enc3 = enc4 = 64;
+                } else if (isNaN(chr3)) {
+                    enc4 = 64;
+                }
+
+                output = output +
+                _keyStr.charAt(enc1) + _keyStr.charAt(enc2) +
+                _keyStr.charAt(enc3) + _keyStr.charAt(enc4);
+            }
+            return output;
+        };
+
+        // public method for decoding
+        my.Base64Decode = function (input) {
+            var output = "";
+            var chr1, chr2, chr3;
+            var enc1, enc2, enc3, enc4;
+            var i = 0;
+
+            input = input.replace(/[^A-Za-z0-9\+\/\=]/g, "");
+
+            while (i < input.length) {
+                enc1 = _keyStr.indexOf(input.charAt(i++));
+                enc2 = _keyStr.indexOf(input.charAt(i++));
+                enc3 = _keyStr.indexOf(input.charAt(i++));
+                enc4 = _keyStr.indexOf(input.charAt(i++));
+
+                chr1 = (enc1 << 2) | (enc2 >> 4);
+                chr2 = ((enc2 & 15) << 4) | (enc3 >> 2);
+                chr3 = ((enc3 & 3) << 6) | enc4;
+
+                output = output + String.fromCharCode(chr1);
+
+                if (enc3 != 64) {
+                    output = output + String.fromCharCode(chr2);
+                }
+
+                if (enc4 != 64) {
+                    output = output + String.fromCharCode(chr3);
+                }
+            }
+
+            output = _utf8_decode(output);
+
+            return output;
+        };
+
+        // private method for UTF-8 encoding
+        let _utf8_encode = function (string) {
+            string = string.replace(/\r\n/g,"\n");
+            var utftext = "";
+
+            for (var n = 0; n < string.length; n++) {
+                var c = string.charCodeAt(n);
+
+                if (c < 128) {
+                    utftext += String.fromCharCode(c);
+                }
+
+                else if((c > 127) && (c < 2048)) {
+                    utftext += String.fromCharCode((c >> 6) | 192);
+                    utftext += String.fromCharCode((c & 63) | 128);
+                }
+                else {
+                    utftext += String.fromCharCode((c >> 12) | 224);
+                    utftext += String.fromCharCode(((c >> 6) & 63) | 128);
+                    utftext += String.fromCharCode((c & 63) | 128);
+                }
+            }
+
+            return utftext;
+        };
+
+        // private method for UTF-8 decoding
+         let _utf8_decode = function (utftext) {
+            var string = "";
+            var i = 0;
+            var c = c1 = c2 = 0;
+
+            while ( i < utftext.length ) {
+                c = utftext.charCodeAt(i);
+
+                if (c < 128) {
+                    string += String.fromCharCode(c);
+                    i++;
+                }
+                else if((c > 191) && (c < 224)) {
+                    c2 = utftext.charCodeAt(i+1);
+                    string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
+                    i += 2;
+                }
+                else {
+                    c2 = utftext.charCodeAt(i+1);
+                    c3 = utftext.charCodeAt(i+2);
+                    string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
+                    i += 3;
+                }
+            }
+            return string;
+        };
+    //}
     
     return my;
+
 }(App4Sea.Utils || {}));

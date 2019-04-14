@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+    <Document id="1">
+        <description>MET OpenDrift Oil Drift forecast</description>
+        <Camera>
+            <longitude>18.2063980103</longitude>
+            <latitude>79.7599639893</latitude>
+            <altitude>60000</altitude>
+            <tilt>0</tilt>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <roll>0</roll>
+        </Camera>
+        <GroundOverlay id="3">
+            <name>northguider at 2018-12-28 12:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="4">
+                <begin>2018-12-28 12:00:00</begin>
+                <end>2018-12-29 12:00:00</end>
+            </TimeSpan>
+            <Icon id="5">
+                <href>files\northguider0.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>80.3377380371</north>
+                <south>79.1821899414</south>
+                <east>14.6058015823</east>
+                <west>21.8069953918</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="7">
+            <name>northguider at 2018-12-29 12:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="8">
+                <begin>2018-12-29 12:00:00</begin>
+                <end>2018-12-30 12:00:00</end>
+            </TimeSpan>
+            <Icon id="9">
+                <href>files\northguider6.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>80.3377380371</north>
+                <south>79.1821899414</south>
+                <east>14.6058015823</east>
+                <west>21.8069953918</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="11">
+            <name>northguider at 2018-12-30 12:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="12">
+                <begin>2018-12-30 12:00:00</begin>
+                <end>2018-12-31 12:00:00</end>
+            </TimeSpan>
+            <Icon id="13">
+                <href>files\northguider12.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>80.3377380371</north>
+                <south>79.1821899414</south>
+                <east>14.6058015823</east>
+                <west>21.8069953918</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="15">
+            <name>northguider at 2018-12-31 12:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="16">
+                <begin>2018-12-31 12:00:00</begin>
+                <end>2019-01-01 12:00:00</end>
+            </TimeSpan>
+            <Icon id="17">
+                <href>files\northguider18.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>80.3377380371</north>
+                <south>79.1821899414</south>
+                <east>14.6058015823</east>
+                <west>21.8069953918</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="19">
+            <name>northguider at 2019-01-01 12:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="20">
+                <begin>2019-01-01 12:00:00</begin>
+                <end>2019-01-02 12:00:00</end>
+            </TimeSpan>
+            <Icon id="21">
+                <href>files\northguider24.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>80.3377380371</north>
+                <south>79.1821899414</south>
+                <east>14.6058015823</east>
+                <west>21.8069953918</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="23">
+            <name>northguider at 2019-01-02 12:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="24">
+                <begin>2019-01-02 12:00:00</begin>
+                <end>2019-01-03 12:00:00</end>
+            </TimeSpan>
+            <Icon id="25">
+                <href>files\northguider30.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>80.3377380371</north>
+                <south>79.1821899414</south>
+                <east>14.6058015823</east>
+                <west>21.8069953918</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="27">
+            <name>northguider at 2019-01-03 12:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="28">
+                <begin>2019-01-03 12:00:00</begin>
+                <end>2019-01-04 12:00:00</end>
+            </TimeSpan>
+            <Icon id="29">
+                <href>files\northguider36.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>80.3377380371</north>
+                <south>79.1821899414</south>
+                <east>14.6058015823</east>
+                <west>21.8069953918</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="31">
+            <name>northguider at 2019-01-04 12:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="32">
+                <begin>2019-01-04 12:00:00</begin>
+                <end>2019-01-05 12:00:00</end>
+            </TimeSpan>
+            <Icon id="33">
+                <href>files\northguider42.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>80.3377380371</north>
+                <south>79.1821899414</south>
+                <east>14.6058015823</east>
+                <west>21.8069953918</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="35">
+            <name>northguider at 2019-01-05 12:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="36">
+                <begin>2019-01-05 12:00:00</begin>
+                <end>2019-01-06 12:00:00</end>
+            </TimeSpan>
+            <Icon id="37">
+                <href>files\northguider48.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>80.3377380371</north>
+                <south>79.1821899414</south>
+                <east>14.6058015823</east>
+                <west>21.8069953918</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="39">
+            <name>northguider at 2019-01-06 12:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="40">
+                <begin>2019-01-06 12:00:00</begin>
+                <end>2019-01-07 12:00:00</end>
+            </TimeSpan>
+            <Icon id="41">
+                <href>files\northguider54.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>80.3377380371</north>
+                <south>79.1821899414</south>
+                <east>14.6058015823</east>
+                <west>21.8069953918</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <ScreenOverlay id="43">
+            <name>Legend_oil</name>
+            <visibility>1</visibility>
+            <Icon id="44">
+                <href>legend_oil.png</href>
+            </Icon>
+            <overlayXY x="0" xunits="fraction" y="0" yunits="fraction"/>
+            <screenXY x="0.015" xunits="fraction" y="0.075" yunits="fraction"/>
+            <size x="0" xunits="fraction" y="0" yunits="fraction"/>
+        </ScreenOverlay>
+    </Document>
+</kml>
