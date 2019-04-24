@@ -1,9 +1,9 @@
 [
-    { "id" : "Ani1", "parent" : "LAni0", "text" : "Barents1 Oil Spill (kmz)", "children" : false, "a_attr" : { "path" : "data/barents1.kmz", "play" : "1"} },
-    { "id" : "Ani2", "parent" : "LAni0", "text" : "Vestmanna Oil Spill (kmz)", "children" : false, "a_attr" : { "path" : "data/Vestmanna.kmz", "play" : "1"} },
-    { "id" : "Ani3", "parent" : "LAni0", "text" : "Helge Ingstad (kmz)", "children" : false, "a_attr" : { "path" : "data/helgeingstad.kmz", "play" : "1"} },
-    { "id" : "Ani4", "parent" : "LAni0", "text" : "Northguider (kmz)", "children" : false, "a_attr" : { "path" : "data/northguider.kmz", "play" : "1"} },
-    { "id" : "Ani5", "parent" : "LAni0", "text" : "Blue Marble (kmz)", "children" : false, "a_attr" : { "path" : "data/Blue Marble.kmz", "play" : "1"} },
-    { "id" : "Ani6", "parent" : "LAni0", "text" : "Cloud coverage", "children" : false, "a_attr" : { "path" : "data/Clouds Animation.kmz", "play" : "1"} },
-    { "id" : "Ani7", "parent" : "LAni0", "text" : "Growth Of Plaice (kml)",	"children" : false, "a_attr" : { "path" : "data/GrowthOfPlaice.kml", "play" : "1"} }
+    { "id" : "Ani1", "parent" : "LAni0", "text" : "Barents1 Oil Spill (kmz)", "children" : false, "a_attr" : { "path" : "data/barents1.kmz", "tool" : "animation"} },
+    { "id" : "Ani2", "parent" : "LAni0", "text" : "Vestmanna Oil Spill (kmz)", "children" : false, "a_attr" : { "path" : "data/Vestmanna.kmz", "tool" : "animation"} },
+    { "id" : "Ani3", "parent" : "LAni0", "text" : "Helge Ingstad (kmz)", "children" : false, "a_attr" : { "path" : "data/helgeingstad.kmz", "tool" : "animation"} },
+    { "id" : "Ani4", "parent" : "LAni0", "text" : "Northguider (kmz)", "children" : false, "a_attr" : { "path" : "data/northguider.kmz", "tool" : "animation"} },
+    { "id" : "Ani5", "parent" : "LAni0", "text" : "Blue Marble (kmz)", "children" : false, "a_attr" : { "path" : "data/Blue Marble.kmz", "tool" : "animation", "projection" : "EPSG:4326"} },
+    { "id" : "Ani6", "parent" : "LAni0", "text" : "Cloud coverage", "children" : false, "a_attr" : { "path" : "data/Clouds Animation.kmz", "tool" : "animation"} },
+    { "id" : "Ani7", "parent" : "LAni0", "text" : "Growth Of Plaice (kml)",	"children" : false, "a_attr" : { "path" : "data/GrowthOfPlaice.kml", "tool" : "animation"} }
 ]

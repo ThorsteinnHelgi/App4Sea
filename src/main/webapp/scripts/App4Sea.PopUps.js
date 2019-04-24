@@ -3,38 +3,28 @@
  *
  * ==========================================================================*/
 
-//Mustache = Mustache || {};
-//App4Sea.OpenLayers = App4Sea.OpenLayers || {};
-App4Sea = App4Sea || {};
-App4Sea.PopUps = (function () {
+var App4Sea = App4Sea || {};
+var App4SeaPopUps = (function () {
     "use strict";
 
-    var my = {};
+    let my = {};
    
-    my.overlayLayerPopUp;// Used for popup information when clicking in icons
-    var popupContent;
-    var popupContainer;
-    var popupCloser;
+    let overlayLayerPopUp;// Used for popup information when clicking on icons
+    const popupContent = document.getElementById('popup-content');
+    const popupContainer = document.getElementById('popup');
+    const popupCloser = document.getElementById('popup-closer');
+    const popupTitle = document.getElementById('popup-title');
+    
 
     my.Init = function(){
-        popupContent = document.getElementById('popup-content');
-        popupContainer = document.getElementById('popup');
-        popupCloser = document.getElementById('popup-closer');
-
         // Create an overlay to anchor the popup to the map.
-        my.overlayLayerPopUp = App4Sea.OpenLayers.initOverlay(popupContainer, popupCloser);
+        overlayLayerPopUp = App4Sea.OpenLayers.initOverlay(popupContainer, popupCloser);
     
-        App4Sea.OpenLayers.Map.addOverlay(my.overlayLayerPopUp);
+        App4Sea.OpenLayers.Map.addOverlay(overlayLayerPopUp);
     };
     
-//        <script id="DefaultPop" type="text/template">
-//            <div style="margin:2px;">
-//                <p>{{description}}</p>
-//            </div>
-//        </script>
-    
     function setNorwegianOSRInfo(features) {
-        var beredskap = {name: "", region: "", region2: "", region3: "", region4: "", address: "", link: ""};
+        let beredskap = {name: "", region: "", region2: "", region3: "", region4: "", address: "", link: ""};
 
         beredskap.name = features[0].get('navn');
         beredskap.address = features[0].get('gateadresse');
@@ -44,7 +34,7 @@ App4Sea.PopUps = (function () {
         beredskap.region4 = features[0].get('lua');
         beredskap.link = features[0].get('lenke_faktaark');
 
-        var template = //$('#RescueSite').html();
+        const template = //$('#RescueSite').html();
             `<div style="margin:2px;">
                 <h3>{{name}}</h3>
                 <p>{{address}}</p>
@@ -60,11 +50,13 @@ App4Sea.PopUps = (function () {
         return description;
     };
 
-     function setShipPassageInfo(features) {
-        var shipinfo = {name: "", callsign: "", type: "", cargotype: "", flag: ""};
+    function setShipPassageInfo(features) {
+        let shipinfo = {name: "", callsign: "", type: "", cargotype: "", flag: ""};
         /*
         <SimpleData name="Id">0</SimpleData>
         <SimpleData name="mmsi">215739000</SimpleData>
+
+
         <SimpleData name="IMO">9.43372e+06</SimpleData>
         <SimpleData name="Name">CASTILLO-SANTISTEBAN</SimpleData>
         <SimpleData name="Call_Sign">9HA2217</SimpleData>
@@ -82,7 +74,7 @@ App4Sea.PopUps = (function () {
         shipinfo.cargotype =  features[0].get('Cargo_Type');
         shipinfo.flag =  features[0].get('Flag');
         
-        var template = //$('#ShipInfo').html();
+        const template = //$('#ShipInfo').html();
             `<div style="margin:2px;">
                 <h3>{{name}}</h3>
                 <p>{{callsign}}</p>
@@ -91,13 +83,13 @@ App4Sea.PopUps = (function () {
                 <p>{{flag}}</p>
             </div>`;
         Mustache.parse(template);       
-        var description = Mustache.to_html(template, shipinfo);
+        let description = Mustache.to_html(template, shipinfo);
 
         return description;
     };
 
     function getHeight(doc) {
-        var pageHeight = 0;
+        let pageHeight = 0;
 
         function findHighestNode(nodesList) {
             for (var i = nodesList.length - 1; i >= 0; i--) {
@@ -114,7 +106,7 @@ App4Sea.PopUps = (function () {
         findHighestNode(doc.documentElement.childNodes);
 
         // The entire page height is found
-        console.log('Page height is', pageHeight);
+        if (App4Sea.logging) console.log('Page height is', pageHeight);
 
         return pageHeight;
     }
@@ -122,7 +114,7 @@ App4Sea.PopUps = (function () {
     // Finds BalloonStyle template from the text element of the Style node passed
     // returns the temmplate
     function FindTemplate (node) {
-        var template;
+        let template;
 
         if (node.nodeName === 'styleUrl') {
             for (var i = App4Sea.OpenLayers.styleMaps.length - 1; i >= 0; i--) {
@@ -140,24 +132,13 @@ App4Sea.PopUps = (function () {
             return template;
         }
 
-        for(var cind=0; cind<node.children.length; cind++){
+        for(let cind=0; cind<node.children.length; cind++){
 
-            var child = node.children[cind];
+            let child = node.children[cind];
 
-            //if (child.children && child.children.length > 0) {
-                //var cur = child;
-                //var predecessors = [];
-                //var par = cur.parentNode;
-                //while (par) {
-                //    predecessors.push(par);
-                //    par = par.parentNode;
-                //}
-                //if (predecessors && predecessors.length<4) {
-                    template = FindTemplate(child);
-                    if (template)
-                        return template;
-                //}
-            //}
+            template = FindTemplate(child);
+            if (template)
+                return template;
         };        
 
         return template;
@@ -165,18 +146,21 @@ App4Sea.PopUps = (function () {
     
     // Add a click handler to the map to render the popup.
     my.SingleClick = function(evt) {
-        console.log("my.SingleClick");
+        //if (App4Sea.logging) console.log("my.SingleClick");
         
-        var coordinate = evt.coordinate;
-        //var hdms = ol.coordinate.toStringHDMS(ol.proj.transform(coordinate, 'EPSG:3857', 'EPSG:4326'));
-        //popupContent.innerHTML = '<p>You clicked here:</p><code>' + hdms + '</code>';
-        var features = [];
+        if (App4Sea.Measure.GetType() !== 'NotActive') {
+            return;
+        }
+
+        let coordinate = evt.coordinate;
+        let features = [];
+
         App4Sea.OpenLayers.Map.forEachFeatureAtPixel(evt.pixel, function (feature) {
             features.push(feature);
         });
         
         if (features.length > 0) {
-            var description = features[0].get('description');
+            let description = features[0].get('description');
 
             if (features[0].get('navn')) {
                 description = setNorwegianOSRInfo(features);
@@ -189,10 +173,10 @@ App4Sea.PopUps = (function () {
                 description = features[0].get('name');
             }
 
-            var styleUrl = features[0].get('styleUrl');
-            var template;
-            for (var i = App4Sea.OpenLayers.styleMaps.length - 1; i >= 0; i--) {
-                var styleUrlCore = App4Sea.Utils.parseURL(styleUrl);
+            let styleUrl = features[0].get('styleUrl');
+            let template;
+            for (let i = App4Sea.OpenLayers.styleMaps.length - 1; i >= 0; i--) {
+                let styleUrlCore = App4Sea.Utils.parseURL(styleUrl);
                 if ("#"+App4Sea.OpenLayers.styleMaps[i].id === styleUrlCore.hash) {
                     template = FindTemplate(App4Sea.OpenLayers.styleMaps[i].node);
 
@@ -202,10 +186,10 @@ App4Sea.PopUps = (function () {
             }
 
             if (template) {
-                var realTemplate = template.substr(9);
+                let realTemplate = template.substr(9);
                 realTemplate = realTemplate.substr(0, realTemplate.length-3);
 
-                var moreRealTemplate = realTemplate.replaceAll(/\$\[(.+?)\//, '{{');
+                let moreRealTemplate = realTemplate.replaceAll(/\$\[(.+?)\//, '{{');
                 moreRealTemplate = moreRealTemplate.replaceAll(']', '}}');
 
                 // make http (and https) links active
@@ -215,33 +199,49 @@ App4Sea.PopUps = (function () {
                 description = App4Sea.PopUps.PopulateTemplate(moreRealTemplate, features[0]);
             } 
 
-            popupContent.innerHTML = description;
-            my.overlayLayerPopUp.setPosition(coordinate);
+            let title = getTitle(features[0]);
+            if (title) {
+                popupTitle.innerHTML = title;
+            }
+            else {
+                popupTitle.innerHTML = "";
+            }
+
+            if (description) {
+                popupContent.innerHTML = description;
+                overlayLayerPopUp.setPosition(coordinate);
+            }
         } 
         else {
-            my.overlayLayerPopUp.setPosition(undefined);
+            overlayLayerPopUp.setPosition(undefined);
             popupCloser.blur();
         }
     };
    
-    my.initToolTip = function () {
-        var map = App4Sea.OpenLayers.Map;
+    function getTitle (feature) {
+        let name = feature.get('name');
+        if (!name) {// for vaare norske venner
+            name = feature.get('navn');
+        }
 
-        var displayFeatureInfo = function (pixel) {
+        return name;
+    };
+
+    my.initToolTip = function () {
+        let map = App4Sea.OpenLayers.Map;
+
+        let displayFeatureInfo = function (pixel) {
             $('#ToolTipInfo').css({
                 left: pixel[0] + 'px',
                 top: (pixel[1] - 15) + 'px'
             });
-            var feature = map.forEachFeatureAtPixel(pixel, function (feature, layer) {
+            let feature = map.forEachFeatureAtPixel(pixel, function (feature, layer) {
                 return feature;
             });
             if (feature) {
-                var name = feature.get('name');
-                if (!name) {// for vaare norske venner
-                    name = feature.get('navn');
-                }
+                let name = getTitle(feature);
                 if (name) {
-                    var inf = $('#ToolTipInfo');
+                    let inf = $('#ToolTipInfo');
                     inf.tooltip('hide')
                             .attr('data-original-title', name)
                             //.tooltip('fixTitle')
@@ -272,11 +272,11 @@ App4Sea.PopUps = (function () {
     my.PopulateTemplate = function (template, feature) {
         Mustache.parse(template);
 
-        var retVal = Mustache.to_html(template, feature.values_);
+        let retVal = Mustache.to_html(template, feature.values_);
 
         return retVal;
     };
 
     return my;
     
-}(App4Sea.PopUps || {}));
+}(App4SeaPopUps || {}));

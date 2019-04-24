@@ -4,11 +4,10 @@
  *              
  * ==========================================================================*/
 
-//ol = ol || {};
-App4Sea = App4Sea || {};
-App4Sea.OpenLayers = (function () {
+var App4Sea = App4Sea || {};
+var App4SeaOpenLayers = (function () {
     "use strict";
-    var my = {};
+    let my = {};
     
     // Some further definitions
     my.Map;
@@ -16,12 +15,12 @@ App4Sea.OpenLayers = (function () {
     my.layers = []; // array to hold layers as they are created   
     my.descriptionContainer;
 
-    var currentLayer;
-    var osmTileLayer;
-    var esriWSPTileLayer;
-    var esriWITileLayer;
-    var blackTileLayer;
-    var overlayDescription;// Used for layer description (e.g. legend)
+    let currentLayer;
+    let osmTileLayer;
+    let esriWSPTileLayer;
+    let esriWITileLayer;
+    let blackTileLayer;
+    let overlayDescription;// Used for layer description (e.g. legend)
 
     ////////////////////////////////////////////////////////////////////////////
     //initialize maps and models when page DOM is ready..
@@ -41,9 +40,9 @@ App4Sea.OpenLayers = (function () {
         SetMapControls();
 
         initMenu();
-        
-        var res = App4Sea.Utils.supports_html5_storage();
-        console.log("Support for html5 local storage: " + res);
+
+        //var res = App4Sea.Utils.supports_html5_storage();
+        //if (App4Sea.logging) console.log("Support for html5 local storage: " + res);
     };
 
     ////////////////////////////////////////////////////////////////////////////
@@ -123,35 +122,42 @@ App4Sea.OpenLayers = (function () {
     // Update base map
     function updateBaseMap() {
         // Set base map
-        var selectedMapLayer = $("#MenuLayer_Select").val();
+        let selectedMapLayer = $("#MenuLayer_Select").val();
         if (selectedMapLayer !== currentLayer.name) {
             my.Map.removeLayer(currentLayer);
-            var el = $('#MenuContainer');
-            var el2 = $('#MenuLayer_Select');
-            var el3 = $('#ButtonContainer');
+            let el = $('#MenuContainer');
+            let el3 = $('#ButtonSection');
+            let cursPos = document.getElementsByClassName('ol-mouse-position');
             if (selectedMapLayer === 'osmTileLayer') {
-                el[0].style.backgroundColor = 'white';
+                //el[0].style.backgroundColor = 'white';
+                el[0].style.backgroundImage = 'var(--gradientWhite)';
                 el[0].style.color = 'black';
-                //el2[0].style.filter = 'invert(0%)';
                 el3[0].style.filter = 'invert(0%)';
+                if (cursPos && cursPos.length>0)
+                    cursPos[0].style.color = 'black';
                 currentLayer = osmTileLayer;
             } else if (selectedMapLayer === 'esriWSPTileLayer') {
-                el[0].style.backgroundColor = 'beige';
+                el[0].style.backgroundImage = 'var(--gradientBeige)';
                 el[0].style.color = 'black';
-                //el2[0].style.filter = 'invert(0%)';
                 el3[0].style.filter = 'invert(0%)';
+                if (cursPos && cursPos.length>0)
+                    cursPos[0].style.color = 'black';
                 currentLayer = esriWSPTileLayer;
             } else if (selectedMapLayer === 'esriWITileLayer') {
-                el[0].style.backgroundColor = '#163e6f';
+                //el[0].style.backgroundColor = '#163e6f';
+                el[0].style.backgroundImage = 'var(--gradientBlue)';
                 el[0].style.color = 'beige';
+                el3[0].style.filter = 'invert(100%)';
+                if (cursPos && cursPos.length>0)
+                    cursPos[0].style.color = 'beige';
                 currentLayer = esriWITileLayer;
-                //el2[0].style.filter = 'invert(100%)';
-                el3[0].style.filter = 'invert(100%)';
             } else if (selectedMapLayer === 'blackTileLayer') {
-                el[0].style.backgroundColor = '#0d0d0d';
+                //el[0].style.backgroundColor = '#0d0d0d';
+                el[0].style.backgroundImage = 'var(--gradientGray)';
                 el[0].style.color = 'gray';
-                //el2[0].style.filter = 'invert(100%)';
                 el3[0].style.filter = 'invert(100%)';
+                if (cursPos && cursPos.length>0)
+                    cursPos[0].style.color = 'gray';
                 currentLayer = blackTileLayer;
             }
             my.Map.addLayer(currentLayer);
@@ -218,49 +224,13 @@ App4Sea.OpenLayers = (function () {
 //        button.addEventListener('click', test, false, {passive: true});
 
         // Hook events to menu
-        $(".MenuSection input[type='checkbox']").click(function () {
+        $("#MenuContainer input[type='checkbox']").click(function () {
             updateBaseMap();
         });
-        $(".MenuSection select").change(function () {
+        $("#MenuContainer select").change(function () {
             updateBaseMap();
         });        
     }
     
     return my;
-}(App4Sea.OpenLayers || {}));
-
-
-// Global event handlers
-$(document).ready(function () {
-    console.log("Document ready");
-
-    // Init Map.OpenLayers
-    App4Sea.OpenLayers.Init();
-
-    // Hook click event to MenuItem
-    $(".MenuItem").click(function () {
-        console.log("MenuItem click");
-
-        var url = $(this).attr("data-url");
-        var target = $(this).attr("data-target");
-        window.open(url, target);
-    });
-});
-
-$( window ).on( "load", function() {
-    console.log( "Window load" );
-
-    setTimeout(function(){    
-        console.log("setTimeout");
-
-        $("#splash-overlay").fadeOut();
-    }, 2000);
-
-    var info = $("#ToolTipInfo");
-
-    info.tooltip('hide');
-    info.tooltip({
-        animation: false,
-        trigger: 'manual'
-    });
-});
+}(App4SeaOpenLayers || {}));

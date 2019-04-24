@@ -3,9 +3,8 @@
  *
  * ==========================================================================*/
 
-//ol = ol || {};
-App4Sea = App4Sea || {};
-App4Sea.Weather = (function () {
+var App4Sea = App4Sea || {};
+var App4SeaWeather = (function () {
     "use strict";
     var my = {};
 
@@ -83,7 +82,7 @@ App4Sea.Weather = (function () {
     };
 
     my.loadWeather = function(url, id) {
-        console.log("loadWeather: " + id + " from " + url);
+        if (App4Sea.logging) console.log("loadWeather: " + id + " from " + url);
 
         var startResolution = ol.extent.getWidth(App4Sea.mapExtent) / 256 / 4;
         var resolutions = new Array(App4Sea.maxZoom-App4Sea.minZoom+1);
@@ -118,4 +117,4 @@ App4Sea.Weather = (function () {
     };
 
     return my;
-}(App4Sea.Weather || {}));
+}(App4SeaWeather || {}));

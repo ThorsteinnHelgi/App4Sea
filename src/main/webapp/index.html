@@ -5,42 +5,59 @@
         <title>App4Sea</title>
 
         <link rel="icon" href="favicon.ico"/>        
-        <meta name="Description" content="Aðð4Sea is an NPA development project. See: http://app4sea.interreg-npa.eu/">
+        <meta name="Description" content="App4Sea is an NPA development project. See: http://app4sea.interreg-npa.eu/">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>        
-
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        
         <script type="text/javascript" crossorigin="anonymous" src="http://code.jquery.com/jquery-3.3.1.min.js" ></script>
         <script type="text/javascript" crossorigin="anonymous" src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
 
         <link rel="stylesheet" type="text/css" crossorigin="anonymous" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css">
         <link rel="stylesheet" type="text/css" href="static/css/w3.css"/>
-                    
+
+
         <script type="text/javascript" async="async" src="static/js/dist/jstree.min.js" ></script>
+        <script type="text/javascript" async="async" src="static/js/qwest.min.js" ></script>
+        <!--script type="text/javascript" async="async" src="static/js/d3.min.js"></script-->
+        <script type="text/javascript" async="async" src="static/js/zip.min.js" ></script>
+        <script type="text/javascript" async="async" src="static/js/mustache.min.js" ></script>
+        <!--script type="text/javascript" async="async" src="static/js/webcomponents-bundle.min.js" ></script-->
+        <script type="text/javascript" async="async" src="static/js/URI.min.js" ></script>
+        <script type="text/javascript" async="async" src="static/js/bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script>
+
+        <!-- 
+        <script type="text/javascript" async="async" src="static/js.min.js" ></script>
+        -->
+        
+        <script type="text/javascript" async="async" src="scripts.min.js" ></script>
+
+        <!-- 
         <script type="text/javascript" async="async" src="static/js/zip.min.js" ></script>
         <script type="text/javascript" async="async" src="static/js/mustache.min.js" ></script>
         <script type="text/javascript" async="async" src="static/js/webcomponents-bundle.min.js" ></script>
-        <script type="text/javascript" async="async" src="static/js/qwest.min.js" ></script>
         <script type="text/javascript" async="async" src="static/js/URI.min.js" ></script>
-        <script type="text/javascript" async="async" src="static/js/d3.min.js"></script>
-        <script type="text/javascript" async="async" src="static/js/bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script>
 
-        <script type="text/javascript" async="async" src="scripts/App4Sea.min.js" ></script>
+        <script type="text/javascript" async="async" src="scripts/App4Sea.OpenLayers.js" ></script>
         <script type="text/javascript" async="async" src="scripts/App4Sea.KML.js" ></script>
-        <script type="text/javascript" async="async" src="scripts/App4Sea.PopUps.min.js" ></script>
+        <script type="text/javascript" async="async" src="scripts/App4Sea.Measure.js" ></script>
+        <script type="text/javascript" async="async" src="scripts/App4Sea.PopUps.js" ></script>
         <script type="text/javascript" async="async" src="scripts/App4Sea.Utils.js" ></script>
-        <script type="text/javascript" async="async" src="scripts/App4Sea.Weather.min.js" ></script>
-        <script type="text/javascript" async="async" src="scripts/App4Sea.Animation.min.js" ></script>
-        <script type="text/javascript" async="async" src="scripts/App4Sea.TreeMenu.min.js" ></script>
-        <script type="text/javascript" async="async" src="scripts/App4Sea.TreeInfo.min.js" ></script>
-        <script type="text/javascript" async="async" src="scripts/App4Sea.OpenLayers.min.js" ></script>
+        <script type="text/javascript" async="async" src="scripts/App4Sea.Weather.js" ></script>
+        <script type="text/javascript" async="async" src="scripts/App4Sea.Animation.js" ></script>
+        <script type="text/javascript" async="async" src="scripts/App4Sea.TreeMenu.js" ></script>
+        <script type="text/javascript" async="async" src="scripts/App4Sea.TreeInfo.js" ></script>
+        <script type="text/javascript" async="async" src="scripts/App4Sea.js" ></script>
+        <script type="text/javascript" async="async" src="scripts/App4Sea.Events.js" ></script>
 
         <link rel="stylesheet" type="text/css" href="static/js/bootstrap-4.3.1-dist/css/bootstrap.min.css"/>
-        <link rel="stylesheet" type="text/css" href="static/js/dist/themes/default/style.min.css" />
+
+        -->
+
+        <link rel="stylesheet" type="text/css" href="static/js/dist/themes/default/style.min.css" /> 
 
         <link rel="stylesheet" type="text/css" href="css/main.min.css"/>
         
     </head>
-
     
     <body>
         <!-- Splash overlay -->
@@ -52,30 +69,45 @@
         
         <!-- This is the left side menu container -->
         <div id="MenuContainer"> 
-            <div id="ButtonContainer" >
+            <div id="ButtonSection" >
                 <button onclick="App4Sea.Utils.section_toggle('MenuContainer')" class="a4s_button">
-                    <img src="icons/CloseMenu.png" alt="Close menu" style="width:1em;"/>
+                    <img src="icons/CloseMenu.png" alt="Close menu" style="width:2em;"/>
                 </button>
                 <button onclick="App4Sea.Utils.section_toggle('InfoContainer')" class="a4s_button">
-                    <img src="icons/info.png" alt="Information" style="width:1em;"/>
+                    <img src="icons/info.png" alt="Information" style="width:2em;"/>
                 </button>
                 <button onclick="App4Sea.Utils.section_toggle('SettingsContainer')" class="a4s_button">
-                    <img src="icons/settings.png" alt="Settings" style="width:1.1em;" />
+                    <img src="icons/settings.png" alt="Settings" style="width:2.2em;" />
+                </button>
+                <button onclick="App4Sea.Utils.section_toggle('HeatContainer')" class="a4s_button">
+                    <img src="icons/heat.png" alt="Heat" style="width:2.2em;" />
                 </button>
                 <button onclick="App4Sea.Utils.section_toggle('AnimationContainer')" class="a4s_button">
-                    <img src="icons/animation.png" alt="Animation" style="width:1.1em;" />
+                    <img src="icons/animation.png" alt="Animation" style="width:2.2em;" />
                 </button>
-                <button onclick="App4Sea.Utils.w3_close('MenuContainer')" class="a4s_button_right" style="width:2.1em;">X</button>
+                <button onclick="App4Sea.Utils.section_toggle('MeasurementContainer')" class="a4s_button">
+                    <img src="icons/area.png" alt="Measurement" style="width:2.2em;" />
+                </button>
+                <button onclick="App4Sea.Utils.section_toggle('LogContainer')" class="a4s_button">
+                    <img src="icons/log.png" alt="Logging" style="width:2.2em;" />
+                </button>
+                <button onclick="App4Sea.Utils.w3_close('MenuContainer')" class="a4s_button_right">
+                    <img src="icons/exit.png" alt="Exit" style="width:1.8em;" />
+                </button>
             </div>
-            <div>
+
+            <div class="BannerSection">
                 <a href="http://app4sea.interreg-npa.eu">
                     <img src="images/App4Sea.webp" alt="App4Sea is an NPA-project" style="width:100%;" />
                 </a>
             </div>
             
-            <div id='InfoContainer' class="MenuSection" style="color:white; background-color:grey; display:none; padding:3px;">
-                <button onclick="App4Sea.Utils.w3_close('InfoContainer')" class="w3-button w3-transparent" style="float:right; font-weight:bold; padding-left:3px; padding-right:0px;">x</button>
-                <h4>Information</h4>
+            <div id='InfoContainer' class="SubMenuSection" style="display:none">
+                <button onclick="App4Sea.Utils.w3_close('InfoContainer')" class="SubMenuButton">
+                    <img src="icons/exit.png" alt="Exit" class="ExitWhite" />
+                </button>
+                    
+                <h3>Information</h3>
 
                 <div style="font-size:0.8em;">
                     This site currently works best in the Chrome and Vivaldi browsers.<br/>
@@ -87,28 +119,37 @@
                 </div>
             </div>
             
-            <div id='SettingsContainer' class="MenuSection" style="color:white; background-color:grey; display:none; padding:3px;">
-                <button onclick="App4Sea.Utils.w3_close('SettingsContainer')" class="w3-button w3-transparent" style="float:right; font-weight:bold; padding-left:3px; padding-right:0px;">x</button>
-                <h4>Settings</h4>
+            <div id='SettingsContainer' class="SubMenuSection" style="display:none">
+                <button onclick="App4Sea.Utils.w3_close('SettingsContainer')" class="SubMenuButton">
+                    <img src="icons/exit.png" alt="Exit" class="ExitWhite" />
+                </button>
+                    
+                <h3>Settings</h3>
 
-                <h5>Base map</h5>
-                <div class="MenuSection">
-                    <select id="MenuLayer_Select" style="color:white; background-color:grey;">
-                        <option value="esriWSPTileLayer">ESRI World Street Map</option>
-                        <option value="esriWITileLayer">ESRI World Imagery Map</option>
-                        <option value="osmTileLayer">Open Street Map</option>
-                        <option value="blackTileLayer">Carto DB Dark Matter Map</option>
+                <div>
+                    <h5 style="display:inline">Base map</h5>
+                    <select id="MenuLayer_Select" style="color:white; background-image:var(--gradientGrayDown);">
+                        <option style="color:black;" value="esriWSPTileLayer">ESRI World Street Map</option>
+                        <option style="color:black;" value="esriWITileLayer" >ESRI World Imagery Map</option>
+                        <option style="color:black;" value="osmTileLayer">Open Street Map</option>
+                        <option style="color:black;" value="blackTileLayer">Carto DB Dark Matter Map</option>
                     </select>
                 </div>
-                
-                <h5>Heatmap settings</h5>
-                <div class="MenuSection" style="background-color: grey">
+            </div>
+            
+            <div id="ControlPlaceInMenu">
+                <div id='HeatContainer' class="SubMenuSection" style="display:none">
+                    <button onclick="App4Sea.Utils.w3_close('HeatContainer')" class="SubMenuButton">
+                        <img src="icons/exit.png" alt="Exit" class="ExitWhite" />
+                    </button>
+                    <h3>Heatmap settings</h3>
+
                     <div style="font-size:0.6em; color:white">
                         <form>
                             <table width="100%">
                                 <tr style="text-align:center">
                                     <td colspan="4">
-                                        <span id="titleHeatMap">title</span>
+                                        <span id="titleHeatMap" class="DocTitle">title</span>
                                     </td>
                                 </tr>
                                 <tr>
@@ -121,7 +162,7 @@
                                         <span>Radius Size</span>
                                     </td>
                                     <td>
-                                        <input id="radius" type="range" min="1" max="50" step="1" value="5"/>
+                                        <input id="radius" type="range" min="1" max="50" step="1" value="6"/>
                                     </td>
                                     <td style="text-align:right">
                                         <span>Blur Size</span>
@@ -134,45 +175,39 @@
                         </form>
                     </div>
                 </div>
-            </div>
 
-            <div id='AnimationContainer' class="MenuSection" style="color:white; background-color:grey; display:none; padding:3px;"
-                 ondrop="drop(event)" ondragover="allowDrop(event)">
-                <button onclick="App4Sea.Utils.w3_close('AnimationContainer')" class="w3-button w3-transparent" style="float:right; font-weight:bold; 
-                        padding-left:3px; padding-right:0px; background-color:Transparent; outline:none;">x</button>
-
-                <h4>Animation</h4>
-                <div class="MenuSection">
-                    <div style="font-size:0.6em; color:white; background-color:grey;">
+                <div id='AnimationContainer' class="SubMenuSection" style="display:none">
+                    <button onclick="App4Sea.Utils.w3_close('AnimationContainer')" class="SubMenuButton">
+                        <img src="icons/exit.png" alt="Exit" class="ExitWhite" />
+                    </button>
+                    <button onclick="App4Sea.Animation.PlayStop()" class="SubMenuButton">
+                        <img id="playStopImg" src="icons/play.png" alt="Play/Stop" class="ExitWhite"/>
+                    </button>
+    
+                    <h3>Animation</h3>
+                    <div style="font-size:0.6em;">
                         <form>
                             <table width="100%">
                                 <tr style="text-align:center">
-                                    <td colspan="4">
-                                        <span id="title">title</span>
+                                    <td colspan="3">
+                                        <span id="title" class="DocTitle">title</span>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>
-                                        <button id="playStop" type="button" style="font-size:0.5em; color: Grey;">
-                                            <img id="playStopImg" src="icons/play.png" alt="Play/Stop" height="14"/>
-                                        </button>
-                                    </td>
                                     <td colspan="3">
                                         <input id="progress" type="range" min="0" max="99" step="1" value="0"/>
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td width="25%">
-                                    </td>
-                                    <td width="25%">
+                                    <td width="33.33%">
                                         <span id="startDate">start</span><br/>
                                         <span id="start">start</span>
                                     </td>
-                                    <td width="25%" style="text-align:center">
+                                    <td width="33.33%" style="text-align:center">
                                         <span id="currentDate">current</span><br/>
                                         <span id="current">current</span>
                                     </td>
-                                    <td width="25%" style="text-align:right">
+                                    <td width="33.33%" style="text-align:right">
                                         <span id="endDate">end</span><br/>
                                         <span id="end">end</span>
                                     </td>
@@ -180,45 +215,79 @@
                             </table>
                         </form>
                     </div>
+                </div>
 
-                    <div role="group" aria-label="Animation controls" >
-                        <div id="popup" class="ol-popup">
-                            <a href="#" id="popup-closer" class="ol-popup-closer"></a>
-                            <div id="popup-content"  class="clearfix" style="overflow: auto; margin: 5px;"></div>
-                        </div>
+                <div id='LogContainer' class="SubMenuSection" style="display:none">
+                    <button onclick="App4Sea.Utils.w3_close('LogContainer')" class="SubMenuButton">
+                        <img src="icons/exit.png" alt="Exit" class="ExitWhite" />
+                    </button>
+                    <button onclick="App4Sea.Utils.clearLog()" class="SubMenuButton">Clr</button>
+
+                    <h3>Log</h3>
+                    <div id="Log">
                     </div>
                 </div>
-            </div>
-            
-            <div>
-                <h4>
-                     <button class="w3-button w3-white" style="padding-left:0px; padding-right:0px; font-size:0.6em;" onclick="App4Sea.Utils.collapse_tree(this, '#TreeMenu')">&#9650;</button>
-                    Layers
-                </h4>
-            </div>
-            <div id="TreeMenu" class="MenuSection"></div>
 
-            <div>
-                <h4>
-                    <button class="w3-button w3-white" style="padding-left:0px; padding-right:0px; font-size:0.6em;" onclick="App4Sea.Utils.collapse_tree(this, '#TreeInfo')">&#9660;</button>
-                    Further information
-                </h4>
+                <div id='MeasurementContainer' class="SubMenuSection" style="display:none">
+                    <button onclick="App4Sea.Measure.DoNothing('MeasurementContainer')" class="SubMenuButton">
+                        <img src="icons/exit.png" alt="Exit" class="ExitWhite" />
+                    </button>
+                    <button id="btnLength" onclick="App4Sea.Measure.DoArea()" class="SubMenuButton">
+                        <img src="icons/area.png" alt="Area" class="ExitWhite" />
+                    </button>
+                    <button id="btnArea" onclick="App4Sea.Measure.DoLength()" class="SubMenuButton">
+                        <img src="icons/length.png" alt="Length" class="ExitWhite" />
+                    </button>
+
+                    <h3>Measure</h3>
+                    </div>
             </div>
-            <div id="TreeInfo" class="MenuSection"></div>
+
+            <div class="TreeSection">
+                <h3>
+                    <button class="ExpandState" onclick="App4Sea.Utils.collapse_tree(this, '#TreeMenu', false)">+</button>
+                    <button class="ExpandState" onclick="App4Sea.Utils.collapse_tree(this, '#TreeMenu', true)">-</button>
+                    Map Layers
+                </h3>
+
+                <div id="TreeMenu"></div>
+            </div>
+
+            <div class="TreeSection">
+                <h3>
+                    <button class="ExpandState" onclick="App4Sea.Utils.collapse_tree(this, '#TreeInfo', false)">+</button>
+                    <button class="ExpandState" onclick="App4Sea.Utils.collapse_tree(this, '#TreeInfo', true)">-</button>
+                    Useful Information
+                </h3>
+
+                <div id="TreeInfo"></div>
+            </div>
         </div>
 
         <!-- This is the main map container. It is populated in code -->
         <div id="MapContainer">
             <div class="ol-unselectable ol-custom ol-control">
-               <button class="ol-zoom" onclick="App4Sea.Utils.w3_open('MenuContainer')">☰</button>
+               <button class="ol-control" onclick="App4Sea.Utils.w3_open('MenuContainer')">☰</button>
             </div>            
             
             <!-- This is the tool-tip container. It is populated in code -->
             <div id="ToolTipInfo"></div>            
+
+            <!-- This is the pop-up container. It is populated in code -->
+                <!-- <div role="group" aria-label="Animation controls" > -->
+                <div id="popup" class="PopUp">
+                    <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                    <h4 id="popup-title"></h4>
+                    <div id="popup-content" class="PopUpContent"></div>
+                </div>
+            <!-- </div> -->
             
             <!-- This is the legend container. It is populated in code -->
-            <div id="legend" style="display:block; overflow: auto; background-color: white;">
+            <div id="legend" style="display:block; overflow: auto; background-color: white;"></div>
 
+            <!-- This is the heat and animation place container. It is populated in code -->
+            <div id="ControlPlaceInMap">
+                <div id="DragHandle">.....</div>
             </div>
 
             <!-- This is the overlayLegend (ScreenOverlay) container. It is populated in code -->
@@ -230,9 +299,6 @@
 
             <img id="photo" src="" style="top: 9.5em; left: .5em; display:none;" alt="photo"/>
         </div>
-
-        <!-- This is the debug window container that should be hidden in final application. It is populated in code  -->
-        <div id="DebugWindow" style="display:none;"></div>
         
     </body>
 </html>

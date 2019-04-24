@@ -3,8 +3,8 @@
  *
  * ==========================================================================*/
 
-App4Sea = App4Sea || {};
-App4Sea.TreeInfo = (function () {
+var App4Sea = App4Sea || {};
+var App4SeaTreeInfo = (function () {
     "use strict";
     
     var my = {};
@@ -26,18 +26,18 @@ App4Sea.TreeInfo = (function () {
                     'icons': false
                 },
                 'error': function (e) {
-                    console.log('Error: ' + e.error);
-                    console.log('Id: ' + e.id);
-                    console.log('Plugin: ' + e.plugin);
-                    console.log('Reason: ' + e.reason);
-                    console.log('Data: ' + e.data);
+                    if (App4Sea.logging) console.log('Error: ' + e.error);
+                    if (App4Sea.logging) console.log('Id: ' + e.id);
+                    if (App4Sea.logging) console.log('Plugin: ' + e.plugin);
+                    if (App4Sea.logging) console.log('Reason: ' + e.reason);
+                    if (App4Sea.logging) console.log('Data: ' + e.data);
                 },
                 'data': {
                     url: function (node) {
                         var theUrl = node.id === '#' ?
                                 'json/info.json' :
                                 'json/' + node.id + '.json';
-                        console.log("theUrl: " + theUrl);
+                                if (App4Sea.logging) console.log("theUrl: " + theUrl);
                         return theUrl;
                     },
                     //'type': 'GET',
@@ -45,7 +45,7 @@ App4Sea.TreeInfo = (function () {
                     'contentType': 'application/json; charset=utf-8',
                     'cache':false,
                     data: function (node) {
-                        console.log("Node.id: " + node.id);
+                        if (App4Sea.logging) console.log("Node.id: " + node.id);
                         return {'id': node.id}; //, 'parent' : node.parent };//, 'text' : node.text, 'a_attr.path' : node.a_attr.path }; 
                     }
                 }
@@ -74,7 +74,7 @@ App4Sea.TreeInfo = (function () {
 
         // 
         $('#TreeInfo').on("changed.jstree", function (e, data) {
-            console.log("On: " + data.selected);
+            if (App4Sea.logging) console.log("On: " + data.selected);
 
             if (typeof data.node !== 'undefined')
                 if (data.node.a_attr.path !== '')
@@ -85,4 +85,4 @@ App4Sea.TreeInfo = (function () {
 
     return my;
     
-}(App4Sea.TreeInfo || {}));
+}(App4SeaTreeInfo || {}));

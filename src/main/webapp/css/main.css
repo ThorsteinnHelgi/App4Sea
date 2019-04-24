@@ -1,6 +1,18 @@
+:root {
+  --gradientWhite: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0.2));
+  --gradientBeige: linear-gradient(to right, rgba(245,245,220,1), rgba(245,245,222,0.2));
+  --gradientBlue: linear-gradient(to right, rgba(22,62,111,1), rgba(22,62,111,0.2));
+  --gradientGray: linear-gradient(to right, rgba(13,13,13,1), rgba(13,13,13,0.2));
+  --gradientGrayDown: linear-gradient(rgba(13,13,13,1), rgba(13,13,13,0.2));
+  --width: 100%; /* This is a helper variable to carry width into calculations */
+  --scale: 1.00;
+  --temp: 1;
+}
+
 *{
     font-family: "Calibri","sans-serif";
 }
+
 #MapContainer{
     position: absolute;
     top: 0;
@@ -12,46 +24,108 @@
 
 #MenuContainer{
     position: absolute;
-    z-index: 10000;
     top: 0;
     left: 0;
+    z-index: 10000;
     height: 100%;
-
     padding: 0.5em;
-    background-color: beige;
-    /*background-color: beige;*/
-    width: 400px;
+    background-image: var(--gradientBeige);
+    width: 440px;
     box-sizing: border-box;
-    overflow:auto;
-    
+    overflow: auto;
     display:none;    
 }
 
-#ButtonContainer{
-    display:inline-block; 
-    width:100%;
-    margin-bottom: 0.5em;
+#ButtonSection{
+  width:100%;
+  height: 2.2em;
 }
 
-#DebugWindow{
-    position: absolute;
-    width: 25rem;
-    height:50rem;
-    bottom: 3.5rem;
-    right: 1em;
-    z-index: 1000;
-    background-color: white;
-    overflow: auto;
-    font-size:xx-small;
-    border-radius: 5px;
-    padding: 0.5em;
-    background-color: white;
-    box-shadow: 0px 0px 6px 1px #5d5c5c;
+#ControlPlaceInMap {
+  width: 300px;
+  position: absolute;
+  z-index: 100;
+  margin: 0;
+  padding: 0;
+  top: 50px;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, 0%);
+  visibility: hidden;
 }
 
-.MenuSection{
-    padding:0.5em 0;
+#DragHandle { 
+  width: 100%;
+  background-color:darkgrey; 
+  align-content: center;
+  overflow: hidden;
+  line-height: 1em;
+  padding-bottom: 0.5em;
+  cursor: move;
+  vertical-align: middle;
+  /*margin-top: -.7em;*/
+  /*margin-right: .3em;*/
+  font-size: 12px;
+  font-family: sans-serif;
+  font-weight: bolder;
+  letter-spacing: 2px;
+  color: black;
+  text-align: center;
 }
+
+#Log {
+  max-height: 30em;
+  overflow-y:scroll;
+  font-size:0.8em; 
+}
+
+option {
+  color:white; 
+  background-image:var(--gradientGrayDown);  
+}
+
+.BannerSection {
+  margin-top: 0.2em;
+}
+
+.SubMenuSection {
+  margin-top: 0.2em;
+  color:white; 
+  /*background-color:grey; */
+  background-image: var(--gradientGrayDown);
+  padding: 0.2em;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  cursor: default;
+}
+
+.TreeSection {
+  margin-top: 0.7em;
+}
+
+.SubMenuButton {
+  float:right;
+  padding: 0;
+  height: 1.9em;
+  width: 1.9em;
+  margin-left: 0.4em;
+  font-weight: bolder;
+}
+
+.ExpandState {
+    background-color: transparent;
+    background-image: radial-gradient(circle, #5f5f5f, rgba(0,0,0,0), rgba(0,0,0,0));
+    font-weight: bolder;
+    text-align: center;
+    width: 44px;
+    border-radius: 50%;
+    border: hidden;
+    padding: 7px 10px 13px 10px;
+    line-height: 1em;
+    color: white;
+  }
 
 .MenuItem{
     cursor:pointer;
@@ -63,9 +137,29 @@
     color:white;
 }
 
+h3 {
+  margin: 0;
+}
+
+h4 {
+  margin: 0;
+}
+
+#popup-title {
+  margin: 0;
+  font-weight: bolder;
+  text-align: center;
+}
+
 .MenuSystemLine{
     font-size: small;
     color: gray;
+}
+
+.ExitWhite {
+    width:1.4em;  
+    height: 1.4em;
+    color: white;
 }
 
 .ol-zoom {
@@ -84,13 +178,6 @@
 .DialogHeader{
     text-align: right;
 }
-.DialogBody{
-    
-}
-
-
-
-
 
 /* Style the zoom slider */
 
@@ -132,18 +219,6 @@
     box-sizing: border-box;
 }
 */
-
-h1,h2,h3,h4,h5,p,ul { font-family: "Calibri","sans-serif"; }
-
-h1 {
-    font-size: 140%;
-}
-h2 {
-    font-size: 120%;
-}
-h3 {
-    font-size: 100%;
-}
 
 /* Tooltip container */
 .tooltip {
@@ -245,7 +320,7 @@ h3 {
     position: relative;
 }
 
-a4s_button {
+.a4s_button {
     border:none;
     display:inline-block;
     overflow:hidden;
@@ -256,7 +331,6 @@ a4s_button {
     vertical-align:middle;
     cursor:pointer;
     white-space:nowrap;
-    float:left;
     font-weight:bold; 
 }
 .a4s_button_right {
@@ -265,7 +339,9 @@ a4s_button {
 .a4s_button:hover, .a4s_button_right:hover{box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)}
 
 
-
+.DocTitle {
+  font-size: 1.6em;
+}
 
   #overlayLegend{
       z-index:1001;
@@ -274,16 +350,34 @@ a4s_button {
       left: 0%;
       width: 0%;
       height: 0%;
-  }
-
-  
-  
+  } 
   
   #overlayLegend-content { 
       z-index:1002;
   }        
 
+  .InfoImage {
+    max-width:100%;
+    max-height:100%;
+  }
+
+  .PopUp {
+    position: absolute;
+    background-color: #fff;
+    -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+    filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    bottom: 12px;
+    left: -50px;
+    min-width: 200px;
+    width: auto;
+  }
   
+  .PopUpContent {
+    overflow: auto; 
+    margin: 5px;
+  }
   
   .ol-popup {
   position: absolute;
@@ -342,14 +436,14 @@ content: "✖";
 input[type=range] {
   -webkit-appearance: none;
   width: 100%;
-  margin: 4px 0;
+  margin: 1em 0;
 }
 input[type=range]:focus {
   outline: none;
 }
 input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
-  height: 2px;
+  height: 0.1em;
   cursor: pointer;
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5), 0px 0px 0px rgba(13, 13, 13, 0.5);
   background: #000000;
@@ -359,20 +453,20 @@ input[type=range]::-webkit-slider-runnable-track {
 input[type=range]::-webkit-slider-thumb {
   box-shadow: 2.3px 2.3px 7.5px #000000, 0px 0px 2.3px #0d0d0d;
   border: 0px solid #000000;
-  height: 10px;
-  width: 5px;
+  height: 2em;
+  width: 1em;
   border-radius: 0px;
   background: #ffc864;
   cursor: pointer;
   -webkit-appearance: none;
-  margin-top: -4px;
+  margin-top: -0.9em;
 }
 input[type=range]:focus::-webkit-slider-runnable-track {
   background: #000000;
 }
 input[type=range]::-moz-range-track {
   width: 100%;
-  height: 2px;
+  height: 0.1em;
   cursor: pointer;
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5), 0px 0px 0px rgba(13, 13, 13, 0.5);
   background: #000000;
@@ -390,7 +484,7 @@ input[type=range]::-moz-range-thumb {
 }
 input[type=range]::-ms-track {
   width: 100%;
-  height: 2px;
+  height: 0.1em;
   cursor: pointer;
   background: transparent;
   border-color: transparent;
@@ -425,40 +519,93 @@ input[type=range]:focus::-ms-fill-upper {
   background: #000000;
 }
 
-  .clearfix::after { 
-     content: " ";
-     display: block; 
-     height: 0; 
-     padding: 5px;
-     clear: both;
-  }
+.clearfix::after { 
+    content: " ";
+    display: block; 
+    height: 0; 
+    padding: 5px;
+    clear: both;
+}
 
-  /* On screens that are less or equal to max-width, change style */
-  @media screen and (max-width: 400px) {
-    #MenuContainer {
-      transform-origin: top left;
-      -ms-transform: scale(0.9); /* IE 9 */
-      -webkit-transform: scale(0.9);; /* Safari */
-      transform: scale(0.9);
-    }
-  }
-  /* On screens that are less or equal to max-width, change style */
-  @media screen and (max-width: 360px) {
-    #MenuContainer {
-      transform-origin: top left;
-      -ms-transform: scale(0.8); /* IE 9 */
-      -webkit-transform: scale(0.8); /* Safari */
-      transform: scale(0.8);
-    }
-  }
-  /* On screens that are less or equal to max-width, change style */
-  @media screen and (max-width: 320px) {
-    #MenuContainer {
-      transform-origin: top left;
-      -ms-transform: scale(0.7); /* IE 9 */
-      -webkit-transform: scale(0.7); /* Safari */
-      transform: scale(0.7);
-    }
-  }
+.tooltip {
+  position: relative;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  color: white;
+  padding: 4px 8px;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+.tooltip-measure {
+  opacity: 1;
+  font-weight: bold;
+}
+.tooltip-static {
+  background-color: #ffcc33;
+  color: black;
+  border: 1px solid white;
+}
+.tooltip-measure:before,
+.tooltip-static:before {
+  border-top: 6px solid rgba(0, 0, 0, 0.5);
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  margin-left: -7px;
+  left: 50%;
+}
+.tooltip-static:before {
+  border-top-color: #ffcc33;
+}  
 
+/* On screens that are less or equal to max-width, change style */
+@media screen and (max-width: 500px) {
+  #MenuContainer, #ControlPlaceInMap {
+    width: 100%; /* The width is 100%, when the viewport is 500px or smaller */
+    -ms-transform: translate(0%); /* IE 9 */
+    -webkit-transform: translate(0%); /* Safari */
+    transform: translate(0%);
+    left: 0;
+  }
+  #ButtonSection {
+    --width: 100%;
+    -ms-transform: scale(calc(var(--width) / 426px)); /* IE 9 */
+    -webkit-transform: scale(calc(var(--width) / 426px)); /* Safari */
+    transform: scale(calc(var(--width) / 426px));
+    -ms-transform: scale(0.85); /* IE 9 */
+    -webkit-transform: scale(0.85); /* Safari */
+    transform: scale(0.85);
+  }
+  #DragHandle {
+    line-height: 2em;
+  }
+  .TreeSection {
+    margin-top: 1.2em;
+  }
+  .jstree-default .jstree-anchor {
+    line-height: 34px;
+    height: 34px;
+  }
+  .jstree-icon, .jstree-icon:empty{
+    margin-top: -0.6em;
+    margin-right: 1em;
+    transform-origin: top left;
+    -ms-transform: scale(2.0) translateX(-0.4em); /* IE 9 */
+    -webkit-transform: scale(2.0) translateX(-0.4em); /* Safari */
+    transform: scale(2.0) translateX(-0.4em);
+    /*background-image:url(static/js/dist/themes/default/64px.png);*/
+  }
+}
 
+@media screen and (max-width: 420px) {
+  #ButtonSection {
+    --width: 100%;
+    -ms-transform: scale(calc(var(--width) / 426px)); /* IE 9 */
+    -webkit-transform: scale(calc(var(--width) / 426px)); /* Safari */
+    transform: scale(calc(var(--width) / 426px));
+    -ms-transform: scale(0.65); /* IE 9 */
+    -webkit-transform: scale(0.65); /* Safari */
+    transform: scale(0.65);
+  }

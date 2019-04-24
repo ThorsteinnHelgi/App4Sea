@@ -9,7 +9,6 @@
     { "id" : "8L584", "parent" : "LExm0", "text" : "Wave Forecast (kml)", "children" : false, "a_attr" : { "path" : "data/wave_forecast.kmz"} },
     { "id" : "8L59", "parent" : "LExm0", "text" : "Open Weather Map (Current in Reykjavik)", "children" : false, "a_attr" : { "path" : "http://api.openweathermap.org/data/2.5/forecast?id=6692263&APPID=1326faa296b7e865683b67cdf8e5c6e4"} },
     { "id" : "8L5D", "parent" : "LExm0", "text" : "Animated Google Cloude Maps (cgi)", "children" : false, "a_attr" : { "path" : "https://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r-t.cgi", "layers" : "nexrad-n0r-wmst", "width" : "998", "height" : "256"} },
-    { "id" : "8L5C", "parent" : "LExm0", "text" : "Oil drift around Vestmannaeyjar (gif)", "children" : false, "a_attr" : { "path" : "data/animation_vestmanna.gif", "layers" : "41", "start" : "2018-08-08T12:00:00"} },
     { "id" : "8L5E", "parent" : "LExm0", "text" : "George Mason Uni: Precipitation (gif)", "children" : false, "a_attr" : { "path" : "data/precip_anim.gif", "layers" : "1", "width" : "1540", "height" : "700"} },
     { "id" : "8L5G", "parent" : "LExm0", "text" : "Marine Ecoregions", "children" : false, "a_attr" : { "path" : "data/meow_ecos.shp.kmz"} }
 ]
