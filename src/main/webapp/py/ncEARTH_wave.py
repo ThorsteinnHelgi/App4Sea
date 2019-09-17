@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from datetime import datetime
+from datetime import datetime,timedelta
 from netCDF4 import Dataset as NetCDFFile
 import numpy as np
 import matplotlib.pyplot as plt
@@ -18,18 +18,18 @@ for rootDir, subdirs, filenames in os.walk('/home/larsrh/Dropbox/cuba_runs/ncEAR
         except OSError:
             print("Error while deleting file")
 
-dt = datetime.now()
-strg = '{:%B %d, %Y}'.format(dt)
-print 'Today we have: '
+yesterday = datetime.now()-timedelta(1)
+strg = '{:%B %d, %Y}'.format(yesterday)
+print 'Yesterday we had: '
 print(strg)  
-print dt
-dt1 = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+print yesterday
+dt1 = yesterday.strftime("%Y-%m-%d %H:%M:%S")
 print dt1
-year = datetime.now().strftime("%Y")
+year = yesterday.strftime("%Y")
 print year
-mon = datetime.now().strftime("%m")
+mon = yesterday.strftime("%m")
 print mon
-day = datetime.now().strftime("%d")
+day = yesterday.strftime("%d")
 print day
 
 
@@ -130,6 +130,7 @@ def gearth_fig(llcrnrlon, llcrnrlat, urcrnrlon, urcrnrlat, pixels=1024):
         figsize = (10.0, 10.0 * aspect)
 
     if False:
+    #if True:
         plt.ioff()  # Make `True` to prevent the KML components from poping-up.
     fig = plt.figure(figsize=figsize,
                      frameon=False,
@@ -139,21 +140,6 @@ def gearth_fig(llcrnrlon, llcrnrlat, urcrnrlon, urcrnrlat, pixels=1024):
     ax.set_xlim(llcrnrlon, urcrnrlon)
     ax.set_ylim(llcrnrlat, urcrnrlat)
     return fig, ax
-
-def odplot(z,lat,lon,ts,te,mass_oil,overlay):
-    zs=z[ts:te]
-    lons=lon[ts:te] 
-    lons0=lons[zs==0]
-    lats=lat[ts:te] 
-    lats0=lats[zs==0]
-    mass=mass_oil[ts:te]
-    mass0=mass[zs==0]
-    plt.scatter(lons0, lats0, c=mass0*100, s=2, marker='o', edgecolors=None) 
-    plt.clim(0,100)
-    ax.set_axis_off()
-    fig.savefig(overlay, transparent=True, format='png')
-
-    return overlay
 
 #ds = NetCDFFile('../nc/cuba_long_2012_point3.nc')
 
@@ -172,12 +158,12 @@ def waveplot(lat,lon,ts,te,Hs,overlay):
                      pixels=pixels)	
 	#cs=plt.scatter(lons, lats, Hss, s=2, marker='o',edgecolors='none')
 	#cs=plt.scatter(lons, lats, Hss, marker='o',edgecolors='none')
-	cs=plt.contourf(lon, lat, Hss, levels=[0,1,2,3,4,6,8]) 
-	plt.clim(0,8)
+	cs=plt.contourf(lon, lat, Hss, levels=[0,1,2,3,4,6,8,10,12]) 
+	plt.clim(0,12)
 	#cbar = plt.colorbar(cs,location='right')
 	plt.title('Wave forecast')
 	ax.set_axis_off()
-	fig.savefig(overlay, transparent=False, format='png')
+	fig.savefig(overlay, transparent=True, format='png')
 	
 	return overlay
 
@@ -196,12 +182,13 @@ pixels = 4*1024
 #mass_oil = ds.variables['mass_oil'][:]
 #tim = ds.variables['time'][:]
 #url='http://thredds.met.no/thredds/dodsC/fou-hi/mywavewam4archive/2019/03/25/MyWave_wam4_WAVE_20190325T06Z.nc'
-url='http://thredds.met.no/thredds/dodsC/fou-hi/mywavewam4archive/'+year+'/'+mon+'/'+day+'/MyWave_wam4_WAVE_'+year+mon+day+'T06Z.nc'
+#url='http://thredds.met.no/thredds/dodsC/fou-hi/mywavewam4archive/'+year+'/'+mon+'/'+day+'/MyWave_wam4_WAVE_'+year+mon+day+'T00Z.nc'
+url='http://thredds.met.no/thredds/dodsC/sea/dataset-mywavewam8-'+year+mon+day
 ds = NetCDFFile(url)
 #z=ds.variables['z'][:]
 lat = ds.variables['latitude'][:]
 lon = ds.variables['longitude'][:]
-Hs = ds.variables['hs'][:] #Significant wave height
+Hs = ds.variables['VHM0'][:] #Significant wave height
 tim = ds.variables['time'][:]
 #print tim
 ds.close()
@@ -211,6 +198,7 @@ fig, ax = gearth_fig(llcrnrlon=lon.min(),
                      urcrnrlat=lat.max(),
                      pixels=pixels)
 
+print 'Time steps in file: '
 for dagtime in tim:
     print (datetime.utcfromtimestamp(dagtime))
 
@@ -223,31 +211,31 @@ print ()
 i = 0
 images = []
 #print ('Images(' + str(len(tim.data)-1) + ")")
-print ('Images(' + str(len(tim.data)-1) + ")")
+print ('Images(' + str(len((tim.data)-1)/24) + ")")
 
 while i < len(tim.data)-1:
     try:
         #image = odplot(z, lat, lon, i, i+1, mass_oil, ourfile + str(i) + '.png')
-	image=waveplot(lat,lon,i,i+24,Hs,ourfile + str(i) + '.png')
+	image=waveplot(lat,lon,i,i+1,Hs,ourfile + str(i) + '.png')
         #i = i+1
 	i=i+24
         images.append(image)
     except:
         break
 Hss=Hs[0,:]
-cs=plt.contourf(lon, lat, Hss, levels=[0,2,4,6,8,10]) 
+cs=plt.contourf(lon, lat, Hss, levels=[0,1,2,3,4,6,8,10,12]) 
 
-fig = plt.figure(figsize=(1.0, 4.0), facecolor=None, frameon=False)
+fig = plt.figure(figsize=(2.0, 7.0), facecolor=None, frameon=True)
 ax = fig.add_axes([0.0, 0.05, 0.2, 0.9])
 cb = fig.colorbar(cs, cax=ax)
-cb.set_label('Significant wave height forecast from MET Norway [m]', rotation=-90, color='k', labelpad=20)
-fig.savefig('legend.png', transparent=False, format='png')  # Change transparent to True if your colorbar is not on space :)
+cb.set_label('Significant wave height forecast (WAM4km model at 00Z) from MET Norway [m]', rotation=-90, color='k', labelpad=20)
+fig.savefig('legend.png', transparent=True, format='png')  # Change transparent to True if your colorbar is not on space :)
 
 
 kml = make_kml(llcrnrlon=lon.min(), llcrnrlat=lat.min(),
          urcrnrlon=lon.max(), urcrnrlat=lat.max(),
          figs=images, 
-         tim = tim,
+         tim = tim[0::24],
          colorbar='legend.png',
          kmzfile = ourfile + ourdestext, 
          name=ourfile,

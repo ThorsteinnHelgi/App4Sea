@@ -3,11 +3,12 @@
  * Adaptedrom https://openlayers.org/en/latest/examples/measure.html
  * 
  * ==========================================================================*/
-
+ 
 var App4Sea = App4Sea || {};
 var App4SeaMeasure = (function () {
     "use strict";
     let my = {};
+    let tempLayers = []; // array to hold droped layers as they are created   
 
     ////////////////////////////////////////////////////////////////////////////
     let draw; // global so we can remove it later
@@ -21,7 +22,7 @@ var App4SeaMeasure = (function () {
     const continuePolygonMsg = 'Click to continue drawing\nthe polygon to measure area'; // Message to show when the user is drawing a polygon. @type {string}
     const continueLineMsg = 'Click to continue drawing\nthe line to measure length'; // Message to show when the user is drawing a line. @type {string}
     let type = 'NotActive';// 'Polygon' 'LineString' or 'NotActive'
-
+    let dragAndDropInteraction;
 
     ////////////////////////////////////////////////////////////////////////////
     // pointerMoveHandler
@@ -84,7 +85,8 @@ var App4SeaMeasure = (function () {
     };
 
     ////////////////////////////////////////////////////////////////////////////
-    function addInteraction() {
+    function addInteraction(typ) {
+        type = typ;
         draw = new ol.interaction.Draw({
             source: source,
             type: type,
@@ -188,11 +190,10 @@ var App4SeaMeasure = (function () {
     }
 
     ////////////////////////////////////////////////////////////////////////////
-    // Creates a new measure tooltip
+    // DoLength Creates a new measure tooltip
     my.DoLength = function() {
-        type = 'LineString';
-        App4Sea.OpenLayers.Map.removeInteraction(draw);
-        InitMeasure();
+        DeinitMeasure();
+        InitMeasure('LineString');
         const btnArea = document.getElementById('btnArea');
         const btnLength = document.getElementById('btnLength');
         btnArea.style.borderStyle = 'none';
@@ -200,11 +201,10 @@ var App4SeaMeasure = (function () {
     };
 
     ////////////////////////////////////////////////////////////////////////////
-    // Creates a new measure tooltip
+    // DoArea Creates a new measure tooltip
     my.DoArea = function() {
-        type = 'Polygon';
-        App4Sea.OpenLayers.Map.removeInteraction(draw);
-        InitMeasure();
+        DeinitMeasure();
+        InitMeasure('Polygon');
         const btnArea = document.getElementById('btnArea');
         const btnLength = document.getElementById('btnLength');
         btnArea.style.borderStyle = 'inset';
@@ -212,10 +212,10 @@ var App4SeaMeasure = (function () {
     };
 
     ////////////////////////////////////////////////////////////////////////////
-    // DoNothing Disables measurements
-    my.DoNothing = function(id) {
-        type = 'NotActive';
-        App4Sea.OpenLayers.Map.removeInteraction(draw);
+    // DoClearAll
+    my.DoClearAll = function() {
+        DeinitMeasure();
+
         if (helpTooltipElement && helpTooltipElement.parentNode) {
             helpTooltipElement.parentNode.removeChild(helpTooltipElement);
         }
@@ -223,10 +223,72 @@ var App4SeaMeasure = (function () {
             measureTooltipElement.parentNode.removeChild(measureTooltipElement);
         }
 
+        tempLayers.forEach(element => {
+            App4Sea.OpenLayers.Map.removeLayer(element);
+        });
+        tempLayers = [];
+
         removeAllMeasureToolTips('tooltip tooltip-measure');
         removeAllMeasureToolTips('tooltip tooltip-static');
 
         DeinitVector();
+
+        const btnArea = document.getElementById('btnArea');
+        const btnLength = document.getElementById('btnLength');
+        btnArea.style.borderStyle = 'none';
+        btnLength.style.borderStyle = 'none';
+    };
+
+    ////////////////////////////////////////////////////////////////////////////
+    // DoAcceptDragAndDrop
+    my.DoAcceptDragAndDrop = function() {
+        dragAndDropInteraction = new ol.interaction.DragAndDrop({
+            formatConstructors: [
+                ol.format.GPX,
+                ol.format.GeoJSON,
+                ol.format.IGC,
+                ol.format.KML,
+                ol.format.TopoJSON
+            ]
+        });        
+
+        dragAndDropInteraction.on('addfeatures', function(event) {
+            let vectorSource = new ol.source.Vector({
+                features: event.features
+            });
+
+            let vect = new ol.layer.Vector({source: vectorSource});
+
+            tempLayers.push(vect);
+            App4Sea.OpenLayers.Map.addLayer(vect);
+
+            App4Sea.Utils.LookAt(vectorSource);
+        });        
+
+        //let interaction = ol.interaction.defaults ().extend([dragAndDropInteraction])
+        App4Sea.OpenLayers.Map.addInteraction(dragAndDropInteraction);
+  
+    };
+
+    ////////////////////////////////////////////////////////////////////////////
+    // DoSaveAll
+    my.DoSaveAll = function() {
+        if (!source)
+            return;
+
+        let features = source.getFeatures();
+
+        let name = "App4Sea_" + Date.now().toString() + ".kml";
+
+        let kmlText = App4Sea.Utils.GetKMLFromFeatures(features, name);
+
+        App4Sea.Utils.DoSaveKML(kmlText, name);
+    };
+
+    ////////////////////////////////////////////////////////////////////////////
+    // DoNothing Disables measurements and closes measurement toolbox
+    my.DoNothing = function(id) {
+        my.DoClearAll();
 
         App4Sea.Utils.w3_close(id);
     };
@@ -267,11 +329,11 @@ var App4SeaMeasure = (function () {
 
     ////////////////////////////////////////////////////////////////////////////
     // Creates a new measure tooltip
-    let InitMeasure = function() {
+    let InitMeasure = function(typ) {
         if (!vector)
             InitVector();
 
-        addInteraction();
+        addInteraction(typ);
 
         App4Sea.OpenLayers.Map.on('pointermove', pointerMoveHandler);
     
@@ -281,10 +343,36 @@ var App4SeaMeasure = (function () {
     };
 
     ////////////////////////////////////////////////////////////////////////////
+    //
+    let DeinitMeasure = function() {
+        type = 'NotActive';
+        App4Sea.OpenLayers.Map.removeInteraction(draw);
+    };
+
+    ////////////////////////////////////////////////////////////////////////////
     // GetType
     my.GetType = function () {
         return type;
     };
+
+    ////////////////////////////////////////////////////////////////////////////
+    my.DropMarker = function () {
+        let marker = new ol.Feature({
+            geometry: new ol.geom.Point(
+                ol.proj.fromLonLat([0,50])
+            ),
+        });
+
+        let vectorSource = new ol.source.Vector({
+            features: [marker]
+        });
+
+        let markerVectorLayer = new ol.layer.Vector({
+            source: vectorSource,
+        });
+
+        App4Sea.OpenLayers.Map.addLayer(markerVectorLayer);    
+    }
     
     /****************************************************************************/
     

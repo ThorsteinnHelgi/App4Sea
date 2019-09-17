@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<kml xmlns="http://www.opengis.net/kml/2.2">
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
   <Folder>
     <name>Square</name>
     <description>Square to test location and size</description>
     <GroundOverlay>
       <name>Square</name>
 	  <Icon>
-        <href>data\Square.png</href>
+        <href>data/Square.png</href>
       </Icon>
       <LatLonBox>
         <north>75</north>
@@ -17,4 +18,5 @@
       </LatLonBox>
     </GroundOverlay>
   </Folder>
+</Document>
 </kml>

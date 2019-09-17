@@ -1,16 +1,88 @@
 :root {
-  --gradientWhite: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0.2));
-  --gradientBeige: linear-gradient(to right, rgba(245,245,220,1), rgba(245,245,222,0.2));
-  --gradientBlue: linear-gradient(to right, rgba(22,62,111,1), rgba(22,62,111,0.2));
-  --gradientGray: linear-gradient(to right, rgba(13,13,13,1), rgba(13,13,13,0.2));
-  --gradientGrayDown: linear-gradient(rgba(13,13,13,1), rgba(13,13,13,0.2));
   --width: 100%; /* This is a helper variable to carry width into calculations */
   --scale: 1.00;
   --temp: 1;
+  --gradientBlue: linear-gradient(to right, rgba(22,62,111,1), rgba(22,62,111,0.2));
+  --gradientWhite: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0.2));
+  --gradientBeige: linear-gradient(to right, rgba(245,245,220,1), rgba(245,245,222,0.2));
+  --gradientGray: linear-gradient(to right, rgba(13,13,13,1), rgba(13,13,13,0.2));
+  --gradientGrayDown: linear-gradient(rgba(13,13,13,1), rgba(13,13,13,0.2));
 }
 
 *{
     font-family: "Calibri","sans-serif";
+}
+
+.bannerButtons {
+  /*transform-origin: top left;*/
+  /*-ms-transform: scale(0.6) translateX(0em);*/ /* IE 9 */
+  /*-webkit-transform: scale(0.6) translateX(0em);*/ /* Safari */
+  /*transform: scale(0.6) translateX(0em);*/
+  display: inline-flex;
+}
+
+.mechanical {
+  background-color: brown;
+  padding: 4px 4px 0px 4px;
+}
+
+.disperant {
+  background-color: green;
+  padding: 4px 4px 0px 4px;
+}
+
+.insitu {
+  background-color: orangered;
+  padding: 4px 4px 0px 4px;
+}
+
+.a4s {
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 70px;
+  height: 70px;  
+  background: url('../icons/BestPractice.png');
+}
+
+.a4s-two-vessels-with-boom {
+  background-position: -14px -77px; 
+}
+
+.a4s-single-vessel-with-outrigger {
+  background-position: -14px -142px; 
+}
+
+.a4s-three-vessels-with-boom {
+  background-position: -14px -207px; 
+}
+
+.a4s-single-vessel-in-ice {
+  background-position: -14px -272px;
+}
+
+.a4s-single-vessel-dispersant {
+  background-position: -194px -77px; 
+}
+
+.a4s-fixed_wing-dispersant {
+  background-position: -194px -142px; 
+}
+
+.a4s-helicopter-dispersant {
+  background-position: -194px -207px; 
+}
+
+.a4s-vessel-with-fire-boom {
+  background-position: -376px -77px; 
+}
+
+.a4s-helicopter-with-ice-containment {
+  background-position: -376px -142px; 
+}
+
+.a4s-helicopter-with-herders {
+  background-position: -376px -207px; 
 }
 
 #MapContainer{
@@ -36,15 +108,15 @@
     display:none;    
 }
 
-#ButtonSection{
-  width:100%;
-  height: 2.2em;
+#ButtonsForMenu, #ButtonsForMenu2, #ButtonSection, #ButtonsForTools, #ButtonsForSettings{
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 5px;
 }
 
 #ControlPlaceInMap {
-  width: 300px;
   position: absolute;
-  z-index: 100;
+  z-index: 200;
   margin: 0;
   padding: 0;
   top: 50px;
@@ -77,11 +149,29 @@
   max-height: 30em;
   overflow-y:scroll;
   font-size:0.8em; 
+  margin-top: 4px;
+  margin-right: 2px;
 }
 
 option {
   color:white; 
   background-image:var(--gradientGrayDown);  
+}
+
+.InformationPopup {
+  display:block; 
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.TreeTitle {
+  font-size: 24px;
+  font-weight: bolder;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: gray;
 }
 
 .BannerSection {
@@ -101,10 +191,6 @@ option {
   cursor: default;
 }
 
-.TreeSection {
-  margin-top: 0.7em;
-}
-
 .SubMenuButton {
   float:right;
   padding: 0;
@@ -115,13 +201,12 @@ option {
 }
 
 .ExpandState {
-    background-color: transparent;
-    background-image: radial-gradient(circle, #5f5f5f, rgba(0,0,0,0), rgba(0,0,0,0));
     font-weight: bolder;
     text-align: center;
     width: 44px;
-    border-radius: 50%;
-    border: hidden;
+    background-color: transparent;
+    background-image: radial-gradient(circle, #5f5f5f, rgba(0,0,0,0), rgba(0,0,0,0));
+    border: none;
     padding: 7px 10px 13px 10px;
     line-height: 1em;
     color: white;
@@ -142,6 +227,14 @@ h3 {
 }
 
 h4 {
+  margin: 0;
+}
+
+h5 {
+  margin: 0;
+}
+
+h6 {
   margin: 0;
 }
 
@@ -311,7 +404,7 @@ h4 {
     z-index:10002;
 }        
 
-#splash_image {
+#splash_image, #splash_image_start {
     top: 10%;
     height: 80%;
     margin-left: auto;
@@ -343,43 +436,52 @@ h4 {
   font-size: 1.6em;
 }
 
-  #overlayLegend{
-      z-index:1001;
-      position: absolute;
-      top: 0%;
-      left: 0%;
-      width: 0%;
-      height: 0%;
-  } 
-  
-  #overlayLegend-content { 
-      z-index:1002;
-  }        
+#overlayLegend{
+  z-index:100;
+  position: absolute;
+  top: 5px;
+  width: 80%;
+  text-align: -webkit-center;
+} 
 
-  .InfoImage {
-    max-width:100%;
-    max-height:100%;
-  }
+.overlayLegend-content { 
+  margin-right: -50%;
+  transform: translate(-50%,0);
+  position: absolute;
+  left: 62.5%;
+  max-width: 400px;
+  background-color: snow;
+}
 
-  .PopUp {
-    position: absolute;
-    background-color: #fff;
-    -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
-    filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
-    border-radius: 10px;
-    border: 1px solid #ccc;
-    bottom: 12px;
-    left: -50px;
-    min-width: 200px;
-    width: auto;
-  }
-  
-  .PopUpContent {
-    overflow: auto; 
-    margin: 5px;
-  }
-  
-  .ol-popup {
+.imgLegend {
+  max-width: 100%;
+}
+
+.InfoImage {
+  max-width:100%;
+  max-height:100%;
+}
+
+.PopUp {
+  position: absolute;
+  background-color: #fff;
+  -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  bottom: 12px;
+  left: -50px;
+  min-width: 200px;
+  width: auto;
+  z-index: 200;
+}
+
+.PopUpContent {
+  overflow: auto; 
+  margin: 5px;
+}
+
+.ol-popup {
   position: absolute;
   background-color: white;
   -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
@@ -560,6 +662,43 @@ input[type=range]:focus::-ms-fill-upper {
   border-top-color: #ffcc33;
 }  
 
+.btn {
+  color: gray;
+  font-size: 16px;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  background-color: snow;
+  border-radius: 4px;
+}
+
+.btn-right {
+  float:right;
+  color: gray;
+  font-size: 16px;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  background-color: snow;
+  border-radius: 4px;
+  margin-left: 5px;
+}
+
+.btn-w-txt {
+  color: gray;
+  font-size: 16px;
+  height: 32px;
+  cursor: pointer;
+  background-color: snow;
+  border-radius: 4px;
+}
+
+/* Darker background on mouse-over */
+.btn:hover, .btn-w-txt:hover, .btn-right:hover {
+  color: #404040;
+  background-color: lightgray;
+}
+
 /* On screens that are less or equal to max-width, change style */
 @media screen and (max-width: 500px) {
   #MenuContainer, #ControlPlaceInMap {
@@ -569,20 +708,11 @@ input[type=range]:focus::-ms-fill-upper {
     transform: translate(0%);
     left: 0;
   }
-  #ButtonSection {
-    --width: 100%;
-    -ms-transform: scale(calc(var(--width) / 426px)); /* IE 9 */
-    -webkit-transform: scale(calc(var(--width) / 426px)); /* Safari */
-    transform: scale(calc(var(--width) / 426px));
-    -ms-transform: scale(0.85); /* IE 9 */
-    -webkit-transform: scale(0.85); /* Safari */
-    transform: scale(0.85);
+  .overlayLegend-content, .InformationPopup { 
+    width: 90%; /* The width is 100%, when the viewport is 500px or smaller */
   }
   #DragHandle {
     line-height: 2em;
-  }
-  .TreeSection {
-    margin-top: 1.2em;
   }
   .jstree-default .jstree-anchor {
     line-height: 34px;
@@ -598,14 +728,3 @@ input[type=range]:focus::-ms-fill-upper {
     /*background-image:url(static/js/dist/themes/default/64px.png);*/
   }
 }
-
-@media screen and (max-width: 420px) {
-  #ButtonSection {
-    --width: 100%;
-    -ms-transform: scale(calc(var(--width) / 426px)); /* IE 9 */
-    -webkit-transform: scale(calc(var(--width) / 426px)); /* Safari */
-    transform: scale(calc(var(--width) / 426px));
-    -ms-transform: scale(0.65); /* IE 9 */
-    -webkit-transform: scale(0.65); /* Safari */
-    transform: scale(0.65);
-  }

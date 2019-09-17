@@ -9,8 +9,6 @@ $(document).ready(function () {
     "use strict";
     if (App4Sea.logging) console.log("Document ready");
 
-    //App4Sea.Utils.openFullscreen();
-
     // Init Map.OpenLayers
     App4Sea.OpenLayers.Init();
 
@@ -44,6 +42,7 @@ $(window).on("load", function () {
 });
 
 $(window).on( "resize", function() {
+    "use strict";
     //if (App4Sea.logging) console.log( "Window resize" );
 
     const place = document.getElementById("ControlPlaceInMap");
@@ -65,14 +64,15 @@ $(window).on( "resize", function() {
 
 ////////////////////////////////////////////////////////////////////////////
 // Overwrite console.log (for use while debugging on mobile)
-(function () {
-    let old = console.log;
-    const logger = document.getElementById('Log');
-    console.log = function (message) {
-        if (typeof message == 'object') {
-            logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(message) : message) + '<br />';
-        } else {
-            logger.innerHTML += message + '<br />';
-        }
-    }
-})();
+// (function () {
+//    "use strict";
+//     let old = console.log;
+//     const logger = document.getElementById('Log');
+//     console.log = function (message) {
+//         if (typeof message == 'object') {
+//             logger.innerHTML += (JSON && JSON.stringify ? JSON.stringify(message) : message) + '<br />';
+//         } else {
+//             logger.innerHTML += message + '<br />';
+//         }
+//     }
+// })();

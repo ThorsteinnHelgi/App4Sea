@@ -1,0 +1,12 @@
+[
+    { "id" : "LGoo0_00", "parent" : "LGoo0", "text" : "KML Samples", "children" : false, "a_attr" : { "path" : "google/KML_Samples.kml"} },
+    { "id" : "LGoo0_01", "parent" : "LGoo0", "text" : "Ground Overlay", "children" : false, "a_attr" : { "path" : "google/GroundOverlay.kml"} },
+    { "id" : "LGoo0_02", "parent" : "LGoo0", "text" : "Screen Overlay", "children" : false, "a_attr" : { "path" : "google/ScreenOverlay.kml"} },
+    { "id" : "LGoo0_03", "parent" : "LGoo0", "text" : "Cube", "children" : false, "a_attr" : { "path" : "google/cube.kml"} },
+    { "id" : "LGoo0_04", "parent" : "LGoo0", "text" : "Description", "children" : false, "a_attr" : { "path" : "google/description-html.kml"} },
+    { "id" : "LGoo0_05", "parent" : "LGoo0", "text" : "Folders", "children" : false, "a_attr" : { "path" : "google/folders.kml"} },
+    { "id" : "LGoo0_06", "parent" : "LGoo0", "text" : "Placemark Extruded", "children" : false, "a_attr" : { "path" : "google/placemark-extruded.kml"} },
+    { "id" : "LGoo0_07", "parent" : "LGoo0", "text" : "Placemark Floating", "children" : false, "a_attr" : { "path" : "google/placemark-floating.kml"} },
+    { "id" : "LGoo0_08", "parent" : "LGoo0", "text" : "Placemark Simple", "children" : false, "a_attr" : { "path" : "google/placemark-simple.kml"} },
+    { "id" : "LGoo0_09", "parent" : "LGoo0", "text" : "Polygon", "children" : false, "a_attr" : { "path" : "google/polygon.kml"} }
+]

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>bennevis.kmz</name>
+	<open>1</open>
+	<Style id="lineStyle">
+		<LineStyle>
+			<color>64eeee17</color>
+			<width>6</width>
+		</LineStyle>
+	</Style>
+	<Style id="sn_boot">
+		<IconStyle>
+			<Icon>
+				<href>files/boot.gif</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<Style id="sh_boot">
+		<IconStyle>
+			<scale>1.2</scale>
+			<Icon>
+				<href>files/boot.gif</href>
+			</Icon>
+		</IconStyle>
+	</Style>
+	<StyleMap id="msn_boot">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_boot</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_boot</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Folder>
+		<name>Ben Nevis by the Mountain Path</name>
+		<open>1</open>
+		<Placemark>
+			<name>Ben Nevis by the Mountain Path</name>
+			<description><![CDATA[<center><table width='400'><tr><td colspan='2'><b>SUMMARY: </b>Ben Nevis is the highest mountain in Britain. The route described here is the standard way up the mountain; it is straightforward, if strenuous, by hillwalking standards, but the less experienced should be sure to read all the precautions.</td></tr><tr><td colspan='2'><b>TERRAIN: </b>Steep path throughout. The upper section is rough and very stony; it is often snow covered and losing the line of the path easily leads onto dangerous terrain - navigational skills are needed. NB. as with any mountain walk, any ascent when snow is lying on the path requires winter equipment and skills.</td></tr><tr><td><b>DISTANCE: </b>17km / 10.75 miles<br /><br /><b>TIME: </b>7 - 9 hours<br /><br /><b>GRADE: </b><img src="https://d3teiib5p3f439.cloudfront.net/images/boot.gif" alt="grade" /><br /><br /><b>BOG FACTOR: </b><img src="https://d3teiib5p3f439.cloudfront.net/images/reed.gif" alt="bog factor" /></td><td><img src='https://d3teiib5p3f439.cloudfront.net/fortwilliam/4_2/4_2_6l.JPG' width='170'></td></tr><tr><td colspan='2'><a href='https://www.walkhighlands.co.uk/fortwilliam/bennevis.shtml'>View more</a></td></tr></table></center>]]></description>
+			<styleUrl>#msn_boot</styleUrl>
+			<Point>
+				<coordinates>-5.0771,56.8108,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Route</name>
+			<styleUrl>#lineStyle</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+					-5.077133203,56.810818521,0 -5.07673123,56.810073375,0 -5.075894474,56.810101209,0 -5.076228227,56.80923716100001,0 -5.071097531,56.809338459,0 -5.069732939,56.808082159,0 -5.067390964,56.806654835,0 -5.065730391,56.80598465599999,0 -5.062230045,56.804132677,0 -5.059024565,56.802235616,0 -5.057679449,56.80205467699999,0 -5.05839755,56.802704035,0 -5.055173807,56.80142396,0 -5.053311848,56.801092041,0 -5.054013504,56.80154047700001,0 -5.04926507,56.80068770400001,0 -5.046563372,56.80046430899999,0 -5.043946782,56.80157271400001,0 -5.041812835,56.803260748,0 -5.043858915,56.803034635,0 -5.04387725,56.80326070500001,0 -5.040006333,56.80502884900001,0 -5.037934667,56.805507205,0 -5.036391016,56.80627469,0 -5.035782339,56.803571314,0 -5.035734727,56.801848432,0 -5.035422947,56.80139669800001,0 -5.036176341,56.801353185,0 -5.036479071,56.80084244299999,0 -5.036248915,56.798280861,0 -5.035951348,56.798288107,0 -5.032321639,56.800201153,0 -5.032090505,56.798759587,0 -5.031166557,56.797542507,0 -5.028872296,56.796679616,0 -5.028364736,56.79806362500001,0 -5.027030643,56.799153096,0 -5.026675547,56.797878128,0 -5.025990701,56.797064193,0 -5.024737387,56.79830268900001,0 -5.022636288,56.798982854,0 -5.02171379,56.797495113,0 -5.020294328,56.79809579500001,0 -5.019426527,56.798141983,0 -5.019369952,56.797438639,0 -5.018214854,56.797230273,0 -5.016507905,56.797107989,0 -5.013567659,56.796763816,0 -5.011551092,56.796497938,0 -5.010113316,56.79640405300001,0 -5.008795808,56.79656169600001,0 -5.008011944,56.796569449,0 -5.006694769,56.796385868,0 -5.005092956,56.795916253,0 -5.003681545,56.79690665699999,0 -5.005115343,56.795909421,0 -5.006717658,56.796385316,0 -5.008011944,56.796569449,0 -5.008820711,56.796586264,0 -5.010114324,56.796416613,0 -5.011574989,56.796509945,0 -5.01352188,56.796764922,0 -5.016486025,56.797121103,0 -5.018213844,56.797217713,0 -5.019350093,56.797476872,0 -5.019401616,56.79811741699999,0 -5.020318228,56.7981078,0 -5.0216909,56.797495667,0 -5.022637299,56.798995414,0 -5.024760278,56.79830213399999,0 -5.02601359,56.797063638,0 -5.026652658,56.797878683,0 -5.027030643,56.799153096,0 -5.028362709,56.79803850600001,0 -5.02884738,56.796655053,0 -5.031165542,56.797529947,0 -5.032091013,56.798765867,0 -5.032299763,56.800214269,0 -5.035972206,56.79826243099999,0 -5.036270789,56.798267744,0 -5.036455164,56.800830441,0 -5.036154465,56.801366302,0 -5.035421931,56.801384138,0 -5.035757111,56.801841595,0 -5.035760461,56.803584431,0 -5.03639,56.806262131,0 -5.037864968,56.80549631800001,0 -5.040005315,56.80501629,0 -5.04387725,56.80326070500001,0 -5.043836022,56.803035194,0 -5.041811817,56.803248188,0 -5.04392389,56.80157327200001,0 -5.046563372,56.80046430899999,0 -5.04926507,56.80068770400001,0 -5.054013504,56.80154047700001,0 -5.053311848,56.801092041,0 -5.055173807,56.80142396,0 -5.058396527,56.802691476,0 -5.05770234,56.802054115,0 -5.059024565,56.802235616,0 -5.062230045,56.804132677,0 -5.065730391,56.80598465599999,0 -5.067390964,56.806654835,0 -5.069732939,56.808082159,0 -5.071098045,56.80934473899999,0 -5.076228742,56.80924344,0 -5.075868895,56.810109031,0 -5.076732407,56.810087728,0 -5.077118942,56.810804491,0 
+				</coordinates>
+			</LineString>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>

@@ -73,51 +73,69 @@ var App4SeaKML = (function () {
     function ajaxKMZ(url, id, callback) {
         if (App4Sea.logging) console.log("ajaxKMZ: " + url);
 
+        let onSuccess = function (_id, _callback) {
+            return function (xhr, response) {
+                // Run when the request is successful
+                //$("#DebugWindow").append("ajaxKMZ Response: " + response + "<br/>");
+                if (App4Sea.logging) console.log("ajaxKMZ OK: " + xhr.responseURL);
+
+                let str = xhr.responseURL.toLowerCase();
+                let rspTp = typeof (response);
+                if (str.endsWith("kml") && (rspTp === "object" || rspTp === 'string')) {
+
+                    let extendedCallback = function (str1, id1, callb) {
+                        return function (e) {
+                            if (App4Sea.logging) console.log("Callback: " + id1 + ": " + str1);
+                            let text = e.srcElement.result;
+                            if (App4Sea.logging) console.log(text);
+                            callb(text, str1, id1);
+                        };
+                    };
+
+                    //if (App4Sea.logging) console.log(response);
+
+                    // This will fire after the blob has been read/loaded.
+                    let reader = new FileReader();
+                    reader.addEventListener('loadend', extendedCallback(str, _id, _callback), false, {passive: true});
+
+                    if (rspTp === 'string') {
+                        _callback(response, str, _id);
+                    }
+                    else {
+                        // Start reading the blob as text. readAsText
+                        reader.readAsBinaryString(response);
+                    }
+                } 
+                else {
+                    if (App4Sea.logging) console.log("Now handlilng " + str);
+                
+                    _callback(response, str, id);
+                }
+            }
+        };
+
         // See: https://github.com/pyrsmk/qwest for get documentation
         // See: https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS for Cors documentation
         // See: https://remysharp.com/2011/04/21/getting-cors-working
-        qwest.get(url, null, {
-            responseType: 'blob',
-            cache: true, // Cors Origin fix (not working!)
-            timeout: 2000,
-            headers: {
-                //'x-requested-with': 'XMLHttpRequest',
-                crossOrigin: 'anonymous'
+        let respType = 'multipart/form-data';
+        if (url.toLowerCase().endsWith("kmz"))
+            respType = 'blob';
+        else if (url.toLowerCase().endsWith("kml"))
+            respType = 'text';//https://xhr.spec.whatwg.org/#the-responsetype-attribute
+        qwest.get(url, // Url
+            null, // Data
+            { // Options
+                responseType: respType, // need blob for kmz files
+                cache: true, // Cors Origin fix (not working!)
+                headers: {
+                    crossOrigin: 'anonymous'
+                },
+                // Before
             }
-        })
-        .then(function (xhr, response) {
-            // Run when the request is successful
-            //$("#DebugWindow").append("ajaxKMZ Response: " + response + "<br/>");
-            if (App4Sea.logging) console.log("ajaxKMZ OK: " + url);
-
-            let str = url.toLowerCase();
-            if (str.endsWith("kml") && typeof (response) === "object") {
-                
-                let extendedCallback = function (str1, id1, callb) {
-                    return function (e) {
-                        if (App4Sea.logging) console.log("Callback: " + id1 + ": " + str1);
-                        let text = e.srcElement.result;
-                        if (App4Sea.logging) console.log(text);
-                        callb(text, str1, id1);
-                    };
-                };
-                
-                //if (App4Sea.logging) console.log(response);
-
-                // This will fire after the blob has been read/loaded.
-                let reader = new FileReader();
-                reader.addEventListener('loadend', extendedCallback(str, id, callback), false, {passive: true});
-                
-                // Start reading the blob as text. readAsText
-                reader.readAsBinaryString(response);
-            } 
-            else {
-                if (App4Sea.logging) console.log("Now handlilng " + str);
-                callback(response, str, id);
-            }
-        })
+        )
+        .then(onSuccess(id, callback))
         .catch(function (e, xhr) {
-            if (App4Sea.logging) console.log("ajaxKMZ Error: " + e + ": Url: " + url + ", id: " + id);
+            if (App4Sea.logging) console.log("ajaxKMZ Error: " + e + ": Url: " + xhr.responseURL + ", id: " + id);
             //if (App4Sea.logging) console.log(xhr);
             // Process the error
         })
@@ -142,11 +160,9 @@ var App4SeaKML = (function () {
                         if (App4Sea.logging) console.log("Got entries: " + entries.length);
                         for (let ind = 0; ind < entries.length; ind++) {
 
-                            if (App4Sea.logging) console.log("Entry: " + entries[ind]);
-
                             let extendedCallback = function (str1, id1, callb, ntries) {
                                 return function (text) {
-                                    if (App4Sea.logging) console.log("extendedCallback for " + id1 + " at " + str1 + " next call " + callb);
+                                    //if (App4Sea.logging) console.log("extendedCallback for " + id1 + " at " + str1 + " next call " + callb);
                                     // text contains the entry data as a String (even though it may be a blob)
                                     //if (App4Sea.logging) console.log("About to call back for " + str1);
                                     callb(text, str1, id1, ntries);
@@ -183,25 +199,23 @@ var App4SeaKML = (function () {
     // Read a KML and add any features to the vector layer recursively
     // This call will either be called with a kml file or the individual entries (as text)
     // from the entries in the kmz file (of which the doc.kml file is one).
-    let readAndAddFeatures = function (text, name, id, entries) {
-        if (App4Sea.logging) console.log("readAndAddFeatures >>>> " + name + " from file " + id);
+    let readAndAddFeatures = function (text, path, id, entries) {
+        if (App4Sea.logging) console.log("readAndAddFeatures >>>> " + path + " from file " + id);
 
-        let str = name.toLowerCase();
+        let str = path.toLowerCase();
         
         if (str.endsWith("kml")) {
-            let listFilesNested = parseKmlText(name, text, id, entries);
-            //if (listFilesNested.length === 0) {
-                //if (App4Sea.logging) console.log("No nested files");
-                addKMLFeatures(text, str, id);
-            //};
+            addKMLFeatures(text, str, id); // TBD this is used for simple kml data (placemarks and vectors). Should do all locally
 
+            let listFilesNested = parseKmlText(path, text, id, entries);
             if (App4Sea.logging) console.log("listFilesNested are " + listFilesNested.length);
+
             listFilesNested.forEach(function (el) {
                 if (App4Sea.logging) console.log("readAndAddFeatures ----------");
                 // Nested calls. Acceptable for a demo
                 // but could be "promisified" instead
                 repeat_kml_kmz_calls(el, id);
-            });
+            });  
         }
         else {
           ///  addKMLFeatures(text, str, id);
@@ -211,19 +225,14 @@ var App4SeaKML = (function () {
 
     ////////////////////////////////////////////////////////////////////////////
     // Function to ease KML feature reading
-    function addKMLFeatures (text, name, id) {
-        if (App4Sea.logging) console.log(">>> addKMLFeatures: " + name)
+    function addKMLFeatures (text, path, id) {
+        if (App4Sea.logging) console.log(">>> addKMLFeatures: " + path)
 
-        if (name.endsWith("kml")) {
+        if (path.endsWith("kml")) {
             //if (App4Sea.logging) console.log(text); // log the whole kml file
-            var vect = loadKmlText(text, id, name);
+            loadKmlText(text, id, path);
             
-            App4Sea.OpenLayers.layers.push({"id": id, "vector": vect});
-            if (App4Sea.logging) console.log("Cached layers now are " + App4Sea.OpenLayers.layers.length);
-
-            App4Sea.OpenLayers.Map.addLayer(vect);
-
-            if (App4Sea.logging) console.log("addKMLFeatures: " + id + " in file " + name + " DONE");
+            if (App4Sea.logging) console.log("addKMLFeatures: " + id + " in file " + path + " DONE");
         }
         
         if (App4Sea.logging) console.log("<<< addKMLFeatures")
@@ -232,35 +241,50 @@ var App4SeaKML = (function () {
     ////////////////////////////////////////////////////////////////////////////
     // Load kml content and return as Vector
     // See https://developers.google.com/kml/documentation/kmlreference
-    function loadKmlText(text, id, name) {
-        if (App4Sea.logging) console.log("loadKmlText: " + name);
+    function loadKmlText(text, id, path) {
+        if (App4Sea.logging) console.log("loadKmlText: " + path);
 
-        var formatter = new ol.format.KML({
+        let formatter = new ol.format.KML({
             extractStyles: true,
             extractAttributes: true,
             showPointNames: false
         });
 
-        var proj = formatter.readProjection(text);
+        let proj = formatter.readProjection(text);
         if (proj !== null)
             if (App4Sea.logging) console.log("Projection: " + proj.wb);
 
-        var kml_features = formatter.readFeatures(text, {
+        let kml_features = formatter.readFeatures(text, {
             dataProjection: App4Sea.prefProj, //Projection of the data we are reading.
             featureProjection: App4Sea.prefViewProj//Projection of the feature geometries created by the format reader.
         });
 
+//        let extent = App4Sea.Utils.GetFeaturesExtension(kml_features);
+
         if (App4Sea.logging) console.log("kml_features are: " + kml_features.length);
         
-//        if (kml_features.length > 0) {
+        if (kml_features.length > 0) {
 //            var description = kml_features[0].get('description');
 //            
 //            if (description) {
 //                addChild('Description', description, $('#TreeMenu'), id, false);
 //            }
-//        }
+        }
+        // else {
+        //     let listFilesNested = parseKmlText(path, text, id, null);
 
-        var vector = new ol.layer.Vector({
+        //     if (App4Sea.logging) console.log("listFilesNested are " + listFilesNested.length);
+
+        //     listFilesNested.forEach(function (el) {
+        //         if (App4Sea.logging) console.log("readAndAddFeatures ----------");
+        //         // Nested calls. Acceptable for a demo
+        //         // but could be "promisified" instead
+        //         repeat_kml_kmz_calls(el, id);
+        //     });  
+        //     return;
+        // }
+
+        let vector = new ol.layer.Vector({
             source: new ol.source.Vector({
                 crossOrigin: 'anonymous',
                 //rendermode: 'image',
@@ -269,7 +293,11 @@ var App4SeaKML = (function () {
         });
         vector.getSource().addFeatures(kml_features);
 
-        return vector;
+        App4Sea.OpenLayers.layers.push({"id": id, "vector": vector});
+        if (App4Sea.logging) console.log("Cached layers now are " + App4Sea.OpenLayers.layers.length);
+
+        App4Sea.OpenLayers.Map.addLayer(vector);
+        App4Sea.Utils.LookAt(vector);
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -376,9 +404,12 @@ var App4SeaKML = (function () {
     // addChild to the menu tree (jstree)
     // returns the new id for the node in the tree (format example: j1_4)
     function addChild (text, data, tree, parNode, disabled, icon) {
-        var newNode = { state: {"closed" : true, "checkbox_disabled" : false, "disabled" : disabled}, // TBD disabled should always be false
+        let dis = disabled;
+        if (!App4Sea.disableSubItems)
+            dis = false;
+        let newNode = { state: {"closed" : true, "checkbox_disabled" : false, "disabled" : dis}, 
             icon: icon, text: text, data: data, selected: true, children : false };
-        var retVal = tree.jstree(true).create_node(parNode, newNode, 'last', false, false); //[par, node, pos, callback, is_loaded]
+        let retVal = tree.jstree(true).create_node(parNode, newNode, 'last', false, false); //[par, node, pos, callback, is_loaded]
         //if (App4Sea.logging) console.log("Adding " + text + " to tree under " + parNode + " returned " + retVal);
         return retVal;
     }
@@ -387,26 +418,26 @@ var App4SeaKML = (function () {
     // Function to parse KML text to get link reference to list any other 
     // nested files (kmz or kml)
     function parseKmlText(path, text, id, entries) {
-        //if (App4Sea.logging) console.log("parseKmlText: " + text);
+        if (App4Sea.logging) console.log("parseKmlText: " + path);
         var oParser = new DOMParser();
         var oDOM = oParser.parseFromString(text, 'text/xml');
-        var links = oDOM.querySelectorAll('NetworkLink Link href');
-        var urls = oDOM.querySelectorAll('NetworkLink Url href');
+        var links = oDOM.querySelectorAll('NetworkLink > Link > href');
+        var urls = oDOM.querySelectorAll('NetworkLink > Url > href');
         
         // Collect data for animation of GrounOverlay
         var canAnimate = false;
-        var gol = oDOM.querySelectorAll('GroundOverlay Icon href');
+        var gol = oDOM.querySelectorAll('GroundOverlay > Icon > href');
         var golw = []; // when
         var golb = []; // begin
         var gole = []; // end
         var goll = []; // layerID
         var count = 0;
-        if (gol.length > 0) {
+        if (gol.length > 1) {
             canAnimate = true;
-            golw = oDOM.querySelectorAll('GroundOverlay TimeStamp when');
+            golw = oDOM.querySelectorAll('GroundOverlay > TimeStamp > when');
             if (golw.length === 0) {
-                golb = oDOM.querySelectorAll('GroundOverlay TimeSpan begin');
-                gole = oDOM.querySelectorAll('GroundOverlay TimeSpan end');
+                golb = oDOM.querySelectorAll('GroundOverlay > TimeSpan > begin');
+                gole = oDOM.querySelectorAll('GroundOverlay > TimeSpan > end');
                 golw = [];
             }
             else {
@@ -421,6 +452,7 @@ var App4SeaKML = (function () {
 
         var kml = oDOM.querySelector('kml');
         
+        ////////////////////////////////////////////////////////////////////////////
         function getName(children, defaultName) {
             for (var ind=0; ind<children.length; ind++){
                 if (children[ind].nodeName === 'name' || children[ind].nodeName === 'atom:name')
@@ -428,65 +460,124 @@ var App4SeaKML = (function () {
             }
             return defaultName;
         }
+
+        ////////////////////////////////////////////////////////////////////////////
+        function addLegend (name, url) {
+            var tr = document.createElement('tr');
+
+            tr.name = name;
         
+            tr.innerHTML =
+                '<td><img class="imgLegend" src="' + url + '" alt="Legend"/></td>\
+                <td><button class="btn-right" title="Close" onclick="App4Sea.KML.removeRow(this)"><i class="fa fa-close"></i></button></td>';
+                //<img class="imgLegend" src="url" alt="Legend"/>
+                //<button class="btn-right" title="Close" onclick="App4Sea.Utils.w3_close('name')"><i class="fa fa-close"></i></button>
+                //<input type="button" value="x" onclick="App4Sea.KML.removeRow(this)">
+
+            const leg = document.getElementById("tableLegend");
+            leg.appendChild(tr)
+        };
+
+        ////////////////////////////////////////////////////////////////////////////
+        my.removeRow = function (input) {
+            document.getElementById('tableLegend').removeChild(input.parentNode.parentNode);// tr.td.button
+        }        
+        
+        ////////////////////////////////////////////////////////////////////////////
         function addOverlay(overlay, id) {
-            var href = overlay.querySelector('Icon href');
-            var url;
+
+            //----------------------------------------------------------------------
+            function loadImageFromKmz(ent1, url1, ext1, nam1, id1, leg1) {
+
+                let extendedCallback = function (ur, ex, nm, en, id, le) {
+                    return function (data) {
+                        let kmzurl =  URL.createObjectURL(data);
+
+                        if (le) {
+                            addLegend(name, kmzurl);
+                        }
+                        else {
+                            let source = new ol.source.ImageStatic({
+                                url: kmzurl,
+                                imageExtent: ex
+                            });
+                            let image = new ol.layer.Image({
+                                name: nm,
+                                source: source
+                            });
+                            if (image) {
+                                App4Sea.OpenLayers.layers.push({"id": id, "vector" : image});
+                                //if (App4Sea.logging) console.log("Added image from kmz. Cached layers now are " + App4Sea.OpenLayers.layers.length + ": " + ur);
             
+                                App4Sea.OpenLayers.Map.addLayer(image);
+                                //App4Sea.Utils.LookAt(image);
+                            }
+                            else {
+                                if (App4Sea.logging) console.log("No image created from kmz");
+                            }
+                        }
+                    };
+                };
+                
+                ent1.getData(new zip.BlobWriter('text/plain'), extendedCallback(url1, ext1, nam1, ent1, id1, leg1));
+            };
+
+            //----------------------------------------------------------------------
+            function findIn (filesInKmz, url_, ext, nam, ide, isLeg) {
+                let found = false;
+                for (let ind=0; ind<filesInKmz.length; ind++) {
+                    if (filesInKmz[ind].filename === url_) {
+                        loadImageFromKmz(filesInKmz[ind], url_, ext, nam, ide, isLeg);
+                        found = true;
+                    }
+                };
+
+                if (!found)
+                    if (App4Sea.logging) console.log("Didn't find file in kmz: " + url_);
+            };
+        
+            //----------------------------------------------------------------------
+            let href = overlay.querySelector('Icon href');
+            let url;
+            let nameIs = "";
+            const name = overlay.querySelector('name');
+            if (name) {
+                nameIs = name.innerHTML;
+            }
+
             if (href)
                 url = href.innerHTML;
 
+            //----------------------------------------------------------------------
             if (overlay.nodeName === "ScreenOverlay") {
                 if (App4Sea.logging) console.log("ScreenOverlay: " + url);
                 /*
-			<ScreenOverlay>
-				<name>colorbar</name>
-				<Icon>
-					<href>http://people.eng.unimelb.edu.au/mpeel/Koppen/World_Koppen_Map_Legend.png</href>
-				</Icon>
-				<overlayXY x="0.5" y="-1" xunits="fraction" yunits="fraction"/>
-				<screenXY x="0.5" y="0" xunits="fraction" yunits="fraction"/>
-				<rotationXY x="0.5" y="0.5" xunits="fraction" yunits="fraction"/>
-				<size x="-1" y="-1" xunits="pixels" yunits="pixels"/>
-			</ScreenOverlay>
-
+                    <ScreenOverlay>
+                        <name>colorbar</name>
+                        <Icon>
+                            <href>http://people.eng.unimelb.edu.au/mpeel/Koppen/World_Koppen_Map_Legend.png</href>
+                        </Icon>
+                        <overlayXY x="0.5" y="-1" xunits="fraction" yunits="fraction"/>
+                        <screenXY x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+                        <rotationXY x="0.5" y="0.5" xunits="fraction" yunits="fraction"/>
+                        <size x="-1" y="-1" xunits="pixels" yunits="pixels"/>
+                    </ScreenOverlay>
                 */
                 if (url) {
-                    var name, nameIs;
-                    var name = overlay.querySelector('name');
-                    if (name)
-                        nameIs = name.innerHTML;
-
-                    var overlayXY = overlay.querySelector('overlayXY');
-                    var screenXY = overlay.querySelector('screenXY');
-                    var rotationXY = overlay.querySelector('rotationXY');
-                    var size = overlay.querySelector('size');
-                    
-                    $('#imgLegend').src = url;
-                    
-                    function GetValUnit(val, unitin)
-                    {
-                        var valout = val;
-                        
-                        if (unitin === 'fraction') {
-                            valout = val*100 + '%';
-                        }
-                        else if (unitin === 'pixels')
-                            valout = val+'px';
-                        else
-                            valout = '?';
-                        
-                        return valout;
+                    if (!url.startsWith("http") && entries && entries.length > 1) {
+                        findIn(entries, url, null, nameIs, id, true);
+                        //if (App4Sea.logging) console.log("Getting legend from kmz: " + url);
                     }
-                    
-                    // TBD $('#overlayLegend').style.left = GetValUnit(screenXY.attributes.x.value, screenXY.attributes.xunits.value);
-                    //$('#overlayLegend').style.top = GetValUnit(screenXY.attributes.y.value, screenXY.attributes.yunits.value);
+                    else
+                        addLegend(name, url);
                 }
             }
+            //----------------------------------------------------------------------
             else if (overlay.nodeName === "PhotoOverlay") {
                 if (App4Sea.logging) console.log("PhotoOverlay: " + url);
                 return;
             }
+            //----------------------------------------------------------------------
             else { // GroundOverlay
                 /*
                 <GroundOverlay id="3">
@@ -507,7 +598,7 @@ var App4SeaKML = (function () {
                     </LatLonBox>
                 </GroundOverlay>
                 */
-               if (App4Sea.logging) console.log("GroundOverlay: " + url);
+                if (App4Sea.logging) console.log("GroundOverlay: " + url);
                 
                 url = url.replaceAll(/&amp;/, '&');
                 
@@ -519,63 +610,11 @@ var App4SeaKML = (function () {
                 let imageExtent = ol.proj.transformExtent([west, south, east, north], App4Sea.prefProj, App4Sea.prefViewProj);
                 //if (App4Sea.logging) console.log("GroundOverlay: W:" + west + " S:" + south + " E:" + east + " N:" + north + " Pro:" + App4Sea.prefProj + " ViewProj:" + App4Sea.prefViewProj);
                 
-                let nameIs = "";
-                const name = overlay.querySelector('name');
-                if (name) {
-                    nameIs = name.innerHTML;
-                }
-
-                function loadImageFromKmz(ent1, url1, ext1, nam1, id1) {
-
-                    let extendedCallback = function (ur, ex, nm, en, id) {
-                        return function (data) {
-                            let kmzurl =  URL.createObjectURL(data);
-                            let source = new ol.source.ImageStatic({
-                                url: kmzurl,
-                                imageExtent: ex
-                            });
-                            let image = new ol.layer.Image({
-                                name: nm,
-                                source: source
-                            });
-                            if (image) {
-                                App4Sea.OpenLayers.layers.push({"id": id, "vector" : image});
-                                //if (App4Sea.logging) console.log("Added image from kmz. Cached layers now are " + App4Sea.OpenLayers.layers.length + ": " + ur);
-            
-                                App4Sea.OpenLayers.Map.addLayer(image);
-                            }
-                            else {
-                                if (App4Sea.logging) console.log("No image created from kmz");
-                            }
-                        };
-                    };
-                        
-                    ent1.getData(new zip.BlobWriter('text/plain'), extendedCallback(url1, ext1, nam1, ent1, id1));
-                };
-
-                function findIn (filesInKmz, url_, ext, nam, ide) {
-                    for (let ind=0; ind<filesInKmz.length; ind++) {
-                        if (filesInKmz[ind].filename === url_) {
-                            return loadImageFromKmz(filesInKmz[ind], url_, ext, nam, ide);
-                        }
-                    };
-
-                    if (App4Sea.logging) console.log("Didn't find file in kmz: " + nam);
-
-                    return null;
-                };
-
                 let image;
                 ynd = ynd + 1;// && ynd % 2 === 1
-                if (!url.startsWith("http")) {
-                    if (entries && entries.length > 1) {
-                        //if (App4Sea.logging) console.log("Getting image from kmz: " + url);
-                        findIn(entries, url, imageExtent, nameIs, id);
-                    } 
-                    else {
-                        if (App4Sea.logging) console.log("Getting image from same location as parent");
-                    }
-
+                if (!url.startsWith("http") && entries && entries.length > 1) {
+                    //if (App4Sea.logging) console.log("Getting image from kmz: " + url);
+                    findIn(entries, url, imageExtent, nameIs, id);
                 }
                 else {
                     //if (App4Sea.logging) console.log("Getting image from url: " + url);
@@ -593,11 +632,13 @@ var App4SeaKML = (function () {
                         //if (App4Sea.logging) console.log("Added image from url. Cached layers now are " + App4Sea.OpenLayers.layers.length + ": " + url);
     
                         App4Sea.OpenLayers.Map.addLayer(image);
+                        //App4Sea.Utils.LookAt(image);
                     }
                 }
             }
         }
 
+        ////////////////////////////////////////////////////////////////////////////
         function listChildren(id, children){
 
             for(var cind=0; cind<children.length; cind++){
@@ -614,19 +655,21 @@ var App4SeaKML = (function () {
 //                    }
                 }
                 else if (child.nodeName === 'description') {
-                    var description = child;
+                    let description = child;
                     if (description.innerHTML !== "") {
-                        newId = addChild('Description', description.innerHTML, $('#TreeMenu'), id, false, 'icons/description.png');
+                        let txt = App4Sea.Utils.NoXML(description.innerHTML);
+                        newId = addChild('Description', txt, $('#TreeMenu'), id, false, 'icons/description.png');
                     }
                 }
                 else if (child.nodeName === 'author' || child.nodeName === 'atom:author') {
-                    var author = child;
+                    let author = child;
 
-                    var authText = "<p>";
-                    for (var aind=0; aind<author.children.length; aind++){
+                    let authText = "<p>";
+                    for (let aind=0; aind<author.children.length; aind++){
                         if (aind !== 0)
                             authText += "<br/>";
-                        authText += author.children[aind].innerHTML;
+                        let txt = App4Sea.Utils.NoXML(author.children[aind].innerHTML);
+                        authText += txt;
                     }
                     authText += "</p>";
                     newId = addChild('Author', authText, $('#TreeMenu'), id, false, 'icons/author.png');
@@ -636,8 +679,25 @@ var App4SeaKML = (function () {
                     newId = addChild(getName(child.children, child.nodeName), child.innerHTML, $('#TreeMenu'), id, true, 'icons/folder.png');
                 } 
                 else if(child.nodeName === 'Camera') {
-                    if (App4Sea.logging) console.log("Camera item not handled: " + child.innerHTML);
-                    // TBD
+                    let elems;
+
+                    elems = child.getElementsByTagName('longitude');
+                    let lon = parseFloat(elems[0].textContent);
+                    
+                    elems = child.getElementsByTagName('latitude');
+                    let lat = parseFloat(elems[0].textContent);
+                    
+                    elems = child.getElementsByTagName('altitude');
+                    let alt = parseFloat(elems[0].textContent);
+
+                    let center = ol.proj.transform([lon, lat], App4Sea.prefProj, App4Sea.prefViewProj);//'EPSG:3857'); 
+                    let zoom = App4Sea.Utils.altitudeToZoom(alt);
+                    
+                    let view = App4Sea.OpenLayers.Map.getView();
+                    view.setCenter(center);
+                    view.setZoom(zoom);
+
+                    if (App4Sea.logging) console.log("Camera set to lon=" + lon + " lat=" + lat + " alt=" + alt + "m zoom=" + zoom);
                 } 
                 else if(child.nodeName === 'Placemark') { // Can move this later to a selectable section TBD
                     newId = addChild(getName(child.children, child.nodeName), child.innerHTML, $('#TreeMenu'), id, true, 'icons/placemark.png');
@@ -652,7 +712,7 @@ var App4SeaKML = (function () {
                     for(var hind=0; hind<child.children.length; hind++){
                         var str = child.children[hind].localName;
                         str = str.substr(0, 4);
-                        if (str === 'Icon') {
+                        if (str === 'Icon' && child.children[hind].children && child.children[hind].children.length > 0) {
                             href = child.children[hind].children[0].innerHTML;
                             break;
                         }
@@ -670,10 +730,10 @@ var App4SeaKML = (function () {
                     newId = addStyleMap(id, child);
                 }
                 else if (child.nodeName === 'TimeSpan') {
-                    if (App4Sea.logging) console.log(child.nodeName + " item not handled: " + child.innerHTML);
+                    //if (App4Sea.logging) console.log(child.nodeName + " item not handled: " + child.innerHTML);
                 }
                 else if (child.nodeName === 'TimeStamp') {
-                    if (App4Sea.logging) console.log(child.nodeName + " item not handled: " + child.innerHTML);
+                    //if (App4Sea.logging) console.log(child.nodeName + " item not handled: " + child.innerHTML);
                 }
                 else if(child.nodeName === 'Link' ||
                         child.nodeName === 'atom:link' ||
@@ -695,7 +755,18 @@ var App4SeaKML = (function () {
                         child.nodeName === 'Point' ||
                         child.nodeName === 'Snippet' ||
                         child.nodeName === 'Region' ||
+
+                        // This is used in Camera
+                        child.nodeName === 'longitude' ||
+                        child.nodeName === 'latitude' ||
+                        child.nodeName === 'altitude' ||
+                        child.nodeName === 'tilt' ||
+                        child.nodeName === 'altitudeMode' ||
+                        child.nodeName === 'roll' ||
                         
+                        child.nodeName === 'gx:altitudeMode' ||
+
+                        //
                         child.nodeName === 'key' || // Included in Pair as in StyleMap
                         child.nodeName === 'styleUrl' || // Included in feature or Pair as in StyleMap
                         child.nodeName === 'Pair' || // Included in StyleMap
@@ -713,7 +784,8 @@ var App4SeaKML = (function () {
 
                 } 
                 else {
-                    if (App4Sea.logging) console.log("Not handling " + child.nodeName);
+                    if (child.innerHTML !== "")
+                        if (App4Sea.logging) console.log("Not handling " + child.nodeName + " with " + child.innerHTML);
                 }
                 
                 if (child.children && child.children.length > 0) {

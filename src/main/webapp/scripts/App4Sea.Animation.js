@@ -12,7 +12,7 @@ var App4SeaAnimation = (function () {
     // Animate
     my.Animate = function (url, name) {
         if (state !== "Stopped")
-            Stop();
+            TryStop();
         state = "Stopped";
 
         var ext = url.substr(url.length - 3, 3);
@@ -21,8 +21,22 @@ var App4SeaAnimation = (function () {
         }
 
         count = my.AniData[golLink].length;
-        document.getElementById('title').innerText = name;
+        let selector = document.getElementById('AniDataSelect');
+
+        for (let i=0; i<selector.length; i++){
+            if (selector.options[i].text == 'No data available')
+            selector.remove(i);
+        }
+
+        let opt = document.createElement('option');
+        opt.innerHTML = name;
+        selector.appendChild(opt);
+        selector.value = name;
     };
+
+    my.getAnimationState = function () {
+        return state;
+    }
 
     function initInfo() {
         var el = document.getElementById('start');
@@ -38,7 +52,7 @@ var App4SeaAnimation = (function () {
         el.innerHTML = currentDate.substr(0, 10);
         el = document.getElementById('endDate');
         el.innerHTML = endDate.substr(0, 10);
-    }
+    };
 
     function updateInfo() {
         // Updage time stamps
@@ -76,7 +90,7 @@ var App4SeaAnimation = (function () {
         anindex = anindex + 1;
         if (anindex === count)
             anindex = 0;
-    }
+    };
 
     function findLayerIndex(lind){
         for (var ynd=0; ynd<App4Sea.OpenLayers.layers.length; ynd++){
@@ -87,17 +101,17 @@ var App4SeaAnimation = (function () {
         }
 
         return -1;
-    }
+    };
 
     function timeElapsed() {
         if (state !== "Playing") {
-            Stop();
+            TryStop();
             state = "Stopped";
             return;
         }
 
         if (timerId === null || my.AniData[golLink] === null) {
-            Stop();
+            TryStop();
             state = "Stopped";
             return;
         }
@@ -110,7 +124,31 @@ var App4SeaAnimation = (function () {
         }
 
         updateInfo();
-    }
+    };
+
+    ////////////////////////////////////////////////////////////////////////////
+    my.MoreSpeed = function () {
+        if (frameRate < 30.01) {
+            frameRate = frameRate + 1;
+
+            if (timerId !== null) {
+                window.clearInterval(timerId);
+                timerId = window.setInterval(timeElapsed, 1000 / frameRate);
+            }
+        }
+    };
+
+    ////////////////////////////////////////////////////////////////////////////
+    my.LessSpeed = function () {
+        if (frameRate > 1.99) {
+            frameRate = frameRate - 1;
+
+            if (timerId !== null) {
+                window.clearInterval(timerId);
+                timerId = window.setInterval(timeElapsed, 1000 / frameRate);
+            }
+        }
+    };
 
     // Statuses Events++
     // ------------------------------------------------------------
@@ -123,26 +161,26 @@ var App4SeaAnimation = (function () {
 
         state = "Transition";
         // Establish formal status (as indicated by icon in use)
-        var btnImg = document.getElementById('playStopImg');
-        var iconPath = btnImg.src;
-        var icon = iconPath.substr(iconPath.length - 8, 8);
+        let isStopped = playstop.classList.contains('fa-play');
 
-        if (icon === "play.png") { // Are stopped shall play
+        if (isStopped) { // Are stopped shall play
             // Make sure all is stopped before we begin
-            Stop();
+            TryStop();
             // Do not set state to Stopped. We are in stopping state: 
             // Now timer is stopping and icon is ready to play. timerId is null. 
 
             // Prepare data while we are in a safe state
             Prepare();
-            btnImg.src = "icons\\stop.png";
+
+            playstop.classList.remove('fa-play');
+            playstop.classList.add('fa-stop');
 
             // StartTimer
             timerId = window.setInterval(timeElapsed, 1000 / frameRate);
             state = "Playing";
         } 
         else { // Are playing, shall stop
-            Stop();
+            TryStop();
             state = "Stopped";
         }
     };
@@ -168,7 +206,7 @@ var App4SeaAnimation = (function () {
         }
     };
 
-    var Stop = function () {            
+    var TryStop = function () {            
         state = "Stopping";
 
         // StopTimer
@@ -177,15 +215,16 @@ var App4SeaAnimation = (function () {
             timerId = null;
         }
 
-        var btnImg = document.getElementById('playStopImg');
-        btnImg.src = "icons\\play.png";
+        playstop.classList.remove('fa-stop');
+        playstop.classList.add('fa-play');
     };
 
     my.Progress = function () {
         if (count === undefined)
             return;
         anindex = parseInt( 0.5 + progress.value * count /100 ); 
-        Stop();
+        TryStop();
+        state = "Stopped";
         Prepare();            
         updateInfo(); 
     };
@@ -209,6 +248,7 @@ var App4SeaAnimation = (function () {
     let timerId = null;
     let anindex = 0;
     
+    const playstop = document.getElementById("playstop");
     const progress = document.getElementById('progress');
     progress.addEventListener('input', my.Progress, false, {passive: true} );
     progress.addEventListener('touch', my.Progress, false, {passive: true} );

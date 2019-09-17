@@ -20,7 +20,6 @@ var App4SeaOpenLayers = (function () {
     let esriWSPTileLayer;
     let esriWITileLayer;
     let blackTileLayer;
-    let overlayDescription;// Used for layer description (e.g. legend)
 
     ////////////////////////////////////////////////////////////////////////////
     //initialize maps and models when page DOM is ready..
@@ -32,15 +31,14 @@ var App4SeaOpenLayers = (function () {
         
         currentLayer = esriWSPTileLayer;
         
-        App4Sea.PopUps.Init();
-        App4Sea.PopUps.initToolTip();
-        
         updateBaseMap();
         
         SetMapControls();
 
         initMenu();
 
+        InitPopup();
+        
         //var res = App4Sea.Utils.supports_html5_storage();
         //if (App4Sea.logging) console.log("Support for html5 local storage: " + res);
     };
@@ -48,8 +46,8 @@ var App4SeaOpenLayers = (function () {
     ////////////////////////////////////////////////////////////////////////////
     // Init all base maps
     function initBasemapLayerTiles() {
-        my.descriptionContainer = document.getElementById('legend');
-        overlayDescription = my.initOverlay(my.descriptionContainer);
+        my.descriptionContainer = document.getElementById('InfoPopup');
+        //overlayDescription = my.InitOverlay(my.descriptionContainer);
 
         // Init osmTileLayer base map
         osmTileLayer = new ol.layer.Tile({
@@ -89,14 +87,14 @@ var App4SeaOpenLayers = (function () {
                 url: 'http://{a-c}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png'
             })
         });        
-    }
+    };
     
     ////////////////////////////////////////////////////////////////////////////
     // Create base map and store in my.Map
     function CreateBaseMap() {
 
         //init OpenLayer map with MapBox tiles
-        var map = new ol.Map({
+        let map = new ol.Map({
             target: 'MapContainer',
             //interaction: interaction,
             view: new ol.View({
@@ -116,8 +114,17 @@ var App4SeaOpenLayers = (function () {
         my.Map.on('not_working', function (evt) {
           App4Sea.Weather.NotWorking(evt);
         });
-    }
+    };
     
+    ////////////////////////////////////////////////////////////////////////////
+    // MapChange
+    my.MapChange = function () {
+        let mapSelector2 = $("#MenuLayer_Select2");
+        let mapSelector = $("#MenuLayer_Select");
+        mapSelector[0].selectedIndex = mapSelector2[0].selectedIndex;
+        updateBaseMap();
+    };
+
     ////////////////////////////////////////////////////////////////////////////
     // Update base map
     function updateBaseMap() {
@@ -126,20 +133,29 @@ var App4SeaOpenLayers = (function () {
         if (selectedMapLayer !== currentLayer.name) {
             my.Map.removeLayer(currentLayer);
             let el = $('#MenuContainer');
-            let el3 = $('#ButtonSection');
+            let el2 = $('#ButtonsForMenu');
+            let el3 = $('#ButtonsForTools');
+            let el4 = $('#ButtonsForSettings');
+            let el5 = $('#ButtonsForToolsInMap');
             let cursPos = document.getElementsByClassName('ol-mouse-position');
             if (selectedMapLayer === 'osmTileLayer') {
                 //el[0].style.backgroundColor = 'white';
                 el[0].style.backgroundImage = 'var(--gradientWhite)';
                 el[0].style.color = 'black';
+                el2[0].style.filter = 'invert(0%)';
                 el3[0].style.filter = 'invert(0%)';
+                el4[0].style.filter = 'invert(0%)';
+                el5[0].style.filter = 'invert(0%)';
                 if (cursPos && cursPos.length>0)
                     cursPos[0].style.color = 'black';
                 currentLayer = osmTileLayer;
             } else if (selectedMapLayer === 'esriWSPTileLayer') {
                 el[0].style.backgroundImage = 'var(--gradientBeige)';
                 el[0].style.color = 'black';
+                el2[0].style.filter = 'invert(0%)';
                 el3[0].style.filter = 'invert(0%)';
+                el4[0].style.filter = 'invert(0%)';
+                el5[0].style.filter = 'invert(0%)';
                 if (cursPos && cursPos.length>0)
                     cursPos[0].style.color = 'black';
                 currentLayer = esriWSPTileLayer;
@@ -147,7 +163,10 @@ var App4SeaOpenLayers = (function () {
                 //el[0].style.backgroundColor = '#163e6f';
                 el[0].style.backgroundImage = 'var(--gradientBlue)';
                 el[0].style.color = 'beige';
+                el2[0].style.filter = 'invert(100%)';
                 el3[0].style.filter = 'invert(100%)';
+                el4[0].style.filter = 'invert(100%)';
+                el5[0].style.filter = 'invert(100%)';
                 if (cursPos && cursPos.length>0)
                     cursPos[0].style.color = 'beige';
                 currentLayer = esriWITileLayer;
@@ -155,23 +174,28 @@ var App4SeaOpenLayers = (function () {
                 //el[0].style.backgroundColor = '#0d0d0d';
                 el[0].style.backgroundImage = 'var(--gradientGray)';
                 el[0].style.color = 'gray';
+                el2[0].style.filter = 'invert(100%)';
                 el3[0].style.filter = 'invert(100%)';
+                el4[0].style.filter = 'invert(100%)';
+                el5[0].style.filter = 'invert(100%)';
                 if (cursPos && cursPos.length>0)
                     cursPos[0].style.color = 'gray';
                 currentLayer = blackTileLayer;
             }
-            my.Map.addLayer(currentLayer);
+            let layers = my.Map.getLayerGroup().getLayers();
+            layers.insertAt(0, currentLayer);
+            //my.Map.addLayer(currentLayer);
         }
-    }
+    };
 
     ////////////////////////////////////////////////////////////////////////////7
     // Set the basic map controls
     function SetMapControls() {
         // Add standard map controls
-        //map.addControl(new ol.control.ZoomSlider());
-        //map.addControl(new ol.control.Zoom());
-        //map.addControl(new ol.control.FullScreen());
-        //map.addControl(new ol.control.Rotate({autoHide: true}));
+        //my.Map.addControl(new ol.control.ZoomSlider());
+        //my.Map.addControl(new ol.control.Zoom());
+        my.Map.addControl(new ol.control.FullScreen());
+        my.Map.addControl(new ol.control.Rotate({autoHide: false}));
         var ctrl = new ol.control.MousePosition({
             projection: App4Sea.prefProj,
             coordinateFormat: function (coord) {
@@ -185,11 +209,42 @@ var App4SeaOpenLayers = (function () {
             collapsed: true
         }));
         //map.addControl(new ol.control.ScaleLine());        Not correct scale
-    }
+    };
     
     ////////////////////////////////////////////////////////////////////////////
+    // Init all menu items
+    function initMenu (){
+        // Set up TreeMenu
+        App4Sea.TreeMenu.SetUp();
+
+        // Set up TreeInfo
+        App4Sea.TreeInfo.SetUp();
+
+        // Hook events to menu
+        $("#MenuContainer input[type='checkbox']").click(function () {
+            updateBaseMap();
+        });
+        $("#MenuContainer select").change(function () {
+            updateBaseMap();
+        });        
+    };
+
+    function InitPopup (){
+        const popupContainer = document.getElementById('popup');
+        const popupCloser = document.getElementById('popup-closer');
+
+        // Create an overlay to anchor the popup to the map.
+        App4Sea.PopUps.overlayLayerPopUp = InitOverlay(popupContainer, popupCloser);
+    
+        my.Map.addOverlay(App4Sea.PopUps.overlayLayerPopUp);
+
+        App4Sea.PopUps.initToolTip();
+    };
+    
+
+    ////////////////////////////////////////////////////////////////////////////
     // Overlay with auto pan
-    my.initOverlay = function (container, closer) {
+    function InitOverlay (container, closer) {
         var overlay = new ol.Overlay({
             element: container,
             autoPan: true,
@@ -210,27 +265,7 @@ var App4SeaOpenLayers = (function () {
         
         return overlay;
     };
-    
-    ////////////////////////////////////////////////////////////////////////////
-    // Init all menu items
-    function initMenu (){
-        // Set up TreeMenu
-        App4Sea.TreeMenu.setUp();
-
-        // Set up TreeInfo
-        App4Sea.TreeInfo.setUp();
-
-//        var button = document.getElementById('testBtn');
-//        button.addEventListener('click', test, false, {passive: true});
-
-        // Hook events to menu
-        $("#MenuContainer input[type='checkbox']").click(function () {
-            updateBaseMap();
-        });
-        $("#MenuContainer select").change(function () {
-            updateBaseMap();
-        });        
-    }
-    
+        
     return my;
+    
 }(App4SeaOpenLayers || {}));

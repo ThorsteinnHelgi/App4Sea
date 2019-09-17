@@ -7,72 +7,109 @@ var App4Sea = App4Sea || {};
 var App4SeaTreeInfo = (function () {
     "use strict";
     
-    var my = {};
+    let my = {};
+    let ajaxCount = 0;
+    let JSONdata = [];
 
     ////////////////////////////////////////////////////////////////////////////
-    // Set up setUp
+    // SetUp info tree
     // https://www.jstree.com
     // http://odonata.tacc.utexas.edu/views/jsTree/reference/_documentation/4_data.html
     // https://stackoverflow.com/questions/26643418/jstree-not-rendering-using-ajax
-    my.setUp = function () {
+    my.SetUp = function () {
 
-        // First we load the tree based on a json file that we fetch using ajax (core)
-        $('#TreeInfo').jstree({
-            'core': {
-                'check_callback': false,
-                //'themes' : { 'stripes' : false },
-                'themes': {
-                    'dots': false,
-                    'icons': false
-                },
-                'error': function (e) {
-                    if (App4Sea.logging) console.log('Error: ' + e.error);
-                    if (App4Sea.logging) console.log('Id: ' + e.id);
-                    if (App4Sea.logging) console.log('Plugin: ' + e.plugin);
-                    if (App4Sea.logging) console.log('Reason: ' + e.reason);
-                    if (App4Sea.logging) console.log('Data: ' + e.data);
-                },
-                'data': {
-                    url: function (node) {
-                        var theUrl = node.id === '#' ?
-                                'json/info.json' :
-                                'json/' + node.id + '.json';
-                                if (App4Sea.logging) console.log("theUrl: " + theUrl);
-                        return theUrl;
+        function getFileName(node) {
+            let jsonURL;
+
+            if (node.id === '#') {
+                jsonURL = 'json/info.json';
+            }
+            else {
+                jsonURL = 'json/' + node.id + '.json';
+            }
+            
+            return jsonURL;  
+        };
+
+        function setTree(treeData) {
+            $('#TreeInfo').jstree({
+                'core': {
+                    'check_callback': false,
+                    'themes': {
+                        'dots': false,
+                        'icons': false
                     },
-                    //'type': 'GET',
-                    'dataType': 'json',
-                    'contentType': 'application/json; charset=utf-8',
-                    'cache':false,
-                    data: function (node) {
-                        if (App4Sea.logging) console.log("Node.id: " + node.id);
-                        return {'id': node.id}; //, 'parent' : node.parent };//, 'text' : node.text, 'a_attr.path' : node.a_attr.path }; 
+                    'error': function (e) {
+                        if (App4Sea.logging) console.log('Error: ' + e.error);
+                        if (App4Sea.logging) console.log('Id: ' + e.id);
+                        if (App4Sea.logging) console.log('Plugin: ' + e.plugin);
+                        if (App4Sea.logging) console.log('Reason: ' + e.reason);
+                        if (App4Sea.logging) console.log('Data: ' + e.data);
+                    },
+                    'data': treeData
+                },
+                'plugins': []
+            });
+        }
+
+        function getData(node, setTree, getFileName, JSONdata) {
+                
+            function onSuccess(parent_node, fnSetTree, fnGetFileName, ourJSONdata) {
+                return function (data, status, jqXHR) {
+                    for (var i_success = 0; i_success < data.length; i_success++){
+                        let thisNode = data[i_success]; 
+                        let children = thisNode.children;
+                        thisNode.children = false;// Must be set to false as wwe are loading acync (sic!)
+                        ourJSONdata.push(thisNode);
+
+                        if (children)
+                            getData(thisNode, fnSetTree, fnGetFileName, ourJSONdata); // Do this recursively
+
+                            //if (App4Sea.logging) console.log(parent_node.id + ': ' + thisNode.id + ", text: " + thisNode.text + ", path: " + thisNode.a_attr.path);
+                    }
+
+                    ajaxCount--;
+                    if (ajaxCount === 0) {
+                        //if (App4Sea.logging) console.log("WE ARE DONE! ");
+                        
+                        fnSetTree(ourJSONdata);
                     }
                 }
-            },
-//            'types' : {
-//                "#" : {
-//                    "max_children" : 20,
-//                    "max_depth" : 20,
-//                    "valid_children" : ["root"]
-//                },
-//                "root" : {
-//                    "icon" : "/data/puffin.ico",
-//                    "valid_children" : ["default"]
-//                },
-//                "default" : {
-//                    "valid_children" : ["default","file"]
-//                },
-//                "file" : {
-//                    "icon" : "glyphicon glyphicon-file",
-//                    "valid_children" : []
-//                }
-//            },
-            'plugins': []
-        }
-        );
+            };
+            
+            function onError (parent_node, fnSetTree, ourJSONdata) {
+                return function (jqXHR, status, errorThrown) {
+                    if (App4Sea.logging) console.log(jqXHR);
+                    if (App4Sea.logging) console.log(status);
+                    if (App4Sea.logging) console.log(errorThrown);
+                    if (App4Sea.logging) console.log(parent_node);
 
-        // 
+                    ajaxCount--;
+                    if (ajaxCount === 0) {
+                        if (App4Sea.logging) console.log("WE ARE DONE WITH ERROR! " + fnSetTree);
+                        
+                        fnSetTree(ourJSONdata);
+                    }
+                }
+            };
+
+            let jsonURL = getFileName(node);
+            
+            ajaxCount++;
+            jQuery.ajax({
+                'url': jsonURL,
+                'contentType': 'application/json; charset=utf-8',
+                'type': 'GET',
+                'dataType': 'JSON',
+                'cache':false,
+                'async': true,
+                success: onSuccess(node, setTree, getFileName, JSONdata),
+                error: onError(node, setTree, JSONdata)
+            });
+        };
+
+        getData({id : "#"}, setTree, getFileName, JSONdata);
+
         $('#TreeInfo').on("changed.jstree", function (e, data) {
             if (App4Sea.logging) console.log("On: " + data.selected);
 

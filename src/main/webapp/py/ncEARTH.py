@@ -179,7 +179,7 @@ if __name__ == "__main__":
     if len(sys.argv) > 1:
         ourfile = sys.argv[1]
 
-ourpath = 'C:\\Users\\thors\\Documents\\GitHub\\App4Sea\\src\\main\\webapp\\data\\'
+ourpath = 'C:\\Users\\thors\\Documents\\GitHub\\App4Sea\\src\\main\\webapp\\nc\\'
 ourext = '.nc'
 ourdestext = '.kmz'
 pixels = 1024

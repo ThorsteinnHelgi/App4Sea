@@ -6,27 +6,38 @@
 var App4Sea = App4Sea || {};
 var App4SeaTreeMenu = (function () {
     "use strict";
-    var my = {};
+
+    let my = {};
+    let ajaxCount = 0;
+    let JSONdata = [];
     
     //////////////////////////////////////////////////////////////////////////
-    // setUp menu tree
+    // SetUp menu tree
     // https://www.jstree.com
     // http://odonata.tacc.utexas.edu/views/jsTree/reference/_documentation/4_data.html
     // https://stackoverflow.com/questions/26643418/jstree-not-rendering-using-ajax
-    my.setUp = function () {
+    my.SetUp = function () {
         
-        let JSONdata = [];
-        let ajaxCount = 0;
-        getData({id : "#"});
+        function getFileName(node, file) {
+            let jsonURL;
 
-        function setTree(tree) {
+            if (node.id === '#') {
+                jsonURL = 'json/' + file;
+            }
+            else {
+                jsonURL = 'json/' + node.id + '.json';
+            }
+
+            return jsonURL;  
+        };
+
+        function setTree(treeData) {
             $('#TreeMenu').jstree({
                 'checkbox': {
                     'keep_selected_style': false
                     ,'real_checkboxes': true
-                    //,'tie_selection' : false // for checking without selecting and selecting without checking}
                  },
-                'plugins' : ['dnd', 'checkbox', 'context'],
+                'plugins' : ['checkbox', 'context'],
                 'core': {
                     'check_callback': function (operation, node, parent, position, more) {
                         if (operation === 'create_node')
@@ -36,7 +47,7 @@ var App4SeaTreeMenu = (function () {
                     },
                     'themes': {
                         'dots': false,
-                        'icons': false
+                        'icons': App4Sea.useIconsInMenu
                     },
                     'error': function (e) {
                         if (App4Sea.logging) console.log('Error: ' + e.error);
@@ -45,60 +56,53 @@ var App4SeaTreeMenu = (function () {
                         if (App4Sea.logging) console.log('Reason: ' + e.reason);
                         if (App4Sea.logging) console.log('Data: ' + e.data);
                     },
-                    'data': tree
+                    'data': treeData
                 }
             });
-        };
+        };        
         
-        function getData(node) {
-            
-            function onSuccess(data, status, jqXHR, parent_node) {
-                for (var i_success = 0; i_success < data.length; i_success++){
-                    let thisNode = data[i_success]; 
+        function getData(node, setTree, getFileName, filename, JSONdata) {
+                
+            function onSuccess(parent_node, fnSetTree, fnGetFileName, ourFilename, ourJSONdata) {
+                return function (data, status, jqXHR) {
+                    for (var i_success = 0; i_success < data.length; i_success++){
+                        let thisNode = data[i_success]; 
+                        let children = thisNode.children;
+                        thisNode.children = false;// Must be set to false as wwe are loading acync (sic!)
+                        ourJSONdata.push(thisNode);
 
-//                    let nodeObj = {"parent" : thisNode.parent, "id": thisNode.id, "text": "", "children": thisNode.children, "path": "", "draggable": "", "ondragstart": "" };
-//                    if (thisNode.id !== '#') {
-//                        nodeObj.text = thisNode.text;
-//                        nodeObj.path = thisNode.a_attr.path;
-//                    }
+                        if (children)
+                            getData(thisNode, fnSetTree, fnGetFileName, ourFilename, ourJSONdata); // Do this recursively
 
-                    let children = thisNode.children;
-                    thisNode.children = false;// Must be set to false as wwe are loading acync (sic!)
-                    JSONdata.push(thisNode);
+                            //if (App4Sea.logging) console.log(parent_node.id + ': ' + thisNode.id + ", text: " + thisNode.text + ", path: " + thisNode.a_attr.path);
+                    }
 
-                    if (children)
-                        getData(thisNode); // Do this recursively
-
-                        if (App4Sea.logging) console.log(parent_node.id + ': ' + thisNode.id + ", text: " + thisNode.text + ", path: " + thisNode.a_attr.path);
-                }
-
-                ajaxCount--;
-                if (ajaxCount === 0) {
-                    if (App4Sea.logging) console.log("WE ARE DONE!");
-                  setTree(JSONdata);
+                    ajaxCount--;
+                    if (ajaxCount === 0) {
+                        //if (App4Sea.logging) console.log("WE ARE DONE! ");
+                        
+                        fnSetTree(ourJSONdata);
+                    }
                 }
             };
             
-            function onError (jqXHR, status, errorThrown, parent_node) {
-                if (App4Sea.logging) console.log(jqXHR);
-                if (App4Sea.logging) console.log(status);
-                if (App4Sea.logging) console.log(errorThrown);
-                if (App4Sea.logging) console.log(parent_node);
+            function onError (parent_node, fnSetTree, ourJSONdata) {
+                return function (jqXHR, status, errorThrown) {
+                    if (App4Sea.logging) console.log(jqXHR);
+                    if (App4Sea.logging) console.log(status);
+                    if (App4Sea.logging) console.log(errorThrown);
+                    if (App4Sea.logging) console.log(parent_node);
 
-                ajaxCount--;
-                if (ajaxCount === 0) {
-                    if (App4Sea.logging) console.log("WE ARE DONE!");
-                  setTree(JSONdata);
+                    ajaxCount--;
+                    if (ajaxCount === 0) {
+                        if (App4Sea.logging) console.log("WE ARE DONE WITH ERROR! " + fnSetTree);
+                        
+                        fnSetTree(ourJSONdata);
+                    }
                 }
-            }
+            };
 
-            let jsonURL;
-            if (node.id === '#') {
-                jsonURL = 'json/a4s.json';
-            }
-            else {
-                jsonURL = 'json/' + node.id + '.json';
-            }
+            let jsonURL = getFileName(node, filename);
             
             ajaxCount++;
             jQuery.ajax({
@@ -108,15 +112,13 @@ var App4SeaTreeMenu = (function () {
                 'dataType': 'JSON',
                 'cache':false,
                 'async': true,
-                success: function(data, status, jqXHR) {
-                    onSuccess(data, status, jqXHR, node);
-                },
-                error: function(jqXHR, status, errorThrown) {
-                    onError(jqXHR, status, errorThrown, node);
-                }
+                success: onSuccess(node, setTree, getFileName, filename, JSONdata),
+                error: onError(node, setTree, JSONdata)
             });
         };
-        
+
+        getData({id : "#"}, setTree, getFileName, 'a4s.json', JSONdata);
+
         // Catch event: changed
         $('#TreeMenu').on("changed.jstree", function (e, data) {
 
@@ -153,11 +155,16 @@ var App4SeaTreeMenu = (function () {
                 }
             }
 
-            // Add overlay
+            // Add InfoPopUp
             if (node.text === 'Description' || node.text === 'Author'){
                 if (node.state.selected) {
                     showMetadata(node.text, node.id, node.data);
                 }
+            }
+            else if (node.text === 'Legend'){
+                // if (node.state.selected) {
+                //     showMetadata(node.text, node.id, node.data);
+                // }
             }
 
             // Add layer
@@ -178,6 +185,7 @@ var App4SeaTreeMenu = (function () {
                     if (activeIndex === -1) {// Layer is not active
                         //if (App4Sea.logging) console.log("Layer being activated from cache: " + nod.id + ": " + nod.text);
                         App4Sea.OpenLayers.Map.addLayer(App4Sea.OpenLayers.layers[index].vector);
+                        App4Sea.Utils.LookAt(App4Sea.OpenLayers.layers[index].vector);
                     }
                     continue;
                 }
@@ -207,6 +215,7 @@ var App4SeaTreeMenu = (function () {
                         if (App4Sea.logging) console.log("Cached layers now are " + App4Sea.OpenLayers.layers.length);
 
                         App4Sea.OpenLayers.Map.addLayer(vect);
+                        App4Sea.Utils.LookAt(vect);
                     }
                 }
                 else if (path.length > 3) {
@@ -218,6 +227,7 @@ var App4SeaTreeMenu = (function () {
                             if (App4Sea.logging) console.log("Cached layers now are " + App4Sea.OpenLayers.layers.length);
 
                             App4Sea.OpenLayers.Map.addLayer(vect);
+                            App4Sea.Utils.LookAt(vect);
                         }
                     }
                     else if (ext === '6e4') { //1326faa296b7e865683b67cdf8e5c6e4
@@ -229,14 +239,40 @@ var App4SeaTreeMenu = (function () {
 //                            App4Sea.OpenLayers.Map.addLayer(vect);
                         }
                     }
-                    else if (ext === "gif" || ext === "cgi" || ext === "wms" || ext === "png" || ext === "jpg") {
+                    else if (ext === "wms") {
                         if (index === -1) {
-                            var vect = App4Sea.Utils.loadImage(true, path, nod.id, nod.text, nod.a_attr.layers,
-                                nod.a_attr.width, nod.a_attr.height, nod.a_attr.start);
+                            let parts = App4Sea.Utils.parseURL(path);
+                            let ex = parts.searchObject.bbox.split(',');
+                            let extent = [parseFloat(ex[0]), parseFloat(ex[1]), parseFloat(ex[2]), parseFloat(ex[3])];//[-145.15104058007,21.731919794922,-57.154894212888,58.961058642578];
+                            let hei = parseFloat(parts.searchObject.height);
+                            let wid = parseFloat(parts.searchObject.width);
+                            let imageExtent = ol.proj.transformExtent(extent, App4Sea.prefProj, App4Sea.prefViewProj);
+                           
+                            let vect = App4Sea.Utils.loadImage(nod, imageExtent, true, path, nod.id, nod.text, "",
+                                wid, hei, nod.a_attr.start);
+
                             App4Sea.OpenLayers.layers.push({"id": nod.id, "vector" : vect});
+
                             if (App4Sea.logging) console.log("Cached layers now are " + App4Sea.OpenLayers.layers.length);
 
                             App4Sea.OpenLayers.Map.addLayer(vect);
+                            App4Sea.Utils.LookAt(vect);
+                        }
+                    }
+                    else if (ext === "gif" || ext === "cgi" || ext === "png" || ext === "jpg") {
+                        if (index === -1) {
+                            let extent = [-145.15104058007,21.731919794922,-57.154894212888,58.961058642578];//TBD
+                            let imageExtent = ol.proj.transformExtent(extent, App4Sea.prefProj, App4Sea.prefViewProj);
+                           
+                            let vect = App4Sea.Utils.loadImage(nod, imageExtent, true, path, nod.id, nod.text, "",
+                            nod.a_attr.width, nod.a_attr.height, nod.a_attr.start);
+
+                            App4Sea.OpenLayers.layers.push({"id": nod.id, "vector" : vect});
+
+                            if (App4Sea.logging) console.log("Cached layers now are " + App4Sea.OpenLayers.layers.length);
+
+                            App4Sea.OpenLayers.Map.addLayer(vect);
+                            App4Sea.Utils.LookAt(vect);
                         }
                     }
                     else {// Including kmz and kml
@@ -250,7 +286,7 @@ var App4SeaTreeMenu = (function () {
             }
         });
     };
-    
+   
     //////////////////////////////////////////////////////////////////////////
     // Checkbox to check or uncheck item in tree
     my.Checkbox = function(layerid, on) {
@@ -266,12 +302,13 @@ var App4SeaTreeMenu = (function () {
     // showMetadata
     function showMetadata(title, id, data) {
 
-        var elem = App4Sea.OpenLayers.descriptionContainer;
-                //document.getElementById('legend');
-        elem.innerHTML = data;
+        let elem = App4Sea.OpenLayers.descriptionContainer;
+
+        let txt = App4Sea.Utils.NoXML(data);
+        elem.innerHTML = txt;
         
-        var pos = ol.proj.fromLonLat([0, 55]);
-        var overlay = new ol.Overlay({
+        let pos = ol.proj.fromLonLat([0, 55]);//TBD
+        let overlay = new ol.Overlay({
           position: pos,
           positioning: 'center-center',
           element: elem,

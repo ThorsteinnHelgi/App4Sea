@@ -3,16 +3,6 @@
  *
  * ==========================================================================*/
 
-var App4SeaAnimation = App4SeaAnimation || {};
-var App4SeaKML = App4SeaKML || {};
-var App4SeaMeasure = App4SeaMeasure || {};
-var App4SeaOpenLayers = App4SeaOpenLayers || {};
-var App4SeaPopUps = App4SeaPopUps || {};
-var App4SeaTreeInfo = App4SeaTreeInfo || {};
-var App4SeaTreeMenu = App4SeaTreeMenu || {};
-var App4SeaUtils = App4SeaUtils || {};
-var App4SeaWeather = App4SeaWeather || {};
-
 var App4Sea = (function () {
     "use strict";
     let my = {};
@@ -26,17 +16,21 @@ var App4Sea = (function () {
     my.maxZoom = 18;
     my.startZoom = 4;
     my.logging = 5;
+    my.useIconsInMenu = true;
+    my.disableSubItems = false;
 
-    my.Animation = App4SeaAnimation;
-    my.KML = App4SeaKML;
-    my.Measure = App4SeaMeasure;
-    my.OpenLayers = App4SeaOpenLayers;
-    my.PopUps = App4SeaPopUps;
-    my.TreeInfo = App4SeaTreeInfo;
-    my.TreeMenu = App4SeaTreeMenu;
-    my.Utils = App4SeaUtils;
-    my.Weather = App4SeaWeather;
-        
+    my.Animation = App4SeaAnimation || {};
+    my.KML = App4SeaKML || {};
+    my.Measure = App4SeaMeasure || {};
+    my.OpenLayers = App4SeaOpenLayers || {};
+    my.PopUps = App4SeaPopUps || {};
+    my.TreeInfo = App4SeaTreeInfo || {};
+    my.TreeMenu = App4SeaTreeMenu || {};
+    my.Utils = App4SeaUtils || {};
+    my.Weather = App4SeaWeather || {};
+    
+    if (my.logging) console.log('Windows width is ' + window.innerWidth);
+
     return my;
     
 }(App4Sea || {}));

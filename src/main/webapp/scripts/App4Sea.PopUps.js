@@ -9,20 +9,37 @@ var App4SeaPopUps = (function () {
 
     let my = {};
    
-    let overlayLayerPopUp;// Used for popup information when clicking on icons
+    my.overlayLayerPopUp;// Used for popup information when clicking on icons
     const popupContent = document.getElementById('popup-content');
-    const popupContainer = document.getElementById('popup');
     const popupCloser = document.getElementById('popup-closer');
     const popupTitle = document.getElementById('popup-title');
-    
 
-    my.Init = function(){
-        // Create an overlay to anchor the popup to the map.
-        overlayLayerPopUp = App4Sea.OpenLayers.initOverlay(popupContainer, popupCloser);
-    
-        App4Sea.OpenLayers.Map.addOverlay(overlayLayerPopUp);
-    };
-    
+    function setA4SOSRInfo(features) {
+        let osr = {name: "", description: "", address: "", linkinfo: "", linkicon: "", linkimage: "", linkvideo: ""};
+
+        osr.name = features[0].get('name');
+        osr.description = features[0].get('description');
+        osr.address = features[0].get('address');
+        osr.linkinfo = features[0].get('linkinfo');
+        osr.linkicon = features[0].get('linkicon');
+        osr.linkimage = features[0].get('linkimage');
+        osr.linkvideo = features[0].get('linkvideo');
+
+        const template = //$('#RescueSite').html();
+        `<div style="margin:2px;">
+            <p><b>Description: </b>{{description}}</p>
+            <p><b>Address: </b>{{address}}</p>
+            <p><b>Information: </b>{{linkinfo}}</p>
+            <p><b>Icon: </b>{{linkicon}}</p>
+            <p><b>Image: </b>{{linkimage}}</p>
+            <p><b>Video: </b>{{{linkvideo}}}</p>
+        </div>`;
+        Mustache.parse(template);
+        let description = Mustache.to_html(template, osr);
+        
+        return description;
+    }
+
     function setNorwegianOSRInfo(features) {
         let beredskap = {name: "", region: "", region2: "", region3: "", region4: "", address: "", link: ""};
 
@@ -36,7 +53,6 @@ var App4SeaPopUps = (function () {
 
         const template = //$('#RescueSite').html();
             `<div style="margin:2px;">
-                <h3>{{name}}</h3>
                 <p>{{address}}</p>
                 <p>{{region}}</p>
                 <p>{{region2}}</p>
@@ -45,7 +61,7 @@ var App4SeaPopUps = (function () {
                 <p>{{{link}}}</p>
             </div>`;
         Mustache.parse(template);
-        var description = Mustache.to_html(template, beredskap);
+        let description = Mustache.to_html(template, beredskap);
         
         return description;
     };
@@ -76,7 +92,6 @@ var App4SeaPopUps = (function () {
         
         const template = //$('#ShipInfo').html();
             `<div style="margin:2px;">
-                <h3>{{name}}</h3>
                 <p>{{callsign}}</p>
                 <p>{{type}}</p>
                 <p>{{cargotype}}</p>
@@ -132,6 +147,11 @@ var App4SeaPopUps = (function () {
             return template;
         }
 
+        // if (node.nodeName === 'StyleMap' && node.children.length > 0) {
+        //     template = node.children[0].innerHTML;
+        //     return template;
+        // }
+        
         for(let cind=0; cind<node.children.length; cind++){
 
             let child = node.children[cind];
@@ -162,7 +182,10 @@ var App4SeaPopUps = (function () {
         if (features.length > 0) {
             let description = features[0].get('description');
 
-            if (features[0].get('navn')) {
+            if (features[0].get('SiteID')) {
+                description = setA4SOSRInfo(features);
+            }
+            else if (features[0].get('navn')) {
                 description = setNorwegianOSRInfo(features);
             }
             else if(features[0].get('Id')){  //drake passage example
@@ -185,9 +208,12 @@ var App4SeaPopUps = (function () {
                 }
             }
 
+            if (template === '$[description]')
+                template = description;
+
             if (template) {
-                let realTemplate = template.substr(9);
-                realTemplate = realTemplate.substr(0, realTemplate.length-3);
+                let txt = App4Sea.Utils.NoXML(template);
+                let realTemplate = txt;
 
                 let moreRealTemplate = realTemplate.replaceAll(/\$\[(.+?)\//, '{{');
                 moreRealTemplate = moreRealTemplate.replaceAll(']', '}}');
@@ -209,11 +235,11 @@ var App4SeaPopUps = (function () {
 
             if (description) {
                 popupContent.innerHTML = description;
-                overlayLayerPopUp.setPosition(coordinate);
+                my.overlayLayerPopUp.setPosition(coordinate);
             }
         } 
         else {
-            overlayLayerPopUp.setPosition(undefined);
+            my.overlayLayerPopUp.setPosition(undefined);
             popupCloser.blur();
         }
     };

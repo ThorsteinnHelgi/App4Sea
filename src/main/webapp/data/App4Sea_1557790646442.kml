@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.google.com/kml/ext/2.2 https://developers.google.com/kml/schema/kml22gx.xsd">
+	<Placemark>
+		<Polygon>
+			<outerBoundaryIs>
+				<LinearRing>
+					<coordinates>40914.582489085384,0 12185007.167217845 -688433.6573384758,0 10192641.389436284 1624133.8486100193,0 10557315.5839956 1446243.983040492,0 11544604.00946612 40914.582489085384,0 12185007.167217845,0</coordinates>
+				</LinearRing>
+			</outerBoundaryIs>
+		</Polygon>
+	</Placemark>
+</kml>

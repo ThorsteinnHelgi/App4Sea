@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Oil Spill Response Sites</name>
+	<open>1</open>
+	<Style id="sn_ranger_station0">
+		<IconStyle>
+			<scale>0.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/ranger_station.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+	</Style>
+	<Style id="sh_ranger_station">
+		<IconStyle>
+			<scale>0.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/ranger_station.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+	</Style>
+	<Style id="sn_ranger_station">
+		<IconStyle>
+			<scale>0.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/ranger_station.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+	</Style>
+	<StyleMap id="msn_ferry">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ferry</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ferry</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_ranger_station">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ranger_station0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ranger_station</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_ferry">
+		<IconStyle>
+			<scale>1.2</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/ferry.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+		<BalloonStyle>
+		</BalloonStyle>
+		<ListStyle>
+		</ListStyle>
+	</Style>
+	<Style id="sh_ferry">
+		<IconStyle>
+			<scale>1.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/ferry.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+		<BalloonStyle>
+		</BalloonStyle>
+		<ListStyle>
+		</ListStyle>
+	</Style>
+	<StyleMap id="msn_ranger_station0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ranger_station</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ranger_station</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Folder>
+		<name>Iceland</name>
+		<open>1</open>
+		<Placemark>
+			<name>Reykjavík</name>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SimpleData name="SiteID">Reykjavík</SimpleData>
+					<SimpleData name="name">Reykjavík</SimpleData>
+					<SimpleData name="description">Spill Notification Point
+Operations Centre
+The Icelandic Coastguard P.O. 7120 127 Reykjavik 
+
+Web: www.lhg.is
+Tel: +354-545 2100 (24 hr)
+Fax: +354-545 2001
+Email: sar@lhg.is
+
+Competent National Authority
+Environmental Agency of Iceland (EAI) (Oil &amp;amp; HNS)
+Suourlandsbraut 24 108 Reykjavik 
+
+Web: www.ust.is
+Tel: +354-591 2000 
+Mobile: +354 822 4003
+Fax: +354-591 2010
+Email: ust@ust.is
+
+Equipment
+Government
+The EAI uses contractors specialised and trained in response operations and has stockpiles of equipment and materials on hand. The ICG also has equipment onboard Coast Guard vessels capable of operating in high seas. The ICG has capabilities to transport response equipment around the island and out to vessels at sea, and has aircraft and helicopters equipped for aerial surveillance.  Equipment, consisting mainly of boom and skimmers, is stockpiled at five sites around the coast, that at Reykjavik being the largest. The smaller stockpiles are maintained and operated by regional cooperatives formed by the municipalities and harbour/port authorities. In addition, several port tugs have the facility for dispersant spraying.
+
+Private
+Industry is encouraged to have its own clean-up plans and undertake clean-up in-house, but all plans must be accepted by the EAI prior to the start of operations. The EAI can reject the industry plans and activate its own contractors if necessary.
+
+US Navy facilities at Helguvik and Hvalfjördur have limited containment and recovery equipment.</SimpleData>
+					<SimpleData name="address"></SimpleData>
+					<SimpleData name="linkinfo"></SimpleData>
+					<SimpleData name="linkicon"></SimpleData>
+					<SimpleData name="linkimage"></SimpleData>
+					<SimpleData name="linkvideo"><![CDATA[<a href=http://www.lhg.is/media/forsida/lhg-15sek-v3.mp4 target=_blank >Video</a>]]></SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-21.93840613855218,64.15076139702752,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Akureyri</name>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#OSR_Schema">
+					<SimpleData name="SiteID">Akureyri</SimpleData>
+					<SimpleData name="name">Akureyri</SimpleData>
+					<SimpleData name="description"></SimpleData>
+					<SimpleData name="address"></SimpleData>
+					<SimpleData name="linkinfo"></SimpleData>
+					<SimpleData name="linkicon"></SimpleData>
+					<SimpleData name="linkimage"></SimpleData>
+					<SimpleData name="linkvideo"><![CDATA[<a href=http://www.lhg.is/media/forsida/lhg-15sek-v3.mp4 target=_blank >Video</a>]]></SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-18.08979922046767,65.69212072145552,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Vestmannaeyjar</name>
+			<styleUrl>#msn_ranger_station0</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-20.27183700249156,63.44315510179311,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Ísafjörður</name>
+			<styleUrl>#msn_ranger_station0</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-23.12437105976812,66.06987402300773,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Seyðisfjörður</name>
+			<styleUrl>#msn_ranger_station0</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-14.00195460291392,65.26294730113285,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Höfn í Hornarfirði</name>
+			<styleUrl>#msn_ranger_station0</styleUrl>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-15.20155433553204,64.2494065538877,0</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>Finland</name>
+		<open>1</open>
+		<Placemark>
+			<name>Oulu</name>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SimpleData name="SiteID">Oulu</SimpleData>
+					<SimpleData name="name">Oulu</SimpleData>
+					<SimpleData name="description">Some text</SimpleData>
+					<SimpleData name="address">Local address and contact information</SimpleData>
+					<SimpleData name="linkinfo">link to a pdf file or a web page for further detailed information</SimpleData>
+					<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+					<SimpleData name="linkimage">link to an image from the site</SimpleData>
+					<SimpleData name="linkvideo"><![CDATA[<a href=http://www.lhg.is/media/forsida/lhg-15sek-v3.mp4 target=_blank >Video</a>]]></SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>25.93840613855218,65.15076139702752,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Turku</name>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SimpleData name="SiteID">Turku</SimpleData>
+					<SimpleData name="name">Turku</SimpleData>
+					<SimpleData name="description">Some text</SimpleData>
+					<SimpleData name="address">Local address and contact information</SimpleData>
+					<SimpleData name="linkinfo">link to a pdf file or a web page for further detailed information</SimpleData>
+					<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+					<SimpleData name="linkimage">link to an image from the site</SimpleData>
+					<SimpleData name="linkvideo"><![CDATA[<a href=http://www.lhg.is/media/forsida/lhg-15sek-v3.mp4 target=_blank >Video</a>]]></SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>22.21799870852966,60.44138678164045,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>UISKO</name>
+			<styleUrl>#msn_ferry</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SimpleData name="SiteID">UISKO</SimpleData>
+					<SimpleData name="name">UISKO</SimpleData>
+					<SimpleData name="description">Some text</SimpleData>
+					<SimpleData name="location">Turku</SimpleData>
+					<SimpleData name="operation">Offshore and Coastal</SimpleData>
+					<SimpleData name="vessel_class">Oil recovery vessel</SimpleData>
+					<SimpleData name="vessel_loa">61.45</SimpleData>
+					<SimpleData name="vessel_breath">10.2</SimpleData>
+					<SimpleData name="vessel_draught">4.85</SimpleData>
+					<SimpleData name="vessel_GT">1300</SimpleData>
+					<SimpleData name="vessel_averageSpeed">11</SimpleData>
+					<SimpleData name="vessel_buildYear">1989</SimpleData>
+					<SimpleData name="vessel_IMO">-</SimpleData>
+					<SimpleData name="equipment_crane">Yes</SimpleData>
+					<SimpleData name="equipment_craneCapability">26</SimpleData>
+					<SimpleData name="equipment_totalStorageCapacity">100+Oil sack station</SimpleData>
+					<SimpleData name="equipment_heatedStorage">100</SimpleData>
+					<SimpleData name="ape_sweepingArms">2</SimpleData>
+					<SimpleData name="ape_sweepingWidth">30</SimpleData>
+					<SimpleData name="ape_lamorBoom">200 1.5</SimpleData>
+					<SimpleData name="ape_lamorBoom">200 1.5</SimpleData>
+					<SimpleData name="ape_lamorBoom">200 1.5</SimpleData>
+					<SimpleData name="ape_roBoom">200 1.5</SimpleData>
+					<SimpleData name="ape_roBoom">200 1.5</SimpleData>
+					<SimpleData name="ape_roBoom">200 2</SimpleData>
+					<SimpleData name="ape_roBoom">200 2</SimpleData>
+					<SimpleData name="ape_roBoom">200 2</SimpleData>
+					<SimpleData name="linkinfo">link to a pdf file or a web page for further detailed information</SimpleData>
+					<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+					<SimpleData name="linkimage">link to an image from the site</SimpleData>
+					<SimpleData name="linkvideo"><![CDATA[<a href=http://www.lhg.is/media/forsida/lhg-15sek-v3.mp4 target=_blank >Video</a>]]></SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>22.21799870852966,60.44138678164045,0</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+	<Folder>
+		<name>Norway</name>
+		<open>1</open>
+		<Placemark>
+			<name>Horten</name>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Horten</SimpleData>
+					<SimpleData name="name">Horten</SimpleData>
+					<SimpleData name="linkimage">Sørøst</SimpleData>
+					<SimpleData name="description">Vestfold</SimpleData>
+					<SimpleData name="linkicon">Horten</SimpleData>
+					<SimpleData name="address">Moloveien 7, 3187 Horten</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/001-HORTEN.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Vestfold</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>10.4966766070057,59.4152916101709,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Bergen</SimpleData>
+					<SimpleData name="name">Bergen</SimpleData>
+					<SimpleData name="linkimage">Vest</SimpleData>
+					<SimpleData name="description">Hordaland</SimpleData>
+					<SimpleData name="linkicon">Fjell</SimpleData>
+					<SimpleData name="address">CCB Ågotnes, Tranesvegen, 5347 Ågotnes</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/004-BERGEN.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Bergen</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>5.0157061944052,60.41327684095359,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Kristiansand</SimpleData>
+					<SimpleData name="name">Kristiansand</SimpleData>
+					<SimpleData name="linkimage">Sørøst</SimpleData>
+					<SimpleData name="description">Vest-Agder</SimpleData>
+					<SimpleData name="linkicon">Kristiansand</SimpleData>
+					<SimpleData name="address">Sjølystveien 27, 4610 Kristiansand S</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/002-KR.SAN.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Midt-Agder</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>7.99951003300121,58.135375951649,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Solund</SimpleData>
+					<SimpleData name="name">Solund</SimpleData>
+					<SimpleData name="linkimage">Vest</SimpleData>
+					<SimpleData name="description">Sogn og Fjordane</SimpleData>
+					<SimpleData name="linkicon">Solund</SimpleData>
+					<SimpleData name="address">Solund Verft AS, 6924 Hardbakke</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/015-SOLUND.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Bergen</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>4.87521568848587,61.08428381228931,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Tromsø</SimpleData>
+					<SimpleData name="name">Tromsø</SimpleData>
+					<SimpleData name="linkimage">Troms og Finnmark</SimpleData>
+					<SimpleData name="description">Troms</SimpleData>
+					<SimpleData name="linkicon">Tromsø</SimpleData>
+					<SimpleData name="address">Terminalgata 177, 9019 Tromsø</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/010-TROMSØ.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Midt- og Nord-Troms</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>18.9974999997879,69.68133299983219,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Bodø</SimpleData>
+					<SimpleData name="name">Bodø</SimpleData>
+					<SimpleData name="linkimage">Nordland</SimpleData>
+					<SimpleData name="description">Nordland</SimpleData>
+					<SimpleData name="linkicon">Bodø</SimpleData>
+					<SimpleData name="address">Jernbaneveien 96, 8006 Bodø</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/008-BODØ.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Salten</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>14.393333,67.288167,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Vadsø</SimpleData>
+					<SimpleData name="name">Vadsø</SimpleData>
+					<SimpleData name="linkimage">Troms og Finnmark</SimpleData>
+					<SimpleData name="description">Finnmark</SimpleData>
+					<SimpleData name="linkicon">Vadsø</SimpleData>
+					<SimpleData name="address">Fabrikkveien 35, 9800 Vadsø</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/012-VADSØ.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Øst-Finnmark</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>29.7340507086069,70.06995618680971,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Stavanger</SimpleData>
+					<SimpleData name="name">Stavanger</SimpleData>
+					<SimpleData name="linkimage">Vest</SimpleData>
+					<SimpleData name="description">Rogaland</SimpleData>
+					<SimpleData name="linkicon">Randaberg</SimpleData>
+					<SimpleData name="address">Harestadveien 77, 4070 Randaberg</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/003-STAVAN.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Sør-Rogaland</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>5.63850072546032,59.0141669005655,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Florø</SimpleData>
+					<SimpleData name="name">Florø</SimpleData>
+					<SimpleData name="linkimage">Vest</SimpleData>
+					<SimpleData name="description">Sogn og Fjordane</SimpleData>
+					<SimpleData name="linkicon">Flora</SimpleData>
+					<SimpleData name="address">Saga fjordbase, Botnaneset, Hall 5, 6900 Florø</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/014-FLORØ.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Sogn og Sunnfjord</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>5.07379397931129,61.6124875809265,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Hammerfest</SimpleData>
+					<SimpleData name="name">Hammerfest</SimpleData>
+					<SimpleData name="linkimage">Troms og Finnmark</SimpleData>
+					<SimpleData name="description">Finnmark</SimpleData>
+					<SimpleData name="linkicon">Hammerfest</SimpleData>
+					<SimpleData name="address">Meridiangata 34, 9600 Hammerfest</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/011-HAMMER.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Vest-Finnmark</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>23.6596667664621,70.6689999872425,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Lødingen</SimpleData>
+					<SimpleData name="name">Lødingen</SimpleData>
+					<SimpleData name="linkimage">Nordland</SimpleData>
+					<SimpleData name="description">Nordland</SimpleData>
+					<SimpleData name="linkicon">Lødingen</SimpleData>
+					<SimpleData name="address">Sjøvegen 43, 8410 Lødingen</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/009-LØDING.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Ofoten</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>15.993167,68.41883300000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Utstyr i aksjon</SimpleData>
+					<SimpleData name="name">Utstyr i aksjon</SimpleData>
+					<SimpleData name="linkimage">Vest</SimpleData>
+					<SimpleData name="description">Kontinental-sokkelen</SimpleData>
+					<SimpleData name="linkicon">Sokkelen nord for 62 grader Nord</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/AKSJON.pdf target=_blank >More information</a>]]></SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>10.2636131135935,58.90020998021949,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Ørland</SimpleData>
+					<SimpleData name="name">Ørland</SimpleData>
+					<SimpleData name="linkimage">Midt</SimpleData>
+					<SimpleData name="description">Sør-Trøndelag</SimpleData>
+					<SimpleData name="linkicon">Ørland</SimpleData>
+					<SimpleData name="address">Ulriksbygget, Industrigt 7, 7130 Brekkstad</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/006-ØRLAND.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Sør-Trøndelag</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>9.663318061826571,63.6944444810985,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Longyearbyen</SimpleData>
+					<SimpleData name="name">Longyearbyen</SimpleData>
+					<SimpleData name="linkimage">Troms og Finnmark</SimpleData>
+					<SimpleData name="description">Svalbard</SimpleData>
+					<SimpleData name="linkicon">Spitsbergen</SimpleData>
+					<SimpleData name="address"></SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/013-SVALBA.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Svalbard</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>15.6502211113083,78.22272230697909,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Ålesund</SimpleData>
+					<SimpleData name="name">Ålesund</SimpleData>
+					<SimpleData name="linkimage">Midt</SimpleData>
+					<SimpleData name="description">Møre og Romsdal</SimpleData>
+					<SimpleData name="linkicon">Ålesund</SimpleData>
+					<SimpleData name="address">Kollvika, Nørvevika 56, 6008 ÅLESUND</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/005-ÅLESUN.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Sunnmøre</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>6.21370367032809,62.4698304162315,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Sandnessjøen</SimpleData>
+					<SimpleData name="name">Sandnessjøen</SimpleData>
+					<SimpleData name="linkimage">Nordland</SimpleData>
+					<SimpleData name="description">Nordland</SimpleData>
+					<SimpleData name="linkicon">Brønnøy</SimpleData>
+					<SimpleData name="address">Torolv Kveldulvsonsgt 5, 8800 Sandnessjøen</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/007-SANDNE.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Helgeland</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>12.6395,66.0241669999899,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Fedje</SimpleData>
+					<SimpleData name="name">Fedje</SimpleData>
+					<SimpleData name="linkimage">Vest</SimpleData>
+					<SimpleData name="description">Hordaland</SimpleData>
+					<SimpleData name="linkicon">Fedje</SimpleData>
+					<SimpleData name="address">Kopper 13, 5947 Fedje</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/016-FEDJE.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Bergen</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>4.72277910337168,60.7806912368235,0</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>
