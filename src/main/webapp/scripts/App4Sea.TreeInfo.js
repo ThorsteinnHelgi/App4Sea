@@ -3,8 +3,7 @@
  *
  * ==========================================================================*/
 
-var App4Sea = App4Sea || {};
-var App4SeaTreeInfo = (function () {
+ App4SeaTreeInfo = (function () {
     "use strict";
     
     let my = {};
@@ -55,6 +54,8 @@ var App4SeaTreeInfo = (function () {
         function getData(node, setTree, getFileName, JSONdata) {
                 
             function onSuccess(parent_node, fnSetTree, fnGetFileName, ourJSONdata) {
+                // @ts-ignore
+                // @ts-ignore
                 return function (data, status, jqXHR) {
                     for (var i_success = 0; i_success < data.length; i_success++){
                         let thisNode = data[i_success]; 
@@ -110,6 +111,7 @@ var App4SeaTreeInfo = (function () {
 
         getData({id : "#"}, setTree, getFileName, JSONdata);
 
+        // @ts-ignore
         $('#TreeInfo').on("changed.jstree", function (e, data) {
             if (App4Sea.logging) console.log("On: " + data.selected);
 
@@ -122,4 +124,5 @@ var App4SeaTreeInfo = (function () {
 
     return my;
     
-}(App4SeaTreeInfo || {}));
+}());
+App4Sea.TreeInfo = App4SeaTreeInfo;

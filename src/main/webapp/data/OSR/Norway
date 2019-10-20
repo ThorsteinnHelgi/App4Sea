@@ -1,0 +1,982 @@
+			<Placemark>
+				<name>OLJEVERN 01 (NCA)</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">OLJEVERN 01 (NCA)</SimpleData>
+						<SimpleData name="name">OLJEVERN 01 (NCA)</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">The Norwegian Coastal Administration</SimpleData>
+						<SimpleData name="location">West Norway</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Coastal</SimpleData>
+						<SimpleData name="vessel_loa">32.5</SimpleData>
+						<SimpleData name="vessel_breadth">6.81</SimpleData>
+						<SimpleData name="vessel_draught">2.3</SimpleData>
+						<SimpleData name="vessel_GT">233</SimpleData>
+						<SimpleData name="vessel_averageSpeed">9</SimpleData>
+						<SimpleData name="vessel_build year">1982</SimpleData>
+						<SimpleData name="vessel_IMO">7712949</SimpleData>
+						<SimpleData name="vessel_MMSI">257390500</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">1 per 18.9m</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">90</SimpleData>
+						<SimpleData name="equipment_heatedStorage">90</SimpleData>
+						<SimpleData name="ape_Expandi4300">304</SimpleData>
+						<SimpleData name="ape_FoxtailVAB4-9"></SimpleData>
+						<SimpleData name="ape_Bandskimmer"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo">
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>7.66706, 63.11397, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>OLJEVERN 02 (NCA)</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">OLJEVERN 02 (NCA)</SimpleData>
+						<SimpleData name="name">OLJEVERN 02 (NCA)</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator"> The Norwegian Coastal Administration</SimpleData>
+						<SimpleData name="location">Nordland</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Coastal</SimpleData>
+						<SimpleData name="vessel_loa">32.5</SimpleData>
+						<SimpleData name="vessel_breadth">6.81</SimpleData>
+						<SimpleData name="vessel_draught">2.3</SimpleData>
+						<SimpleData name="vessel_GT">233</SimpleData>
+						<SimpleData name="vessel_averageSpeed">9</SimpleData>
+						<SimpleData name="vessel_build year">1981</SimpleData>
+						<SimpleData name="vessel_IMO">7728479</SimpleData>
+						<SimpleData name="vessel_MMSI">257293500</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">1 per 18.9m</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">90</SimpleData>
+						<SimpleData name="equipment_heatedStorage">90</SimpleData>
+						<SimpleData name="ape_Expandi4300">304</SimpleData>
+						<SimpleData name="ape_FoxtailVAB4-9"></SimpleData>
+						<SimpleData name="ape_Bandskimmer"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"/>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>7.54162, 57.97466, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>OLJEVERN 03 (NCA)</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">OLJEVERN 03 (NCA)</SimpleData>
+						<SimpleData name="name">OLJEVERN 03 (NCA)</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">The Norwegian Coastal Administration</SimpleData>
+						<SimpleData name="location">South-East Norway</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Coastal</SimpleData>
+						<SimpleData name="vessel_loa">32.5</SimpleData>
+						<SimpleData name="vessel_breadth">6.81</SimpleData>
+						<SimpleData name="vessel_draught">2.3</SimpleData>
+						<SimpleData name="vessel_GT">233</SimpleData>
+						<SimpleData name="vessel_averageSpeed">9</SimpleData>
+						<SimpleData name="vessel_build year">1981</SimpleData>
+						<SimpleData name="vessel_IMO">7728481</SimpleData>
+						<SimpleData name="vessel_MMSI">257394500</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">0.5 per 18.8m</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">90</SimpleData>
+						<SimpleData name="equipment_heatedStorage">90</SimpleData>
+						<SimpleData name="ape_Expandi4300">304</SimpleData>
+						<SimpleData name="ape_FoxtailVAB4-9"></SimpleData>
+						<SimpleData name="ape_Bandskimmer"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+					<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>6.21319, 62.46945, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>OLJEVERN 04 (NCA)</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">OLJEVERN 04 (NCA)</SimpleData>
+						<SimpleData name="name">OLJEVERN 04 (NCA)</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">The Norwegian Coastal Administration</SimpleData>
+						<SimpleData name="location">Troms and Finnmark</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Coastal</SimpleData>
+						<SimpleData name="vessel_loa">32.5</SimpleData>
+						<SimpleData name="vessel_breadth">6.81</SimpleData>
+						<SimpleData name="vessel_draught">2.3</SimpleData>
+						<SimpleData name="vessel_GT">233</SimpleData>
+						<SimpleData name="vessel_averageSpeed">9</SimpleData>
+						<SimpleData name="vessel_build year">1981</SimpleData>
+						<SimpleData name="vessel_IMO">7728493</SimpleData>
+						<SimpleData name="vessel_MMSI">257294500</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">1 per 18.9m</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">90</SimpleData>
+						<SimpleData name="equipment_heatedStorage">90</SimpleData>
+						<SimpleData name="ape_Expandi4300">304</SimpleData>
+						<SimpleData name="ape_FoxtailVAB4-9"></SimpleData>
+						<SimpleData name="ape_Bandskimmer"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>4.97402, 61.60636, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>OV UTVÆR</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">OV UTVÆR</SimpleData>
+						<SimpleData name="name">OV UTVÆR</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">The Norwegian Coastal Administration</SimpleData>
+						<SimpleData name="location">West Norway</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Coastal</SimpleData>
+						<SimpleData name="vessel_loa">44</SimpleData>
+						<SimpleData name="vessel_breadth">12</SimpleData>
+						<SimpleData name="vessel_draught">3.5</SimpleData>
+						<SimpleData name="vessel_GT">907</SimpleData>
+						<SimpleData name="vessel_averageSpeed">12</SimpleData>
+						<SimpleData name="vessel_build year">2013</SimpleData>
+						<SimpleData name="vessel_IMO">96286609</SimpleData>
+						<SimpleData name="vessel_MMSI">257846000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">2.8 per 21.5m</SimpleData>
+						<SimpleData name="equipment_craneCapability">7 per 11m</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">160</SimpleData>
+						<SimpleData name="equipment_heatedStorage">160</SimpleData>
+						<SimpleData name="ape_LAMORLORS4Csweeparms"></SimpleData>
+						<SimpleData name="ape_LAMORLRB150bucketskimmer"></SimpleData>
+						<SimpleData name="ape_Foxtail4-9"></SimpleData>
+						<SimpleData name="ape_NO450oilboom">200</SimpleData>
+						<SimpleData name="ape_Expandi4300">304</SimpleData>
+						<SimpleData name="ape_Aptomarsecurus"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>4.66038, 61.15749, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>OV SKOMVÆR</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">OV SKOMVÆR</SimpleData>
+						<SimpleData name="name">OV SKOMVÆR</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">The Norwegian Coastal Administration</SimpleData>
+						<SimpleData name="location">Nordland</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Coastal</SimpleData>
+						<SimpleData name="vessel_loa">44</SimpleData>
+						<SimpleData name="vessel_breadth">12</SimpleData>
+						<SimpleData name="vessel_draught">3.5</SimpleData>
+						<SimpleData name="vessel_GT">907</SimpleData>
+						<SimpleData name="vessel_averageSpeed">12</SimpleData>
+						<SimpleData name="vessel_build year">2014</SimpleData>
+						<SimpleData name="vessel_IMO">96286609(9533189)</SimpleData>
+						<SimpleData name="vessel_MMSI">258674000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">2.8 per 21.5m</SimpleData>
+						<SimpleData name="equipment_craneCapability">7 per11</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">160</SimpleData>
+						<SimpleData name="equipment_heatedStorage">160</SimpleData>
+						<SimpleData name="ape_LAMORLORS4Csweeparms"></SimpleData>
+						<SimpleData name="ape_LAMORLRB150bucketskimmer"></SimpleData>
+						<SimpleData name="ape_FoxtailVAB4-9"></SimpleData>
+						<SimpleData name="ape_NO450oilboom">200</SimpleData>
+						<SimpleData name="ape_Expandi4300">304</SimpleData>
+						<SimpleData name="ape_Aptomarsecurus"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>14.5583, 68.2206, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>ALESUND (NOCG)</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">ALESUND (NOCG)</SimpleData>
+						<SimpleData name="name">ALESUND (NOCG)</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Remvakt AS</SimpleData>
+						<SimpleData name="location">North sea (South)</SimpleData>
+						<SimpleData name="operation">Offshore</SimpleData>
+						<SimpleData name="vessel_class">Offshore</SimpleData>
+						<SimpleData name="vessel_loa">63</SimpleData>
+						<SimpleData name="vessel_breadth">11.5</SimpleData>
+						<SimpleData name="vessel_draught">6.2</SimpleData>
+						<SimpleData name="vessel_GT">1357</SimpleData>
+						<SimpleData name="vessel_averageSpeed">12</SimpleData>
+						<SimpleData name="vessel_build year">2001</SimpleData>
+						<SimpleData name="vessel_IMO">9139763</SimpleData>
+						<SimpleData name="vessel_MMSI">-</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">3.5</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">765</SimpleData>
+						<SimpleData name="equipment_heatedStorage">765</SimpleData>
+						<SimpleData name="ape_N0800R">300</SimpleData>
+						<SimpleData name="ape_TransRec125"></SimpleData>
+						<SimpleData name="ape_FoxtailVAB4-9"></SimpleData>
+						<SimpleData name="ape_EmergencyoffloadingpumpTK150"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>22.21799870852966, 60.44138678164045, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>KV HARSTAD (NOCG)</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KV HARSTAD (NOCG)</SimpleData>
+						<SimpleData name="name">KV HARSTAD (NOCG)</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Norwegian Defence Logistics Organization</SimpleData>
+						<SimpleData name="location">The Norwegian Sea</SimpleData>
+						<SimpleData name="operation">Offshore</SimpleData>
+						<SimpleData name="vessel_class">Offshore</SimpleData>
+						<SimpleData name="vessel_loa">83</SimpleData>
+						<SimpleData name="vessel_breadth">15.5</SimpleData>
+						<SimpleData name="vessel_draught">6</SimpleData>
+						<SimpleData name="vessel_GT">3132</SimpleData>
+						<SimpleData name="vessel_averageSpeed">18</SimpleData>
+						<SimpleData name="vessel_build year">2010</SimpleData>
+						<SimpleData name="vessel_IMO">9312107</SimpleData>
+						<SimpleData name="vessel_MMSI">259050000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">-</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">1116</SimpleData>
+						<SimpleData name="equipment_heatedStorage">1116</SimpleData>
+						<SimpleData name="ape_N0800R">300</SimpleData>
+						<SimpleData name="ape_TransRec125"></SimpleData>
+						<SimpleData name="ape_FoxtailVAB4-9"></SimpleData>
+						<SimpleData name="ape_Expandi4300">152</SimpleData>
+						<SimpleData name="ape_EmergencyoffloadingpumpTK150"></SimpleData>
+						<SimpleData name="ape_Oildetectionradar"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>15.41928, 68.70252, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>KV BARENTSHAV (NOCG)</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KV BARENTSHAV (NOCG)</SimpleData>
+						<SimpleData name="name">KV BARENTSHAV (NOCG)</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">SEB Njord AS</SimpleData>
+						<SimpleData name="location">The Norwegian Sea (North)</SimpleData>
+						<SimpleData name="operation">Offshore</SimpleData>
+						<SimpleData name="vessel_class">Offshore</SimpleData>
+						<SimpleData name="vessel_loa">93</SimpleData>
+						<SimpleData name="vessel_breadth">17</SimpleData>
+						<SimpleData name="vessel_draught">6.5</SimpleData>
+						<SimpleData name="vessel_GT">4025</SimpleData>
+						<SimpleData name="vessel_averageSpeed">15</SimpleData>
+						<SimpleData name="vessel_build year">2014</SimpleData>
+						<SimpleData name="vessel_IMO">9389356</SimpleData>
+						<SimpleData name="vessel_MMSI">259317000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">3.5 per 17m</SimpleData>
+						<SimpleData name="equipment_craneCapability">8 per 6m</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">1075</SimpleData>
+						<SimpleData name="equipment_heatedStorage">1075</SimpleData>
+						<SimpleData name="ape_N0800R">300</SimpleData>
+						<SimpleData name="ape_NorMar200"></SimpleData>
+						<SimpleData name="ape_FoxtailVAB4-9"></SimpleData>
+						<SimpleData name="ape_Expandi4300">304</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>19.40656, 69.80366, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>KV BERGEN (NOCG)</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KV BERGEN (NOCG)</SimpleData>
+						<SimpleData name="name">KV BERGEN (NOCG)</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Remoy Management AS</SimpleData>
+						<SimpleData name="location">The Norwegian Sea (South)</SimpleData>
+						<SimpleData name="operation">Offshore</SimpleData>
+						<SimpleData name="vessel_class">Offshore</SimpleData>
+						<SimpleData name="vessel_loa">93</SimpleData>
+						<SimpleData name="vessel_breadth">17</SimpleData>
+						<SimpleData name="vessel_draught">6.5</SimpleData>
+						<SimpleData name="vessel_GT">4025</SimpleData>
+						<SimpleData name="vessel_averageSpeed">15</SimpleData>
+						<SimpleData name="vessel_build year">2014</SimpleData>
+						<SimpleData name="vessel_IMO">9389368</SimpleData>
+						<SimpleData name="vessel_MMSI">257492000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">3.5 per 17m</SimpleData>
+						<SimpleData name="equipment_craneCapability">8 per 6m</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">1075</SimpleData>
+						<SimpleData name="equipment_heatedStorage">1075</SimpleData>
+						<SimpleData name="ape_N0800R">300</SimpleData>
+						<SimpleData name="ape_NorMar200"></SimpleData>
+						<SimpleData name="ape_FoxtailVAB4-9"></SimpleData>
+						<SimpleData name="ape_Expandi4300">304</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>4.88229, 59.84649, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>KV SORTLAND (NOCG)</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KV SORTLAND (NOCG)</SimpleData>
+						<SimpleData name="name">KV SORTLAND (NOCG)</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Remoy Management AS</SimpleData>
+						<SimpleData name="location">The Norwegian Sea (North)</SimpleData>
+						<SimpleData name="operation">Offshore</SimpleData>
+						<SimpleData name="vessel_class">Offshore</SimpleData>
+						<SimpleData name="vessel_loa">93</SimpleData>
+						<SimpleData name="vessel_breadth">17</SimpleData>
+						<SimpleData name="vessel_draught">6.5</SimpleData>
+						<SimpleData name="vessel_GT">4025</SimpleData>
+						<SimpleData name="vessel_averageSpeed">15</SimpleData>
+						<SimpleData name="vessel_build year">2015</SimpleData>
+						<SimpleData name="vessel_IMO">9432646</SimpleData>
+						<SimpleData name="vessel_MMSI">257736000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">3.5 per 17m</SimpleData>
+						<SimpleData name="equipment_craneCapability">8 per 6m</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">1075</SimpleData>
+						<SimpleData name="equipment_heatedStorage">1075</SimpleData>
+						<SimpleData name="ape_N0800R">300</SimpleData>
+						<SimpleData name="ape_NorMar200"></SimpleData>
+						<SimpleData name="ape_FoxtailVAB4-9"></SimpleData>
+						<SimpleData name="ape_Expandi4300">304</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>16.51525, 68.46339, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>KV SVALBARD (NOCG)</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KV SVALBARD (NOCG)</SimpleData>
+						<SimpleData name="name">KV SVALBARD (NOCG)</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">DNV GL</SimpleData>
+						<SimpleData name="location">North Norway</SimpleData>
+						<SimpleData name="operation">Offshore</SimpleData>
+						<SimpleData name="vessel_class">Offshore</SimpleData>
+						<SimpleData name="vessel_loa">103.7</SimpleData>
+						<SimpleData name="vessel_breadth">19.1</SimpleData>
+						<SimpleData name="vessel_draught">6.5</SimpleData>
+						<SimpleData name="vessel_GT">6375</SimpleData>
+						<SimpleData name="vessel_averageSpeed">17</SimpleData>
+						<SimpleData name="vessel_build year">2007</SimpleData>
+						<SimpleData name="vessel_IMO">8640387</SimpleData>
+						<SimpleData name="vessel_MMSI">259040000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">-</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">50 oil bags</SimpleData>
+						<SimpleData name="equipment_heatedStorage">No</SimpleData>
+						<SimpleData name="ape_Expandi4300">304</SimpleData>
+						<SimpleData name="ape_oilbags">25m3</SimpleData>
+						<SimpleData name="ape_oilbags">25m3</SimpleData>
+						<SimpleData name="ape_FoxtailVAB2-6"></SimpleData>
+						<SimpleData name="ape_Hyd.Agg.">19 kw</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>18.80267, 73.9512, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>KV NORNEN (NOCG)</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KV NORNEN (NOCG)</SimpleData>
+						<SimpleData name="name">KV NORNEN (NOCG)</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Remoy Management AS</SimpleData>
+						<SimpleData name="location">South Norway</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Coastal</SimpleData>
+						<SimpleData name="vessel_loa">47</SimpleData>
+						<SimpleData name="vessel_breadth">10.3</SimpleData>
+						<SimpleData name="vessel_draught">5</SimpleData>
+						<SimpleData name="vessel_GT">761</SimpleData>
+						<SimpleData name="vessel_averageSpeed">12</SimpleData>
+						<SimpleData name="vessel_build year">2011</SimpleData>
+						<SimpleData name="vessel_IMO">9353321</SimpleData>
+						<SimpleData name="vessel_MMSI">257067200</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">1.5</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">155</SimpleData>
+						<SimpleData name="equipment_heatedStorage">155</SimpleData>
+						<SimpleData name="ape_NO450Soilboom">200</SimpleData>
+						<SimpleData name="ape_FoxtailVAB4-9"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>10.73568, 59.30199, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>KV TOR (NOCG)</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KV TOR (NOCG)</SimpleData>
+						<SimpleData name="name">KV TOR (NOCG)</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Remoy Shipping AS</SimpleData>
+						<SimpleData name="location">West Norway</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Coastal</SimpleData>
+						<SimpleData name="vessel_loa">47</SimpleData>
+						<SimpleData name="vessel_breadth">10.3</SimpleData>
+						<SimpleData name="vessel_draught">5</SimpleData>
+						<SimpleData name="vessel_GT">761</SimpleData>
+						<SimpleData name="vessel_averageSpeed">12</SimpleData>
+						<SimpleData name="vessel_build year">2012</SimpleData>
+						<SimpleData name="vessel_IMO">9353369</SimpleData>
+						<SimpleData name="vessel_MMSI">257083200</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">1.5</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">155</SimpleData>
+						<SimpleData name="equipment_heatedStorage">155</SimpleData>
+						<SimpleData name="ape_NO450Soilboom">200</SimpleData>
+						<SimpleData name="ape_FoxtailVAB4-9"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>5.21918, 60.33609, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>KV NJORD (NOCG)</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KV NJORD (NOCG)</SimpleData>
+						<SimpleData name="name">KV NJORD (NOCG)</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Remoy Management AS</SimpleData>
+						<SimpleData name="location">Mid North Norway</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Coastal</SimpleData>
+						<SimpleData name="vessel_loa">47</SimpleData>
+						<SimpleData name="vessel_breadth">10.3</SimpleData>
+						<SimpleData name="vessel_draught">5</SimpleData>
+						<SimpleData name="vessel_GT">761</SimpleData>
+						<SimpleData name="vessel_averageSpeed">12</SimpleData>
+						<SimpleData name="vessel_build year">2012</SimpleData>
+						<SimpleData name="vessel_IMO">9353357</SimpleData>
+						<SimpleData name="vessel_MMSI">257082200</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">1.5</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">155</SimpleData>
+						<SimpleData name="equipment_heatedStorage">155</SimpleData>
+						<SimpleData name="ape_NO450Soilboom">200</SimpleData>
+						<SimpleData name="ape_FoxtailVAB4-9"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>6.98516, 62.70228, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>KV HEIMDAL (NOCG)</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KV HEIMDAL (NOCG)</SimpleData>
+						<SimpleData name="name">KV HEIMDAL (NOCG)</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Remoy Management</SimpleData>
+						<SimpleData name="location">North Norway</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Coastal</SimpleData>
+						<SimpleData name="vessel_loa">47</SimpleData>
+						<SimpleData name="vessel_breadth">10.3</SimpleData>
+						<SimpleData name="vessel_draught">5</SimpleData>
+						<SimpleData name="vessel_GT">761</SimpleData>
+						<SimpleData name="vessel_averageSpeed">12</SimpleData>
+						<SimpleData name="vessel_build year">2011</SimpleData>
+						<SimpleData name="vessel_IMO">9353345</SimpleData>
+						<SimpleData name="vessel_MMSI">257079200</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">1.5</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">155</SimpleData>
+						<SimpleData name="equipment_heatedStorage">155</SimpleData>
+						<SimpleData name="ape_NO450Soilboom">200</SimpleData>
+						<SimpleData name="ape_FoxtailVAB4-9"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>14.85328, 68.10679, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>KV FARM (NOCG)</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KV FARM (NOCG)</SimpleData>
+						<SimpleData name="name">KV FARM (NOCG)</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Remoy Management AS</SimpleData>
+						<SimpleData name="location">North Norway</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Coastal</SimpleData>
+						<SimpleData name="vessel_loa">47</SimpleData>
+						<SimpleData name="vessel_breadth">10.3</SimpleData>
+						<SimpleData name="vessel_draught">5</SimpleData>
+						<SimpleData name="vessel_GT">761</SimpleData>
+						<SimpleData name="vessel_averageSpeed">12</SimpleData>
+						<SimpleData name="vessel_build year">2012</SimpleData>
+						<SimpleData name="vessel_IMO">9353333</SimpleData>
+						<SimpleData name="vessel_MMSI">257069200</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">1.5</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">155</SimpleData>
+						<SimpleData name="equipment_heatedStorage">155</SimpleData>
+						<SimpleData name="ape_NO450Soilboom">200</SimpleData>
+						<SimpleData name="ape_FoxtailVAB4-9"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>19.89837, 69.98601, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>POLARSYSSEL</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">POLARSYSSEL</SimpleData>
+						<SimpleData name="name">POLARSYSSEL</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Havila Shipping ASA</SimpleData>
+						<SimpleData name="location">Svalbard</SimpleData>
+						<SimpleData name="operation">Offshore</SimpleData>
+						<SimpleData name="vessel_class">Offshore</SimpleData>
+						<SimpleData name="vessel_loa">89</SimpleData>
+						<SimpleData name="vessel_breadth">18</SimpleData>
+						<SimpleData name="vessel_draught">7.7</SimpleData>
+						<SimpleData name="vessel_GT">4324</SimpleData>
+						<SimpleData name="vessel_averageSpeed">15</SimpleData>
+						<SimpleData name="vessel_build year">2014</SimpleData>
+						<SimpleData name="vessel_IMO">9690949</SimpleData>
+						<SimpleData name="vessel_MMSI">257564000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">12</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">1510</SimpleData>
+						<SimpleData name="equipment_heatedStorage">1510</SimpleData>
+						<SimpleData name="ape_NO35oilboom">300</SimpleData>
+						<SimpleData name="ape_FoxtailVAB4-9"></SimpleData>
+						<SimpleData name="ape_Powerpackforfoxtail"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>16.38463, 78.90832, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>VESTFJORD (NCA)</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">VESTFJORD (NCA)</SimpleData>
+						<SimpleData name="name">VESTFJORD (NCA)</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">The Norwegian Coastal Administration</SimpleData>
+						<SimpleData name="location">North Norway</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Coastal</SimpleData>
+						<SimpleData name="vessel_loa">31</SimpleData>
+						<SimpleData name="vessel_breadth">8</SimpleData>
+						<SimpleData name="vessel_draught">3.9</SimpleData>
+						<SimpleData name="vessel_GT">267</SimpleData>
+						<SimpleData name="vessel_averageSpeed">10.5</SimpleData>
+						<SimpleData name="vessel_build year">1989</SimpleData>
+						<SimpleData name="vessel_IMO">8417651</SimpleData>
+						<SimpleData name="vessel_MMSI">257061400</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">1 per 24m</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">150</SimpleData>
+						<SimpleData name="equipment_heatedStorage">150</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>5.98513, 59.83193, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>VILLA (NCA)</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">VILLA (NCA)</SimpleData>
+						<SimpleData name="name">VILLA (NCA)</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">The Norwegian Coastal Administration</SimpleData>
+						<SimpleData name="location">West Norway</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Coastal</SimpleData>
+						<SimpleData name="vessel_loa">42</SimpleData>
+						<SimpleData name="vessel_breadth">10</SimpleData>
+						<SimpleData name="vessel_draught">4</SimpleData>
+						<SimpleData name="vessel_GT">554</SimpleData>
+						<SimpleData name="vessel_averageSpeed">11.5</SimpleData>
+						<SimpleData name="vessel_build year">1980</SimpleData>
+						<SimpleData name="vessel_IMO">7382641</SimpleData>
+						<SimpleData name="vessel_MMSI">258150000</SimpleData>
+						<SimpleData name="equipment_crane">No</SimpleData>
+						<SimpleData name="equipment_craneCapability">12t derrick</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">-</SimpleData>
+						<SimpleData name="equipment_heatedStorage">-</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>6.19631, 62.44579, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>LINDESNES (NCA)</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">LINDESNES (NCA)</SimpleData>
+						<SimpleData name="name">LINDESNES (NCA)</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">The Norwegian Coastal Administration</SimpleData>
+						<SimpleData name="location">West Norway</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Coastal</SimpleData>
+						<SimpleData name="vessel_loa">20</SimpleData>
+						<SimpleData name="vessel_breadth">9</SimpleData>
+						<SimpleData name="vessel_draught">1.7</SimpleData>
+						<SimpleData name="vessel_GT">141</SimpleData>
+						<SimpleData name="vessel_averageSpeed">18</SimpleData>
+						<SimpleData name="vessel_build year">2014</SimpleData>
+						<SimpleData name="vessel_IMO">9570618</SimpleData>
+						<SimpleData name="vessel_MMSI">257005300</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">0.5 per 20m</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">-</SimpleData>
+						<SimpleData name="equipment_heatedStorage">-</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>6.344445, 62.4314, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>ONA (NCA)</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">ONA (NCA)</SimpleData>
+						<SimpleData name="name">ONA (NCA)</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">The Norwegian Coastal Administration</SimpleData>
+						<SimpleData name="location">West Norway</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Coastal</SimpleData>
+						<SimpleData name="vessel_loa">37</SimpleData>
+						<SimpleData name="vessel_breadth">8</SimpleData>
+						<SimpleData name="vessel_draught">3.6</SimpleData>
+						<SimpleData name="vessel_GT">351</SimpleData>
+						<SimpleData name="vessel_averageSpeed">10.5</SimpleData>
+						<SimpleData name="vessel_build year">1990</SimpleData>
+						<SimpleData name="vessel_IMO">8417663</SimpleData>
+						<SimpleData name="vessel_MMSI">257261500</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">2.4 per 21m</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">-</SimpleData>
+						<SimpleData name="equipment_heatedStorage">-</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>8.58144, 63.18045, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>TRAENEN</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">TRAENEN</SimpleData>
+						<SimpleData name="name">TRAENEN</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">The Norwegian Coastal Administration</SimpleData>
+						<SimpleData name="location">Mid/North Norway</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Coastal</SimpleData>
+						<SimpleData name="vessel_loa">26</SimpleData>
+						<SimpleData name="vessel_breadth">7</SimpleData>
+						<SimpleData name="vessel_draught">3.5</SimpleData>
+						<SimpleData name="vessel_GT">187</SimpleData>
+						<SimpleData name="vessel_averageSpeed">10</SimpleData>
+						<SimpleData name="vessel_build year">1982</SimpleData>
+						<SimpleData name="vessel_IMO">7607106</SimpleData>
+						<SimpleData name="vessel_MMSI">257371500</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">2.8 per 7m</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">-</SimpleData>
+						<SimpleData name="equipment_heatedStorage">-</SimpleData>
+						<SimpleData name="ape_equipment transferred onboard at oil spills"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>12.18581, 67.52005, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>BB SUPPORTER</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">BB SUPPORTER</SimpleData>
+						<SimpleData name="name">BB SUPPORTER</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">BUKSER & BJERGING</SimpleData>
+						<SimpleData name="location">West Norway</SimpleData>
+						<SimpleData name="operation">Multifunctional Tug</SimpleData>
+						<SimpleData name="vessel_class">Multifunctional Tug</SimpleData>
+						<SimpleData name="vessel_loa">33.10</SimpleData>
+						<SimpleData name="vessel_breadth">12</SimpleData>
+						<SimpleData name="vessel_draught">5.36</SimpleData>
+						<SimpleData name="vessel_GT">485</SimpleData>
+						<SimpleData name="vessel_averageSpeed">14.5</SimpleData>
+						<SimpleData name="vessel_build year">2009</SimpleData>
+						<SimpleData name="vessel_IMO">9432983</SimpleData>
+						<SimpleData name="vessel_MMSI">257446000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">-</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">-</SimpleData>
+						<SimpleData name="equipment_heatedStorage">-</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>7.991527, 58.14211, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>FAR SABRE</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">FAR SABRE</SimpleData>
+						<SimpleData name="name">FAR SABRE</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Farstad Supply AS</SimpleData>
+						<SimpleData name="location">ALESUND</SimpleData>
+						<SimpleData name="operation">Anchor handling supply tug</SimpleData>
+						<SimpleData name="vessel_class">Anchor handling supply tug</SimpleData>
+						<SimpleData name="vessel_loa">78.3</SimpleData>
+						<SimpleData name="vessel_breadth">17.2</SimpleData>
+						<SimpleData name="vessel_draught">6.4</SimpleData>
+						<SimpleData name="vessel_GT">3070</SimpleData>
+						<SimpleData name="vessel_averageSpeed">7.7</SimpleData>
+						<SimpleData name="vessel_build year">2008</SimpleData>
+						<SimpleData name="vessel_IMO">9388962</SimpleData>
+						<SimpleData name="vessel_MMSI">257322000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">3 per 13m</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">-</SimpleData>
+						<SimpleData name="equipment_heatedStorage">-</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>6.281253, 62.44861, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>BOA ODIN</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">BOA ODIN</SimpleData>
+						<SimpleData name="name">BOA ODIN</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">BOA Tugs AS</SimpleData>
+						<SimpleData name="location">Trondheim</SimpleData>
+						<SimpleData name="operation">Salvage tug</SimpleData>
+						<SimpleData name="vessel_class">Salvage tug</SimpleData>
+						<SimpleData name="vessel_loa">35.8</SimpleData>
+						<SimpleData name="vessel_breadth">14.5</SimpleData>
+						<SimpleData name="vessel_draught">7.05</SimpleData>
+						<SimpleData name="vessel_GT">734</SimpleData>
+						<SimpleData name="vessel_averageSpeed">6.4</SimpleData>
+						<SimpleData name="vessel_build year">2010</SimpleData>
+						<SimpleData name="vessel_IMO">9557927</SimpleData>
+						<SimpleData name="vessel_MMSI">257745000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">-</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">-</SimpleData>
+						<SimpleData name="equipment_heatedStorage">-</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>7.734265, 63.11023, 0</coordinates>
+				</Point>
+			</Placemark>
+						
+						

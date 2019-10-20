@@ -3,8 +3,7 @@
  *
  * ==========================================================================*/
 
-var App4Sea = App4Sea || {};
-var App4SeaKML = (function () {
+App4SeaKML = (function () {
     "use strict";
     var my = {};
 
@@ -33,8 +32,6 @@ var App4SeaKML = (function () {
                 })
             })
         });
-
-        // TBD also return an array of external kml or kmz files together with timestamps if applicable
 
         return vector;
     };
@@ -107,7 +104,7 @@ var App4SeaKML = (function () {
                     }
                 } 
                 else {
-                    if (App4Sea.logging) console.log("Now handlilng " + str);
+                    if (App4Sea.logging) console.log("Now handling " + str);
                 
                     _callback(response, str, id);
                 }
@@ -128,7 +125,7 @@ var App4SeaKML = (function () {
                 responseType: respType, // need blob for kmz files
                 cache: true, // Cors Origin fix (not working!)
                 headers: {
-                    crossOrigin: 'anonymous'
+//                    crossOrigin: 'anonymous'
                 },
                 // Before
             }
@@ -218,7 +215,7 @@ var App4SeaKML = (function () {
             });  
         }
         else {
-          ///  addKMLFeatures(text, str, id);
+            ///addKMLFeatures(text, str, id);
         }
         if (App4Sea.logging) console.log("readAndAddFeatures <<<<");
     };
@@ -252,14 +249,12 @@ var App4SeaKML = (function () {
 
         let proj = formatter.readProjection(text);
         if (proj !== null)
-            if (App4Sea.logging) console.log("Projection: " + proj.wb);
+            if (App4Sea.logging) console.log("Projection: " + proj.getCode());
 
         let kml_features = formatter.readFeatures(text, {
-            dataProjection: App4Sea.prefProj, //Projection of the data we are reading.
+            dataProjection: proj.getCode(), //Projection of the data we are reading.
             featureProjection: App4Sea.prefViewProj//Projection of the feature geometries created by the format reader.
         });
-
-//        let extent = App4Sea.Utils.GetFeaturesExtension(kml_features);
 
         if (App4Sea.logging) console.log("kml_features are: " + kml_features.length);
         
@@ -287,17 +282,28 @@ var App4SeaKML = (function () {
         let vector = new ol.layer.Vector({
             source: new ol.source.Vector({
                 crossOrigin: 'anonymous',
-                //rendermode: 'image',
                 format: formatter
             })
         });
-        vector.getSource().addFeatures(kml_features);
+        let theSource = vector.getSource();
+        theSource.addFeatures(kml_features);
+        let extent = App4Sea.Utils.GetFeaturesExtent(kml_features);
+        let location = null;
+        if (extent !== undefined) {
+            let prx = theSource.getProjection();
+            let ext = App4Sea.Utils.TransformExtent(extent, App4Sea.prefViewProj, App4Sea.prefProj);
+            let x = ext[0]+ext[2];
+            let y = ext[1]+ext[3];
+            location = [x/2, y/2];
+
+            if (App4Sea.logging) console.log("Extent: " + extent + ", proj: " + prx + ", ext: " + ext);
+        }
 
         App4Sea.OpenLayers.layers.push({"id": id, "vector": vector});
         if (App4Sea.logging) console.log("Cached layers now are " + App4Sea.OpenLayers.layers.length);
 
         App4Sea.OpenLayers.Map.addLayer(vector);
-        App4Sea.Utils.LookAt(vector);
+        App4Sea.Utils.FlyTo(location, null);
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -487,9 +493,9 @@ var App4SeaKML = (function () {
         function addOverlay(overlay, id) {
 
             //----------------------------------------------------------------------
-            function loadImageFromKmz(ent1, url1, ext1, nam1, id1, leg1) {
+            function loadImageFromKmz(ent1, url1, ext1, prj1, nam1, id1, leg1) {
 
-                let extendedCallback = function (ur, ex, nm, en, id, le) {
+                let extendedCallback = function (ur, ex, pr, nm, en, id, le) {
                     return function (data) {
                         let kmzurl =  URL.createObjectURL(data);
 
@@ -499,18 +505,20 @@ var App4SeaKML = (function () {
                         else {
                             let source = new ol.source.ImageStatic({
                                 url: kmzurl,
-                                imageExtent: ex
+                                imageExtent: ex,
+                                projection: pr
                             });
                             let image = new ol.layer.Image({
                                 name: nm,
                                 source: source
                             });
                             if (image) {
+                                if (App4Sea.logging) console.log("Pushing image to: " + ex);
                                 App4Sea.OpenLayers.layers.push({"id": id, "vector" : image});
                                 //if (App4Sea.logging) console.log("Added image from kmz. Cached layers now are " + App4Sea.OpenLayers.layers.length + ": " + ur);
             
                                 App4Sea.OpenLayers.Map.addLayer(image);
-                                //App4Sea.Utils.LookAt(image);
+                                App4Sea.Utils.LookAt(image);
                             }
                             else {
                                 if (App4Sea.logging) console.log("No image created from kmz");
@@ -519,15 +527,15 @@ var App4SeaKML = (function () {
                     };
                 };
                 
-                ent1.getData(new zip.BlobWriter('text/plain'), extendedCallback(url1, ext1, nam1, ent1, id1, leg1));
+                ent1.getData(new zip.BlobWriter('text/plain'), extendedCallback(url1, ext1, prj1, nam1, ent1, id1, leg1));
             };
 
             //----------------------------------------------------------------------
-            function findIn (filesInKmz, url_, ext, nam, ide, isLeg) {
+            function findIn (filesInKmz, url_, ext, prj_, nam, ide, isLeg) {
                 let found = false;
                 for (let ind=0; ind<filesInKmz.length; ind++) {
                     if (filesInKmz[ind].filename === url_) {
-                        loadImageFromKmz(filesInKmz[ind], url_, ext, nam, ide, isLeg);
+                        loadImageFromKmz(filesInKmz[ind], url_, ext, prj_, nam, ide, isLeg);
                         found = true;
                     }
                 };
@@ -565,8 +573,8 @@ var App4SeaKML = (function () {
                 */
                 if (url) {
                     if (!url.startsWith("http") && entries && entries.length > 1) {
-                        findIn(entries, url, null, nameIs, id, true);
-                        //if (App4Sea.logging) console.log("Getting legend from kmz: " + url);
+                        if (App4Sea.logging) console.log("Getting legend from kmz: " + url);
+                        findIn(entries, url, null, null, nameIs, id, true);
                     }
                     else
                         addLegend(name, url);
@@ -607,21 +615,22 @@ var App4SeaKML = (function () {
                 const east = parseFloat(overlay.querySelector('east').innerHTML);
                 const north = parseFloat(overlay.querySelector('north').innerHTML);
 
-                let imageExtent = ol.proj.transformExtent([west, south, east, north], App4Sea.prefProj, App4Sea.prefViewProj);
-                //if (App4Sea.logging) console.log("GroundOverlay: W:" + west + " S:" + south + " E:" + east + " N:" + north + " Pro:" + App4Sea.prefProj + " ViewProj:" + App4Sea.prefViewProj);
+                let viewExtent = ol.proj.transformExtent([west, south, east, north], App4Sea.prefProj, App4Sea.prefViewProj);
+                if (App4Sea.logging) console.log("GroundOverlay: W:" + west + " S:" + south + " E:" + east + " N:" + north + " Pro:" + App4Sea.prefProj + " ViewProj:" + App4Sea.prefViewProj);
                 
                 let image;
                 ynd = ynd + 1;// && ynd % 2 === 1
                 if (!url.startsWith("http") && entries && entries.length > 1) {
-                    //if (App4Sea.logging) console.log("Getting image from kmz: " + url);
-                    findIn(entries, url, imageExtent, nameIs, id);
+                    if (App4Sea.logging) console.log("Getting image from kmz: " + url);
+                    findIn(entries, url, viewExtent, App4Sea.prefViewProj, nameIs, id);
                 }
                 else {
-                    //if (App4Sea.logging) console.log("Getting image from url: " + url);
+                    if (App4Sea.logging) console.log("Getting image from url: " + url);
                     let source = new ol.source.ImageStatic({
                         url: url,
-                        crossOrigin: 'anonymous',
-                        imageExtent: imageExtent
+                        //crossOrigin: 'anonymous',
+                        imageExtent: viewExtent,//[west, south, east, north],
+                        projection: App4Sea.prefViewProj
                     });
                     image = new ol.layer.Image({
                         name: nameIs,
@@ -629,10 +638,10 @@ var App4SeaKML = (function () {
                     });
                     if (image) {
                         App4Sea.OpenLayers.layers.push({"id": id, "vector" : image});
-                        //if (App4Sea.logging) console.log("Added image from url. Cached layers now are " + App4Sea.OpenLayers.layers.length + ": " + url);
+                        if (App4Sea.logging) console.log("Added image from url. Cached layers now are " + App4Sea.OpenLayers.layers.length + ": " + url);
     
                         App4Sea.OpenLayers.Map.addLayer(image);
-                        //App4Sea.Utils.LookAt(image);
+                        App4Sea.Utils.LookAt(image);
                     }
                 }
             }
@@ -690,12 +699,13 @@ var App4SeaKML = (function () {
                     elems = child.getElementsByTagName('altitude');
                     let alt = parseFloat(elems[0].textContent);
 
-                    let center = ol.proj.transform([lon, lat], App4Sea.prefProj, App4Sea.prefViewProj);//'EPSG:3857'); 
+                    //let center = ol.proj.transform([lon, lat], App4Sea.prefProj, App4Sea.prefViewProj);//'EPSG:3857'); 
                     let zoom = App4Sea.Utils.altitudeToZoom(alt);
                     
-                    let view = App4Sea.OpenLayers.Map.getView();
-                    view.setCenter(center);
-                    view.setZoom(zoom);
+                    App4Sea.Utils.FlyTo([lon, lat], null);
+                    //let view = App4Sea.OpenLayers.Map.getView();
+                    //view.setCenter(center);
+                    //view.setZoom(zoom);
 
                     if (App4Sea.logging) console.log("Camera set to lon=" + lon + " lat=" + lat + " alt=" + alt + "m zoom=" + zoom);
                 } 
@@ -825,4 +835,4 @@ var App4SeaKML = (function () {
     
     return my;
     
-}(App4SeaKML || {}));
+}());

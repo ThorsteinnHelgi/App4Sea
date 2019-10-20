@@ -3,8 +3,7 @@
  *
  * ==========================================================================*/
 
-var App4Sea = App4Sea || {};
-var App4SeaPopUps = (function () {
+App4SeaPopUps = (function () {
     "use strict";
 
     let my = {};
@@ -14,26 +13,117 @@ var App4SeaPopUps = (function () {
     const popupCloser = document.getElementById('popup-closer');
     const popupTitle = document.getElementById('popup-title');
 
-    function setA4SOSRInfo(features) {
-        let osr = {name: "", description: "", address: "", linkinfo: "", linkicon: "", linkimage: "", linkvideo: ""};
-
+    function setA4SOSRVesselInfo(features) {
+        let osr = {name: "", 
+        vessel_IMO: "", 
+        vessel_MMSI: "", 
+        SiteID: "", 
+        address: "", 
+        location: "", 
+        description: "", 
+        operation: "", 
+        vessel_class: "", 
+        vessel_loa: "", 
+        vessel_breadth: "", 
+        vessel_draught: "", 
+        vessel_GT: "", 
+        vessel_averageSpeed: "", 
+        vessel_build: "", 
+        equipment_crane: "", 
+        equipment_craneCapability: "", 
+        equipment_totalStorageCapacity: "", 
+        descripequipment_heatedStoragetion: "", 
+        linkinfo: "", 
+        linkicon: "", 
+        linkimage: "", 
+        linkvideo: ""};
+            
         osr.name = features[0].get('name');
-        osr.description = features[0].get('description');
+        osr.vessel_IMO = features[0].get('vessel_IMO');
+        osr.vessel_MMSI = features[0].get('vessel_MMSI');
+        osr.SiteID = features[0].get('SiteID');
         osr.address = features[0].get('address');
+        osr.location = features[0].get('location');
+        osr.description = features[0].get('description');
+        osr.operation = features[0].get('operation');
+        osr.vessel_class = features[0].get('vessel_class');
+        osr.vessel_loa = features[0].get('vessel_loa');
+        osr.vessel_breadth = features[0].get('vessel_breadth');
+        osr.vessel_draught = features[0].get('vessel_draught');
+        osr.vessel_GT = features[0].get('vessel_GT');
+        osr.vessel_averageSpeed = features[0].get('vessel_averageSpeed');
+        osr.vessel_build = features[0].get('vessel_build');
+        osr.equipment_crane = features[0].get('equipment_crane');
+        osr.equipment_craneCapability = features[0].get('equipment_craneCapability');
+        osr.equipment_totalStorageCapacity = features[0].get('equipment_totalStorageCapacity');
+        osr.equipment_heatedStorage = features[0].get('equipment_heatedStorage');
         osr.linkinfo = features[0].get('linkinfo');
         osr.linkicon = features[0].get('linkicon');
         osr.linkimage = features[0].get('linkimage');
         osr.linkvideo = features[0].get('linkvideo');
 
         const template = //$('#RescueSite').html();
-        `<div style="margin:2px;">
-            <p><b>Description: </b>{{description}}</p>
-            <p><b>Address: </b>{{address}}</p>
-            <p><b>Information: </b>{{linkinfo}}</p>
-            <p><b>Icon: </b>{{linkicon}}</p>
-            <p><b>Image: </b>{{linkimage}}</p>
-            <p><b>Video: </b>{{{linkvideo}}}</p>
-        </div>`;
+        `<div style="margin:2px;"><table>
+        <tr><td>IMO</td><td><b>{{vessel_IMO}}</b></td></tr>
+        <tr><td>MMSI</td><td><b>{{vessel_MMSI}}</b></td></tr>
+        <tr><td>Site ID</td><td><b>{{SiteID}}</b></td></tr>
+        <tr><td>Address</td><td><b>{{address}}</b></td></tr>
+        <tr><td>Location</td><td><b>{{location}}</b></td></tr>
+        <tr><td>Description</td><td><b>` + osr.description + `</b></td></tr>
+        <tr><td>Operation</td><td><b>{{operation}}</b></td></tr>
+        <tr><td>Class</td><td><b>{{vessel_class}}</b></td></tr>
+        <tr><td>LOA</td><td><b>{{vessel_loa}}</b></td></tr>
+        <tr><td>Breadth</td><td><b>{{vessel_breadth}}</b></td></tr>
+        <tr><td>Draught</td><td><b>{{vessel_draught}}</b></td></tr>
+        <tr><td>GT</td><td><b>{{vessel_GT}}</b></td></tr>
+        <tr><td>Average speed</td><td><b>{{vessel_averageSpeed}}</b></td></tr>
+        <tr><td>Build year</td><td><b>{{vessel_build}}</b></td></tr>
+        <tr><td>Crane</td><td><b>{{equipment_crane}}</b></td></tr>
+        <tr><td>Crane capability</td><td><b>{{equipment_craneCapability}}</b></td></tr>
+        <tr><td>Total storage capacity</td><td><b>{{equipment_totalStorageCapacity}}</b></td></tr>
+        <tr><td>Heated storage</td><td><b>{{equipment_heatedStorage}}</b></td></tr>
+        <tr><td>Information</td><td><b>` + osr.linkinfo + `</b></td></tr>
+        <tr><td>Icon</td><td><img class='osr-image' src='{{linkicon}}' alt='{{name}}'><img></td></tr>
+        <tr><td>Image</td><td><img class='osr-image' src='{{linkimage}}' alt='{{name}}'><img></td></tr>
+        <tr><td>Video</td><td><video class='osr-video' src='{{linkvideo}}' alt='{{name}}' autoplay controls></video></td></tr>
+        </table></div>`;
+        Mustache.parse(template);
+        let description = Mustache.to_html(template, osr);
+        
+        return description;
+    }
+
+    function setA4SOSRSiteInfo(features) {
+        let osr = {name: "", 
+        SiteID: "", 
+        address: "", 
+        description: "", 
+        linkinfo: "", 
+        linkicon: "", 
+        linkimage: "", 
+        linkvideo: ""};
+            
+        osr.name = features[0].get('name');
+        osr.SiteID = features[0].get('SiteID');
+        osr.address = features[0].get('address');
+        osr.description = features[0].get('description');
+        osr.equipment_totalStorageCapacity = features[0].get('equipment_totalStorageCapacity');
+        osr.equipment_heatedStorage = features[0].get('equipment_heatedStorage');
+        osr.linkinfo = features[0].get('linkinfo');
+        osr.linkicon = features[0].get('linkicon');
+        osr.linkimage = features[0].get('linkimage');
+        osr.linkvideo = features[0].get('linkvideo');
+
+        const template = //$('#RescueSite').html();
+        `<div style="margin:2px;"><table>
+        <tr><td>Site ID</td><td><b>{{SiteID}}</b></td></tr>
+        <tr><td>Address</td><td><b>{{address}}</b></td></tr>
+        <tr><td>Description</td><td><b>` + osr.description + `</b></td></tr>
+        <tr><td>Information</td><td><b>` + osr.linkinfo + `</b></td></tr>
+        <tr><td>Icon</td><td><img class='osr-image' src='{{linkicon}}' alt='{{name}}'><img></td></tr>
+        <tr><td>Image</td><td><img class='osr-image' src='{{linkimage}}' alt='{{name}}'><img></td></tr>
+        <tr><td>Video</td><td><video class='osr-video' src='{{linkvideo}}' alt='{{name}}' autoplay controls></video></td></tr>
+        </table></div>`;
         Mustache.parse(template);
         let description = Mustache.to_html(template, osr);
         
@@ -53,12 +143,12 @@ var App4SeaPopUps = (function () {
 
         const template = //$('#RescueSite').html();
             `<div style="margin:2px;">
-                <p>{{address}}</p>
-                <p>{{region}}</p>
-                <p>{{region2}}</p>
-                <p>{{region3}}</p>
-                <p>{{region4}}</p>
-                <p>{{{link}}}</p>
+                <tr><td>Address</td><td><b>{{address}}</b></td></tr>
+                <tr><td>Region</td><td><b>{{region}}</b></td></tr>
+                <tr><td>Coastguard region</td><td><b>{{region2}}</b></td></tr>
+                <tr><td>Commune</td><td><b>{{region3}}</b></td></tr>
+                <tr><td>LUA</td><td><b>{{region4}}</b></td></tr>
+                <tr><td>Link</td><td><b>` + beredskap.link +`</b></td></tr>
             </div>`;
         Mustache.parse(template);
         let description = Mustache.to_html(template, beredskap);
@@ -91,12 +181,12 @@ var App4SeaPopUps = (function () {
         shipinfo.flag =  features[0].get('Flag');
         
         const template = //$('#ShipInfo').html();
-            `<div style="margin:2px;">
-                <p>{{callsign}}</p>
-                <p>{{type}}</p>
-                <p>{{cargotype}}</p>
-                <p>{{flag}}</p>
-            </div>`;
+            `<div style="margin:2px;"><table>
+                <tr><td>Call sign</td><td><b>{{callsign}}</b></td></tr>
+                <tr><td>Type</td><td><b>{{type}}</b></td></tr>
+                <tr><td>Cargo type</td><td><b>{{cargotype}}</b></td></tr>
+                <tr><td>Flag</td><td><b>{{flag}}</b></td></tr>
+            </table></div>`;
         Mustache.parse(template);       
         let description = Mustache.to_html(template, shipinfo);
 
@@ -182,8 +272,11 @@ var App4SeaPopUps = (function () {
         if (features.length > 0) {
             let description = features[0].get('description');
 
-            if (features[0].get('SiteID')) {
-                description = setA4SOSRInfo(features);
+            if (features[0].get('vessel_IMO')) {
+                description = setA4SOSRVesselInfo(features);
+            }
+            else if (features[0].get('SiteID')) {
+                description = setA4SOSRSiteInfo(features);
             }
             else if (features[0].get('navn')) {
                 description = setNorwegianOSRInfo(features);
@@ -305,4 +398,5 @@ var App4SeaPopUps = (function () {
 
     return my;
     
-}(App4SeaPopUps || {}));
+}());
+App4Sea.PopUps = App4SeaPopUps;

@@ -3,8 +3,7 @@
  *
  * ==========================================================================*/
 
-var App4Sea = App4Sea || {};
-var App4SeaTreeMenu = (function () {
+App4SeaTreeMenu = (function () {
     "use strict";
 
     let my = {};
@@ -210,7 +209,7 @@ var App4SeaTreeMenu = (function () {
 
                 if (tool === "heat") {
                     if (index === -1) {
-                        var vect = App4Sea.Utils.heatMap(path, nod.id, nod.text);
+                        let vect = App4Sea.Utils.heatMap(path, nod.id, nod.text);
                         App4Sea.OpenLayers.layers.push({"id": nod.id, "vector" : vect});
                         if (App4Sea.logging) console.log("Cached layers now are " + App4Sea.OpenLayers.layers.length);
 
@@ -219,10 +218,10 @@ var App4SeaTreeMenu = (function () {
                     }
                 }
                 else if (path.length > 3) {
-                    var ext = path.substr(path.length - 3, 3);
+                    let ext = path.toLowerCase().substr(path.length - 3, 3);
                     if (ext === '1cd') { //6a3e86f0825c7e6e605105c24d5ec1cd
                         if (index === -1) {
-                            var vect = App4Sea.Weather.loadWeather(path, nod.id);
+                            let vect = App4Sea.Weather.loadWeather(path, nod.id);
                             App4Sea.OpenLayers.layers.push({"id": nod.id, "vector" : vect});
                             if (App4Sea.logging) console.log("Cached layers now are " + App4Sea.OpenLayers.layers.length);
 
@@ -232,40 +231,53 @@ var App4SeaTreeMenu = (function () {
                     }
                     else if (ext === '6e4') { //1326faa296b7e865683b67cdf8e5c6e4
                         if (index === -1) {
-                            var vect = App4Sea.Weather.loadCityWeather(path, nod.id);
+                            let vect = App4Sea.Weather.loadCityWeather(path, nod.id);
 //                            App4Sea.OpenLayers.layers.push({"id": nod.id, "vector" : vect});
 //                            if (App4Sea.logging) console.log("Cached layers now are " + App4Sea.OpenLayers.layers.length);
 
 //                            App4Sea.OpenLayers.Map.addLayer(vect);
                         }
                     }
-                    else if (ext === "wms") {
+                    else if (ext === "wms" || ext === "gif" || ext === "cgi" || ext === "png" || ext === "jpg") {
                         if (index === -1) {
-                            let parts = App4Sea.Utils.parseURL(path);
-                            let ex = parts.searchObject.bbox.split(',');
-                            let extent = [parseFloat(ex[0]), parseFloat(ex[1]), parseFloat(ex[2]), parseFloat(ex[3])];//[-145.15104058007,21.731919794922,-57.154894212888,58.961058642578];
+                            let parts = App4Sea.Utils.parseURL(path.toLowerCase());
+                            let bbox = parts.searchObject.bbox;
+
+                            let proj = App4Sea.prefProj;// Default projection (in map coorinates, not view)
+                            if (parts.searchObject.crs !== undefined) {
+                                proj = parts.searchObject.crs;
+                            }
+                            if (parts.searchObject.scs !== undefined) {
+                                proj = parts.searchObject.srs;
+                            }
+                            if (App4Sea.logging) console.log("Now handling a " + ext + " file with projection:  " + proj);
+
+                            let imageExtent = [-10, 50, 10, 70]; // WSEN Defaut location for immages that do not tell about themselves.
+                            
+                            let ourProj = App4Sea.prefViewProj;
+                            if (bbox !== undefined) {
+                                try {
+                                    let ex = bbox.split(',');
+                                    let extent = [parseFloat(ex[0]), parseFloat(ex[1]), parseFloat(ex[2]), parseFloat(ex[3])];
+                                    imageExtent = App4Sea.Utils.TransformExtent(extent, proj.toUpperCase(), ourProj);
+                                    if (App4Sea.logging) console.log("Native extent " + ex);
+                                    if (App4Sea.logging) console.log("Normalized extent " + imageExtent);
+                                }
+                                catch (err) {
+                                    if (App4Sea.logging) console.log("Could not find extent for image at " + path);
+                                }
+                            }
+
                             let hei = parseFloat(parts.searchObject.height);
                             let wid = parseFloat(parts.searchObject.width);
-                            let imageExtent = ol.proj.transformExtent(extent, App4Sea.prefProj, App4Sea.prefViewProj);
+                            if (hei === null) hei = nod.a_attr.height;
+                            if (wid === null) wid = nod.a_attr.width;
+                            if (hei === null) hei = 512; // Default value for images that do not tell about themselves or have attributes in json
+                            if (wid === null) wid = 512; // Default value for images that do not tell about themselves or have attributes in json
+                            if (App4Sea.logging) console.log("Height and width is " + [hei, wid]);
                            
-                            let vect = App4Sea.Utils.loadImage(nod, imageExtent, true, path, nod.id, nod.text, "",
+                            let vect = App4Sea.Utils.loadImage(nod, ourProj, imageExtent, true, path, nod.id, nod.text, "",
                                 wid, hei, nod.a_attr.start);
-
-                            App4Sea.OpenLayers.layers.push({"id": nod.id, "vector" : vect});
-
-                            if (App4Sea.logging) console.log("Cached layers now are " + App4Sea.OpenLayers.layers.length);
-
-                            App4Sea.OpenLayers.Map.addLayer(vect);
-                            App4Sea.Utils.LookAt(vect);
-                        }
-                    }
-                    else if (ext === "gif" || ext === "cgi" || ext === "png" || ext === "jpg") {
-                        if (index === -1) {
-                            let extent = [-145.15104058007,21.731919794922,-57.154894212888,58.961058642578];//TBD
-                            let imageExtent = ol.proj.transformExtent(extent, App4Sea.prefProj, App4Sea.prefViewProj);
-                           
-                            let vect = App4Sea.Utils.loadImage(nod, imageExtent, true, path, nod.id, nod.text, "",
-                            nod.a_attr.width, nod.a_attr.height, nod.a_attr.start);
 
                             App4Sea.OpenLayers.layers.push({"id": nod.id, "vector" : vect});
 
@@ -327,4 +339,5 @@ var App4SeaTreeMenu = (function () {
     
     return my;
     
-}(App4SeaTreeMenu || {}));
+}());
+App4Sea.TreeMenu = App4SeaTreeMenu;

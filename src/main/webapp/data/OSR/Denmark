@@ -1,0 +1,367 @@
+			<Placemark>
+				<name>A561 GUNNAR SEIDENFADEN</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">A561 GUNNAR SEIDENFADEN</SimpleData>
+						<SimpleData name="name">A561 GUNNAR SEIDENFADEN</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Royal Dansih Navy</SimpleData>
+						<SimpleData name="location">Korsoer</SimpleData>
+						<SimpleData name="operation">Offshore</SimpleData>
+						<SimpleData name="vessel_class">Offshore supply/Ice Class</SimpleData>
+						<SimpleData name="vessel_loa">56</SimpleData>
+						<SimpleData name="vessel_breadth">12.3</SimpleData>
+						<SimpleData name="vessel_draught">4.59</SimpleData>
+						<SimpleData name="vessel_GT">1660</SimpleData>
+						<SimpleData name="vessel_averageSpeed">12</SimpleData>
+						<SimpleData name="vessel_build year">1981</SimpleData>
+						<SimpleData name="vessel_IMO">7924073</SimpleData>
+						<SimpleData name="vessel_MMSI">21926000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">28</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">310.7</SimpleData>
+						<SimpleData name="equipment_heatedStorage">219.2</SimpleData>
+						<SimpleData name="ape_belt skimmer">2</SimpleData>
+						<SimpleData name="ape_terminator"></SimpleData>
+						<SimpleData name="ape_destroil 250"></SimpleData>
+						<SimpleData name="ape_Ro-sweep"></SimpleData>
+						<SimpleData name="ape_grappe"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>11.13195, 55.33426, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>A560 GUNNAR THORSEN</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">A560 GUNNAR THORSEN</SimpleData>
+						<SimpleData name="name">A560 GUNNAR THORSEN</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Royal Danish Navy</SimpleData>
+						<SimpleData name="location">Frederikshavn</SimpleData>
+						<SimpleData name="operation">Offshore</SimpleData>
+						<SimpleData name="vessel_class">Offshore supply/Ice Class</SimpleData>
+						<SimpleData name="vessel_loa">56</SimpleData>
+						<SimpleData name="vessel_breadth">12.3</SimpleData>
+						<SimpleData name="vessel_draught">4.59</SimpleData>
+						<SimpleData name="vessel_GT">1660</SimpleData>
+						<SimpleData name="vessel_averageSpeed">12</SimpleData>
+						<SimpleData name="vessel_build year">1981</SimpleData>
+						<SimpleData name="vessel_IMO">7924061</SimpleData>
+						<SimpleData name="vessel_MMSI">219263000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">28</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">310.7</SimpleData>
+						<SimpleData name="equipment_heatedStorage">219.2</SimpleData>
+						<SimpleData name="ape_belt skimmer">2</SimpleData>
+						<SimpleData name="ape_terminator"></SimpleData>
+						<SimpleData name="ape_destroil 250"></SimpleData>
+						<SimpleData name="ape_Ro-sweep"></SimpleData>
+						<SimpleData name="ape_grappe"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>10.53731, 57.4314, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>A563 MARIE MILJOE</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">A563 MARIE MILJOE</SimpleData>
+						<SimpleData name="name">A563 MARIE MILJOE</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Royal Danish Navy</SimpleData>
+						<SimpleData name="location">Korsoer</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Sea Truck</SimpleData>
+						<SimpleData name="vessel_loa">29.75</SimpleData>
+						<SimpleData name="vessel_breadth">8.02</SimpleData>
+						<SimpleData name="vessel_draught">2.38</SimpleData>
+						<SimpleData name="vessel_GT">247</SimpleData>
+						<SimpleData name="vessel_averageSpeed">9</SimpleData>
+						<SimpleData name="vessel_build year">1979</SimpleData>
+						<SimpleData name="vessel_IMO">8002470</SimpleData>
+						<SimpleData name="vessel_MMSI">219000417</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">4</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">75</SimpleData>
+						<SimpleData name="equipment_heatedStorage">-</SimpleData>
+						<SimpleData name="ape_Ro-Boom ocean"></SimpleData>
+						<SimpleData name="ape_fixed mounted LAMOR sweep system on starboard side"></SimpleData>
+						<SimpleData name="ape_DESMI DOP pump"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>1.1287, 55.33021, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>A562 METTE MILJOE</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">A562 METTE MILJOE</SimpleData>
+						<SimpleData name="name">A562 METTE MILJOE</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Royal Danish Navy</SimpleData>
+						<SimpleData name="location">Frederikshavn</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Sea Truck</SimpleData>
+						<SimpleData name="vessel_loa">29.75</SimpleData>
+						<SimpleData name="vessel_breadth">8.02</SimpleData>
+						<SimpleData name="vessel_draught">2.38</SimpleData>
+						<SimpleData name="vessel_GT">247</SimpleData>
+						<SimpleData name="vessel_averageSpeed">9</SimpleData>
+						<SimpleData name="vessel_build year">1979</SimpleData>
+						<SimpleData name="vessel_IMO">8002468</SimpleData>
+						<SimpleData name="vessel_MMSI">219000416</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">4</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">75</SimpleData>
+						<SimpleData name="equipment_heatedStorage">-</SimpleData>
+						<SimpleData name="ape_Ro-Boom ocean"></SimpleData>
+						<SimpleData name="ape_fixed mounted LAMOR sweep system on starboard side"></SimpleData>
+						<SimpleData name="ape_DESMI DOP pump"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>10.59972, 57.34969, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>MS201</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">MS201</SimpleData>
+						<SimpleData name="name">MS201</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">-</SimpleData>
+						<SimpleData name="location">Korsoer</SimpleData>
+						<SimpleData name="operation">Storage</SimpleData>
+						<SimpleData name="vessel_class">Barge</SimpleData>
+						<SimpleData name="vessel_loa">24</SimpleData>
+						<SimpleData name="vessel_breadth">8</SimpleData>
+						<SimpleData name="vessel_draught">2.20</SimpleData>
+						<SimpleData name="vessel_GT">-</SimpleData>
+						<SimpleData name="vessel_averageSpeed">All barges must be towed or taken alongside. Towing speed app. 10 knots</SimpleData>
+						<SimpleData name="vessel_build year">1978</SimpleData>
+						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="equipment_crane">No</SimpleData>
+						<SimpleData name="equipment_craneCapability">-</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">300</SimpleData>
+						<SimpleData name="equipment_heatedStorage">No</SimpleData>
+						<SimpleData name="ape_storage only"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>22.21799870852966, 60.44138678164045, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>MS202</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">MS202</SimpleData>
+						<SimpleData name="name">MS202</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">-</SimpleData>
+						<SimpleData name="location">Copenhagen</SimpleData>
+						<SimpleData name="operation">Storage</SimpleData>
+						<SimpleData name="vessel_class">Barge</SimpleData>
+						<SimpleData name="vessel_loa">24</SimpleData>
+						<SimpleData name="vessel_breadth">8</SimpleData>
+						<SimpleData name="vessel_draught">2.20</SimpleData>
+						<SimpleData name="vessel_GT">-</SimpleData>
+						<SimpleData name="vessel_averageSpeed">All barges must be towed or taken alongside. Towing speed app. 10 knots</SimpleData>
+						<SimpleData name="vessel_build year">1978</SimpleData>
+						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="equipment_crane">No</SimpleData>
+						<SimpleData name="equipment_craneCapability">-</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">300</SimpleData>
+						<SimpleData name="equipment_heatedStorage">No</SimpleData>
+						<SimpleData name="ape_storage only"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>22.21799870852966, 60.44138678164045, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>MS203</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">MS203</SimpleData>
+						<SimpleData name="name">MS203</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">-</SimpleData>
+						<SimpleData name="location">Frederikshavn</SimpleData>
+						<SimpleData name="operation">Storage</SimpleData>
+						<SimpleData name="vessel_class">Barge</SimpleData>
+						<SimpleData name="vessel_loa">24</SimpleData>
+						<SimpleData name="vessel_breadth">8</SimpleData>
+						<SimpleData name="vessel_draught">2.20</SimpleData>
+						<SimpleData name="vessel_GT">-</SimpleData>
+						<SimpleData name="vessel_averageSpeed">All barges must be towed or taken alongside. Towing speed app. 10 knots</SimpleData>
+						<SimpleData name="vessel_build year">1978</SimpleData>
+						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="equipment_crane">No</SimpleData>
+						<SimpleData name="equipment_craneCapability">-</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">300</SimpleData>
+						<SimpleData name="equipment_heatedStorage">No</SimpleData>
+						<SimpleData name="ape_storage only"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>22.21799870852966, 60.44138678164045, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>MILJOE 103</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">MILJOE 103</SimpleData>
+						<SimpleData name="name">MILJOE 103</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Danish Defense Acquisition and Logistics Organization</SimpleData>
+						<SimpleData name="location">Korsoer</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Shallow water vessel</SimpleData>
+						<SimpleData name="vessel_loa">16.38</SimpleData>
+						<SimpleData name="vessel_breadth">4.6</SimpleData>
+						<SimpleData name="vessel_draught">0.65</SimpleData>
+						<SimpleData name="vessel_GT">30</SimpleData>
+						<SimpleData name="vessel_averageSpeed">20</SimpleData>
+						<SimpleData name="vessel_build year">2008</SimpleData>
+						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_MMSI">219011074</SimpleData>
+						<SimpleData name="equipment_crane">No</SimpleData>
+						<SimpleData name="equipment_craneCapability">-</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">-</SimpleData>
+						<SimpleData name="equipment_heatedStorage">-</SimpleData>
+						<SimpleData name="ape_LAMOR skimmer"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>11.12619,  55.3313, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>MILJOE 102</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">MILJOE 102</SimpleData>
+						<SimpleData name="name">MILJOE 102</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">-</SimpleData>
+						<SimpleData name="location">Frederikshavn</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Shallow water vessel</SimpleData>
+						<SimpleData name="vessel_loa">16.4</SimpleData>
+						<SimpleData name="vessel_breadth">4.3</SimpleData>
+						<SimpleData name="vessel_draught">1.9</SimpleData>
+						<SimpleData name="vessel_GT">16</SimpleData>
+						<SimpleData name="vessel_averageSpeed">21</SimpleData>
+						<SimpleData name="vessel_build year">1977</SimpleData>
+						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="equipment_crane">No</SimpleData>
+						<SimpleData name="equipment_craneCapability">-</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">0.4</SimpleData>
+						<SimpleData name="equipment_heatedStorage">-</SimpleData>
+						<SimpleData name="ape_minimax 10"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>22.21799870852966, 60.44138678164045, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>MILJOE 101</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">MILJOE 101</SimpleData>
+						<SimpleData name="name">MILJOE 101</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">-</SimpleData>
+						<SimpleData name="location">Korsoer</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Shallow water vessel</SimpleData>
+						<SimpleData name="vessel_loa">16.4</SimpleData>
+						<SimpleData name="vessel_breadth">4.3</SimpleData>
+						<SimpleData name="vessel_draught">1.9</SimpleData>
+						<SimpleData name="vessel_GT">16</SimpleData>
+						<SimpleData name="vessel_averageSpeed">21</SimpleData>
+						<SimpleData name="vessel_build year">1977</SimpleData>
+						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="equipment_crane">No</SimpleData>
+						<SimpleData name="equipment_craneCapability">-</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">0.4</SimpleData>
+						<SimpleData name="equipment_heatedStorage">-</SimpleData>
+						<SimpleData name="ape_minimax 10"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>22.21799870852966, 60.44138678164045, 0</coordinates>
+				</Point>
+			</Placemark>

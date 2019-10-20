@@ -3,10 +3,11 @@
  *
  * ==========================================================================*/
 
-var App4Sea = App4Sea || {};
-var App4SeaUtils = (function () {
+App4SeaUtils = (function () {
     "use strict";
     let my = {};
+
+    //import {toPng} from '/node_modules/html-to-image';
 
     // private property
     const _keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
@@ -93,59 +94,102 @@ var App4SeaUtils = (function () {
     };
 
     ////////////////////////////////////////////////////////////////////////////
-    // GetFeaturesExtension
-    my.GetFeaturesExtension = function(features) {
+    // GetFeaturesExtent
+    my.GetFeaturesExtent = function(features) {
         if (!features || features.length === 0)
             return;
 
         let extent = ol.extent.createEmpty();
         for (let ind=0; ind<features.length; ind++) {
-            ol.extent.extend(extent, features[ind].getGeometry().getExtent());
+            extent = ol.extent.extend(extent, features[ind].getGeometry().getExtent());
         }
 
-        if (App4Sea.logging) console.log("Extent is: " + extent[0] + ", " + extent[1] + ", " + extent[2] + ", " + extent[3]);
+        if (App4Sea.logging) console.log("Extent is: " + extent);
 
         return extent;
     };
 
     ////////////////////////////////////////////////////////////////////////////
+    // TransformExtent
+    // extent: [minx, miny, maxx, maxy] left, bottom, right, top = prefViewProj
+    // location: [W, N, E, S] left, top, right, bottom = prefProj
+    my.TransformExtent = function(extent, source, dest) {
+        let exx = extent;
+        if (source !== dest) {
+            try {
+                ext = ol.proj.transformExtent(extent, source, dest);
+            }
+            catch (e) {
+                try {
+                    proj4.defs('EPSG:3575', '+proj=laea +lat_0=90 +lon_0=10 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs');
+                    let ex1 = proj4(source, dest, [extent[0], extent[1]]);
+                    let ex2 = proj4(source, dest, [extent[2], extent[3]]);
+                    exx = ex1;
+                    exx.push(ex2[0]);
+                    exx.push(ex2[1]);
+                }
+                catch (err) {
+                    if (App4Sea.logging) console.log(err);
+                }
+            }
+        }
+        if (App4Sea.logging) console.log("Transform extent from: " + source + ": " + extent + " to: " + dest + ": " + exx);
+
+        return exx;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
     // LookAt
     my.LookAt = function(vector) {
-        let extent = ol.extent.createEmpty();
-        let size = App4Sea.OpenLayers.Map.getSize();
 
-        if (vector.getSource) {
-            let source = vector.getSource()
-
-            if (source.getExtent) {
-                extent = source.getExtent();
-                if (App4Sea.logging) console.log("source.getExtent");
-            }
-            // else {
-            //     extent = my.GetFeaturesExtension(source.getFeatures());
-            // }
+        if (vector === null) {
+            if (App4Sea.logging) console.log("Can't look at null");
+            return;
         }
-        else {
+        let extent;
+        let proj;
+
+        if (vector.getExtent)
             extent = vector.getExtent();
-            if (App4Sea.logging) console.log("vector.getExtent");
-        }
+        if (vector.getProjection)
+            proj = vector.getProjection();
         
-        if (!extent || extent[0] === Number.POSITIVE_INFINITY) {
-            //if (App4Sea.logging) console.log("calculateExtent");
+        let type = vector.type;
+        if (App4Sea.logging) console.log("Look at vector of type: " + type);
+        
+        if (proj !== undefined)
+            if (App4Sea.logging) console.log("Look at vector with proj: " + proj.getCode() + ' and ' + extent);
+    
+        if (vector.getSource) {
+            let source = vector.getSource();
 
-            extent = App4Sea.OpenLayers.Map.getView().calculateExtent(size);
-            if (App4Sea.logging) console.log("view.calculateExtent");
-        }
+            if (type === 'IMAGE') {
+                extent = source.getImageExtent();
+                proj = source.getProjection();
+                if (App4Sea.logging) console.log("Look at IMAGE with proj: " + proj.getCode() + ' and ' + extent);
+                extent = App4Sea.Utils.TransformExtent(extent, proj.getCode(), App4Sea.prefProj);
+                proj = App4Sea.prefProj;
+         
+                //if (App4Sea.logging) console.log("Look at IMAGE with proj: " + proj.getCode() + ' and ' + extent);
 
-        if (extent) {
-            //if (App4Sea.logging) console.log("Extent: " + extent[0] + ", " + extent[1] + ", " + extent[2] + ", " + extent[3]);
-
-            if (extent[0] !== Number.POSITIVE_INFINITY && extent[1]) {
-                if (App4Sea.logging) console.log("Look at: " + extent[0] + ", " + extent[1] + ", " + extent[2] + ", " + extent[3] + ". Size is: " + size);
-                let view = App4Sea.OpenLayers.Map.getView();
-                view.fit(extent, { duration: 1000, maxZoom: 10 });
+                if (extent) {
+                    if (extent[0] !== Number.POSITIVE_INFINITY && extent[0] !== Number.NEGATIVE_INFINITY && extent[1]) {
+                        if (App4Sea.logging) console.log("Look at: " + extent);
+                        if (App4Sea.logging) console.log("Look at projection: " + proj);
+                        if (proj !== App4Sea.prefProj) {
+                            extent = extent
+                        }
+                        let x = extent[0]+extent[2];
+                        let y = extent[1]+extent[3];
+                        let location = [x/2, y/2];
+                        //if (App4Sea.logging) console.log("Look at: " + extent);
+                        //if (App4Sea.logging) console.log("Look at: " + location);
+            
+                        App4Sea.Utils.FlyTo(location, null);
+                    }
+                }
             }
-        }
+        }        
     };
 
     ////////////////////////////////////////////////////////////////////////////
@@ -366,19 +410,31 @@ var App4SeaUtils = (function () {
 
     ////////////////////////////////////////////////////////////////////////////
     // load an image
-    my.loadImage = function (node, imageExtent, flag, url, id, text, layers, width, height, start) {
+    my.loadImage = function (node, proj, imageExtent, flag, url, id, text, layers, width, height, start) {
         url = url.replaceAll(/&amp;/, '&');
 
         if (App4Sea.logging) console.log("loadImage: " + url);
+
+        if (proj !== App4Sea.prefProj) {
+            if (App4Sea.logging) console.log("loadImage ERROR. Wrong projection: " + proj);
+        }
+        if (Math.max(imageExtent) > 180 || Math.min(imageExtent < 180)) {// Lax error check
+            if (App4Sea.logging) console.log("loadImage ERROR. Wrong extent: " + imageExtent);
+        }
         
         let nameIs = text;//name.innerHTML;
+
+        url = url.toLowerCase();
+
+        if (App4Sea.logging) console.log("loadImage proj: " + proj);
+        if (App4Sea.logging) console.log("loadImage imageExtent: " + imageExtent);
 
         let image = new ol.layer.Image({
             name: nameIs,
             source: new ol.source.ImageStatic({
                 url: url,
                 imageExtent: imageExtent,
-                //projection: App4Sea.prefProj
+                projection: proj,
                 crossOrigin: 'anonymous'
             })
         });
@@ -658,6 +714,13 @@ var App4SeaUtils = (function () {
             elem.style.display = "block";
         }
 
+        if (window.innerWidth < 600) {
+            let items = document.getElementsByClassName("ol-control");
+            for (let ind=0; ind<items.length; ind++) {
+                items[ind].classList.add('hidden')
+            }
+        }
+
         if (id === "MenuContainer") {
             $("#TreeMenu").jstree(true).close_all();
 
@@ -675,10 +738,14 @@ var App4SeaUtils = (function () {
     ////////////////////////////////////////////////////////////////////////////
     // w3_close
     my.w3_close = function (id) {
-
         const elem = document.getElementById(id);
         if (elem !== null) {
             elem.style.display = "none";
+        }
+
+        let items = document.getElementsByClassName("ol-control");
+        for (let ind=0; ind<items.length; ind++) {
+            items[ind].classList.remove('hidden');
         }
 
         if (id === "MenuContainer") {
@@ -728,6 +795,87 @@ var App4SeaUtils = (function () {
             handle.style.visibility = 'hidden';
         }
     };
+
+    ////////////////////////////////////////////////////////////////////////////
+    // https://bl.ocks.org/dvreed77/c37759991b0723eebef3647015495253
+    my.copyToClipboard = function (url) {
+        console.log(url);
+        let img = document.createElement('img');
+        img.src = url;
+        //img.alt = "App4Sea Screenshot";
+        console.log(url);
+
+        document.body.appendChild(img);
+
+        let r = document.createRange();
+        r.setStartBefore(img);
+        r.setEndAfter(img);
+        r.selectNode(img);
+
+        let sel = window.getSelection();
+        sel.addRange(r);
+
+        //window.prompt("Copy screenshot to clipboard: Ctrl+C, Enter", url);
+
+        try {
+            let successful = document.execCommand('Copy');
+            let msg = successful ? 'successful' : 'NOT successful';
+            console.log('Copying was ' + msg);
+        } 
+        catch (err) {
+            console.log('Oops, unable to copy: ' + err);
+        }
+        
+        document.body.removeChild(img);
+    };
+
+    // export options for html-to-image.
+    // See: https://github.com/bubkoo/html-to-image#options
+    let exportOptions = {
+        filter: function(element) {
+        return element.className ? element.className.indexOf('ol-control') === -1 : true;
+        }
+    };
+
+    ////////////////////////////////////////////////////////////////////////////
+    // 
+    my.take_screenshot = function () {
+        console.log('take_screenshot');
+  /*      import('/node_modules/html-to-image').then(module => {
+            console.log('toPng');
+            module.toPng(document.body, exportOptions).then(function(dataURL) {
+                my.copyToClipboard(dataURL);
+                //var link = document.getElementById('image-download');
+                //link.href = dataURL;
+                //link.click();
+            });;
+        })
+        .catch(err => {
+            console.log(err);
+          //main.textContent = err.message;
+        });
+*/
+        //import toPng from 'html-to-image';
+        toPng(document.body, exportOptions).then(function(dataURL) {
+            my.copyToClipboard(dataURL);
+            //var link = document.getElementById('image-download');
+            //link.href = dataURL;
+            //link.click();
+        });
+        App4Sea.OpenLayers.Map.renderSync();        
+        
+        return;
+
+        html2canvas(document.body, {  
+            onrendered: function(canvas) {
+                let url = canvas.toDataURL();
+                my.copyToClipboard(url);
+                //$.post("save_screenshot.php", {data: img}, function (file) {
+                //    window.location.href =  "save_screenshot.php?file="+ file
+                //});
+            }
+        });
+    };   
 
     ////////////////////////////////////////////////////////////////////////////
     // public method for encoding from http://www.webtoolkit.info/
@@ -1034,28 +1182,27 @@ var App4SeaUtils = (function () {
     };
 
     ////////////////////////////////////////////////////////////////////////////
-    // SpotFromExtent
-    my.SpotFromExtent = function (extent) {
-        let spot = {lat, long};
-
-        spot.lat = extent[3]-extent[1];
-        spot.long = extent[4]-extent[2];
-
-        return spot;
-    };
-
-    ////////////////////////////////////////////////////////////////////////////
     // FlyTo
-    // location is e.g. london = fromLonLat([-0.12755, 51.507222]);
+    // location is e.g. london = fromLonLat([-0.12755, 51.507222]); lon, lat
     // done is a function to callback when done
     my.FlyTo = function (location, done) {
-        if (App4Sea.Animation.getAnimationState() !== "Stopped")
+        if (location === undefined || location === null)
             return;
 
+        let ani_status = App4Sea.Animation.getAnimationState();
+        if (ani_status !== "Stopped")
+            return;
+
+        let view = App4Sea.OpenLayers.Map.getView();
         let duration = 2000;
         let zoom = view.getZoom();
         let parts = 2;
         let called = false;
+
+        if (Math.max(location) > 180 || Math.min(location < 180)) {// Lax error check
+            if (App4Sea.logging) console.log("FlyTo ERROR. Wrong extent: " + location);
+        }
+        //console.log('FlyTo: ' + location + ', zoom: ' + zoom);
 
         function callback(complete) {
             --parts;
@@ -1064,11 +1211,14 @@ var App4SeaUtils = (function () {
             }
             if (parts === 0 || !complete) {
                 called = true;
-                done(complete);
+                if (done)
+                    done(complete);
             }
         }
 
-        view.animate({center: location, duration: duration},  callback);
+        let center = ol.proj.transform(location, App4Sea.prefProj, App4Sea.prefViewProj);//'EPSG:3857'); 
+
+        view.animate({center: center, duration: duration},  callback);
         view.animate({zoom: zoom - 1, duration: duration / 2}, {zoom: zoom, duration: duration / 2}, callback);
     };
 
@@ -1087,4 +1237,5 @@ var App4SeaUtils = (function () {
 
     return my;
 
-}(App4SeaUtils || {}));
+}());
+App4Sea.Utils = App4SeaUtils;

@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+    <Document id="1">
+        <description>MET OpenDrift Oil Drift forecast, based on SVIM ROMS archive currents and ERA40 wind</description>
+        <Camera>
+            <longitude>4.43663549423</longitude>
+            <latitude>56.7301254272</latitude>
+            <altitude>60000</altitude>
+            <tilt>0</tilt>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <roll>0</roll>
+        </Camera>
+        <GroundOverlay id="3">
+            <name>bravo at 1977-04-22T12:00:00Z</name>
+            <TimeSpan id="4">
+                <begin>1977-04-22T12:00:00Z</begin>
+                <end>1977-04-22T20:00:00Z</end>
+            </TimeSpan>
+            <Icon id="5">
+                <href>bravo0.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>57.4217720032</north>
+                <south>56.0384788513</south>
+                <east>2.91738986969</east>
+                <west>5.95588111877</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="7">
+            <name>bravo at 1977-04-22T20:00:00Z</name>
+            <TimeSpan id="8">
+                <begin>1977-04-22T20:00:00Z</begin>
+                <end>1977-04-23T04:00:00Z</end>
+            </TimeSpan>
+            <Icon id="9">
+                <href>bravo2.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>57.4217720032</north>
+                <south>56.0384788513</south>
+                <east>2.91738986969</east>
+                <west>5.95588111877</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="11">
+            <name>bravo at 1977-04-23T04:00:00Z</name>
+            <TimeSpan id="12">
+                <begin>1977-04-23T04:00:00Z</begin>
+                <end>1977-04-23T12:00:00Z</end>
+            </TimeSpan>
+            <Icon id="13">
+                <href>bravo4.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>57.4217720032</north>
+                <south>56.0384788513</south>
+                <east>2.91738986969</east>
+                <west>5.95588111877</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="15">
+            <name>bravo at 1977-04-23T12:00:00Z</name>
+            <TimeSpan id="16">
+                <begin>1977-04-23T12:00:00Z</begin>
+                <end>1977-04-23T20:00:00Z</end>
+            </TimeSpan>
+            <Icon id="17">
+                <href>bravo6.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>57.4217720032</north>
+                <south>56.0384788513</south>
+                <east>2.91738986969</east>
+                <west>5.95588111877</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="19">
+            <name>bravo at 1977-04-23T20:00:00Z</name>
+            <TimeSpan id="20">
+                <begin>1977-04-23T20:00:00Z</begin>
+                <end>1977-04-24T04:00:00Z</end>
+            </TimeSpan>
+            <Icon id="21">
+                <href>bravo8.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>57.4217720032</north>
+                <south>56.0384788513</south>
+                <east>2.91738986969</east>
+                <west>5.95588111877</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="23">
+            <name>bravo at 1977-04-24T04:00:00Z</name>
+            <TimeSpan id="24">
+                <begin>1977-04-24T04:00:00Z</begin>
+                <end>1977-04-24T12:00:00Z</end>
+            </TimeSpan>
+            <Icon id="25">
+                <href>bravo10.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>57.4217720032</north>
+                <south>56.0384788513</south>
+                <east>2.91738986969</east>
+                <west>5.95588111877</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="27">
+            <name>bravo at 1977-04-24T12:00:00Z</name>
+            <TimeSpan id="28">
+                <begin>1977-04-24T12:00:00Z</begin>
+                <end>1977-04-24T20:00:00Z</end>
+            </TimeSpan>
+            <Icon id="29">
+                <href>bravo12.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>57.4217720032</north>
+                <south>56.0384788513</south>
+                <east>2.91738986969</east>
+                <west>5.95588111877</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="31">
+            <name>bravo at 1977-04-24T20:00:00Z</name>
+            <TimeSpan id="32">
+                <begin>1977-04-24T20:00:00Z</begin>
+                <end>1977-04-25T04:00:00Z</end>
+            </TimeSpan>
+            <Icon id="33">
+                <href>bravo14.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>57.4217720032</north>
+                <south>56.0384788513</south>
+                <east>2.91738986969</east>
+                <west>5.95588111877</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="35">
+            <name>bravo at 1977-04-25T04:00:00Z</name>
+            <TimeSpan id="36">
+                <begin>1977-04-25T04:00:00Z</begin>
+                <end>1977-04-25T12:00:00Z</end>
+            </TimeSpan>
+            <Icon id="37">
+                <href>bravo16.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>57.4217720032</north>
+                <south>56.0384788513</south>
+                <east>2.91738986969</east>
+                <west>5.95588111877</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="39">
+            <name>bravo at 1977-04-25T12:00:00Z</name>
+            <TimeSpan id="40">
+                <begin>1977-04-25T12:00:00Z</begin>
+                <end>1977-04-25T20:00:00Z</end>
+            </TimeSpan>
+            <Icon id="41">
+                <href>bravo18.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>57.4217720032</north>
+                <south>56.0384788513</south>
+                <east>2.91738986969</east>
+                <west>5.95588111877</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="43">
+            <name>bravo at 1977-04-25T20:00:00Z</name>
+            <TimeSpan id="44">
+                <begin>1977-04-25T20:00:00Z</begin>
+                <end>1977-04-26T04:00:00Z</end>
+            </TimeSpan>
+            <Icon id="45">
+                <href>bravo20.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>57.4217720032</north>
+                <south>56.0384788513</south>
+                <east>2.91738986969</east>
+                <west>5.95588111877</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="47">
+            <name>bravo at 1977-04-26T04:00:00Z</name>
+            <TimeSpan id="48">
+                <begin>1977-04-26T04:00:00Z</begin>
+                <end>1977-04-26T12:00:00Z</end>
+            </TimeSpan>
+            <Icon id="49">
+                <href>bravo22.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>57.4217720032</north>
+                <south>56.0384788513</south>
+                <east>2.91738986969</east>
+                <west>5.95588111877</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="51">
+            <name>bravo at 1977-04-26T12:00:00Z</name>
+            <TimeSpan id="52">
+                <begin>1977-04-26T12:00:00Z</begin>
+                <end>1977-04-26T20:00:00Z</end>
+            </TimeSpan>
+            <Icon id="53">
+                <href>bravo24.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>57.4217720032</north>
+                <south>56.0384788513</south>
+                <east>2.91738986969</east>
+                <west>5.95588111877</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="55">
+            <name>bravo at 1977-04-26T20:00:00Z</name>
+            <TimeSpan id="56">
+                <begin>1977-04-26T20:00:00Z</begin>
+                <end>1977-04-27T04:00:00Z</end>
+            </TimeSpan>
+            <Icon id="57">
+                <href>bravo26.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>57.4217720032</north>
+                <south>56.0384788513</south>
+                <east>2.91738986969</east>
+                <west>5.95588111877</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="59">
+            <name>bravo at 1977-04-27T04:00:00Z</name>
+            <TimeSpan id="60">
+                <begin>1977-04-27T04:00:00Z</begin>
+                <end>1977-04-27T12:00:00Z</end>
+            </TimeSpan>
+            <Icon id="61">
+                <href>bravo28.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>57.4217720032</north>
+                <south>56.0384788513</south>
+                <east>2.91738986969</east>
+                <west>5.95588111877</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="63">
+            <name>bravo at 1977-04-27T12:00:00Z</name>
+            <TimeSpan id="64">
+                <begin>1977-04-27T12:00:00Z</begin>
+                <end>1977-04-27T20:00:00Z</end>
+            </TimeSpan>
+            <Icon id="65">
+                <href>bravo30.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>57.4217720032</north>
+                <south>56.0384788513</south>
+                <east>2.91738986969</east>
+                <west>5.95588111877</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="67">
+            <name>bravo at 1977-04-27T20:00:00Z</name>
+            <TimeSpan id="68">
+                <begin>1977-04-27T20:00:00Z</begin>
+                <end>1977-04-28T04:00:00Z</end>
+            </TimeSpan>
+            <Icon id="69">
+                <href>bravo32.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>57.4217720032</north>
+                <south>56.0384788513</south>
+                <east>2.91738986969</east>
+                <west>5.95588111877</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="71">
+            <name>bravo at 1977-04-28T04:00:00Z</name>
+            <TimeSpan id="72">
+                <begin>1977-04-28T04:00:00Z</begin>
+                <end>1977-04-28T12:00:00Z</end>
+            </TimeSpan>
+            <Icon id="73">
+                <href>bravo34.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>57.4217720032</north>
+                <south>56.0384788513</south>
+                <east>2.91738986969</east>
+                <west>5.95588111877</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="75">
+            <name>bravo at 1977-04-28T12:00:00Z</name>
+            <TimeSpan id="76">
+                <begin>1977-04-28T12:00:00Z</begin>
+                <end>1977-04-28T20:00:00Z</end>
+            </TimeSpan>
+            <Icon id="77">
+                <href>bravo36.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>57.4217720032</north>
+                <south>56.0384788513</south>
+                <east>2.91738986969</east>
+                <west>5.95588111877</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="79">
+            <name>bravo at 1977-04-28T20:00:00Z</name>
+            <TimeSpan id="80">
+                <begin>1977-04-28T20:00:00Z</begin>
+                <end>1977-04-29T04:00:00Z</end>
+            </TimeSpan>
+            <Icon id="81">
+                <href>bravo38.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>57.4217720032</north>
+                <south>56.0384788513</south>
+                <east>2.91738986969</east>
+                <west>5.95588111877</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="83">
+            <name>bravo at 1977-04-29T04:00:00Z</name>
+            <TimeSpan id="84">
+                <begin>1977-04-29T04:00:00Z</begin>
+                <end>1977-04-29T12:00:00Z</end>
+            </TimeSpan>
+            <Icon id="85">
+                <href>bravo40.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>57.4217720032</north>
+                <south>56.0384788513</south>
+                <east>2.91738986969</east>
+                <west>5.95588111877</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="87">
+            <name>bravo at 1977-04-29T12:00:00Z</name>
+            <TimeSpan id="88">
+                <begin>1977-04-29T12:00:00Z</begin>
+                <end>1977-04-29T20:00:00Z</end>
+            </TimeSpan>
+            <Icon id="89">
+                <href>bravo42.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>57.4217720032</north>
+                <south>56.0384788513</south>
+                <east>2.91738986969</east>
+                <west>5.95588111877</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="91">
+            <name>bravo at 1977-04-29T20:00:00Z</name>
+            <TimeSpan id="92">
+                <begin>1977-04-29T20:00:00Z</begin>
+                <end>1977-04-30T04:00:00Z</end>
+            </TimeSpan>
+            <Icon id="93">
+                <href>bravo44.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>57.4217720032</north>
+                <south>56.0384788513</south>
+                <east>2.91738986969</east>
+                <west>5.95588111877</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="95">
+            <name>bravo at 1977-04-30T04:00:00Z</name>
+            <TimeSpan id="96">
+                <begin>1977-04-30T04:00:00Z</begin>
+                <end>1977-04-30T12:00:00Z</end>
+            </TimeSpan>
+            <Icon id="97">
+                <href>bravo46.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>57.4217720032</north>
+                <south>56.0384788513</south>
+                <east>2.91738986969</east>
+                <west>5.95588111877</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="99">
+            <name>bravo at 1977-04-30T12:00:00Z</name>
+            <TimeSpan id="100">
+                <begin>1977-04-30T12:00:00Z</begin>
+                <end>1977-04-30T20:00:00Z</end>
+            </TimeSpan>
+            <Icon id="101">
+                <href>bravo48.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>57.4217720032</north>
+                <south>56.0384788513</south>
+                <east>2.91738986969</east>
+                <west>5.95588111877</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="103">
+            <name>bravo at 1977-04-30T20:00:00Z</name>
+            <TimeSpan id="104">
+                <begin>1977-04-30T20:00:00Z</begin>
+                <end>1977-05-01T04:00:00Z</end>
+            </TimeSpan>
+            <Icon id="105">
+                <href>bravo50.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>57.4217720032</north>
+                <south>56.0384788513</south>
+                <east>2.91738986969</east>
+                <west>5.95588111877</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="107">
+            <name>bravo at 1977-05-01T04:00:00Z</name>
+            <TimeSpan id="108">
+                <begin>1977-05-01T04:00:00Z</begin>
+                <end>1977-05-01T12:00:00Z</end>
+            </TimeSpan>
+            <Icon id="109">
+                <href>bravo52.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>57.4217720032</north>
+                <south>56.0384788513</south>
+                <east>2.91738986969</east>
+                <west>5.95588111877</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="111">
+            <name>bravo at 1977-05-01T12:00:00Z</name>
+            <TimeSpan id="112">
+                <begin>1977-05-01T12:00:00Z</begin>
+                <end>1977-05-01T20:00:00Z</end>
+            </TimeSpan>
+            <Icon id="113">
+                <href>bravo54.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>57.4217720032</north>
+                <south>56.0384788513</south>
+                <east>2.91738986969</east>
+                <west>5.95588111877</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <ScreenOverlay id="115">
+            <name>Legend_oil</name>
+            <visibility>1</visibility>
+            <Icon id="116">
+                <href>legend_oil.png</href>
+            </Icon>
+            <overlayXY x="0" xunits="fraction" y="0" yunits="fraction"/>
+            <screenXY x="0.015" xunits="fraction" y="0.075" yunits="fraction"/>
+            <size x="0" xunits="fraction" y="0" yunits="fraction"/>
+        </ScreenOverlay>
+    </Document>
+</kml>

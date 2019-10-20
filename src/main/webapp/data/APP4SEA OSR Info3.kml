@@ -93,10 +93,10 @@
 				<name>C/S TFIA (THOR)</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">C/S TFIA (THOR)</SimpleData>
 						<SimpleData name="name">C/S TFIA (THOR)</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="operator">Landhelgisgaesla- Coast Gaurd</SimpleData>
 						<SimpleData name="location">Reykjavik</SimpleData>
 						<SimpleData name="operation">Offshore</SimpleData>
@@ -112,13 +112,13 @@
 						<SimpleData name="equipment_crane">Yes</SimpleData>
 						<SimpleData name="equipment_craneCapability">100</SimpleData>
 						<SimpleData name="equipment_totalStorageCapacity">640</SimpleData>
-						<SimpleData name="equipment_heatedStorage">-</SimpleData>
+						<SimpleData name="equipment_heatedStorage"></SimpleData>
 						<SimpleData name="ape_Norlense Offshore oil boom"></SimpleData>
 						<SimpleData name="ape_brush skimmer free floating"></SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
-						<SimpleData name="linkvideo"></SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
+						<SimpleData name="linkvideo">http://www.lhg.is/media/forsida/lhg-15sek-v3.mp4</SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
@@ -130,41 +130,43 @@
 				<name>Reykjavík</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_SiteSchema">
 						<SimpleData name="SiteID">Reykjavík</SimpleData>
 						<SimpleData name="name">Reykjavík</SimpleData>
-						<SimpleData name="description">Spill Notification Point
-Operations Centre
-The Icelandic Coastguard P.O. 7120 127 Reykjavik 
-
-Web: www.lhg.is
-Tel: +354-545 2100 (24 hr)
-Fax: +354-545 2001
-Email: sar@lhg.is
-
-Competent National Authority
-Environmental Agency of Iceland (EAI) (Oil &amp;amp; HNS)
-Suourlandsbraut 24 108 Reykjavik 
-
-Web: www.ust.is
-Tel: +354-591 2000 
-Mobile: +354 822 4003
-Fax: +354-591 2010
-Email: ust@ust.is
-
-Equipment
-Government
-The EAI uses contractors specialised and trained in response operations and has stockpiles of equipment and materials on hand. The ICG also has equipment onboard Coast Guard vessels capable of operating in high seas. The ICG has capabilities to transport response equipment around the island and out to vessels at sea, and has aircraft and helicopters equipped for aerial surveillance.  Equipment, consisting mainly of boom and skimmers, is stockpiled at five sites around the coast, that at Reykjavik being the largest. The smaller stockpiles are maintained and operated by regional cooperatives formed by the municipalities and harbour/port authorities. In addition, several port tugs have the facility for dispersant spraying.
-
-Private
-Industry is encouraged to have its own clean-up plans and undertake clean-up in-house, but all plans must be accepted by the EAI prior to the start of operations. The EAI can reject the industry plans and activate its own contractors if necessary.
-
-US Navy facilities at Helguvik and Hvalfjördur have limited containment and recovery equipment.</SimpleData>
-						<SimpleData name="address"/>
-						<SimpleData name="linkinfo"/>
+						<SimpleData name="description"><![CDATA[
+						<h5>Spill Notification Point</h5><br>
+<h6>Operations Centre</h6><br>
+The Icelandic Coastguard P.O. 7120 127 Reykjavik<br>
+<br>
+Web: www.lhg.is<br>
+Tel: +354-545 2100 (24 hr)<br>
+Fax: +354-545 2001<br>
+Email: sar@lhg.is<br>
+<br>
+<h6>Competent National Authority</h6><br>
+Environmental Agency of Iceland (EAI) (Oil &amp;amp; HNS)<br>
+Suourlandsbraut 24 108 Reykjavik <br>
+<br>
+Web: www.ust.is<br>
+Tel: +354-591 2000 <br>
+Mobile: +354 822 4003<br>
+Fax: +354-591 2010<br>
+Email: ust@ust.is<br>
+<br>
+<h6>Equipment</h6><br>
+Government<br>
+The EAI uses contractors specialised and trained in response operations and has stockpiles of equipment and materials on hand. The ICG also has equipment onboard Coast Guard vessels capable of operating in high seas. The ICG has capabilities to transport response equipment around the island and out to vessels at sea, and has aircraft and helicopters equipped for aerial surveillance.  Equipment, consisting mainly of boom and skimmers, is stockpiled at five sites around the coast, that at Reykjavik being the largest. The smaller stockpiles are maintained and operated by regional cooperatives formed by the municipalities and harbour/port authorities. In addition, several port tugs have the facility for dispersant spraying.<br>
+<br>
+Private<br>
+Industry is encouraged to have its own clean-up plans and undertake clean-up in-house, but all plans must be accepted by the EAI prior to the start of operations. The EAI can reject the industry plans and activate its own contractors if necessary.<br>
+<br>
+US Navy facilities at Helguvik and Hvalfjördur have limited containment and recovery equipment.<br>]]>
+						</SimpleData>
+						<SimpleData name="address">The Icelandic Coastguard P.O. 7120 127 Reykjavik</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
 						<SimpleData name="linkicon"/>
 						<SimpleData name="linkimage"/>
-						<SimpleData name="linkvideo"><![CDATA[<a href=http://www.lhg.is/media/forsida/lhg-15sek-v3.mp4 target=_blank >Video</a>]]></SimpleData>
+						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
@@ -176,7 +178,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>Akureyri</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="#OSR_Schema">
+					<SchemaData schemaUrl="#OSR_SiteSchema">
 						<SimpleData name="SiteID">Akureyri</SimpleData>
 						<SimpleData name="name">Akureyri</SimpleData>
 						<SimpleData name="description"/>
@@ -184,7 +186,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="linkinfo"/>
 						<SimpleData name="linkicon"/>
 						<SimpleData name="linkimage"/>
-						<SimpleData name="linkvideo"><![CDATA[<a href=http://www.lhg.is/media/forsida/lhg-15sek-v3.mp4 target=_blank >Video</a>]]></SimpleData>
+						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
@@ -240,10 +242,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>UISKO</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">UISKO</SimpleData>
 						<SimpleData name="name">UISKO</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="operator">Coast Guard</SimpleData>
 						<SimpleData name="location">Turku</SimpleData>
 						<SimpleData name="operation">Offshore and Coastal</SimpleData>
@@ -261,9 +263,9 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_totalStorageCapacity">100m2+oil sack station</SimpleData>
 						<SimpleData name="equipment_heatedStorage">100</SimpleData>
 						<SimpleData name="Anti-pollution equipment">2 sweeping arms (30m sweeping depth)</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -276,11 +278,11 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>STELLA</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">STELLA</SimpleData>
 						<SimpleData name="name">STELLA</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
-						<SimpleData name="operator">-</SimpleData>
+						<SimpleData name="description"></SimpleData>
+						<SimpleData name="operator"></SimpleData>
 						<SimpleData name="location">Kemiönsaari</SimpleData>
 						<SimpleData name="operation">Offshore and Coastal</SimpleData>
 						<SimpleData name="vessel_class">Oil recovery vessel</SimpleData>
@@ -298,9 +300,9 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_heatedStorage">100</SimpleData>
 						<SimpleData name="ape_sweepingArms">2</SimpleData>
 						<SimpleData name="ape_sweepingWidth">25</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -313,10 +315,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>OTAVA</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">OTAVA</SimpleData>
 						<SimpleData name="name">OTAVA</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="operator">FinFerries</SimpleData>
 						<SimpleData name="location">Kotka</SimpleData>
 						<SimpleData name="operation">Offshore and Coastal</SimpleData>
@@ -335,9 +337,9 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_heatedStorage">100</SimpleData>
 						<SimpleData name="ape_sweepingArms">2</SimpleData>
 						<SimpleData name="ape_sweepingWidth">25</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -350,10 +352,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>TURVA</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">TURVA</SimpleData>
 						<SimpleData name="name">TURVA</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="operator">Coast Guard</SimpleData>
 						<SimpleData name="location"> Kirkkonummi</SimpleData>
 						<SimpleData name="operation">Offshore and Coastal</SimpleData>
@@ -372,9 +374,9 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_heatedStorage">1200</SimpleData>
 						<SimpleData name="ape_sweepingArms">2</SimpleData>
 						<SimpleData name="ape_sweepingWidth">45</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -387,10 +389,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>TURSAS</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">TURSAS</SimpleData>
 						<SimpleData name="name">TURSAS</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="operator">Coast Guard</SimpleData>
 						<SimpleData name="location">Turku</SimpleData>
 						<SimpleData name="operation">Offshore and Coastal</SimpleData>
@@ -401,7 +403,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="vessel_GT">1300</SimpleData>
 						<SimpleData name="vessel_averageSpeed">11</SimpleData>
 						<SimpleData name="vessel_build year">1988</SimpleData>
-						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_IMO"></SimpleData>
 						<SimpleData name="vessel_MMSI">230303000</SimpleData>
 						<SimpleData name="equipment_crane">Yes</SimpleData>
 						<SimpleData name="equipment_craneCapability">26</SimpleData>
@@ -409,9 +411,9 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_heatedStorage">100</SimpleData>
 						<SimpleData name="ape_sweepingArms">2</SimpleData>
 						<SimpleData name="ape_sweepingWidth">30</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -424,10 +426,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>SVÄRTAN</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">SVÄRTAN</SimpleData>
 						<SimpleData name="name">SVÄRTAN</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="operator">Government of Åland</SimpleData>
 						<SimpleData name="location">Maarianhamina</SimpleData>
 						<SimpleData name="operation">Coastal</SimpleData>
@@ -438,16 +440,16 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="vessel_GT">111</SimpleData>
 						<SimpleData name="vessel_averageSpeed">8</SimpleData>
 						<SimpleData name="vessel_build year">1994</SimpleData>
-						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_IMO"></SimpleData>
 						<SimpleData name="equipment_crane">Yes</SimpleData>
 						<SimpleData name="equipment_craneCapability">5</SimpleData>
 						<SimpleData name="equipment_totalStorageCapacity">52</SimpleData>
 						<SimpleData name="equipment_heatedStorage">52</SimpleData>
 						<SimpleData name="ape_sweepingArms">2</SimpleData>
 						<SimpleData name="ape_sweepingWidth">21</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -460,10 +462,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>SEILI</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">SEILI</SimpleData>
 						<SimpleData name="name">SEILI</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="operator">Meritaito Oy</SimpleData>
 						<SimpleData name="location">Helsinki</SimpleData>
 						<SimpleData name="operation">Offshore and Coastal</SimpleData>
@@ -482,9 +484,9 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_heatedStorage">196</SimpleData>
 						<SimpleData name="ape_sweepingArms">2</SimpleData>
 						<SimpleData name="ape_sweepingWidth">30</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -497,10 +499,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>OILI IV</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">OILI IV</SimpleData>
 						<SimpleData name="name">OILI IV</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="operator">Meritaito Oy</SimpleData>
 						<SimpleData name="location">Vaasa</SimpleData>
 						<SimpleData name="operation">Coastal</SimpleData>
@@ -511,7 +513,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="vessel_GT">71</SimpleData>
 						<SimpleData name="vessel_averageSpeed">7</SimpleData>
 						<SimpleData name="vessel_build year">1988</SimpleData>
-						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_IMO"></SimpleData>
 						<SimpleData name="vessel_MMSI">230111650</SimpleData>
 						<SimpleData name="equipment_crane">Yes</SimpleData>
 						<SimpleData name="equipment_craneCapability">8.2</SimpleData>
@@ -519,9 +521,9 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_heatedStorage">30</SimpleData>
 						<SimpleData name="ape_sweepingArms">2</SimpleData>
 						<SimpleData name="ape_sweepingWidth">21</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -534,10 +536,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>OILI III</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">OILI III</SimpleData>
 						<SimpleData name="name">OILI III</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="operator">Meritaito Oy</SimpleData>
 						<SimpleData name="location">Långnäs</SimpleData>
 						<SimpleData name="operation">Coastal</SimpleData>
@@ -556,9 +558,9 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_heatedStorage">80</SimpleData>
 						<SimpleData name="ape_sweepingArms">2</SimpleData>
 						<SimpleData name="ape_sweepingWidth">21</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -571,10 +573,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>OILI II</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">OILI II</SimpleData>
 						<SimpleData name="name">OILI II</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="operator">Meritaito Oy</SimpleData>
 						<SimpleData name="location">Turku</SimpleData>
 						<SimpleData name="operation">Coastal</SimpleData>
@@ -593,9 +595,9 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_heatedStorage">80</SimpleData>
 						<SimpleData name="ape_sweepingArms">2</SimpleData>
 						<SimpleData name="ape_sweepingWidth">21</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -608,10 +610,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>OILI I</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">OILI I</SimpleData>
 						<SimpleData name="name">OILI I</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="operator">Meritaito Oy</SimpleData>
 						<SimpleData name="location">Helsinki</SimpleData>
 						<SimpleData name="operation">Coastal</SimpleData>
@@ -630,9 +632,9 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_heatedStorage">80</SimpleData>
 						<SimpleData name="ape_sweepingArms">2</SimpleData>
 						<SimpleData name="ape_sweepingWidth">21</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -645,10 +647,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>MERIKARHU</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">MERIKARHU</SimpleData>
 						<SimpleData name="name">MERIKARHU</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="operator">Coast Guard</SimpleData>
 						<SimpleData name="location">Kirkkonummi</SimpleData>
 						<SimpleData name="operation">Offshore and Coastal</SimpleData>
@@ -660,15 +662,15 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="vessel_averageSpeed">11</SimpleData>
 						<SimpleData name="vessel_build year">1996</SimpleData>
 						<SimpleData name="vessel_IMO">6131849</SimpleData>
-						<SimpleData name="vessel_MMSI">-</SimpleData>
+						<SimpleData name="vessel_MMSI"></SimpleData>
 						<SimpleData name="equipment_crane">Yes</SimpleData>
 						<SimpleData name="equipment_craneCapability">5</SimpleData>
 						<SimpleData name="equipment_totalStorageCapacity">40+oil sack station</SimpleData>
 						<SimpleData name="equipment_heatedStorage">40</SimpleData>
 						<SimpleData name="ape_lamorBoom">3X 200m long and 1.5m high</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -681,10 +683,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>LOUHI</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">LOUHI</SimpleData>
 						<SimpleData name="name">LOUHI</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="operator">Finnish Navy</SimpleData>
 						<SimpleData name="location">Kirkkonummi</SimpleData>
 						<SimpleData name="operation">Offshore and Coastal</SimpleData>
@@ -702,9 +704,9 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_totalStorageCapacity">1250</SimpleData>
 						<SimpleData name="equipment_heatedStorage">1250</SimpleData>
 						<SimpleData name="ape_sweepingArms">2 with sweeping width of 45 m</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -717,10 +719,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>LINJA</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">LINJA</SimpleData>
 						<SimpleData name="name">LINJA</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="operator">Meritaito Oy</SimpleData>
 						<SimpleData name="location">Turku</SimpleData>
 						<SimpleData name="operation">Offshore and Coastal</SimpleData>
@@ -738,9 +740,9 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_totalStorageCapacity">77.4</SimpleData>
 						<SimpleData name="equipment_heatedStorage">77.4</SimpleData>
 						<SimpleData name="ape_sweepingArms">2 with a sweeping width of 23 m</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -753,10 +755,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>LETTO</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">LETTO</SimpleData>
 						<SimpleData name="name">LETTO</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="operator">Meritaito Oy</SimpleData>
 						<SimpleData name="location">Oulu</SimpleData>
 						<SimpleData name="operation">Offshore and Coastal</SimpleData>
@@ -776,9 +778,9 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="ape_sweepingArms">2</SimpleData>
 						<SimpleData name="ape_sweepingWidth">30</SimpleData>
 						<SimpleData name="ape_lamorBoom">3X 200m 1.5m high</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -791,10 +793,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>KUMMELI</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">KUMMELI</SimpleData>
 						<SimpleData name="name">KUMMELI</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="operator">Meritaito Oy</SimpleData>
 						<SimpleData name="location">Savonlinna</SimpleData>
 						<SimpleData name="operation">Coastal</SimpleData>
@@ -812,9 +814,9 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_totalStorageCapacity">70</SimpleData>
 						<SimpleData name="equipment_heatedStorage">70</SimpleData>
 						<SimpleData name="ape_sweepingArms">2 with 25m sweeping width</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -827,10 +829,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>HYLJE</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">HYLJE</SimpleData>
 						<SimpleData name="name">HYLJE</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="operator">Finnish Navy</SimpleData>
 						<SimpleData name="location">Kirkkonummi</SimpleData>
 						<SimpleData name="operation">Offshore and Coastal</SimpleData>
@@ -849,9 +851,9 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_heatedStorage">900</SimpleData>
 						<SimpleData name="ape_sweepingArms">2 with sweeping width 35 m</SimpleData>
 						<SimpleData name="ape_roBoom">4 X 200m 2 m high</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -864,10 +866,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>HALLI</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">HALLI</SimpleData>
 						<SimpleData name="name">HALLI</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="operator">Finnish Navy</SimpleData>
 						<SimpleData name="location">Turku</SimpleData>
 						<SimpleData name="operation">Offshore and Coastal</SimpleData>
@@ -887,9 +889,9 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="ape_sweepingArms">2 with width of 40 m</SimpleData>
 						<SimpleData name="ape_roBoom">3 X 200m and 2m high</SimpleData>
 						<SimpleData name="ape_roBoom">3 X 200 and 1.5 high</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -902,10 +904,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>IB POLARIS</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">IB POLARIS</SimpleData>
 						<SimpleData name="name">IB POLARIS</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="operator">Arctia Management Services Oy</SimpleData>
 						<SimpleData name="location">Helsinki</SimpleData>
 						<SimpleData name="operation">Ice breaker</SimpleData>
@@ -919,12 +921,12 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="vessel_IMO">9734161</SimpleData>
 						<SimpleData name="vessel_MMSI">230661000</SimpleData>
 						<SimpleData name="equipment_crane">No</SimpleData>
-						<SimpleData name="equipment_craneCapability">-</SimpleData>
+						<SimpleData name="equipment_craneCapability"></SimpleData>
 						<SimpleData name="equipment_totalStorageCapacity">1015</SimpleData>
 						<SimpleData name="equipment_heatedStorage">1015</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -937,10 +939,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>IB OTSO</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">IB OTSO</SimpleData>
 						<SimpleData name="name">IB OTSO</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="operator">Arctia Management Services Oy</SimpleData>
 						<SimpleData name="location">Helsinki</SimpleData>
 						<SimpleData name="operation">Ice breaker</SimpleData>
@@ -954,12 +956,12 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="vessel_IMO">8405880</SimpleData>
 						<SimpleData name="vessel_MMSI">230252000</SimpleData>
 						<SimpleData name="equipment_crane">Yes</SimpleData>
-						<SimpleData name="equipment_craneCapability">-</SimpleData>
-						<SimpleData name="equipment_totalStorageCapacity">-</SimpleData>
-						<SimpleData name="equipment_heatedStorage">-</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="equipment_craneCapability"></SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity"></SimpleData>
+						<SimpleData name="equipment_heatedStorage"></SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -972,10 +974,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>AHTO</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">AHTO</SimpleData>
 						<SimpleData name="name">AHTO</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="operator">Arctia Management Services Oy</SimpleData>
 						<SimpleData name="location">Kemi</SimpleData>
 						<SimpleData name="operation">Harbour Ice breaker</SimpleData>
@@ -989,12 +991,12 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="vessel_IMO">9682435</SimpleData>
 						<SimpleData name="vessel_MMSI">230024000</SimpleData>
 						<SimpleData name="equipment_crane">Yes</SimpleData>
-						<SimpleData name="equipment_craneCapability">-</SimpleData>
-						<SimpleData name="equipment_totalStorageCapacity">-</SimpleData>
-						<SimpleData name="equipment_heatedStorage">-</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="equipment_craneCapability"></SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity"></SimpleData>
+						<SimpleData name="equipment_heatedStorage"></SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage">/data/osr/jpg/ahto.jpg</SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -1007,15 +1009,15 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>Oulu2</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_SiteSchema">
 						<SimpleData name="SiteID">Oulu</SimpleData>
 						<SimpleData name="name">Oulu</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
-						<SimpleData name="address">Local address and contact information</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or a web page for further detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
-						<SimpleData name="linkvideo"><![CDATA[<a href=http://www.lhg.is/media/forsida/lhg-15sek-v3.mp4 target=_blank >Video</a>]]></SimpleData>
+						<SimpleData name="description"></SimpleData>
+						<SimpleData name="address"></SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
+						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
@@ -1027,15 +1029,15 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>Turku</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">Turku</SimpleData>
 						<SimpleData name="name">Turku</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
-						<SimpleData name="address">Local address and contact information</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or a web page for further detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
-						<SimpleData name="linkvideo"><![CDATA[<a href=http://www.lhg.is/media/forsida/lhg-15sek-v3.mp4 target=_blank >Video</a>]]></SimpleData>
+						<SimpleData name="description"></SimpleData>
+						<SimpleData name="address"></SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
+						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
@@ -1051,10 +1053,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>KBV201</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">KBV201</SimpleData>
 						<SimpleData name="name">KBV201</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="location">Härnösand</SimpleData>
 						<SimpleData name="operation">Coastal</SimpleData>
 						<SimpleData name="vessel_class">Patrol or Navy vessel</SimpleData>
@@ -1064,7 +1066,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="vessel_GT">476</SimpleData>
 						<SimpleData name="vessel_averageSpeed">21</SimpleData>
 						<SimpleData name="vessel_Ageofvessel">14</SimpleData>
-						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_IMO"></SimpleData>
 						<SimpleData name="equipment_crane">Yes</SimpleData>
 						<SimpleData name="equipment_craneCapability">0.7/16.8 range</SimpleData>
 						<SimpleData name="equipment_totalStorageCapacity">104 + 110 m3 oil bags</SimpleData>
@@ -1074,9 +1076,9 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="ape_freefloatingskimmers">2</SimpleData>
 						<SimpleData name="ape_responsedivers"/>
 						<SimpleData name="ape_boom">300</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"/>
 					</SchemaData>
 				</ExtendedData>
@@ -1089,10 +1091,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>KBV202</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">KBV202</SimpleData>
 						<SimpleData name="name">KBV202</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="location">Gavle</SimpleData>
 						<SimpleData name="operation">Coastal</SimpleData>
 						<SimpleData name="vessel_class">Patrol or Navy vessel</SimpleData>
@@ -1102,7 +1104,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="vessel_GT">476</SimpleData>
 						<SimpleData name="vessel_averageSpeed">21</SimpleData>
 						<SimpleData name="vessel_Ageofvessel">14</SimpleData>
-						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_IMO"></SimpleData>
 						<SimpleData name="equipment_crane">Yes</SimpleData>
 						<SimpleData name="equipment_craneCapability">0.7/16.8 range</SimpleData>
 						<SimpleData name="equipment_totalStorageCapacity">104+110m3 oil bags</SimpleData>
@@ -1112,9 +1114,9 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="ape_freefloatingskimmers">2</SimpleData>
 						<SimpleData name="ape_responsedivers"/>
 						<SimpleData name="ape_boom">300</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"/>
 					</SchemaData>
 				</ExtendedData>
@@ -1127,10 +1129,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>KBV050</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">KBV050</SimpleData>
 						<SimpleData name="name">KBV050</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="location">Sodertalje</SimpleData>
 						<SimpleData name="operation">Coastal</SimpleData>
 						<SimpleData name="vessel_class">Anti-pollution vessel</SimpleData>
@@ -1140,7 +1142,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="vessel_GT">375</SimpleData>
 						<SimpleData name="vessel_averageSpeed">11</SimpleData>
 						<SimpleData name="vessel_Ageofvessel">32</SimpleData>
-						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_IMO"></SimpleData>
 						<SimpleData name="equipment_crane">Yes</SimpleData>
 						<SimpleData name="equipment_craneCapability">2/8.4range</SimpleData>
 						<SimpleData name="equipment_totalStorageCapacity"> 190+110m3 oil bags </SimpleData>
@@ -1149,9 +1151,9 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="ape_sweepingArms"/>
 						<SimpleData name="ape_freefloatingskimmers">2</SimpleData>
 						<SimpleData name="ape_boom">300</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"/>
 					</SchemaData>
 				</ExtendedData>
@@ -1164,10 +1166,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>KBV033</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">KBV033</SimpleData>
 						<SimpleData name="name">KBV033</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="location">Oskarshamn</SimpleData>
 						<SimpleData name="operation">Offshore</SimpleData>
 						<SimpleData name="vessel_class">Anti-pollution vessel</SimpleData>
@@ -1177,7 +1179,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="vessel_GT">801</SimpleData>
 						<SimpleData name="vessel_averageSpeed">12</SimpleData>
 						<SimpleData name="vessel_Ageofvessel">5</SimpleData>
-						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_IMO"></SimpleData>
 						<SimpleData name="equipment_crane">Yes</SimpleData>
 						<SimpleData name="equipment_craneCapability">1.9/19.3</SimpleData>
 						<SimpleData name="equipment_craneCapability">2.75/10</SimpleData>
@@ -1188,9 +1190,9 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="ape_freefloatingskimmers">2</SimpleData>
 						<SimpleData name="ape_responsedivers"/>
 						<SimpleData name="ape_boom">300</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"/>
 					</SchemaData>
 				</ExtendedData>
@@ -1203,10 +1205,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>KBV051</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">KBV051</SimpleData>
 						<SimpleData name="name">KBV051</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="location">Vänersborg</SimpleData>
 						<SimpleData name="operation">Coastal</SimpleData>
 						<SimpleData name="vessel_class">Anti-pollution vessel</SimpleData>
@@ -1216,7 +1218,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="vessel_GT">375</SimpleData>
 						<SimpleData name="vessel_averageSpeed">11</SimpleData>
 						<SimpleData name="vessel_Ageofvessel">32</SimpleData>
-						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_IMO"></SimpleData>
 						<SimpleData name="equipment_crane">Yes</SimpleData>
 						<SimpleData name="equipment_craneCapability">2/8.4 range</SimpleData>
 						<SimpleData name="equipment_totalStorageCapacity">190 + 110 m3 oil bags</SimpleData>
@@ -1225,9 +1227,9 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="ape_sweepingArms"/>
 						<SimpleData name="ape_freefloatingskimmers">2</SimpleData>
 						<SimpleData name="ape_boom">300</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"/>
 					</SchemaData>
 				</ExtendedData>
@@ -1240,10 +1242,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>KBV032</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">KBV032</SimpleData>
 						<SimpleData name="name">KBV032</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="location">Lysekil</SimpleData>
 						<SimpleData name="operation">Offshore</SimpleData>
 						<SimpleData name="vessel_class">Anti-pollution vessel</SimpleData>
@@ -1253,7 +1255,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="vessel_GT">801</SimpleData>
 						<SimpleData name="vessel_averageSpeed">12</SimpleData>
 						<SimpleData name="vessel_Ageofvessel">5</SimpleData>
-						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_IMO"></SimpleData>
 						<SimpleData name="equipment_crane">Yes</SimpleData>
 						<SimpleData name="equipment_craneCapability">1.9/19.3</SimpleData>
 						<SimpleData name="equipment_craneCapability">2.75/10</SimpleData>
@@ -1264,9 +1266,9 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="ape_freefloatingskimmers">2</SimpleData>
 						<SimpleData name="ape_responsedivers"/>
 						<SimpleData name="ape_boom">300</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"/>
 					</SchemaData>
 				</ExtendedData>
@@ -1279,10 +1281,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>KBV010</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">KBV010</SimpleData>
 						<SimpleData name="name">KBV010</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="location">Goteborg</SimpleData>
 						<SimpleData name="operation">Coastal</SimpleData>
 						<SimpleData name="vessel_class">Anti-pollution vessel</SimpleData>
@@ -1292,7 +1294,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="vessel_GT">430</SimpleData>
 						<SimpleData name="vessel_averageSpeed">12</SimpleData>
 						<SimpleData name="vessel_Ageofvessel">30</SimpleData>
-						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_IMO"></SimpleData>
 						<SimpleData name="equipment_crane">Yes</SimpleData>
 						<SimpleData name="equipment_craneCapability">75t/m</SimpleData>
 						<SimpleData name="equipment_craneCapability">20t/m</SimpleData>
@@ -1302,9 +1304,9 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="ape_sweepingArms"/>
 						<SimpleData name="ape_freefloatingskimmers">2</SimpleData>
 						<SimpleData name="ape_boom">300</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"/>
 					</SchemaData>
 				</ExtendedData>
@@ -1317,10 +1319,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<name>KBV181</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">KBV181</SimpleData>
 						<SimpleData name="name">KBV181</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="location">Umea</SimpleData>
 						<SimpleData name="operation">Offshore</SimpleData>
 						<SimpleData name="vessel_class">Patrol or Navy vessel</SimpleData>
@@ -1330,34 +1332,34 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="vessel_GT">991</SimpleData>
 						<SimpleData name="vessel_averageSpeed">15</SimpleData>
 						<SimpleData name="vessel_Ageofvessel">30</SimpleData>
-						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_IMO"></SimpleData>
 						<SimpleData name="equipment_crane">Yes</SimpleData>
 						<SimpleData name="equipment_craneCapability">3.1/13.2 range</SimpleData>
 						<SimpleData name="equipment_totalStorageCapacity">50 oil bags</SimpleData>
-						<SimpleData name="equipment_heatedStorage">-</SimpleData>
+						<SimpleData name="equipment_heatedStorage"></SimpleData>
 						<SimpleData name="ape_one side brush skimmer advancing system with
 sweeping arm"/>
 						<SimpleData name="ape_freefloatingskimmers">2</SimpleData>
 						<SimpleData name="ape_boom">300</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
 						<SimpleData name="linkimage">/data/OSR/JPG/KBV%20181.jpg</SimpleData>
 						<SimpleData name="linkvideo"/>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
 					<gx:drawOrder>1</gx:drawOrder>
-					<coordinates>22.21799870852966, 60.44138678164045, 0</coordinates>
+					<coordinates>22.31799870852966, 60.44138678164045, 0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
 				<name>KBV034</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">KBV034</SimpleData>
 						<SimpleData name="name">KBV034</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="location">Helsingborg</SimpleData>
 						<SimpleData name="operation">Offshore</SimpleData>
 						<SimpleData name="vessel_class">Anti-pollution vessel</SimpleData>
@@ -1367,7 +1369,7 @@ sweeping arm"/>
 						<SimpleData name="vessel_GT">801</SimpleData>
 						<SimpleData name="vessel_averageSpeed">12</SimpleData>
 						<SimpleData name="vessel_Ageofvessel">4</SimpleData>
-						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_IMO"></SimpleData>
 						<SimpleData name="equipment_crane">Yes</SimpleData>
 						<SimpleData name="equipment_craneCapability">1.9/19.3</SimpleData>
 						<SimpleData name="equipment_craneCapability">2.75/10</SimpleData>
@@ -1378,9 +1380,9 @@ sweeping arm"/>
 						<SimpleData name="ape_freefloatingskimmers">2</SimpleData>
 						<SimpleData name="ape_responsedivers"/>
 						<SimpleData name="ape_boom">300</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"/>
 					</SchemaData>
 				</ExtendedData>
@@ -1393,10 +1395,10 @@ sweeping arm"/>
 				<name>KBV048</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">KBV048</SimpleData>
 						<SimpleData name="name">KBV048</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="location">Simrishamn</SimpleData>
 						<SimpleData name="operation">Coastal</SimpleData>
 						<SimpleData name="vessel_class">Anti-pollution vessel</SimpleData>
@@ -1406,7 +1408,7 @@ sweeping arm"/>
 						<SimpleData name="vessel_GT">340</SimpleData>
 						<SimpleData name="vessel_averageSpeed">10</SimpleData>
 						<SimpleData name="vessel_Ageofvessel">33</SimpleData>
-						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_IMO"></SimpleData>
 						<SimpleData name="equipment_crane">Yes</SimpleData>
 						<SimpleData name="equipment_craneCapability">2/8.4 range</SimpleData>
 						<SimpleData name="equipment_totalStorageCapacity">150 + 110 m3 oil bags</SimpleData>
@@ -1415,9 +1417,9 @@ sweeping arm"/>
 						<SimpleData name="ape_sweepingArms"/>
 						<SimpleData name="ape_freefloatingskimmers">2</SimpleData>
 						<SimpleData name="ape_boom">300</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"/>
 					</SchemaData>
 				</ExtendedData>
@@ -1430,10 +1432,10 @@ sweeping arm"/>
 				<name>KBV001POSIEDON</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">KBV001POSIEDON</SimpleData>
 						<SimpleData name="name">KBV001POSIEDON</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="location">Gothenburg</SimpleData>
 						<SimpleData name="operation">Offshore</SimpleData>
 						<SimpleData name="vessel_class">Anti-pollution vessel</SimpleData>
@@ -1443,7 +1445,7 @@ sweeping arm"/>
 						<SimpleData name="vessel_GT">3760</SimpleData>
 						<SimpleData name="vessel_averageSpeed">16</SimpleData>
 						<SimpleData name="vessel_Ageofvessel">7</SimpleData>
-						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_IMO"></SimpleData>
 						<SimpleData name="equipment_crane">Yes</SimpleData>
 						<SimpleData name="equipment_numberofCrane">3</SimpleData>
 						<SimpleData name="equipment_craneCapability">24/7 Remote</SimpleData>
@@ -1466,9 +1468,9 @@ sweeping arm"/>
 						<SimpleData name="ape_Cargocontainer">20</SimpleData>
 						<SimpleData name="ape_Cargocontainer">20</SimpleData>
 						<SimpleData name="ape_Cargocontainer">20</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"/>
 					</SchemaData>
 				</ExtendedData>
@@ -1481,10 +1483,10 @@ sweeping arm"/>
 				<name>KBV002TRITON</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">KBV002TRITON</SimpleData>
 						<SimpleData name="name">KBV002TRITON</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="location">Slite</SimpleData>
 						<SimpleData name="operation">Offshore</SimpleData>
 						<SimpleData name="vessel_class">Anti-pollution vessel</SimpleData>
@@ -1494,7 +1496,7 @@ sweeping arm"/>
 						<SimpleData name="vessel_GT">3760</SimpleData>
 						<SimpleData name="vessel_averageSpeed">16</SimpleData>
 						<SimpleData name="vessel_Ageofvessel">7</SimpleData>
-						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_IMO"></SimpleData>
 						<SimpleData name="equipment_crane">Yes</SimpleData>
 						<SimpleData name="equipment_numberofCrane">3</SimpleData>
 						<SimpleData name="equipment_craneCapability">24/7 Remote</SimpleData>
@@ -1517,9 +1519,9 @@ sweeping arm"/>
 						<SimpleData name="ape_Cargocontainer">20</SimpleData>
 						<SimpleData name="ape_Cargocontainer">20</SimpleData>
 						<SimpleData name="ape_Cargocontainer">20</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"/>
 					</SchemaData>
 				</ExtendedData>
@@ -1532,10 +1534,10 @@ sweeping arm"/>
 				<name>KBV003AMFITRITE</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">KBV003AMFITRITE</SimpleData>
 						<SimpleData name="name">KBV003AMFITRITE</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="location">Karlskrona</SimpleData>
 						<SimpleData name="operation">Offshore</SimpleData>
 						<SimpleData name="vessel_class">Anti-pollution vessel</SimpleData>
@@ -1545,7 +1547,7 @@ sweeping arm"/>
 						<SimpleData name="vessel_GT">3760</SimpleData>
 						<SimpleData name="vessel_averageSpeed">16</SimpleData>
 						<SimpleData name="vessel_Ageofvessel">6</SimpleData>
-						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_IMO"></SimpleData>
 						<SimpleData name="equipment_crane">X</SimpleData>
 						<SimpleData name="equipment_numberofCrane">3</SimpleData>
 						<SimpleData name="equipment_craneCapability">24/7 Remote</SimpleData>
@@ -1570,9 +1572,9 @@ sweeping arm"/>
 						<SimpleData name="ape_Cargocontainer">20</SimpleData>
 						<SimpleData name="ape_RecoverytanksinSS">160</SimpleData>
 						<SimpleData name="ape_Recoverycapacityinhotarea"/>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"/>
 					</SchemaData>
 				</ExtendedData>
@@ -1585,10 +1587,10 @@ sweeping arm"/>
 				<name>KBV031</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">KBV031</SimpleData>
 						<SimpleData name="name">KBV031</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="location">Djurö</SimpleData>
 						<SimpleData name="operation">Offshore</SimpleData>
 						<SimpleData name="vessel_class">Anti-pollution vessel</SimpleData>
@@ -1598,7 +1600,7 @@ sweeping arm"/>
 						<SimpleData name="vessel_GT">801</SimpleData>
 						<SimpleData name="vessel_averageSpeed">12</SimpleData>
 						<SimpleData name="vessel_Ageofvessel">5</SimpleData>
-						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_IMO"></SimpleData>
 						<SimpleData name="equipment_crane">Yes</SimpleData>
 						<SimpleData name="equipment_craneCapability">1.9/19.3</SimpleData>
 						<SimpleData name="equipment_craneCapability">2.75/10</SimpleData>
@@ -1609,9 +1611,9 @@ sweeping arm"/>
 						<SimpleData name="ape_freefloatingskimmers">2</SimpleData>
 						<SimpleData name="ape_responsedivers"/>
 						<SimpleData name="ape_boom">300</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"/>
 					</SchemaData>
 				</ExtendedData>
@@ -1624,10 +1626,10 @@ sweeping arm"/>
 				<name>KBV047</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">KBV047</SimpleData>
 						<SimpleData name="name">KBV047</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="location">Slite</SimpleData>
 						<SimpleData name="operation">Coastal</SimpleData>
 						<SimpleData name="vessel_class">Anti-pollution vessel</SimpleData>
@@ -1637,7 +1639,7 @@ sweeping arm"/>
 						<SimpleData name="vessel_GT">340</SimpleData>
 						<SimpleData name="vessel_averageSpeed">10</SimpleData>
 						<SimpleData name="vessel_Ageofvessel">33</SimpleData>
-						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_IMO"></SimpleData>
 						<SimpleData name="equipment_crane">Yes</SimpleData>
 						<SimpleData name="equipment_craneCapability">2/8.4 range</SimpleData>
 						<SimpleData name="equipment_totalStorageCapacity">150 + 110 m3 oil bags</SimpleData>
@@ -1646,9 +1648,9 @@ sweeping arm"/>
 						<SimpleData name="ape_sweepingArms"/>
 						<SimpleData name="ape_freefloatingskimmers">2</SimpleData>
 						<SimpleData name="ape_boom">300</SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"/>
 					</SchemaData>
 				</ExtendedData>
@@ -1665,30 +1667,30 @@ sweeping arm"/>
 				<name>OSCAR</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">OSCAR</SimpleData>
 						<SimpleData name="name">OSCAR</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="operator">Landhelgisgaesla- Coast Gaurd</SimpleData>
 						<SimpleData name="location">Foynes on the river Shannon West of Ireland</SimpleData>
 						<SimpleData name="operation">Offshore</SimpleData>
 						<SimpleData name="vessel_class">Oil recovery vessel</SimpleData>
-						<SimpleData name="vessel_loa">-</SimpleData>
-						<SimpleData name="vessel_breadth">-</SimpleData>
-						<SimpleData name="vessel_draught">-</SimpleData>
-						<SimpleData name="vessel_GT">-</SimpleData>
-						<SimpleData name="vessel_averageSpeed">-</SimpleData>
-						<SimpleData name="vessel_build year">-</SimpleData>
-						<SimpleData name="vessel_IMO">-</SimpleData>
-						<SimpleData name="equipment_crane">-</SimpleData>
-						<SimpleData name="equipment_craneCapability">-</SimpleData>
-						<SimpleData name="equipment_totalStorageCapacity">-</SimpleData>
-						<SimpleData name="equipment_heatedStorage">-</SimpleData>
+						<SimpleData name="vessel_loa"></SimpleData>
+						<SimpleData name="vessel_breadth"></SimpleData>
+						<SimpleData name="vessel_draught"></SimpleData>
+						<SimpleData name="vessel_GT"></SimpleData>
+						<SimpleData name="vessel_averageSpeed"></SimpleData>
+						<SimpleData name="vessel_build year"></SimpleData>
+						<SimpleData name="vessel_IMO"></SimpleData>
+						<SimpleData name="equipment_crane"></SimpleData>
+						<SimpleData name="equipment_craneCapability"></SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity"></SimpleData>
+						<SimpleData name="equipment_heatedStorage"></SimpleData>
 						<SimpleData name="ape_Norlense Offshore oil boom"></SimpleData>
 						<SimpleData name="ape_brush skimmer free floating"></SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -1704,7 +1706,7 @@ sweeping arm"/>
 				<name>Horten</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="#sql_statement">
+					<SchemaData schemaUrl="#OSR_SiteSchema">
 						<SimpleData name="SiteID">Horten</SimpleData>
 						<SimpleData name="name">Horten</SimpleData>
 						<SimpleData name="linkimage">Sørøst</SimpleData>
@@ -1722,7 +1724,7 @@ sweeping arm"/>
 			<Placemark>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="#sql_statement">
+					<SchemaData schemaUrl="#OSR_SiteSchema">
 						<SimpleData name="SiteID">Bergen</SimpleData>
 						<SimpleData name="name">Bergen</SimpleData>
 						<SimpleData name="linkimage">Vest</SimpleData>
@@ -1740,7 +1742,7 @@ sweeping arm"/>
 			<Placemark>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="#sql_statement">
+					<SchemaData schemaUrl="#OSR_SiteSchema">
 						<SimpleData name="SiteID">Kristiansand</SimpleData>
 						<SimpleData name="name">Kristiansand</SimpleData>
 						<SimpleData name="linkimage">Sørøst</SimpleData>
@@ -1758,7 +1760,7 @@ sweeping arm"/>
 			<Placemark>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="#sql_statement">
+					<SchemaData schemaUrl="#OSR_SiteSchema">
 						<SimpleData name="SiteID">Solund</SimpleData>
 						<SimpleData name="name">Solund</SimpleData>
 						<SimpleData name="linkimage">Vest</SimpleData>
@@ -1776,7 +1778,7 @@ sweeping arm"/>
 			<Placemark>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="#sql_statement">
+					<SchemaData schemaUrl="#OSR_SiteSchema">
 						<SimpleData name="SiteID">Tromsø</SimpleData>
 						<SimpleData name="name">Tromsø</SimpleData>
 						<SimpleData name="linkimage">Troms og Finnmark</SimpleData>
@@ -1794,7 +1796,7 @@ sweeping arm"/>
 			<Placemark>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="#sql_statement">
+					<SchemaData schemaUrl="#OSR_SiteSchema">
 						<SimpleData name="SiteID">Bodø</SimpleData>
 						<SimpleData name="name">Bodø</SimpleData>
 						<SimpleData name="linkimage">Nordland</SimpleData>
@@ -1812,7 +1814,7 @@ sweeping arm"/>
 			<Placemark>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="#sql_statement">
+					<SchemaData schemaUrl="#OSR_SiteSchema">
 						<SimpleData name="SiteID">Vadsø</SimpleData>
 						<SimpleData name="name">Vadsø</SimpleData>
 						<SimpleData name="linkimage">Troms og Finnmark</SimpleData>
@@ -1830,7 +1832,7 @@ sweeping arm"/>
 			<Placemark>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="#sql_statement">
+					<SchemaData schemaUrl="#OSR_SiteSchema">
 						<SimpleData name="SiteID">Stavanger</SimpleData>
 						<SimpleData name="name">Stavanger</SimpleData>
 						<SimpleData name="linkimage">Vest</SimpleData>
@@ -1848,7 +1850,7 @@ sweeping arm"/>
 			<Placemark>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="#sql_statement">
+					<SchemaData schemaUrl="#OSR_SiteSchema">
 						<SimpleData name="SiteID">Florø</SimpleData>
 						<SimpleData name="name">Florø</SimpleData>
 						<SimpleData name="linkimage">Vest</SimpleData>
@@ -1866,7 +1868,7 @@ sweeping arm"/>
 			<Placemark>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="#sql_statement">
+					<SchemaData schemaUrl="#OSR_SiteSchema">
 						<SimpleData name="SiteID">Hammerfest</SimpleData>
 						<SimpleData name="name">Hammerfest</SimpleData>
 						<SimpleData name="linkimage">Troms og Finnmark</SimpleData>
@@ -1884,7 +1886,7 @@ sweeping arm"/>
 			<Placemark>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="#sql_statement">
+					<SchemaData schemaUrl="#OSR_SiteSchema">
 						<SimpleData name="SiteID">Lødingen</SimpleData>
 						<SimpleData name="name">Lødingen</SimpleData>
 						<SimpleData name="linkimage">Nordland</SimpleData>
@@ -1902,7 +1904,7 @@ sweeping arm"/>
 			<Placemark>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="#sql_statement">
+					<SchemaData schemaUrl="#OSR_SiteSchema">
 						<SimpleData name="SiteID">Utstyr i aksjon</SimpleData>
 						<SimpleData name="name">Utstyr i aksjon</SimpleData>
 						<SimpleData name="linkimage">Vest</SimpleData>
@@ -1918,7 +1920,7 @@ sweeping arm"/>
 			<Placemark>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="#sql_statement">
+					<SchemaData schemaUrl="#OSR_SiteSchema">
 						<SimpleData name="SiteID">Ørland</SimpleData>
 						<SimpleData name="name">Ørland</SimpleData>
 						<SimpleData name="linkimage">Midt</SimpleData>
@@ -1936,7 +1938,7 @@ sweeping arm"/>
 			<Placemark>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="#sql_statement">
+					<SchemaData schemaUrl="#OSR_SiteSchema">
 						<SimpleData name="SiteID">Longyearbyen</SimpleData>
 						<SimpleData name="name">Longyearbyen</SimpleData>
 						<SimpleData name="linkimage">Troms og Finnmark</SimpleData>
@@ -1954,7 +1956,7 @@ sweeping arm"/>
 			<Placemark>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="#sql_statement">
+					<SchemaData schemaUrl="#OSR_SiteSchema">
 						<SimpleData name="SiteID">Ålesund</SimpleData>
 						<SimpleData name="name">Ålesund</SimpleData>
 						<SimpleData name="linkimage">Midt</SimpleData>
@@ -1972,7 +1974,7 @@ sweeping arm"/>
 			<Placemark>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="#sql_statement">
+					<SchemaData schemaUrl="#OSR_SiteSchema">
 						<SimpleData name="SiteID">Sandnessjøen</SimpleData>
 						<SimpleData name="name">Sandnessjøen</SimpleData>
 						<SimpleData name="linkimage">Nordland</SimpleData>
@@ -1990,7 +1992,7 @@ sweeping arm"/>
 			<Placemark>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="#sql_statement">
+					<SchemaData schemaUrl="#OSR_SiteSchema">
 						<SimpleData name="SiteID">Fedje</SimpleData>
 						<SimpleData name="name">Fedje</SimpleData>
 						<SimpleData name="linkimage">Vest</SimpleData>
@@ -2013,10 +2015,10 @@ sweeping arm"/>
 				<name>A561 GUNNAR SEIDENFADEN</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">A561 GUNNAR SEIDENFADEN</SimpleData>
 						<SimpleData name="name">A561 GUNNAR SEIDENFADEN</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="operator">Royal Dansih Navy</SimpleData>
 						<SimpleData name="location">Korsoer</SimpleData>
 						<SimpleData name="operation">Offshore</SimpleData>
@@ -2038,9 +2040,9 @@ sweeping arm"/>
 						<SimpleData name="ape_destroil 250"></SimpleData>
 						<SimpleData name="ape_Ro-sweep"></SimpleData>
 						<SimpleData name="ape_grappe"></SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -2053,10 +2055,10 @@ sweeping arm"/>
 				<name>A560 GUNNAR THORSEN</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">A560 GUNNAR THORSEN</SimpleData>
 						<SimpleData name="name">A560 GUNNAR THORSEN</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="operator">Royal Danish Navy</SimpleData>
 						<SimpleData name="location">Frederikshavn</SimpleData>
 						<SimpleData name="operation">Offshore</SimpleData>
@@ -2078,9 +2080,9 @@ sweeping arm"/>
 						<SimpleData name="ape_destroil 250"></SimpleData>
 						<SimpleData name="ape_Ro-sweep"></SimpleData>
 						<SimpleData name="ape_grappe"></SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -2093,10 +2095,10 @@ sweeping arm"/>
 				<name>A563 MARIE MILJOE</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">A563 MARIE MILJOE</SimpleData>
 						<SimpleData name="name">A563 MARIE MILJOE</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="operator">Royal Danish Navy</SimpleData>
 						<SimpleData name="location">Korsoer</SimpleData>
 						<SimpleData name="operation">Coastal</SimpleData>
@@ -2112,13 +2114,13 @@ sweeping arm"/>
 						<SimpleData name="equipment_crane">Yes</SimpleData>
 						<SimpleData name="equipment_craneCapability">4</SimpleData>
 						<SimpleData name="equipment_totalStorageCapacity">75</SimpleData>
-						<SimpleData name="equipment_heatedStorage">-</SimpleData>
+						<SimpleData name="equipment_heatedStorage"></SimpleData>
 						<SimpleData name="ape_Ro-Boom ocean"></SimpleData>
 						<SimpleData name="ape_fixed mounted LAMOR sweep system on starboard side"></SimpleData>
 						<SimpleData name="ape_DESMI DOP pump"></SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -2131,10 +2133,10 @@ sweeping arm"/>
 				<name>A562 METTE MILJOE</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">A562 METTE MILJOE</SimpleData>
 						<SimpleData name="name">A562 METTE MILJOE</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="operator">Royal Danish Navy</SimpleData>
 						<SimpleData name="location">Frederikshavn</SimpleData>
 						<SimpleData name="operation">Coastal</SimpleData>
@@ -2150,13 +2152,13 @@ sweeping arm"/>
 						<SimpleData name="equipment_crane">Yes</SimpleData>
 						<SimpleData name="equipment_craneCapability">4</SimpleData>
 						<SimpleData name="equipment_totalStorageCapacity">75</SimpleData>
-						<SimpleData name="equipment_heatedStorage">-</SimpleData>
+						<SimpleData name="equipment_heatedStorage"></SimpleData>
 						<SimpleData name="ape_Ro-Boom ocean"></SimpleData>
 						<SimpleData name="ape_fixed mounted LAMOR sweep system on starboard side"></SimpleData>
 						<SimpleData name="ape_DESMI DOP pump"></SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -2169,29 +2171,29 @@ sweeping arm"/>
 				<name>MS201</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">MS201</SimpleData>
 						<SimpleData name="name">MS201</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
-						<SimpleData name="operator">-</SimpleData>
+						<SimpleData name="description"></SimpleData>
+						<SimpleData name="operator"></SimpleData>
 						<SimpleData name="location">Korsoer</SimpleData>
 						<SimpleData name="operation">Storage</SimpleData>
 						<SimpleData name="vessel_class">Barge</SimpleData>
 						<SimpleData name="vessel_loa">24</SimpleData>
 						<SimpleData name="vessel_breadth">8</SimpleData>
 						<SimpleData name="vessel_draught">2.20</SimpleData>
-						<SimpleData name="vessel_GT">-</SimpleData>
+						<SimpleData name="vessel_GT"></SimpleData>
 						<SimpleData name="vessel_averageSpeed">All barges must be towed or taken alongside. Towing speed app. 10 knots</SimpleData>
 						<SimpleData name="vessel_build year">1978</SimpleData>
-						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_IMO"></SimpleData>
 						<SimpleData name="equipment_crane">No</SimpleData>
-						<SimpleData name="equipment_craneCapability">-</SimpleData>
+						<SimpleData name="equipment_craneCapability"></SimpleData>
 						<SimpleData name="equipment_totalStorageCapacity">300</SimpleData>
 						<SimpleData name="equipment_heatedStorage">No</SimpleData>
 						<SimpleData name="ape_storage only"></SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -2204,29 +2206,29 @@ sweeping arm"/>
 				<name>MS202</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">MS202</SimpleData>
 						<SimpleData name="name">MS202</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
-						<SimpleData name="operator">-</SimpleData>
+						<SimpleData name="description"></SimpleData>
+						<SimpleData name="operator"></SimpleData>
 						<SimpleData name="location">Copenhagen</SimpleData>
 						<SimpleData name="operation">Storage</SimpleData>
 						<SimpleData name="vessel_class">Barge</SimpleData>
 						<SimpleData name="vessel_loa">24</SimpleData>
 						<SimpleData name="vessel_breadth">8</SimpleData>
 						<SimpleData name="vessel_draught">2.20</SimpleData>
-						<SimpleData name="vessel_GT">-</SimpleData>
+						<SimpleData name="vessel_GT"></SimpleData>
 						<SimpleData name="vessel_averageSpeed">All barges must be towed or taken alongside. Towing speed app. 10 knots</SimpleData>
 						<SimpleData name="vessel_build year">1978</SimpleData>
-						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_IMO"></SimpleData>
 						<SimpleData name="equipment_crane">No</SimpleData>
-						<SimpleData name="equipment_craneCapability">-</SimpleData>
+						<SimpleData name="equipment_craneCapability"></SimpleData>
 						<SimpleData name="equipment_totalStorageCapacity">300</SimpleData>
 						<SimpleData name="equipment_heatedStorage">No</SimpleData>
 						<SimpleData name="ape_storage only"></SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -2239,29 +2241,29 @@ sweeping arm"/>
 				<name>MS203</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">MS203</SimpleData>
 						<SimpleData name="name">MS203</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
-						<SimpleData name="operator">-</SimpleData>
+						<SimpleData name="description"></SimpleData>
+						<SimpleData name="operator"></SimpleData>
 						<SimpleData name="location">Frederikshavn</SimpleData>
 						<SimpleData name="operation">Storage</SimpleData>
 						<SimpleData name="vessel_class">Barge</SimpleData>
 						<SimpleData name="vessel_loa">24</SimpleData>
 						<SimpleData name="vessel_breadth">8</SimpleData>
 						<SimpleData name="vessel_draught">2.20</SimpleData>
-						<SimpleData name="vessel_GT">-</SimpleData>
+						<SimpleData name="vessel_GT"></SimpleData>
 						<SimpleData name="vessel_averageSpeed">All barges must be towed or taken alongside. Towing speed app. 10 knots</SimpleData>
 						<SimpleData name="vessel_build year">1978</SimpleData>
-						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_IMO"></SimpleData>
 						<SimpleData name="equipment_crane">No</SimpleData>
-						<SimpleData name="equipment_craneCapability">-</SimpleData>
+						<SimpleData name="equipment_craneCapability"></SimpleData>
 						<SimpleData name="equipment_totalStorageCapacity">300</SimpleData>
 						<SimpleData name="equipment_heatedStorage">No</SimpleData>
 						<SimpleData name="ape_storage only"></SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -2274,10 +2276,10 @@ sweeping arm"/>
 				<name>MILJOE 103</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">MILJOE 103</SimpleData>
 						<SimpleData name="name">MILJOE 103</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="description"></SimpleData>
 						<SimpleData name="operator">Danish Defense Acquisition and Logistics Organization</SimpleData>
 						<SimpleData name="location">Korsoer</SimpleData>
 						<SimpleData name="operation">Coastal</SimpleData>
@@ -2288,16 +2290,16 @@ sweeping arm"/>
 						<SimpleData name="vessel_GT">30</SimpleData>
 						<SimpleData name="vessel_averageSpeed">20</SimpleData>
 						<SimpleData name="vessel_build year">2008</SimpleData>
-						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_IMO"></SimpleData>
 						<SimpleData name="vessel_MMSI">219011074</SimpleData>
 						<SimpleData name="equipment_crane">No</SimpleData>
-						<SimpleData name="equipment_craneCapability">-</SimpleData>
-						<SimpleData name="equipment_totalStorageCapacity">-</SimpleData>
-						<SimpleData name="equipment_heatedStorage">-</SimpleData>
+						<SimpleData name="equipment_craneCapability"></SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity"></SimpleData>
+						<SimpleData name="equipment_heatedStorage"></SimpleData>
 						<SimpleData name="ape_LAMOR skimmer"></SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -2310,11 +2312,11 @@ sweeping arm"/>
 				<name>MILJOE 102</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">MILJOE 102</SimpleData>
 						<SimpleData name="name">MILJOE 102</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
-						<SimpleData name="operator">-</SimpleData>
+						<SimpleData name="description"></SimpleData>
+						<SimpleData name="operator"></SimpleData>
 						<SimpleData name="location">Frederikshavn</SimpleData>
 						<SimpleData name="operation">Coastal</SimpleData>
 						<SimpleData name="vessel_class">Shallow water vessel</SimpleData>
@@ -2324,15 +2326,15 @@ sweeping arm"/>
 						<SimpleData name="vessel_GT">16</SimpleData>
 						<SimpleData name="vessel_averageSpeed">21</SimpleData>
 						<SimpleData name="vessel_build year">1977</SimpleData>
-						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_IMO"></SimpleData>
 						<SimpleData name="equipment_crane">No</SimpleData>
-						<SimpleData name="equipment_craneCapability">-</SimpleData>
+						<SimpleData name="equipment_craneCapability"></SimpleData>
 						<SimpleData name="equipment_totalStorageCapacity">0.4</SimpleData>
-						<SimpleData name="equipment_heatedStorage">-</SimpleData>
+						<SimpleData name="equipment_heatedStorage"></SimpleData>
 						<SimpleData name="ape_minimax 10"></SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -2345,11 +2347,11 @@ sweeping arm"/>
 				<name>MILJOE 101</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
-					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+					<SchemaData schemaUrl="OSR_VesselSchema">
 						<SimpleData name="SiteID">MILJOE 101</SimpleData>
 						<SimpleData name="name">MILJOE 101</SimpleData>
-						<SimpleData name="description">Some text</SimpleData>
-						<SimpleData name="operator">-</SimpleData>
+						<SimpleData name="description"></SimpleData>
+						<SimpleData name="operator"></SimpleData>
 						<SimpleData name="location">Korsoer</SimpleData>
 						<SimpleData name="operation">Coastal</SimpleData>
 						<SimpleData name="vessel_class">Shallow water vessel</SimpleData>
@@ -2359,15 +2361,15 @@ sweeping arm"/>
 						<SimpleData name="vessel_GT">16</SimpleData>
 						<SimpleData name="vessel_averageSpeed">21</SimpleData>
 						<SimpleData name="vessel_build year">1977</SimpleData>
-						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_IMO"></SimpleData>
 						<SimpleData name="equipment_crane">No</SimpleData>
-						<SimpleData name="equipment_craneCapability">-</SimpleData>
+						<SimpleData name="equipment_craneCapability"></SimpleData>
 						<SimpleData name="equipment_totalStorageCapacity">0.4</SimpleData>
-						<SimpleData name="equipment_heatedStorage">-</SimpleData>
+						<SimpleData name="equipment_heatedStorage"></SimpleData>
 						<SimpleData name="ape_minimax 10"></SimpleData>
-						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
-						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
-						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkinfo"></SimpleData>
+						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkimage"></SimpleData>
 						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>

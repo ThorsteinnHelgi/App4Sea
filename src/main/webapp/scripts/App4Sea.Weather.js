@@ -3,8 +3,7 @@
  *
  * ==========================================================================*/
 
-var App4Sea = App4Sea || {};
-var App4SeaWeather = (function () {
+App4SeaWeather = (function () {
     "use strict";
     var my = {};
 
@@ -117,4 +116,5 @@ var App4SeaWeather = (function () {
     };
 
     return my;
-}(App4SeaWeather || {}));
+}());
+App4Sea.Weather = App4SeaWeather;

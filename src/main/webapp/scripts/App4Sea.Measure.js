@@ -4,8 +4,7 @@
  * 
  * ==========================================================================*/
  
-var App4Sea = App4Sea || {};
-var App4SeaMeasure = (function () {
+App4SeaMeasure = (function () {
     "use strict";
     let my = {};
     let tempLayers = []; // array to hold droped layers as they are created   
@@ -250,7 +249,7 @@ var App4SeaMeasure = (function () {
                 ol.format.KML,
                 ol.format.TopoJSON
             ]
-        });        
+        });
 
         dragAndDropInteraction.on('addfeatures', function(event) {
             let vectorSource = new ol.source.Vector({
@@ -378,4 +377,5 @@ var App4SeaMeasure = (function () {
     
     return my;
     
-}(App4SeaMeasure || {}));
+}());
+App4Sea.Measure = App4SeaMeasure;

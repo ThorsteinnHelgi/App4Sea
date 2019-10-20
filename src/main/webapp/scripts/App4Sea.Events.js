@@ -3,12 +3,11 @@
  * Global event handlers
  * ==========================================================================*/
 
-App4Sea = App4Sea || {};
-
 $(document).ready(function () {
     "use strict";
     if (App4Sea.logging) console.log("Document ready");
 
+    if (App4Sea.logging) console.log(App4Sea.OpenLayers);
     // Init Map.OpenLayers
     App4Sea.OpenLayers.Init();
 

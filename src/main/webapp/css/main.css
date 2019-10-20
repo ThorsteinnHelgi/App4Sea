@@ -13,6 +13,10 @@
     font-family: "Calibri","sans-serif";
 }
 
+.hidden {
+  visibility: hidden;
+}
+
 .bannerButtons {
   /*transform-origin: top left;*/
   /*-ms-transform: scale(0.6) translateX(0em);*/ /* IE 9 */
@@ -35,6 +39,134 @@
   background-color: orangered;
   padding: 4px 4px 0px 4px;
 }
+
+
+/**********************************
+* Modify ol controls
+**********************************/
+#MapContainer .ol-full-screen {
+  bottom: 3em;
+  top: auto;
+}
+
+#MapContainer .ol-scale-line {
+  top: .5em;
+  bottom: auto;
+  left: 3em;
+  right: auto;
+  color: white;
+  background-color: rgba(255,255,255,.4);
+}
+
+.ol-scale-line-inner {
+  background-color: rgba(0,60,136,.5);
+  font-size: 1.051em;
+  font-weight: 700;
+  border: none;
+}
+
+#MapContainer .ol-zoom {
+  top: 3em;
+  background-color: rgba(255,255,255,0.2);
+  right: .5em;
+  left: auto;
+}
+
+#MapContainer .ol-zoom .ol-zoom-out {
+  margin-top: 204px;
+}
+#MapContainer .ol-zoomslider {
+  top: 4.8em;
+  bottom: auto;
+  right: .5em;
+  left: auto;
+}
+
+#MapContainer .ol-zoomslider-thumb {
+  z-index: 1000;
+  border-radius: 20px;
+}
+#MapContainer .ol-touch .ol-zoom .ol-zoom-out {
+  margin-top: 212px;
+}
+#MapContainer .ol-touch .ol-zoomslider {
+  top: 2.5em;
+  right: .5em;
+}
+
+#MapContainer .ol-zoom-in.ol-has-tooltip:hover [role=tooltip],
+#MapContainer .ol-zoom-in.ol-has-tooltip:focus [role=tooltip] {
+  top: .5em;
+}
+
+#MapContainer .ol-zoom-out.ol-has-tooltip:hover [role=tooltip],
+#MapContainer .ol-zoom-out.ol-has-tooltip:focus [role=tooltip] {
+  top: 232px;
+}
+
+#MapContainer .ol-custom{
+  z-index: 1000;
+  top: .5em;
+  left: .5em;
+}
+
+#MapContainer .ol-popup {
+  position: absolute;
+  background-color: white;
+  -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+  border-radius: 10px;
+  border: 1px solid #cccccc;
+  bottom: 12px;
+  left: -50px;
+  min-width: 200px;
+  width: auto;
+  padding-top:20px;
+}
+#MapContainer .ol-popup:after, .ol-popup:before {
+  top: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+#MapContainer .ol-popup:after {
+  border-top-color: white;
+  border-width: 10px;
+  left: 48px;
+  margin-left: -10px;
+
+  content: "";
+  display: table;
+  clear: both;
+}
+#MapContainer .ol-popup:before {
+  border-top-color: #cccccc;
+/*            border-width: 11px;*/
+  left: 48px;
+  margin-left: -11px;
+}
+#MapContainer .ol-popup-closer {
+  text-decoration: none;
+  position: absolute;
+  top: 2px;
+  right: 8px;
+}
+#MapContainer .ol-mouse-position {
+  right: 4.5em;
+  text-align: right;
+  font-size: 0.7em;
+}
+
+#MapContainer .ol-popup-closer:after {
+content: "✖";
+}
+
+/*************************************
+* a4s stiles
+*************************************/
 
 .a4s {
   font-size: 16px;
@@ -84,6 +216,10 @@
 .a4s-helicopter-with-herders {
   background-position: -376px -207px; 
 }
+
+/*************************************
+* Various styles
+*************************************/
 
 #MapContainer{
     position: absolute;
@@ -255,63 +391,9 @@ h6 {
     color: white;
 }
 
-.ol-zoom {
-   z-index: 1000;
-   top: .5em;
-   right: .5em;
-   left: auto;
-}
-
-.ol-custom{
-   z-index: 1000;
-   top: .5em;
-   left: .5em;
-}
-
 .DialogHeader{
     text-align: right;
 }
-
-/* Style the zoom slider */
-
-/*#MapContainer .ol-zoom .ol-zoom-out {
-  margin-top: 204px;
-}*/
-/*#MapContainer .ol-zoomslider {
-  background-color: transparent;
-  top: 2.3em;
-}
-
-#MapContainer .ol-touch .ol-zoom .ol-zoom-out {
-  margin-top: 212px;
-}
-#MapContainer .ol-touch .ol-zoomslider {
-  top: 2.75em;
-}
-
-#MapContainer .ol-zoom-in.ol-has-tooltip:hover [role=tooltip],
-#MapContainer .ol-zoom-in.ol-has-tooltip:focus [role=tooltip] {
-  top: 3px;
-}
-
-#MapContainer .ol-zoom-out.ol-has-tooltip:hover [role=tooltip],
-#MapContainer .ol-zoom-out.ol-has-tooltip:focus [role=tooltip] {
-  top: 232px;
-}*/
-/*
-#FeatureInfoContainer{
-    background-color: white;
-    padding: 0.5em;
-    border-top: solid 1px gray;
-    position: fixed;
-    bottom: 0em;
-    left: 0em;
-    width: 360px;
-    height: 50%;
-    overflow: auto;
-    box-sizing: border-box;
-}
-*/
 
 /* Tooltip container */
 .tooltip {
@@ -462,6 +544,21 @@ h6 {
   max-height:100%;
 }
 
+.toolbuttonscontainerinmap {
+  display:inline; 
+  margin-left:-87px; /*122px; */
+  left:50%; 
+  z-index:100; 
+  position:absolute; 
+  bottom:9px;
+}
+
+.photo {
+  top: 9.5em; 
+  left: .5em; 
+  display:none;
+}
+
 .PopUp {
   position: absolute;
   background-color: #fff;
@@ -472,67 +569,30 @@ h6 {
   bottom: 12px;
   left: -50px;
   min-width: 200px;
-  width: auto;
+  width: 360px;
   z-index: 200;
+}
+
+.PopUp h4 {
+  background-color: lightgrey;
 }
 
 .PopUpContent {
   overflow: auto; 
-  margin: 5px;
+  margin: 2px;
 }
 
-.ol-popup {
-  position: absolute;
-  background-color: white;
-  -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
-  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
-  border-radius: 10px;
-  border: 1px solid #cccccc;
-  bottom: 12px;
-  left: -50px;
-  min-width: 200px;
-  width: auto;
-  padding-top:20px;
+.PopUpContent tr {
+  margin: 1px;
+  line-height: 1;
 }
-.ol-popup:after, .ol-popup:before {
-  top: 100%;
-  border: solid transparent;
-  content: " ";
-  height: 0;
-  width: 0;
-  position: absolute;
-  pointer-events: none;
-}
-.ol-popup:after {
-  border-top-color: white;
-  border-width: 10px;
-  left: 48px;
-  margin-left: -10px;
 
-  content: "";
-  display: table;
-  clear: both;
+.osr-image {
+  height: 120px;
 }
-.ol-popup:before {
-  border-top-color: #cccccc;
-/*            border-width: 11px;*/
-  left: 48px;
-  margin-left: -11px;
-}
-.ol-popup-closer {
-  text-decoration: none;
-  position: absolute;
-  top: 2px;
-  right: 8px;
-}
-.ol-mouse-position {
-  right: 4.5em;
-}
-.ol-scale-line {
-  left: 14.5em;
-}
-.ol-popup-closer:after {
-content: "✖";
+
+.osr-video {
+  height: 120px;
 }
 
 input[type=range] {
@@ -700,16 +760,13 @@ input[type=range]:focus::-ms-fill-upper {
 }
 
 /* On screens that are less or equal to max-width, change style */
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 600px) {
   #MenuContainer, #ControlPlaceInMap {
     width: 100%; /* The width is 100%, when the viewport is 500px or smaller */
     -ms-transform: translate(0%); /* IE 9 */
     -webkit-transform: translate(0%); /* Safari */
     transform: translate(0%);
     left: 0;
-  }
-  .overlayLegend-content, .InformationPopup { 
-    width: 90%; /* The width is 100%, when the viewport is 500px or smaller */
   }
   #DragHandle {
     line-height: 2em;

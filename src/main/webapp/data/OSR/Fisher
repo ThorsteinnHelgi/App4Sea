@@ -1,0 +1,156 @@
+			<Placemark>
+				<name>CORRIB FISHER</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">CORRIB FISHER</SimpleData>
+						<SimpleData name="name">CORRIB FISHER</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">James Fisher Everard Ltd</SimpleData>
+						<SimpleData name="location">Atlantic North</SimpleData>
+						<SimpleData name="operation">Oil Tanker</SimpleData>
+						<SimpleData name="vessel_class">Oil Recovery Vessel</SimpleData>
+						<SimpleData name="vessel_loa">107</SimpleData>
+						<SimpleData name="vessel_breadth">16</SimpleData>
+						<SimpleData name="vessel_draught">6.4</SimpleData>
+						<SimpleData name="vessel_GT">3997</SimpleData>
+						<SimpleData name="vessel_averageSpeed">14</SimpleData>
+						<SimpleData name="vessel_build year">2008</SimpleData>
+						<SimpleData name="vessel_IMO">9413585</SimpleData>
+						<SimpleData name="vessel_MMSI">232016768</SimpleData>
+						<SimpleData name="equipment_crane">-</SimpleData>
+						<SimpleData name="equipment_craneCapability">-</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">6248</SimpleData>
+						<SimpleData name="equipment_heatedStorage">6000</SimpleData>
+						<SimpleData name="ape_Koseq rigid sweeping arms with weir skimmer">2</SimpleData>
+						<SimpleData name="ape_Vikoma heavy duty single point inflation boom">2</SimpleData>
+						<SimpleData name="ape_Desmi weir skimmer"></SimpleData>
+						<SimpleData name="ape_Miros oil slick detection system">2</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>10.681, 51.74953, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>GALWAY FISHER</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">GALWAY FISHER</SimpleData>
+						<SimpleData name="name">GALWAY FISHER</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">James Fisher Everard Ltd</SimpleData>
+						<SimpleData name="location">Atlantic North</SimpleData>
+						<SimpleData name="operation">Oil Tanker</SimpleData>
+						<SimpleData name="vessel_class">Oil Recovery Vessel and Oil Tanker</SimpleData>
+						<SimpleData name="vessel_loa">91</SimpleData>
+						<SimpleData name="vessel_breadth">15.58</SimpleData>
+						<SimpleData name="vessel_draught">6.2</SimpleData>
+						<SimpleData name="vessel_GT">3368</SimpleData>
+						<SimpleData name="vessel_averageSpeed">12.1</SimpleData>
+						<SimpleData name="vessel_build year">1997</SimpleData>
+						<SimpleData name="vessel_IMO">9118161</SimpleData>
+						<SimpleData name="vessel_MMSI">234552000</SimpleData>
+						<SimpleData name="equipment_crane">-</SimpleData>
+						<SimpleData name="equipment_craneCapability">-</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">4754</SimpleData>
+						<SimpleData name="equipment_heatedStorage">2907</SimpleData>
+						<SimpleData name="ape_Koseq rigid sweeping arms with weir skimmer">2</SimpleData>
+						<SimpleData name="ape_Vikoma heavy duty single point inflation boom">2</SimpleData>
+						<SimpleData name="ape_Desmi weir skimmer"></SimpleData>
+						<SimpleData name="ape_Miros oil slick detection system">2</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>2.07667, 57.14167, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>MERSEY FISHER</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">MERSEY FISHER</SimpleData>
+						<SimpleData name="name">MERSEY FISHER</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">James Fisher Everard Ltd</SimpleData>
+						<SimpleData name="location">Northern North Sea</SimpleData>
+						<SimpleData name="operation">Oil Tanker</SimpleData>
+						<SimpleData name="vessel_class">Oil Recovery Vessel and Oil Tanker</SimpleData>
+						<SimpleData name="vessel_loa">91.40</SimpleData>
+						<SimpleData name="vessel_breadth">15.50</SimpleData>
+						<SimpleData name="vessel_draught">6.02</SimpleData>
+						<SimpleData name="vessel_GT">2760</SimpleData>
+						<SimpleData name="vessel_averageSpeed">12.8</SimpleData>
+						<SimpleData name="vessel_build year">1998</SimpleData>
+						<SimpleData name="vessel_IMO">9170420</SimpleData>
+						<SimpleData name="vessel_MMSI">236216000</SimpleData>
+						<SimpleData name="equipment_crane">-</SimpleData>
+						<SimpleData name="equipment_craneCapability">-</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">5028</SimpleData>
+						<SimpleData name="equipment_heatedStorage">2907</SimpleData>
+						<SimpleData name="ape_Koseq rigid sweeping arms with weir skimmer">2</SimpleData>
+						<SimpleData name="ape_Vikoma heavy duty single point inflation boom">2</SimpleData>
+						<SimpleData name="ape_Desmi weir skimmer"></SimpleData>
+						<SimpleData name="ape_Miros oil slick detection system">2</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>1.27117, 54.99333, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>THAMES FISHER</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">THAMES FISHER</SimpleData>
+						<SimpleData name="name">THAMES FISHER</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">James Fisher Everard Ltd</SimpleData>
+						<SimpleData name="location">Northern North Sea</SimpleData>
+						<SimpleData name="operation">Oil Tanker</SimpleData>
+						<SimpleData name="vessel_class">Oil Recovery Vessel and Oil Tanker</SimpleData>
+						<SimpleData name="vessel_loa">91.40</SimpleData>
+						<SimpleData name="vessel_breadth">15.50</SimpleData>
+						<SimpleData name="vessel_draught">6.02</SimpleData>
+						<SimpleData name="vessel_GT">2760</SimpleData>
+						<SimpleData name="vessel_averageSpeed">12.6</SimpleData>
+						<SimpleData name="vessel_build year">1998</SimpleData>
+						<SimpleData name="vessel_IMO">9145011</SimpleData>
+						<SimpleData name="vessel_MMSI">234789000</SimpleData>
+						<SimpleData name="equipment_crane">-</SimpleData>
+						<SimpleData name="equipment_craneCapability">-</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">5028</SimpleData>
+						<SimpleData name="equipment_heatedStorage">2907</SimpleData>
+						<SimpleData name="ape_Koseq rigid sweeping arms with weir skimmer">2</SimpleData>
+						<SimpleData name="ape_Vikoma heavy duty single point inflation boom">2</SimpleData>
+						<SimpleData name="ape_Desmi weir skimmer"></SimpleData>
+						<SimpleData name="ape_Miros oil slick detection system">2</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>1.18339, 54.58965, 0</coordinates>
+				</Point>
+			</Placemark>

@@ -4,8 +4,7 @@
  *              
  * ==========================================================================*/
 
-var App4Sea = App4Sea || {};
-var App4SeaOpenLayers = (function () {
+App4SeaOpenLayers = (function () {
     "use strict";
     let my = {};
     
@@ -192,23 +191,27 @@ var App4SeaOpenLayers = (function () {
     // Set the basic map controls
     function SetMapControls() {
         // Add standard map controls
-        //my.Map.addControl(new ol.control.ZoomSlider());
-        //my.Map.addControl(new ol.control.Zoom());
+        my.Map.addControl(new ol.control.ZoomSlider());
+        my.Map.addControl(new ol.control.Zoom());
         my.Map.addControl(new ol.control.FullScreen());
-        my.Map.addControl(new ol.control.Rotate({autoHide: false}));
-        var ctrl = new ol.control.MousePosition({
+        my.Map.addControl(new ol.control.Rotate({autoHide: false, class:'ol-rotate'}));
+        let ctrl = new ol.control.MousePosition({
             projection: App4Sea.prefProj,
             coordinateFormat: function (coord) {
-                var str = ol.coordinate.toStringHDMS(coord);
+                let xy = ol.proj.transform(coord, App4Sea.prefProj, App4Sea.prefViewProj);
+                let str = ol.coordinate.toStringHDMS(coord);
+                str = str + "<br>" + ol.coordinate.toStringXY(coord, 6);
+                str = str + "<br>" + ol.coordinate.toStringXY(xy, 0);
                 return str; 
-            }
+            },
+            undefinedHTML: ''
         });
         my.Map.addControl(ctrl);
         my.Map.addControl(new ol.control.OverviewMap({
             layers: [currentLayer],
             collapsed: true
         }));
-        //map.addControl(new ol.control.ScaleLine());        Not correct scale
+        my.Map.addControl(new ol.control.ScaleLine());// Not correct scale
     };
     
     ////////////////////////////////////////////////////////////////////////////
@@ -268,4 +271,5 @@ var App4SeaOpenLayers = (function () {
         
     return my;
     
-}(App4SeaOpenLayers || {}));
+}());
+App4Sea.OpenLayers = App4SeaOpenLayers;

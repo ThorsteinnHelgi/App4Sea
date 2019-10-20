@@ -3,10 +3,9 @@
  *
  * ==========================================================================*/
 
-var App4Sea = App4Sea || {};
-var App4SeaAnimation = (function () {
+App4SeaAnimation = (function () {
     "use strict";
-    var my = {};
+    let my = {};
 
     ////////////////////////////////////////////////////////////////////////////
     // Animate
@@ -15,7 +14,7 @@ var App4SeaAnimation = (function () {
             TryStop();
         state = "Stopped";
 
-        var ext = url.substr(url.length - 3, 3);
+        let ext = url.substr(url.length - 3, 3);
         if (ext !== 'kml' && ext !== 'kmz') {
             return;
         }
@@ -39,7 +38,7 @@ var App4SeaAnimation = (function () {
     }
 
     function initInfo() {
-        var el = document.getElementById('start');
+        let el = document.getElementById('start');
         el.innerHTML = startDate.substr(startDate.length - 8, 8);
         el = document.getElementById('current');
         el.innerHTML = currentDate.substr(currentDate.length - 8, 8);
@@ -56,7 +55,7 @@ var App4SeaAnimation = (function () {
 
     function updateInfo() {
         // Updage time stamps
-        var el = document.getElementById('current');
+        let el = document.getElementById('current');
         if (el === 'undefined')
             return;
 
@@ -64,9 +63,9 @@ var App4SeaAnimation = (function () {
 
         el = document.getElementById('currentDate');
         el.innerHTML =  currentDate.substr(0, 10);                        
-        var layerid = my.AniData[golLayerID][anindex];
-        var lind = findLayerIndex(layerid);
-        var remember = 1;
+        let layerid = my.AniData[golLayerID][anindex];
+        let lind = findLayerIndex(layerid);
+        let remember = 1;
 
         //if (App4Sea.logging) console.log(my.AniData[golLink][anindex]);           
         //if (App4Sea.logging) console.log(layerid);
@@ -75,7 +74,7 @@ var App4SeaAnimation = (function () {
         App4Sea.TreeMenu.Checkbox(layerid, true);
 
         // Find last index that should be active
-        var lastanindex = anindex - remember;
+        let lastanindex = anindex - remember;
         while (lastanindex < 0)
             lastanindex = lastanindex + count;
 
@@ -93,8 +92,8 @@ var App4SeaAnimation = (function () {
     };
 
     function findLayerIndex(lind){
-        for (var ynd=0; ynd<App4Sea.OpenLayers.layers.length; ynd++){
-            var item = App4Sea.OpenLayers.layers[ynd];
+        for (let ynd=0; ynd<App4Sea.OpenLayers.layers.length; ynd++){
+            let item = App4Sea.OpenLayers.layers[ynd];
             if (item.id === lind) {
                 return ynd;
             }
@@ -185,10 +184,10 @@ var App4SeaAnimation = (function () {
         }
     };
 
-    var Prepare = function () {
+    let Prepare = function () {
         if (count !== 0) {
             // Turn off all the layer images
-            for (var aind=0; aind<count; aind++) {
+            for (let aind=0; aind<count; aind++) {
                 App4Sea.TreeMenu.Checkbox(my.AniData[golLayerID][aind], false);
             }
 
@@ -206,7 +205,7 @@ var App4SeaAnimation = (function () {
         }
     };
 
-    var TryStop = function () {            
+    let TryStop = function () {            
         state = "Stopping";
 
         // StopTimer
@@ -254,4 +253,5 @@ var App4SeaAnimation = (function () {
     progress.addEventListener('touch', my.Progress, false, {passive: true} );
 
     return my;
-}(App4SeaAnimation || {}));
+}());
+App4Sea.Animation = App4SeaAnimation;
