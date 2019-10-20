@@ -1,0 +1,639 @@
+			<Placemark>
+				<name>KBV201</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KBV201</SimpleData>
+						<SimpleData name="name">KBV201</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Swedish Coast Guard</SimpleData>
+						<SimpleData name="location">Härnösand</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Patrol or Navy vessel</SimpleData>
+						<SimpleData name="vessel_loa">52</SimpleData>
+						<SimpleData name="vessel_breadth">8.6</SimpleData>
+						<SimpleData name="vessel_draught">2.8</SimpleData>
+						<SimpleData name="vessel_GT">476</SimpleData>
+						<SimpleData name="vessel_averageSpeed">21</SimpleData>
+						<SimpleData name="vessel_build year">2002</SimpleData>
+						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_MMSI">265820000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">0.7/16.8 range</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">104+110 m3 oil bags</SimpleData>
+						<SimpleData name="equipment_heatedStorage">103</SimpleData>
+						<SimpleData name="ape_LamorBrushSkimmers"></SimpleData>
+						<SimpleData name="ape_sweepingArms"></SimpleData>
+						<SimpleData name="ape_freefloatingskimmers">2</SimpleData>
+						<SimpleData name="ape_responsedivers"></SimpleData>
+						<SimpleData name="ape_boom">300</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>18.71476, 63.28665, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>KBV202</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KBV202</SimpleData>
+						<SimpleData name="name">KBV202</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Swedish Coast Guard</SimpleData>
+						<SimpleData name="location">Gavle</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Patrol or Navy vessel</SimpleData>
+						<SimpleData name="vessel_loa">52</SimpleData>
+						<SimpleData name="vessel_breadth">8.6</SimpleData>
+						<SimpleData name="vessel_draught">2.8</SimpleData>
+						<SimpleData name="vessel_GT">476</SimpleData>
+						<SimpleData name="vessel_averageSpeed">21</SimpleData>
+						<SimpleData name="vessel_build year">2002</SimpleData>
+						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_MMSI">265819000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">0.7/16.8 range</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">104+110m3 oil bags</SimpleData>
+						<SimpleData name="equipment_heatedStorage">104</SimpleData>
+						<SimpleData name="ape_LamorBrushSkimmers"></SimpleData>
+						<SimpleData name="ape_sweepingArms"></SimpleData>
+						<SimpleData name="ape_freefloatingskimmers">2</SimpleData>
+						<SimpleData name="ape_responsedivers"></SimpleData>
+						<SimpleData name="ape_boom">300</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>17.18454, 60.68035, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>KBV050</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KBV050</SimpleData>
+						<SimpleData name="name">KBV050</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Swedish Coast Guard</SimpleData>
+						<SimpleData name="location">Södertalje</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Anti-pollution vessel</SimpleData>
+						<SimpleData name="vessel_loa">38</SimpleData>
+						<SimpleData name="vessel_breadth">8.5</SimpleData>
+						<SimpleData name="vessel_draught">2.4</SimpleData>
+						<SimpleData name="vessel_GT">375</SimpleData>
+						<SimpleData name="vessel_averageSpeed">11</SimpleData>
+						<SimpleData name="vessel_build year">1984</SimpleData>
+						<SimpleData name="vessel_IMO">8206765</SimpleData>
+						<SimpleData name="vessel_MMSI">-</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">2/8.4range</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity"> 190+110m3 oil bags </SimpleData>
+						<SimpleData name="equipment_heatedStorage">190</SimpleData>
+						<SimpleData name="ape_LamorBrushSkimmers"></SimpleData>
+						<SimpleData name="ape_sweepingArms"></SimpleData>
+						<SimpleData name="ape_freefloatingskimmers">2</SimpleData>
+						<SimpleData name="ape_boom">300</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>17.62347, 59.20383, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>KBV033</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KBV033</SimpleData>
+						<SimpleData name="name">KBV033</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Swedish Coast Guard</SimpleData>
+						<SimpleData name="location">Oskarshamn</SimpleData>
+						<SimpleData name="operation">Offshore</SimpleData>
+						<SimpleData name="vessel_class">Anti-pollution vessel</SimpleData>
+						<SimpleData name="vessel_loa">49.9</SimpleData>
+						<SimpleData name="vessel_breadth">10.5</SimpleData>
+						<SimpleData name="vessel_draught">4</SimpleData>
+						<SimpleData name="vessel_GT">801</SimpleData>
+						<SimpleData name="vessel_averageSpeed">12</SimpleData>
+						<SimpleData name="vessel_build year">2011</SimpleData>
+						<SimpleData name="vessel_IMO">9536595</SimpleData>
+						<SimpleData name="vessel_MMSI">266335000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">1.9/19.3</SimpleData>
+						<SimpleData name="equipment_craneCapability">2.75/10</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">255+100 m3 oil bags</SimpleData>
+						<SimpleData name="equipment_heatedStorage">255</SimpleData>
+						<SimpleData name="ape_LamorBrushSkimmers"></SimpleData>
+						<SimpleData name="ape_sweepingArms"></SimpleData>
+						<SimpleData name="ape_freefloatingskimmers">2</SimpleData>
+						<SimpleData name="ape_responsedivers"></SimpleData>
+						<SimpleData name="ape_boom">300</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>16.459, 57.26633, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>KBV051</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KBV051</SimpleData>
+						<SimpleData name="name">KBV051</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Swedish Coast Guard</SimpleData>
+						<SimpleData name="location">Vänersborg</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Anti-pollution vessel</SimpleData>
+						<SimpleData name="vessel_loa">38</SimpleData>
+						<SimpleData name="vessel_breadth">8.5</SimpleData>
+						<SimpleData name="vessel_draught">2.4</SimpleData>
+						<SimpleData name="vessel_GT">375</SimpleData>
+						<SimpleData name="vessel_averageSpeed">11</SimpleData>
+						<SimpleData name="vessel_build year">1984</SimpleData>
+						<SimpleData name="vessel_IMO">8206777</SimpleData>
+						<SimpleData name="vessel_MMSI">265509170</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">2/8.4 range</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">190+110 m3 oil bags</SimpleData>
+						<SimpleData name="equipment_heatedStorage">190</SimpleData>
+						<SimpleData name="ape_LamorBrushSkimmers"></SimpleData>
+						<SimpleData name="ape_sweepingArms"></SimpleData>
+						<SimpleData name="ape_freefloatingskimmers">2</SimpleData>
+						<SimpleData name="ape_boom">300</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>13.17655, 58.52178, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>KBV032</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KBV032</SimpleData>
+						<SimpleData name="name">KBV032</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Swedish Coast Guard</SimpleData>
+						<SimpleData name="location">Lysekil</SimpleData>
+						<SimpleData name="operation">Offshore</SimpleData>
+						<SimpleData name="vessel_class">Anti-pollution vessel</SimpleData>
+						<SimpleData name="vessel_loa">49.9</SimpleData>
+						<SimpleData name="vessel_breadth">10.5</SimpleData>
+						<SimpleData name="vessel_draught">4</SimpleData>
+						<SimpleData name="vessel_GT">801</SimpleData>
+						<SimpleData name="vessel_averageSpeed">12</SimpleData>
+						<SimpleData name="vessel_build year">2011</SimpleData>
+						<SimpleData name="vessel_IMO">9536583</SimpleData>
+						<SimpleData name="vessel_MMSI">266336000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">1.9/19.3</SimpleData>
+						<SimpleData name="equipment_craneCapability">2.75/10</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">255+100 m3 oil bags</SimpleData>
+						<SimpleData name="equipment_heatedStorage">255</SimpleData>
+						<SimpleData name="ape_LamorBrushSkimmers"></SimpleData>
+						<SimpleData name="ape_sweepingArms"></SimpleData>
+						<SimpleData name="ape_freefloatingskimmers">2</SimpleData>
+						<SimpleData name="ape_responsedivers"></SimpleData>
+						<SimpleData name="ape_boom">300</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>11.44966, 58.27414, 0</coordinates>
+				</Point>
+				</Placemark>
+				<Placemark>
+				<name>KBV010</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KBV010</SimpleData>
+						<SimpleData name="name">KBV010</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Swedish Coast Guard</SimpleData>
+						<SimpleData name="location">Goteborg</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Anti-pollution vessel</SimpleData>
+						<SimpleData name="vessel_loa">46.1</SimpleData>
+						<SimpleData name="vessel_breadth">8.6</SimpleData>
+						<SimpleData name="vessel_draught">3.7</SimpleData>
+						<SimpleData name="vessel_GT">430</SimpleData>
+						<SimpleData name="vessel_averageSpeed">12</SimpleData>
+						<SimpleData name="vessel_build year">1986</SimpleData>
+						<SimpleData name="vessel_IMO">8325509</SimpleData>
+						<SimpleData name="vessel_MMSI">265509150</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">75t/m</SimpleData>
+						<SimpleData name="equipment_craneCapability">20t/m</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">220+100 m3 oil bags</SimpleData>
+						<SimpleData name="equipment_heatedStorage">212</SimpleData>
+						<SimpleData name="ape_LamorBrushSkimmers"></SimpleData>
+						<SimpleData name="ape_sweepingArms"></SimpleData>
+						<SimpleData name="ape_freefloatingskimmers">2</SimpleData>
+						<SimpleData name="ape_boom">300</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>11.8706, 57.68165, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>KBV181</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KBV181</SimpleData>
+						<SimpleData name="name">KBV181</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Swedish Coast Guard</SimpleData>
+						<SimpleData name="location">Umea</SimpleData>
+						<SimpleData name="operation">Offshore</SimpleData>
+						<SimpleData name="vessel_class">Patrol or Navy vessel</SimpleData>
+						<SimpleData name="vessel_loa">56</SimpleData>
+						<SimpleData name="vessel_breadth">10.2</SimpleData>
+						<SimpleData name="vessel_draught">5.3</SimpleData>
+						<SimpleData name="vessel_GT">991</SimpleData>
+						<SimpleData name="vessel_averageSpeed">15</SimpleData>
+						<SimpleData name="vessel_build year">1986</SimpleData>
+						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_MMSI">265044000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">3.1/13.2 range</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">50 oil bags</SimpleData>
+						<SimpleData name="equipment_heatedStorage">-</SimpleData>
+						<SimpleData name="ape_one side brush skimmer advancing system with sweeping arm"></SimpleData>
+						<SimpleData name="ape_freefloatingskimmers">2</SimpleData>
+						<SimpleData name="ape_boom">300</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>20.34141, 63.68029, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>KBV034</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KBV034</SimpleData>
+						<SimpleData name="name">KBV034</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Swedish Coast Guard</SimpleData>
+						<SimpleData name="location">Helsingborg</SimpleData>
+						<SimpleData name="operation">Offshore</SimpleData>
+						<SimpleData name="vessel_class">Anti-pollution vessel</SimpleData>
+						<SimpleData name="vessel_loa">49.9</SimpleData>
+						<SimpleData name="vessel_breadth">10.5</SimpleData>
+						<SimpleData name="vessel_draught">4</SimpleData>
+						<SimpleData name="vessel_GT">801</SimpleData>
+						<SimpleData name="vessel_averageSpeed">12</SimpleData>
+						<SimpleData name="vessel_build year">2012</SimpleData>
+						<SimpleData name="vessel_IMO">9536600</SimpleData>
+						<SimpleData name="vessel_MMSI">266334000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">1.9/19.3</SimpleData>
+						<SimpleData name="equipment_craneCapability">2.75/10</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">255+100 m3 oil bags</SimpleData>
+						<SimpleData name="equipment_heatedStorage">255</SimpleData>
+						<SimpleData name="ape_LamorBrushSkimmers"></SimpleData>
+						<SimpleData name="ape_sweepingArms"></SimpleData>
+						<SimpleData name="ape_freefloatingskimmers">2</SimpleData>
+						<SimpleData name="ape_responsedivers"></SimpleData>
+						<SimpleData name="ape_boom">300</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>12.99983, 55.61833, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>KBV048</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KBV048</SimpleData>
+						<SimpleData name="name">KBV048</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Swedish Coast Guard</SimpleData>
+						<SimpleData name="location">Simrishamn</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Anti-pollution vessel</SimpleData>
+						<SimpleData name="vessel_loa">36.4</SimpleData>
+						<SimpleData name="vessel_breadth">7.3</SimpleData>
+						<SimpleData name="vessel_draught">3.7</SimpleData>
+						<SimpleData name="vessel_GT">340</SimpleData>
+						<SimpleData name="vessel_averageSpeed">10</SimpleData>
+						<SimpleData name="vessel_build year">1983</SimpleData>
+						<SimpleData name="vessel_IMO">8101551</SimpleData>
+						<SimpleData name="vessel_MMSI">265515580</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">2/8.4 range</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">150+110 m3 oil bags</SimpleData>
+						<SimpleData name="equipment_heatedStorage">150</SimpleData>
+						<SimpleData name="ape_LamorBrushSkimmers"></SimpleData>
+						<SimpleData name="ape_sweepingArms"></SimpleData>
+						<SimpleData name="ape_freefloatingskimmers">2</SimpleData>
+						<SimpleData name="ape_boom">300</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>12.99891, 55.61848, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>KBV001 POSEIDON</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KBV001POSIEDON</SimpleData>
+						<SimpleData name="name">KBV001POSIEDON</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Swedish Coast Guard</SimpleData>
+						<SimpleData name="location">Gothenburg</SimpleData>
+						<SimpleData name="operation">Offshore</SimpleData>
+						<SimpleData name="vessel_class">Anti-pollution vessel</SimpleData>
+						<SimpleData name="vessel_loa">81.2</SimpleData>
+						<SimpleData name="vessel_breadth">16.2</SimpleData>
+						<SimpleData name="vessel_draught">6.5</SimpleData>
+						<SimpleData name="vessel_GT">3760</SimpleData>
+						<SimpleData name="vessel_averageSpeed">16</SimpleData>
+						<SimpleData name="vessel_build year">2009</SimpleData>
+						<SimpleData name="vessel_IMO">9380441</SimpleData>
+						<SimpleData name="vessel_MMSI">266286000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_numberofCrane">3</SimpleData>
+						<SimpleData name="equipment_craneCapability">24/7 Remote</SimpleData>
+						<SimpleData name="equipment_craneCapability">8/21 Remote</SimpleData>
+						<SimpleData name="equipment_craneCapability">1/17 Remote</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">1050</SimpleData>
+						<SimpleData name="equipment_heatedStorage">1050</SimpleData>
+						<SimpleData name="ape_Towingcapacity">100 tonnes/1000m</SimpleData>
+						<SimpleData name="ape_Advancefirefightingfoam">1200 m3/h water,</SimpleData>
+						<SimpleData name="ape_Advancefirefightingfoam">1200 m3/h water,</SimpleData>
+						<SimpleData name="ape_Advancefirefightingfoam">300 m3/h water,</SimpleData>
+						<SimpleData name="ape_Recoverysystem">400m3/h 10000 cSt,</SimpleData>
+						<SimpleData name="ape_Recoverysystem">100m3/h 1000000 cSt,</SimpleData>
+						<SimpleData name="ape_Sweeparms">32</SimpleData>
+						<SimpleData name="ape_Skimmer">100m3/h</SimpleData>
+						<SimpleData name="ape_Bucketskimmer">3</SimpleData>
+						<SimpleData name="ape_Multihose">90</SimpleData>
+						<SimpleData name="ape_Responsedivers"></SimpleData>
+						<SimpleData name="ape_Cargocontainer">20</SimpleData>
+						<SimpleData name="ape_Cargocontainer">20</SimpleData>
+						<SimpleData name="ape_Cargocontainer">20</SimpleData>
+						<SimpleData name="ape_Cargocontainer">20</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>11.957, 57.71417, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>KBV002TRITON</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KBV002TRITON</SimpleData>
+						<SimpleData name="name">KBV002TRITON</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Swedish Coast Guard</SimpleData>
+						<SimpleData name="location">Slite</SimpleData>
+						<SimpleData name="operation">Offshore</SimpleData>
+						<SimpleData name="vessel_class">Anti-pollution vessel</SimpleData>
+						<SimpleData name="vessel_loa">81.2</SimpleData>
+						<SimpleData name="vessel_breadth">16.2</SimpleData>
+						<SimpleData name="vessel_draught">6.5</SimpleData>
+						<SimpleData name="vessel_GT">3760</SimpleData>
+						<SimpleData name="vessel_averageSpeed">16</SimpleData>
+						<SimpleData name="vessel_build year">2009</SimpleData>
+						<SimpleData name="vessel_IMO">9380453</SimpleData>
+						<SimpleData name="vessel_MMSI">266287000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_numberofCrane">3</SimpleData>
+						<SimpleData name="equipment_craneCapability">24/7 Remote</SimpleData>
+						<SimpleData name="equipment_craneCapability">8/21 Remote</SimpleData>
+						<SimpleData name="equipment_craneCapability">1/17 Remote</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">1050</SimpleData>
+						<SimpleData name="equipment_heatedStorage">1050</SimpleData>
+						<SimpleData name="ape_Towingcapacity">100 tonnes/1000m</SimpleData>
+						<SimpleData name="ape_Advancefirefightingfoam">1200 m3/h water,</SimpleData>
+						<SimpleData name="ape_Advancefirefightingfoam">1200 m3/h water,</SimpleData>
+						<SimpleData name="ape_Advancefirefightingfoam">300 m3/h water,</SimpleData>
+						<SimpleData name="ape_Recoverysystem">400m3/h 10000 cSt,</SimpleData>
+						<SimpleData name="ape_Recoverysystem">100m3/h 1000000 cSt,</SimpleData>
+						<SimpleData name="ape_Sweeparms">32</SimpleData>
+						<SimpleData name="ape_Skimmer">100m3/h</SimpleData>
+						<SimpleData name="ape_Bucketskimmer">3</SimpleData>
+						<SimpleData name="ape_Multihose">90</SimpleData>
+						<SimpleData name="ape_Responsedivers"></SimpleData>
+						<SimpleData name="ape_Cargocontainer">20</SimpleData>
+						<SimpleData name="ape_Cargocontainer">20</SimpleData>
+						<SimpleData name="ape_Cargocontainer">20</SimpleData>
+						<SimpleData name="ape_Cargocontainer">20</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>18.44383, 56.8015, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>KBV003 AMFITRITE</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KBV003AMFITRITE</SimpleData>
+						<SimpleData name="name">KBV003AMFITRITE</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Swedish Coast Guard</SimpleData>
+						<SimpleData name="location">Karlskrona</SimpleData>
+						<SimpleData name="operation">Offshore</SimpleData>
+						<SimpleData name="vessel_class">Anti-pollution vessel</SimpleData>
+						<SimpleData name="vessel_loa">81.3</SimpleData>
+						<SimpleData name="vessel_breadth">16.3</SimpleData>
+						<SimpleData name="vessel_draught">6.5</SimpleData>
+						<SimpleData name="vessel_GT">3760</SimpleData>
+						<SimpleData name="vessel_averageSpeed">16</SimpleData>
+						<SimpleData name="vessel_build year">2010</SimpleData>
+						<SimpleData name="vessel_IMO">9380465</SimpleData>
+						<SimpleData name="vessel_MMSI">266288000</SimpleData>
+						<SimpleData name="equipment_crane">X</SimpleData>
+						<SimpleData name="equipment_numberofCrane">3</SimpleData>
+						<SimpleData name="equipment_craneCapability">24/7 Remote</SimpleData>
+						<SimpleData name="equipment_craneCapability">8/21 Remote</SimpleData>
+						<SimpleData name="equipment_craneCapability">1/17 Remote</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">1100</SimpleData>
+						<SimpleData name="equipment_heatedStorage">1100</SimpleData>
+						<SimpleData name="ape_Towingcapacity">100 tonnes/1000m</SimpleData>
+						<SimpleData name="ape_Advancefirefightingfoam">1200 m3/h water,</SimpleData>
+						<SimpleData name="ape_Advancefirefightingfoam">1200 m3/h water,</SimpleData>
+						<SimpleData name="ape_Advancefirefightingfoam">300 m3/h water,</SimpleData>
+						<SimpleData name="ape_Recoverysystem">400m3/h 10000 cSt,</SimpleData>
+						<SimpleData name="ape_Recoverysystem">100m3/h 1000000 cSt,</SimpleData>
+						<SimpleData name="ape_Sweeparms">32</SimpleData>
+						<SimpleData name="ape_Skimmer">100m3/h</SimpleData>
+						<SimpleData name="ape_Bucketskimmer">3</SimpleData>
+						<SimpleData name="ape_Multihose">90</SimpleData>
+						<SimpleData name="ape_Responsedivers"></SimpleData>
+						<SimpleData name="ape_Cargocontainer">20</SimpleData>
+						<SimpleData name="ape_Cargocontainer">20</SimpleData>
+						<SimpleData name="ape_Cargocontainer">20</SimpleData>
+						<SimpleData name="ape_Cargocontainer">20</SimpleData>
+						<SimpleData name="ape_RecoverytanksinSS">160</SimpleData>
+						<SimpleData name="ape_Recoverycapacityinhotarea"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>14.8435, 56.11933, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>KBV031</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KBV031</SimpleData>
+						<SimpleData name="name">KBV031</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Swedish Coast Guard</SimpleData>
+						<SimpleData name="location">Djurö</SimpleData>
+						<SimpleData name="operation">Offshore</SimpleData>
+						<SimpleData name="vessel_class">Anti-pollution vessel</SimpleData>
+						<SimpleData name="vessel_loa">49.9</SimpleData>
+						<SimpleData name="vessel_breadth">10.5</SimpleData>
+						<SimpleData name="vessel_draught">4</SimpleData>
+						<SimpleData name="vessel_GT">801</SimpleData>
+						<SimpleData name="vessel_averageSpeed">12</SimpleData>
+						<SimpleData name="vessel_build year">2011</SimpleData>
+						<SimpleData name="vessel_IMO">9536571</SimpleData>
+						<SimpleData name="vessel_MMSI">266333000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">1.9/19.3</SimpleData>
+						<SimpleData name="equipment_craneCapability">2.75/10</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">255 + 100 m3 oil bag</SimpleData>
+						<SimpleData name="equipment_heatedStorage">255</SimpleData>
+						<SimpleData name="ape_LamorBrushSkimmers"></SimpleData>
+						<SimpleData name="ape_sweepingArms"></SimpleData>
+						<SimpleData name="ape_freefloatingskimmers">2</SimpleData>
+						<SimpleData name="ape_responsedivers"></SimpleData>
+						<SimpleData name="ape_boom">300</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>18.19122, 59.00296, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>KBV047</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KBV047</SimpleData>
+						<SimpleData name="name">KBV047</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Swedish Coast Guard</SimpleData>
+						<SimpleData name="location">Slite</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Anti-pollution vessel</SimpleData>
+						<SimpleData name="vessel_loa">36.4</SimpleData>
+						<SimpleData name="vessel_breadth">7.3</SimpleData>
+						<SimpleData name="vessel_draught">3.7</SimpleData>
+						<SimpleData name="vessel_GT">340</SimpleData>
+						<SimpleData name="vessel_averageSpeed">10</SimpleData>
+						<SimpleData name="vessel_build year">1983</SimpleData>
+						<SimpleData name="vessel_IMO">8030324</SimpleData>
+						<SimpleData name="vessel_MMSI">265515570</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">2/8.4 range</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">150+110 m3 oil bags</SimpleData>
+						<SimpleData name="equipment_heatedStorage">150</SimpleData>
+						<SimpleData name="ape_LamorBrushSkimmers"></SimpleData>
+						<SimpleData name="ape_sweepingArms"></SimpleData>
+						<SimpleData name="ape_freefloatingskimmers">2</SimpleData>
+						<SimpleData name="ape_boom">300</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>16.45822, 57.26691, 0</coordinates>
+				</Point>
+			</Placemark>

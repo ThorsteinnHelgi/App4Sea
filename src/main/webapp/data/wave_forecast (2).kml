@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+    <Document id="1">
+        <description>MET wave forecast</description>
+        <Camera>
+            <longitude>-40.0648651123</longitude>
+            <latitude>63.083694458</latitude>
+            <altitude>240000</altitude>
+            <tilt>0</tilt>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <roll>0</roll>
+        </Camera>
+        <GroundOverlay id="3">
+            <name>wave_forecast at 2019-05-19 00:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="4">
+                <begin>2019-05-19 00:00:00</begin>
+                <end>2019-05-20 00:00:00</end>
+            </TimeSpan>
+            <Icon id="5">
+                <href>wave_forecast0.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>90.0</north>
+                <south>36.1673927307</south>
+                <east>-220.0</east>
+                <west>139.870269775</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="7">
+            <name>wave_forecast at 2019-05-20 00:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="8">
+                <begin>2019-05-20 00:00:00</begin>
+                <end>2019-05-21 00:00:00</end>
+            </TimeSpan>
+            <Icon id="9">
+                <href>wave_forecast24.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>90.0</north>
+                <south>36.1673927307</south>
+                <east>-220.0</east>
+                <west>139.870269775</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="11">
+            <name>wave_forecast at 2019-05-21 00:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="12">
+                <begin>2019-05-21 00:00:00</begin>
+                <end>2019-05-22 00:00:00</end>
+            </TimeSpan>
+            <Icon id="13">
+                <href>wave_forecast48.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>90.0</north>
+                <south>36.1673927307</south>
+                <east>-220.0</east>
+                <west>139.870269775</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="15">
+            <name>wave_forecast at 2019-05-22 00:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="16">
+                <begin>2019-05-22 00:00:00</begin>
+                <end>2019-05-23 00:00:00</end>
+            </TimeSpan>
+            <Icon id="17">
+                <href>wave_forecast72.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>90.0</north>
+                <south>36.1673927307</south>
+                <east>-220.0</east>
+                <west>139.870269775</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="19">
+            <name>wave_forecast at 2019-05-23 00:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="20">
+                <begin>2019-05-23 00:00:00</begin>
+                <end>2019-05-24 00:00:00</end>
+            </TimeSpan>
+            <Icon id="21">
+                <href>wave_forecast96.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>90.0</north>
+                <south>36.1673927307</south>
+                <east>-220.0</east>
+                <west>139.870269775</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="23">
+            <name>wave_forecast at 2019-05-24 00:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="24">
+                <begin>2019-05-24 00:00:00</begin>
+                <end>2019-05-25 00:00:00</end>
+            </TimeSpan>
+            <Icon id="25">
+                <href>wave_forecast120.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>90.0</north>
+                <south>36.1673927307</south>
+                <east>-220.0</east>
+                <west>139.870269775</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="27">
+            <name>wave_forecast at 2019-05-25 00:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="28">
+                <begin>2019-05-25 00:00:00</begin>
+                <end>2019-05-26 00:00:00</end>
+            </TimeSpan>
+            <Icon id="29">
+                <href>wave_forecast144.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>90.0</north>
+                <south>36.1673927307</south>
+                <east>-220.0</east>
+                <west>139.870269775</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="31">
+            <name>wave_forecast at 2019-05-26 00:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="32">
+                <begin>2019-05-26 00:00:00</begin>
+                <end>2019-05-27 00:00:00</end>
+            </TimeSpan>
+            <Icon id="33">
+                <href>wave_forecast168.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>90.0</north>
+                <south>36.1673927307</south>
+                <east>-220.0</east>
+                <west>139.870269775</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="35">
+            <name>wave_forecast at 2019-05-27 00:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="36">
+                <begin>2019-05-27 00:00:00</begin>
+                <end>2019-05-28 00:00:00</end>
+            </TimeSpan>
+            <Icon id="37">
+                <href>wave_forecast192.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>90.0</north>
+                <south>36.1673927307</south>
+                <east>-220.0</east>
+                <west>139.870269775</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="39">
+            <name>wave_forecast at 2019-05-28 00:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="40">
+                <begin>2019-05-28 00:00:00</begin>
+                <end>2019-05-29 00:00:00</end>
+            </TimeSpan>
+            <Icon id="41">
+                <href>wave_forecast216.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>90.0</north>
+                <south>36.1673927307</south>
+                <east>-220.0</east>
+                <west>139.870269775</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <ScreenOverlay id="43">
+            <name>Legend</name>
+            <visibility>1</visibility>
+            <Icon id="44">
+                <href>legend.png</href>
+            </Icon>
+            <overlayXY x="0" xunits="fraction" y="0" yunits="fraction"/>
+            <screenXY x="0.015" xunits="fraction" y="0.075" yunits="fraction"/>
+            <size x="0" xunits="fraction" y="0" yunits="fraction"/>
+        </ScreenOverlay>
+    </Document>
+</kml>

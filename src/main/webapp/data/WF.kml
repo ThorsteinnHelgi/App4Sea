@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<GroundOverlay>
+	<name>Untitled Image Overlay</name>
+	<Icon>
+		<href>data\4WWATL.png</href>
+		<viewBoundScale>0.75</viewBoundScale>
+	</Icon>
+	<LatLonBox>
+		<north>66.48136111111111</north>
+		<south>65.41161388888889</south>
+		<east>-21.26525277777778</east>
+		<west>-24.54351111111112</west>
+	</LatLonBox>
+</GroundOverlay>
+</kml>

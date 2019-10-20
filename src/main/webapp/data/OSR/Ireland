@@ -1,0 +1,36 @@
+			<Placemark>
+				<name>OSCAR</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">OSCAR</SimpleData>
+						<SimpleData name="name">OSCAR</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Landhelgisgaesla- Coast Gaurd</SimpleData>
+						<SimpleData name="location">Foynes on the river Shannon West of Ireland</SimpleData>
+						<SimpleData name="operation">Offshore</SimpleData>
+						<SimpleData name="vessel_class">Oil recovery vessel</SimpleData>
+						<SimpleData name="vessel_loa">-</SimpleData>
+						<SimpleData name="vessel_breadth">-</SimpleData>
+						<SimpleData name="vessel_draught">-</SimpleData>
+						<SimpleData name="vessel_GT">-</SimpleData>
+						<SimpleData name="vessel_averageSpeed">-</SimpleData>
+						<SimpleData name="vessel_build year">-</SimpleData>
+						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="equipment_crane">-</SimpleData>
+						<SimpleData name="equipment_craneCapability">-</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">-</SimpleData>
+						<SimpleData name="equipment_heatedStorage">-</SimpleData>
+						<SimpleData name="ape_Norlense Offshore oil boom"></SimpleData>
+						<SimpleData name="ape_brush skimmer free floating"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>22.21799870852966, 60.44138678164045, 0</coordinates>
+				</Point>
+			</Placemark>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Folder>
+	<name>sea/dataset-mywavewam8-be, VHM0</name>
+	<open>1</open>
+	<description>Arctic Ocean Wave Analysis and Forecast, 8km hourly instantaneous surface fields (dataset-mywave-arctic-be), sea_surface_wave_significant_height: Spectral significant wave height (Hm0)</description>
+	<ScreenOverlay>
+		<name>Colour scale</name>
+		<Icon>
+			<href>legend.png</href>
+		</Icon>
+		<overlayXY x="0" y="1" xunits="fraction" yunits="fraction"/>
+		<screenXY x="0" y="1" xunits="fraction" yunits="fraction"/>
+		<rotationXY x="0" y="0" xunits="fraction" yunits="fraction"/>
+		<size x="0" y="0" xunits="fraction" yunits="fraction"/>
+	</ScreenOverlay>
+	<GroundOverlay>
+		<name>Elevation: 0</name>
+		<Icon>
+			<href>frame0.png</href>
+		</Icon>
+		<LatLonBox id="0">
+			<north>56.40362404498134</north>
+			<south>36.11145312563094</south>
+			<east>101.6372015187783</east>
+			<west>-176.82259022459</west>
+		</LatLonBox>
+	</GroundOverlay>
+</Folder>
+</kml>

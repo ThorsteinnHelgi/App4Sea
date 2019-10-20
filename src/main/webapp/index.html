@@ -1,186 +1,496 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
     <head>
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140628855-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-140628855-1');
+        </script>
+
         <title>App4Sea</title>
+
+        <link rel="icon" href="favicon.ico"/>        
+        <meta name="Description" content="App4Sea is an NPA development project. See: http://app4sea.interreg-npa.eu/. E-mail comments to thorsteinn@asverk.is">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+
+        <script type="text/javascript" crossorigin="anonymous" src="http://code.jquery.com/jquery-3.3.1.min.js" ></script>
+        <script type="text/javascript" crossorigin="anonymous" src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
+        <script type="text/javascript" crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.5.0/proj4.js"></script>
         
-        <link rel="icon" href="favicon.ico">        
+        <link rel="stylesheet" type="text/css" href="css/normalize.css"/>
+        <link rel="stylesheet" type="text/css" crossorigin="anonymous" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css">
+        <link rel="stylesheet" type="text/css" href="static/css/w3.css"/>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/ol3/3.10.1/ol.min.js"></script>
+        <script type="text/javascript" src="static/js/dist/jstree.min.js" ></script>
+        <script type="text/javascript" src="static/js/qwest.min.js" ></script>
+        <script type="text/javascript" src="static/js/zip.min.js" ></script>
+        <script type="text/javascript" src="static/js/mustache.min.js" ></script>
+        <script type="text/javascript" src="static/js/URI.min.js" ></script>
+        <script type="text/javascript" src="static/js/bootstrap-4.3.1-dist/js/bootstrap.bundle.min.js"></script>
+        <script type="text/javascript" src="static/js/html2canvas.js"></script>
+
+        <!-- 
+        <script type="text/javascript" src="static/js.min.js" ></script>
+        -->
+
+        <!--script type="module">
+            import {toPng} from '/node_modules/html-to-image';
+        </script-->
         
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- 
+        <link rel="stylesheet" type="text/css" href="static/js/bootstrap-4.3.1-dist/css/bootstrap.min.css"/>
+        -->
 
-        <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet"> 
+        <!-- https://fontawesome.com/v4.7.0/icons/ -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-        <script src="jquery/jquery-3.2.1.min.js" type="text/javascript"></script>
-
-        <link href="jquery/jquery-ui.min.css" rel="stylesheet" type="text/css"/>
-        <script src="jquery/jquery-ui.min.js" type="text/javascript"></script>
-
-        <link href="jquery/jquery.growl.css" rel="stylesheet" type="text/css" />
-        <script src="jquery/jquery.growl.js" type="text/javascript"></script>
-
-        <script src="static/js/mustache.js" type="text/javascript"></script>
-
-        <script src="static/js/qwest.min.js"></script>
-        <script src="static/js/zip.js"></script>
-        <script src="static/js/cors-public.js"></script>
+        <link rel="stylesheet" type="text/css" href="static/js/dist/themes/default/style.min.css" /> 
+        <link rel="stylesheet" type="text/css" href="css/main.css"/>
         
-        <link href="css/main.css" rel="stylesheet" type="text/css" />
-
-        <script type="text/javascript">
-            "use strict";
-            $(document).ready(function () {
-
-                $(".MenuItem").click(function () {
-                    var url = $(this).attr("data-url");
-                    var target = $(this).attr("data-target");
-                    window.open(url, target);
-                });
-            });
-
-        </script>
-        <!--style>
-            .leaflet-interactive{
-                stroke-width : '1' !important;   
-            }           
-
-        </style-->
-
-        <script id="RescueSite" type="text/template">
-            <div>
-                <h1>{{name}}</h1>
-                <p>{{address}}</p>
-                <p>{{region}}</p>
-                <p>{{region2}}</p>
-                <p>{{region3}}</p>
-                <p>{{region4}}</p>
-                <p>{{{link}}}</p>
-            </div>
-        </script>
-        <script id="DefaultPop" type="text/template">
-            <div>{{description}}
-            </div>
-        </script>
-
-        <!-- OpenLayers begin -->
-        <link rel="stylesheet" href="https://openlayers.org/en/v4.6.4/css/ol.css" type="text/css">
-        <script src="https://openlayers.org/en/v4.6.4/build/ol.js" type="text/javascript"></script>
-        <script src="scripts/App4Sea.KmzHandler.js" type="text/javascript"></script>
-        <script src="scripts/App4Sea.Map.OpenLayers.js" type="text/javascript"></script>
-        <!-- OpenLayers end -->
-
-        <!-- The line below is only needed for old environments like Internet Explorer and Android 4.x -->
-        <!-- This will not work anyway in IE. And it will render coordinates for kml files as 0,0 -->
-        <!--script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=requestAnimationFrame,Element.prototype.classList,URL"></script>
-        <script src="https://openlayers.org/en/v4.6.5/build/ol.js"></script-->
-
-        <link rel="stylesheet" href="static/js/dist/themes/default/style.min.css" />
-        <script src="static/js/dist/jstree.min.js"></script>
-    <style>
-      .ol-popup {
-        position: absolute;
-        background-color: white;
-        -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
-        filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
-        padding: 25px;
-        border-radius: 10px;
-        border: 1px solid #cccccc;
-        bottom: 12px;
-        left: -50px;
-        min-width: 280px;
-      }
-      .ol-popup:after, .ol-popup:before {
-        top: 100%;
-        border: solid transparent;
-        content: " ";
-        height: 0;
-        width: 0;
-        position: absolute;
-        pointer-events: none;
-      }
-      .ol-popup:after {
-        border-top-color: white;
-        border-width: 10px;
-        left: 48px;
-        margin-left: -10px;
-      }
-      .ol-popup:before {
-        border-top-color: #cccccc;
-        border-width: 11px;
-        left: 48px;
-        margin-left: -11px;
-      }
-      .ol-popup-closer {
-        text-decoration: none;
-        position: absolute;
-        top: 2px;
-        right: 8px;
-      }
-      .ol-mouse-position {
-        right: 4.5em;
-      }
-      .ol-scale-line {
-        left: 14.5em;
-      }
-    </style>
-    <!--
-      .ol-popup-closer:after {
-        content: "✖";
-      }
-    -->
     </head>
     
-    <body>
+    <body id="whole_page">
+        <!-- Splash overlay -->
+        <div id="splash-overlay">
+            <img id="splash_image_start" src="images/Poster.webp" alt="App4Sea is an NPA-project"/>
+        </div>
+        
         <!-- This is the left side menu container -->
         <div id="MenuContainer"> 
-            
-            <h3>Animation (Under construction)</h3>
-            <div class="MenuSection">
-                <div>
-                    <form>
-                      <label>radius size</label>
-                      <input id="radius" type="range" min="1" max="50" step="1" value="5"/>
-                      <label>blur size</label>
-                      <input id="blur" type="range" min="1" max="50" step="1" value="15"/>
-                    </form>
+            <div id="ButtonsForMenu">
+                <button class="btn" title="Close" onclick="App4Sea.Utils.section_toggle('MenuContainer')"><i class="fa fa-close"></i></button>
+            </div>
+
+            <div id="ButtonsForTools">
+                <button class="btn" title="Home" onclick="App4Sea.Utils.GoHome()"><i class="fa fa-home"></i></button>
+                <button class="btn" title="Operation" onclick="App4Sea.Utils.section_toggle('OperationContainer')"><i class="fa fa-tint"></i></button>
+                <button class="btn" title="Animation" onclick="App4Sea.Utils.section_toggle('AnimationContainer')"><i class="fa fa-play-circle-o"></i></button>
+                <button class="btn" title="Heat-graph" onclick="App4Sea.Utils.section_toggle('HeatContainer')"><i class="fa fa-bullseye"></i></button>
+                <button class="btn" title="Measurements" onclick="App4Sea.Utils.section_toggle('MeasurementContainer')"><i class="fa fa-arrows"></i></button>
+                <button class="btn" title="Full Screen" onclick="App4Sea.Utils.toggleFullscreen()"><i class="fa fa-arrows-alt"></i></button>
+                <button class="btn" title="Log" onclick="App4Sea.Utils.section_toggle('LogContainer')"><i class="fa fa-file-text-o"></i></button>
+            </div>
+
+            <div id="ButtonsForSettings">
+                <button class="btn" title="Information" onclick="App4Sea.Utils.section_toggle('InfoContainer')"><i class="fa fa-info"></i></button>
+                <button class="btn" title="Settings" onclick="App4Sea.Utils.section_toggle('SettingsContainer')"><i class="fa fa-cog"></i></button>
+                <button class="btn-w-txt" title="About" onclick="App4Sea.Utils.section_toggle('BannerContainer')"><i class="fa fa-at"></i> APP4SEA</button>
+            </div>
+
+            <div id="ButtonsForMenu2">
+            </div>
+                
+            <!--div id="ButtonSection">
+                    <button class="btn"><i class="fa fa-home"></i></button>
+                    <button class="btn"><i class="fa fa-align-justify"></i></button>
+                    <button class="btn"><i class="fa fa-sun-o"></i></button>
+                    <button class="btn"><i class="fa fa-trash"></i></button>
+                    <button class="btn"><i class="fa fa-arrows-h"></i></button>
+                    <button class="btn"><i class="fa fa-folder"></i></button>
+                    <button class="btn"><i class="fa fa-plus"></i></button>
+                    <button class="btn"><i class="fa fa-minus"></i></button>
+                    <button class="btn"><i class="fa fa-plus-square"></i></button>
+                    <button class="btn"><i class="fa fa-minus-square"></i></button>
+                    <button class="btn"><i class="fa fa-plus-square-o"></i></button>
+                    <button class="btn"><i class="fa fa-minus-square-o"></i></button>
+                    <button class="btn"><i class="fa fa-caret-square-o-up"></i></button>
+                    <button class="btn"><i class="fa fa-caret-square-o-down"></i></button>
+                    <button class="btn"><i class="fa fa-play"></i></button>
+                    <button class="btn"><i class="fa fa-pause"></i></button>
+                    <button class="btn"><i class="fa fa-stop"></i></button>
+                    <button class="btn"><i class="fa fa-cloud"></i></button>
+                    <button class="btn"><i class="fa fa-map"></i></button>
+                    <button class="btn"><i class="fa fa-tint"></i></button>
+                    <button class="btn"><i class="fa fa-search"></i></button>
+                    <button class="btn-right" onclick="App4Sea.Utils.w3_close('ButtonSection')" ><i class="fa fa-close"></i></button>
+                </div-->
+
+            <div id="ControlPlaceInMenu">
+                <div id='HeatContainer' class="SubMenuSection" style="display:none">
+                    <button class="btn-right" onclick="App4Sea.Utils.w3_close('HeatContainer')" ><i class="fa fa-close"></i></button>
+
+                    <h3>Heatmap settings</h3>
+
+                    <div style="font-size:0.6em; color:white">
+                        <form>
+                            <table width="100%">
+                                <tr style="text-align:center">
+                                    <td colspan="4">
+                                        <span id="titleHeatMap" class="DocTitle">No data available</span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="4">
+                                        <br/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:right">
+                                        <span>Radius Size</span>
+                                    </td>
+                                    <td>
+                                        <input id="radius" type="range" min="1" max="50" step="1" value="6"/>
+                                    </td>
+                                    <td style="text-align:right">
+                                        <span>Blur Size</span>
+                                    </td>
+                                    <td>
+                                        <input id="blur" type="range" min="1" max="50" step="1" value="15"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
                 </div>
 
-                <div role="group" aria-label="Animation controls">
-                    <button id="play" type="button">Play</button>
-                    <button id="pause" type="button">Pause</button>
-                    <br>
-                    <span id="info" style="font-size:xx-small"></span>
+                <div id='OperationContainer' class="SubMenuSection" style="display:none">
+                    <button class="btn-right" title="Close" onclick="App4Sea.Utils.w3_close('OperationContainer')" ><i class="fa fa-close"></i></button>
+                    <button class="btn-right" title="Area" onclick="App4Sea.Measure.DoArea()" id="btnArea"><i class="fa fa-square-o"></i></button>
+                    <button class="btn-right" title="Length" onclick="App4Sea.Measure.DoLength()" id="btnLength"><i class="fa fa-arrows-h"></i></button>
+                    <button class="btn-right" title="Clear content" onclick="App4Sea.Measure.DoClearAll()"><i class="fa fa-eraser"></i></button>
+                    <button class="btn-right" title="Save contents as KML (no style)" onclick="App4Sea.Measure.DoSaveAll()"><i class="fa fa-save"></i></button>
+                    <button class="btn-right" title="Open (simple) KML file" onclick="App4Sea.Measure.DoAcceptDragAndDrop()"><i class="fa fa-file-o"></i></button>
+                    <button class="btn-right" title="Put placemark on map" onclick="App4Sea.Utils.PutPlacemark()"><i class="fa fa-ship"></i></button>
+                    <button class="btn-right" title="Print report" onclick="App4Sea.Utils.PrintReport()"><i class="fa fa-print"></i></button>
+    
+                    <h3>Operation [Under construction]</h3>
 
-                    <div id="popup" class="ol-popup">
-                        <a href="#" id="popup-closer" class="ol-popup-closer"></a>
-                        <div id="popup-content"></div>
+                    <div>
+                        <h4>Map and Layers</h4>
+
+                        <select id="MenuLayer_Select2" style="color:white; background-color:gray;" onchange="App4Sea.OpenLayers.MapChange()">
+                            <option style="color:black;" value="esriWSPTileLayer">ESRI World Street Map</option>
+                            <option style="color:black;" value="esriWITileLayer" >ESRI World Imagery Map</option>
+                            <option style="color:black;" value="osmTileLayer">Open Street Map</option>
+                            <option style="color:black;" value="blackTileLayer">Carto DB Dark Matter Map</option>
+                        </select>
+                        <input type="checkbox" onchange="App4Sea.Utils.CheckChanged(this)"/>Boundaries
+                        <input type="checkbox" onchange="App4Sea.Utils.CheckChanged(this)"/>OSR
+                        <input type="checkbox" onchange="App4Sea.Utils.CheckChanged(this)"/>Weather
+                        <input type="checkbox" onchange="App4Sea.Utils.CheckChanged(this)"/>Currents
+                        <input type="checkbox" onchange="App4Sea.Utils.CheckChanged(this)"/>Ecology
+                    </div>
+
+                    <div>
+                            <h4>Incident Information</h4>
+                            <form>
+                                <table style="font-size: 0.8rem; vertical-align:top;">
+                                    <tr>
+                                        <td>Date and Time</td>
+                                        <td>Date:</td>
+                                        <td><input type="date"/></td>
+                                        <td>Time:</td>
+                                        <td><input type="time"/></td>
+                                        <td>Comment:</td>
+                                        <td rowspan="4">
+                                            <textarea rows="6" cols="40">Put your comments here ...</textarea>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Vessel</td>
+                                        <td>Name:</td>
+                                        <td><input type="text"/></td>
+                                        <td>ID:</td>
+                                        <td><input type="text"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Spilled oil</td>
+                                        <td>Type:</td>
+                                        <td><input type="text"/></td>
+                                        <td>Volume:</td>
+                                        <td><input type="text"/></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Location</td>
+                                        <td>Longitude:</td>
+                                        <td><input type="text" pattern="-?\d{1,3}\.\d+"/></td>
+                                        <td>Latitude:</td>
+                                        <td><input type="text" pattern="-?\d{1,3}\.\d+"/></td>
+                                    </tr>
+                                </table>
+                            </form>
+                    </div>
+
+                    <div>
+                        <h4>Contact information                            
+                            <select id="MenuLayer_CountrySelect" style="color:white; background-color:gray;" onchange="App4Sea.Utils.SelectAuthority(this.value)">
+                                <option style="color:black;" value="Denmark">Denmark</option>
+                                <option style="color:black;" value="Faero">Faero Islands</option>
+                                <option style="color:black;" value="Finland">Finland</option>
+                                <option style="color:black;" value="Greenland">Greenland</option>
+                                <option style="color:black;" value="Iceland">Iceland</option>
+                                <option style="color:black;" value="Ireland">Ireland</option>
+                                <option style="color:black;" value="Norway">Norway</option>
+                                <option style="color:black;" value="Scotland">Scotland</option>
+                                <option style="color:black;" value="Sweden">Sweden</option>
+                            </select>
+                        </h4>
+
+                        <table>
+                            <tr>
+                                <td width="33.33%">
+                                    <h6>Spill notification point</h6>
+                                </td>
+                                <td width="33.33%">
+                                    <h6>Competent national authority</h6>
+                                </td>
+                                <td width="33.33%">
+                                    <h6>Weather information</h6>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td width="33.33%">
+                                    <div id="AuthorityNotify" style="font-size: 0.8rem;">
+                                    </div>
+                                </td>
+                                <td width="33.33%">
+                                    <div id="AuthorityNational" style="font-size: 0.8rem;">
+                                    </div>
+                                </td>
+                                <td width="33.33%">
+                                    <div id="AuthorityWeather" style="font-size: 0.8rem;">
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                
+                    <div>
+                        <h4>Best practices <a href="https://oaarchive.arctic-council.org/bitstream/handle/11374/1928/2017-05-09-EPPR-COSRVA-guts-and-cover-letter-size-digital-complete.pdf?sequence=1&isAllowed=y">More information</a></h4>
+
+                        <div class="bannerButtons">
+                            <div class="mechanical">
+                                <button class="a4s a4s-single-vessel-with-outrigger" title="A single vessel with an outrigger" onclick="window.open('http://localhost:8080/App4Sea/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page42.png')"></button>
+                                <button class="a4s a4s-two-vessels-with-boom" title="Two vessels with a boom" onclick="window.open('http://localhost:8080/App4Sea/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page41.png')"></button>
+                                <button class="a4s a4s-three-vessels-with-boom" title="Three vessels with a boom" onclick="window.open('http://localhost:8080/App4Sea/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page43.png')"></button>
+                                <button class="a4s a4s-single-vessel-in-ice" title="A single vessel in ice" onclick="window.open('http://localhost:8080/App4Sea/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page44.png')"></button>
+                            </div>
+                            <div class="disperant">
+                                    <button class="a4s a4s-single-vessel-dispersant" title="A single vessel with a dispersant" onclick="window.open('http://localhost:8080/App4Sea/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page45.png')"></button>
+                                <button class="a4s a4s-fixed_wing-dispersant" title="A single vessel with an outrigger" onclick="window.open('http://localhost:8080/App4Sea/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page46.png')"></button>
+                                <button class="a4s a4s-helicopter-dispersant" title="A single vessel with an outrigger" onclick="window.open('http://localhost:8080/App4Sea/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page47.png')"></button>
+                            </div>
+                            <div class="insitu">
+                                <button class="a4s a4s-vessel-with-fire-boom" title="A single vessel with an outrigger" onclick="window.open('http://localhost:8080/App4Sea/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page48.png')"></button>
+                                <button class="a4s a4s-helicopter-with-ice-containment" title="A single vessel with an outrigger" onclick="window.open('http://localhost:8080/App4Sea/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page49.png')"></button>
+                                <button class="a4s a4s-helicopter-with-herders" title="A single vessel with an outrigger" onclick="window.open('http://localhost:8080/App4Sea/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page50.png')"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div id='AnimationContainer' class="SubMenuSection" style="display:none">
+                    <button class="btn-right" title="Close" onclick="App4Sea.Utils.w3_close('AnimationContainer')" ><i class="fa fa-close"></i></button>
+                    <button class="btn-right" title="Play or Stop" onclick="App4Sea.Animation.PlayStop()"><i id="playstop" class="fa fa-play"></i></button>
+                    <button class="btn-right" title="More speed" onclick="App4Sea.Animation.MoreSpeed()"><i id="morespeed" class="fa fa-plus"></i></button>
+                    <button class="btn-right" title="Less speed" onclick="App4Sea.Animation.LessSpeed()"><i id="lessspeed" class="fa fa-minus"></i></button>
+    
+                    <h3>Animation</h3>
+
+                    <div style="font-size:0.6em;">
+                        <form>
+                            <table width="100%">
+                                <tr style="text-align:center">
+                                    <td colspan="3">
+                                        <select id="AniDataSelect" class="DocTitle" style="color:white; background-color:gray;">
+                                            <option style="color:black;" value="esriWSPTileLayer">No data available</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <input id="progress" type="range" min="0" max="99" step="1" value="0"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td width="33.33%">
+                                        <span id="startDate">Start date</span><br/>
+                                        <span id="start">Start time</span>
+                                    </td>
+                                    <td width="33.33%" style="text-align:center">
+                                        <span id="currentDate">Current date</span><br/>
+                                        <span id="current">Current time</span>
+                                    </td>
+                                    <td width="33.33%" style="text-align:right">
+                                        <span id="endDate">End date</span><br/>
+                                        <span id="end">End time</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+
+                <div id='LogContainer' class="SubMenuSection" style="display:none">
+                    <button class="btn-right" title="Close" onclick="App4Sea.Utils.w3_close('LogContainer')"><i class="fa fa-close"></i></button>
+                    <button class="btn-right" title="Clear Content" onclick="App4Sea.Utils.clearLog()"><i class="fa fa-eraser"></i></button>
+
+                    <h3>Log</h3>
+
+                    <div id="Log"></div>
+                </div>
+
+                <div id='MeasurementContainer' class="SubMenuSection" style="display:none">
+                    <button class="btn-right" title="Close" onclick="App4Sea.Measure.DoNothing('MeasurementContainer')"><i class="fa fa-close"></i></button>
+                    <button class="btn-right" title="Area" onclick="App4Sea.Measure.DoArea()" id="btnArea"><i class="fa fa-square-o"></i></button>
+                    <button class="btn-right" title="Length" onclick="App4Sea.Measure.DoLength()" id="btnLength"><i class="fa fa-arrows-h"></i></button>
+                    <button class="btn-right" title="Clear content" onclick="App4Sea.Measure.DoClearAll()"><i class="fa fa-eraser"></i></button>
+                    <button class="btn-right" title="Save contents as KML (no style)" onclick="App4Sea.Measure.DoSaveAll()"><i class="fa fa-save"></i></button>
+                    <button class="btn-right" title="Open (simple) KML file" onclick="App4Sea.Measure.DoAcceptDragAndDrop()"><i class="fa fa-file-o"></i></button>
+
+                    <h3>Measure</h3>
+                </div>
+            </div>
+
+            <div id="SettingSection">
+                <div id='BannerContainer' class="SubMenuSection" style="display:none">
+                    <button class="btn-right" title="Close" onclick="App4Sea.Utils.w3_close('BannerContainer')"><i class="fa fa-close"></i></button>
+
+                    <h3>About this site</h3>
+
+                    <a href="http://app4sea.interreg-npa.eu">
+                        <!--img src="images/App4Sea.webp" alt="App4Sea is an NPA-project" style="width:100%;" /-->
+                        <img id="splash_image" src="images/Poster.webp" alt="App4Sea is an NPA-project" style="width:100%;"/>
+                    </a>
+                </div>
+                
+                <div id='InfoContainer' class="SubMenuSection" style="display:none">
+                    <button class="btn-right" title="Close" onclick="App4Sea.Utils.w3_close('InfoContainer')"><i class="fa fa-close"></i></button>
+                        
+                    <h3>Information</h3>
+    
+                    <div style="font-size:0.8em;">
+                        This site currently works best in the Chrome and Vivaldi browsers.<br/>
+                        To access cross domain information please add 
+                        <a style="color:gold" href='https://chrome.google.com/webstore/detail/allow-cors-access-control/lhobafahddgcelffkeicbaginigeejlf?brand=CHBD&amp;gclid=EAIaIQobChMIxsz1iebz3AIVwcDACh3yDgHbEAAYASABEgKjnvD_BwE&amp;gclsrc=aw.ds&amp;dclid=CNTTwZHm89wCFdQm4AodmP0Obw' title='Allow CORS'> 
+                                this extension
+                        </a> to those browsers.<br/>
+                        NOTE: You may have to disable the extension on other sites, e.g. while watching YouTube videos.
+                    </div>
+                </div>
+                
+                <div id='SettingsContainer' class="SubMenuSection" style="display:none">
+                    <button class="btn-right" title="Close" onclick="App4Sea.Utils.w3_close('SettingsContainer')"><i class="fa fa-close"></i></button>
+                        
+                    <h3>Settings</h3>
+    
+                    <div>
+                        <h5 style="display:inline">Base map</h5>
+                        <select id="MenuLayer_Select" style="color:white; background-color:gray;">
+                            <option style="color:black;" value="esriWSPTileLayer">ESRI World Street Map</option>
+                            <option style="color:black;" value="esriWITileLayer" >ESRI World Imagery Map</option>
+                            <option style="color:black;" value="osmTileLayer">Open Street Map</option>
+                            <option style="color:black;" value="blackTileLayer">Carto DB Dark Matter Map</option>
+                        </select>
                     </div>
                 </div>
             </div>
 
-            <h3>Layers</h3>
-            <div id="MenuTree" class="MenuSection"></div>
-            
-            <h3>Further information</h3>
-            <div id="InfoTree" class="MenuSection"></div>
+            <div id="TreeSectionMenu">
+                <div class="TreeTitle">
+                    <button class="btn" title="Expand" onclick="App4Sea.Utils.collapse_tree(this, '#TreeMenu', false)"><i class="fa fa-level-down"></i></button>
+                    <button class="btn" title="Collapse" onclick="App4Sea.Utils.collapse_tree(this, '#TreeMenu', true)"><i class="fa fa-level-up"></i></button>
+                    Map Layers
+                </div>
 
-            <h3>Base map</h3>
-            <div class="MenuSection">
-                <select id="MenuLayer_Select" >
-                    <option value="esriWSPTileLayer">ESRI World Street Map</option>
-                    <option value="esriWITileLayer">ESRI World Imagery Map</option>
-                    <option value="osmTileLayer">Open Street Map</option>
-                </select>
+                <div id="TreeMenu"></div>
             </div>
 
+            <div id="TreeSectionInfo">
+                <div class="TreeTitle">
+                    <button class="btn" title="Expand" onclick="App4Sea.Utils.collapse_tree(this, '#TreeInfo', false)"><i class="fa fa-level-down"></i></button>
+                    <button class="btn" title="Collapse" onclick="App4Sea.Utils.collapse_tree(this, '#TreeInfo', true)"><i class="fa fa-level-up"></i></button>
+                    Useful Information
+                </div>
+
+                <div id="TreeInfo"></div>
+            </div>
         </div>
 
         <!-- This is the main map container. It is populated in code -->
-        <div id="MapContainer"></div>
+        <div id="MapContainer">
+            <div id="MenuButton" class="ol-custom ol-unselectable ol-control">
+               <button title="Open Menu" type="button" class="ol-rotate" onclick="App4Sea.Utils.w3_open('MenuContainer')">
+                    <span class="ol-compass">☰</span>
+                </button>
+            </div>
+            
+            <!-- This is the tool-tip container. It is populated in code -->
+            <div id="ToolTipInfo"></div>            
 
-        <!-- This is the debug window container that should be hidden in final application. It is populated in code  -->
-        <div id="DebugWindow" style="display:none;"></div>
+            <!-- This is the pop-up container. It is populated in code -->
+            <div id="popup" class="PopUp">
+                <a href="#" id="popup-closer" class="ol-popup-closer"></a>
+                <h4 id="popup-title"></h4>
+                <div id="popup-content" class="PopUpContent"></div>
+            </div>
+            
+            <!-- This is the information popup container. It is populated in code. Mainly used for Description and Author information -->
+            <div id="InfoPopup" class="InformationPopup"></div>
+
+            <!-- This is the heat and animation place container. It is populated in code -->
+            <div id="ControlPlaceInMap">
+                <div id="DragHandle">.....</div>
+            </div>
+
+            <!-- This is where we store tool buttons in the map -->
+            <div style="text-align:center;">
+                <div id="ToolButtonsPlaceInMap" class="toolbuttonscontainerinmap">
+                    <div id="ButtonsForToolsInMap" >
+                        <button class="btn" title="Home" onclick="App4Sea.Utils.GoHome()"><i class="fa fa-home"></i></button>
+                        <button class="btn" title="Operation" onclick="App4Sea.Utils.section_toggle('OperationContainer')"><i class="fa fa-tint"></i></button>
+                        <button class="btn" title="Animation" onclick="App4Sea.Utils.section_toggle('AnimationContainer')"><i class="fa fa-play-circle-o"></i></button>
+                        <button class="btn" title="Heat-graph" onclick="App4Sea.Utils.section_toggle('HeatContainer')"><i class="fa fa-bullseye"></i></button>
+                        <button class="btn" title="Measurements" onclick="App4Sea.Utils.section_toggle('MeasurementContainer')"><i class="fa fa-arrows"></i></button>
+                        <!--button class="btn" title="Full Screen" onclick="App4Sea.Utils.toggleFullscreen()"><i class="fa fa-arrows-alt"></i></button-->
+                        <!--button class="btn" title="Log" onclick="App4Sea.Utils.section_toggle('LogContainer')"><i class="fa fa-file-text-o"></i></button-->
+                        <!--button class="btn" title="Copy" onclick="App4Sea.Utils.copyToClipboard(document.getElementById('whole_page').innerHTML)"><i class="fa fa-copy-o"></i></button-->
+                        <!--button class="btn" title="Copy" onclick="App4Sea.Utils.take_screenshot()"><i class="fa fa-clipboard"></i></button-->
+                    </div>
+                </div>
+            </div>
+    
+            <!-- This is the overlayLegend (ScreenOverlay) container. It is populated in code -->
+            <div id="overlayLegend">
+                <div class="overlayLegend-content">
+                    <table id="tableLegend"></table>
+                </div>
+            </div>
+
+            <img id="photo" src="" class="photo" alt="photo"/>
+        </div>
+        
     </body>
+
+
+    <!--
+    <script type="text/javascript" src="scripts/App4Sea.js" ></script>
+    <script type="text/javascript" src="scripts/App4Sea.OpenLayers.js" ></script>
+    <script type="text/javascript" src="scripts/App4Sea.TreeInfo.js" ></script>
+    <script type="text/javascript" src="scripts/App4Sea.TreeMenu.js" ></script>
+    <script type="text/javascript" src="scripts/App4Sea.KML.js" ></script>
+    <script type="text/javascript" src="scripts/App4Sea.Measure.js" ></script>
+    <script type="text/javascript" src="scripts/App4Sea.PopUps.js" ></script>
+    <script type="text/javascript" src="scripts/App4Sea.Weather.js" ></script>
+    <script type="text/javascript" src="scripts/App4Sea.Utils.js" ></script>
+    <script type="text/javascript" src="scripts/App4Sea.Animation.js" ></script>
+    <script type="text/javascript" src="scripts/App4Sea.Events.js" ></script>
+    -->
+    <script type="text/javascript" async="async" src="scripts.min.js" ></script>
+
+    <script type="text/javascript" >
+        ['cut', 'copy', 'paste'].forEach(function(event) {
+            console.log(event)
+            document.addEventListener(event, function(e) {
+                console.log(event);   
+            });
+        });
+    </script>
+
 </html>

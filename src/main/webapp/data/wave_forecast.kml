@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+    <Document id="1">
+        <description>MET wave forecast</description>
+        <Camera>
+            <longitude>31.3937642344</longitude>
+            <latitude>63.9211378886</latitude>
+            <altitude>240000</altitude>
+            <tilt>0</tilt>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <roll>0</roll>
+        </Camera>
+        <GroundOverlay id="3">
+            <name>wave_forecast at 2019-04-04 18:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="4">
+                <begin>2019-04-04 18:00:00</begin>
+                <end>2019-04-05 18:00:00</end>
+            </TimeSpan>
+            <Icon id="5">
+                <href>files\wave_forecast0.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>84.8737928444</north>
+                <south>42.9684829329</south>
+                <east>-31.0235728634</east>
+                <west>93.8111013321</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="7">
+            <name>wave_forecast at 2019-04-05 18:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="8">
+                <begin>2019-04-05 18:00:00</begin>
+                <end>2019-04-06 18:00:00</end>
+            </TimeSpan>
+            <Icon id="9">
+                <href>files\wave_forecast24.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>84.8737928444</north>
+                <south>42.9684829329</south>
+                <east>-31.0235728634</east>
+                <west>93.8111013321</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="11">
+            <name>wave_forecast at 2019-04-06 18:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="12">
+                <begin>2019-04-06 18:00:00</begin>
+                <end>2019-04-07 18:00:00</end>
+            </TimeSpan>
+            <Icon id="13">
+                <href>files\wave_forecast48.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>84.8737928444</north>
+                <south>42.9684829329</south>
+                <east>-31.0235728634</east>
+                <west>93.8111013321</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <ScreenOverlay id="15">
+            <name>Legend</name>
+            <visibility>1</visibility>
+            <Icon id="16">
+                <href>legend.png</href>
+            </Icon>
+            <overlayXY x="0" xunits="fraction" y="0" yunits="fraction"/>
+            <screenXY x="0.015" xunits="fraction" y="0.075" yunits="fraction"/>
+            <size x="0" xunits="fraction" y="0" yunits="fraction"/>
+        </ScreenOverlay>
+    </Document>
+</kml>

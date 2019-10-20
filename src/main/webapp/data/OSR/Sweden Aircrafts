@@ -1,0 +1,129 @@
+			<Placemark>
+				<name>KBV 501</name>
+				<styleUrl>#msn_aircraft</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KBV 501</SimpleData>
+						<SimpleData name="name">KBV 501</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Swedish Coast Gaurd</SimpleData>
+						<SimpleData name="location">Stockholm Skavsta Airport (Nykoping)</SimpleData>
+						<SimpleData name="operation">Maritime surveillance</SimpleData>
+						<SimpleData name="aircraft specification_class">Coast Gaurd Air Patrol</SimpleData>
+						<SimpleData name="aircraft specification_length">25.7</SimpleData>
+						<SimpleData name="aircraft specification_wingsWidth">27.4</SimpleData>
+						<SimpleData name="aircraft specification_height">7.5</SimpleData>
+						<SimpleData name="aircraft specification_startingWeight">19.505</SimpleData>
+						<SimpleData name="aircraft specification_maximumSpeed">243</SimpleData>
+						<SimpleData name="aircraft specification_engineManufacturer">Pratt and Whitney</SimpleData>
+						<SimpleData name="aircraft specification_2500 HP PW123 turboprop engine">2</SimpleData>
+						<SimpleData name="aircraft specification_maximumFuelCapacity">4.42</SimpleData>
+						<SimpleData name="aircraft specification_leaf propellers">4</SimpleData>
+						<SimpleData name="cockpit equipment_FMS Systems">2</SimpleData>
+						<SimpleData name="cockpit equipment_collision warning system">TCAS II and ACAS II</SimpleData>
+						<SimpleData name="cockpit equipment_terrain warning system"></SimpleData>
+						<SimpleData name="cockpit equipment_digital map system">Moving Map</SimpleData>
+						<SimpleData name="cockpit equipment_autopilot">Yes</SimpleData>
+						<SimpleData name="cockpit equipment_weather radar">Yes</SimpleData>
+						<SimpleData name="cockpit equipment_broadband band for voice communication">VHF/UHF/RF</SimpleData>
+						<SimpleData name="cabin equipment_loading space">Yes</SimpleData>
+						<SimpleData name="cabin equipment_door opener for lifegaurds">Yes</SimpleData>
+						<SimpleData name="cabin equipment_kitchenette">Yes</SimpleData>
+						<SimpleData name="cabin equipment_toilet">Yes</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>22.21799870852966, 60.44138678164045, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>KBV 502</name>
+				<styleUrl>#msn_aircraft</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KBV 502</SimpleData>
+						<SimpleData name="name">KBV 502</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Swedish Coast Gaurd</SimpleData>
+						<SimpleData name="location">Stockholm Skavsta Airport (Nykoping)</SimpleData>
+						<SimpleData name="operation">Maritime surveillance</SimpleData>
+						<SimpleData name="aircraft specification_class">Coast Gaurd Air Patrol</SimpleData>
+						<SimpleData name="aircraft specification_length">25.7</SimpleData>
+						<SimpleData name="aircraft specification_wingsWidth">27.4</SimpleData>
+						<SimpleData name="aircraft specification_height">7.5</SimpleData>
+						<SimpleData name="aircraft specification_startingWeight">19.505</SimpleData>
+						<SimpleData name="aircraft specification_maximumSpeed">243</SimpleData>
+						<SimpleData name="aircraft specification_engineManufacturer">Pratt and Whitney</SimpleData>
+						<SimpleData name="aircraft specification_2500 HP PW123 turboprop engine">2</SimpleData>
+						<SimpleData name="aircraft specification_maximumFuelCapacity">4.42</SimpleData>
+						<SimpleData name="aircraft specification_leaf propellers">4</SimpleData>
+						<SimpleData name="cockpit equipment_FMS Systems">2</SimpleData>
+						<SimpleData name="cockpit equipment_collision warning system">TCAS II and ACAS II</SimpleData>
+						<SimpleData name="cockpit equipment_terrain warning system"></SimpleData>
+						<SimpleData name="cockpit equipment_digital map system">Moving Map</SimpleData>
+						<SimpleData name="cockpit equipment_autopilot">Yes</SimpleData>
+						<SimpleData name="cockpit equipment_weather radar">Yes</SimpleData>
+						<SimpleData name="cockpit equipment_broadband band for voice communication">VHF/UHF/RF</SimpleData>
+						<SimpleData name="cabin equipment_loading space">Yes</SimpleData>
+						<SimpleData name="cabin equipment_door opener for lifegaurds">Yes</SimpleData>
+						<SimpleData name="cabin equipment_kitchenette">Yes</SimpleData>
+						<SimpleData name="cabin equipment_toilet">Yes</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>22.21799870852966, 60.44138678164045, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>KBV 503</name>
+				<styleUrl>#msn_aircraft</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KBV 503</SimpleData>
+						<SimpleData name="name">KBV 503</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Swedish Coast Gaurd</SimpleData>
+						<SimpleData name="location">Stockholm Skavsta Airport (Nykoping)</SimpleData>
+						<SimpleData name="operation">Maritime surveillance</SimpleData>
+						<SimpleData name="aircraft specification_class">Coast Gaurd Air Patrol</SimpleData>
+						<SimpleData name="aircraft specification_length">25.7</SimpleData>
+						<SimpleData name="aircraft specification_wingsWidth">27.4</SimpleData>
+						<SimpleData name="aircraft specification_height">7.5</SimpleData>
+						<SimpleData name="aircraft specification_startingWeight">19.505</SimpleData>
+						<SimpleData name="aircraft specification_maximumSpeed">243</SimpleData>
+						<SimpleData name="aircraft specification_engineManufacturer">Pratt and Whitney</SimpleData>
+						<SimpleData name="aircraft specification_2500 HP PW123 turboprop engine">2</SimpleData>
+						<SimpleData name="aircraft specification_maximumFuelCapacity">4.42</SimpleData>
+						<SimpleData name="aircraft specification_leaf propellers">4</SimpleData>
+						<SimpleData name="cockpit equipment_FMS Systems">2</SimpleData>
+						<SimpleData name="cockpit equipment_collision warning system">TCAS II and ACAS II</SimpleData>
+						<SimpleData name="cockpit equipment_terrain warning system"></SimpleData>
+						<SimpleData name="cockpit equipment_digital map system">Moving Map</SimpleData>
+						<SimpleData name="cockpit equipment_autopilot">Yes</SimpleData>
+						<SimpleData name="cockpit equipment_weather radar">Yes</SimpleData>
+						<SimpleData name="cockpit equipment_broadband band for voice communication">VHF/UHF/RF</SimpleData>
+						<SimpleData name="cabin equipment_loading space">Yes</SimpleData>
+						<SimpleData name="cabin equipment_door opener for lifegaurds">Yes</SimpleData>
+						<SimpleData name="cabin equipment_kitchenette">Yes</SimpleData>
+						<SimpleData name="cabin equipment_toilet">Yes</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>22.21799870852966, 60.44138678164045, 0</coordinates>
+				</Point>
+			</Placemark>

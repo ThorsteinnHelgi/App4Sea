@@ -1,0 +1,1317 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Oil Spill Response Sites</name>
+	<open>1</open>
+	<StyleMap id="msn_ranger_station">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ranger_station0</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ranger_station</styleUrl>
+		</Pair>
+	</StyleMap>
+	<StyleMap id="msn_ranger_station0">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_ranger_station</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_ranger_station</styleUrl>
+		</Pair>
+	</StyleMap>
+	<Style id="sn_ranger_station">
+		<IconStyle>
+			<scale>0.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/ranger_station.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+		<BalloonStyle>
+		</BalloonStyle>
+		<ListStyle>
+		</ListStyle>
+	</Style>
+	<Style id="sh_ranger_station">
+		<IconStyle>
+			<scale>0.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/ranger_station.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+		<BalloonStyle>
+		</BalloonStyle>
+		<ListStyle>
+		</ListStyle>
+	</Style>
+	<Style id="sn_ranger_station0">
+		<IconStyle>
+			<scale>0.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/shapes/ranger_station.png</href>
+			</Icon>
+			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+		</IconStyle>
+	</Style>
+	<Folder>
+		<name>Iceland</name>
+		<open>1</open>
+			<Placemark>
+				<name>C/S TFIA (THOR)</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">C/S TFIA (THOR)</SimpleData>
+						<SimpleData name="name">C/S TFIA (THOR)</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Landhelgisgaesla- Coast Gaurd</SimpleData>
+						<SimpleData name="location">Reykjavik</SimpleData>
+						<SimpleData name="operation">Offshore</SimpleData>
+						<SimpleData name="vessel_class">Patrol/Navy vessel</SimpleData>
+						<SimpleData name="vessel_loa">94</SimpleData>
+						<SimpleData name="vessel_breadth">16</SimpleData>
+						<SimpleData name="vessel_draught">5.8</SimpleData>
+						<SimpleData name="vessel_GT">4049</SimpleData>
+						<SimpleData name="vessel_averageSpeed">14</SimpleData>
+						<SimpleData name="vessel_build year">2014</SimpleData>
+						<SimpleData name="vessel_IMO">9426893</SimpleData>
+						<SimpleData name="vessel_MMSI">251604000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">100</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">640</SimpleData>
+						<SimpleData name="equipment_heatedStorage">-</SimpleData>
+						<SimpleData name="ape_Norlense Offshore oil boom"></SimpleData>
+						<SimpleData name="ape_brush skimmer free floating"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>-21.94608, 64.18325, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+			<name>Reykjavík</name>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#OSR_Schema">
+					<SimpleData name="SiteID">Reykjavík</SimpleData>
+					<SimpleData name="name">Reykjavík</SimpleData>
+					<SimpleData name="description"><![CDATA[Spill Notification Point
+Operations Centre
+The Icelandic Coastguard P.O. 7120 127 Reykjavik 
+
+Web: www.lhg.is
+Tel: +354-545 2100 (24 hr)
+Fax: +354-545 2001
+Email: sar@lhg.is
+
+Competent National Authority
+Environmental Agency of Iceland (EAI) (Oil &amp; HNS)
+Suourlandsbraut 24 108 Reykjavik 
+
+Web: www.ust.is
+Tel: +354-591 2000 
+Mobile: +354 822 4003
+Fax: +354-591 2010
+Email: ust@ust.is
+
+Equipment
+Government
+The EAI uses contractors specialised and trained in response operations and has stockpiles of equipment and materials on hand. The ICG also has equipment onboard Coast Guard vessels capable of operating in high seas. The ICG has capabilities to transport response equipment around the island and out to vessels at sea, and has aircraft and helicopters equipped for aerial surveillance.  Equipment, consisting mainly of boom and skimmers, is stockpiled at five sites around the coast, that at Reykjavik being the largest. The smaller stockpiles are maintained and operated by regional cooperatives formed by the municipalities and harbour/port authorities. In addition, several port tugs have the facility for dispersant spraying.
+
+Private
+Industry is encouraged to have its own clean-up plans and undertake clean-up in-house, but all plans must be accepted by the EAI prior to the start of operations. The EAI can reject the industry plans and activate its own contractors if necessary.
+
+US Navy facilities at Helguvik and Hvalfjördur have limited containment and recovery equipment.]]></SimpleData>
+					<SimpleData name="address"></SimpleData>
+					<SimpleData name="linkinfo"></SimpleData>
+					<SimpleData name="linkicon"></SimpleData>
+					<SimpleData name="linkimage"></SimpleData>
+					<SimpleData name="linkvideo"><![CDATA[<a href=http://www.lhg.is/media/forsida/lhg-15sek-v3.mp4 target=_blank >Video</a>]]></SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-21.93840613855218,64.15076139702752,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Akureyri</name>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#OSR_Schema">
+					<SimpleData name="SiteID">Akureyri</SimpleData>
+					<SimpleData name="name">Akureyri</SimpleData>
+					<SimpleData name="description"></SimpleData>
+					<SimpleData name="address"></SimpleData>
+					<SimpleData name="linkinfo"></SimpleData>
+					<SimpleData name="linkicon"></SimpleData>
+					<SimpleData name="linkimage"></SimpleData>
+					<SimpleData name="linkvideo"><![CDATA[<a href=http://www.lhg.is/media/forsida/lhg-15sek-v3.mp4 target=_blank >Video</a>]]></SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>-18.08979922046767,65.69212072145552,0</coordinates>
+			</Point>
+		</Placemark>
+	<Placemark>
+		<name>Vestmannaeyjar</name>
+		<styleUrl>#msn_ranger_station0</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-20.27183700249156,63.44315510179311,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Ísafjörður</name>
+		<styleUrl>#msn_ranger_station0</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-23.12437105976812,66.06987402300773,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Seyðisfjörður</name>
+		<styleUrl>#msn_ranger_station0</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-14.00195460291392,65.26294730113285,0</coordinates>
+		</Point>
+	</Placemark>
+	<Placemark>
+		<name>Höfn í Hornarfirði</name>
+		<styleUrl>#msn_ranger_station0</styleUrl>
+		<Point>
+			<gx:drawOrder>1</gx:drawOrder>
+			<coordinates>-15.20155433553204,64.2494065538877,0</coordinates>
+		</Point>
+	</Placemark>
+	</Folder>
+	<Folder>
+		<name>Finland</name>
+		<open>1</open>
+		<Placemark>
+			<name>Oulu</name>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#OSR_Schema">
+					<SimpleData name="SiteID">Oulu</SimpleData>
+					<SimpleData name="name">Oulu</SimpleData>
+					<SimpleData name="description"><![CDATA[Some text]]></SimpleData>
+					<SimpleData name="address"><![CDATA[Local address and contact information]]></SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[link to a pdf file or a web page for further detailed information]]></SimpleData>
+					<SimpleData name="linkicon"><![CDATA[link to an icon that may be used or not to identify the site]]></SimpleData>
+					<SimpleData name="linkimage"><![CDATA[link to an image from the site]]></SimpleData>
+					<SimpleData name="linkvideo"><![CDATA[<a href=http://www.lhg.is/media/forsida/lhg-15sek-v3.mp4 target=_blank >Video</a>]]></SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<gx:drawOrder>1</gx:drawOrder>
+				<coordinates>25.93840613855218,65.15076139702752,0</coordinates>
+			</Point>
+		</Placemark>
+			<Placemark>
+				<name>UISKO</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">UISKO</SimpleData>
+						<SimpleData name="name">UISKO</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Coast Guard</SimpleData>
+						<SimpleData name="location">Turku</SimpleData>
+						<SimpleData name="operation">Offshore and Coastal</SimpleData>
+						<SimpleData name="vessel_class">Oil recovery vessel</SimpleData>
+						<SimpleData name="vessel_loa">61.45</SimpleData>
+						<SimpleData name="vessel_breadth">10.2</SimpleData>
+						<SimpleData name="vessel_draught">4.85</SimpleData>
+						<SimpleData name="vessel_GT">1300</SimpleData>
+						<SimpleData name="vessel_averageSpeed">11</SimpleData>
+						<SimpleData name="vessel_BuildYear">1989</SimpleData>
+						<SimpleData name="vessel_IMO">6131851</SimpleData>
+						<SimpleData name="vessel_MMSI">230304000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">26 tonnes</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">100m2+oil sack station</SimpleData>
+						<SimpleData name="equipment_heatedStorage">100</SimpleData>
+						<SimpleData name="Anti-pollution equipment">2 sweeping arms (30m sweeping depth)</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>22.21799870852966, 60.44138678164045, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>STELLA</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">STELLA</SimpleData>
+						<SimpleData name="name">STELLA</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">-</SimpleData>
+						<SimpleData name="location">Kemiönsaari</SimpleData>
+						<SimpleData name="operation">Offshore and Coastal</SimpleData>
+						<SimpleData name="vessel_class">Oil recovery vessel</SimpleData>
+						<SimpleData name="vessel_loa">33</SimpleData>
+						<SimpleData name="vessel_breadth">9.4</SimpleData>
+						<SimpleData name="vessel_draught">2.8</SimpleData>
+						<SimpleData name="vessel_GT">300</SimpleData>
+						<SimpleData name="vessel_averageSpeed">10</SimpleData>
+						<SimpleData name="vessel_build year">1979</SimpleData>
+						<SimpleData name="vessel_IMO">7724227</SimpleData>
+						<SimpleData name="vessel_MMSI">230051080</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">10</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">100</SimpleData>
+						<SimpleData name="equipment_heatedStorage">100</SimpleData>
+						<SimpleData name="ape_sweepingArms">2</SimpleData>
+						<SimpleData name="ape_sweepingWidth">25</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>22.26304, 59.88761, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>OTAVA</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">OTAVA</SimpleData>
+						<SimpleData name="name">OTAVA</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">FinFerries</SimpleData>
+						<SimpleData name="location">Kotka</SimpleData>
+						<SimpleData name="operation">Offshore and Coastal</SimpleData>
+						<SimpleData name="vessel_class">Oil recovery vessel</SimpleData>
+						<SimpleData name="vessel_loa">34.9</SimpleData>
+						<SimpleData name="vessel_breadth">9</SimpleData>
+						<SimpleData name="vessel_draught">2.75</SimpleData>
+						<SimpleData name="vessel_GT">342</SimpleData>
+						<SimpleData name="vessel_averageSpeed">10</SimpleData>
+						<SimpleData name="vessel_build year">2015</SimpleData>
+						<SimpleData name="vessel_IMO">9707091</SimpleData>
+						<SimpleData name="vessel_MMSI">230942840</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">2</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">100</SimpleData>
+						<SimpleData name="equipment_heatedStorage">100</SimpleData>
+						<SimpleData name="ape_sweepingArms">2</SimpleData>
+						<SimpleData name="ape_sweepingWidth">25</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+						<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>26.9727, 60.45634, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>TURVA</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">TURVA</SimpleData>
+						<SimpleData name="name">TURVA</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Coast Guard</SimpleData>
+						<SimpleData name="location"> Kirkkonummi</SimpleData>
+						<SimpleData name="operation">Offshore and Coastal</SimpleData>
+						<SimpleData name="vessel_class">Oil recovery vessel</SimpleData>
+						<SimpleData name="vessel_loa">95.9</SimpleData>
+						<SimpleData name="vessel_breadth">17.4</SimpleData>
+						<SimpleData name="vessel_draught">5.5</SimpleData>
+						<SimpleData name="vessel_GT">4000</SimpleData>
+						<SimpleData name="vessel_averageSpeed">13</SimpleData>
+						<SimpleData name="vessel_build year">2014</SimpleData>
+						<SimpleData name="vessel_IMO">9650377</SimpleData>
+						<SimpleData name="vessel_MMSI">230018000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">15</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">1200</SimpleData>
+						<SimpleData name="equipment_heatedStorage">1200</SimpleData>
+						<SimpleData name="ape_sweepingArms">2</SimpleData>
+						<SimpleData name="ape_sweepingWidth">45</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>24.97278, 60.1639, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>TURSAS</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">TURSAS</SimpleData>
+						<SimpleData name="name">TURSAS</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Coast Guard</SimpleData>
+						<SimpleData name="location">Turku</SimpleData>
+						<SimpleData name="operation">Offshore and Coastal</SimpleData>
+						<SimpleData name="vessel_class">Oil recovery vessel</SimpleData>
+						<SimpleData name="vessel_loa">61.45</SimpleData>
+						<SimpleData name="vessel_breadth">10.2</SimpleData>
+						<SimpleData name="vessel_draught">4.85</SimpleData>
+						<SimpleData name="vessel_GT">1300</SimpleData>
+						<SimpleData name="vessel_averageSpeed">11</SimpleData>
+						<SimpleData name="vessel_build year">1988</SimpleData>
+						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_MMSI">230303000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">26</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">100+oil sack station</SimpleData>
+						<SimpleData name="equipment_heatedStorage">100</SimpleData>
+						<SimpleData name="ape_sweepingArms">2</SimpleData>
+						<SimpleData name="ape_sweepingWidth">30</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>22.21867, 60.4325, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>SVÄRTAN</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">SVÄRTAN</SimpleData>
+						<SimpleData name="name">SVÄRTAN</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Government of Åland</SimpleData>
+						<SimpleData name="location">Maarianhamina</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Oil recovery vessel</SimpleData>
+						<SimpleData name="vessel_loa">19.90</SimpleData>
+						<SimpleData name="vessel_breadth">6.6</SimpleData>
+						<SimpleData name="vessel_draught">2.1</SimpleData>
+						<SimpleData name="vessel_GT">111</SimpleData>
+						<SimpleData name="vessel_averageSpeed">8</SimpleData>
+						<SimpleData name="vessel_build year">1994</SimpleData>
+						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">5</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">52</SimpleData>
+						<SimpleData name="equipment_heatedStorage">52</SimpleData>
+						<SimpleData name="ape_sweepingArms">2</SimpleData>
+						<SimpleData name="ape_sweepingWidth">21</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>22.21799870852966, 60.44138678164045, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>SEILI</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">SEILI</SimpleData>
+						<SimpleData name="name">SEILI</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Meritaito Oy</SimpleData>
+						<SimpleData name="location">Helsinki</SimpleData>
+						<SimpleData name="operation">Offshore and Coastal</SimpleData>
+						<SimpleData name="vessel_class">Oil recovery vessel</SimpleData>
+						<SimpleData name="vessel_loa">50.5</SimpleData>
+						<SimpleData name="vessel_breadth">12.2</SimpleData>
+						<SimpleData name="vessel_draught">3.8</SimpleData>
+						<SimpleData name="vessel_GT">735</SimpleData>
+						<SimpleData name="vessel_averageSpeed">10</SimpleData>
+						<SimpleData name="vessel_build year">1981</SimpleData>
+						<SimpleData name="vessel_IMO">7817048</SimpleData>
+						<SimpleData name="vessel_MMSI">230110670</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">20</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">196</SimpleData>
+						<SimpleData name="equipment_heatedStorage">196</SimpleData>
+						<SimpleData name="ape_sweepingArms">2</SimpleData>
+						<SimpleData name="ape_sweepingWidth">30</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>22.94791, 60.25325, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>OILI IV</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">OILI IV</SimpleData>
+						<SimpleData name="name">OILI IV</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Meritaito Oy</SimpleData>
+						<SimpleData name="location">Vaasa</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Oil recovery vessel</SimpleData>
+						<SimpleData name="vessel_loa">19.9</SimpleData>
+						<SimpleData name="vessel_breadth">6.5</SimpleData>
+						<SimpleData name="vessel_draught">2</SimpleData>
+						<SimpleData name="vessel_GT">71</SimpleData>
+						<SimpleData name="vessel_averageSpeed">7</SimpleData>
+						<SimpleData name="vessel_build year">1988</SimpleData>
+						<SimpleData name="vessel_IMO">-</SimpleData>
+						<SimpleData name="vessel_MMSI">230111650</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">8.2</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">30</SimpleData>
+						<SimpleData name="equipment_heatedStorage">30</SimpleData>
+						<SimpleData name="ape_sweepingArms">2</SimpleData>
+						<SimpleData name="ape_sweepingWidth">21</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>21.57131, 63.08104, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>OILI III</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">OILI III</SimpleData>
+						<SimpleData name="name">OILI III</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Meritaito Oy</SimpleData>
+						<SimpleData name="location">Långnäs</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Oil recovery vessel</SimpleData>
+						<SimpleData name="vessel_loa">24.5</SimpleData>
+						<SimpleData name="vessel_breadth">6.6</SimpleData>
+						<SimpleData name="vessel_draught">2.1</SimpleData>
+						<SimpleData name="vessel_GT">116</SimpleData>
+						<SimpleData name="vessel_averageSpeed">7</SimpleData>
+						<SimpleData name="vessel_build year">1984</SimpleData>
+						<SimpleData name="vessel_IMO">8305822</SimpleData>
+						<SimpleData name="vessel_MMSI">230991740</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">10</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">80</SimpleData>
+						<SimpleData name="equipment_heatedStorage">80</SimpleData>
+						<SimpleData name="ape_sweepingArms">2</SimpleData>
+						<SimpleData name="ape_sweepingWidth">21</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>22.21768, 60.43278, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>OILI II</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">OILI II</SimpleData>
+						<SimpleData name="name">OILI II</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Meritaito Oy</SimpleData>
+						<SimpleData name="location">Turku</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Oil recovery vessel</SimpleData>
+						<SimpleData name="vessel_loa">24.5</SimpleData>
+						<SimpleData name="vessel_breadth">6.6</SimpleData>
+						<SimpleData name="vessel_draught">2.1</SimpleData>
+						<SimpleData name="vessel_GT">114</SimpleData>
+						<SimpleData name="vessel_averageSpeed">7</SimpleData>
+						<SimpleData name="vessel_build year">1984</SimpleData>
+						<SimpleData name="vessel_IMO">8215479</SimpleData>
+						<SimpleData name="vessel_MMSI">230991710</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">10</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">80</SimpleData>
+						<SimpleData name="equipment_heatedStorage">80</SimpleData>
+						<SimpleData name="ape_sweepingArms">2</SimpleData>
+						<SimpleData name="ape_sweepingWidth">21</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>22.2173, 60.43211, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>OILI I</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">OILI I</SimpleData>
+						<SimpleData name="name">OILI I</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Meritaito Oy</SimpleData>
+						<SimpleData name="location">Helsinki</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Oil recovery vessel</SimpleData>
+						<SimpleData name="vessel_loa">24.5</SimpleData>
+						<SimpleData name="vessel_breadth">6.6</SimpleData>
+						<SimpleData name="vessel_draught">2.1</SimpleData>
+						<SimpleData name="vessel_GT">114</SimpleData>
+						<SimpleData name="vessel_averageSpeed">7</SimpleData>
+						<SimpleData name="vessel_build year">1984</SimpleData>
+						<SimpleData name="vessel_IMO">8215467</SimpleData>
+						<SimpleData name="vessel_MMSI">230111690</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">10</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">80</SimpleData>
+						<SimpleData name="equipment_heatedStorage">80</SimpleData>
+						<SimpleData name="ape_sweepingArms">2</SimpleData>
+						<SimpleData name="ape_sweepingWidth">21</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>26.96328, 60.46141, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>MERIKARHU</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">MERIKARHU</SimpleData>
+						<SimpleData name="name">MERIKARHU</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Coast Guard</SimpleData>
+						<SimpleData name="location">Kirkkonummi</SimpleData>
+						<SimpleData name="operation">Offshore and Coastal</SimpleData>
+						<SimpleData name="vessel_class">Oil recovery vessel</SimpleData>
+						<SimpleData name="vessel_loa">58</SimpleData>
+						<SimpleData name="vessel_breadth">11</SimpleData>
+						<SimpleData name="vessel_draught">4.7</SimpleData>
+						<SimpleData name="vessel_GT">1100</SimpleData>
+						<SimpleData name="vessel_averageSpeed">11</SimpleData>
+						<SimpleData name="vessel_build year">1996</SimpleData>
+						<SimpleData name="vessel_IMO">6131849</SimpleData>
+						<SimpleData name="vessel_MMSI">-</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">5</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">40+oil sack station</SimpleData>
+						<SimpleData name="equipment_heatedStorage">40</SimpleData>
+						<SimpleData name="ape_lamorBoom">3X 200m long and 1.5m high</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>22.21799870852966, 60.44138678164045, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>LOUHI</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">LOUHI</SimpleData>
+						<SimpleData name="name">LOUHI</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Finnish Navy</SimpleData>
+						<SimpleData name="location">Kirkkonummi</SimpleData>
+						<SimpleData name="operation">Offshore and Coastal</SimpleData>
+						<SimpleData name="vessel_class">Oil recovery vessel</SimpleData>
+						<SimpleData name="vessel_loa">71.4</SimpleData>
+						<SimpleData name="vessel_breadth">14.5</SimpleData>
+						<SimpleData name="vessel_draught">5.2</SimpleData>
+						<SimpleData name="vessel_GT">3450</SimpleData>
+						<SimpleData name="vessel_averageSpeed">15</SimpleData>
+						<SimpleData name="vessel_build year">2012</SimpleData>
+						<SimpleData name="vessel_IMO">9500845</SimpleData>
+						<SimpleData name="vessel_MMSI">230616000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">18.8t, 5.5t, 1t</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">1250</SimpleData>
+						<SimpleData name="equipment_heatedStorage">1250</SimpleData>
+						<SimpleData name="ape_sweepingArms">2 with sweeping width of 45 m</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>24.57215, 60.0087, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>LINJA</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">LINJA</SimpleData>
+						<SimpleData name="name">LINJA</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Meritaito Oy</SimpleData>
+						<SimpleData name="location">Turku</SimpleData>
+						<SimpleData name="operation">Offshore and Coastal</SimpleData>
+						<SimpleData name="vessel_class">Oil recovery vessel</SimpleData>
+						<SimpleData name="vessel_loa">34.9</SimpleData>
+						<SimpleData name="vessel_breadth">9</SimpleData>
+						<SimpleData name="vessel_draught">2.8</SimpleData>
+						<SimpleData name="vessel_GT">298</SimpleData>
+						<SimpleData name="vessel_averageSpeed">7</SimpleData>
+						<SimpleData name="vessel_build year">1990</SimpleData>
+						<SimpleData name="vessel_IMO">8713732</SimpleData>
+						<SimpleData name="vessel_MMSI">230356000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">10</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">77.4</SimpleData>
+						<SimpleData name="equipment_heatedStorage">77.4</SimpleData>
+						<SimpleData name="ape_sweepingArms">2 with a sweeping width of 23 m</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>21.3895, 60.79517, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>LETTO</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">LETTO</SimpleData>
+						<SimpleData name="name">LETTO</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Meritaito Oy</SimpleData>
+						<SimpleData name="location">Oulu</SimpleData>
+						<SimpleData name="operation">Offshore and Coastal</SimpleData>
+						<SimpleData name="vessel_class">Oil recovery vessel</SimpleData>
+						<SimpleData name="vessel_loa">42.7</SimpleData>
+						<SimpleData name="vessel_breadth">12.2</SimpleData>
+						<SimpleData name="vessel_draught">3.8</SimpleData>
+						<SimpleData name="vessel_GT">735</SimpleData>
+						<SimpleData name="vessel_averageSpeed">7</SimpleData>
+						<SimpleData name="vessel_build year">1982</SimpleData>
+						<SimpleData name="vessel_IMO">7817050</SimpleData>
+						<SimpleData name="vessel_MMSI">230359000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">20</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">42.7</SimpleData>
+						<SimpleData name="equipment_heatedStorage">42.7</SimpleData>
+						<SimpleData name="ape_sweepingArms">2</SimpleData>
+						<SimpleData name="ape_sweepingWidth">30</SimpleData>
+						<SimpleData name="ape_lamorBoom">3X 200m 1.5m high</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>22.21773, 60.43256, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>KUMMELI</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">KUMMELI</SimpleData>
+						<SimpleData name="name">KUMMELI</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Meritaito Oy</SimpleData>
+						<SimpleData name="location">Savonlinna</SimpleData>
+						<SimpleData name="operation">Coastal</SimpleData>
+						<SimpleData name="vessel_class">Oil recovery vessel</SimpleData>
+						<SimpleData name="vessel_loa">28.2</SimpleData>
+						<SimpleData name="vessel_breadth">7.9</SimpleData>
+						<SimpleData name="vessel_draught">2.45</SimpleData>
+						<SimpleData name="vessel_GT">197</SimpleData>
+						<SimpleData name="vessel_averageSpeed">7</SimpleData>
+						<SimpleData name="vessel_build year">1987</SimpleData>
+						<SimpleData name="vessel_IMO">8410146</SimpleData>
+						<SimpleData name="vessel_MMSI">230992660</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">2.5</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">70</SimpleData>
+						<SimpleData name="equipment_heatedStorage">70</SimpleData>
+						<SimpleData name="ape_sweepingArms">2 with 25m sweeping width</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>28.8774, 61.8771, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>HYLJE</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">HYLJE</SimpleData>
+						<SimpleData name="name">HYLJE</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Finnish Navy</SimpleData>
+						<SimpleData name="location">Kirkkonummi</SimpleData>
+						<SimpleData name="operation">Offshore and Coastal</SimpleData>
+						<SimpleData name="vessel_class">Oil recovery vessel</SimpleData>
+						<SimpleData name="vessel_loa">64.3</SimpleData>
+						<SimpleData name="vessel_breadth">12.5</SimpleData>
+						<SimpleData name="vessel_draught">3</SimpleData>
+						<SimpleData name="vessel_GT">1835</SimpleData>
+						<SimpleData name="vessel_averageSpeed">10</SimpleData>
+						<SimpleData name="vessel_build year">1983</SimpleData>
+						<SimpleData name="vessel_IMO">8006804</SimpleData>
+						<SimpleData name="vessel_MMSI">230353000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">5.5</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">900</SimpleData>
+						<SimpleData name="equipment_heatedStorage">900</SimpleData>
+						<SimpleData name="ape_sweepingArms">2 with sweeping width 35 m</SimpleData>
+						<SimpleData name="ape_roBoom">4 X 200m 2 m high</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>24.83841, 59.99591, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>HALLI</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">HALLI</SimpleData>
+						<SimpleData name="name">HALLI</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Finnish Navy</SimpleData>
+						<SimpleData name="location">Turku</SimpleData>
+						<SimpleData name="operation">Offshore and Coastal</SimpleData>
+						<SimpleData name="vessel_class">Oil recovery vessel</SimpleData>
+						<SimpleData name="vessel_loa">61.5</SimpleData>
+						<SimpleData name="vessel_breadth">12.8</SimpleData>
+						<SimpleData name="vessel_draught">4</SimpleData>
+						<SimpleData name="vessel_GT">2100</SimpleData>
+						<SimpleData name="vessel_averageSpeed">10</SimpleData>
+						<SimpleData name="vessel_build year">1989</SimpleData>
+						<SimpleData name="vessel_IMO">8515556</SimpleData>
+						<SimpleData name="vessel_MMSI">230354000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">6</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">1400</SimpleData>
+						<SimpleData name="equipment_heatedStorage">1400</SimpleData>
+						<SimpleData name="ape_sweepingArms">2 with width of 40 m</SimpleData>
+						<SimpleData name="ape_roBoom">3 X 200m and 2m high</SimpleData>
+						<SimpleData name="ape_roBoom">3 X 200 and 1.5 high</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>21.69533, 60.097, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>IB POLARIS</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">IB POLARIS</SimpleData>
+						<SimpleData name="name">IB POLARIS</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Arctia Management Services Oy</SimpleData>
+						<SimpleData name="location">Helsinki</SimpleData>
+						<SimpleData name="operation">Ice breaker</SimpleData>
+						<SimpleData name="vessel_class">Oil recovery vessel</SimpleData>
+						<SimpleData name="vessel_loa">110</SimpleData>
+						<SimpleData name="vessel_breadth">24</SimpleData>
+						<SimpleData name="vessel_draught">8</SimpleData>
+						<SimpleData name="vessel_GT">9333</SimpleData>
+						<SimpleData name="vessel_averageSpeed">17</SimpleData>
+						<SimpleData name="vessel_build year">2016</SimpleData>
+						<SimpleData name="vessel_IMO">9734161</SimpleData>
+						<SimpleData name="vessel_MMSI">230661000</SimpleData>
+						<SimpleData name="equipment_crane">No</SimpleData>
+						<SimpleData name="equipment_craneCapability">-</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">1015</SimpleData>
+						<SimpleData name="equipment_heatedStorage">1015</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>24.9723, 60.16988, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>IB OTSO</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">IB OTSO</SimpleData>
+						<SimpleData name="name">IB OTSO</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Arctia Management Services Oy</SimpleData>
+						<SimpleData name="location">Helsinki</SimpleData>
+						<SimpleData name="operation">Ice breaker</SimpleData>
+						<SimpleData name="vessel_class">Oil recovery vessel</SimpleData>
+						<SimpleData name="vessel_loa">99</SimpleData>
+						<SimpleData name="vessel_breadth">24.2</SimpleData>
+						<SimpleData name="vessel_draught">8</SimpleData>
+						<SimpleData name="vessel_GT">7066</SimpleData>
+						<SimpleData name="vessel_averageSpeed">18.5</SimpleData>
+						<SimpleData name="vessel_build year">1986</SimpleData>
+						<SimpleData name="vessel_IMO">8405880</SimpleData>
+						<SimpleData name="vessel_MMSI">230252000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">-</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">-</SimpleData>
+						<SimpleData name="equipment_heatedStorage">-</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>24.97431, 60.1701, 0</coordinates>
+				</Point>
+			</Placemark>
+			<Placemark>
+				<name>AHTO</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">AHTO</SimpleData>
+						<SimpleData name="name">AHTO</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Arctia Management Services Oy</SimpleData>
+						<SimpleData name="location">Kemi</SimpleData>
+						<SimpleData name="operation">Harbour Ice breaker</SimpleData>
+						<SimpleData name="vessel_class">Oil recovery vessel</SimpleData>
+						<SimpleData name="vessel_loa">40</SimpleData>
+						<SimpleData name="vessel_breadth">12.8</SimpleData>
+						<SimpleData name="vessel_draught">5.5</SimpleData>
+						<SimpleData name="vessel_GT">766</SimpleData>
+						<SimpleData name="vessel_averageSpeed">7.1</SimpleData>
+						<SimpleData name="vessel_build year">2014</SimpleData>
+						<SimpleData name="vessel_IMO">9682435</SimpleData>
+						<SimpleData name="vessel_MMSI">230024000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">-</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">-</SimpleData>
+						<SimpleData name="equipment_heatedStorage">-</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>24.15964, 65.75029, 0</coordinates>
+				</Point>
+			</Placemark>		
+	</Folder>
+	<Folder>
+		<name>Norway</name>
+		<open>1</open>
+		<Placemark>
+			<name>Horten</name>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Horten</SimpleData>
+					<SimpleData name="name">Horten</SimpleData>
+					<SimpleData name="linkimage">Sørøst</SimpleData>
+					<SimpleData name="description">Vestfold</SimpleData>
+					<SimpleData name="linkicon">Horten</SimpleData>
+					<SimpleData name="address">Moloveien 7, 3187 Horten</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/001-HORTEN.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Vestfold</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>10.4966766070057,59.4152916101709,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<visibility>0</visibility>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Bergen</SimpleData>
+					<SimpleData name="name">Bergen</SimpleData>
+					<SimpleData name="linkimage">Vest</SimpleData>
+					<SimpleData name="description">Hordaland</SimpleData>
+					<SimpleData name="linkicon">Fjell</SimpleData>
+					<SimpleData name="address">CCB Ågotnes, Tranesvegen, 5347 Ågotnes</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/004-BERGEN.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Bergen</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>5.0157061944052,60.41327684095359,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<visibility>0</visibility>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Kristiansand</SimpleData>
+					<SimpleData name="name">Kristiansand</SimpleData>
+					<SimpleData name="linkimage">Sørøst</SimpleData>
+					<SimpleData name="description">Vest-Agder</SimpleData>
+					<SimpleData name="linkicon">Kristiansand</SimpleData>
+					<SimpleData name="address">Sjølystveien 27, 4610 Kristiansand S</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/002-KR.SAN.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Midt-Agder</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>7.99951003300121,58.135375951649,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<visibility>0</visibility>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Solund</SimpleData>
+					<SimpleData name="name">Solund</SimpleData>
+					<SimpleData name="linkimage">Vest</SimpleData>
+					<SimpleData name="description">Sogn og Fjordane</SimpleData>
+					<SimpleData name="linkicon">Solund</SimpleData>
+					<SimpleData name="address">Solund Verft AS, 6924 Hardbakke</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/015-SOLUND.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Bergen</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>4.87521568848587,61.08428381228931,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<visibility>0</visibility>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Tromsø</SimpleData>
+					<SimpleData name="name">Tromsø</SimpleData>
+					<SimpleData name="linkimage">Troms og Finnmark</SimpleData>
+					<SimpleData name="description">Troms</SimpleData>
+					<SimpleData name="linkicon">Tromsø</SimpleData>
+					<SimpleData name="address">Terminalgata 177, 9019 Tromsø</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/010-TROMSØ.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Midt- og Nord-Troms</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>18.9974999997879,69.68133299983219,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<visibility>0</visibility>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Bodø</SimpleData>
+					<SimpleData name="name">Bodø</SimpleData>
+					<SimpleData name="linkimage">Nordland</SimpleData>
+					<SimpleData name="description">Nordland</SimpleData>
+					<SimpleData name="linkicon">Bodø</SimpleData>
+					<SimpleData name="address">Jernbaneveien 96, 8006 Bodø</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/008-BODØ.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Salten</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>14.393333,67.288167,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<visibility>0</visibility>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Vadsø</SimpleData>
+					<SimpleData name="name">Vadsø</SimpleData>
+					<SimpleData name="linkimage">Troms og Finnmark</SimpleData>
+					<SimpleData name="description">Finnmark</SimpleData>
+					<SimpleData name="linkicon">Vadsø</SimpleData>
+					<SimpleData name="address">Fabrikkveien 35, 9800 Vadsø</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/012-VADSØ.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Øst-Finnmark</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>29.7340507086069,70.06995618680971,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<visibility>0</visibility>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Stavanger</SimpleData>
+					<SimpleData name="name">Stavanger</SimpleData>
+					<SimpleData name="linkimage">Vest</SimpleData>
+					<SimpleData name="description">Rogaland</SimpleData>
+					<SimpleData name="linkicon">Randaberg</SimpleData>
+					<SimpleData name="address">Harestadveien 77, 4070 Randaberg</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/003-STAVAN.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Sør-Rogaland</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>5.63850072546032,59.0141669005655,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<visibility>0</visibility>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Florø</SimpleData>
+					<SimpleData name="name">Florø</SimpleData>
+					<SimpleData name="linkimage">Vest</SimpleData>
+					<SimpleData name="description">Sogn og Fjordane</SimpleData>
+					<SimpleData name="linkicon">Flora</SimpleData>
+					<SimpleData name="address">Saga fjordbase, Botnaneset, Hall 5, 6900 Florø</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/014-FLORØ.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Sogn og Sunnfjord</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>5.07379397931129,61.6124875809265,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<visibility>0</visibility>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Hammerfest</SimpleData>
+					<SimpleData name="name">Hammerfest</SimpleData>
+					<SimpleData name="linkimage">Troms og Finnmark</SimpleData>
+					<SimpleData name="description">Finnmark</SimpleData>
+					<SimpleData name="linkicon">Hammerfest</SimpleData>
+					<SimpleData name="address">Meridiangata 34, 9600 Hammerfest</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/011-HAMMER.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Vest-Finnmark</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>23.6596667664621,70.6689999872425,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<visibility>0</visibility>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Lødingen</SimpleData>
+					<SimpleData name="name">Lødingen</SimpleData>
+					<SimpleData name="linkimage">Nordland</SimpleData>
+					<SimpleData name="description">Nordland</SimpleData>
+					<SimpleData name="linkicon">Lødingen</SimpleData>
+					<SimpleData name="address">Sjøvegen 43, 8410 Lødingen</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/009-LØDING.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Ofoten</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>15.993167,68.41883300000001,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<visibility>0</visibility>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Utstyr i aksjon</SimpleData>
+					<SimpleData name="name">Utstyr i aksjon</SimpleData>
+					<SimpleData name="linkimage">Vest</SimpleData>
+					<SimpleData name="description">Kontinental-sokkelen</SimpleData>
+					<SimpleData name="linkicon">Sokkelen nord for 62 grader Nord</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/AKSJON.pdf target=_blank >More information</a>]]></SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>10.2636131135935,58.90020998021949,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<visibility>0</visibility>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Ørland</SimpleData>
+					<SimpleData name="name">Ørland</SimpleData>
+					<SimpleData name="linkimage">Midt</SimpleData>
+					<SimpleData name="description">Sør-Trøndelag</SimpleData>
+					<SimpleData name="linkicon">Ørland</SimpleData>
+					<SimpleData name="address">Ulriksbygget, Industrigt 7, 7130 Brekkstad</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/006-ØRLAND.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Sør-Trøndelag</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>9.663318061826571,63.6944444810985,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<visibility>0</visibility>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Longyearbyen</SimpleData>
+					<SimpleData name="name">Longyearbyen</SimpleData>
+					<SimpleData name="linkimage">Troms og Finnmark</SimpleData>
+					<SimpleData name="description">Svalbard</SimpleData>
+					<SimpleData name="linkicon">Spitsbergen</SimpleData>
+					<SimpleData name="address"></SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/013-SVALBA.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Svalbard</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>15.6502211113083,78.22272230697909,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<visibility>0</visibility>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Ålesund</SimpleData>
+					<SimpleData name="name">Ålesund</SimpleData>
+					<SimpleData name="linkimage">Midt</SimpleData>
+					<SimpleData name="description">Møre og Romsdal</SimpleData>
+					<SimpleData name="linkicon">Ålesund</SimpleData>
+					<SimpleData name="address">Kollvika, Nørvevika 56, 6008 ÅLESUND</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/005-ÅLESUN.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Sunnmøre</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>6.21370367032809,62.4698304162315,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<visibility>0</visibility>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Sandnessjøen</SimpleData>
+					<SimpleData name="name">Sandnessjøen</SimpleData>
+					<SimpleData name="linkimage">Nordland</SimpleData>
+					<SimpleData name="description">Nordland</SimpleData>
+					<SimpleData name="linkicon">Brønnøy</SimpleData>
+					<SimpleData name="address">Torolv Kveldulvsonsgt 5, 8800 Sandnessjøen</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/007-SANDNE.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Helgeland</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>12.6395,66.0241669999899,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<visibility>0</visibility>
+			<styleUrl>#msn_ranger_station</styleUrl>
+			<ExtendedData>
+				<SchemaData schemaUrl="#sql_statement">
+					<SimpleData name="SiteID">Fedje</SimpleData>
+					<SimpleData name="name">Fedje</SimpleData>
+					<SimpleData name="linkimage">Vest</SimpleData>
+					<SimpleData name="description">Hordaland</SimpleData>
+					<SimpleData name="linkicon">Fedje</SimpleData>
+					<SimpleData name="address">Kopper 13, 5947 Fedje</SimpleData>
+					<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/016-FEDJE.pdf target=_blank >More information</a>]]></SimpleData>
+					<SimpleData name="linkvideo">Bergen</SimpleData>
+				</SchemaData>
+			</ExtendedData>
+			<Point>
+				<coordinates>4.72277910337168,60.7806912368235,0</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>

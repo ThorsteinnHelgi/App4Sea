@@ -1,126 +1,398 @@
+:root {
+  --width: 100%; /* This is a helper variable to carry width into calculations */
+  --scale: 1.00;
+  --temp: 1;
+  --gradientBlue: linear-gradient(to right, rgba(22,62,111,1), rgba(22,62,111,0.2));
+  --gradientWhite: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0.2));
+  --gradientBeige: linear-gradient(to right, rgba(245,245,220,1), rgba(245,245,222,0.2));
+  --gradientGray: linear-gradient(to right, rgba(13,13,13,1), rgba(13,13,13,0.2));
+  --gradientGrayDown: linear-gradient(rgba(13,13,13,1), rgba(13,13,13,0.2));
+}
+
 *{
-    font-family: "Montserrat","Calibri","sans-serif";
-}
-#MapContainer{
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    background-color: beige;
-    left: 300px;
-    right: 0;
+    font-family: "Calibri","sans-serif";
 }
 
-#MenuContainer{
-    position: absolute;
-    z-index: 10000;
-    top: 0;
-    left: 0;
-    height: 100%;
-
-    padding: 0.5em;
-    background-color: beige;
-    width: 300px;
-    box-sizing: border-box;
-    overflow:auto;
+.hidden {
+  visibility: hidden;
 }
 
-#MenuContainer .DialogHeader{
-    margin-bottom: 1em;
+.bannerButtons {
+  /*transform-origin: top left;*/
+  /*-ms-transform: scale(0.6) translateX(0em);*/ /* IE 9 */
+  /*-webkit-transform: scale(0.6) translateX(0em);*/ /* Safari */
+  /*transform: scale(0.6) translateX(0em);*/
+  display: inline-flex;
 }
 
-#DebugWindow{
-    position: absolute;
-    width: 25rem;
-    height:50rem;
-    bottom: 3.5rem;
-    right: 1em;
-    z-index: 1000;
-    background-color: white;
-    overflow: auto;
-    font-size:xx-small;
-    border-radius: 5px;
-    padding: 0.5em;
-    background-color: white;
-    box-shadow: 0px 0px 6px 1px #5d5c5c;
+.mechanical {
+  background-color: brown;
+  padding: 4px 4px 0px 4px;
 }
 
-.MenuSection{
-    padding:0.5em 0;
+.disperant {
+  background-color: green;
+  padding: 4px 4px 0px 4px;
 }
 
-.MenuItem{
-    cursor:pointer;
-    padding:0.3em;
-
-}
-.MenuItem:hover{
-    background-color: silver;
-    color:white;
-
-}
-.MenuSystemLine{
-    font-size: small;
-    color: gray;
+.insitu {
+  background-color: orangered;
+  padding: 4px 4px 0px 4px;
 }
 
-.DialogHeader{
-    text-align: right;
-}
-.DialogBody{
-    
+
+/**********************************
+* Modify ol controls
+**********************************/
+#MapContainer .ol-full-screen {
+  bottom: 3em;
+  top: auto;
 }
 
-/* Style the zoom slider */
+#MapContainer .ol-scale-line {
+  top: .5em;
+  bottom: auto;
+  left: 3em;
+  right: auto;
+  color: white;
+  background-color: rgba(255,255,255,.4);
+}
+
+.ol-scale-line-inner {
+  background-color: rgba(0,60,136,.5);
+  font-size: 1.051em;
+  font-weight: 700;
+  border: none;
+}
+
+#MapContainer .ol-zoom {
+  top: 3em;
+  background-color: rgba(255,255,255,0.2);
+  right: .5em;
+  left: auto;
+}
 
 #MapContainer .ol-zoom .ol-zoom-out {
   margin-top: 204px;
 }
 #MapContainer .ol-zoomslider {
-  background-color: transparent;
-  top: 2.3em;
+  top: 4.8em;
+  bottom: auto;
+  right: .5em;
+  left: auto;
 }
 
+#MapContainer .ol-zoomslider-thumb {
+  z-index: 1000;
+  border-radius: 20px;
+}
 #MapContainer .ol-touch .ol-zoom .ol-zoom-out {
   margin-top: 212px;
 }
 #MapContainer .ol-touch .ol-zoomslider {
-  top: 2.75em;
+  top: 2.5em;
+  right: .5em;
 }
 
 #MapContainer .ol-zoom-in.ol-has-tooltip:hover [role=tooltip],
 #MapContainer .ol-zoom-in.ol-has-tooltip:focus [role=tooltip] {
-  top: 3px;
+  top: .5em;
 }
 
 #MapContainer .ol-zoom-out.ol-has-tooltip:hover [role=tooltip],
 #MapContainer .ol-zoom-out.ol-has-tooltip:focus [role=tooltip] {
   top: 232px;
 }
-/*
-#FeatureInfoContainer{
+
+#MapContainer .ol-custom{
+  z-index: 1000;
+  top: .5em;
+  left: .5em;
+}
+
+#MapContainer .ol-popup {
+  position: absolute;
+  background-color: white;
+  -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+  border-radius: 10px;
+  border: 1px solid #cccccc;
+  bottom: 12px;
+  left: -50px;
+  min-width: 200px;
+  width: auto;
+  padding-top:20px;
+}
+#MapContainer .ol-popup:after, .ol-popup:before {
+  top: 100%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+}
+#MapContainer .ol-popup:after {
+  border-top-color: white;
+  border-width: 10px;
+  left: 48px;
+  margin-left: -10px;
+
+  content: "";
+  display: table;
+  clear: both;
+}
+#MapContainer .ol-popup:before {
+  border-top-color: #cccccc;
+/*            border-width: 11px;*/
+  left: 48px;
+  margin-left: -11px;
+}
+#MapContainer .ol-popup-closer {
+  text-decoration: none;
+  position: absolute;
+  top: 2px;
+  right: 8px;
+}
+#MapContainer .ol-mouse-position {
+  right: 4.5em;
+  text-align: right;
+  font-size: 0.7em;
+}
+
+#MapContainer .ol-popup-closer:after {
+content: "✖";
+}
+
+/*************************************
+* a4s stiles
+*************************************/
+
+.a4s {
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 70px;
+  height: 70px;  
+  background: url('../icons/BestPractice.png');
+}
+
+.a4s-two-vessels-with-boom {
+  background-position: -14px -77px; 
+}
+
+.a4s-single-vessel-with-outrigger {
+  background-position: -14px -142px; 
+}
+
+.a4s-three-vessels-with-boom {
+  background-position: -14px -207px; 
+}
+
+.a4s-single-vessel-in-ice {
+  background-position: -14px -272px;
+}
+
+.a4s-single-vessel-dispersant {
+  background-position: -194px -77px; 
+}
+
+.a4s-fixed_wing-dispersant {
+  background-position: -194px -142px; 
+}
+
+.a4s-helicopter-dispersant {
+  background-position: -194px -207px; 
+}
+
+.a4s-vessel-with-fire-boom {
+  background-position: -376px -77px; 
+}
+
+.a4s-helicopter-with-ice-containment {
+  background-position: -376px -142px; 
+}
+
+.a4s-helicopter-with-herders {
+  background-position: -376px -207px; 
+}
+
+/*************************************
+* Various styles
+*************************************/
+
+#MapContainer{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
     background-color: white;
+}
+
+#MenuContainer{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    height: 100%;
     padding: 0.5em;
-    border-top: solid 1px gray;
-    position: fixed;
-    bottom: 0em;
-    left: 0em;
-    width: 300px;
-    height: 50%;
-    overflow: auto;
+    background-image: var(--gradientBeige);
+    width: 440px;
     box-sizing: border-box;
+    overflow: auto;
+    display:none;    
 }
-*/
 
-h1,h2,h3,h4,h5,p,ul { font-family: "Montserrat","Calibri","sans-serif"; }
+#ButtonsForMenu, #ButtonsForMenu2, #ButtonSection, #ButtonsForTools, #ButtonsForSettings{
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
 
-h1 {
-    font-size: 200%;
+#ControlPlaceInMap {
+  position: absolute;
+  z-index: 200;
+  margin: 0;
+  padding: 0;
+  top: 50px;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, 0%);
+  visibility: hidden;
 }
-h2 {
-    font-size: 150%;
+
+#DragHandle { 
+  width: 100%;
+  background-color:darkgrey; 
+  align-content: center;
+  overflow: hidden;
+  line-height: 1em;
+  padding-bottom: 0.5em;
+  cursor: move;
+  vertical-align: middle;
+  /*margin-top: -.7em;*/
+  /*margin-right: .3em;*/
+  font-size: 12px;
+  font-family: sans-serif;
+  font-weight: bolder;
+  letter-spacing: 2px;
+  color: black;
+  text-align: center;
 }
+
+#Log {
+  max-height: 30em;
+  overflow-y:scroll;
+  font-size:0.8em; 
+  margin-top: 4px;
+  margin-right: 2px;
+}
+
+option {
+  color:white; 
+  background-image:var(--gradientGrayDown);  
+}
+
+.InformationPopup {
+  display:block; 
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.TreeTitle {
+  font-size: 24px;
+  font-weight: bolder;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  color: gray;
+}
+
+.BannerSection {
+  margin-top: 0.2em;
+}
+
+.SubMenuSection {
+  margin-top: 0.2em;
+  color:white; 
+  /*background-color:grey; */
+  background-image: var(--gradientGrayDown);
+  padding: 0.2em;
+  border-color: black;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 5px;
+  cursor: default;
+}
+
+.SubMenuButton {
+  float:right;
+  padding: 0;
+  height: 1.9em;
+  width: 1.9em;
+  margin-left: 0.4em;
+  font-weight: bolder;
+}
+
+.ExpandState {
+    font-weight: bolder;
+    text-align: center;
+    width: 44px;
+    background-color: transparent;
+    background-image: radial-gradient(circle, #5f5f5f, rgba(0,0,0,0), rgba(0,0,0,0));
+    border: none;
+    padding: 7px 10px 13px 10px;
+    line-height: 1em;
+    color: white;
+  }
+
+.MenuItem{
+    cursor:pointer;
+    padding:0.3em;
+}
+
+.MenuItem:hover{
+    background-color: silver;
+    color:white;
+}
+
 h3 {
-    font-size: 100%;
+  margin: 0;
+}
+
+h4 {
+  margin: 0;
+}
+
+h5 {
+  margin: 0;
+}
+
+h6 {
+  margin: 0;
+}
+
+#popup-title {
+  margin: 0;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.MenuSystemLine{
+    font-size: small;
+    color: gray;
+}
+
+.ExitWhite {
+    width:1.4em;  
+    height: 1.4em;
+    color: white;
+}
+
+.DialogHeader{
+    text-align: right;
 }
 
 /* Tooltip container */
@@ -168,4 +440,348 @@ h3 {
 .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
+}
+
+/********************************************************************************************************/
+
+/* Tooltip */
+#ToolTipInfo {
+  position: absolute;
+  height: 1px;
+  width: 1px;
+  z-index: 100;
+}
+.tooltip.in {
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.tooltip.top .tooltip-arrow {
+  border-top-color: white;
+}
+.tooltip-inner {
+  border: 2px solid white;
+}
+
+/* Splash window */
+#splash-overlay{
+    /*display: none;*/
+    position: fixed;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 0.8;
+    z-index:10001;
+}
+
+#splash-overlay-content { 
+    margin: auto;
+    display: block;
+    height: 80%;
+    width: 80%;
+    border: 1px white;
+    background-color: red; /*transparent;*/
+    opacity: 1.0;
+    z-index:10002;
+}        
+
+#splash_image, #splash_image_start {
+    top: 10%;
+    height: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    position: relative;
+}
+
+.a4s_button {
+    border:none;
+    display:inline-block;
+    overflow:hidden;
+    text-decoration:none;
+    color:inherit;
+    background-color:inherit;
+    text-align:center;
+    vertical-align:middle;
+    cursor:pointer;
+    white-space:nowrap;
+    font-weight:bold; 
+}
+.a4s_button_right {
+    float:right;
+}
+.a4s_button:hover, .a4s_button_right:hover{box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)}
+
+
+.DocTitle {
+  font-size: 1.6em;
+}
+
+#overlayLegend{
+  z-index:100;
+  position: absolute;
+  top: 5px;
+  width: 80%;
+  text-align: -webkit-center;
+} 
+
+.overlayLegend-content { 
+  margin-right: -50%;
+  transform: translate(-50%,0);
+  position: absolute;
+  left: 62.5%;
+  max-width: 400px;
+  background-color: snow;
+}
+
+.imgLegend {
+  max-width: 100%;
+}
+
+.InfoImage {
+  max-width:100%;
+  max-height:100%;
+}
+
+.toolbuttonscontainerinmap {
+  display:inline; 
+  margin-left:-87px; /*122px; */
+  left:50%; 
+  z-index:100; 
+  position:absolute; 
+  bottom:9px;
+}
+
+.photo {
+  top: 9.5em; 
+  left: .5em; 
+  display:none;
+}
+
+.PopUp {
+  position: absolute;
+  background-color: #fff;
+  -webkit-filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+  filter: drop-shadow(0 1px 4px rgba(0,0,0,0.2));
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  bottom: 12px;
+  left: -50px;
+  min-width: 200px;
+  width: 360px;
+  z-index: 200;
+}
+
+.PopUp h4 {
+  background-color: lightgrey;
+}
+
+.PopUpContent {
+  overflow: auto; 
+  margin: 2px;
+}
+
+.PopUpContent tr {
+  margin: 1px;
+  line-height: 1;
+}
+
+.osr-image {
+  height: 120px;
+}
+
+.osr-video {
+  height: 120px;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  margin: 1em 0;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 0.1em;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5), 0px 0px 0px rgba(13, 13, 13, 0.5);
+  background: #000000;
+  border-radius: 0px;
+  border: 0px solid #ffffff;
+}
+input[type=range]::-webkit-slider-thumb {
+  box-shadow: 2.3px 2.3px 7.5px #000000, 0px 0px 2.3px #0d0d0d;
+  border: 0px solid #000000;
+  height: 2em;
+  width: 1em;
+  border-radius: 0px;
+  background: #ffc864;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -0.9em;
+}
+input[type=range]:focus::-webkit-slider-runnable-track {
+  background: #000000;
+}
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 0.1em;
+  cursor: pointer;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5), 0px 0px 0px rgba(13, 13, 13, 0.5);
+  background: #000000;
+  border-radius: 0px;
+  border: 0px solid #ffffff;
+}
+input[type=range]::-moz-range-thumb {
+  box-shadow: 2.3px 2.3px 7.5px #000000, 0px 0px 2.3px #0d0d0d;
+  border: 0px solid #000000;
+  height: 10px;
+  width: 10px;
+  border-radius: 0px;
+  background: #ffc864;
+  cursor: pointer;
+}
+input[type=range]::-ms-track {
+  width: 100%;
+  height: 0.1em;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+input[type=range]::-ms-fill-lower {
+  background: #000000;
+  border: 0px solid #ffffff;
+  border-radius: 0px;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5), 0px 0px 0px rgba(13, 13, 13, 0.5);
+}
+input[type=range]::-ms-fill-upper {
+  background: #000000;
+  border: 0px solid #ffffff;
+  border-radius: 0px;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5), 0px 0px 0px rgba(13, 13, 13, 0.5);
+}
+input[type=range]::-ms-thumb {
+  box-shadow: 2.3px 2.3px 7.5px #000000, 0px 0px 2.3px #0d0d0d;
+  border: 0px solid #000000;
+  height: 10px;
+  width: 10px;
+  border-radius: 0px;
+  background: #ffc864;
+  cursor: pointer;
+  height: 2px;
+}
+input[type=range]:focus::-ms-fill-lower {
+  background: #000000;
+}
+input[type=range]:focus::-ms-fill-upper {
+  background: #000000;
+}
+
+.clearfix::after { 
+    content: " ";
+    display: block; 
+    height: 0; 
+    padding: 5px;
+    clear: both;
+}
+
+.tooltip {
+  position: relative;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
+  color: white;
+  padding: 4px 8px;
+  opacity: 0.7;
+  white-space: nowrap;
+}
+.tooltip-measure {
+  opacity: 1;
+  font-weight: bold;
+}
+.tooltip-static {
+  background-color: #ffcc33;
+  color: black;
+  border: 1px solid white;
+}
+.tooltip-measure:before,
+.tooltip-static:before {
+  border-top: 6px solid rgba(0, 0, 0, 0.5);
+  border-right: 6px solid transparent;
+  border-left: 6px solid transparent;
+  content: "";
+  position: absolute;
+  bottom: -6px;
+  margin-left: -7px;
+  left: 50%;
+}
+.tooltip-static:before {
+  border-top-color: #ffcc33;
+}  
+
+.btn {
+  color: gray;
+  font-size: 16px;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  background-color: snow;
+  border-radius: 4px;
+}
+
+.btn-right {
+  float:right;
+  color: gray;
+  font-size: 16px;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  background-color: snow;
+  border-radius: 4px;
+  margin-left: 5px;
+}
+
+.btn-w-txt {
+  color: gray;
+  font-size: 16px;
+  height: 32px;
+  cursor: pointer;
+  background-color: snow;
+  border-radius: 4px;
+}
+
+/* Darker background on mouse-over */
+.btn:hover, .btn-w-txt:hover, .btn-right:hover {
+  color: #404040;
+  background-color: lightgray;
+}
+
+/* On screens that are less or equal to max-width, change style */
+@media screen and (max-width: 600px) {
+  #MenuContainer, #ControlPlaceInMap {
+    width: 100%; /* The width is 100%, when the viewport is 500px or smaller */
+    -ms-transform: translate(0%); /* IE 9 */
+    -webkit-transform: translate(0%); /* Safari */
+    transform: translate(0%);
+    left: 0;
+  }
+  #DragHandle {
+    line-height: 2em;
+  }
+  .jstree-default .jstree-anchor {
+    line-height: 34px;
+    height: 34px;
+  }
+  .jstree-icon, .jstree-icon:empty{
+    margin-top: -0.6em;
+    margin-right: 1em;
+    transform-origin: top left;
+    -ms-transform: scale(2.0) translateX(-0.4em); /* IE 9 */
+    -webkit-transform: scale(2.0) translateX(-0.4em); /* Safari */
+    transform: scale(2.0) translateX(-0.4em);
+    /*background-image:url(static/js/dist/themes/default/64px.png);*/
+  }
 }

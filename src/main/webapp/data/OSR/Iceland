@@ -1,0 +1,37 @@
+			<Placemark>
+				<name>C/S TFIA (THOR)</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">C/S TFIA (THOR)</SimpleData>
+						<SimpleData name="name">C/S TFIA (THOR)</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Landhelgisgaesla- Coast Gaurd</SimpleData>
+						<SimpleData name="location">Reykjavik</SimpleData>
+						<SimpleData name="operation">Offshore</SimpleData>
+						<SimpleData name="vessel_class">Patrol/Navy vessel</SimpleData>
+						<SimpleData name="vessel_loa">94</SimpleData>
+						<SimpleData name="vessel_breadth">16</SimpleData>
+						<SimpleData name="vessel_draught">5.8</SimpleData>
+						<SimpleData name="vessel_GT">4049</SimpleData>
+						<SimpleData name="vessel_averageSpeed">14</SimpleData>
+						<SimpleData name="vessel_build year">2014</SimpleData>
+						<SimpleData name="vessel_IMO">9426893</SimpleData>
+						<SimpleData name="vessel_MMSI">251604000</SimpleData>
+						<SimpleData name="equipment_crane">Yes</SimpleData>
+						<SimpleData name="equipment_craneCapability">100</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">640</SimpleData>
+						<SimpleData name="equipment_heatedStorage">-</SimpleData>
+						<SimpleData name="ape_Norlense Offshore oil boom"></SimpleData>
+						<SimpleData name="ape_brush skimmer free floating"></SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>21.94608, 64.18325, 0</coordinates>
+				</Point>
+			</Placemark>

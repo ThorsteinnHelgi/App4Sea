@@ -1,0 +1,9 @@
+[
+    { "id" : "Iceland", "parent" : "ITOPF", "text" : "Iceland", "children" : false, "a_attr" : { "path" : "http://www.itopf.org/knowledge-resources/countries-territories-regions/countries/Iceland/"} },
+    { "id" : "Norway", "parent" : "ITOPF", "text" : "Norway", "children" : false, "a_attr" : { "path" : "http://www.itopf.org/knowledge-resources/countries-territories-regions/countries/Norway"} },
+    { "id" : "Greenland", "parent" : "ITOPF", "text" : "Greenland", "children" : false, "a_attr" : { "path" : "http://www.itopf.org/knowledge-resources/countries-territories-regions/countries/Greenland"} },
+    { "id" : "Sweden", "parent" : "ITOPF", "text" : "Sweden", "children" : false, "a_attr" : { "path" : "http://www.itopf.org/knowledge-resources/countries-territories-regions/countries/Sweden"} },
+    { "id" : "Finland", "parent" : "ITOPF", "text" : "Finland", "children" : false, "a_attr" : { "path" : "http://www.itopf.org/knowledge-resources/countries-territories-regions/countries/Finland/"} },
+    { "id" : "UK", "parent" : "ITOPF", "text" : "UK", "children" : false, "a_attr" : { "path" : "http://www.itopf.org/knowledge-resources/countries-territories-regions/countries/UK/"} },
+    { "id" : "Ireland", "parent" : "ITOPF", "text" : "Ireland", "children" : false, "a_attr" : { "path" : "http://www.itopf.org/knowledge-resources/countries-territories-regions/countries/Ireland/"} }
+]

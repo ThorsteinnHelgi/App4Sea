@@ -1,0 +1,39 @@
+			<Placemark>
+				<name>NORDEN</name>
+				<styleUrl>#msn_ferry</styleUrl>
+				<ExtendedData>
+					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
+						<SimpleData name="SiteID">NORDEN</SimpleData>
+						<SimpleData name="name">NORDEN</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
+						<SimpleData name="operator">Stena Oil</SimpleData>
+						<SimpleData name="location">Southern Baltic Sea</SimpleData>
+						<SimpleData name="operation">Oil Tanker</SimpleData>
+						<SimpleData name="vessel_class">Oil Recovery Vessel and Oil Tanker</SimpleData>
+						<SimpleData name="vessel_loa">79.95</SimpleData>
+						<SimpleData name="vessel_breadth">13.25</SimpleData>
+						<SimpleData name="vessel_draught">5</SimpleData>
+						<SimpleData name="vessel_GT">1875</SimpleData>
+						<SimpleData name="vessel_averageSpeed">12</SimpleData>
+						<SimpleData name="vessel_build year">2006</SimpleData>
+						<SimpleData name="vessel_IMO">9346641</SimpleData>
+						<SimpleData name="vessel_MMSI">266212000</SimpleData>
+						<SimpleData name="equipment_crane">-</SimpleData>
+						<SimpleData name="equipment_craneCapability">-</SimpleData>
+						<SimpleData name="equipment_totalStorageCapacity">2880</SimpleData>
+						<SimpleData name="equipment_heatedStorage">1163</SimpleData>
+						<SimpleData name="ape_Lamor rigid sweeping arms">2</SimpleData>
+						<SimpleData name="ape_Lamor SPI Ocean Master Boom">2</SimpleData>
+						<SimpleData name="ape_Hig-capacity skimmer"></SimpleData>
+						<SimpleData name="ape_Navico oil slick detection system">2</SimpleData>
+						<SimpleData name="linkinfo">link to a pdf file or webpage for detailed information</SimpleData>
+						<SimpleData name="linkicon">link to an icon that may be used or not to identify the site</SimpleData>
+						<SimpleData name="linkimage">link to an image from the site</SimpleData>
+						<SimpleData name="linkvideo"><></SimpleData>
+					</SchemaData>
+				</ExtendedData>
+				<Point>
+					<gx:drawOrder>1</gx:drawOrder>
+					<coordinates>10.70422, 57.64241, 0</coordinates>
+				</Point>
+			</Placemark>

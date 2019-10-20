@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+    <Document id="1">
+        <description>MET OpenDrift Oil Drift forecast</description>
+        <Camera>
+            <longitude>5.80864953995</longitude>
+            <latitude>62.866569519</latitude>
+            <altitude>60000</altitude>
+            <tilt>0</tilt>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <roll>0</roll>
+        </Camera>
+        <GroundOverlay id="3">
+            <name>helgeingstad at 2018-11-08 04:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="4">
+                <begin>2018-11-08 04:00:00</begin>
+                <end>2018-11-09 04:00:00</end>
+            </TimeSpan>
+            <Icon id="5">
+                <href>files\helgeingstad0.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>65.1025772095</north>
+                <south>60.6305580139</south>
+                <east>2.85840821266</east>
+                <west>8.75889110565</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="7">
+            <name>helgeingstad at 2018-11-09 04:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="8">
+                <begin>2018-11-09 04:00:00</begin>
+                <end>2018-11-10 04:00:00</end>
+            </TimeSpan>
+            <Icon id="9">
+                <href>files\helgeingstad6.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>65.1025772095</north>
+                <south>60.6305580139</south>
+                <east>2.85840821266</east>
+                <west>8.75889110565</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="11">
+            <name>helgeingstad at 2018-11-10 04:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="12">
+                <begin>2018-11-10 04:00:00</begin>
+                <end>2018-11-11 04:00:00</end>
+            </TimeSpan>
+            <Icon id="13">
+                <href>files\helgeingstad12.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>65.1025772095</north>
+                <south>60.6305580139</south>
+                <east>2.85840821266</east>
+                <west>8.75889110565</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="15">
+            <name>helgeingstad at 2018-11-11 04:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="16">
+                <begin>2018-11-11 04:00:00</begin>
+                <end>2018-11-12 04:00:00</end>
+            </TimeSpan>
+            <Icon id="17">
+                <href>files\helgeingstad18.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>65.1025772095</north>
+                <south>60.6305580139</south>
+                <east>2.85840821266</east>
+                <west>8.75889110565</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="19">
+            <name>helgeingstad at 2018-11-12 04:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="20">
+                <begin>2018-11-12 04:00:00</begin>
+                <end>2018-11-13 04:00:00</end>
+            </TimeSpan>
+            <Icon id="21">
+                <href>files\helgeingstad24.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>65.1025772095</north>
+                <south>60.6305580139</south>
+                <east>2.85840821266</east>
+                <west>8.75889110565</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="23">
+            <name>helgeingstad at 2018-11-13 04:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="24">
+                <begin>2018-11-13 04:00:00</begin>
+                <end>2018-11-14 04:00:00</end>
+            </TimeSpan>
+            <Icon id="25">
+                <href>files\helgeingstad30.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>65.1025772095</north>
+                <south>60.6305580139</south>
+                <east>2.85840821266</east>
+                <west>8.75889110565</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="27">
+            <name>helgeingstad at 2018-11-14 04:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="28">
+                <begin>2018-11-14 04:00:00</begin>
+                <end>2018-11-15 04:00:00</end>
+            </TimeSpan>
+            <Icon id="29">
+                <href>files\helgeingstad36.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>65.1025772095</north>
+                <south>60.6305580139</south>
+                <east>2.85840821266</east>
+                <west>8.75889110565</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="31">
+            <name>helgeingstad at 2018-11-15 04:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="32">
+                <begin>2018-11-15 04:00:00</begin>
+                <end>2018-11-16 04:00:00</end>
+            </TimeSpan>
+            <Icon id="33">
+                <href>files\helgeingstad42.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>65.1025772095</north>
+                <south>60.6305580139</south>
+                <east>2.85840821266</east>
+                <west>8.75889110565</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="35">
+            <name>helgeingstad at 2018-11-16 04:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="36">
+                <begin>2018-11-16 04:00:00</begin>
+                <end>2018-11-17 04:00:00</end>
+            </TimeSpan>
+            <Icon id="37">
+                <href>files\helgeingstad48.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>65.1025772095</north>
+                <south>60.6305580139</south>
+                <east>2.85840821266</east>
+                <west>8.75889110565</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="39">
+            <name>helgeingstad at 2018-11-17 04:00:00</name>
+            <visibility>0</visibility>
+            <TimeSpan id="40">
+                <begin>2018-11-17 04:00:00</begin>
+                <end>2018-11-18 04:00:00</end>
+            </TimeSpan>
+            <Icon id="41">
+                <href>files\helgeingstad54.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>65.1025772095</north>
+                <south>60.6305580139</south>
+                <east>2.85840821266</east>
+                <west>8.75889110565</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <ScreenOverlay id="43">
+            <name>Legend_oil</name>
+            <visibility>1</visibility>
+            <Icon id="44">
+                <href>legend_oil.png</href>
+            </Icon>
+            <overlayXY x="0" xunits="fraction" y="0" yunits="fraction"/>
+            <screenXY x="0.015" xunits="fraction" y="0.075" yunits="fraction"/>
+            <size x="0" xunits="fraction" y="0" yunits="fraction"/>
+        </ScreenOverlay>
+    </Document>
+</kml>

@@ -1,0 +1,8 @@
+[
+    { "id" : "LWth00", "parent" : "LWth0", "text" : "World Climate Map", "children" : false, "a_attr" : { "path" : "data/World Köppen.kmz"} },
+    { "id" : "LWth01", "parent" : "LWth0", "text" : "Temperature", "children" : false, "a_attr" : { "path" : "https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=6a3e86f0825c7e6e605105c24d5ec1cd"} },
+    { "id" : "LWth02", "parent" : "LWth0", "text" : "Wind", "children" : false, "a_attr" : { "path" : "https://tile.openweathermap.org/map/wind_new/{z}/{x}/{y}.png?appid=6a3e86f0825c7e6e605105c24d5ec1cd"} },
+    { "id" : "LWth03", "parent" : "LWth0", "text" : "Pressure", "children" : false, "a_attr" : { "path" : "https://tile.openweathermap.org/map/pressure_new/{z}/{x}/{y}.png?appid=6a3e86f0825c7e6e605105c24d5ec1cd"} },
+    { "id" : "LWth04", "parent" : "LWth0", "text" : "Precipitation ", "children" : false, "a_attr" : { "path" : "https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=6a3e86f0825c7e6e605105c24d5ec1cd"} },
+    { "id" : "LWth05", "parent" : "LWth0", "text" : "Clouds", "children" : false, "a_attr" : { "path" : "https://tile.openweathermap.org/map/clouds_new/{z}/{x}/{y}.png?appid=6a3e86f0825c7e6e605105c24d5ec1cd"} }
+]

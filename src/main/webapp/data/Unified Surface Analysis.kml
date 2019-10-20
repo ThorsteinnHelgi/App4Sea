@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<GroundOverlay>
+	<name>Unified Surface Analysis</name>
+	<Icon>
+		<href>http://ocean.weather.gov/gis/UA_SFC_ANAL.png</href>
+		<viewRefreshMode>onRequest</viewRefreshMode>
+	</Icon>
+	<LatLonBox>
+		<north>90</north>
+		<south>0</south>
+		<east>380</east>
+		<west>130</west>
+	</LatLonBox>
+</GroundOverlay>
+</kml>

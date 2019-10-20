@@ -1,5 +1,0 @@
-[
-    { "id" : "5L31", "parent" : "LReg0", "text" : "NPA", "children" : false, "a_attr" : { "path" : "data/NPA.kml"} },
-    { "id" : "6L32", "parent" : "LReg0", "text" : "Median Lines", "children" : false, "a_attr" : { "path" : "data/DECC_OFF_Median_Line.kml"} },
-    { "id" : "7L33", "parent" : "LReg0", "text" : "Marine Regions", "children" : false, "a_attr" : { "path" : "data/MarineRegions-eez_boundaries.kml"} }
-]
