@@ -34,4 +34,3 @@
     { "id" : "LExm0_31", "parent" : "LExm0", "text" : "Nordic 4 Northguider", "children" : false, "a_attr" : { "path" : "data/nordic4_northguider.kmz", "tool" : "animation"} },
     { "id" : "LExm0_32", "parent" : "LExm0", "text" : "Growth Of Plaice",	"children" : false, "a_attr" : { "path" : "data/GrowthOfPlaice.kml", "tool" : "animation"} }
 ]    
-]
