@@ -16,6 +16,3 @@
 target/
 ignore/
 bin/
-
-src/main/old/
-src/main/java/
