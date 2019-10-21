@@ -122,6 +122,7 @@ App4SeaUtils = (function () {
             catch (e) {
                 try {
                     proj4.defs('EPSG:3575', '+proj=laea +lat_0=90 +lon_0=10 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs');
+                    proj4.defs('EPSG:4326', '+title=WGS 84 (long/lat) +proj=longlat +ellps=WGS84 +datum=WGS84 +units=degrees');
                     let ex1 = proj4(source, dest, [extent[0], extent[1]]);
                     let ex2 = proj4(source, dest, [extent[2], extent[3]]);
                     exx = ex1;
@@ -416,7 +417,7 @@ App4SeaUtils = (function () {
         if (App4Sea.logging) console.log("loadImage: " + url);
 
         if (proj !== App4Sea.prefProj) {
-            if (App4Sea.logging) console.log("loadImage ERROR. Wrong projection: " + proj);
+            if (App4Sea.logging) console.log("loadImage ERROR. Wrong projection: " + proj + ", expected " + App4Sea.prefProj);
         }
         if (Math.max(imageExtent) > 180 || Math.min(imageExtent < 180)) {// Lax error check
             if (App4Sea.logging) console.log("loadImage ERROR. Wrong extent: " + imageExtent);

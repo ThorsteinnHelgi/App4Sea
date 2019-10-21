@@ -238,27 +238,39 @@ App4SeaTreeMenu = (function () {
 //                            App4Sea.OpenLayers.Map.addLayer(vect);
                         }
                     }
-                    else if (ext === "wms" || ext === "gif" || ext === "cgi" || ext === "png" || ext === "jpg") {
+                    else if (ext === "wms" || ext === "gif" || ext === "cgi" || ext === "png" || ext === "jpg" || ext === "peg") {
                         if (index === -1) {
                             let parts = App4Sea.Utils.parseURL(path.toLowerCase());
                             let bbox = parts.searchObject.bbox;
 
+                            let imageExtent = [-10, 50, 10, 70]; // WSEN Defaut location for images that do not tell about themselves. SRS
+
                             let proj = App4Sea.prefProj;// Default projection (in map coorinates, not view)
+                            let isSRS = true;
                             if (parts.searchObject.crs !== undefined) {
                                 proj = parts.searchObject.crs;
+                                isSRS = false;
+                                // CRS: S W N E
+                                imageExtent = [50, -10, 70, 10]; // WSEN Defaut location for immages that do not tell about themselves.
+                                if (App4Sea.logging) console.log("This is using CRS");
                             }
-                            if (parts.searchObject.scs !== undefined) {
+                            else if (parts.searchObject.srs !== undefined) {
                                 proj = parts.searchObject.srs;
+                                // SRS: W S E N
                             }
                             if (App4Sea.logging) console.log("Now handling a " + ext + " file with projection:  " + proj);
-
-                            let imageExtent = [-10, 50, 10, 70]; // WSEN Defaut location for immages that do not tell about themselves.
                             
-                            let ourProj = App4Sea.prefViewProj;
+                            let ourProj = App4Sea.prefProj;
                             if (bbox !== undefined) {
                                 try {
                                     let ex = bbox.split(',');
-                                    let extent = [parseFloat(ex[0]), parseFloat(ex[1]), parseFloat(ex[2]), parseFloat(ex[3])];
+                                    let extent;
+                                    if (isSRS) {
+                                        extent = [parseFloat(ex[0]), parseFloat(ex[1]), parseFloat(ex[2]), parseFloat(ex[3])];
+                                    }
+                                    else {
+                                        extent = [parseFloat(ex[1]), parseFloat(ex[0]), parseFloat(ex[3]), parseFloat(ex[2])];
+                                    }
                                     imageExtent = App4Sea.Utils.TransformExtent(extent, proj.toUpperCase(), ourProj);
                                     if (App4Sea.logging) console.log("Native extent " + ex);
                                     if (App4Sea.logging) console.log("Normalized extent " + imageExtent);
@@ -270,11 +282,15 @@ App4SeaTreeMenu = (function () {
 
                             let hei = parseFloat(parts.searchObject.height);
                             let wid = parseFloat(parts.searchObject.width);
-                            if (hei === null) hei = nod.a_attr.height;
-                            if (wid === null) wid = nod.a_attr.width;
-                            if (hei === null) hei = 512; // Default value for images that do not tell about themselves or have attributes in json
-                            if (wid === null) wid = 512; // Default value for images that do not tell about themselves or have attributes in json
-                            if (App4Sea.logging) console.log("Height and width is " + [hei, wid]);
+                            if (hei === null || hei !== hei) 
+                                hei = parseFloat(nod.a_attr.height);
+                            if (wid === null || wid !== wid) 
+                                wid = parseFloat(nod.a_attr.width);
+                            if (hei === null || hei !== hei) 
+                                hei = 512; // Default value for images that do not tell about themselves or have attributes in json
+                            if (wid === null || wid !== wid) 
+                                wid = 512; // Default value for images that do not tell about themselves or have attributes in json
+                            if (App4Sea.logging) console.log("Height and width are " + [hei, wid]);
                            
                             let vect = App4Sea.Utils.loadImage(nod, ourProj, imageExtent, true, path, nod.id, nod.text, "",
                                 wid, hei, nod.a_attr.start);

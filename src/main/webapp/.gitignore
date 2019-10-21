@@ -2,7 +2,6 @@
 *.nc
 *.log
 
-static/
 temp/
 node_modules/
 nc/
