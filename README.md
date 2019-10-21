@@ -2,5 +2,5 @@
 
 Web app for mobiles for oil spill response information
 
-<img src="https://github.com/arnigeir/App4Sea/blob/master/App4Sea.png" align="right"
-     title="App4Sea" width="120" height="178">
+<img src="https://github.com/arnigeir/App4Sea/blob/master/App4Sea.png" align="center"
+     title="App4Sea">
