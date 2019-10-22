@@ -16,8 +16,4 @@
 target/
 ignore/
 bin/
-.classpath
-.project
-.settings/org.eclipse.core.resources.prefs
-.settings/org.eclipse.jdt.apt.core.prefs
-.settings/org.eclipse.jdt.core.prefs
+
