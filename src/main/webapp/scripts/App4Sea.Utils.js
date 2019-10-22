@@ -11,6 +11,8 @@ App4SeaUtils = (function () {
 
     // private property
     const _keyStr = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";
+    proj4.defs('EPSG:3575', '+proj=laea +lat_0=90 +lon_0=10 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs');
+    proj4.defs('EPSG:4326', '+title=WGS 84 (long/lat) +proj=longlat +ellps=WGS84 +datum=WGS84 +units=degrees');
 
     ////////////////////////////////////////////////////////////////////////////
     // GetKMLFromFeatures
@@ -121,8 +123,6 @@ App4SeaUtils = (function () {
             }
             catch (e) {
                 try {
-                    proj4.defs('EPSG:3575', '+proj=laea +lat_0=90 +lon_0=10 +x_0=0 +y_0=0 +datum=WGS84 +units=m +no_defs');
-                    proj4.defs('EPSG:4326', '+title=WGS 84 (long/lat) +proj=longlat +ellps=WGS84 +datum=WGS84 +units=degrees');
                     let ex1 = proj4(source, dest, [extent[0], extent[1]]);
                     let ex2 = proj4(source, dest, [extent[2], extent[3]]);
                     exx = ex1;
@@ -137,6 +137,14 @@ App4SeaUtils = (function () {
         if (App4Sea.logging) console.log("Transform extent from: " + source + ": " + extent + " to: " + dest + ": " + exx);
 
         return exx;
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    // TransformLocation
+    my.TransformLocation = function(location, source, dest) {
+        let loc = proj4(source, dest, location);
+
+        return loc;
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -165,30 +173,45 @@ App4SeaUtils = (function () {
             let source = vector.getSource();
 
             if (type === 'IMAGE') {
-                extent = source.getImageExtent();
+                if (source.getImageExtent) {
+                    extent = source.getImageExtent();
+                }
+                else {
+                    extent = source.params_.A4Sextent;
+                }
                 proj = source.getProjection();
-                if (App4Sea.logging) console.log("Look at IMAGE with proj: " + proj.getCode() + ' and ' + extent);
-                extent = App4Sea.Utils.TransformExtent(extent, proj.getCode(), App4Sea.prefProj);
+                let code = '';
+                if (proj && proj.getCode()) {
+                    code = proj.getCode();
+                }
+                else {
+                    code = source.params_.A4Sproj;
+                }
+                
+                if (App4Sea.logging) console.log("Look at IMAGE with proj: " + code + ' and ' + extent);
+                extent = App4Sea.Utils.TransformExtent(extent, code, App4Sea.prefProj);
                 proj = App4Sea.prefProj;
          
                 //if (App4Sea.logging) console.log("Look at IMAGE with proj: " + proj.getCode() + ' and ' + extent);
 
-                if (extent) {
+                let location = App4Sea.mapCenter;
+                if (source.params_ && source.params_.A4Slocation) {
+                    location = source.params_.A4Slocation;
+                }
+                if (location === App4Sea.mapCenter && extent) {
                     if (extent[0] !== Number.POSITIVE_INFINITY && extent[0] !== Number.NEGATIVE_INFINITY && extent[1]) {
-                        if (App4Sea.logging) console.log("Look at: " + extent);
-                        if (App4Sea.logging) console.log("Look at projection: " + proj);
-                        if (proj !== App4Sea.prefProj) {
-                            extent = extent
-                        }
                         let x = extent[0]+extent[2];
                         let y = extent[1]+extent[3];
-                        let location = [x/2, y/2];
+                        location = [x/2, y/2];
                         //if (App4Sea.logging) console.log("Look at: " + extent);
                         //if (App4Sea.logging) console.log("Look at: " + location);
-            
-                        App4Sea.Utils.FlyTo(location, null);
                     }
                 }
+
+                if (App4Sea.logging) console.log("Look at: " + location);
+                if (App4Sea.logging) console.log("Look at projection: " + code);
+
+                App4Sea.Utils.FlyTo(location, null);
             }
         }        
     };
@@ -411,7 +434,7 @@ App4SeaUtils = (function () {
 
     ////////////////////////////////////////////////////////////////////////////
     // load an image
-    my.loadImage = function (node, proj, imageExtent, flag, url, id, text, layers, width, height, start) {
+    my.loadImage = function (node, proj, imageExtent, flag, url, id, text, layers, width, height, start, wms, center) {
         url = url.replaceAll(/&amp;/, '&');
 
         if (App4Sea.logging) console.log("loadImage: " + url);
@@ -419,7 +442,7 @@ App4SeaUtils = (function () {
         if (proj !== App4Sea.prefProj) {
             if (App4Sea.logging) console.log("loadImage ERROR. Wrong projection: " + proj + ", expected " + App4Sea.prefProj);
         }
-        if (Math.max(imageExtent) > 180 || Math.min(imageExtent < 180)) {// Lax error check
+        if (Math.max(imageExtent) > 180 || Math.min(imageExtent < -180)) {// Lax error check
             if (App4Sea.logging) console.log("loadImage ERROR. Wrong extent: " + imageExtent);
         }
         
@@ -430,14 +453,41 @@ App4SeaUtils = (function () {
         if (App4Sea.logging) console.log("loadImage proj: " + proj);
         if (App4Sea.logging) console.log("loadImage imageExtent: " + imageExtent);
 
-        let image = new ol.layer.Image({
-            name: nameIs,
-            source: new ol.source.ImageStatic({
+        let theSource;
+        if (wms) {
+             theSource = new ol.source.ImageWMS({
+                url: url,
+                imageExtent: imageExtent,
+                crossOrigin: 'anonymous',
+                params: {'A4Sextent' : imageExtent, 'A4Sproj' : proj, 'A4Slocation' : center},
+                ratio: 1
+                //serverType: 'geoserver'
+            });
+            /*
+            source: new ol.source.ImageWMS({
+                url: "http://halo-wms.met.no/halo/default.map?service=wms",
+                crossOrigin: 'anonymous',
+                params: {   "LAYERS": "sea_significant_wave_height",
+                    "FORMAT": "image/png",
+                    "CRS": "EPSG:4326",
+                    "BBOX": "-180,-90,180,90",
+                    "WIDTH": "512",
+                    "HEIGHT": "512"}
+            })
+                         */
+        } else {
+            theSource = new ol.source.ImageStatic({
                 url: url,
                 imageExtent: imageExtent,
                 projection: proj,
                 crossOrigin: 'anonymous'
-            })
+            });
+        }
+
+
+        let image = new ol.layer.Image({
+            name: nameIs,
+            source: theSource
         });
 
         return image;

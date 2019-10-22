@@ -242,8 +242,10 @@ App4SeaTreeMenu = (function () {
                         if (index === -1) {
                             let parts = App4Sea.Utils.parseURL(path.toLowerCase());
                             let bbox = parts.searchObject.bbox;
+                            let wms = parts.searchObject.service;
 
                             let imageExtent = [-10, 50, 10, 70]; // WSEN Defaut location for images that do not tell about themselves. SRS
+                            let center = [0, 0];
 
                             let proj = App4Sea.prefProj;// Default projection (in map coorinates, not view)
                             let isSRS = true;
@@ -261,11 +263,17 @@ App4SeaTreeMenu = (function () {
                             if (App4Sea.logging) console.log("Now handling a " + ext + " file with projection:  " + proj);
                             
                             let ourProj = App4Sea.prefProj;
+                            
+                            if (nod.a_attr.center) {
+                                center = App4Sea.Utils.TransformLocation(nod.a_attr.center, proj.toUpperCase(), ourProj);
+                            }
+
                             if (bbox !== undefined) {
+                                let InvertBbox = nod.a_attr.invertbbox;
                                 try {
                                     let ex = bbox.split(',');
                                     let extent;
-                                    if (isSRS) {
+                                    if (isSRS || InvertBbox) {
                                         extent = [parseFloat(ex[0]), parseFloat(ex[1]), parseFloat(ex[2]), parseFloat(ex[3])];
                                     }
                                     else {
@@ -293,7 +301,7 @@ App4SeaTreeMenu = (function () {
                             if (App4Sea.logging) console.log("Height and width are " + [hei, wid]);
                            
                             let vect = App4Sea.Utils.loadImage(nod, ourProj, imageExtent, true, path, nod.id, nod.text, "",
-                                wid, hei, nod.a_attr.start);
+                                wid, hei, nod.a_attr.start, wms, center);
 
                             App4Sea.OpenLayers.layers.push({"id": nod.id, "vector" : vect});
 

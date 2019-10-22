@@ -1,4 +1,3 @@
 [
-    { "id" : "Ani5", "parent" : "LAni0", "text" : "Bravo", "children" : false, "a_attr" : { "path" : "data/bravo.kmz", "tool" : "animation"} },
-    { "id" : "Ani7", "parent" : "LAni0", "text" : "Blue Marble", "children" : false, "a_attr" : { "path" : "data/Blue Marble.kmz", "tool" : "animation", "projection" : "EPSG:4326"} }
+    { "id" : "Ani5", "parent" : "LAni0", "text" : "Bravo", "children" : false, "a_attr" : { "path" : "data/bravo.kmz", "tool" : "animation"} }
 ]
