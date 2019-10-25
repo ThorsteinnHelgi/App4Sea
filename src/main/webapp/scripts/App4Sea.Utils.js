@@ -3,7 +3,10 @@
  *
  * ==========================================================================*/
 
-App4SeaUtils = (function () {
+//import App4Sea from App4Sea.js;
+
+// @ts-check
+let App4SeaUtils = (function () {
     "use strict";
     let my = {};
 

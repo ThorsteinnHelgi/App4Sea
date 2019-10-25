@@ -3,7 +3,10 @@
  *
  * ==========================================================================*/
 
-App4SeaTreeMenu = (function () {
+//import App4Sea from App4Sea.js;
+
+// @ts-check
+let App4SeaTreeMenu = (function () {
     "use strict";
 
     let my = {};
@@ -313,8 +316,6 @@ App4SeaTreeMenu = (function () {
                     }
                     else {// Including kmz and kml
                         if (index === -1){
-                            //if (App4Sea.KML.loadKmlKmz === 'undefined')
-                                App4Sea.KML = App4SeaKML;
                             App4Sea.KML.loadKmlKmz(path, nod.id, nod.text);
                         }
                     }

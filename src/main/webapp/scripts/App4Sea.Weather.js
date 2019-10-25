@@ -3,6 +3,9 @@
  *
  * ==========================================================================*/
 
+//import App4Sea from App4Sea.js;
+
+// @ts-check
 App4SeaWeather = (function () {
     "use strict";
     var my = {};

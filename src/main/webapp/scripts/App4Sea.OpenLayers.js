@@ -4,7 +4,10 @@
  *              
  * ==========================================================================*/
 
-App4SeaOpenLayers = (function () {
+//import App4Sea from App4Sea.js;
+
+// @ts-check
+let App4SeaOpenLayers = (function () {
     "use strict";
     let my = {};
     

@@ -3,6 +3,9 @@
  *
  * ==========================================================================*/
 
+//import ol from OpenLayers;
+
+// @ts-check
 let App4Sea = (function () {
     "use strict";
     let my = {};

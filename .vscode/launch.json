@@ -8,8 +8,11 @@
             "type": "chrome",
             "request": "launch",
             "name": "Launch Chrome against localhost",
-            "url": "http://localhost:8080/App4Sea/index.html",
-            "webRoot": "${workspaceFolder}/src/main/webapp"
+            //"url": "http://localhost:8080/App4Sea",
+            //"webRoot": "${workspaceFolder}/src/main/webapp"
+            // Note this does not support local files (e.g. json)
+            // Use Live Server instead for debugging
+            "file": "${workspaceFolder}/src/main/webapp/index.html"
         }
     ]
 }

@@ -3,7 +3,10 @@
  *
  * ==========================================================================*/
 
-App4SeaKML = (function () {
+//import App4Sea from App4Sea.js;
+
+// @ts-check
+let App4SeaKML = (function () {
     "use strict";
     var my = {};
 
@@ -836,3 +839,4 @@ App4SeaKML = (function () {
     return my;
     
 }());
+App4Sea.KML = App4SeaKML;

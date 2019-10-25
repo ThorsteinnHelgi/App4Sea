@@ -422,7 +422,7 @@
             </div>
             
             <!-- This is the tool-tip container. It is populated in code -->
-            <div id="ToolTipInfo"></div>            
+            <div id="ToolTipInfo" data-html="true" class="a4stooltip"></div>
 
             <!-- This is the pop-up container. It is populated in code -->
             <div id="popup" class="PopUp">
@@ -431,7 +431,7 @@
                 <div id="popup-content" class="PopUpContent"></div>
             </div>
             
-            <!-- This is the information popup container. It is populated in code. Mainly used for Description and Author information -->
+            <!-- This is the information popup container. It is populated in code. -->
             <div id="InfoPopup" class="InformationPopup"></div>
 
             <!-- This is the heat and animation place container. It is populated in code -->
@@ -486,9 +486,9 @@
 
     <script type="text/javascript" >
         ['cut', 'copy', 'paste'].forEach(function(event) {
-            console.log(event)
+            console.log('forEach ' + event);
             document.addEventListener(event, function(e) {
-                console.log(event);   
+                console.log('addEventListener ' + event);   
             });
         });
     </script>
