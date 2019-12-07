@@ -1,4 +1,16 @@
 [
+    { "id" : "LExm0_101", "parent" : "LExm0", "text" : "Seabirds 1",	"children" : false, "a_attr" : { "path" : "data/Birds/Seabirds 001.kml"} },
+    { "id" : "LExm0_102", "parent" : "LExm0", "text" : "Seabirds 2",	"children" : false, "a_attr" : { "path" : "data/Birds/Seabirds 002.kml"} },
+    { "id" : "LExm0_102", "parent" : "LExm0", "text" : "Barents1 Oil Spill", "children" : false, "a_attr" : { "path" : "data/barents1.kmz", "tool" : "animation"} },
+    { "id" : "LExm0_102", "parent" : "LExm0", "text" : "Vestmanna Oil Spill", "children" : false, "a_attr" : { "path" : "data/Vestmanna.kmz", "tool" : "animation"} },
+    { "id" : "LExm0_102", "parent" : "LExm0", "text" : "Northguider", "children" : false, "a_attr" : { "path" : "data/northguider.kmz", "tool" : "animation"} },
+    { "id" : "LExm0_001", "parent" : "LExm0", "text" : "Precipitation", "children" : false, "a_attr" : { "path" : "http://halo-wms.met.no/halo/default.map?service=WMS&version=1.3.0&REQUEST=GetMap&LAYERS=nedb_0m_mm_iso_regional&STYLES=&CRS=EPSG:4326&BBOX=-180,-90,180,90&WIDTH=512&HEIGHT=512&FORMAT=image%2Fpng", "invertbbox": true, "center" : [0, 66]} },
+    { "id" : "LExm0_002", "parent" : "LExm0", "text" : "fog_colour_regional", "children" : false, "a_attr" : { "path" : "http://halo-wms.met.no/halo/default.map?service=WMS&version=1.3.0&REQUEST=GetMap&LAYERS=fog_colour_regional&STYLES=&CRS=EPSG:4326&BBOX=-180,-90,180,90&WIDTH=512&HEIGHT=512&FORMAT=image%2Fpng", "invertbbox": true, "center" : [0, 66]} },
+    { "id" : "LExm0_003", "parent" : "LExm0", "text" : "vindsjodir_0m_deg_symbol_regional", "children" : false, "a_attr" : { "path" : "http://halo-wms.met.no/halo/default.map?service=WMS&version=1.3.0&REQUEST=GetMap&LAYERS=vindsjodir_0m_deg_symbol_regional&STYLES=&CRS=EPSG:4326&BBOX=-180,-90,180,90&WIDTH=512&HEIGHT=512&FORMAT=image%2Fpng", "invertbbox": true, "center" : [0, 66]} },
+    { "id" : "LExm0_004", "parent" : "LExm0", "text" : "Wind", "children" : false, "a_attr" : { "path" : "https://tile.openweathermap.org/map/wind_new/{z}/{x}/{y}.png?appid=6a3e86f0825c7e6e605105c24d5ec1cd"} },
+    { "id" : "LExm0_005", "parent" : "LExm0", "text" : "Pressure", "children" : false, "a_attr" : { "path" : "https://tile.openweathermap.org/map/pressure_new/{z}/{x}/{y}.png?appid=6a3e86f0825c7e6e605105c24d5ec1cd"} },
+    { "id" : "LExm0_006", "parent" : "LExm0", "text" : "Clouds", "children" : false, "a_attr" : { "path" : "https://tile.openweathermap.org/map/clouds_new/{z}/{x}/{y}.png?appid=6a3e86f0825c7e6e605105c24d5ec1cd"} },
+    { "id" : "LExm0_007", "parent" : "LExm0", "text" : "Arctic voyages", "children" : false, "a_attr" : { "path" : "data/Arctic_voyages.kml"} },
     { "id" : "LExm0_00", "parent" : "LExm0", "text" : "Blue Marble", "children" : false, "a_attr" : { "path" : "data/Blue Marble.kmz", "tool" : "animation", "projection" : "EPSG:4326"} },
     { "id" : "LExm0_01", "parent" : "LExm0", "text" : "Wind 0-240 hours", "children" : false, "a_attr" : { "path" : "http://halo-wms.met.no/halo/default.map?language=eng&version=1.3.0&service=WMS&request=GetLegendGraphic&sld_version=1.1.0&layer=diana&STYLE=default&format=image/png"} },
     { "id" : "LExm0_02", "parent" : "LExm0", "text" : "Wind 0-240 square", "children" : false, "a_attr" : { "path" : "data/Square1.kml"} },
@@ -26,10 +38,5 @@
     { "id" : "LExm0_24", "parent" : "LExm0", "text" : "Animated Google Cloude Maps (cgi)", "children" : false, "a_attr" : { "path" : "https://mesonet.agron.iastate.edu/cgi-bin/wms/nexrad/n0r-t.cgi", "layers" : "nexrad-n0r-wmst", "width" : "998", "height" : "256"} },
     { "id" : "LExm0_25", "parent" : "LExm0", "text" : "George Mason Uni: Precipitation (gif)", "children" : false, "a_attr" : { "path" : "data/precip_anim.gif", "layers" : "1", "width" : "1540", "height" : "700"} },
     { "id" : "LExm0_26", "parent" : "LExm0", "text" : "Marine Ecoregions", "children" : false, "a_attr" : { "path" : "data/meow_ecos.shp.kmz"} },
-    { "id" : "LExm0_27", "parent" : "LExm0", "text" : "Barents1 Oil Spill", "children" : false, "a_attr" : { "path" : "data/barents1.kmz", "tool" : "animation"} },
-    { "id" : "LExm0_28", "parent" : "LExm0", "text" : "Vestmanna Oil Spill", "children" : false, "a_attr" : { "path" : "data/Vestmanna.kmz", "tool" : "animation"} },
-    { "id" : "LExm0_29", "parent" : "LExm0", "text" : "Helge Ingstad", "children" : false, "a_attr" : { "path" : "data/helgeingstad.kmz", "tool" : "animation"} },
-    { "id" : "LExm0_30", "parent" : "LExm0", "text" : "Northguider", "children" : false, "a_attr" : { "path" : "data/northguider.kmz", "tool" : "animation"} },
-    { "id" : "LExm0_31", "parent" : "LExm0", "text" : "Nordic 4 Northguider", "children" : false, "a_attr" : { "path" : "data/nordic4_northguider.kmz", "tool" : "animation"} },
     { "id" : "LExm0_32", "parent" : "LExm0", "text" : "Growth Of Plaice",	"children" : false, "a_attr" : { "path" : "data/GrowthOfPlaice.kml", "tool" : "animation"} }
 ]    

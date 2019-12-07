@@ -3,7 +3,7 @@
  *
  * ==========================================================================*/
 
-//import App4Sea from App4Sea.js;
+import { App4Sea } from './App4Sea.js';
 
 // @ts-check
 let App4SeaTreeMenu = (function () {
@@ -67,7 +67,7 @@ let App4SeaTreeMenu = (function () {
                 
             function onSuccess(parent_node, fnSetTree, fnGetFileName, ourFilename, ourJSONdata) {
                 return function (data, status, jqXHR) {
-                    for (var i_success = 0; i_success < data.length; i_success++){
+                    for (let i_success = 0; i_success < data.length; i_success++){
                         let thisNode = data[i_success]; 
                         let children = thisNode.children;
                         thisNode.children = false;// Must be set to false as wwe are loading acync (sic!)
@@ -129,7 +129,7 @@ let App4SeaTreeMenu = (function () {
             if (typeof data.node === 'undefined')
                 return;
 
-            var node = $(this).jstree('get_node', data.node.id);
+            let node = $(this).jstree('get_node', data.node.id);
 
             // Remove overlay
             hideMetadata();
@@ -137,15 +137,15 @@ let App4SeaTreeMenu = (function () {
             // We add nodes based on the nodes selected, not the node(S) that come in data
 
             // Remove layer if not in the list of selected nodes
-            for (var lind = 0; lind < App4Sea.OpenLayers.layers.length; lind++)
+            for (let lind = 0; lind < App4Sea.OpenLayers.layers.length; lind++)
             {
                 // Check if layer is active
-                var activeLayers = App4Sea.OpenLayers.Map.getLayers();
-                var ol_uid = App4Sea.OpenLayers.layers[lind].vector.ol_uid;
-                var activeIndex = App4Sea.Utils.alreadyActive(ol_uid, activeLayers);
+                let activeLayers = App4Sea.OpenLayers.Map.getLayers();
+                let ol_uid = App4Sea.OpenLayers.layers[lind].vector.ol_uid;
+                let activeIndex = App4Sea.Utils.alreadyActive(ol_uid, activeLayers);
 
-                var isSel = false;
-                for (var sind = 0; sind < data.selected.length; sind++) {
+                let isSel = false;
+                for (let sind = 0; sind < data.selected.length; sind++) {
                     if (data.selected[sind] === App4Sea.OpenLayers.layers[lind].id) {
                         isSel = true;
                         break;
@@ -170,18 +170,18 @@ let App4SeaTreeMenu = (function () {
             }
 
             // Add layer
-            for (var ind = 0; ind < data.selected.length; ind++) {
-                var nod = $(this).jstree('get_node', data.selected[ind]);
+            for (let ind = 0; ind < data.selected.length; ind++) {
+                let nod = $(this).jstree('get_node', data.selected[ind]);
                 
                 //Check if layer exists in cache
-                var index = App4Sea.Utils.alreadyLayer(nod.id, App4Sea.OpenLayers.layers);
+                let index = App4Sea.Utils.alreadyLayer(nod.id, App4Sea.OpenLayers.layers);
 
                 if (index !== -1) {// Layer exists in cache
                     
                     // Check if layer is active
-                    var activeLayers = App4Sea.OpenLayers.Map.getLayers();
-                    var ol_uid = App4Sea.OpenLayers.layers[index].vector.ol_uid;
-                    var activeIndex = App4Sea.Utils.alreadyActive(ol_uid, activeLayers);
+                    let activeLayers = App4Sea.OpenLayers.Map.getLayers();
+                    let ol_uid = App4Sea.OpenLayers.layers[index].vector.ol_uid;
+                    let activeIndex = App4Sea.Utils.alreadyActive(ol_uid, activeLayers);
                    
                     // Activate if not active
                     if (activeIndex === -1) {// Layer is not active
@@ -358,7 +358,7 @@ let App4SeaTreeMenu = (function () {
     ////////////////////////////////////////////////////////////////////////////
     // hideMetadata
     function hideMetadata() {
-        var elem = App4Sea.OpenLayers.descriptionContainer;
+        let elem = App4Sea.OpenLayers.descriptionContainer;
         elem.innerHTML = "";
     }
     

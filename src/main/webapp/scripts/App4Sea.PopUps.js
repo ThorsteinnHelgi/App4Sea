@@ -3,7 +3,7 @@
  *
  * ==========================================================================*/
 
-//import App4Sea from App4Sea.js;
+import { App4Sea } from './App4Sea.js';
 
 // @ts-check
 let App4SeaPopUps = (function () {
@@ -31,7 +31,7 @@ let App4SeaPopUps = (function () {
         vessel_draught: "", 
         vessel_GT: "", 
         vessel_averageSpeed: "", 
-        vessel_build: "", 
+        vessel_build_year: "", 
         equipment_crane: "", 
         equipment_craneCapability: "", 
         equipment_totalStorageCapacity: "", 
@@ -40,6 +40,35 @@ let App4SeaPopUps = (function () {
         linkicon: "", 
         linkimage: "", 
         linkvideo: ""};
+
+        //ape_Norlense Offshore oil boom
+        //ape_brush skimmer free floating
+        //ape_sweepingArms
+        //ape_sweepingWidth
+        //Anti-pollution equipment
+        //ape_LamorBrushSkimmers
+        //ape_freefloatingskimmers
+        //ape_Skimmer
+        //ape_Bucketskimmer
+        //ape_responsedivers
+        //ape_boom
+        //ape_Cargocontainer
+        //ape_Towingcapacity
+        //ape_Advancefirefightingfoam
+        //ape_Recoverysystem
+        //ape_Multihose
+        //ape_Responsedivers
+        //ape_Koseq
+        //ape_Vikoma
+        //ape_Desmi
+        //ape_Miros
+        //ape_Hig-capacity
+        //ape_Navico
+        //ape_Expandi4300
+        //ape_FoxtailVAB4
+        //ape_Bandskimmer
+        //ape_EmergencyoffloadingpumpTK150
+        //ape_Oildetectionradar
             
         osr.name = feature.get('name');
         osr.vessel_IMO = feature.get('vessel_IMO');
@@ -55,7 +84,7 @@ let App4SeaPopUps = (function () {
         osr.vessel_draught = feature.get('vessel_draught');
         osr.vessel_GT = feature.get('vessel_GT');
         osr.vessel_averageSpeed = feature.get('vessel_averageSpeed');
-        osr.vessel_build = feature.get('vessel_build');
+        osr.vessel_build_year = feature.get('vessel_build_year');
         osr.equipment_crane = feature.get('equipment_crane');
         osr.equipment_craneCapability = feature.get('equipment_craneCapability');
         osr.equipment_totalStorageCapacity = feature.get('equipment_totalStorageCapacity');
@@ -74,20 +103,97 @@ let App4SeaPopUps = (function () {
         if (osr.description) template = template + `<tr><td>Description</td><td><b>` + osr.description + `</b></td></tr>`;
         if (osr.operation) template = template + `<tr><td>Operation</td><td><b>{{operation}}</b></td></tr>`;
         if (osr.vessel_class) template = template + `<tr><td>Class</td><td><b>{{vessel_class}}</b></td></tr>`;
-        if (osr.vessel_loa) template = template + `<tr><td>LOA</td><td><b>{{vessel_loa}}</b></td></tr>`;
-        if (osr.vessel_breadth) template = template + `<tr><td>Breadth</td><td><b>{{vessel_breadth}}</b></td></tr>`;
-        if (osr.vessel_draught) template = template + `<tr><td>Draught</td><td><b>{{vessel_draught}}</b></td></tr>`;
-        if (osr.vessel_GT) template = template + `<tr><td>GT</td><td><b>{{vessel_GT}}</b></td></tr>`;
-        if (osr.vessel_averageSpeed) template = template + `<tr><td>Average speed</td><td><b>{{vessel_averageSpeed}}</b></td></tr>`;
-        if (osr.vessel_build) template = template + `<tr><td>Build year</td><td><b>{{vessel_build}}</b></td></tr>`;
+        if (osr.vessel_loa) template = template + `<tr><td>LOA</td><td><b>{{vessel_loa}} m</b></td></tr>`;
+        if (osr.vessel_breadth) template = template + `<tr><td>Breadth</td><td><b>{{vessel_breadth}} m</b></td></tr>`;
+        if (osr.vessel_draught) template = template + `<tr><td>Draught</td><td><b>{{vessel_draught}} m</b></td></tr>`;
+        if (osr.vessel_GT) template = template + `<tr><td>GT</td><td><b>{{vessel_GT}} tonnes</b></td></tr>`;
+        if (osr.vessel_averageSpeed) template = template + `<tr><td>Average speed</td><td><b>{{vessel_averageSpeed}} kn</b></td></tr>`;
+        if (osr.vessel_build_year) template = template + `<tr><td>Build year</td><td><b>{{vessel_build_year}}</b></td></tr>`;
         if (osr.equipment_crane) template = template + `<tr><td>Crane</td><td><b>{{equipment_crane}}</b></td></tr>`;
-        if (osr.equipment_craneCapability) template = template + `<tr><td>Crane capability</td><td><b>{{equipment_craneCapability}}</b></td></tr>`;
-        if (osr.equipment_totalStorageCapacity) template = template + `<tr><td>Total storage capacity</td><td><b>{{equipment_totalStorageCapacity}}</b></td></tr>`;
-        if (osr.equipment_heatedStorage) template = template + `<tr><td>Heated storage</td><td><b>{{equipment_heatedStorage}}</b></td></tr>`;
+        if (osr.equipment_craneCapability) template = template + `<tr><td>Crane capability</td><td><b>{{equipment_craneCapability}} tonnes</b></td></tr>`;
+        if (osr.equipment_totalStorageCapacity) template = template + `<tr><td>Total storage capacity</td><td><b>{{equipment_totalStorageCapacity}} tonnes</b></td></tr>`;
+        if (osr.equipment_heatedStorage) template = template + `<tr><td>Heated storage</td><td><b>{{equipment_heatedStorage}} m3</b></td></tr>`;
         if (osr.linkinfo) template = template + `<tr><td>Information</td><td><b>`+ osr.linkinfo + `</b></td></tr>`;
-        if (osr.linkicon) template = template + `<tr><td>Icon</td><td><img class='osr-image' src='{{linkicon}}' alt='{{name}}'></img></td></tr>`;
-        if (osr.linkimage) template = template + `<tr><td>Image</td><td><img class='osr-image' src='{{linkimage}}' alt='{{name}}'></img></td></tr>`;
-        if (osr.linkvideo) template = template + `<tr><td>Video</td><td><video class='osr-video' src='{{linkvideo}}' alt='{{name}}' autoplay controls></video></td></tr>`;
+        if (osr.linkicon) template = template + `<tr><td>Icon</td><td><img class='osr-image' src='` + osr.linkicon + `' alt='{{name}}'></img></td></tr>`;
+        if (osr.linkimage) template = template + `<tr><td>Image</td><td><img class='osr-image' src='` + osr.inkimage + `' alt='{{name}}'></img></td></tr>`;
+        if (osr.linkvideo) template = template + `<tr><td>Video</td><td><video class='osr-video' src='` + osr.linkvideo + `' alt='{{name}}' autoplay controls></video></td></tr>`;
+        template = template + `</table></div>`;
+        Mustache.parse(template);
+        let description = Mustache.to_html(template, osr);
+        
+        return description;
+    }
+
+    function setA4SOSRAircraftInfo(feature) {
+        let osr = {name: "", 
+        SiteID: "", 
+        address: "", 
+        location: "", 
+        description: "", 
+        operation: "", 
+        aircraft_specification_class: "", 
+        aircraft_specification_length: "", 
+        aircraft_specification_wingsWidth   : "", 
+        aircraft_specification_height: "", 
+        aircraft_specification_startingWeight   : "", 
+        aircraft_specification_maximumSpeed: "", 
+        aircraft_specification_engineManufacturer: "", 
+        aircraft_specification_maximumFuelCapacity: "", 
+        aircraft_specification_propellers: "", 
+        linkinfo: "", 
+        linkicon: "", 
+        linkimage: "", 
+        linkvideo: ""};
+            /*
+						<SimpleData name="cockpit_equipment_AIS_Systems">Yes</SimpleData>
+						<SimpleData name="cockpit_equipment_Surveillance radar">Yes</SimpleData>
+						<SimpleData name="cockpit_equipment_SLAR radar">Yes</SimpleData>
+						<SimpleData name="cockpit_equipment_Scanner">UV/IR</SimpleData>
+						<SimpleData name="cockpit_equipment_autopilot">Yes</SimpleData>
+						<SimpleData name="cockpit_equipment_weather radar">Yes</SimpleData>
+						<SimpleData name="cabin_equipment_loading space">Yes</SimpleData>
+						<SimpleData name="cabin_equipment_door opener for lifegaurds"            
+            */
+
+        osr.name = feature.get('name');
+        osr.SiteID = feature.get('SiteID');
+        osr.address = feature.get('address');
+        osr.location = feature.get('location');
+        osr.description = feature.get('description');
+        osr.operation = feature.get('operation');
+        osr.aircraft_specification_class = feature.get('aircraft_specification_class');
+        osr.aircraft_specification_length = feature.get('aircraft_specification_length');
+        osr.aircraft_specification_wingsWidth = feature.get('aircraft_specification_wingsWidth');
+        osr.aircraft_specification_height = feature.get('aircraft_specification_height');
+        osr.aircraft_specification_startingWeight = feature.get('aircraft_specification_startingWeight');
+        osr.aircraft_specification_maximumSpeed = feature.get('aircraft_specification_maximumSpeed');
+        osr.aircraft_specification_engineManufacturer = feature.get('aircraft_specification_engineManufacturer');
+        osr.aircraft_specification_maximumFuelCapacity = feature.get('aircraft_specification_maximumFuelCapacity');
+        osr.aircraft_specification_propellers = feature.get('aircraft_specification_propellers');
+        osr.linkinfo = feature.get('linkinfo');
+        osr.linkicon = feature.get('linkicon');
+        osr.linkimage = feature.get('linkimage');
+        osr.linkvideo = feature.get('linkvideo');
+
+        let template = `<div style="margin:2px;"><table>`;
+        if (osr.SiteID) template = template + `<tr><td>Site ID</td><td><b>{{SiteID}}</b></td></tr>`;
+        if (osr.address) template = template + `<tr><td>Address</td><td><b>{{address}}</b></td></tr>`;
+        if (osr.location) template = template + `<tr><td>Location</td><td><b>{{location}}</b></td></tr>`;
+        if (osr.description) template = template + `<tr><td>Description</td><td><b>` + osr.description + `</b></td></tr>`;
+        if (osr.operation) template = template + `<tr><td>Operation</td><td><b>{{operation}}</b></td></tr>`;
+        if (osr.aircraft_specification_class) template = template + `<tr><td>Class</td><td><b>{{aircraft_specification_class}}</b></td></tr>`;
+        if (osr.aircraft_specification_length) template = template + `<tr><td>Length</td><td><b>{{aircraft_specification_length}}</b></td></tr>`;
+        if (osr.aircraft_specification_wingsWidth) template = template + `<tr><td>Wing span</td><td><b>{{aircraft_specification_wingsWidth}}</b></td></tr>`;
+        if (osr.aircraft_specification_height) template = template + `<tr><td>Height</td><td><b>{{aircraft_specification_height}}</b></td></tr>`;
+        if (osr.aircraft_specification_startingWeight) template = template + `<tr><td>Starting weight</td><td><b>{{aircraft_specification_startingWeight}}</b></td></tr>`;
+        if (osr.aircraft_specification_maximumSpeed) template = template + `<tr><td>Maximum speed</td><td><b>{{aircraft_specification_maximumSpeed}}</b></td></tr>`;
+        if (osr.aircraft_specification_engineManufacturer) template = template + `<tr><td>Engine Manufacturer</td><td><b>{{aircraft_specification_engineManufacturer}}</b></td></tr>`;
+        if (osr.aircraft_specification_maximumFuelCapacity) template = template + `<tr><td>Fuel capacity</td><td><b>{{aircraft_specification_maximumFuelCapacity}}</b></td></tr>`;
+        if (osr.aircraft_specification_propellers) template = template + `<tr><td>Crane</td><td><b>{{aircraft_specification_propellers}}</b></td></tr>`;
+        if (osr.linkinfo) template = template + `<tr><td>Information</td><td><b>`+ osr.linkinfo + `</b></td></tr>`;
+        if (osr.linkicon) template = template + `<tr><td>Icon</td><td><img class='osr-image' src='` + osr.linkicon + `' alt='{{name}}'></img></td></tr>`;
+        if (osr.linkimage) template = template + `<tr><td>Image</td><td><img class='osr-image' src='` + osr.linkimage + `' alt='{{name}}'></img></td></tr>`;
+        if (osr.linkvideo) template = template + `<tr><td>Video</td><td><video class='osr-video' src='` + osr.linkvideo + `' alt='{{name}}' autoplay controls></video></td></tr>`;
         template = template + `</table></div>`;
         Mustache.parse(template);
         let description = Mustache.to_html(template, osr);
@@ -121,9 +227,9 @@ let App4SeaPopUps = (function () {
         if (osr.address) template = template + `<tr><td>Address</td><td><b>{{address}}</b></td></tr>`;
         if (osr.description) template = template + `<tr><td>Description</td><td><b>` + osr.description + `</b></td></tr>`;
         if (osr.linkinfo) template = template + `<tr><td>Information</td><td><b>`+ osr.linkinfo + `</b></td></tr>`;
-        if (osr.linkicon) template = template + `<tr><td>Icon</td><td><img class='osr-image' src='{{linkicon}}' alt='{{name}}'></img></td></tr>`;
-        if (osr.linkimage) template = template + `<tr><td>Image</td><td><img class='osr-image' src='{{linkimage}}' alt='{{name}}'></img></td></tr>`;
-        if (osr.linkvideo) template = template + `<tr><td>Video</td><td><video class='osr-video' src='{{linkvideo}}' alt='{{name}}' autoplay controls></video></td></tr>`;
+        if (osr.linkicon) template = template + `<tr><td>Icon</td><td><img class='osr-image' src='` + osr.linkicon + `' alt='{{name}}'></img></td></tr>`;
+        if (osr.linkimage) template = template + `<tr><td>Image</td><td><img class='osr-image' src='` + osr.linkimage + `' alt='{{name}}'></img></td></tr>`;
+        if (osr.linkvideo) template = template + `<tr><td>Video</td><td><video class='osr-video' src='` + osr.linkvideo + `' alt='{{name}}' autoplay controls></video></td></tr>`;
         template = template + `</table></div>`;
         Mustache.parse(template);
         let description = Mustache.to_html(template, osr);
@@ -172,9 +278,9 @@ let App4SeaPopUps = (function () {
         let pageHeight = 0;
 
         function findHighestNode(nodesList) {
-            for (var i = nodesList.length - 1; i >= 0; i--) {
+            for (let i = nodesList.length - 1; i >= 0; i--) {
                 if (nodesList[i].scrollHeight && nodesList[i].clientHeight && nodesList[i].offsetHeight) {
-                    var elHeight = Math.max(nodesList[i].scrollHeight, nodesList[i].clientHeight, nodesList[i].offsetHeight);
+                    let elHeight = Math.max(nodesList[i].scrollHeight, nodesList[i].clientHeight, nodesList[i].offsetHeight);
                     pageHeight = Math.max(elHeight, pageHeight);
                 }
                 if (nodesList[i].childNodes.length){
@@ -197,8 +303,8 @@ let App4SeaPopUps = (function () {
         let template;
 
         if (node.nodeName === 'styleUrl') {
-            for (var i = App4Sea.OpenLayers.styleMaps.length - 1; i >= 0; i--) {
-                var styleUrlCore = App4Sea.Utils.parseURL(node.innerHTML);
+            for (let i = App4Sea.OpenLayers.styleMaps.length - 1; i >= 0; i--) {
+                let styleUrlCore = App4Sea.Utils.parseURL(node.innerHTML);
                 if ("#"+App4Sea.OpenLayers.styleMaps[i].id === styleUrlCore.hash) {
                     template = FindTemplate(App4Sea.OpenLayers.styleMaps[i].node);
                     if (template)
@@ -259,7 +365,7 @@ let App4SeaPopUps = (function () {
                 }
             }
             else {
-                let clean = popup.description.replaceAll("\"", "`").replaceAll("\'", "`").replaceAll("\n", "");
+                let clean = popup.description.replaceAll("\'", "`").replaceAll("\n", "");//replaceAll("\"", "`")
                 popupContent.innerHTML = popupContent.innerHTML 
                     + `<div onclick="{ document.getElementById(\'popup-title\').innerHTML='` + popup.title 
                     + `'; document.getElementById(\'popup-content\').innerHTML='` + clean
@@ -283,9 +389,13 @@ let App4SeaPopUps = (function () {
 
         const vessel_IMO = feature.get('vessel_IMO');
         const SiteID = feature.get('SiteID');
+        const aircraft_specification_class = feature.get('aircraft_specification_class');
         const Id = feature.get('Id');
         if (vessel_IMO) {
             description = setA4SOSRVesselInfo(feature);
+        }
+        else if (aircraft_specification_class) {
+            description = setA4SOSRAircraftInfo(feature);
         }
         else if (SiteID) {
             description = setA4SOSRVesselInfo(feature);
@@ -347,60 +457,6 @@ let App4SeaPopUps = (function () {
         }
 
         return name;
-    };
-
-    my.initToolTip = function () {
-        let map = App4Sea.OpenLayers.Map;
-
-        let displayFeatureInfo = function (pixel) {
-            $('#ToolTipInfo').css({
-                left: pixel[0] + 'px',
-                top: (pixel[1] - 15) + 'px'
-            });
-            
-            let features = [];
-            
-            map.forEachFeatureAtPixel(pixel, function (feature, layer) {
-                //if (App4Sea.logging) console.log('displayFeatureInfo for feature: ' + getTitle(feature));
-                features.push(feature);
-            });
-        
-            //if (App4Sea.logging) console.log('Features are: ' + features.length);
-
-            let tips = [];
-            let txt = '';
-            $('#ToolTipInfo').tooltip('hide');
-            let inf = $('#ToolTipInfo');
-            inf.innerHTML = '';
-            for (let ind = 0; ind<features.length; ind++) {
-            
-                let name = getTitle(features[ind]);
-                if (name) {
-                    if (features.length === 1) {
-                        txt = name;
-                    }
-                    else {
-                        txt = txt + ind.toString() + ' '  + name + `<br>` 
-                        //if (App4Sea.logging) console.log('Tooltip: ' + txt);
-                    }
-                    inf.tooltip('hide')
-                        .attr('data-original-title', txt)
-                        .tooltip('show');
-                }
-            } 
-        };
-        map.on('pointermove', function(evt) {
-            if (evt.dragging) {
-                $('#ToolTipInfo').tooltip('hide');
-                return;
-            }
-            displayFeatureInfo(map.getEventPixel(evt.originalEvent));
-        });
-
-        $(map.getViewport()).on('mousemove', function (evt) {
-            displayFeatureInfo(map.getEventPixel(evt.originalEvent));
-        });
-
     };
 
     my.PopulateTemplate = function (template, feature) {

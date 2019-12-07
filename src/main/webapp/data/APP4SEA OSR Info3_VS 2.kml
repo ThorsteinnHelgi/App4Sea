@@ -3,15 +3,7 @@
 	<Document>
 		<name>Oil Spill Response Sites</name>
 		<open>1</open>
-		<Style id="sn_ranger_station0">
-			<IconStyle>
-				<scale>0.4</scale>
-				<Icon>
-					<href>http://maps.google.com/mapfiles/kml/shapes/ranger_station.png</href>
-				</Icon>
-				<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
-			</IconStyle>
-		</Style>
+
 		<Style id="sh_ranger_station">
 			<IconStyle>
 				<scale>0.4</scale>
@@ -30,16 +22,6 @@
 				<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
 			</IconStyle>
 		</Style>
-		<StyleMap id="msn_ferry">
-			<Pair>
-				<key>normal</key>
-				<styleUrl>#sn_ferry</styleUrl>
-			</Pair>
-			<Pair>
-				<key>highlight</key>
-				<styleUrl>#sh_ferry</styleUrl>
-			</Pair>
-		</StyleMap>
 		<StyleMap id="msn_ranger_station">
 			<Pair>
 				<key>normal</key>
@@ -50,6 +32,7 @@
 				<styleUrl>#sh_ranger_station</styleUrl>
 			</Pair>
 		</StyleMap>
+
 		<Style id="sn_ferry">
 			<IconStyle>
 				<scale>0.4</scale>
@@ -60,7 +43,7 @@
 			</IconStyle>
 			<BalloonStyle>
 		</BalloonStyle>
-			<ListStyle>
+					<ListStyle>
 		</ListStyle>
 		</Style>
 		<Style id="sh_ferry">
@@ -76,16 +59,55 @@
 			<ListStyle>
 		</ListStyle>
 		</Style>
-		<StyleMap id="msn_ranger_station0">
+		<StyleMap id="msn_ferry">
 			<Pair>
 				<key>normal</key>
-				<styleUrl>#sn_ranger_station</styleUrl>
+				<styleUrl>#sn_ferry</styleUrl>
 			</Pair>
 			<Pair>
 				<key>highlight</key>
-				<styleUrl>#sh_ranger_station</styleUrl>
+				<styleUrl>#sh_ferry</styleUrl>
 			</Pair>
 		</StyleMap>
+
+
+		<Style id="sn_aircraft">
+			<IconStyle>
+				<scale>0.4</scale>
+				<Icon>
+					<href>http://maps.google.com/mapfiles/kml/shapes/airports.png</href>
+				</Icon>
+				<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+			</IconStyle>
+			<BalloonStyle>
+		</BalloonStyle>
+					<ListStyle>
+		</ListStyle>
+		</Style>
+		<Style id="sh_aircraft">
+			<IconStyle>
+				<scale>0.4</scale>
+				<Icon>
+					<href>http://maps.google.com/mapfiles/kml/shapes/airports.png</href>
+				</Icon>
+				<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
+			</IconStyle>
+			<BalloonStyle>
+		</BalloonStyle>
+			<ListStyle>
+		</ListStyle>
+		</Style>
+		<StyleMap id="msn_aircraft">
+			<Pair>
+				<key>normal</key>
+				<styleUrl>#sn_aircraft</styleUrl>
+			</Pair>
+			<Pair>
+				<key>highlight</key>
+				<styleUrl>#sh_aircraft</styleUrl>
+			</Pair>
+		</StyleMap>
+
 		<Folder>
 			<name>Iceland</name>
 			<open>1</open>

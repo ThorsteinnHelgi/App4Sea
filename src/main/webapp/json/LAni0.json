@@ -1,3 +1,7 @@
 [
-    { "id" : "Ani5", "parent" : "LAni0", "text" : "Bravo", "children" : false, "a_attr" : { "path" : "data/bravo.kmz", "tool" : "animation"} }
+    { "id" : "Ani0", "parent" : "LAni0", "text" : "Bravo", "children" : false, "a_attr" : { "path" : "data/bravo.kmz", "tool" : "animation"} },
+    { "id" : "Ani1", "parent" : "LAni0", "text" : "Helge Ingstad", "children" : false, "a_attr" : { "path" : "data/helgeingstad.kmz", "tool" : "animation"} },
+    { "id" : "Ani2", "parent" : "LAni0", "text" : "Northguider", "children" : false, "a_attr" : { "path" : "data/nordic4_northguider.kmz", "tool" : "animation"} },
+    { "id" : "Ani3", "parent" : "LAni0", "text" : "Significant wave height", "children" : false, "a_attr" : { "path" : "http://halo-wms.met.no/halo/default.map?service=WMS&version=1.3.0&REQUEST=GetMap&LAYERS=sea_significant_wave_height&STYLES=&CRS=EPSG:4326&BBOX=-180,-90,180,90&WIDTH=512&HEIGHT=512&FORMAT=image%2Fpng", "invertbbox": true, "center" : [0, 66], "tool" : "animation"} }
+    
 ]

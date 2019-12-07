@@ -3,7 +3,7 @@
  * Global event handlers
  * ==========================================================================*/
 
-//import App4Sea from App4Sea.js;
+import { App4Sea } from './App4Sea.js';
 
 // @ts-check
 $(document).ready(function () {
@@ -18,8 +18,8 @@ $(document).ready(function () {
     $(".MenuItem").click(function () {
         if (App4Sea.logging) console.log("MenuItem click");
 
-        var url = $(this).attr("data-url");
-        var target = $(this).attr("data-target");
+        let url = $(this).attr("data-url");
+        let target = $(this).attr("data-target");
         window.open(url, target);
     });
 });
@@ -34,7 +34,7 @@ $(window).on("load", function () {
         $("#splash-overlay").fadeOut();
     }, 2000);
 
-    var info = $("#ToolTipInfo");
+    let info = $("#ToolTipInfo");
 
     info.tooltip('hide');
     info.tooltip({

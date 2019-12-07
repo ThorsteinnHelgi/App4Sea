@@ -2,7 +2,6 @@
     { "id" : "L11", "parent" : "LOil0", "text" : "Hydrocarbon fields in UK waters [DECC]", "children" : false, "a_attr" : { "path" : "data/DECC_OFF_Hydrocarbon_Fields.kmz"} },
     { "id" : "L12", "parent" : "LOil0", "text" : "Hydrocarbon fields in Norwegian waters", "children" : false, "a_attr" : { "path" : "data/v_geo_fldarea.kmz"} },
     { "id" : "L13", "parent" : "LOil0", "text" : "Incidents", "children" : false, "a_attr" : { "path" : "data/Incidents.kml"} },
-    { "id" : "L14", "parent" : "LOil0", "text" : "Drake passage ship tracks", "children" : false, "a_attr" : { "path" : "data/EE_GT_0001.kml"} },
-    { "id" : "L16", "parent" : "LOil0", "text" : "Under construction: Oil Spill Response Sites VS", "children" : false, "a_attr" : { "path" : "data/APP4SEA OSR Info3_VS.kml"} },
-    { "id" : "L17", "parent" : "LOil0", "text" : "Under construction: Oil Spill Response Sites VS2", "children" : false, "a_attr" : { "path" : "data/APP4SEA OSR Info3_VS 2.kml"} }
+    { "id" : "L15", "parent" : "LOil0", "text" : "Oil Spill Response Sites", "children" : false, "a_attr" : { "path" : "data/APP4SEA OSR Info3_UVS.kml"} },
+    { "id" : "L16", "parent" : "LOil0", "text" : "Drake passage ship tracks", "children" : false, "a_attr" : { "path" : "data/EE_GT_0001.kml"} }
 ]

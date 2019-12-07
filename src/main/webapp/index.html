@@ -19,10 +19,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
 
-        <script type="text/javascript" crossorigin="anonymous" src="http://code.jquery.com/jquery-3.3.1.min.js" ></script>
+        <script type="text/javascript" crossorigin="anonymous" src="http://code.jquery.com/jquery-3.3.1.min.js"></script>
         <script type="text/javascript" crossorigin="anonymous" src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
         <script type="text/javascript" crossorigin="anonymous" src="https://cdnjs.cloudflare.com/ajax/libs/proj4js/2.5.0/proj4.js"></script>
-        
+
         <link rel="stylesheet" type="text/css" href="css/normalize.css"/>
         <link rel="stylesheet" type="text/css" crossorigin="anonymous" href="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/css/ol.css">
         <link rel="stylesheet" type="text/css" href="static/css/w3.css"/>
@@ -64,23 +64,23 @@
         <!-- This is the left side menu container -->
         <div id="MenuContainer"> 
             <div id="ButtonsForMenu">
-                <button class="btn" title="Close" onclick="App4Sea.Utils.section_toggle('MenuContainer')"><i class="fa fa-close"></i></button>
+                <button class="btn" title="Close" onclick="$.App4Sea.Utils.section_toggle('MenuContainer')"><i class="fa fa-close"></i></button>
             </div>
 
             <div id="ButtonsForTools">
-                <button class="btn" title="Home" onclick="App4Sea.Utils.GoHome()"><i class="fa fa-home"></i></button>
-                <button class="btn" title="Operation" onclick="App4Sea.Utils.section_toggle('OperationContainer')"><i class="fa fa-tint"></i></button>
-                <button class="btn" title="Animation" onclick="App4Sea.Utils.section_toggle('AnimationContainer')"><i class="fa fa-play-circle-o"></i></button>
-                <button class="btn" title="Heat-graph" onclick="App4Sea.Utils.section_toggle('HeatContainer')"><i class="fa fa-bullseye"></i></button>
-                <button class="btn" title="Measurements" onclick="App4Sea.Utils.section_toggle('MeasurementContainer')"><i class="fa fa-arrows"></i></button>
-                <button class="btn" title="Full Screen" onclick="App4Sea.Utils.toggleFullscreen()"><i class="fa fa-arrows-alt"></i></button>
-                <button class="btn" title="Log" onclick="App4Sea.Utils.section_toggle('LogContainer')"><i class="fa fa-file-text-o"></i></button>
+                <button class="btn" title="Home" onclick="$.App4Sea.Utils.GoHome()"><i class="fa fa-home"></i></button>
+                <button class="btn" title="Operation" onclick="$.App4Sea.Utils.section_toggle('OperationContainer')"><i class="fa fa-tint"></i></button>
+                <button class="btn" title="Animation" onclick="$.App4Sea.Utils.section_toggle('AnimationContainer')"><i class="fa fa-play-circle-o"></i></button>
+                <button class="btn" title="Heat-graph" onclick="$.App4Sea.Utils.section_toggle('HeatContainer')"><i class="fa fa-bullseye"></i></button>
+                <button class="btn" title="Measurements" onclick="$.App4Sea.Utils.section_toggle('MeasurementContainer')"><i class="fa fa-arrows"></i></button>
+                <button class="btn" title="Full Screen" onclick="$.App4Sea.Utils.toggleFullscreen()"><i class="fa fa-arrows-alt"></i></button>
+                <button class="btn" title="Log" onclick="$.App4Sea.Utils.section_toggle('LogContainer')"><i class="fa fa-file-text-o"></i></button>
             </div>
 
             <div id="ButtonsForSettings">
-                <button class="btn" title="Information" onclick="App4Sea.Utils.section_toggle('InfoContainer')"><i class="fa fa-info"></i></button>
-                <button class="btn" title="Settings" onclick="App4Sea.Utils.section_toggle('SettingsContainer')"><i class="fa fa-cog"></i></button>
-                <button class="btn-w-txt" title="About" onclick="App4Sea.Utils.section_toggle('BannerContainer')"><i class="fa fa-at"></i> APP4SEA</button>
+                <button class="btn" title="Information" onclick="$.App4Sea.Utils.section_toggle('InfoContainer')"><i class="fa fa-info"></i></button>
+                <button class="btn" title="Settings" onclick="$.App4Sea.Utils.section_toggle('SettingsContainer')"><i class="fa fa-cog"></i></button>
+                <button class="btn-w-txt" title="About" onclick="$.App4Sea.Utils.section_toggle('BannerContainer')"><i class="fa fa-at"></i> APP4SEA</button>
             </div>
 
             <div id="ButtonsForMenu2">
@@ -108,12 +108,12 @@
                     <button class="btn"><i class="fa fa-map"></i></button>
                     <button class="btn"><i class="fa fa-tint"></i></button>
                     <button class="btn"><i class="fa fa-search"></i></button>
-                    <button class="btn-right" onclick="App4Sea.Utils.w3_close('ButtonSection')" ><i class="fa fa-close"></i></button>
+                    <button class="btn-right" onclick="$.App4Sea.Utils.w3_close('ButtonSection')" ><i class="fa fa-close"></i></button>
                 </div-->
 
             <div id="ControlPlaceInMenu">
                 <div id='HeatContainer' class="SubMenuSection" style="display:none">
-                    <button class="btn-right" onclick="App4Sea.Utils.w3_close('HeatContainer')" ><i class="fa fa-close"></i></button>
+                    <button class="btn-right" onclick="$.App4Sea.Utils.w3_close('HeatContainer')" ><i class="fa fa-close"></i></button>
 
                     <h3>Heatmap settings</h3>
 
@@ -150,31 +150,31 @@
                 </div>
 
                 <div id='OperationContainer' class="SubMenuSection" style="display:none">
-                    <button class="btn-right" title="Close" onclick="App4Sea.Utils.w3_close('OperationContainer')" ><i class="fa fa-close"></i></button>
-                    <button class="btn-right" title="Area" onclick="App4Sea.Measure.DoArea()" id="btnArea"><i class="fa fa-square-o"></i></button>
-                    <button class="btn-right" title="Length" onclick="App4Sea.Measure.DoLength()" id="btnLength"><i class="fa fa-arrows-h"></i></button>
-                    <button class="btn-right" title="Clear content" onclick="App4Sea.Measure.DoClearAll()"><i class="fa fa-eraser"></i></button>
-                    <button class="btn-right" title="Save contents as KML (no style)" onclick="App4Sea.Measure.DoSaveAll()"><i class="fa fa-save"></i></button>
-                    <button class="btn-right" title="Open (simple) KML file" onclick="App4Sea.Measure.DoAcceptDragAndDrop()"><i class="fa fa-file-o"></i></button>
-                    <button class="btn-right" title="Put placemark on map" onclick="App4Sea.Utils.PutPlacemark()"><i class="fa fa-ship"></i></button>
-                    <button class="btn-right" title="Print report" onclick="App4Sea.Utils.PrintReport()"><i class="fa fa-print"></i></button>
+                    <button class="btn-right" title="Close" onclick="$.App4Sea.Utils.w3_close('OperationContainer')" ><i class="fa fa-close"></i></button>
+                    <button class="btn-right" title="Area" onclick="$.App4Sea.Measure.DoArea()" id="btnArea"><i class="fa fa-square-o"></i></button>
+                    <button class="btn-right" title="Length" onclick="$.App4Sea.Measure.DoLength()" id="btnLength"><i class="fa fa-arrows-h"></i></button>
+                    <button class="btn-right" title="Clear content" onclick="$.App4Sea.Measure.DoClearAll()"><i class="fa fa-eraser"></i></button>
+                    <button class="btn-right" title="Save contents as KML (no style)" onclick="$.App4Sea.Measure.DoSaveAll()"><i class="fa fa-save"></i></button>
+                    <button class="btn-right" title="Open (simple) KML file" onclick="$.App4Sea.Measure.DoAcceptDragAndDrop()"><i class="fa fa-file-o"></i></button>
+                    <button class="btn-right" title="Put placemark on map" onclick="$.App4Sea.Utils.PutPlacemark()"><i class="fa fa-ship"></i></button>
+                    <button class="btn-right" title="Print report" onclick="$.App4Sea.Utils.PrintReport()"><i class="fa fa-print"></i></button>
     
                     <h3>Operation [Under construction]</h3>
 
                     <div>
                         <h4>Map and Layers</h4>
 
-                        <select id="MenuLayer_Select2" style="color:white; background-color:gray;" onchange="App4Sea.OpenLayers.MapChange()">
+                        <select id="MenuLayer_Select2" style="color:white; background-color:gray;" onchange="$.App4Sea.OpenLayers.MapChange()">
                             <option style="color:black;" value="esriWSPTileLayer">ESRI World Street Map</option>
                             <option style="color:black;" value="esriWITileLayer" >ESRI World Imagery Map</option>
                             <option style="color:black;" value="osmTileLayer">Open Street Map</option>
                             <option style="color:black;" value="blackTileLayer">Carto DB Dark Matter Map</option>
                         </select>
-                        <input type="checkbox" onchange="App4Sea.Utils.CheckChanged(this)"/>Boundaries
-                        <input type="checkbox" onchange="App4Sea.Utils.CheckChanged(this)"/>OSR
-                        <input type="checkbox" onchange="App4Sea.Utils.CheckChanged(this)"/>Weather
-                        <input type="checkbox" onchange="App4Sea.Utils.CheckChanged(this)"/>Currents
-                        <input type="checkbox" onchange="App4Sea.Utils.CheckChanged(this)"/>Ecology
+                        <input type="checkbox" onchange="$.App4Sea.Utils.CheckChanged(this)"/>Boundaries
+                        <input type="checkbox" onchange="$.App4Sea.Utils.CheckChanged(this)"/>OSR
+                        <input type="checkbox" onchange="$.App4Sea.Utils.CheckChanged(this)"/>Weather
+                        <input type="checkbox" onchange="$.App4Sea.Utils.CheckChanged(this)"/>Currents
+                        <input type="checkbox" onchange="$.App4Sea.Utils.CheckChanged(this)"/>Ecology
                     </div>
 
                     <div>
@@ -219,7 +219,7 @@
 
                     <div>
                         <h4>Contact information                            
-                            <select id="MenuLayer_CountrySelect" style="color:white; background-color:gray;" onchange="App4Sea.Utils.SelectAuthority(this.value)">
+                            <select id="MenuLayer_CountrySelect" style="color:white; background-color:gray;" onchange="$.App4Sea.Utils.SelectAuthority(this.value)">
                                 <option style="color:black;" value="Denmark">Denmark</option>
                                 <option style="color:black;" value="Faero">Faero Islands</option>
                                 <option style="color:black;" value="Finland">Finland</option>
@@ -266,30 +266,30 @@
 
                         <div class="bannerButtons">
                             <div class="mechanical">
-                                <button class="a4s a4s-single-vessel-with-outrigger" title="A single vessel with an outrigger" onclick="window.open('http://localhost:8080/App4Sea/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page42.png')"></button>
-                                <button class="a4s a4s-two-vessels-with-boom" title="Two vessels with a boom" onclick="window.open('http://localhost:8080/App4Sea/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page41.png')"></button>
-                                <button class="a4s a4s-three-vessels-with-boom" title="Three vessels with a boom" onclick="window.open('http://localhost:8080/App4Sea/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page43.png')"></button>
-                                <button class="a4s a4s-single-vessel-in-ice" title="A single vessel in ice" onclick="window.open('http://localhost:8080/App4Sea/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page44.png')"></button>
+                                <button class="a4s a4s-single-vessel-with-outrigger" title="A single vessel with an outrigger" onclick="window.open('/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page42.png')"></button>
+                                <button class="a4s a4s-two-vessels-with-boom" title="Two vessels with a boom" onclick="window.open('/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page41.png')"></button>
+                                <button class="a4s a4s-three-vessels-with-boom" title="Three vessels with a boom" onclick="window.open('/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page43.png')"></button>
+                                <button class="a4s a4s-single-vessel-in-ice" title="A single vessel in ice" onclick="window.open('/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page44.png')"></button>
                             </div>
                             <div class="disperant">
-                                    <button class="a4s a4s-single-vessel-dispersant" title="A single vessel with a dispersant" onclick="window.open('http://localhost:8080/App4Sea/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page45.png')"></button>
-                                <button class="a4s a4s-fixed_wing-dispersant" title="A single vessel with an outrigger" onclick="window.open('http://localhost:8080/App4Sea/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page46.png')"></button>
-                                <button class="a4s a4s-helicopter-dispersant" title="A single vessel with an outrigger" onclick="window.open('http://localhost:8080/App4Sea/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page47.png')"></button>
+                                    <button class="a4s a4s-single-vessel-dispersant" title="A single vessel with a dispersant" onclick="window.open('/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page45.png')"></button>
+                                <button class="a4s a4s-fixed_wing-dispersant" title="A single vessel with an outrigger" onclick="window.open('/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page46.png')"></button>
+                                <button class="a4s a4s-helicopter-dispersant" title="A single vessel with an outrigger" onclick="window.open('/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page47.png')"></button>
                             </div>
                             <div class="insitu">
-                                <button class="a4s a4s-vessel-with-fire-boom" title="A single vessel with an outrigger" onclick="window.open('http://localhost:8080/App4Sea/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page48.png')"></button>
-                                <button class="a4s a4s-helicopter-with-ice-containment" title="A single vessel with an outrigger" onclick="window.open('http://localhost:8080/App4Sea/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page49.png')"></button>
-                                <button class="a4s a4s-helicopter-with-herders" title="A single vessel with an outrigger" onclick="window.open('http://localhost:8080/App4Sea/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page50.png')"></button>
+                                <button class="a4s a4s-vessel-with-fire-boom" title="A single vessel with an outrigger" onclick="window.open('/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page48.png')"></button>
+                                <button class="a4s a4s-helicopter-with-ice-containment" title="A single vessel with an outrigger" onclick="window.open('/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page49.png')"></button>
+                                <button class="a4s a4s-helicopter-with-herders" title="A single vessel with an outrigger" onclick="window.open('/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page50.png')"></button>
                             </div>
                         </div>
                     </div>
                 </div>
         
                 <div id='AnimationContainer' class="SubMenuSection" style="display:none">
-                    <button class="btn-right" title="Close" onclick="App4Sea.Utils.w3_close('AnimationContainer')" ><i class="fa fa-close"></i></button>
-                    <button class="btn-right" title="Play or Stop" onclick="App4Sea.Animation.PlayStop()"><i id="playstop" class="fa fa-play"></i></button>
-                    <button class="btn-right" title="More speed" onclick="App4Sea.Animation.MoreSpeed()"><i id="morespeed" class="fa fa-plus"></i></button>
-                    <button class="btn-right" title="Less speed" onclick="App4Sea.Animation.LessSpeed()"><i id="lessspeed" class="fa fa-minus"></i></button>
+                    <button class="btn-right" title="Close" onclick="$.App4Sea.Utils.w3_close('AnimationContainer')" ><i class="fa fa-close"></i></button>
+                    <button class="btn-right" title="Play or Stop" onclick="$.App4Sea.Animation.PlayStop()"><i id="playstop" class="fa fa-play"></i></button>
+                    <button class="btn-right" title="More speed" onclick="$.App4Sea.Animation.MoreSpeed()"><i id="morespeed" class="fa fa-plus"></i></button>
+                    <button class="btn-right" title="Less speed" onclick="$.App4Sea.Animation.LessSpeed()"><i id="lessspeed" class="fa fa-minus"></i></button>
     
                     <h3>Animation</h3>
 
@@ -328,8 +328,8 @@
                 </div>
 
                 <div id='LogContainer' class="SubMenuSection" style="display:none">
-                    <button class="btn-right" title="Close" onclick="App4Sea.Utils.w3_close('LogContainer')"><i class="fa fa-close"></i></button>
-                    <button class="btn-right" title="Clear Content" onclick="App4Sea.Utils.clearLog()"><i class="fa fa-eraser"></i></button>
+                    <button class="btn-right" title="Close" onclick="$.App4Sea.Utils.w3_close('LogContainer')"><i class="fa fa-close"></i></button>
+                    <button class="btn-right" title="Clear Content" onclick="$.App4Sea.Utils.clearLog()"><i class="fa fa-eraser"></i></button>
 
                     <h3>Log</h3>
 
@@ -337,12 +337,12 @@
                 </div>
 
                 <div id='MeasurementContainer' class="SubMenuSection" style="display:none">
-                    <button class="btn-right" title="Close" onclick="App4Sea.Measure.DoNothing('MeasurementContainer')"><i class="fa fa-close"></i></button>
-                    <button class="btn-right" title="Area" onclick="App4Sea.Measure.DoArea()" id="btnArea"><i class="fa fa-square-o"></i></button>
-                    <button class="btn-right" title="Length" onclick="App4Sea.Measure.DoLength()" id="btnLength"><i class="fa fa-arrows-h"></i></button>
-                    <button class="btn-right" title="Clear content" onclick="App4Sea.Measure.DoClearAll()"><i class="fa fa-eraser"></i></button>
-                    <button class="btn-right" title="Save contents as KML (no style)" onclick="App4Sea.Measure.DoSaveAll()"><i class="fa fa-save"></i></button>
-                    <button class="btn-right" title="Open (simple) KML file" onclick="App4Sea.Measure.DoAcceptDragAndDrop()"><i class="fa fa-file-o"></i></button>
+                    <button class="btn-right" title="Close" onclick="$.App4Sea.Measure.DoNothing('MeasurementContainer')"><i class="fa fa-close"></i></button>
+                    <button class="btn-right" title="Area" onclick="$.App4Sea.Measure.DoArea()" id="btnArea"><i class="fa fa-square-o"></i></button>
+                    <button class="btn-right" title="Length" onclick="$.App4Sea.Measure.DoLength()" id="btnLength"><i class="fa fa-arrows-h"></i></button>
+                    <button class="btn-right" title="Clear content" onclick="$.App4Sea.Measure.DoClearAll()"><i class="fa fa-eraser"></i></button>
+                    <button class="btn-right" title="Save contents as KML (no style)" onclick="$.App4Sea.Measure.DoSaveAll()"><i class="fa fa-save"></i></button>
+                    <button class="btn-right" title="Open (simple) KML file" onclick="$.App4Sea.Measure.DoAcceptDragAndDrop()"><i class="fa fa-file-o"></i></button>
 
                     <h3>Measure</h3>
                 </div>
@@ -350,7 +350,7 @@
 
             <div id="SettingSection">
                 <div id='BannerContainer' class="SubMenuSection" style="display:none">
-                    <button class="btn-right" title="Close" onclick="App4Sea.Utils.w3_close('BannerContainer')"><i class="fa fa-close"></i></button>
+                    <button class="btn-right" title="Close" onclick="$.App4Sea.Utils.w3_close('BannerContainer')"><i class="fa fa-close"></i></button>
 
                     <h3>About this site</h3>
 
@@ -361,7 +361,7 @@
                 </div>
                 
                 <div id='InfoContainer' class="SubMenuSection" style="display:none">
-                    <button class="btn-right" title="Close" onclick="App4Sea.Utils.w3_close('InfoContainer')"><i class="fa fa-close"></i></button>
+                    <button class="btn-right" title="Close" onclick="$.App4Sea.Utils.w3_close('InfoContainer')"><i class="fa fa-close"></i></button>
                         
                     <h3>Information</h3>
     
@@ -376,7 +376,7 @@
                 </div>
                 
                 <div id='SettingsContainer' class="SubMenuSection" style="display:none">
-                    <button class="btn-right" title="Close" onclick="App4Sea.Utils.w3_close('SettingsContainer')"><i class="fa fa-close"></i></button>
+                    <button class="btn-right" title="Close" onclick="$.App4Sea.Utils.w3_close('SettingsContainer')"><i class="fa fa-close"></i></button>
                         
                     <h3>Settings</h3>
     
@@ -394,8 +394,8 @@
 
             <div id="TreeSectionMenu">
                 <div class="TreeTitle">
-                    <button class="btn" title="Expand" onclick="App4Sea.Utils.collapse_tree(this, '#TreeMenu', false)"><i class="fa fa-level-down"></i></button>
-                    <button class="btn" title="Collapse" onclick="App4Sea.Utils.collapse_tree(this, '#TreeMenu', true)"><i class="fa fa-level-up"></i></button>
+                    <button class="btn" title="Expand" onclick="$.App4Sea.Utils.collapse_tree(this, '#TreeMenu', false)"><i class="fa fa-level-down"></i></button>
+                    <button class="btn" title="Collapse" onclick="$.App4Sea.Utils.collapse_tree(this, '#TreeMenu', true)"><i class="fa fa-level-up"></i></button>
                     Map Layers
                 </div>
 
@@ -404,8 +404,8 @@
 
             <div id="TreeSectionInfo">
                 <div class="TreeTitle">
-                    <button class="btn" title="Expand" onclick="App4Sea.Utils.collapse_tree(this, '#TreeInfo', false)"><i class="fa fa-level-down"></i></button>
-                    <button class="btn" title="Collapse" onclick="App4Sea.Utils.collapse_tree(this, '#TreeInfo', true)"><i class="fa fa-level-up"></i></button>
+                    <button class="btn" title="Expand" onclick="$.App4Sea.Utils.collapse_tree(this, '#TreeInfo', false)"><i class="fa fa-level-down"></i></button>
+                    <button class="btn" title="Collapse" onclick="$.App4Sea.Utils.collapse_tree(this, '#TreeInfo', true)"><i class="fa fa-level-up"></i></button>
                     Useful Information
                 </div>
 
@@ -416,7 +416,7 @@
         <!-- This is the main map container. It is populated in code -->
         <div id="MapContainer">
             <div id="MenuButton" class="ol-custom ol-unselectable ol-control">
-               <button title="Open Menu" type="button" class="ol-rotate" onclick="App4Sea.Utils.w3_open('MenuContainer')">
+               <button title="Open Menu" type="button" class="ol-rotate" onclick="$.App4Sea.Utils.w3_open('MenuContainer')">
                     <span class="ol-compass">☰</span>
                 </button>
             </div>
@@ -443,15 +443,15 @@
             <div style="text-align:center;">
                 <div id="ToolButtonsPlaceInMap" class="toolbuttonscontainerinmap">
                     <div id="ButtonsForToolsInMap" >
-                        <button class="btn" title="Home" onclick="App4Sea.Utils.GoHome()"><i class="fa fa-home"></i></button>
-                        <button class="btn" title="Operation" onclick="App4Sea.Utils.section_toggle('OperationContainer')"><i class="fa fa-tint"></i></button>
-                        <button class="btn" title="Animation" onclick="App4Sea.Utils.section_toggle('AnimationContainer')"><i class="fa fa-play-circle-o"></i></button>
-                        <button class="btn" title="Heat-graph" onclick="App4Sea.Utils.section_toggle('HeatContainer')"><i class="fa fa-bullseye"></i></button>
-                        <button class="btn" title="Measurements" onclick="App4Sea.Utils.section_toggle('MeasurementContainer')"><i class="fa fa-arrows"></i></button>
-                        <!--button class="btn" title="Full Screen" onclick="App4Sea.Utils.toggleFullscreen()"><i class="fa fa-arrows-alt"></i></button-->
-                        <!--button class="btn" title="Log" onclick="App4Sea.Utils.section_toggle('LogContainer')"><i class="fa fa-file-text-o"></i></button-->
-                        <!--button class="btn" title="Copy" onclick="App4Sea.Utils.copyToClipboard(document.getElementById('whole_page').innerHTML)"><i class="fa fa-copy-o"></i></button-->
-                        <!--button class="btn" title="Copy" onclick="App4Sea.Utils.take_screenshot()"><i class="fa fa-clipboard"></i></button-->
+                        <button class="btn" title="Home" onclick="$.App4Sea.Utils.GoHome()"><i class="fa fa-home"></i></button>
+                        <button class="btn" title="Operation" onclick="$.App4Sea.Utils.section_toggle('OperationContainer')"><i class="fa fa-tint"></i></button>
+                        <button class="btn" title="Animation" onclick="$.App4Sea.Utils.section_toggle('AnimationContainer')"><i class="fa fa-play-circle-o"></i></button>
+                        <button class="btn" title="Heat-graph" onclick="$.App4Sea.Utils.section_toggle('HeatContainer')"><i class="fa fa-bullseye"></i></button>
+                        <button class="btn" title="Measurements" onclick="$.App4Sea.Utils.section_toggle('MeasurementContainer')"><i class="fa fa-arrows"></i></button>
+                        <!--button class="btn" title="Full Screen" onclick="$.App4Sea.Utils.toggleFullscreen()"><i class="fa fa-arrows-alt"></i></button-->
+                        <!--button class="btn" title="Log" onclick="$.App4Sea.Utils.section_toggle('LogContainer')"><i class="fa fa-file-text-o"></i></button-->
+                        <!--button class="btn" title="Copy" onclick="$.App4Sea.Utils.copyToClipboard(document.getElementById('whole_page').innerHTML)"><i class="fa fa-copy-o"></i></button-->
+                        <!--button class="btn" title="Copy" onclick="$.App4Sea.Utils.take_screenshot()"><i class="fa fa-clipboard"></i></button-->
                     </div>
                 </div>
             </div>
@@ -470,23 +470,23 @@
 
 
     <!--
-    <script type="text/javascript" async="async" src="scripts.min.js" ></script>
+    <script type="module" async="async" src="scripts.min.js" ></script>
     -->
-    <script type="text/javascript" src="scripts/App4Sea.js" ></script>
-    <script type="text/javascript" src="scripts/App4Sea.OpenLayers.js" ></script>
-    <script type="text/javascript" src="scripts/App4Sea.TreeInfo.js" ></script>
-    <script type="text/javascript" src="scripts/App4Sea.TreeMenu.js" ></script>
-    <script type="text/javascript" src="scripts/App4Sea.KML.js" ></script>
-    <script type="text/javascript" src="scripts/App4Sea.Measure.js" ></script>
-    <script type="text/javascript" src="scripts/App4Sea.PopUps.js" ></script>
-    <script type="text/javascript" src="scripts/App4Sea.Weather.js" ></script>
-    <script type="text/javascript" src="scripts/App4Sea.Utils.js" ></script>
-    <script type="text/javascript" src="scripts/App4Sea.Animation.js" ></script>
-    <script type="text/javascript" src="scripts/App4Sea.Events.js" ></script>
+    <script type="module" src="scripts/App4Sea.js"></script>
+    <script type="module" src="scripts/App4Sea.OpenLayers.js" ></script>
+    <script type="module" src="scripts/App4Sea.TreeInfo.js" ></script>
+    <script type="module" src="scripts/App4Sea.TreeMenu.js" ></script>
+    <script type="module" src="scripts/App4Sea.KML.js" ></script>
+    <script type="module" src="scripts/App4Sea.Measure.js" ></script>
+    <script type="module" src="scripts/App4Sea.PopUps.js" ></script>
+    <script type="module" src="scripts/App4Sea.Weather.js" ></script>
+    <script type="module" src="scripts/App4Sea.Utils.js" ></script>
+    <script type="module" src="scripts/App4Sea.Animation.js" ></script>
+    <script type="module" src="scripts/App4Sea.Events.js" ></script>
 
     <script type="text/javascript" >
         ['cut', 'copy', 'paste'].forEach(function(event) {
-            console.log('forEach ' + event);
+            //console.log('forEach ' + event);
             document.addEventListener(event, function(e) {
                 console.log('addEventListener ' + event);   
             });

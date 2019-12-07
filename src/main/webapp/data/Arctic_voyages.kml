@@ -1,0 +1,644 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document>
+	<name>Arctic voyages.kml</name>
+	<open>1</open>
+
+	<Style id="sh_pushpin">
+		<IconStyle>
+			<scale>0.4</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LabelStyle>
+			<color>ff00aaff</color>
+			<scale>2</scale>
+		</LabelStyle>
+		<LineStyle>
+			<color>88888888</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<Style id="sn_pushpin">
+		<IconStyle>
+			<color>ff00aaff</color>
+			<scale>0.36</scale>
+			<Icon>
+				<href>http://maps.google.com/mapfiles/kml/pushpin/ylw-pushpin.png</href>
+			</Icon>
+			<hotSpot x="20" y="2" xunits="pixels" yunits="pixels"/>
+		</IconStyle>
+		<LabelStyle>
+			<color>ff00aaff</color>
+			<scale>2</scale>
+		</LabelStyle>
+		<LineStyle>
+			<color>88888888</color>
+			<width>5</width>
+		</LineStyle>
+	</Style>
+	<StyleMap id="msn_pushpin">
+		<Pair>
+			<key>normal</key>
+			<styleUrl>#sn_pushpin</styleUrl>
+		</Pair>
+		<Pair>
+			<key>highlight</key>
+			<styleUrl>#sh_pushpin</styleUrl>
+		</Pair>
+	</StyleMap>
+
+	<Folder>
+		<name>Arctic voyages</name>
+		<open>1</open>
+		<Placemark>
+			<name>Dezhnev&apos;s voyage 1648</name>
+			<visibility>0</visibility>
+			<description>In June 1648, Semyon Dezhnev and 90 others sailed down Kolyma River into the Arctic in a number of Arctic sailing boats. At some point in September they rounded a &apos;great rocky projection&apos;, which was probably the Bering Straits. 
+At the beginning of October a storm blew up and Dezhnev&apos;s boat was driven by the storm and eventually wrecked somewhere south of the Anadyr.
+
+They had been unable to make this journey in 1647, as the way was blocked by ice.
+
+http://wapedia.mobi/en/Semyon_Dezhnev
+http://www.moscow-chukotka.com/eng/?page_id=5</description>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+					161.8708174367534,69.7478237773358,0 165.6035171865655,70.13527976419212,0 169.8091603743374,70.27243622954558,0 173.0260271419627,70.28296920071877,0 177.0471692192907,70.09004017032693,0 180.0893403988139,69.68360052965231,0 182.4880586869822,69.04179508819793,0 185.4961441788615,68.29521172691337,0 188.4501433029612,67.52591496378287,0 190.2788396741999,66.82711672201026,0 191.0632380786856,66.21802768108496,0 191.2501063395013,65.44807379349217,0 189.5930470083971,64.68486076402081,0 187.9838663675843,63.86968759207843,0 185.3658546932238,63.57267957149947,0 182.0752358553009,63.46786263455965,0 179.5590609933966,63.43701819702623,0 178.8904422275652,63.39178143444996,0 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>Kolyma River</name>
+			<visibility>0</visibility>
+			<LookAt>
+				<gx:TimeSpan>
+					<begin>2009-12-31T23:52:51.386500119Z</begin>
+					<end>2010</end>
+				</gx:TimeSpan>
+				<longitude>160.2737914120535</longitude>
+				<latitude>69.18222688758236</latitude>
+				<altitude>0</altitude>
+				<heading>3.890307832540577</heading>
+				<tilt>0</tilt>
+				<range>218951.828837625</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<Point>
+				<coordinates>161.4393383285486,69.67146756135321,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>South of Anadyr River</name>
+			<visibility>0</visibility>
+			<LookAt>
+				<longitude>178.1412931095396</longitude>
+				<latitude>65.8131989643674</latitude>
+				<altitude>0</altitude>
+				<heading>20.05180713925993</heading>
+				<tilt>0</tilt>
+				<range>1150827.708456695</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<Point>
+				<coordinates>178.8000842775472,63.83430211610946,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Nansen&apos;s Fram expedition (1893-96)</name>
+			<visibility>0</visibility>
+			<description>In 1893, Fridtjof Nansen led an expedition on the Fram to try and reach the North Pole by deliberately sailing into pack ice, as far north as possible and letting the ship get carried north by drift ice.
+
+21 July 1893: The Fram leaves Vardo, Norway
+20 September, 1893: The Fram finally reaches pack ice
+February 1895: After abandoning hope of the plan succeeding, it was decided that Nansen and Hjalmar Johansen would leave the ship with the dogs and make for the pole while the Fram, continued its drift until it emerged from the ice in the North Atlantic.
+17 April 1895: Nansen &amp; Johansen reach 86°13.6&apos;N and decide to return home. 
+17 June 1896: After reaching Northbrook Island, to much astonishment, they met a fellow explorer, Frederick Jackson, who brought them back to Vardø, where they heard that the Fram had emerged from the ice near Spitsbergen and they reunited with the crew of the Fram.
+
+
+http://en.wikipedia.org/wiki/Fridtjof_Nansen</description>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+					31.30748806807098,70.3454620902168,0 51.32748214798572,71.47354768132692,0 52.18891381475719,70.6827177072652,0 54.46329078759225,70.03399139621546,0 56.84704506795934,69.56458261294516,0 59.84676543099137,69.40436966684992,0 61.05196599487981,69.94123504034761,0 61.69999755047381,70.30082636900278,0 62.07202459072613,70.01585731448701,0 66.02347556283658,69.92120993105401,0 65.65599897085096,71.423467473795,0 67.5695895202052,71.98751061625573,0 69.25331524825843,73.67484983426364,0 73.35902562736006,74.23876717400087,0 76.43172711473042,73.77728233611875,0 79.60399157843419,75.71630446390289,0 83.65423755257076,76.39251924658588,0 91.07684872296927,76.87453829030126,0 102.5838925069899,77.77191648959679,0 107.5801673272528,77.84188008290865,0 115.2667777457626,76.2572093767847,0 114.4759750777346,74.37958940621462,0 118.8109982328455,73.89871157903953,0 133.970097970034,75.46630065067495,0 132.9513630125611,78.8203500963986,0 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>Vardo, Norway</name>
+			<visibility>0</visibility>
+			<LookAt>
+				<longitude>31.6691575229084</longitude>
+				<latitude>71.62380264134595</latitude>
+				<altitude>0</altitude>
+				<heading>0.05630352349901605</heading>
+				<tilt>0</tilt>
+				<range>2826160.740389871</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<Point>
+				<coordinates>31.08786689013288,70.30716763453499,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Fram reaches pack ice (Sep 20, 1893)</name>
+			<visibility>0</visibility>
+			<LookAt>
+				<gx:TimeSpan>
+					<begin>2009-12-31T23:51:41.40521848Z</begin>
+					<end>2010</end>
+				</gx:TimeSpan>
+				<longitude>132.8833750361571</longitude>
+				<latitude>78.81666578492472</latitude>
+				<altitude>0</altitude>
+				<heading>5.27842183587809e-006</heading>
+				<tilt>0</tilt>
+				<range>791299.7030294129</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<Point>
+				<coordinates>132.8833750361571,78.81666578492472,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>S/S Vega&apos;s Eurasian circumnavigation (1878-9)</name>
+			<visibility>0</visibility>
+			<description>S/S Vega. A Swedish steamship built in Bremerhaven in 1872.
+Under Nils Adolf Erik Nordenskiöld, became the first ship to complete a voyage through the Northeast Passage, and the first vessel to circumnavigate the Eurasian continent.
+
+22 June 1878: Left Karlskrona, Sweden
+August 1878: Doubled Cape Chelyuskin
+28 September 1878: Blocked by ice about 200km short of Bering Strait.
+18 July 1879: Freed from ice and then went on to circumnavigate Eurasia
+
+[Google Earth Path is just an approximation of the map shown on http://en.wikipedia.org/wiki/Adolf_Erik_Nordenski%C3%B6ld 
+
+This description is taken from that page as well as this one: http://en.wikipedia.org/wiki/Vega_%28ship%29 ]</description>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+					19.195235678064,58.8569854746106,0 20.04414163734447,57.84525860389658,0 19.50788787555436,56.89102780652812,0 18.48389469271066,56.35151910010643,0 16.62108058077499,55.27670696589709,0 14.66230361973826,54.56754294757737,0 13.17862425905647,54.87516472005315,0 11.79467442696832,54.39727404251178,0 10.92109105736421,54.57785486188673,0 10.80750758342916,54.68263330862104,0 11.10816611046191,55.14779889089945,0 10.8665915035043,55.71786423914867,0 11.49877698452105,56.18389179040811,0 12.38681382957088,56.49560343127123,0 11.81514392014838,57.1658248062775,0 11.20911313026721,57.77305086479447,0 10.89698055945697,58.03579770169678,0 7.234373817852962,57.51570500258314,0 5.475723211143608,57.93163175656931,0 4.292624304226775,59.57893375787735,0 3.512227512495569,61.52859894493361,0 5.255097979087918,63.73705278074894,0 8.286410742021921,66.87437811568876,0 12.87016950718999,70.96069218187392,0 19.95722499375829,73.12724954330606,0 31.98484315878677,72.73039495522239,0 49.26884618683354,70.43679516977305,0 55.5010165478529,69.5775034771643,0 62.48751211466165,72.09410173914289,0 71.26198164865905,74.69740416266779,0 75.89947154396488,74.3711982601999,0 79.06356661756718,74.92915167652743,0 83.2677352877709,74.79968563958917,0 86.77186237792662,76.16697780492973,0 93.86060137372692,77.03409808216797,0 95.80680988393286,77.54349363290636,0 99.46921837771151,77.55876073610271,0 102.5494486519395,77.90290697728496,0 104.1860184126621,78.00736704427027,0 111.9230024931288,77.32828224919346,0 123.692263520635,75.1706106186375,0 136.1404814823966,73.18427792107779,0 140.3611338322869,72.98169149756943,0 148.0892068042673,72.9212729511255,0 154.8198369749402,72.54863758238457,0 167.5443488509696,71.66512958219737,0 177.3009483635712,70.30838922422034,0 182.4820401176022,69.28594693446485,0 186.530581494321,68.12068721710494,0 190.7195510228912,66.67237032085322,0 191.2978374320321,66.05925566964845,0 186.9761831434625,63.71518996461131,0 180.0696286338748,61.53807985471178,0 166.2977242260246,53.67803836805955,0 153.9987641688587,45.38644582397092,0 144.951015477551,40.40146487014811,0 141.6100731614822,34.11186242662379,0 134.3549572830965,29.51078014351487,0 127.7177320474628,22.03556413468539,0 124.2207743726541,20.58617914756697,0 117.9021713228169,18.3524727067322,0 106.2200733065477,-0.2678347779066327,0 104.8401802487845,-0.9425281021940485,0 100.8442161786139,2.929740605524434,0 95.65482539003851,7.486390396454157,0 91.19887810970697,7.080791670776215,0 79.3146954563352,2.99991131920524,0 72.20594544806029,7.819681354163871,0 58.42738850649525,12.78666515625729,0 54.50726787924628,13.58678713914348,0 44.70031090094764,11.51643302048183,0 42.63509821374004,13.95891045245317,0 38.40049095287962,20.93915448520245,0 35.23378216307571,26.03913552059105,0 34.17174478557799,27.46989966874711,0 32.0382643475323,31.74091166617522,0 24.01803626721323,33.80402558713226,0 11.11446430470263,37.8278857418651,0 -2.217769294884331,36.25346687916326,0 -5.195475295271211,35.88650239012743,0 -7.465496360163705,35.89808078096649,0 -11.02756507284719,36.53493471831449,0 -10.58354870121525,46.635421433029,0 -1.70507995347472,50.08445709204355,0 0.4785063414744428,50.3325737033942,0 3.040312403980756,51.99873372238566,0 5.380514398420613,54.5727647330284,0 7.293275037957605,56.13300556968793,0 8.997126378160944,57.84681812636185,0 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>S/S Vega is blocked by ice (28 September 1878)</name>
+			<visibility>0</visibility>
+			<LookAt>
+				<longitude>152.0268880661251</longitude>
+				<latitude>79.09791715168535</latitude>
+				<altitude>0</altitude>
+				<heading>124.532711174611</heading>
+				<tilt>0</tilt>
+				<range>10046649.51647391</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<Point>
+				<coordinates>-171.9140260267891,67.56073763228525,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>SS Chelyuskin&apos;s voyage (1933-34)</name>
+			<visibility>0</visibility>
+			<description>The SS Chelyuskin was a Soviet steamship reinforced to navigate polar ice.
+
+Under the command of Otto Shmidt and V. Voronin, it left Murmank on 2 August 1933, and made it to the mouth of Bering Strait by September before becoming trapped in icefields. Once trapped, it drifted in ice pack before finally sinking near Kolyuchin Island (in the Chukchi Sea) on 13 February 1934.
+
+Although it sank, the USSR considered the voyage a success, since it had proven that a regular steamship had a chance to navigate the whole Northern Maritime Route in a single season.</description>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+					33.83398000026878,69.38663108559432,0 53.44791272860716,73.37915551276025,0 56.9934072833919,73.06597961193144,0 66.79054604572278,74.72927905887154,0 67.93070564082342,74.33827598287402,0 78.74479765738911,76.31474479561616,0 79.24682184282372,78.42983115549697,0 84.13841426498475,80.38292874800773,0 82.19536270728132,81.2209875655202,0 76.85624095745801,80.30053208000551,0 83.02865022557518,78.76913330051232,0 90.87665155636772,76.48948602152247,0 103.6144978851589,77.89009695691233,0 112.9700684910893,77.03552849908911,0 133.2702778495434,76.25626703643759,0 135.8529184483204,74.65799704174262,0 138.116446455272,74.35339653640617,0 142.6447133345997,74.32959784077957,0 144.6722922188044,74.40116762814418,0 146.347759890145,73.68529962308976,0 152.6584050590208,73.20359939824823,0 161.5713045593515,73.91476913120346,0 160.9690801089382,72.5830335092265,0 167.6947632124475,72.04813138700001,0 190.0322301136119,67.6881037395553,0 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>Murmansk, Russia</name>
+			<visibility>0</visibility>
+			<LookAt>
+				<gx:TimeSpan>
+					<begin>2010-09-26T23:59:58.986492428Z</begin>
+					<end>2010-09-27T00:00:05Z</end>
+				</gx:TimeSpan>
+				<longitude>33.10703396720885</longitude>
+				<latitude>68.95317827356199</latitude>
+				<altitude>0</altitude>
+				<heading>9.356152276762483e-007</heading>
+				<tilt>0</tilt>
+				<range>252999.7163237635</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<Point>
+				<coordinates>33.10703396720885,68.95317827356199,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Cape Chelyuskin, Russia</name>
+			<visibility>0</visibility>
+			<LookAt>
+				<gx:TimeSpan>
+					<begin>1981-04-17T02:06:26.446518582Z</begin>
+					<end>1981-04-17T03:19:41.13612166Z</end>
+				</gx:TimeSpan>
+				<longitude>104.2539377021175</longitude>
+				<latitude>77.73249691597485</latitude>
+				<altitude>0</altitude>
+				<heading>0.002020410468920321</heading>
+				<tilt>0</tilt>
+				<range>1903673.788599602</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<Point>
+				<coordinates>104.2539377021175,77.73249691597485,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Kolyuchin, Russia</name>
+			<visibility>0</visibility>
+			<LookAt>
+				<gx:TimeSpan>
+					<begin>2010-09-26T23:59:58.986492428Z</begin>
+					<end>2010-09-27T00:00:05Z</end>
+				</gx:TimeSpan>
+				<longitude>-174.6238950013638</longitude>
+				<latitude>67.46668299661367</latitude>
+				<altitude>0</altitude>
+				<heading>-1.259672198951022e-009</heading>
+				<tilt>0</tilt>
+				<range>10153.3379834633</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<Point>
+				<coordinates>-174.6238950013638,67.46668299661367,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Ice fields spotted from Cape Lisburne August 2, 1850</name>
+			<visibility>0</visibility>
+			<LookAt>
+				<longitude>-166.2099984905797</longitude>
+				<latitude>68.88111101446532</latitude>
+				<altitude>0</altitude>
+				<heading>5.275547772167944e-007</heading>
+				<tilt>0</tilt>
+				<range>1167868.334753219</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<Point>
+				<coordinates>-167.358838401319,72.01345788838167,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Lord Franklin&apos;s Lost Expedition (1845-46)</name>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+					0.2884827251158484,51.3991394501703,0 1.318165448208875,51.46812973059084,0 2.027001210985502,51.89393175843245,0 2.19615913541912,52.6542262905681,0 1.093102604654479,54.61606031068431,0 -1.512765877539561,57.86768704569354,0 -2.972236831905852,58.64110524411253,0 -3.15630897068375,58.71609067215643,0 -3.433446829158862,58.72143243260243,0 -3.567950580792018,58.85980017136306,0 -3.415735501437634,58.94544805917544,0 -3.318936084399529,58.94495807747692,0 -3.281060534729131,58.94821262086026,0 -3.291580683398872,58.95798357837351,0 -3.28632089379624,58.94984153630767,0 -3.336813992846869,58.94658659742518,0 -3.407332451488326,58.95034023905101,0 -41.0444475925367,58.9258093443773,0 -51.10247299893049,60.45293120983936,0 -56.21564125029295,65.24854579812654,0 -55.01077042159777,68.22511778122299,0 -54.45205980653015,68.7705258929664,0 -52.12268710758755,68.94030093749667,0 -51.74912584953053,69.26145544472277,0 -53.4463754136508,69.09224570436948,0 -54.7384675677645,69.01125538719748,0 -75.0190610383066,73.99184697800287,0 -91.31163560166654,74.19115548970073,0 -92.62168858644131,74.41108836005132,0 -93.38965618612532,75.74109664714946,0 -95.5165454342079,75.88747786178516,0 -96.9905962334053,75.19165795657946,0 -96.64143909550684,74.34531940494452,0 -96.05166301765931,72.66415850188301,0 -96.08297014130547,71.64620315238071,0 -97.64367485885062,70.8302942354948,0 -98.10938684683826,70.01584128742428,0 -98.15774263840156,69.83682036119151,0 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>Alternative Path possibly taken by Lord Franklin</name>
+			<description>Although the general consensus is that Franklin reached King William Island by travelling down Peel Sound, it has also been suggested that he may have travelled around Prince Of Wales Island, and travelled through McClintock Channel
+
+see e.g., 
+&quot;The Route of Sir John Franklin’s Third Arctic Expedition:
+An Evaluation and Test of an Alternative Hypothesis&quot;, Hickey et al, 1992; Arctic Vol 46, p78-81</description>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+					-91.23422942103325,74.14859317574494,0 -99.35440506203584,74.32746466924448,0 -102.2328342558105,73.95651643376678,0 -103.6615747446114,73.20320466717736,0 -103.8364919845569,72.20821467400089,0 -100.79183579379,71.22476130338264,0 -98.9747493799273,70.63243585797545,0 -98.31308121561619,69.89601490069569,0 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>King William Island</name>
+			<description>Lord Franklin&apos;s two ships (Erubus and Terror) became trapped in the ice.</description>
+			<LookAt>
+				<longitude>-94.85334448520615</longitude>
+				<latitude>72.79392504340413</latitude>
+				<altitude>0</altitude>
+				<heading>15.12564102386653</heading>
+				<tilt>0</tilt>
+				<range>2953360.462363193</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<Point>
+				<coordinates>-98.41145140241002,69.71168437551685,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Greenhithe, England</name>
+			<LookAt>
+				<longitude>0.2822972541817981</longitude>
+				<latitude>51.45040047863121</latitude>
+				<altitude>0</altitude>
+				<heading>1.194850101448727e-006</heading>
+				<tilt>0</tilt>
+				<range>7061.275337099274</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<Point>
+				<coordinates>0.2905674086534038,51.45810368999332,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Stromness Harbour</name>
+			<LookAt>
+				<longitude>-3.300000000132341</longitude>
+				<latitude>58.96666700019661</latitude>
+				<altitude>0</altitude>
+				<heading>-1.132019046533143e-010</heading>
+				<tilt>0</tilt>
+				<range>1500.238005081425</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<Point>
+				<coordinates>-3.294241030483489,58.96436974549766,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Disko Bay</name>
+			<LookAt>
+				<longitude>-52.04470501226956</longitude>
+				<latitude>69.0263360329613</latitude>
+				<altitude>0</altitude>
+				<heading>-1.145662194867014e-008</heading>
+				<tilt>0</tilt>
+				<range>99629.22368393197</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<Point>
+				<coordinates>-52.04470501226956,69.0263360329613,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Cornwallis Island</name>
+			<LookAt>
+				<gx:TimeSpan>
+					<begin>1978-12-31T23:58:18Z</begin>
+					<end>1979</end>
+				</gx:TimeSpan>
+				<longitude>-95.14148801368403</longitude>
+				<latitude>75.09722897991655</latitude>
+				<altitude>0</altitude>
+				<heading>-1.322373415399793e-008</heading>
+				<tilt>0</tilt>
+				<range>106135.0430051563</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<Point>
+				<coordinates>-95.14148801368403,75.09722897991655,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Roald Amundsen&apos;s Northwest Passage Expedition</name>
+			<visibility>0</visibility>
+			<description>16 June 1903: Roald Amundsen leaves Oslo, Norway in the small fishing boat, the Gjøa and a crew of 6.
+They travelled via Baffin Bay, Lancaster Sound, Peel Sound, James Ross Strait, Simpson Strait and Rae Strait before having to stop to overwinter at the south of King William Island.
+In 1904, they travelled to the North Magnetic Pole before returning to King William Island.
+In the summer of 1905, they sailed through Queen Maud Gulf and continued northwest, until they became trapped in ice near Herschel Island.
+They completed the voyage the following year, when they reached Nome, Alaska, in September 1906.</description>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+					10.60223272881849,59.87935344752735,0 10.60496071081181,58.99845927948852,0 7.92029031364625,57.76918239490471,0 1.835561429173662,59.29575164261707,0 -2.193062821782225,61.42356674931418,0 -24.30831153838225,60.95398711843976,0 -43.97160261214766,59.10163440944811,0 -55.99510436144473,61.39324317886589,0 -57.46324021732335,67.78298984374057,0 -70.63086654394132,74.06386686713799,0 -80.25621825718909,74.20901379462885,0 -97.12742667535943,74.58218484973286,0 -96.50216197679733,71.72217034737287,0 -97.32967102095923,71.29001944490446,0 -96.78063361932186,70.21594811848526,0 -95.56828327734515,68.71903129148215,0 -96.33744050852098,68.44613508619511,0 -98.75933614883826,68.68815980970062,0 -100.077142837287,68.47608159399599,0 -100.7713897829566,68.19000686515238,0 -104.735421004928,68.76287219476875,0 -106.4631402573945,69.07737142299798,0 -110.7026322242504,68.09720143791401,0 -112.8300955064531,67.94606155431521,0 -114.068518143376,68.86846780446989,0 -115.9882371031054,69.18862344880134,0 -119.958949775881,69.66880725308063,0 -123.0420387922602,70.20291926950091,0 -128.7379673497428,70.96803056775511,0 -131.7421891925264,70.25118528071882,0 -139.0608508604769,69.56985067897382,0 -141.7202077871922,70.31191928802318,0 -142.9687836331107,70.47530830805648,0 -156.0402817429224,71.95141736396693,0 -163.7064320909117,70.52966707643762,0 -167.8776785863308,68.89361454080569,0 -167.7174586230829,66.55361528162224,0 -168.6841452936098,65.05218372706162,0 -166.8962744796667,64.28900615488576,0 -165.3973165128546,64.49094258428012,0 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>Oslo, Norway</name>
+			<visibility>0</visibility>
+			<LookAt>
+				<longitude>10.73583253320756</longitude>
+				<latitude>59.911769511412</latitude>
+				<altitude>0</altitude>
+				<heading>0.01194126255439118</heading>
+				<tilt>0</tilt>
+				<range>295238.1182891207</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<Point>
+				<coordinates>10.73583253320756,59.911769511412,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Herschel Island</name>
+			<visibility>0</visibility>
+			<LookAt>
+				<longitude>-146.813755465806</longitude>
+				<latitude>70.71094359606028</latitude>
+				<altitude>0</altitude>
+				<heading>8.929724017596234</heading>
+				<tilt>0</tilt>
+				<range>3202604.402965247</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<Point>
+				<coordinates>-139.2061624520221,69.46262674890411,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Nome, Alaska</name>
+			<visibility>0</visibility>
+			<LookAt>
+				<longitude>-165.4063890005414</longitude>
+				<latitude>64.50111100035952</latitude>
+				<altitude>0</altitude>
+				<heading>-4.887431156817727e-010</heading>
+				<tilt>0</tilt>
+				<range>5012.285407128513</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<Point>
+				<coordinates>-165.4063890005414,64.50111100035952,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>William Edward Parry&apos;s 1819-20 voyage</name>
+			<visibility>0</visibility>
+			<description>1819: HMS Griper and HMS Hecla left England under the command of William Edward Parry.
+After reaching Melville Island, they were stopped by ice. They returned to England in November 1820</description>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+					-6.00289342282914,50.51046657731109,0 -18.32100823189129,50.65011749906022,0 -21.24277321027678,51.42310150130636,0 -54.39907541411436,61.56089909615091,0 -54.76246036694455,64.71117747074702,0 -65.35058435218983,73.76855945665362,0 -77.5074607956402,73.91680860908384,0 -86.71705042618481,73.90009496963388,0 -88.18220093595289,73.95589857752492,0 -89.75576916333168,73.38158685155899,0 -89.35055371334441,73.94329436004983,0 -94.05167436611079,74.41507856698341,0 -96.27894906183586,74.0116948598435,0 -96.44722908113651,74.20355344319709,0 -99.39608012065314,74.39578457353842,0 -102.0099006870567,74.19449310785655,0 -104.8699902546971,74.6726005979976,0 -108.6320264109432,74.53827574869479,0 -109.2832967806671,74.26405613274331,0 -108.7800496127404,74.07885554579821,0 -107.3067769845771,73.96142417270968,0 -106.6397556440909,74.02106796687282,0 -105.668630929903,74.10419614409776,0 -105.4431102842127,74.1227624741034,0 -103.3707604882774,74.25898683655743,0 -87.38477087233936,74.12012272447039,0 -75.05131586568305,73.89907267962501,0 -63.85581676303177,70.6003561675337,0 -59.2999462305057,66.67817325597996,0 -56.97701800783709,63.4206771273283,0 -52.62828649090787,59.01091292222568,0 -35.94330335687067,52.92912645402706,0 -19.10796707778748,50.20755670170118,0 -6.781020680775391,50.28191801798599,0 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>Lancaster Sound</name>
+			<visibility>0</visibility>
+			<LookAt>
+				<gx:TimeSpan>
+					<begin>2011-12-31T23:58:17.823873519Z</begin>
+					<end>2012</end>
+				</gx:TimeSpan>
+				<longitude>-84.00000001555432</longitude>
+				<latitude>74.21666699737419</latitude>
+				<altitude>0</altitude>
+				<heading>-8.431731564704155e-009</heading>
+				<tilt>0</tilt>
+				<range>1655.359439106131</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<Point>
+				<coordinates>-84.00000001555432,74.21666699737419,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Melville Island</name>
+			<visibility>0</visibility>
+			<LookAt>
+				<gx:TimeSpan>
+					<begin>1978-12-31T23:58:18Z</begin>
+					<end>1979</end>
+				</gx:TimeSpan>
+				<longitude>-106.1704256013739</longitude>
+				<latitude>75.10283210300837</latitude>
+				<altitude>0</altitude>
+				<heading>-0.5765320667313121</heading>
+				<tilt>0</tilt>
+				<range>865505.6989474341</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<Point>
+				<coordinates>-106.1704256013739,75.10283210300837,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>St. Roch&apos;s first northwestern passage (1940-42)</name>
+			<visibility>0</visibility>
+			<description>In 1940, under the command of Henry Larsen of the Royal Canadian Mounted Police (RCMP), the St. Roch was given the task of demonstrating Canadian sovereignty in the Arctic.
+In June 1940, it left Vancouver in British Columbia, Canada.
+On 11 October 1942, it docked in Halifax, Nova Scotia, Canada and became the first ship to travel the Northwest Passage from the Pacific to the Atlantic.
+
+As a side note, there is some evidence that the real reason for the journey was to occupy Greenland:
+See &quot;Why the St. Roch? Why the Northwest Passage? Why 1940? New Answers to Old Questions&quot;, Arctic, 1993; Vol 46, p82-87.</description>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+					-129.2479520604016,50.88318194809528,0 -141.0900740074435,55.65059056877458,0 -145.5971951364342,56.73907692049816,0 -154.1665734677488,54.90811797240881,0 -162.6992010457716,52.71692837488225,0 -164.2666763703771,54.16456644302963,0 -166.1367236028964,55.11085971199522,0 -168.7968842998538,60.50316813200476,0 -167.2550939841262,62.70006763243335,0 -169.0664349448556,67.07943753541794,0 -168.5368017880875,69.13784336817798,0 -160.6556421293637,71.75168398735754,0 -149.3607980518482,71.77404750518419,0 -137.1817255183464,70.38776647013516,0 -121.0508655463063,70.53180339466209,0 -117.4667662808439,69.29430208143587,0 -114.2142587493546,68.90830468443019,0 -113.0748010479125,68.05539259735343,0 -110.5031663016253,68.05706060594878,0 -108.0743939261382,68.73652711555641,0 -106.5137150488543,68.96782001752888,0 -103.3378602557369,68.55615941848942,0 -100.5450043440023,68.31433248038414,0 -99.06982570550341,68.58354944410851,0 -96.84061922937958,68.50914272621085,0 -95.80209216300993,68.62465888748605,0 -95.74655091281991,69.09481213686219,0 -96.17311803277325,69.84799373956487,0 -96.87170202499702,70.6604113534751,0 -96.90959445962962,71.36610434576909,0 -95.81114444484837,71.76141141004609,0 -93.25468013526259,71.98199915046089,0 -91.7147566322311,72.06816745444617,0 -88.00026767769327,74.16308097415416,0 -77.59382210574593,73.87245095158278,0 -68.21343071400101,71.30736624092671,0 -60.98335260512257,67.46897648334176,0 -60.53656339791678,64.03307614500278,0 -57.25260839921811,56.23526679348763,0 -52.9073658911507,50.73749459155606,0 -50.61768387610553,46.1449556757545,0 -52.75181423539083,44.8506256945237,0 -60.68665036100123,43.83853705769663,0 -62.31193050734495,44.2404303706281,0 -63.44663742687105,44.52120866481429,0 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>St. Roch&apos;s return trip (1944)</name>
+			<visibility>0</visibility>
+			<description>On St. Roch&apos;s return trip (from Halifax to Vancouver) in 1944, Henry Larsen chose to travel through the northern deep-water route which was not completely blocked by ice at the time. 
+While the 1940-42 journey took 28 months, the return trip in 1944 only took 86 days.</description>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<LineString>
+				<tessellate>1</tessellate>
+				<coordinates>
+					-63.31816545995315,44.12501873041837,0 -60.37252444515325,43.57007695744205,0 -53.17119293068851,44.43223465131402,0 -50.12716412611935,46.00665743773688,0 -54.83612535993982,54.81664199957979,0 -60.52194509233536,66.45550048853586,0 -60.70118110240497,67.81023728492649,0 -75.01429768211909,73.83999143711567,0 -87.76309277847892,74.10906650871567,0 -94.68342787406522,74.2700788582294,0 -105.7323318487383,74.30181995592329,0 -112.9627552127513,73.80421198285164,0 -115.683066493672,74.300011222405,0 -122.4729658382357,75.12389309561809,0 -129.3081468381407,73.64587927224136,0 -135.8636776183424,71.9647173074748,0 -158.5330695108562,71.97024604942715,0 -163.0321482980094,70.94261209467207,0 -167.8090195103693,68.89674583683538,0 -168.5129214230113,65.59131448823219,0 -168.1249994007584,62.47327036410024,0 -169.5342031976497,60.18010646829774,0 -166.7549731307956,55.25327108916927,0 -164.3307880352926,53.98561766591384,0 -162.7762097436755,52.44499815738451,0 -153.4447346541053,54.65281602457278,0 -145.5705523774599,56.48676178446356,0 -129.5399173391837,50.83100456129819,0 
+				</coordinates>
+			</LineString>
+		</Placemark>
+		<Placemark>
+			<name>Vancouver, Canada</name>
+			<visibility>0</visibility>
+			<LookAt>
+				<longitude>-123.1087173156313</longitude>
+				<latitude>49.2486983476269</latitude>
+				<altitude>0</altitude>
+				<heading>0.0004604310775869246</heading>
+				<tilt>0</tilt>
+				<range>66678.3984631639</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<Point>
+				<coordinates>-123.1166934885468,49.2544261437037,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Halifax, Nova Scotia</name>
+			<visibility>0</visibility>
+			<LookAt>
+				<longitude>-63.60992998623099</longitude>
+				<latitude>44.67005305068689</latitude>
+				<altitude>0</altitude>
+				<heading>-8.144590133895229e-008</heading>
+				<tilt>0</tilt>
+				<range>9685.196851682877</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<Point>
+				<coordinates>-63.60992998623098,44.67005305068689,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Prince of Wales Island</name>
+			<LookAt>
+				<gx:TimeSpan>
+					<begin>1978-12-31T23:58:18Z</begin>
+					<end>1979</end>
+				</gx:TimeSpan>
+				<longitude>-97.79001096892756</longitude>
+				<latitude>74.40830917745103</latitude>
+				<altitude>0</altitude>
+				<heading>-2.555665721557687</heading>
+				<tilt>0</tilt>
+				<range>3111058.937590608</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<Point>
+				<coordinates>-98.92734499561072,72.53347152433965,0</coordinates>
+			</Point>
+		</Placemark>
+		<Placemark>
+			<name>Somerset Island</name>
+			<LookAt>
+				<gx:TimeSpan>
+					<begin>1978-12-31T23:58:18Z</begin>
+					<end>1979</end>
+				</gx:TimeSpan>
+				<longitude>-97.79001084259741</longitude>
+				<latitude>74.40830852295068</latitude>
+				<altitude>0</altitude>
+				<heading>-1.623263450884732</heading>
+				<tilt>0</tilt>
+				<range>3117139.300753783</range>
+				<gx:altitudeMode>relativeToSeaFloor</gx:altitudeMode>
+			</LookAt>
+			<styleUrl>#msn_pushpin</styleUrl>
+			<Point>
+				<coordinates>-93.02259476380384,73.65404384274189,0</coordinates>
+			</Point>
+		</Placemark>
+	</Folder>
+</Document>
+</kml>

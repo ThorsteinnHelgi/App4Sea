@@ -3,10 +3,10 @@
  *
  * ==========================================================================*/
 
-//import App4Sea from App4Sea.js;
+import { App4Sea } from './App4Sea.js';
 
 // @ts-check
-let App4SeaUtils = (function () {
+export let App4SeaUtils = (function () {
     "use strict";
     let my = {};
 
@@ -106,6 +106,9 @@ let App4SeaUtils = (function () {
 
         let extent = ol.extent.createEmpty();
         for (let ind=0; ind<features.length; ind++) {
+            if (ind === 125) {
+                ind = ind;
+            }
             extent = ol.extent.extend(extent, features[ind].getGeometry().getExtent());
         }
 
@@ -899,7 +902,7 @@ let App4SeaUtils = (function () {
             console.log('toPng');
             module.toPng(document.body, exportOptions).then(function(dataURL) {
                 my.copyToClipboard(dataURL);
-                //var link = document.getElementById('image-download');
+                //let link = document.getElementById('image-download');
                 //link.href = dataURL;
                 //link.click();
             });;
@@ -912,7 +915,7 @@ let App4SeaUtils = (function () {
         //import toPng from 'html-to-image';
         toPng(document.body, exportOptions).then(function(dataURL) {
             my.copyToClipboard(dataURL);
-            //var link = document.getElementById('image-download');
+            //let link = document.getElementById('image-download');
             //link.href = dataURL;
             //link.click();
         });

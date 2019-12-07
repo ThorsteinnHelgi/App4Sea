@@ -4,9 +4,9 @@
  *              
  * ==========================================================================*/
 
-//import App4Sea from App4Sea.js;
+import { App4Sea } from './App4Sea.js';
 
-// @ts-check
+//@ts-check
 let App4SeaOpenLayers = (function () {
     "use strict";
     let my = {};
@@ -41,7 +41,7 @@ let App4SeaOpenLayers = (function () {
 
         InitPopup();
         
-        //var res = App4Sea.Utils.supports_html5_storage();
+        //let res = App4Sea.Utils.supports_html5_storage();
         //if (App4Sea.logging) console.log("Support for html5 local storage: " + res);
     };
 
@@ -142,7 +142,7 @@ let App4SeaOpenLayers = (function () {
             let cursPos = document.getElementsByClassName('ol-mouse-position');
             if (selectedMapLayer === 'osmTileLayer') {
                 //el[0].style.backgroundColor = 'white';
-                el[0].style.backgroundImage = 'var(--gradientWhite)';
+                el[0].style.backgroundImage = 'let(--gradientWhite)';
                 el[0].style.color = 'black';
                 el2[0].style.filter = 'invert(0%)';
                 el3[0].style.filter = 'invert(0%)';
@@ -152,7 +152,7 @@ let App4SeaOpenLayers = (function () {
                     cursPos[0].style.color = 'black';
                 currentLayer = osmTileLayer;
             } else if (selectedMapLayer === 'esriWSPTileLayer') {
-                el[0].style.backgroundImage = 'var(--gradientBeige)';
+                el[0].style.backgroundImage = 'let(--gradientBeige)';
                 el[0].style.color = 'black';
                 el2[0].style.filter = 'invert(0%)';
                 el3[0].style.filter = 'invert(0%)';
@@ -163,7 +163,7 @@ let App4SeaOpenLayers = (function () {
                 currentLayer = esriWSPTileLayer;
             } else if (selectedMapLayer === 'esriWITileLayer') {
                 //el[0].style.backgroundColor = '#163e6f';
-                el[0].style.backgroundImage = 'var(--gradientBlue)';
+                el[0].style.backgroundImage = 'let(--gradientBlue)';
                 el[0].style.color = 'beige';
                 el2[0].style.filter = 'invert(100%)';
                 el3[0].style.filter = 'invert(100%)';
@@ -174,7 +174,7 @@ let App4SeaOpenLayers = (function () {
                 currentLayer = esriWITileLayer;
             } else if (selectedMapLayer === 'blackTileLayer') {
                 //el[0].style.backgroundColor = '#0d0d0d';
-                el[0].style.backgroundImage = 'var(--gradientGray)';
+                el[0].style.backgroundImage = 'let(--gradientGray)';
                 el[0].style.color = 'gray';
                 el2[0].style.filter = 'invert(100%)';
                 el3[0].style.filter = 'invert(100%)';
@@ -244,14 +244,69 @@ let App4SeaOpenLayers = (function () {
     
         my.Map.addOverlay(App4Sea.PopUps.overlayLayerPopUp);
 
-        App4Sea.PopUps.initToolTip();
+        InitToolTip();
     };
     
+    ////////////////////////////////////////////////////////////////////////////
+    // InitToolTip
+    function InitToolTip () {
+        let map = my.Map;
+
+        let displayFeatureInfo = function (pixel) {
+            $('#ToolTipInfo').css({
+                left: pixel[0] + 'px',
+                top: (pixel[1] - 15) + 'px'
+            });
+            
+            let features = [];
+            
+            map.forEachFeatureAtPixel(pixel, function (feature, layer) {
+                //if (App4Sea.logging) console.log('displayFeatureInfo for feature: ' + getTitle(feature));
+                features.push(feature);
+            });
+        
+            //if (App4Sea.logging) console.log('Features are: ' + features.length);
+
+            let tips = [];
+            let txt = '';
+            $('#ToolTipInfo').tooltip('hide');
+            let inf = $('#ToolTipInfo');
+            inf.innerHTML = '';
+            for (let ind = 0; ind<features.length; ind++) {
+            
+                let name = App4Sea.PopUps.getTitle(features[ind]);
+                if (name) {
+                    if (features.length === 1) {
+                        txt = name;
+                    }
+                    else {
+                        txt = txt + ind.toString() + ' '  + name + `<br>` 
+                        //if (App4Sea.logging) console.log('Tooltip: ' + txt);
+                    }
+                    inf.tooltip('hide')
+                        .attr('data-original-title', txt)
+                        .tooltip('show');
+                }
+            } 
+        };
+        map.on('pointermove', function(evt) {
+            if (evt.dragging) {
+                $('#ToolTipInfo').tooltip('hide');
+                return;
+            }
+            displayFeatureInfo(map.getEventPixel(evt.originalEvent));
+        });
+
+        $(map.getViewport()).on('mousemove', function (evt) {
+            displayFeatureInfo(map.getEventPixel(evt.originalEvent));
+        });
+
+    };
 
     ////////////////////////////////////////////////////////////////////////////
     // Overlay with auto pan
     function InitOverlay (container, closer) {
-        var overlay = new ol.Overlay({
+        let overlay = new ol.Overlay({
             element: container,
             autoPan: true,
             autoPanAnimation: {
@@ -276,3 +331,5 @@ let App4SeaOpenLayers = (function () {
     
 }());
 App4Sea.OpenLayers = App4SeaOpenLayers;
+
+export default { App4SeaOpenLayers }
