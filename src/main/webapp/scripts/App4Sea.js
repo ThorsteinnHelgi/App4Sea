@@ -3,10 +3,13 @@
  *
  * ==========================================================================*/
 
-let App4Sea = (function () {
-    "use strict";
-    let my = {};
+//import * as ol from ol; // 'https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js'; // ../static/js/ol.js
 
+//@ts-check
+let App4Sea = (function () {
+//    "use strict";
+    let my = {};
+    
     /********************************************
      * OpenStreetMap uses WGS84 (also known as WGS 1984, EPSG:4326). This is our map coordinate system (prefProj)
      * It assumes sperical earth to simplify calculations at the cost of accuracy (as the earth is more elyptical)
@@ -34,7 +37,7 @@ let App4Sea = (function () {
     my.startZoom = 4;
     my.logging = 5;
     my.useIconsInMenu = true;
-    my.disableSubItems = false;
+    my.disableSubItems = true;
 
     // Real pointers to objects will be set at the end of the object files
     my.Animation = {};
@@ -46,10 +49,13 @@ let App4Sea = (function () {
     my.TreeMenu = {};
     my.Utils = {};
     my.Weather = {};
-    
+
     if (my.logging) console.log('Map extent ' + [-180, 90, 180, -90]);
     if (my.logging) console.log('Map extent ' + my.mapExtent);
     if (my.logging) console.log('Windows width is ' + window.innerWidth);
 
     return my;    
 }());
+export { App4Sea };
+$.App4Sea = App4Sea;
+

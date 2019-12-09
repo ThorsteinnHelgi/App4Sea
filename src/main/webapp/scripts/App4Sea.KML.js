@@ -3,13 +3,15 @@
  *
  * ==========================================================================*/
 
-App4SeaKML = (function () {
-    "use strict";
-    var my = {};
+import { App4Sea } from './App4Sea.js';
 
+
+let App4SeaKML = (function () {
+    "use strict";
+    let my = {};
     let ynd = 0;
-    
-    var title = "";
+    let title = "";
+
     ////////////////////////////////////////////////////////////////////////////
     // Declare worker scripts path for zip manipulation
     zip.workerScriptsPath = 'static/js/';
@@ -20,7 +22,7 @@ App4SeaKML = (function () {
     my.loadKml = function (url) {
         //$("#DebugWindow").append("loadKml: " + url + "<br/>");
         if (App4Sea.logging) console.log("loadKml: " + url);
-        var vector = new ol.layer.Vector({
+        let vector = new ol.layer.Vector({
             source: new ol.source.Vector({
                 url: url,
                 crossOrigin: 'anonymous',
@@ -52,7 +54,7 @@ App4SeaKML = (function () {
         // make the ajax call to kmz that unzip and read the file
         // this file reference other KMZ so we call each of them
         // and add their content
-        var str = url.toLowerCase();
+        let str = url.toLowerCase();
         if (App4Sea.logging) console.log(str);
         if (str.endsWith("kmz")) {
             if (App4Sea.logging) console.log("readAndAddFeatures kmz element: " + url);
@@ -259,7 +261,7 @@ App4SeaKML = (function () {
         if (App4Sea.logging) console.log("kml_features are: " + kml_features.length);
         
         if (kml_features.length > 0) {
-//            var description = kml_features[0].get('description');
+//            let description = kml_features[0].get('description');
 //            
 //            if (description) {
 //                addChild('Description', description, $('#TreeMenu'), id, false);
@@ -303,7 +305,8 @@ App4SeaKML = (function () {
         if (App4Sea.logging) console.log("Cached layers now are " + App4Sea.OpenLayers.layers.length);
 
         App4Sea.OpenLayers.Map.addLayer(vector);
-        App4Sea.Utils.FlyTo(location, null);
+        //App4Sea.Utils.FlyTo(location, null);
+        App4Sea.Utils.LookAt(location);
     }
 
     ////////////////////////////////////////////////////////////////////////////
@@ -314,8 +317,8 @@ App4SeaKML = (function () {
     ////////////////////////////////////////////////////////////////////////////
     function addStyleMap (parentId, node) {
         // TBD !!!!!
-        var newID = parentId + "-" + node.id;
-        var newStyleMap;
+        let newID = parentId + "-" + node.id;
+        let newStyleMap;
         
         switch (node.nodeName) 
         {
@@ -399,9 +402,9 @@ App4SeaKML = (function () {
         }
         
         return newID;
-        //var newStyleMap = { state: {"closed" : true, "checkbox_disabled" : false, "disabled" : false}, 
+        //let newStyleMap = { state: {"closed" : true, "checkbox_disabled" : false, "disabled" : false}, 
           //  icon: icon, text: text, data: data, selected: true, children : false };
-        //var retVal = tree.jstree(true).create_node(parNode, newNode, 'last', false, false);
+        //let retVal = tree.jstree(true).create_node(parNode, newNode, 'last', false, false);
         //if (App4Sea.logging) console.log("Adding " + text + " to tree under " + parNode + " returned " + retVal);
         //return retVal;
     }
@@ -425,42 +428,19 @@ App4SeaKML = (function () {
     // nested files (kmz or kml)
     function parseKmlText(path, text, id, entries) {
         if (App4Sea.logging) console.log("parseKmlText: " + path);
-        var oParser = new DOMParser();
-        var oDOM = oParser.parseFromString(text, 'text/xml');
-        var links = oDOM.querySelectorAll('NetworkLink > Link > href');
-        var urls = oDOM.querySelectorAll('NetworkLink > Url > href');
+        let oParser = new DOMParser();
+        let oDOM = oParser.parseFromString(text, 'text/xml');
+        let links = oDOM.querySelectorAll('NetworkLink > Link > href');
+        let urls = oDOM.querySelectorAll('NetworkLink > Url > href');
         
         // Collect data for animation of GrounOverlay
-        var canAnimate = false;
-        var gol = oDOM.querySelectorAll('GroundOverlay > Icon > href');
-        var golw = []; // when
-        var golb = []; // begin
-        var gole = []; // end
-        var goll = []; // layerID
-        var count = 0;
-        if (gol.length > 1) {
-            canAnimate = true;
-            golw = oDOM.querySelectorAll('GroundOverlay > TimeStamp > when');
-            if (golw.length === 0) {
-                golb = oDOM.querySelectorAll('GroundOverlay > TimeSpan > begin');
-                gole = oDOM.querySelectorAll('GroundOverlay > TimeSpan > end');
-                golw = [];
-            }
-            else {
-                golb = [];
-                gole = [];
-            }
-            
-            App4Sea.Animation.AniData = [gol, golw, golb, gole, goll];
-        }
-        else
-            App4Sea.Animation.AniData = [null, null, null, null, null];
-
-        var kml = oDOM.querySelector('kml');
+        const [canAnimate, gol, goll] = App4Sea.Animation.aniDataForGroundOverlay(oDOM);
+        let count = 0;
+        let kml = oDOM.querySelector('kml');
         
         ////////////////////////////////////////////////////////////////////////////
         function getName(children, defaultName) {
-            for (var ind=0; ind<children.length; ind++){
+            for (let ind=0; ind<children.length; ind++){
                 if (children[ind].nodeName === 'name' || children[ind].nodeName === 'atom:name')
                     return children[ind].innerHTML;
             }
@@ -469,16 +449,19 @@ App4SeaKML = (function () {
 
         ////////////////////////////////////////////////////////////////////////////
         function addLegend (name, url) {
-            var tr = document.createElement('tr');
+            let tr = document.createElement('tr');
+            tr.style.backgroundColor = 'white';
+            tr.style.position = 'absolute';
+            App4Sea.Utils.dragElement(tr);
 
             tr.name = name;
         
             tr.innerHTML =
-                '<td><img class="imgLegend" src="' + url + '" alt="Legend"/></td>\
-                <td><button class="btn-right" title="Close" onclick="App4Sea.KML.removeRow(this)"><i class="fa fa-close"></i></button></td>';
+                '<td><p class="legendTitle">' + name + '</p><img class="imgLegend" src="' + url + '" alt="Legend"/></td>\
+                <td><button class="btn-right" title="Close" onclick="$.App4Sea.KML.removeRow(this)"><i class="fa fa-close"></i></button></td>';
                 //<img class="imgLegend" src="url" alt="Legend"/>
-                //<button class="btn-right" title="Close" onclick="App4Sea.Utils.w3_close('name')"><i class="fa fa-close"></i></button>
-                //<input type="button" value="x" onclick="App4Sea.KML.removeRow(this)">
+                //<button class="btn-right" title="Close" onclick="$.App4Sea.Utils.w3_close('name')"><i class="fa fa-close"></i></button>
+                //<input type="button" value="x" onclick="$.App4Sea.KML.removeRow(this)">
 
             const leg = document.getElementById("tableLegend");
             leg.appendChild(tr)
@@ -500,7 +483,7 @@ App4SeaKML = (function () {
                         let kmzurl =  URL.createObjectURL(data);
 
                         if (le) {
-                            addLegend(name, kmzurl);
+                            addLegend(title, kmzurl);
                         }
                         else {
                             let source = new ol.source.ImageStatic({
@@ -577,7 +560,7 @@ App4SeaKML = (function () {
                         findIn(entries, url, null, null, nameIs, id, true);
                     }
                     else
-                        addLegend(name, url);
+                        addLegend(title, url);
                 }
             }
             //----------------------------------------------------------------------
@@ -650,15 +633,18 @@ App4SeaKML = (function () {
         ////////////////////////////////////////////////////////////////////////////
         function listChildren(id, children){
 
-            for(var cind=0; cind<children.length; cind++){
+            for(let cind=0; cind<children.length; cind++){
 
-                var child = children[cind];
-                var newId;
+                let child = children[cind];
+                let newId;
+
+                let timestamp = new Date().toLocaleString();
+                if (App4Sea.logging) console.log(timestamp + " Ttem handled: " + child.nodeName);
 
                 if (child.nodeName === 'name' || child.nodeName === 'atom:name'){
                     if (App4Sea.logging) console.log("Name item not handled: " + child.innerHTML);
                     // TBD
-//                    var name = child;
+//                    let name = child;
 //                    if(name.innerHTML !== "") {
 //                        newId = addChild('Name', name.innerHTML, tree, id, true);
 //                    }
@@ -706,7 +692,7 @@ App4SeaKML = (function () {
                     //let view = App4Sea.OpenLayers.Map.getView();
                     //view.setCenter(center);
                     //view.setZoom(zoom);
-
+                    
                     if (App4Sea.logging) console.log("Camera set to lon=" + lon + " lat=" + lat + " alt=" + alt + "m zoom=" + zoom);
                 } 
                 else if(child.nodeName === 'Placemark') { // Can move this later to a selectable section TBD
@@ -718,9 +704,9 @@ App4SeaKML = (function () {
                     newId = addChild(getName(child.children, child.nodeName), child.innerHTML, $('#TreeMenu'), id, false, 'icons/overlay.png');
                     addOverlay(child, newId);
                     
-                    var href = "";
-                    for(var hind=0; hind<child.children.length; hind++){
-                        var str = child.children[hind].localName;
+                    let href = "";
+                    for(let hind=0; hind<child.children.length; hind++){
+                        let str = child.children[hind].localName;
                         str = str.substr(0, 4);
                         if (str === 'Icon' && child.children[hind].children && child.children[hind].children.length > 0) {
                             href = child.children[hind].children[0].innerHTML;
@@ -799,8 +785,8 @@ App4SeaKML = (function () {
                 }
                 
                 if (child.children && child.children.length > 0) {
-                    var predecessors = [];
-                    var par = child.parentNode;
+                    let predecessors = [];
+                    let par = child.parentNode;
                     while (par) {
                         predecessors.push(par);
                         par = par.parentNode;
@@ -809,6 +795,8 @@ App4SeaKML = (function () {
                         listChildren(newId, child.children);
                 }
             };
+
+            if (App4Sea.logging) console.log("The count is  " + children.length);
         }
         
         if (kml) {
@@ -818,7 +806,7 @@ App4SeaKML = (function () {
                 App4Sea.Animation.Animate(path, title);
         }
         
-        var files = Array.prototype.slice.call(links).map(function (el) {
+        let files = Array.prototype.slice.call(links).map(function (el) {
             return el.textContent;
         });
 
@@ -836,3 +824,4 @@ App4SeaKML = (function () {
     return my;
     
 }());
+App4Sea.KML = App4SeaKML;

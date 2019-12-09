@@ -3,7 +3,10 @@
  *
  * ==========================================================================*/
 
- App4SeaTreeInfo = (function () {
+import { App4Sea } from './App4Sea.js';
+
+
+let App4SeaTreeInfo = (function () {
     "use strict";
     
     let my = {};
@@ -57,7 +60,7 @@
                 // @ts-ignore
                 // @ts-ignore
                 return function (data, status, jqXHR) {
-                    for (var i_success = 0; i_success < data.length; i_success++){
+                    for (let i_success = 0; i_success < data.length; i_success++){
                         let thisNode = data[i_success]; 
                         let children = thisNode.children;
                         thisNode.children = false;// Must be set to false as wwe are loading acync (sic!)

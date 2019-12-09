@@ -3,7 +3,10 @@
  *
  * ==========================================================================*/
 
-App4SeaAnimation = (function () {
+import { App4Sea } from './App4Sea.js';
+
+
+let App4SeaAnimation = (function () {
     "use strict";
     let my = {};
 
@@ -14,12 +17,20 @@ App4SeaAnimation = (function () {
             TryStop();
         state = "Stopped";
 
-        let ext = url.substr(url.length - 3, 3);
-        if (ext !== 'kml' && ext !== 'kmz') {
+        if (App4Sea.logging) console.log('Now animating ' + url);
+        if (App4Sea.logging) console.log('   with title ' + name);
+
+        let ext = url.substr(url.length - 3, 3).toLowerCase();
+        if (ext !== 'kml' && ext !== 'kmz' && ext !== 'wms') {
             return;
         }
 
         count = my.AniData[golLink].length;
+
+        if (count < 2) {
+            return;
+        }
+
         let selector = document.getElementById('AniDataSelect');
 
         for (let i=0; i<selector.length; i++){
@@ -33,26 +44,131 @@ App4SeaAnimation = (function () {
         selector.value = name;
     };
 
+    ////////////////////////////////////////////////////////////////////////////
+    // aniDataForGroundOverlay
+    my.aniDataForGroundOverlay = function (oDOM) {
+        // Collect data for animation of GrounOverlay
+        let canAnimate = false;
+        let gol = oDOM.querySelectorAll('GroundOverlay > Icon > href');
+        let golw = []; // when
+        let golb = []; // begin
+        let gole = []; // end
+        let goll = []; // layerID
+        let golw_ = []; // when NodeListOf<Element>
+        let golb_ = []; // begin NodeListOf<Element>
+        let gole_ = []; // end NodeListOf<Element>
+        if (gol.length > 1) {
+            canAnimate = true;
+            golw = oDOM.querySelectorAll('GroundOverlay > TimeStamp > when');
+            if (golw.length === 0) {
+                golb_ = oDOM.querySelectorAll('GroundOverlay > TimeSpan > begin');
+                gole_ = oDOM.querySelectorAll('GroundOverlay > TimeSpan > end');
+                for (let ind = 0; ind < golb_.length; ind++) {
+                    golb.push(golb_[ind].innerHTML);
+                    gole.push(gole_[ind].innerHTML);
+                }
+                golw_ = [];
+            }
+            else {
+                for (let ind = 0; ind < golw_.length; ind++) {
+                    golw.push(golw_[ind].innerHTML);
+                }
+                golb = [];
+                gole = [];
+            }
+            
+            my.AniData = [gol, golw, golb, gole, goll];
+        }
+        else
+            my.AniData = [null, null, null, null, null];
+
+        return [canAnimate, gol, goll];
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    // aniDataForWMS
+    my.aniDataForWMS = function (url, stepHours, count) {
+        // Collect data for animation of WMS
+        let canAnimate = false;
+        let [gol, golw, golb, gole, goll] = getWMSlist(url, stepHours, count);
+        if (gol.length > 1) {
+            canAnimate = true;            
+            my.AniData = [gol, golw, golb, gole, goll];
+        }
+        else
+            my.AniData = [null, null, null, null, null];
+
+        return [canAnimate, gol, golb, goll];
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    // http://halo-wms.met.no/halo/default.map?service=WMS&version=1.3.0&REQUEST=GetMap&LAYERS=sea_significant_wave_height&FORMAT=image%2Fpng
+    // &STYLES=&CRS=EPSG:4326&BBOX=-180,-90,180,90&WIDTH=512&HEIGHT=512&TIME=2019-12-05T07:00Z
+    // getWMSlist
+    function getWMSlist(url, stepHours, count) {
+        let gol = [];
+        let golw = []; // when NodeListOf<Element>
+        let golb = []; // begin
+        let gole = []; // end
+        let goll = []; // layerID
+
+        let date = new Date();
+        let hours = date.getHours();
+        hours = hours - (hours % stepHours);
+        date.setMinutes(0);
+        date.setSeconds(0);
+        //date.setMilliseconds(0);
+        for (let ind = 0; ind < count; ind++) {
+            let dateB = new Date(date.toString());
+            dateB.setHours(hours);
+            let dateStringB = dateB.toISOString();
+            dateStringB = dateStringB.substring(0, dateStringB.length-5);
+            golb.push(dateStringB);
+
+            golw.push(dateStringB);
+            let newUrl = url + '&TIME=' + dateStringB.substring(0, dateStringB.length-3) + 'Z';
+            gol.push(newUrl);
+            goll.push(ind.toString()); // temporary index
+            hours += stepHours;
+            
+            let dateE = new Date(date.toString());
+            dateE.setHours(hours);
+            let dateStringE = dateE.toISOString();
+            dateStringE = dateStringE.substring(0, dateStringE.length-5);
+            gole.push(dateStringE);
+        }
+
+        return [gol, golw, golb, gole, goll];
+    }
+
+    ////////////////////////////////////////////////////////////////////////////
+    // getAnimationState
     my.getAnimationState = function () {
         return state;
     }
 
+    ////////////////////////////////////////////////////////////////////////////
+    // initInfo
     function initInfo() {
+        let cut = 8;
+
         let el = document.getElementById('start');
-        el.innerHTML = startDate.substr(startDate.length - 8, 8);
+        el.innerHTML = startDate.substr(startDate.length - cut, cut);
         el = document.getElementById('current');
-        el.innerHTML = currentDate.substr(currentDate.length - 8, 8);
+        el.innerHTML = currentDate.substr(currentDate.length - cut, cut);
         el = document.getElementById('end');
-        el.innerHTML = endDate.substr(endDate.length - 8, 8);
+        el.innerHTML = endDate.substr(endDate.length - cut, cut);
 
         el = document.getElementById('startDate');
-        el.innerHTML = startDate.substr(0, 10);
+        el.innerHTML = startDate.substr(0, cut+2);
         el = document.getElementById('currentDate');
-        el.innerHTML = currentDate.substr(0, 10);
+        el.innerHTML = currentDate.substr(0, cut+2);
         el = document.getElementById('endDate');
-        el.innerHTML = endDate.substr(0, 10);
+        el.innerHTML = endDate.substr(0, cut+2);
     };
 
+    ////////////////////////////////////////////////////////////////////////////
+    // updateInfo
     function updateInfo() {
         // Updage time stamps
         let el = document.getElementById('current');
@@ -64,7 +180,7 @@ App4SeaAnimation = (function () {
         el = document.getElementById('currentDate');
         el.innerHTML =  currentDate.substr(0, 10);                        
         let layerid = my.AniData[golLayerID][anindex];
-        let lind = findLayerIndex(layerid);
+//        let lind = findLayerIndex(layerid);
         let remember = 1;
 
         //if (App4Sea.logging) console.log(my.AniData[golLink][anindex]);           
@@ -83,7 +199,7 @@ App4SeaAnimation = (function () {
         App4Sea.TreeMenu.Checkbox(layerid, false);
 
         // Update progress
-        progress.value = anindex * 100 / count;
+        progress.value = anindex * 100 / (count - 1);
 
         // Next id
         anindex = anindex + 1;
@@ -91,6 +207,8 @@ App4SeaAnimation = (function () {
             anindex = 0;
     };
 
+    ////////////////////////////////////////////////////////////////////////////
+    // findLayerIndex
     function findLayerIndex(lind){
         for (let ynd=0; ynd<App4Sea.OpenLayers.layers.length; ynd++){
             let item = App4Sea.OpenLayers.layers[ynd];
@@ -102,6 +220,8 @@ App4SeaAnimation = (function () {
         return -1;
     };
 
+    ////////////////////////////////////////////////////////////////////////////
+    // timeElapsed
     function timeElapsed() {
         if (state !== "Playing") {
             TryStop();
@@ -116,16 +236,17 @@ App4SeaAnimation = (function () {
         }
 
         if (my.AniData[golWhen].length !== 0) {
-            currentDate = my.AniData[golWhen][anindex].innerHTML;
+            currentDate = my.AniData[golWhen][anindex];
         }
         else {
-            currentDate = my.AniData[golBegin][anindex].innerHTML;
+            currentDate = my.AniData[golBegin][anindex];
         }
 
         updateInfo();
     };
 
     ////////////////////////////////////////////////////////////////////////////
+    // MoreSpeed
     my.MoreSpeed = function () {
         if (frameRate < 30.01) {
             frameRate = frameRate + 1;
@@ -138,6 +259,7 @@ App4SeaAnimation = (function () {
     };
 
     ////////////////////////////////////////////////////////////////////////////
+    // LessSpeed
     my.LessSpeed = function () {
         if (frameRate > 1.99) {
             frameRate = frameRate - 1;
@@ -149,6 +271,8 @@ App4SeaAnimation = (function () {
         }
     };
 
+    ////////////////////////////////////////////////////////////////////////////
+    // PlayStop
     // Statuses Events++
     // ------------------------------------------------------------
     // Stopped  Play, New Data, Error, Refresh, +++ (Possibly Play)
@@ -184,6 +308,8 @@ App4SeaAnimation = (function () {
         }
     };
 
+    ////////////////////////////////////////////////////////////////////////////
+    // Prepare
     let Prepare = function () {
         if (count !== 0) {
             // Turn off all the layer images
@@ -192,12 +318,12 @@ App4SeaAnimation = (function () {
             }
 
             if (my.AniData[golWhen].length !== 0) {
-                startDate = my.AniData[golWhen][0].innerHTML;
-                endDate = my.AniData[golWhen][my.AniData[1].length-1].innerHTML;
+                startDate = my.AniData[golWhen][0];
+                endDate = my.AniData[golWhen][my.AniData[1].length-1];
             }
             else {
-                startDate = my.AniData[golBegin][0].innerHTML;
-                endDate = my.AniData[golEnd][my.AniData[golEnd].length-1].innerHTML;
+                startDate = my.AniData[golBegin][0];
+                endDate = my.AniData[golEnd][my.AniData[golEnd].length-1];
             }
             currentDate = startDate;
 
@@ -205,6 +331,8 @@ App4SeaAnimation = (function () {
         }
     };
 
+    ////////////////////////////////////////////////////////////////////////////
+    // TryStop
     let TryStop = function () {            
         state = "Stopping";
 
@@ -218,6 +346,8 @@ App4SeaAnimation = (function () {
         playstop.classList.add('fa-play');
     };
 
+    ////////////////////////////////////////////////////////////////////////////
+    // Progress
     my.Progress = function () {
         if (count === undefined)
             return;

@@ -395,71 +395,26 @@ h6 {
     text-align: right;
 }
 
-/* Tooltip container */
-.tooltip {
-    padding:0.3em;
-    position: relative;
-    display: inline-block;
-}
 
-/* Tooltip text */
-.tooltip .tooltiptext {
-    visibility: hidden;
-    width: 240px;
-    background-color: #555;
-    color: #fff;
-    text-align: center;
-    padding: 5px 0;
-    border-radius: 6px;
-
-    /* Position the tooltip text */
-    position: absolute;
-    z-index: 1;
-    bottom: 125%;
-    left: 50%;
-    margin-left: -60px;
-
-    /* Fade in tooltip */
-    opacity: 0;
-    transition: opacity 0.3s;
-}
-
-/* Tooltip arrow */
-.tooltip .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: #555 transparent transparent transparent;
-}
-
-/* Show the tooltip text when you mouse over the tooltip container */
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
-}
-
-/********************************************************************************************************/
-
-/* Tooltip */
 #ToolTipInfo {
   position: absolute;
   height: 1px;
   width: 1px;
   z-index: 100;
 }
-.tooltip.in {
-  opacity: 1;
-  filter: alpha(opacity=100);
-}
-.tooltip.top .tooltip-arrow {
-  border-top-color: white;
+
+.tooltip {
+    padding:0.3em;
+    position: relative;
+    display: inline-block;
+    background-color: #404040;
 }
 .tooltip-inner {
-  border: 2px solid white;
+    padding:0.3em;
+    border: 2px solid white;
+    position: relative;
+    display: inline-block;
+    color: #fff;
 }
 
 /* Splash window */
@@ -521,22 +476,29 @@ h6 {
 #overlayLegend{
   z-index:100;
   position: absolute;
-  top: 5px;
+  /*top: 5px;
   width: 80%;
-  text-align: -webkit-center;
+  text-align: -webkit-center;*/
 } 
 
 .overlayLegend-content { 
+/*  position: absolute;
   margin-right: -50%;
   transform: translate(-50%,0);
-  position: absolute;
   left: 62.5%;
   max-width: 400px;
   background-color: snow;
+  overflow: auto;*/
 }
 
 .imgLegend {
-  max-width: 100%;
+  /*max-width: 100%;*/
+}
+
+.legendTitle {
+  color: steelblue;
+  font-weight: 600;
+  margin: 0;
 }
 
 .InfoImage {
@@ -688,39 +650,6 @@ input[type=range]:focus::-ms-fill-upper {
     padding: 5px;
     clear: both;
 }
-
-.tooltip {
-  position: relative;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 4px;
-  color: white;
-  padding: 4px 8px;
-  opacity: 0.7;
-  white-space: nowrap;
-}
-.tooltip-measure {
-  opacity: 1;
-  font-weight: bold;
-}
-.tooltip-static {
-  background-color: #ffcc33;
-  color: black;
-  border: 1px solid white;
-}
-.tooltip-measure:before,
-.tooltip-static:before {
-  border-top: 6px solid rgba(0, 0, 0, 0.5);
-  border-right: 6px solid transparent;
-  border-left: 6px solid transparent;
-  content: "";
-  position: absolute;
-  bottom: -6px;
-  margin-left: -7px;
-  left: 50%;
-}
-.tooltip-static:before {
-  border-top-color: #ffcc33;
-}  
 
 .btn {
   color: gray;

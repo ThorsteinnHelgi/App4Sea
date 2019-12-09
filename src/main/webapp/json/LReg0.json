@@ -1,4 +1,4 @@
 [
-    { "id" : "LReg0_1", "parent" : "LReg0", "text" : "NPA", "children" : false, "a_attr" : { "path" : "data/NPA.kmz"} },
+    { "id" : "LReg0_1", "parent" : "LReg0", "text" : "Northern Periphery Aare", "children" : false, "a_attr" : { "path" : "data/NPA.kmz"} },
     { "id" : "LReg0_8", "parent" : "LReg0", "text" : "EEZ Marine Boundaries NPA (kml)", "children" : false, "a_attr" : { "path" : "data/eez_boundaries_v10 NPA.kmz"} }
 ]

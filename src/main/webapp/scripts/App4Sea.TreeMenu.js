@@ -3,7 +3,10 @@
  *
  * ==========================================================================*/
 
-App4SeaTreeMenu = (function () {
+import { App4Sea } from './App4Sea.js';
+
+
+let App4SeaTreeMenu = (function () {
     "use strict";
 
     let my = {};
@@ -33,7 +36,7 @@ App4SeaTreeMenu = (function () {
         function setTree(treeData) {
             $('#TreeMenu').jstree({
                 'checkbox': {
-                    'keep_selected_style': false
+                    'keep_selected_style': true
                     ,'real_checkboxes': true
                  },
                 'plugins' : ['checkbox', 'context'],
@@ -64,7 +67,7 @@ App4SeaTreeMenu = (function () {
                 
             function onSuccess(parent_node, fnSetTree, fnGetFileName, ourFilename, ourJSONdata) {
                 return function (data, status, jqXHR) {
-                    for (var i_success = 0; i_success < data.length; i_success++){
+                    for (let i_success = 0; i_success < data.length; i_success++){
                         let thisNode = data[i_success]; 
                         let children = thisNode.children;
                         thisNode.children = false;// Must be set to false as wwe are loading acync (sic!)
@@ -126,7 +129,7 @@ App4SeaTreeMenu = (function () {
             if (typeof data.node === 'undefined')
                 return;
 
-            var node = $(this).jstree('get_node', data.node.id);
+            let node = $(this).jstree('get_node', data.node.id);
 
             // Remove overlay
             hideMetadata();
@@ -134,15 +137,15 @@ App4SeaTreeMenu = (function () {
             // We add nodes based on the nodes selected, not the node(S) that come in data
 
             // Remove layer if not in the list of selected nodes
-            for (var lind = 0; lind < App4Sea.OpenLayers.layers.length; lind++)
+            for (let lind = 0; lind < App4Sea.OpenLayers.layers.length; lind++)
             {
                 // Check if layer is active
-                var activeLayers = App4Sea.OpenLayers.Map.getLayers();
-                var ol_uid = App4Sea.OpenLayers.layers[lind].vector.ol_uid;
-                var activeIndex = App4Sea.Utils.alreadyActive(ol_uid, activeLayers);
+                let activeLayers = App4Sea.OpenLayers.Map.getLayers();
+                let ol_uid = App4Sea.OpenLayers.layers[lind].vector.ol_uid;
+                let activeIndex = App4Sea.Utils.alreadyActive(ol_uid, activeLayers);
 
-                var isSel = false;
-                for (var sind = 0; sind < data.selected.length; sind++) {
+                let isSel = false;
+                for (let sind = 0; sind < data.selected.length; sind++) {
                     if (data.selected[sind] === App4Sea.OpenLayers.layers[lind].id) {
                         isSel = true;
                         break;
@@ -161,24 +164,24 @@ App4SeaTreeMenu = (function () {
                 }
             }
             else if (node.text === 'Legend'){
-                // if (node.state.selected) {
-                //     showMetadata(node.text, node.id, node.data);
-                // }
+                if (node.state.selected) {
+                    showMetadata(node.text, node.id, node.data);
+                }
             }
 
             // Add layer
-            for (var ind = 0; ind < data.selected.length; ind++) {
-                var nod = $(this).jstree('get_node', data.selected[ind]);
+            for (let ind = 0; ind < data.selected.length; ind++) {
+                let nod = $(this).jstree('get_node', data.selected[ind]);
                 
                 //Check if layer exists in cache
-                var index = App4Sea.Utils.alreadyLayer(nod.id, App4Sea.OpenLayers.layers);
+                let index = App4Sea.Utils.alreadyLayer(nod.id, App4Sea.OpenLayers.layers);
 
                 if (index !== -1) {// Layer exists in cache
                     
                     // Check if layer is active
-                    var activeLayers = App4Sea.OpenLayers.Map.getLayers();
-                    var ol_uid = App4Sea.OpenLayers.layers[index].vector.ol_uid;
-                    var activeIndex = App4Sea.Utils.alreadyActive(ol_uid, activeLayers);
+                    let activeLayers = App4Sea.OpenLayers.Map.getLayers();
+                    let ol_uid = App4Sea.OpenLayers.layers[index].vector.ol_uid;
+                    let activeIndex = App4Sea.Utils.alreadyActive(ol_uid, activeLayers);
                    
                     // Activate if not active
                     if (activeIndex === -1) {// Layer is not active
@@ -253,7 +256,7 @@ App4SeaTreeMenu = (function () {
                                 proj = parts.searchObject.crs;
                                 isSRS = false;
                                 // CRS: S W N E
-                                imageExtent = [50, -10, 70, 10]; // WSEN Defaut location for immages that do not tell about themselves.
+                                imageExtent = [50, -10, 70, 10]; // SWNE Defaut location for immages that do not tell about themselves.
                                 if (App4Sea.logging) console.log("This is using CRS");
                             }
                             else if (parts.searchObject.srs !== undefined) {
@@ -261,6 +264,9 @@ App4SeaTreeMenu = (function () {
                                 // SRS: W S E N
                             }
                             if (App4Sea.logging) console.log("Now handling a " + ext + " file with projection:  " + proj);
+                            if (wms) {
+                                if (App4Sea.logging) console.log("This is a WMS file");
+                            }
                             
                             let ourProj = App4Sea.prefProj;
                             
@@ -299,22 +305,59 @@ App4SeaTreeMenu = (function () {
                             if (wid === null || wid !== wid) 
                                 wid = 512; // Default value for images that do not tell about themselves or have attributes in json
                             if (App4Sea.logging) console.log("Height and width are " + [hei, wid]);
-                           
-                            let vect = App4Sea.Utils.loadImage(nod, ourProj, imageExtent, true, path, nod.id, nod.text, "",
-                                wid, hei, nod.a_attr.start, wms, center);
 
-                            App4Sea.OpenLayers.layers.push({"id": nod.id, "vector" : vect});
+                            if (tool === "animation") {
+                                let count = 12;
+                                if (nod.a_attr.count) 
+                                    count = parseFloat(nod.a_attr.count);
+                                if (count === null || count != count) 
+                                    count = 12;
 
-                            if (App4Sea.logging) console.log("Cached layers now are " + App4Sea.OpenLayers.layers.length);
+                                let step = 1;
+                                if (nod.a_attr.step) 
+                                    step = parseFloat(nod.a_attr.step);
+                                if (step === null || step != step) 
+                                    step = 1;
+    
+                                const [canAnimate, gol, golb, goll] = App4Sea.Animation.aniDataForWMS(path, step, count);
 
-                            App4Sea.OpenLayers.Map.addLayer(vect);
-                            App4Sea.Utils.LookAt(vect);
+                                for (let aind = 0; aind < gol.length; aind++) {
+                                    let vect = App4Sea.Utils.loadImage(nod, ourProj, imageExtent, true, gol[aind],
+                                        nod.id, nod.text, nod.text, isSRS, 
+                                        wid, hei, nod.a_attr.start, wms, center);
+    
+                                    let newId = addChild(golb[aind], gol[aind], $('#TreeMenu'), nod.id, false, 'icons/overlay.png');
+                                    goll[aind] = newId;
+
+                                    App4Sea.OpenLayers.layers.push({"id": newId, "vector" : vect});
+    
+                                    if (App4Sea.logging) console.log("Cached layers now are " + App4Sea.OpenLayers.layers.length);
+    
+                                    App4Sea.OpenLayers.Map.addLayer(vect);
+                                    if (aind === 0) {
+                                        App4Sea.Utils.LookAt(vect);
+                                    }
+                                }
+
+                                if (canAnimate)
+                                    App4Sea.Animation.Animate(path, nod.text);
+
+                            } else {
+                                let vect = App4Sea.Utils.loadImage(nod, ourProj, imageExtent, true, path,
+                                    nod.id, nod.text, nod.text, isSRS, 
+                                    wid, hei, nod.a_attr.start, wms, center);
+
+                                App4Sea.OpenLayers.layers.push({"id": nod.id, "vector" : vect});
+
+                                if (App4Sea.logging) console.log("Cached layers now are " + App4Sea.OpenLayers.layers.length);
+
+                                App4Sea.OpenLayers.Map.addLayer(vect);
+                                App4Sea.Utils.LookAt(vect);
+                            }                           
                         }
                     }
                     else {// Including kmz and kml
                         if (index === -1){
-                            //if (App4Sea.KML.loadKmlKmz === 'undefined')
-                                App4Sea.KML = App4SeaKML;
                             App4Sea.KML.loadKmlKmz(path, nod.id, nod.text);
                         }
                     }
@@ -323,6 +366,20 @@ App4SeaTreeMenu = (function () {
         });
     };
    
+    ////////////////////////////////////////////////////////////////////////////
+    // addChild to the menu tree (jstree)
+    // returns the new id for the node in the tree (format example: j1_4)
+    function addChild (text, data, tree, parNode, disabled, icon) {
+        let dis = disabled;
+        if (!App4Sea.disableSubItems)
+            dis = false;
+        let newNode = { state: {"closed" : true, "checkbox_disabled" : false, "disabled" : dis}, 
+            icon: icon, text: text, data: data, selected: true, children : false };
+        let retVal = tree.jstree(true).create_node(parNode, newNode, 'last', false, false); //[par, node, pos, callback, is_loaded]
+        //if (App4Sea.logging) console.log("Adding " + text + " to tree under " + parNode + " returned " + retVal);
+        return retVal;
+    }
+
     //////////////////////////////////////////////////////////////////////////
     // Checkbox to check or uncheck item in tree
     my.Checkbox = function(layerid, on) {
@@ -357,7 +414,7 @@ App4SeaTreeMenu = (function () {
     ////////////////////////////////////////////////////////////////////////////
     // hideMetadata
     function hideMetadata() {
-        var elem = App4Sea.OpenLayers.descriptionContainer;
+        let elem = App4Sea.OpenLayers.descriptionContainer;
         elem.innerHTML = "";
     }
     
