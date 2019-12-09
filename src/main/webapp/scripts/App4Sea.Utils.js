@@ -5,7 +5,7 @@
 
 import { App4Sea } from './App4Sea.js';
 
-// @ts-check
+
 export let App4SeaUtils = (function () {
     "use strict";
     let my = {};
@@ -440,7 +440,7 @@ export let App4SeaUtils = (function () {
 
     ////////////////////////////////////////////////////////////////////////////
     // load an image
-    my.loadImage = function (node, proj, imageExtent, flag, url, id, text, layers, width, height, start, wms, center) {
+    my.loadImage = function (node, proj, imageExtent, flag, url, id, text, layers, isSRS, width, height, start, wms, center) {
         url = url.replaceAll(/&amp;/, '&');
 
         if (App4Sea.logging) console.log("loadImage: " + url);
@@ -459,28 +459,56 @@ export let App4SeaUtils = (function () {
         if (App4Sea.logging) console.log("loadImage proj: " + proj);
         if (App4Sea.logging) console.log("loadImage imageExtent: " + imageExtent);
 
+        // http://halo-wms.met.no/halo/default.map?service=WMS&REQUEST=GetCapabilities&VERSION=1.3.0
         let theSource;
         if (wms) {
-             theSource = new ol.source.ImageWMS({
-                url: url,
+            let parts = App4Sea.Utils.parseURL(url.toLowerCase());
+            let bbox = parts.searchObject.bbox;
+            let service = parts.searchObject.service;
+            let layers = parts.searchObject.layers;
+            let version = parts.searchObject.version;
+            let time = parts.searchObject.time;
+            let format = parts.searchObject.format;
+            let request = parts.searchObject.request;
+            let crs = parts.searchObject.crs;
+            let srs = parts.searchObject.srs;
+            let style = parts.searchObject.style;
+
+            let port = '';
+            if (parts.port.length > 0) {
+                port = ':' + parts.port;
+            }
+            let path = parts.protocol + '//' + parts.host + port + parts.pathname;
+
+            if (crs) crs = decodeURIComponent(crs);
+            if (srs) srs = decodeURIComponent(srs);
+            if (format) format = decodeURIComponent(format);
+            if (proj) proj = decodeURIComponent(proj);
+            if (time) time = decodeURIComponent(time); time = time.toUpperCase();
+
+            theSource = new ol.source.ImageWMS({
+                url: path,
                 imageExtent: imageExtent,
                 crossOrigin: 'anonymous',
-                params: {'A4Sextent' : imageExtent, 'A4Sproj' : proj, 'A4Slocation' : center},
+                params: {
+                    'SERVICE' : service,
+                    'LAYERS' : layers,
+                    'VERSION' : version,
+                    'CRS' : crs,
+                    'SRS' : srs,
+                    'HEIGHT' : height,
+                    'WIDTH' : width,
+                    'BBOX' : bbox,
+                    'TIME' : time,
+                    'REQUEST' : request,
+                    'FORMAT' : format,
+                    'STYLE' : style,
+                    'A4Sextent' : imageExtent, 
+                    'A4Sproj' : proj,
+                    'A4Slocation' : center
+                },
                 ratio: 1
-                //serverType: 'geoserver'
             });
-            /*
-            source: new ol.source.ImageWMS({
-                url: "http://halo-wms.met.no/halo/default.map?service=wms",
-                crossOrigin: 'anonymous',
-                params: {   "LAYERS": "sea_significant_wave_height",
-                    "FORMAT": "image/png",
-                    "CRS": "EPSG:4326",
-                    "BBOX": "-180,-90,180,90",
-                    "WIDTH": "512",
-                    "HEIGHT": "512"}
-            })
-                         */
         } else {
             theSource = new ol.source.ImageStatic({
                 url: url,
@@ -489,7 +517,6 @@ export let App4SeaUtils = (function () {
                 crossOrigin: 'anonymous'
             });
         }
-
 
         let image = new ol.layer.Image({
             name: nameIs,
@@ -1103,7 +1130,7 @@ export let App4SeaUtils = (function () {
         mouseup
         click    
      */
-    let dragElement = function (elmnt) {
+    my.dragElement = function (elmnt) {
         let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
 
         elmnt.addEventListener(
@@ -1130,16 +1157,37 @@ export let App4SeaUtils = (function () {
 
         //if (App4Sea.logging) console.log('Have added drag listeners');
 
+        function isDragTarget(e) {
+            let retVal = false;
+
+            let isDragableLegend = function (e) {
+                let parent = e.target.parentElement;
+                while (parent) {
+                    if (parent.id === 'tableLegend') {
+                        return true;
+                    }
+                    parent = parent.parentElement;
+                }
+                return false;
+            }
+
+            if (e.target.id === 'DragHandle' || isDragableLegend(e)) {
+                retVal = true;
+            }
+
+            return retVal;
+        }
+
         function touchstart(e) {
             e = e || window.event;
 
             //if (App4Sea.logging) console.log('touchstart: ' + e.target.id);
 
-            if (e.target.id === 'DragHandle')
+            if (isDragTarget(e))
             {
                 e.preventDefault();
 
-                //if (App4Sea.logging) console.log('X : ' + e.clientX + ', Y: ' + e.clientY);
+                if (App4Sea.logging) console.log('Start at X : ' + e.clientX + ', Y: ' + e.clientY);
 
                 // get the mouse cursor position at startup:
                 let pos = getPosition(e);
@@ -1153,7 +1201,9 @@ export let App4SeaUtils = (function () {
 
             //if (App4Sea.logging) console.log('touchmove: ' + e.target.id);
 
-            if (e.target.id === 'DragHandle') {
+            if (isDragTarget(e)) {
+                if (App4Sea.logging) console.log('Move at X : ' + e.clientX + ', Y: ' + e.clientY);
+
                 e.preventDefault();
 
                 elementDrag(e);
@@ -1165,7 +1215,9 @@ export let App4SeaUtils = (function () {
 
             //if (App4Sea.logging) console.log('touchend: ' + e.target.id);
 
-            if (e.target.id === 'DragHandle') {
+            if (isDragTarget(e)) {
+                if (App4Sea.logging) console.log('End at X : ' + e.clientX + ', Y: ' + e.clientY);
+
                 e.preventDefault();
             }
         }
@@ -1173,15 +1225,18 @@ export let App4SeaUtils = (function () {
         function dragMouseDown(e) {
             e = e || window.event;
 
-            //if (App4Sea.logging) console.log('dragMouseDown: ' + e.target.id);
+            // if (App4Sea.logging) console.log('dragMouseDown: ' + e.target.id);
 
-            if (e.target.id === 'DragHandle') {
+            if (isDragTarget(e)) {
+                if (App4Sea.logging) console.log('Start at X : ' + e.clientX + ', Y: ' + e.clientY);
+
                 e.preventDefault();
+
                 // get the mouse cursor position at startup:
                 let pos = getPosition(e);
                 pos3 = pos.X;
                 pos4 = pos.Y;
-                document.onmouseup = closeDragElement;
+                document.onmouseup = endDragElement;
                 // call a function whenever the cursor moves:
                 document.onmousemove = elementDrag;
             }
@@ -1190,7 +1245,7 @@ export let App4SeaUtils = (function () {
         function elementDrag(e) {
             e = e || window.event;
             
-            //if (App4Sea.logging) console.log('elementDrag: ' + e.target.id);
+            if (App4Sea.logging) console.log('elementDrag: ' + e.target.id);
             
             e.preventDefault();
 
@@ -1227,11 +1282,11 @@ export let App4SeaUtils = (function () {
             //if (App4Sea.logging) console.log('elementDrag DONE: ' + e.target.id);
         }
 
-        function closeDragElement(e) {
+        function endDragElement(e) {
             e = e || window.event;
 
             // stop moving when mouse button is released:
-            //if (App4Sea.logging) console.log('closeDragElement: ' + e.target.id);
+            if (App4Sea.logging) console.log('endDragElement: ' + e.target.id);
 
             document.onmouseup = null;
             document.onmousemove = null;
@@ -1290,7 +1345,7 @@ export let App4SeaUtils = (function () {
     const navs = document.getElementsByClassName('ol-control');
 
     // Make the DIV element draggable:
-    dragElement(place);
+    my.dragElement(place);
 
     return my;
 

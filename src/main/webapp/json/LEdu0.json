@@ -1,7 +1,7 @@
 [
-    { "id" : "LCrs0", "parent" : "LEdu0", "text" : "Cross origin data",			            "state" : { "opened" : true}, "children" : true, "a_attr" : { "path" : ""} },
-    { "id" : "LExm0", "parent" : "LEdu0", "text" : "Experimental data", 			        "state" : { "opened" : true}, "children" : true, "a_attr" : { "path" : ""} },
-    { "id" : "LGoo0", "parent" : "LEdu0", "text" : "Google sample data", 			        "state" : { "opened" : true}, "children" : true, "a_attr" : { "path" : ""} },
-    { "id" : "LPhy0", "parent" : "LEdu0", "text" : "Physical earth",			            "state" : { "opened" : false}, "children" : true, "a_attr" : { "path" : ""} },
-    { "id" : "LPrj0", "parent" : "LEdu0", "text" : "Project specific data", 			    "state" : { "opened" : false}, "children" : true, "a_attr" : { "path" : ""} }
+    { "id" : "LCrs0", "parent" : "LEdu0", "text" : "Cross origin data",     "state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : ""} },
+    { "id" : "LExm0", "parent" : "LEdu0", "text" : "Experimental data", 	"state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : ""} },
+    { "id" : "LGoo0", "parent" : "LEdu0", "text" : "Google sample data", 	"state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : ""} },
+    { "id" : "LPhy0", "parent" : "LEdu0", "text" : "Physical earth",		"state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : ""} },
+    { "id" : "LPrj0", "parent" : "LEdu0", "text" : "Project specific data", "state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : ""} }
 ]

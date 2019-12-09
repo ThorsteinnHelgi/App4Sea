@@ -5,15 +5,10 @@
 
 //import * as ol from ol; // 'https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js'; // ../static/js/ol.js
 
-//console.log('App4Sea Starting');
-
 //@ts-check
-//export class App4Sea {
 let App4Sea = (function () {
-//(function App4Sea () {
 //    "use strict";
     let my = {};
-
     
     /********************************************
      * OpenStreetMap uses WGS84 (also known as WGS 1984, EPSG:4326). This is our map coordinate system (prefProj)
@@ -31,31 +26,7 @@ let App4Sea = (function () {
      * 
      * https://medium.com/google-design/google-maps-cb0326d165f5
      * ******************************************/
-/*
-    prefProj;
-    prefViewProj
-    mapCenter; 
-    mapExtent;
-    minZoom;
-    maxZoom;
-    startZoom;
-    logging;
-    useIconsInMenu;
-    disableSubItems;
 
-    // Real pointers to objects will be set at the end of the object files
-    Animation;
-    KML;
-    Measure;
-    OpenLayers;
-    PopUps;
-    TreeInfo;
-    TreeMenu;
-    Utils;
-    Weather;
-*/
-
-    //constructor (){
     // Just definition of a few constants
     my.prefProj = 'EPSG:4326'; // EPSG:4326 = WGS84
     my.prefViewProj = 'EPSG:3857'; //Default is EPSG:3857 (Spherical Mercator).
@@ -78,7 +49,6 @@ let App4Sea = (function () {
     my.TreeMenu = {};
     my.Utils = {};
     my.Weather = {};
-    //}
 
     if (my.logging) console.log('Map extent ' + [-180, 90, 180, -90]);
     if (my.logging) console.log('Map extent ' + my.mapExtent);
@@ -86,10 +56,6 @@ let App4Sea = (function () {
 
     return my;    
 }());
-
 export { App4Sea };
-
 $.App4Sea = App4Sea;
-
-//console.log('App4Sea Ending ' + App4Sea.prefProj);
 

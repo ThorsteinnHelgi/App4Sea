@@ -5,7 +5,7 @@
 
 import { App4Sea } from './App4Sea.js';
 
-// @ts-check
+
 let App4SeaPopUps = (function () {
     "use strict";
 
@@ -342,7 +342,7 @@ let App4SeaPopUps = (function () {
         let features = [];
 
         App4Sea.OpenLayers.Map.forEachFeatureAtPixel(evt.pixel, function (feature) {
-            if (App4Sea.logging) console.log('SingleClick for feature: ' + getTitle(feature));
+            if (App4Sea.logging) console.log('SingleClick for feature: ' + my.getTitle(feature));
             features.push(feature);
         });
         
@@ -352,7 +352,7 @@ let App4SeaPopUps = (function () {
         popupTitle.innerHTML = "Select one";
         popupContent.innerHTML = '';
         for (let ind = 0; ind<features.length; ind++) {
-            //if (App4Sea.logging) console.log('SingleClick for feature: ' + getTitle(features[ind]));
+            //if (App4Sea.logging) console.log('SingleClick for feature: ' + my.getTitle(features[ind]));
 
             let popup = popUpFeature(features[ind]);
 
@@ -438,7 +438,7 @@ let App4SeaPopUps = (function () {
             description = App4Sea.PopUps.PopulateTemplate(moreRealTemplate, feature);
         } 
 
-        let title = getTitle(feature);
+        let title = my.getTitle(feature);
 
         if (!title) {
             title = "";
@@ -450,7 +450,7 @@ let App4SeaPopUps = (function () {
         return {'title' : title, 'description' : description};
     }
    
-    function getTitle (feature) {
+    my.getTitle = function (feature) {
         let name = feature.get('name');
         if (!name) {// for vaare norske venner
             name = feature.get('navn');

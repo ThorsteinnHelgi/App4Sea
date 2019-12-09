@@ -5,7 +5,7 @@
 
 import { App4Sea } from './App4Sea.js';
 
-// @ts-check
+
 $(document).ready(function () {
     "use strict";
     if (App4Sea.logging) console.log("Document ready");

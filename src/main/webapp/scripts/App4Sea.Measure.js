@@ -6,7 +6,7 @@
  
 import { App4Sea } from './App4Sea.js';
 
- // @ts-check
+ 
 let App4SeaMeasure = (function () {
     "use strict";
     let my = {};

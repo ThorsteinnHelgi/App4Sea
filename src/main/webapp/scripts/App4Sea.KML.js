@@ -5,14 +5,13 @@
 
 import { App4Sea } from './App4Sea.js';
 
-// @ts-check
+
 let App4SeaKML = (function () {
     "use strict";
     let my = {};
-
     let ynd = 0;
-    
     let title = "";
+
     ////////////////////////////////////////////////////////////////////////////
     // Declare worker scripts path for zip manipulation
     zip.workerScriptsPath = 'static/js/';
@@ -425,38 +424,6 @@ let App4SeaKML = (function () {
     }
 
     ////////////////////////////////////////////////////////////////////////////
-    // aniDataForGroundOverlay
-    my.aniDataForGroundOverlay = function () {
-        // Collect data for animation of GrounOverlay
-        let canAnimate = false;
-        let gol = oDOM.querySelectorAll('GroundOverlay > Icon > href');
-        let golw = []; // when NodeListOf<Element>
-        let golb = []; // begin
-        let gole = []; // end
-        let goll = []; // layerID
-        let count = 0;
-        if (gol.length > 1) {
-            canAnimate = true;
-            golw = oDOM.querySelectorAll('GroundOverlay > TimeStamp > when');
-            if (golw.length === 0) {
-                golb = oDOM.querySelectorAll('GroundOverlay > TimeSpan > begin');
-                gole = oDOM.querySelectorAll('GroundOverlay > TimeSpan > end');
-                golw = [];
-            }
-            else {
-                golb = [];
-                gole = [];
-            }
-            
-            App4Sea.Animation.AniData = [gol, golw, golb, gole, goll];
-        }
-        else
-            App4Sea.Animation.AniData = [null, null, null, null, null];
-
-        return canAnimate;
-    }
-
-    ////////////////////////////////////////////////////////////////////////////
     // Function to parse KML text to get link reference to list any other 
     // nested files (kmz or kml)
     function parseKmlText(path, text, id, entries) {
@@ -467,7 +434,8 @@ let App4SeaKML = (function () {
         let urls = oDOM.querySelectorAll('NetworkLink > Url > href');
         
         // Collect data for animation of GrounOverlay
-        let canAnimate = my.aniDataForGroundOverlay();
+        const [canAnimate, gol, goll] = App4Sea.Animation.aniDataForGroundOverlay(oDOM);
+        let count = 0;
         let kml = oDOM.querySelector('kml');
         
         ////////////////////////////////////////////////////////////////////////////
@@ -482,15 +450,18 @@ let App4SeaKML = (function () {
         ////////////////////////////////////////////////////////////////////////////
         function addLegend (name, url) {
             let tr = document.createElement('tr');
+            tr.style.backgroundColor = 'white';
+            tr.style.position = 'absolute';
+            App4Sea.Utils.dragElement(tr);
 
             tr.name = name;
         
             tr.innerHTML =
-                '<td><img class="imgLegend" src="' + url + '" alt="Legend"/></td>\
-                <td><button class="btn-right" title="Close" onclick="App4Sea.KML.removeRow(this)"><i class="fa fa-close"></i></button></td>';
+                '<td><p class="legendTitle">' + name + '</p><img class="imgLegend" src="' + url + '" alt="Legend"/></td>\
+                <td><button class="btn-right" title="Close" onclick="$.App4Sea.KML.removeRow(this)"><i class="fa fa-close"></i></button></td>';
                 //<img class="imgLegend" src="url" alt="Legend"/>
-                //<button class="btn-right" title="Close" onclick="App4Sea.Utils.w3_close('name')"><i class="fa fa-close"></i></button>
-                //<input type="button" value="x" onclick="App4Sea.KML.removeRow(this)">
+                //<button class="btn-right" title="Close" onclick="$.App4Sea.Utils.w3_close('name')"><i class="fa fa-close"></i></button>
+                //<input type="button" value="x" onclick="$.App4Sea.KML.removeRow(this)">
 
             const leg = document.getElementById("tableLegend");
             leg.appendChild(tr)
@@ -512,7 +483,7 @@ let App4SeaKML = (function () {
                         let kmzurl =  URL.createObjectURL(data);
 
                         if (le) {
-                            addLegend(name, kmzurl);
+                            addLegend(title, kmzurl);
                         }
                         else {
                             let source = new ol.source.ImageStatic({
@@ -589,7 +560,7 @@ let App4SeaKML = (function () {
                         findIn(entries, url, null, null, nameIs, id, true);
                     }
                     else
-                        addLegend(name, url);
+                        addLegend(title, url);
                 }
             }
             //----------------------------------------------------------------------
@@ -721,7 +692,7 @@ let App4SeaKML = (function () {
                     //let view = App4Sea.OpenLayers.Map.getView();
                     //view.setCenter(center);
                     //view.setZoom(zoom);
-
+                    
                     if (App4Sea.logging) console.log("Camera set to lon=" + lon + " lat=" + lat + " alt=" + alt + "m zoom=" + zoom);
                 } 
                 else if(child.nodeName === 'Placemark') { // Can move this later to a selectable section TBD

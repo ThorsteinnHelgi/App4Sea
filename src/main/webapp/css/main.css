@@ -476,22 +476,29 @@ h6 {
 #overlayLegend{
   z-index:100;
   position: absolute;
-  top: 5px;
+  /*top: 5px;
   width: 80%;
-  text-align: -webkit-center;
+  text-align: -webkit-center;*/
 } 
 
 .overlayLegend-content { 
+/*  position: absolute;
   margin-right: -50%;
   transform: translate(-50%,0);
-  position: absolute;
   left: 62.5%;
   max-width: 400px;
   background-color: snow;
+  overflow: auto;*/
 }
 
 .imgLegend {
-  max-width: 100%;
+  /*max-width: 100%;*/
+}
+
+.legendTitle {
+  color: steelblue;
+  font-weight: 600;
+  margin: 0;
 }
 
 .InfoImage {

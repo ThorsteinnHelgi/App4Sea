@@ -261,7 +261,7 @@ let App4SeaOpenLayers = (function () {
             let features = [];
             
             map.forEachFeatureAtPixel(pixel, function (feature, layer) {
-                //if (App4Sea.logging) console.log('displayFeatureInfo for feature: ' + getTitle(feature));
+                //if (App4Sea.logging) console.log('displayFeatureInfo for feature: ' + App4Sea.PopUps.getTitle(feature));
                 features.push(feature);
             });
         
