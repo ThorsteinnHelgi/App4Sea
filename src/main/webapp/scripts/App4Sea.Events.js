@@ -28,12 +28,6 @@ $(window).on("load", function () {
     "use strict";
     if (App4Sea.logging) console.log("Window load");
 
-    setTimeout(function () {
-        if (App4Sea.logging) console.log("setTimeout");
-
-        $("#splash-overlay").fadeOut();
-    }, 2000);
-
     let info = $("#ToolTipInfo");
 
     info.tooltip('hide');
