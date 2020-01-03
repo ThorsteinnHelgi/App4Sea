@@ -1,0 +1,30 @@
+{
+  "name": "app4sea",
+  "version": "1.0.0",
+  "description": "Web app for mobiles for oil spill response information",
+  "private": true,
+  "main": "App4Sea.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arnigeir/App4Sea.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/arnigeir/App4Sea/issues"
+  },
+  "homepage": "https://github.com/arnigeir/App4Sea#readme",
+  "devDependencies": {
+    "html-webpack-plugin": "^3.2.0",
+    "source-map-loader": "^0.2.4",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15"
+  }
+}

@@ -5,7 +5,6 @@
 
 import { App4Sea } from './App4Sea.js';
 
-
 let App4SeaAnimation = (function () {
     "use strict";
     let my = {};
@@ -76,7 +75,7 @@ let App4SeaAnimation = (function () {
                 golb = [];
                 gole = [];
             }
-            
+
             my.AniData = [gol, golw, golb, gole, goll];
         }
         else
@@ -92,7 +91,7 @@ let App4SeaAnimation = (function () {
         let canAnimate = false;
         let [gol, golw, golb, gole, goll] = getWMSlist(url, stepHours, count);
         if (gol.length > 1) {
-            canAnimate = true;            
+            canAnimate = true;
             my.AniData = [gol, golw, golb, gole, goll];
         }
         else
@@ -130,7 +129,7 @@ let App4SeaAnimation = (function () {
             gol.push(newUrl);
             goll.push(ind.toString()); // temporary index
             hours += stepHours;
-            
+
             let dateE = new Date(date.toString());
             dateE.setHours(hours);
             let dateStringE = dateE.toISOString();
@@ -178,12 +177,12 @@ let App4SeaAnimation = (function () {
         el.innerHTML = currentDate.substr(currentDate.length - 8, 8);
 
         el = document.getElementById('currentDate');
-        el.innerHTML =  currentDate.substr(0, 10);                        
+        el.innerHTML =  currentDate.substr(0, 10);
         let layerid = my.AniData[golLayerID][anindex];
 //        let lind = findLayerIndex(layerid);
         let remember = 1;
 
-        //if (App4Sea.logging) console.log(my.AniData[golLink][anindex]);           
+        //if (App4Sea.logging) console.log(my.AniData[golLink][anindex]);
         //if (App4Sea.logging) console.log(layerid);
 
         // Check if layer is active (layer is assumed to exist)
@@ -289,8 +288,8 @@ let App4SeaAnimation = (function () {
         if (isStopped) { // Are stopped shall play
             // Make sure all is stopped before we begin
             TryStop();
-            // Do not set state to Stopped. We are in stopping state: 
-            // Now timer is stopping and icon is ready to play. timerId is null. 
+            // Do not set state to Stopped. We are in stopping state:
+            // Now timer is stopping and icon is ready to play. timerId is null.
 
             // Prepare data while we are in a safe state
             Prepare();
@@ -301,7 +300,7 @@ let App4SeaAnimation = (function () {
             // StartTimer
             timerId = window.setInterval(timeElapsed, 1000 / frameRate);
             state = "Playing";
-        } 
+        }
         else { // Are playing, shall stop
             TryStop();
             state = "Stopped";
@@ -333,7 +332,7 @@ let App4SeaAnimation = (function () {
 
     ////////////////////////////////////////////////////////////////////////////
     // TryStop
-    let TryStop = function () {            
+    let TryStop = function () {
         state = "Stopping";
 
         // StopTimer
@@ -351,16 +350,16 @@ let App4SeaAnimation = (function () {
     my.Progress = function () {
         if (count === undefined)
             return;
-        anindex = parseInt( 0.5 + progress.value * count /100 ); 
+        anindex = parseInt( 0.5 + progress.value * count /100 );
         TryStop();
         state = "Stopped";
-        Prepare();            
-        updateInfo(); 
+        Prepare();
+        updateInfo();
     };
-    
+
     //////////////////////////////////////////////////////////////////////////
     // Members
-    my.AniData = [[],[],[],[],[]];//[gol, golw, golb, gole, goll]   
+    my.AniData = [[],[],[],[],[]];//[gol, golw, golb, gole, goll]
 
     const golLink = 0;// Ground Overlay Link (index into AniData)
     const golWhen = 1;// when
@@ -376,7 +375,7 @@ let App4SeaAnimation = (function () {
     let frameRate = 1; // frames per second
     let timerId = null;
     let anindex = 0;
-    
+
     const playstop = document.getElementById("playstop");
     const progress = document.getElementById('progress');
     progress.addEventListener('input', my.Progress, false, {passive: true} );
@@ -385,3 +384,4 @@ let App4SeaAnimation = (function () {
     return my;
 }());
 App4Sea.Animation = App4SeaAnimation;
+
