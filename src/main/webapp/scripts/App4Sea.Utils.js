@@ -5,6 +5,9 @@
  * ==========================================================================*/
 
 import { App4Sea } from './App4Sea.js';
+
+import html2canvas from 'html2canvas';
+
 import KML from 'ol/format/KML';
 import Tile from 'ol/layer/Tile';
 import Heatmap from 'ol/layer/Heatmap';
@@ -18,6 +21,7 @@ import Image from 'ol/style/Image';
 import Feature from 'ol/Feature';
 import * as extent from 'ol/extent';
 import * as proj from 'ol/proj';
+import proj4 from 'proj4';
 
 import Point from 'ol/geom/Point';
 import Collection from 'ol/Collection';

@@ -7,6 +7,8 @@
 import { App4Sea } from './App4Sea.js';
 import Overlay from 'ol/Overlay';
 import * as proj from 'ol/proj';
+import jstree from 'jstree';
+import 'jstree/dist/themes/default/style.css';
 
 let App4SeaTreeMenu = (function () {
     "use strict";

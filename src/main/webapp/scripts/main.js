@@ -1,6 +1,14 @@
 /* ==========================================================================
  * (c) 2020 Gaute Hope                      gaute.hope(at)met.no
  * ==========================================================================*/
+
+import $ from 'jquery';
+window.jQuery = $;
+window.$ = $;
+global.$ = $;
+
+import 'bootstrap';
+
 import './App4Sea.js';
 import './App4Sea.Animation.js';
 import './App4Sea.Events.js';
