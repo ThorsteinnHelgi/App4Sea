@@ -1,16 +1,29 @@
 /* ==========================================================================
  * (c) 2018 Þorsteinn Helgi Steinarsson     thorsteinn(at)asverk.is
- * Adaptedrom https://openlayers.org/en/latest/examples/measure.html
- * 
+ *          Gaute Hope                      gaute.hope(at)met.no
+ *
+ * Adapted from https://openlayers.org/en/latest/examples/measure.html
+ *
  * ==========================================================================*/
- 
+
 import { App4Sea } from './App4Sea.js';
 
- 
+import { Polygon, LineString } from 'ol/geom';
+import { Style, Fill, Stroke, Circle } from 'ol/style';
+import { Vector } from 'ol/source';
+import VectorLayer from 'ol/layer/Vector';
+import Overlay from 'ol/Overlay';
+import { Feature } from 'ol';
+import { GPX, GeoJSON, IGC, KML, TopoJSON } from 'ol/format';
+import * as sphere from 'ol/sphere';
+import * as interaction from 'ol/interaction';
+import * as proj from 'ol/proj';
+
+
 let App4SeaMeasure = (function () {
     "use strict";
     let my = {};
-    let tempLayers = []; // array to hold droped layers as they are created   
+    let tempLayers = []; // array to hold droped layers as they are created
 
     ////////////////////////////////////////////////////////////////////////////
     let draw; // global so we can remove it later
@@ -38,10 +51,10 @@ let App4SeaMeasure = (function () {
 
         if (sketch) {
             let geom = (sketch.getGeometry());
-            if (geom instanceof ol.geom.Polygon) {
+            if (geom instanceof Polygon) {
                 helpMsg = continuePolygonMsg;
-            } 
-            else if (geom instanceof ol.geom.LineString) {
+            }
+            else if (geom instanceof LineString) {
                 helpMsg = continueLineMsg;
             }
         }
@@ -57,11 +70,11 @@ let App4SeaMeasure = (function () {
     // @param {module:ol/geom/LineString~LineString} line The line.
     // @return {string} The formatted length.
     let formatLength = function(line) {
-        let length = ol.sphere.getLength(line);
+        let length = sphere.getLength(line);
         let output;
         if (length > 100) {
             output = (Math.round(length / 1000 * 100) / 100) + ' ' + 'km';
-        } 
+        }
         else {
             output = (Math.round(length * 100) / 100) + ' ' + 'm';
         }
@@ -74,11 +87,11 @@ let App4SeaMeasure = (function () {
     // @param {module:ol/geom/Polygon~Polygon} polygon The polygon.
     // @return {string} Formatted area.
     let formatArea = function(polygon) {
-        let area = ol.sphere.getArea(polygon);
+        let area = sphere.getArea(polygon);
         let output;
         if (area > 10000) {
             output = (Math.round(area / 1000000 * 100) / 100) + ' ' + 'km<sup>2</sup>';
-        } 
+        }
         else {
             output = (Math.round(area * 100) / 100) + ' ' + 'm<sup>2</sup>';
         }
@@ -89,16 +102,16 @@ let App4SeaMeasure = (function () {
     ////////////////////////////////////////////////////////////////////////////
     function addInteraction(typ) {
         type = typ;
-        draw = new ol.interaction.Draw({
+        draw = new interaction.Draw({
             source: source,
             type: type,
-            style: new ol.style.Style({
-                fill: new ol.style.Fill({color: 'rgba(255, 55, 55, 0.2)'}),
-                stroke: new ol.style.Stroke({color: 'rgba(0, 0, 0, 0.5)', lineDash: [10, 10], width: 2}),
-                image: new ol.style.Circle({
+            style: new Style({
+                fill: new Fill({color: 'rgba(255, 55, 55, 0.2)'}),
+                stroke: new Stroke({color: 'rgba(0, 0, 0, 0.5)', lineDash: [10, 10], width: 2}),
+                image: new Circle({
                     radius: 5,
-                    stroke: new ol.style.Stroke({color: 'rgba(0, 0, 0, 0.7)'}),
-                    fill: new ol.style.Fill({color: 'rgba(255, 55, 55, 0.2)'})
+                    stroke: new Stroke({color: 'rgba(0, 0, 0, 0.7)'}),
+                    fill: new Fill({color: 'rgba(255, 55, 55, 0.2)'})
                 })
             })
         });
@@ -118,11 +131,11 @@ let App4SeaMeasure = (function () {
                 listener = sketch.getGeometry().on('change', function(evt) {
                     let geom = evt.target;
                     let output;
-                    if (geom instanceof ol.geom.Polygon) {
+                    if (geom instanceof Polygon) {
                         output = formatArea(geom);
                         tooltipCoord = geom.getInteriorPoint().getCoordinates();
-                    } 
-                    else if (geom instanceof ol.geom.LineString) {
+                    }
+                    else if (geom instanceof LineString) {
                         output = formatLength(geom);
                         tooltipCoord = geom.getLastCoordinate();
                     }
@@ -132,7 +145,7 @@ let App4SeaMeasure = (function () {
             }, this
         );
 
-        draw.on('drawend',
+        draw.once('drawend',
             function() {
                 measureTooltipElement.className = 'tooltip tooltip-static';
                 measureTooltip.setOffset([0, -7]);
@@ -142,7 +155,6 @@ let App4SeaMeasure = (function () {
                 // unset tooltip so that a new one can be created
                 measureTooltipElement = null;
                 createMeasureTooltip();
-                ol.Observable.unByKey(listener);
             }, this
         );
     };
@@ -155,7 +167,7 @@ let App4SeaMeasure = (function () {
         }
         helpTooltipElement = document.createElement('div');
         helpTooltipElement.className = 'tooltip hidden';
-        helpTooltip = new ol.Overlay({
+        helpTooltip = new Overlay({
             element: helpTooltipElement,
             offset: [15, 0],
             positioning: 'center-left'
@@ -171,7 +183,7 @@ let App4SeaMeasure = (function () {
         }
         measureTooltipElement = document.createElement('div');
         measureTooltipElement.className = 'tooltip tooltip-measure';
-        measureTooltip = new ol.Overlay({
+        measureTooltip = new Overlay({
             element: measureTooltipElement,
             offset: [0, -30],
             positioning: 'bottom-center'
@@ -244,32 +256,32 @@ let App4SeaMeasure = (function () {
     ////////////////////////////////////////////////////////////////////////////
     // DoAcceptDragAndDrop
     my.DoAcceptDragAndDrop = function() {
-        dragAndDropInteraction = new ol.interaction.DragAndDrop({
+        dragAndDropInteraction = new interaction.DragAndDrop({
             formatConstructors: [
-                ol.format.GPX,
-                ol.format.GeoJSON,
-                ol.format.IGC,
-                ol.format.KML,
-                ol.format.TopoJSON
+                GPX,
+                GeoJSON,
+                IGC,
+                KML,
+                TopoJSON
             ]
         });
 
         dragAndDropInteraction.on('addfeatures', function(event) {
-            let vectorSource = new ol.source.Vector({
+            let vectorSource = new Vector({
                 features: event.features
             });
 
-            let vect = new ol.layer.Vector({source: vectorSource});
+            let vect = new VectorLayer({source: vectorSource});
 
             tempLayers.push(vect);
             App4Sea.OpenLayers.Map.addLayer(vect);
 
             App4Sea.Utils.LookAt(vectorSource);
-        });        
+        });
 
         //let interaction = ol.interaction.defaults ().extend([dragAndDropInteraction])
         App4Sea.OpenLayers.Map.addInteraction(dragAndDropInteraction);
-  
+
     };
 
     ////////////////////////////////////////////////////////////////////////////
@@ -301,25 +313,25 @@ let App4SeaMeasure = (function () {
         vector = null;
         source = null;
     }
-    
+
     ////////////////////////////////////////////////////////////////////////////
     let InitVector = function() {
         App4Sea.OpenLayers.Map.removeLayer(vector);
 
-        source = new ol.source.Vector();
-        vector = new ol.layer.Vector({
+        source = new Vector();
+        vector = new VectorLayer({
             source: source,
-            style: new ol.style.Style({
-                fill: new ol.style.Fill({
+            style: new Style({
+                fill: new Fill({
                     color: 'rgba(255, 55, 55, 0.2)'
                 }),
-                stroke: new ol.style.Stroke({
+                stroke: new Stroke({
                     color: '#ffcc33',
                     width: 2
                 }),
-                image: new ol.style.Circle({
+                image: new Circle({
                     radius: 7,
-                    fill: new ol.style.Fill({
+                    fill: new Fill({
                         color: '#ffcc33'
                     })
                 })
@@ -338,7 +350,7 @@ let App4SeaMeasure = (function () {
         addInteraction(typ);
 
         App4Sea.OpenLayers.Map.on('pointermove', pointerMoveHandler);
-    
+
         App4Sea.OpenLayers.Map.getViewport().addEventListener('mouseout', function() {
             helpTooltipElement.classList.add('hidden');
         }, false, {passive: true});
@@ -359,26 +371,26 @@ let App4SeaMeasure = (function () {
 
     ////////////////////////////////////////////////////////////////////////////
     my.DropMarker = function () {
-        let marker = new ol.Feature({
-            geometry: new ol.geom.Point(
-                ol.proj.fromLonLat([0,50])
+        let marker = new Feature({
+            geometry: new Point(
+                proj.fromLonLat([0,50])
             ),
         });
 
-        let vectorSource = new ol.source.Vector({
+        let vectorSource = new Vector({
             features: [marker]
         });
 
-        let markerVectorLayer = new ol.layer.Vector({
+        let markerVectorLayer = new VectorLayer({
             source: vectorSource,
         });
 
-        App4Sea.OpenLayers.Map.addLayer(markerVectorLayer);    
+        App4Sea.OpenLayers.Map.addLayer(markerVectorLayer);
     }
-    
+
     /****************************************************************************/
-    
+
     return my;
-    
+
 }());
 App4Sea.Measure = App4SeaMeasure;

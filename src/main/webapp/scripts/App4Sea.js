@@ -1,9 +1,10 @@
 /* ==========================================================================
  * (c) 2018 Þorsteinn Helgi Steinarsson     thorsteinn(at)asverk.is
+ *          Gaute Hope                      gaute.hope(at)met.no
  *
  * ==========================================================================*/
 
-//import * as ol from ol; // 'https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js'; // ../static/js/ol.js
+import * as olProj from 'ol/proj';
 
 //@ts-check
 let App4Sea = (function () {
@@ -30,8 +31,8 @@ let App4Sea = (function () {
     // Just definition of a few constants
     my.prefProj = 'EPSG:4326'; // EPSG:4326 = WGS84
     my.prefViewProj = 'EPSG:3857'; //Default is EPSG:3857 (Spherical Mercator).
-    my.mapCenter = ol.proj.transform([-3, 65], my.prefProj, my.prefViewProj);//'EPSG:3857');
-    my.mapExtent = ol.proj.transformExtent([-180, -90, 180, 90], my.prefProj, my.prefViewProj);
+    my.mapCenter = olProj.transform([-3, 65], my.prefProj, my.prefViewProj);//'EPSG:3857');
+    my.mapExtent = olProj.transformExtent([-180, -90, 180, 90], my.prefProj, my.prefViewProj);
     my.minZoom = 2;
     my.maxZoom = 18;
     my.startZoom = 4;

@@ -1,9 +1,14 @@
 /* ==========================================================================
  * (c) 2018 Þorsteinn Helgi Steinarsson     thorsteinn(at)asverk.is
+ *          Gaute Hope                      gaute.hope(at)met.no
  *
  * ==========================================================================*/
 
 import { App4Sea } from './App4Sea.js';
+import Tile from 'ol/layer/Tile';
+import TileGrid from 'ol/tilegrid/TileGrid';
+import XYZ from 'ol/source/XYZ';
+import * as extent from 'ol/extent';
 
 
 let App4SeaWeather = (function () {
@@ -62,7 +67,7 @@ let App4SeaWeather = (function () {
         //let overlayLayerPopUp = initOverlay(popupContainer, popupCloser);
 
         let coordinate = App4Sea.OpenLayers.Map.getView().getCenter();
-        
+
         let description = "<div id='openweathermap-widget-15' style='zoom: 0.8'></div>";
         popupContent.innerHTML = description;
 
@@ -86,21 +91,21 @@ let App4SeaWeather = (function () {
     my.loadWeather = function(url, id) {
         if (App4Sea.logging) console.log("loadWeather: " + id + " from " + url);
 
-        let startResolution = ol.extent.getWidth(App4Sea.mapExtent) / 256 / 4;
+        let startResolution = extent.getWidth(App4Sea.mapExtent) / 256 / 4;
         let resolutions = new Array(App4Sea.maxZoom-App4Sea.minZoom+1);
         for (let i = 0, ii = resolutions.length; i < ii; ++i) {
             resolutions[i] = startResolution / Math.pow(2, i);
         }
-        
-        let tileGrid = new ol.tilegrid.TileGrid({
+
+        let tileGrid = new TileGrid({
             extent: App4Sea.mapExtent,
             origin: [App4Sea.mapExtent[0], App4Sea.mapExtent[1]],
             resolutions: resolutions,
             projection: App4Sea.OpenLayers.prefViewProj,
             tileSize: [256, 256]
         });
-      
-        let weather = new ol.layer.Tile({
+
+        let weather = new Tile({
             name: id,
             preload: 0,
             opacity: 0.8,
@@ -108,13 +113,13 @@ let App4SeaWeather = (function () {
             minResolution: resolutions[resolutions.length-1],
             maxResolution: resolutions[0],
             tileGrid: tileGrid,
-            source: new ol.source.XYZ({
+            source: new XYZ({
                 crossOrigin: 'anonymous',
                 attributions: ['&copy; <a href="https://openweathermap.org/">Open Weather Map</a>'],
                 url: url
             })
         });
-        
+
         return weather;
     };
 

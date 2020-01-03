@@ -1,9 +1,27 @@
 /* ==========================================================================
  * (c) 2018 Þorsteinn Helgi Steinarsson     thorsteinn(at)asverk.is
+ *          Gaute Hope                      gaute.hope(at)met.no
  *
  * ==========================================================================*/
 
 import { App4Sea } from './App4Sea.js';
+import KML from 'ol/format/KML';
+import Tile from 'ol/layer/Tile';
+import Heatmap from 'ol/layer/Heatmap';
+import TileJSON from 'ol/source/TileJSON';
+import Vector from 'ol/source/Vector';
+import Imagefrom from 'ol/source/Image';
+import ImageWMS from 'ol/source/ImageWMS';
+import ImageStatic from 'ol/source/ImageStatic';
+import Style from 'ol/style/Style';
+import Image from 'ol/style/Image';
+import Feature from 'ol/Feature';
+import * as extent from 'ol/extent';
+import * as proj from 'ol/proj';
+
+import Point from 'ol/geom/Point';
+import Collection from 'ol/Collection';
+import Modify from 'ol/interaction/Modify';
 
 
 export let App4SeaUtils = (function () {
@@ -20,19 +38,19 @@ export let App4SeaUtils = (function () {
     ////////////////////////////////////////////////////////////////////////////
     // GetKMLFromFeatures
     my.GetKMLFromFeatures = function(features, name) {
-        let kmlformat = new ol.format.KML({
+        let kmlformat = new KML({
             maxDepth: 10,
             writeStyles: true,
             internalProjection: App4Sea.prefViewProj,
             externalProjection: App4Sea.prefProj
         });
-    
+
         let pre = "<?xml version='1.0' encoding='utf-8'?>";// +
         // "<kml xmlns='http://www.opengis.net/kml/2.2'>" +
         // "<Document>" +
         // "<Folder>" +
         // "<name>" + name + "</name>";
-    
+
         let kml = kmlformat.writeFeatures(features, {featureProjection: App4Sea.prefViewProj, externalProjection: App4Sea.prefProj});
         let coor = kml.match(/<coordinates>(.|\n)*?<\/coordinates>/g);
         if (coor) {
@@ -52,13 +70,13 @@ export let App4SeaUtils = (function () {
                 kml = kml.replaceAll('Ðð', ',0 ');
             }
         }
-        
+
         let post = "";// +
         // "</Folder>" +
         // "</Document>" +
         // "</kml>";
 
-        return pre + kml + post; 
+        return pre + kml + post;
     };
 
     ////////////////////////////////////////////////////////////////////////////
@@ -67,7 +85,7 @@ export let App4SeaUtils = (function () {
         let pom = document.createElement('a');
         pom.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
         pom.setAttribute('download', filename);
-    
+
         if (document.createEvent) {
             let event = document.createEvent('MouseEvents');
             event.initEvent('click', true, true);
@@ -86,7 +104,7 @@ export let App4SeaUtils = (function () {
         const B = 0.00007096758;
         const C = 91610.74;
         const D = -40467.74;
-    
+
         return D+(A-D)/(1+Math.pow(altitude/C, B));
     };
 
@@ -104,12 +122,12 @@ export let App4SeaUtils = (function () {
         if (!features || features.length === 0)
             return;
 
-        let extent = ol.extent.createEmpty();
+        let ex = extent.createEmpty();
         for (let ind=0; ind<features.length; ind++) {
             if (ind === 125) {
                 ind = ind;
             }
-            extent = ol.extent.extend(extent, features[ind].getGeometry().getExtent());
+            ex = extent.extend(ex, features[ind].getGeometry().getExtent());
         }
 
         if (App4Sea.logging) console.log("Extent is: " + extent);
@@ -125,7 +143,7 @@ export let App4SeaUtils = (function () {
         let exx = extent;
         if (source !== dest) {
             try {
-                ext = ol.proj.transformExtent(extent, source, dest);
+                ext = proj.transformExtent(extent, source, dest);
             }
             catch (e) {
                 try {
@@ -168,13 +186,13 @@ export let App4SeaUtils = (function () {
             extent = vector.getExtent();
         if (vector.getProjection)
             proj = vector.getProjection();
-        
+
         let type = vector.type;
         if (App4Sea.logging) console.log("Look at vector of type: " + type);
-        
+
         if (proj !== undefined)
             if (App4Sea.logging) console.log("Look at vector with proj: " + proj.getCode() + ' and ' + extent);
-    
+
         if (vector.getSource) {
             let source = vector.getSource();
 
@@ -193,11 +211,11 @@ export let App4SeaUtils = (function () {
                 else {
                     code = source.params_.A4Sproj;
                 }
-                
+
                 if (App4Sea.logging) console.log("Look at IMAGE with proj: " + code + ' and ' + extent);
                 extent = App4Sea.Utils.TransformExtent(extent, code, App4Sea.prefProj);
                 proj = App4Sea.prefProj;
-         
+
                 //if (App4Sea.logging) console.log("Look at IMAGE with proj: " + proj.getCode() + ' and ' + extent);
 
                 let location = App4Sea.mapCenter;
@@ -219,7 +237,7 @@ export let App4SeaUtils = (function () {
 
                 App4Sea.Utils.FlyTo(location, null);
             }
-        }        
+        }
     };
 
     ////////////////////////////////////////////////////////////////////////////
@@ -232,7 +250,7 @@ export let App4SeaUtils = (function () {
             if (App4Sea.logging) console.log("Fullscreen is not possible in browser");
         }
 
-        if (!document.fullscreenElement) 
+        if (!document.fullscreenElement)
             my.openFullscreen();
         else
             my.closeFullscreen();
@@ -256,7 +274,7 @@ export let App4SeaUtils = (function () {
     };
 
     ////////////////////////////////////////////////////////////////////////////
-    // Close fullscreen 
+    // Close fullscreen
     my.closeFullscreen = function () {
         if (document.exitFullscreen) {
             document.exitFullscreen();
@@ -298,8 +316,8 @@ export let App4SeaUtils = (function () {
     ////////////////////////////////////////////////////////////////////////////
     // SelectAuthority
     my.CheckChanged = function(cb) {
-        
-        
+
+
     }
         ////////////////////////////////////////////////////////////////////////////
     // SelectAuthority
@@ -312,9 +330,9 @@ export let App4SeaUtils = (function () {
         const aNo = document.getElementById("AuthorityNotify");
         const aNa = document.getElementById("AuthorityNational");
         const aWe = document.getElementById("AuthorityWeather");
-    
+
         if (val === "Iceland") {
-            authNo = 
+            authNo =
             "Operations Centre<br/> \
             The Icelandic Coastguard<br/>  \
             P.O. 7120 127 Reykjavik<br/> \
@@ -352,19 +370,19 @@ export let App4SeaUtils = (function () {
     my.drawSquare = function (ext) {
 
         let extents = { myBox: ext };
-        
-        let overlay = new ol.layer.Tile({
+
+        let overlay = new Tile({
             extent: extents.myBox,
-            source: new ol.source.TileJSON({
+            source: new TileJSON({
                 url: 'https://api.tiles.mapbox.com/v3/mapbox.world-light.json?secure',
                 crossOrigin: 'anonymous'
             })
         });
-        
+
         App4Sea.OpenLayers.Map.addLayer(overlay);
         my.LookAt(overlay);
     };
-    
+
     ////////////////////////////////////////////////////////////////////////////
     //load an xml file and return as Vector
     my.loadXMLDoc =function (filename) {
@@ -389,12 +407,12 @@ export let App4SeaUtils = (function () {
         const radius = document.getElementById('radius');
 
         title.innerHTML = name;
-        const vector = new ol.layer.Heatmap({
-            source: new ol.source.Vector({
+        const vector = new Heatmap({
+            source: new Vector({
                 crossOrigin: 'anonymous',
                 //url: 'https://openlayers.org/en/v4.6.5/examples/data/kml/2012_Earthquakes_Mag5.kml',
                 url: url,
-                format: new ol.format.KML({
+                format: new KML({
                     extractStyles: false
                 })
             }),
@@ -410,32 +428,32 @@ export let App4SeaUtils = (function () {
             if (name) {
                 const magnitude = parseFloat(name.substr(2));
                 event.feature.set('weight', magnitude - 5);
-            } 
+            }
             else {
                 const surface = parseFloat(event.feature.values_['SURFACE']);
                 event.feature.set('weight', surface - 33);
             }
         });
-    
+
         blur.addEventListener(
-            'input', 
+            'input',
             function () {
                 vector.setBlur(parseInt(blur.value, 10));
             },
             false,
             {passive: true }
         );
-    
+
         radius.addEventListener(
-            'input', 
+            'input',
             function () {
                 vector.setRadius(parseInt(radius.value, 10));
             },
             false,
             {passive: true}
         );
-            
-        return vector; 
+
+        return vector;
     };
 
     ////////////////////////////////////////////////////////////////////////////
@@ -451,7 +469,7 @@ export let App4SeaUtils = (function () {
         if (Math.max(imageExtent) > 180 || Math.min(imageExtent < -180)) {// Lax error check
             if (App4Sea.logging) console.log("loadImage ERROR. Wrong extent: " + imageExtent);
         }
-        
+
         let nameIs = text;//name.innerHTML;
 
         url = url.toLowerCase();
@@ -486,7 +504,7 @@ export let App4SeaUtils = (function () {
             if (proj) proj = decodeURIComponent(proj);
             if (time) time = decodeURIComponent(time); time = time.toUpperCase();
 
-            theSource = new ol.source.ImageWMS({
+            theSource = new ImageWMS({
                 url: path,
                 imageExtent: imageExtent,
                 crossOrigin: 'anonymous',
@@ -503,14 +521,14 @@ export let App4SeaUtils = (function () {
                     'REQUEST' : request,
                     'FORMAT' : format,
                     'STYLE' : style,
-                    'A4Sextent' : imageExtent, 
+                    'A4Sextent' : imageExtent,
                     'A4Sproj' : proj,
                     'A4Slocation' : center
                 },
                 ratio: 1
             });
         } else {
-            theSource = new ol.source.ImageStatic({
+            theSource = new Static({
                 url: url,
                 imageExtent: imageExtent,
                 projection: proj,
@@ -518,14 +536,14 @@ export let App4SeaUtils = (function () {
             });
         }
 
-        let image = new ol.layer.Image({
+        let image = new Image({
             name: nameIs,
             source: theSource
         });
 
         return image;
     };
- 
+
     ////////////////////////////////////////////////////////////////////////////
     // alreadyLayer checks if a node is alreay in the layer array and returns
     // the index if so. Else it returns -1
@@ -553,18 +571,18 @@ export let App4SeaUtils = (function () {
         }
         return -1;
     };
-    
+
     ////////////////////////////////////////////////////////////////////////////
     // Check if browser supports html5 storage
     my.supports_html5_storage = function (){
         try {
             return 'localStorage' in window && window['localStorage'] !== null;
-        } 
+        }
         catch (e) {
             return false;
         }
     };
-    
+
     ////////////////////////////////////////////////////////////////////////////
     my.NoXML = function (text) {
         let txt;
@@ -608,8 +626,8 @@ export let App4SeaUtils = (function () {
     ////////////////////////////////////////////////////////////////////////////
     // PutPlacemark
     my.PutPlacemark = function() {
-        let iconStyle = new ol.style.Style({
-            image: new ol.style.Icon(/** @type {olx.style.IconOptions} */ ({
+        let iconStyle = new Style({
+            image: new Icon(/** @type {olx.style.IconOptions} */ ({
                 anchor: [0.5, 0.5],
                 anchorXUnits: 'fraction',
                 anchorYUnits: 'fraction',
@@ -621,40 +639,40 @@ export let App4SeaUtils = (function () {
                 scale: 1.0
             }))
         });
-        
-        let vectorSource = new ol.source.Vector({
+
+        let vectorSource = new Vector({
             //create empty vector
         });
 
         let center = App4Sea.OpenLayers.Map.getView().getCenter();
-        let location = ol.proj.transform([21, 63], //Math.random()*360-180, Math.random()*180-90
-        App4Sea.prefProj, 
+        let location = proj.transform([21, 63], //Math.random()*360-180, Math.random()*180-90
+        App4Sea.prefProj,
         App4Sea.prefViewProj);
         location = center;
 
         //create a bunch of icons and add to source vector
         for (let i=0;i<1;i++){
-            let iconFeature = new ol.Feature({
-                geometry: new ol.geom.Point(location),
+            let iconFeature = new Feature({
+                geometry: new Point(location),
                 name: 'Placemark ' + i,
                 type: 'Placemark'
             });
-            
+
             iconFeature.on('change',function(){
                 console.log('Feature Moved To:' + this.getGeometry().getCoordinates());
             }, iconFeature);
-            
+
             vectorSource.addFeature(iconFeature);
 
-            let dragInteraction = new ol.interaction.Modify({
-                features: new ol.Collection([iconFeature]),
+            let dragInteraction = new Modify({
+                features: new Collection([iconFeature]),
                 style: null
             });
 
             App4Sea.OpenLayers.Map.addInteraction(dragInteraction)
         }
-        
-        let vectorLayer = new ol.layer.Vector({
+
+        let vectorLayer = new Vector({
             source: vectorSource,
             style: iconStyle
         });
@@ -763,7 +781,7 @@ export let App4SeaUtils = (function () {
     // section_toggle to make element visible to hidden
     my.section_toggle = function (id) {
         const elem = document.getElementById(id);
-       
+
         if (elem !== null && elem.style.display === "none") {
             // We are opening the element
             my.w3_open(id);
@@ -809,7 +827,7 @@ export let App4SeaUtils = (function () {
             $("#TreeMenu").jstree(true).close_all();
 
             toMenu();
-        
+
             tools.style.display = 'none';
             if (window.innerWidth <= 500) {
                 for (let ind=0; ind<navs.length; ind++) {
@@ -818,7 +836,7 @@ export let App4SeaUtils = (function () {
             }
         }
     };
-    
+
     ////////////////////////////////////////////////////////////////////////////
     // w3_close
     my.w3_close = function (id) {
@@ -850,7 +868,7 @@ export let App4SeaUtils = (function () {
             if (heat !== null) {
                 heat.style.display = "none";
             }
-        } 
+        }
         if (id === "AnimationContainer") {
             if (anim !== null) {
                 anim.style.display = "none";
@@ -905,11 +923,11 @@ export let App4SeaUtils = (function () {
             let successful = document.execCommand('Copy');
             let msg = successful ? 'successful' : 'NOT successful';
             console.log('Copying was ' + msg);
-        } 
+        }
         catch (err) {
             console.log('Oops, unable to copy: ' + err);
         }
-        
+
         document.body.removeChild(img);
     };
 
@@ -922,7 +940,7 @@ export let App4SeaUtils = (function () {
     };
 
     ////////////////////////////////////////////////////////////////////////////
-    // 
+    //
     my.take_screenshot = function () {
         console.log('take_screenshot');
   /*      import('/node_modules/html-to-image').then(module => {
@@ -946,11 +964,11 @@ export let App4SeaUtils = (function () {
             //link.href = dataURL;
             //link.click();
         });
-        App4Sea.OpenLayers.Map.renderSync();        
-        
+        App4Sea.OpenLayers.Map.renderSync();
+
         return;
 
-        html2canvas(document.body, {  
+        html2canvas(document.body, {
             onrendered: function(canvas) {
                 let url = canvas.toDataURL();
                 my.copyToClipboard(url);
@@ -959,7 +977,7 @@ export let App4SeaUtils = (function () {
                 //});
             }
         });
-    };   
+    };
 
     ////////////////////////////////////////////////////////////////////////////
     // public method for encoding from http://www.webtoolkit.info/
@@ -1100,11 +1118,11 @@ export let App4SeaUtils = (function () {
 
         if (!e.clientX) {
             //if (App4Sea.logging) console.log('Touches : ' + e.touches.length);
-            
+
             let touch = e.touches[0];
             let x = touch.pageX;
             let y = touch.pageY;
-            
+
             //if (App4Sea.logging) console.log('X : ' + x + ', Y: ' + y);
 
             pos.X = x;
@@ -1128,25 +1146,25 @@ export let App4SeaUtils = (function () {
         mousemove
         mousedown
         mouseup
-        click    
+        click
      */
     my.dragElement = function (elmnt) {
         let pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
 
         elmnt.addEventListener(
-            'touchstart', 
+            'touchstart',
             touchstart,
             false,
             {passive: false }
         );
         elmnt.addEventListener(
-            'touchmove', 
+            'touchmove',
             touchmove,
             false,
             {passive: false }
         );
         elmnt.addEventListener(
-            'touchend', 
+            'touchend',
             touchend,
             false,
             {passive: false }
@@ -1244,9 +1262,9 @@ export let App4SeaUtils = (function () {
 
         function elementDrag(e) {
             e = e || window.event;
-            
+
             if (App4Sea.logging) console.log('elementDrag: ' + e.target.id);
-            
+
             e.preventDefault();
 
             let pos = getPosition(e);
@@ -1255,7 +1273,7 @@ export let App4SeaUtils = (function () {
                 pos1 = pos3 - pos.X;
                 pos3 = pos.X;
                 elmnt.style.left = (elmnt.offsetLeft - pos1) + "px";
-            } 
+            }
             else {
                 pos1 = pos3 - pos.X;
                 pos3 = pos.X;
@@ -1328,7 +1346,7 @@ export let App4SeaUtils = (function () {
             }
         }
 
-        let center = ol.proj.transform(location, App4Sea.prefProj, App4Sea.prefViewProj);//'EPSG:3857'); 
+        let center = proj.transform(location, App4Sea.prefProj, App4Sea.prefViewProj);//'EPSG:3857');
 
         view.animate({center: center, duration: duration},  callback);
         view.animate({zoom: zoom - 1, duration: duration / 2}, {zoom: zoom, duration: duration / 2}, callback);

@@ -1,10 +1,17 @@
 /* ==========================================================================
  * (c) 2018 Þorsteinn Helgi Steinarsson     thorsteinn(at)asverk.is
+ *          Gaute Hope                      gaute.hope(at)met.no
  *
  * ==========================================================================*/
 
 import { App4Sea } from './App4Sea.js';
 import qwest from 'qwest';
+import VectorLayer from 'ol/layer/Vector';
+import Vector from 'ol/source/Vector';
+import Image from 'ol/layer/Image';
+import ImageStatic from 'ol/source/ImageStatic';
+import KML from 'ol/format/KML';
+import * as proj from 'ol/proj';
 
 let App4SeaKML = (function () {
     "use strict";
@@ -22,12 +29,12 @@ let App4SeaKML = (function () {
     my.loadKml = function (url) {
         //$("#DebugWindow").append("loadKml: " + url + "<br/>");
         if (App4Sea.logging) console.log("loadKml: " + url);
-        let vector = new ol.layer.Vector({
-            source: new ol.source.Vector({
+        let vector = new VectorLayer({
+            source: new Vector({
                 url: url,
                 crossOrigin: 'anonymous',
                 //rendermode: 'image',
-                format: new ol.format.KML({
+                format: new KML({
                     extractStyles: true,
                     extractAttributes: true,
                     showPointNames: false
@@ -243,7 +250,7 @@ let App4SeaKML = (function () {
     function loadKmlText(text, id, path) {
         if (App4Sea.logging) console.log("loadKmlText: " + path);
 
-        let formatter = new ol.format.KML({
+        let formatter = new KML({
             extractStyles: true,
             extractAttributes: true,
             showPointNames: false
@@ -281,8 +288,8 @@ let App4SeaKML = (function () {
         //     return;
         // }
 
-        let vector = new ol.layer.Vector({
-            source: new ol.source.Vector({
+        let vector = new VectorLayer({
+            source: new Vector({
                 crossOrigin: 'anonymous',
                 format: formatter
             })
@@ -486,12 +493,12 @@ let App4SeaKML = (function () {
                             addLegend(title, kmzurl);
                         }
                         else {
-                            let source = new ol.source.ImageStatic({
+                            let source = new ImageStatic({
                                 url: kmzurl,
                                 imageExtent: ex,
                                 projection: pr
                             });
-                            let image = new ol.layer.Image({
+                            let image = new Image({
                                 name: nm,
                                 source: source
                             });
@@ -598,7 +605,7 @@ let App4SeaKML = (function () {
                 const east = parseFloat(overlay.querySelector('east').innerHTML);
                 const north = parseFloat(overlay.querySelector('north').innerHTML);
 
-                let viewExtent = ol.proj.transformExtent([west, south, east, north], App4Sea.prefProj, App4Sea.prefViewProj);
+                let viewExtent = proj.transformExtent([west, south, east, north], App4Sea.prefProj, App4Sea.prefViewProj);
                 if (App4Sea.logging) console.log("GroundOverlay: W:" + west + " S:" + south + " E:" + east + " N:" + north + " Pro:" + App4Sea.prefProj + " ViewProj:" + App4Sea.prefViewProj);
 
                 let image;
@@ -609,13 +616,13 @@ let App4SeaKML = (function () {
                 }
                 else {
                     if (App4Sea.logging) console.log("Getting image from url: " + url);
-                    let source = new ol.source.ImageStatic({
+                    let source = new ImageStatic({
                         url: url,
                         //crossOrigin: 'anonymous',
                         imageExtent: viewExtent,//[west, south, east, north],
                         projection: App4Sea.prefViewProj
                     });
-                    image = new ol.layer.Image({
+                    image = new Image({
                         name: nameIs,
                         source: source
                     });
