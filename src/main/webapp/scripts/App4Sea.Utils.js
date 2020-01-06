@@ -12,7 +12,7 @@ import Tile from 'ol/layer/Tile';
 import Heatmap from 'ol/layer/Heatmap';
 import TileJSON from 'ol/source/TileJSON';
 import Vector from 'ol/source/Vector';
-import Image from 'ol/source/Image';
+import ImageLayer from 'ol/layer/Image';
 import ImageWMS from 'ol/source/ImageWMS';
 import ImageStatic from 'ol/source/ImageStatic';
 import Style from 'ol/style/Style';
@@ -202,7 +202,7 @@ const App4SeaUtils = (function App4SeaUtils() {
         }
         const mproj = source.getProjection();
         let code = '';
-        if (proj && proj.getCode()) {
+        if (mproj && mproj.getCode()) {
           code = mproj.getCode();
         } else {
           code = source.params_.A4Sproj;
@@ -524,7 +524,7 @@ const App4SeaUtils = (function App4SeaUtils() {
       });
     }
 
-    const image = new Image({
+    const image = new ImageLayer({
       name: nameIs,
       source: theSource,
     });
