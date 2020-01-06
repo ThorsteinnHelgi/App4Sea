@@ -6,6 +6,7 @@
   "main": "App4Sea.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint scripts/*.js",
     "build": "webpack"
   },
   "repository": {
@@ -23,6 +24,9 @@
     "@babel/preset-env": "^7.7.7",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.4.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.19.1",
     "file-loader": "^5.0.2",
     "html-webpack-plugin": "^3.2.0",
     "source-map-loader": "^0.2.4",
