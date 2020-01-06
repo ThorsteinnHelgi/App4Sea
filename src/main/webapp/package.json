@@ -1,0 +1,50 @@
+{
+  "name": "app4sea",
+  "version": "1.0.0",
+  "description": "Web app for mobiles for oil spill response information",
+  "private": true,
+  "main": "App4Sea.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint scripts/*.js",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/arnigeir/App4Sea.git"
+  },
+  "author": "",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/arnigeir/App4Sea/issues"
+  },
+  "homepage": "https://github.com/arnigeir/App4Sea#readme",
+  "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/preset-env": "^7.7.7",
+    "babel-loader": "^8.0.6",
+    "css-loader": "^3.4.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.19.1",
+    "file-loader": "^5.0.2",
+    "html-webpack-plugin": "^3.2.0",
+    "source-map-loader": "^0.2.4",
+    "style-loader": "^1.1.2",
+    "url-loader": "^3.0.0",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10"
+  },
+  "dependencies": {
+    "bootstrap": "^4.4.1",
+    "html2canvas": "^1.0.0-rc.5",
+    "jquery": "^3.4.1",
+    "jquery-param": "^1.0.2",
+    "jstree": "^3.3.8",
+    "lodash": "^4.17.15",
+    "ol": "^6.1.1",
+    "popper.js": "^1.16.0",
+    "proj4": "^2.6.0",
+    "qwest": "^4.5.0"
+  }
+}
