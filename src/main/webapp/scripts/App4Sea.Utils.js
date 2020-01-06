@@ -182,10 +182,8 @@ const App4SeaUtils = (function App4SeaUtils() {
       return;
     }
     let extent;
-    let proj;
 
     if (vector.getExtent) extent = vector.getExtent();
-    if (vector.getProjection) proj = vector.getProjection();
 
     const { type } = vector;
     if (App4Sea.logging) console.log(`Look at vector of type: ${type}`);
@@ -202,17 +200,16 @@ const App4SeaUtils = (function App4SeaUtils() {
         } else {
           extent = source.params_.A4Sextent;
         }
-        proj = source.getProjection();
+        const mproj = source.getProjection();
         let code = '';
         if (proj && proj.getCode()) {
-          code = proj.getCode();
+          code = mproj.getCode();
         } else {
           code = source.params_.A4Sproj;
         }
 
         if (App4Sea.logging) console.log(`Look at IMAGE with proj: ${code} and ${extent}`);
         extent = App4Sea.Utils.TransformExtent(extent, code, App4Sea.prefProj);
-        proj = App4Sea.prefProj;
 
         // if (App4Sea.logging) console.log("Look at IMAGE with proj: " + proj.getCode() + ' and ' + extent);
 
@@ -446,13 +443,13 @@ const App4SeaUtils = (function App4SeaUtils() {
 
   // //////////////////////////////////////////////////////////////////////////
   // load an image
-  my.loadImage = function (node, proj, imageExtent, flag, url, id, text, layers, isSRS, width, height, start, wms, center) {
+  my.loadImage = function (node, mproj, imageExtent, flag, url, id, text, layers, isSRS, width, height, start, wms, center) {
     url = url.replaceAll(/&amp;/, '&');
 
     if (App4Sea.logging) console.log(`loadImage: ${url}`);
 
-    if (proj !== App4Sea.prefProj) {
-      if (App4Sea.logging) console.log(`loadImage ERROR. Wrong projection: ${proj}, expected ${App4Sea.prefProj}`);
+    if (mproj !== App4Sea.prefProj) {
+      if (App4Sea.logging) console.log(`loadImage ERROR. Wrong projection: ${mproj}, expected ${App4Sea.prefProj}`);
     }
     if (Math.max(imageExtent) > 180 || Math.min(imageExtent < -180)) { // Lax error check
       if (App4Sea.logging) console.log(`loadImage ERROR. Wrong extent: ${imageExtent}`);
@@ -462,7 +459,7 @@ const App4SeaUtils = (function App4SeaUtils() {
 
     url = url.toLowerCase();
 
-    if (App4Sea.logging) console.log(`loadImage proj: ${proj}`);
+    if (App4Sea.logging) console.log(`loadImage proj: ${mproj}`);
     if (App4Sea.logging) console.log(`loadImage imageExtent: ${imageExtent}`);
 
     // http://halo-wms.met.no/halo/default.map?service=WMS&REQUEST=GetCapabilities&VERSION=1.3.0
@@ -489,8 +486,11 @@ const App4SeaUtils = (function App4SeaUtils() {
       if (crs) crs = decodeURIComponent(crs);
       if (srs) srs = decodeURIComponent(srs);
       if (format) format = decodeURIComponent(format);
-      if (proj) proj = decodeURIComponent(proj);
-      if (time) time = decodeURIComponent(time); time = time.toUpperCase();
+      if (mproj) mproj = decodeURIComponent(mproj);
+      if (time) {
+        time = decodeURIComponent(time);
+        time = time.toUpperCase();
+      }
 
       theSource = new ImageWMS({
         url: path,
@@ -510,7 +510,7 @@ const App4SeaUtils = (function App4SeaUtils() {
           FORMAT: format,
           STYLE: style,
           A4Sextent: imageExtent,
-          A4Sproj: proj,
+          A4Sproj: mproj,
           A4Slocation: center,
         },
         ratio: 1,
@@ -519,7 +519,7 @@ const App4SeaUtils = (function App4SeaUtils() {
       theSource = new ImageStatic({
         url,
         imageExtent,
-        projection: proj,
+        projection: mproj,
         crossOrigin: 'anonymous',
       });
     }
