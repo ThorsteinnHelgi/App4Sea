@@ -1,23 +1,24 @@
 /* ==========================================================================
  * (c) 2020 Gaute Hope                      gaute.hope(at)met.no
- * ==========================================================================*/
+ * ========================================================================== */
 
 import $ from 'jquery';
-window.jQuery = $;
-window.$ = $;
-global.$ = $;
+import 'jstree';
 
 import 'bootstrap';
 
-import './App4Sea.js';
-import './App4Sea.Animation.js';
-import './App4Sea.Events.js';
-import './App4Sea.KML.js';
-import './App4Sea.Measure.js';
-import './App4Sea.OpenLayers.js';
-import './App4Sea.PopUps.js';
-import './App4Sea.TreeInfo.js';
-import './App4Sea.TreeMenu.js';
-import './App4Sea.Utils.js';
-import './App4Sea.Weather.js';
+import './App4Sea';
+import './App4Sea.Animation';
+import './App4Sea.Events';
+import './App4Sea.KML';
+import './App4Sea.Measure';
+import './App4Sea.OpenLayers';
+import './App4Sea.PopUps';
+import './App4Sea.TreeInfo';
+import './App4Sea.TreeMenu';
+import './App4Sea.Utils';
+import './App4Sea.Weather';
 
+window.jQuery = $;
+window.$ = $;
+global.$ = $;
