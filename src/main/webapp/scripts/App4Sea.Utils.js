@@ -13,11 +13,12 @@ import Tile from 'ol/layer/Tile';
 import Heatmap from 'ol/layer/Heatmap';
 import TileJSON from 'ol/source/TileJSON';
 import Vector from 'ol/source/Vector';
-import Imagefrom from 'ol/source/Image';
+import Image from 'ol/source/Image';
 import ImageWMS from 'ol/source/ImageWMS';
 import ImageStatic from 'ol/source/ImageStatic';
+import * as style from 'ol/style';
 import Style from 'ol/style/Style';
-import Image from 'ol/style/Image';
+import Icon from 'ol/style/Icon';
 import Feature from 'ol/Feature';
 import * as extent from 'ol/extent';
 import * as proj from 'ol/proj';
@@ -194,8 +195,8 @@ export let App4SeaUtils = (function () {
         let type = vector.type;
         if (App4Sea.logging) console.log("Look at vector of type: " + type);
 
-        if (proj !== undefined)
-            if (App4Sea.logging) console.log("Look at vector with proj: " + proj.getCode() + ' and ' + extent);
+        // if (proj !== undefined)
+        //     if (App4Sea.logging) console.log("Look at vector with proj: " + proj.getCode() + ' and ' + extent);
 
         if (vector.getSource) {
             let source = vector.getSource();
@@ -532,7 +533,7 @@ export let App4SeaUtils = (function () {
                 ratio: 1
             });
         } else {
-            theSource = new Static({
+            theSource = new ImageStatic({
                 url: url,
                 imageExtent: imageExtent,
                 projection: proj,
