@@ -287,7 +287,7 @@ const App4SeaKML = (function () {
     theSource.addFeatures(kml_features);
     const extent = App4Sea.Utils.GetFeaturesExtent(kml_features);
     let location = null;
-    if (extent !== undefined) {
+    if (extent !== undefined && extent !== null) {
       const prx = theSource.getProjection();
       const ext = App4Sea.Utils.TransformExtent(extent, App4Sea.prefViewProj, App4Sea.prefProj);
       const x = ext[0] + ext[2];

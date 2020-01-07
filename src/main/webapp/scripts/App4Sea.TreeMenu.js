@@ -67,6 +67,11 @@ const App4SeaTreeMenu = (function () {
             const thisNode = data[i_success];
             const { children } = thisNode;
             thisNode.children = false;// Must be set to false as wwe are loading acync (sic!)
+
+            if (thisNode.a_attr.tool && thisNode.a_attr.tool === 'animation') {
+              thisNode.icon = 'icons/animation_16.png';
+            }
+
             ourJSONdata.push(thisNode);
 
             if (children) getData(thisNode, fnSetTree, fnGetFileName, ourFilename, ourJSONdata); // Do this recursively
@@ -305,7 +310,11 @@ const App4SeaTreeMenu = (function () {
                   const newId = addChild(golb[aind], gol[aind], $('#TreeMenu'), nod.id, false, 'icons/overlay.png');
                   goll[aind] = newId;
 
-                  App4Sea.OpenLayers.layers.push({ id: newId, vector: vect });
+                  if (aind === 0) { // Must perserve original root id for layer
+                    App4Sea.OpenLayers.layers.push({ id: nod.id, vector: vect });
+                  } else {
+                    App4Sea.OpenLayers.layers.push({ id: newId, vector: vect });
+                  }
 
                   if (App4Sea.logging) console.log(`Cached layers now are ${App4Sea.OpenLayers.layers.length}`);
 

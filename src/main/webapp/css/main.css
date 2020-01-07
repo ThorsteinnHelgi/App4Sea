@@ -19,9 +19,9 @@
 
 .bannerButtons {
   /*transform-origin: top left;*/
-  /*-ms-transform: scale(0.6) translateX(0em);*/ /* IE 9 */
-  /*-webkit-transform: scale(0.6) translateX(0em);*/ /* Safari */
-  /*transform: scale(0.6) translateX(0em);*/
+  /*-ms-transform: scale(0.6) translateX(0rem);*/ /* IE 9 */
+  /*-webkit-transform: scale(0.6) translateX(0rem);*/ /* Safari */
+  /*transform: scale(0.6) translateX(0rem);*/
   display: inline-flex;
 }
 
@@ -45,14 +45,14 @@
 * Modify ol controls
 **********************************/
 #MapContainer .ol-full-screen {
-  bottom: 3em;
+  bottom: 3rem;
   top: auto;
 }
 
 #MapContainer .ol-scale-line {
-  top: .5em;
+  top: .5rem;
   bottom: auto;
-  left: 3em;
+  left: 3rem;
   right: auto;
   color: white;
   background-color: rgba(255,255,255,.4);
@@ -60,15 +60,15 @@
 
 .ol-scale-line-inner {
   background-color: rgba(0,60,136,.5);
-  font-size: 1.051em;
+  font-size: 1.051rem;
   font-weight: 700;
   border: none;
 }
 
 #MapContainer .ol-zoom {
-  top: 3em;
+  top: 3rem;
   background-color: rgba(255,255,255,0.2);
-  right: .5em;
+  right: .5rem;
   left: auto;
 }
 
@@ -76,9 +76,9 @@
   margin-top: 204px;
 }
 #MapContainer .ol-zoomslider {
-  top: 4.8em;
+  top: 4.8rem;
   bottom: auto;
-  right: .5em;
+  right: .5rem;
   left: auto;
 }
 
@@ -90,13 +90,13 @@
   margin-top: 212px;
 }
 #MapContainer .ol-touch .ol-zoomslider {
-  top: 2.5em;
-  right: .5em;
+  top: 2.5rem;
+  right: .5rem;
 }
 
 #MapContainer .ol-zoom-in.ol-has-tooltip:hover [role=tooltip],
 #MapContainer .ol-zoom-in.ol-has-tooltip:focus [role=tooltip] {
-  top: .5em;
+  top: .5rem;
 }
 
 #MapContainer .ol-zoom-out.ol-has-tooltip:hover [role=tooltip],
@@ -106,8 +106,8 @@
 
 #MapContainer .ol-custom{
   z-index: 1000;
-  top: .5em;
-  left: .5em;
+  top: .5rem;
+  left: .5rem;
 }
 
 #MapContainer .ol-popup {
@@ -155,9 +155,9 @@
   right: 8px;
 }
 #MapContainer .ol-mouse-position {
-  right: 4.5em;
+  right: 4.5rem;
   text-align: right;
-  font-size: 0.7em;
+  font-size: 0.7rem;
 }
 
 #MapContainer .ol-popup-closer:after {
@@ -236,7 +236,7 @@ content: "✖";
     left: 0;
     z-index: 10000;
     height: 100%;
-    padding: 0.5em;
+    padding: 0.5rem;
     background-image: var(--gradientBeige);
     width: 440px;
     box-sizing: border-box;
@@ -267,12 +267,12 @@ content: "✖";
   background-color:darkgrey; 
   align-content: center;
   overflow: hidden;
-  line-height: 1em;
-  padding-bottom: 0.5em;
+  line-height: 1rem;
+  padding-bottom: 0.5rem;
   cursor: move;
   vertical-align: middle;
-  /*margin-top: -.7em;*/
-  /*margin-right: .3em;*/
+  /*margin-top: -.7rem;*/
+  /*margin-right: .3rem;*/
   font-size: 12px;
   font-family: sans-serif;
   font-weight: bolder;
@@ -282,9 +282,9 @@ content: "✖";
 }
 
 #Log {
-  max-height: 30em;
+  max-height: 30rem;
   overflow-y:scroll;
-  font-size:0.8em; 
+  font-size:0.8rem; 
   margin-top: 4px;
   margin-right: 2px;
 }
@@ -311,15 +311,15 @@ option {
 }
 
 .BannerSection {
-  margin-top: 0.2em;
+  margin-top: 0.2rem;
 }
 
 .SubMenuSection {
-  margin-top: 0.2em;
+  margin-top: 0.2rem;
   color:white; 
   /*background-color:grey; */
   background-image: var(--gradientGrayDown);
-  padding: 0.2em;
+  padding: 0.2rem;
   border-color: black;
   border-style: solid;
   border-width: 1px;
@@ -330,9 +330,9 @@ option {
 .SubMenuButton {
   float:right;
   padding: 0;
-  height: 1.9em;
-  width: 1.9em;
-  margin-left: 0.4em;
+  height: 1.9rem;
+  width: 1.9rem;
+  margin-left: 0.4rem;
   font-weight: bolder;
 }
 
@@ -344,13 +344,13 @@ option {
     background-image: radial-gradient(circle, #5f5f5f, rgba(0,0,0,0), rgba(0,0,0,0));
     border: none;
     padding: 7px 10px 13px 10px;
-    line-height: 1em;
+    line-height: 1rem;
     color: white;
   }
 
 .MenuItem{
     cursor:pointer;
-    padding:0.3em;
+    padding:0.3rem;
 }
 
 .MenuItem:hover{
@@ -386,8 +386,8 @@ h6 {
 }
 
 .ExitWhite {
-    width:1.4em;  
-    height: 1.4em;
+    width:1.4rem;  
+    height: 1.4rem;
     color: white;
 }
 
@@ -404,13 +404,13 @@ h6 {
 }
 
 .tooltip {
-    padding:0.3em;
+    padding:0.3rem;
     position: relative;
     display: inline-block;
     background-color: #404040;
 }
 .tooltip-inner {
-    padding:0.3em;
+    padding:0.3rem;
     border: 2px solid white;
     position: relative;
     display: inline-block;
@@ -470,7 +470,7 @@ h6 {
 
 
 .DocTitle {
-  font-size: 1.6em;
+  font-size: 1.6rem;
 }
 
 #overlayLegend{
@@ -516,8 +516,8 @@ h6 {
 }
 
 .photo {
-  top: 9.5em; 
-  left: .5em; 
+  top: 9.5rem; 
+  left: .5rem; 
   display:none;
 }
 
@@ -567,7 +567,7 @@ input[type=range]:focus {
 }
 input[type=range]::-webkit-slider-runnable-track {
   width: 100%;
-  height: 0.1em;
+  height: 0.1rem;
   cursor: pointer;
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5), 0px 0px 0px rgba(13, 13, 13, 0.5);
   background: #000000;
@@ -577,20 +577,20 @@ input[type=range]::-webkit-slider-runnable-track {
 input[type=range]::-webkit-slider-thumb {
   box-shadow: 2.3px 2.3px 7.5px #000000, 0px 0px 2.3px #0d0d0d;
   border: 0px solid #000000;
-  height: 2em;
-  width: 1em;
+  height: 2rem;
+  width: 1rem;
   border-radius: 0px;
   background: #ffc864;
   cursor: pointer;
   -webkit-appearance: none;
-  margin-top: -0.9em;
+  margin-top: -0.9rem;
 }
 input[type=range]:focus::-webkit-slider-runnable-track {
   background: #000000;
 }
 input[type=range]::-moz-range-track {
   width: 100%;
-  height: 0.1em;
+  height: 0.1rem;
   cursor: pointer;
   box-shadow: 0px 0px 0px rgba(0, 0, 0, 0.5), 0px 0px 0px rgba(13, 13, 13, 0.5);
   background: #000000;
@@ -608,7 +608,7 @@ input[type=range]::-moz-range-thumb {
 }
 input[type=range]::-ms-track {
   width: 100%;
-  height: 0.1em;
+  height: 0.1rem;
   cursor: pointer;
   background: transparent;
   border-color: transparent;
@@ -698,15 +698,15 @@ input[type=range]:focus::-ms-fill-upper {
     left: 0;
   }
   #DragHandle {
-    line-height: 2em;
+    line-height: 2rem;
   }
   .jstree-default .jstree-anchor {
     line-height: 34px;
     height: 34px;
   }
   .jstree-icon, .jstree-icon:empty{
-    margin-top: -0.6em;
-    margin-right: 1em;
+    margin-top: -0.6rem;
+    margin-right: 1rem;
     transform-origin: top left;
     -ms-transform: scale(2.0) translateX(-0.4em); /* IE 9 */
     -webkit-transform: scale(2.0) translateX(-0.4em); /* Safari */

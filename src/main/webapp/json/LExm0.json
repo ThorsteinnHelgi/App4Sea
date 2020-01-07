@@ -1,4 +1,7 @@
 [
+    { "id" : "LWth02", "parent" : "LExm0", "text" : "World Climate 1986-2010 10 arc min", "children" : false, "a_attr" : { "path" : "data/Global_1986-2010_KG_10m.kmz", "center" : [0, 66] } },
+    { "id" : "LWth03", "parent" : "LExm0", "text" : "World Climate Change 1876-2100 30 arc min", "children" : false, "a_attr" : { "path" : "data/Global_Shift_A1FI_1876-2100_30m.kmz", "center" : [0, 66], "tool" : "animation"} },
+
     { "id" : "LExm0_101", "parent" : "LExm0", "text" : "Seabirds 1",	"children" : false, "a_attr" : { "path" : "data/Birds/Seabirds 001.kml"} },
     { "id" : "LExm0_102", "parent" : "LExm0", "text" : "Seabirds 2",	"children" : false, "a_attr" : { "path" : "data/Birds/Seabirds 002.kml"} },
     { "id" : "LExm0_103", "parent" : "LExm0", "text" : "Barents1 Oil Spill", "children" : false, "a_attr" : { "path" : "data/barents1.kmz", "tool" : "animation"} },

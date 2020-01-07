@@ -3,6 +3,5 @@
     { "id" : "LOil0", "parent" : "#", "text" : "Oil industry, transport and response", 	"state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : ""} },
     { "id" : "LEco0", "parent" : "#", "text" : "Ecological zones",			            "state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : ""} },
     { "id" : "LWth0", "parent" : "#", "text" : "Climate, ocean and weather",            "state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : ""} },
-    { "id" : "LAni0", "parent" : "#", "text" : "Animatable data",			            "state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : ""} },
     { "id" : "LEdu0", "parent" : "#", "text" : "Educational data", 			            "state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : ""} }
 ]
