@@ -228,6 +228,7 @@ content: "✖";
     width: 100%;
     height: 100%;
     background-color: white;
+    overflow: hidden;
 }
 
 #MenuContainer{
@@ -470,7 +471,7 @@ h6 {
 
 
 .DocTitle {
-  font-size: 1.6rem;
+  font-size: 1.2rem;
 }
 
 #overlayLegend{

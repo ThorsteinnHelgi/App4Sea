@@ -3,13 +3,13 @@
  *
  * ========================================================================== */
 
+import Mustache from 'mustache';
 import App4Sea from './App4Sea';
-
+import App4SeaUtils from './App4Sea.Utils';
 
 const App4SeaPopUps = (function () {
   const my = {};
 
-  my.overlayLayerPopUp;// Used for popup information when clicking on icons
   const popupContent = document.getElementById('popup-content');
   const popupCloser = document.getElementById('popup-closer');
   const popupTitle = document.getElementById('popup-title');
@@ -147,7 +147,7 @@ const App4SeaPopUps = (function () {
       linkvideo: '',
     };
     /*
-						<SimpleData name="cockpit_equipment_AIS_Systems">Yes</SimpleData>
+				  	<SimpleData name="cockpit_equipment_AIS_Systems">Yes</SimpleData>
 						<SimpleData name="cockpit_equipment_Surveillance radar">Yes</SimpleData>
 						<SimpleData name="cockpit_equipment_SLAR radar">Yes</SimpleData>
 						<SimpleData name="cockpit_equipment_Scanner">UV/IR</SimpleData>
@@ -267,41 +267,40 @@ const App4SeaPopUps = (function () {
     shipinfo.cargotype = feature.get('Cargo_Type');
     shipinfo.flag = feature.get('Flag');
 
-    const template = // $('#ShipInfo').html();
-            `<div style="margin:2px;"><table>
-                <tr><td>Call sign</td><td><b>{{callsign}}</b></td></tr>
-                <tr><td>Type</td><td><b>{{type}}</b></td></tr>
-                <tr><td>Cargo type</td><td><b>{{cargotype}}</b></td></tr>
-                <tr><td>Flag</td><td><b>{{flag}}</b></td></tr>
-            </table></div>`;
+    const template = `<div style="margin:2px;"><table>
+      <tr><td>Call sign</td><td><b>{{callsign}}</b></td></tr>
+      <tr><td>Type</td><td><b>{{type}}</b></td></tr>
+      <tr><td>Cargo type</td><td><b>{{cargotype}}</b></td></tr>
+      <tr><td>Flag</td><td><b>{{flag}}</b></td></tr>
+    </table></div>`;
     Mustache.parse(template);
     const description = Mustache.to_html(template, shipinfo);
 
     return description;
   }
 
-  function getHeight(doc) {
-    let pageHeight = 0;
+  // function getHeight(doc) {
+  //   let pageHeight = 0;
 
-    function findHighestNode(nodesList) {
-      for (let i = nodesList.length - 1; i >= 0; i--) {
-        if (nodesList[i].scrollHeight && nodesList[i].clientHeight && nodesList[i].offsetHeight) {
-          const elHeight = Math.max(nodesList[i].scrollHeight, nodesList[i].clientHeight, nodesList[i].offsetHeight);
-          pageHeight = Math.max(elHeight, pageHeight);
-        }
-        if (nodesList[i].childNodes.length) {
-          findHighestNode(nodesList[i].childNodes);
-        }
-      }
-    }
+  //   function findHighestNode(nodesList) {
+  //     for (let i = nodesList.length - 1; i >= 0; i--) {
+  //       if (nodesList[i].scrollHeight && nodesList[i].clientHeight && nodesList[i].offsetHeight) {
+  //         const elHeight = Math.max(nodesList[i].scrollHeight, nodesList[i].clientHeight, nodesList[i].offsetHeight);
+  //         pageHeight = Math.max(elHeight, pageHeight);
+  //       }
+  //       if (nodesList[i].childNodes.length) {
+  //         findHighestNode(nodesList[i].childNodes);
+  //       }
+  //     }
+  //   }
 
-    findHighestNode(doc.documentElement.childNodes);
+  //   findHighestNode(doc.documentElement.childNodes);
 
-    // The entire page height is found
-    if (App4Sea.logging) console.log('Page height is', pageHeight);
+  //   // The entire page height is found
+  //   if (App4Sea.logging) console.log('Page height is', pageHeight);
 
-    return pageHeight;
-  }
+  //   return pageHeight;
+  // }
 
   // Finds BalloonStyle template from the text element of the Style node passed
   // returns the temmplate
@@ -333,57 +332,6 @@ const App4SeaPopUps = (function () {
     return template;
   }
 
-  // Add a click handler to the map to render the popup.
-  my.SingleClick = function (evt) {
-    // if (App4Sea.logging) console.log("my.SingleClick");
-
-    if (App4Sea.Measure.GetType() !== 'NotActive') {
-      return;
-    }
-
-    const { coordinate } = evt;
-    const features = [];
-
-    App4Sea.OpenLayers.Map.forEachFeatureAtPixel(evt.pixel, (feature) => {
-      if (App4Sea.logging) console.log(`SingleClick for feature: ${my.getTitle(feature)}`);
-      features.push(feature);
-    });
-
-    if (App4Sea.logging) console.log(`Features are: ${features.length}`);
-
-    const popups = [];
-    popupTitle.innerHTML = 'Select one';
-    popupContent.innerHTML = '';
-    for (let ind = 0; ind < features.length; ind++) {
-      // if (App4Sea.logging) console.log('SingleClick for feature: ' + my.getTitle(features[ind]));
-
-      const popup = popUpFeature(features[ind]);
-
-      if (features.length === 1) {
-        popupTitle.innerHTML = popup.title;
-
-        if (popup.description) {
-          popupContent.innerHTML = popup.description;
-          my.overlayLayerPopUp.setPosition(coordinate);
-        }
-      } else {
-        const clean = popup.description.replaceAll("\'", '`').replaceAll('\n', '');// replaceAll("\"", "`")
-        popupContent.innerHTML = `${popupContent.innerHTML
-        }<div onclick="{ document.getElementById(\'popup-title\').innerHTML='${popup.title
-        }'; document.getElementById(\'popup-content\').innerHTML='${clean
-        }'; }">${
-          ind.toString()} ${popup.title
-        }</div><br>`;
-
-        my.overlayLayerPopUp.setPosition(coordinate);
-      }
-    }
-    if (features.length === 0) {
-      my.overlayLayerPopUp.setPosition(undefined);
-      popupCloser.blur();
-    }
-  };
-
   function popUpFeature(feature) {
     let description = feature.get('description');
 
@@ -398,13 +346,13 @@ const App4SeaPopUps = (function () {
     } else if (aircraft_specification_class) {
       description = setA4SOSRAircraftInfo(feature);
     } else if (SiteID) {
-      description = setA4SOSRVesselInfo(feature);
-      // description = setA4SOSRSiteInfo(feature);
+      // description = setA4SOSRVesselInfo(feature);
+      description = setA4SOSRSiteInfo(feature);
     } else if (Id) { // drake passage example
       description = setShipPassageInfo(feature);
     }
 
-    if (description !== description || !description) {
+    if (description !== App4SeaUtils.isNaN(description)) {
       description = feature.get('name');
     }
 
@@ -446,6 +394,56 @@ const App4SeaPopUps = (function () {
 
     return { title, description };
   }
+
+  // Add a click handler to the map to render the popup.
+  my.SingleClick = function (evt) {
+    // if (App4Sea.logging) console.log("my.SingleClick");
+
+    if (App4Sea.Measure.GetType() !== 'NotActive') {
+      return;
+    }
+
+    const { coordinate } = evt;
+    const features = [];
+
+    App4Sea.OpenLayers.Map.forEachFeatureAtPixel(evt.pixel, (feature) => {
+      if (App4Sea.logging) console.log(`SingleClick for feature: ${my.getTitle(feature)}`);
+      features.push(feature);
+    });
+
+    if (App4Sea.logging) console.log(`Features are: ${features.length}`);
+
+    popupTitle.innerHTML = 'Select one';
+    popupContent.innerHTML = '';
+    for (let ind = 0; ind < features.length; ind++) {
+      // if (App4Sea.logging) console.log('SingleClick for feature: ' + my.getTitle(features[ind]));
+
+      const popup = popUpFeature(features[ind]);
+
+      if (features.length === 1) {
+        popupTitle.innerHTML = popup.title;
+
+        if (popup.description) {
+          popupContent.innerHTML = popup.description;
+          App4Sea.OpenLayers.overlayLayerPopUp.setPosition(coordinate);
+        }
+      } else {
+        const clean = popup.description.replaceAll("'", '`').replaceAll('\n', '');// replaceAll("\"", "`")
+        popupContent.innerHTML = `${popupContent.innerHTML
+        }<div onclick="{ document.getElementById('popup-title').innerHTML='${popup.title
+        }'; document.getElementById('popup-content').innerHTML='${clean
+        }'; }">${
+          ind.toString()} ${popup.title
+        }</div><br>`;
+
+        App4Sea.OpenLayers.overlayLayerPopUp.setPosition(coordinate);
+      }
+    }
+    if (features.length === 0) {
+      App4Sea.OpenLayers.overlayLayerPopUp.setPosition(undefined);
+      popupCloser.blur();
+    }
+  };
 
   my.getTitle = function (feature) {
     let name = feature.get('name');

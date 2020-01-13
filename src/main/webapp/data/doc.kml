@@ -3,12 +3,16 @@
 <Document>
 	<name>icechartPolygon.shp</name>
 	<Schema name="icechartPolygon" id="S_icechartPolygon_IIIS">
-		<SimpleField type="int" name="id_2"><displayName>&lt;b&gt;id&lt;/b&gt;</displayName></SimpleField>
-		<SimpleField type="int" name="version"><displayName>&lt;b&gt;version&lt;/b&gt;</displayName></SimpleField>
-		<SimpleField type="int" name="icechartid"><displayName>&lt;b&gt;icechartid&lt;/b&gt;</displayName></SimpleField>
-		<SimpleField type="string" name="icetype"><displayName>&lt;b&gt;icetype&lt;/b&gt;</displayName></SimpleField>
+		<SimpleField type="int" name="id_2"><displayName>&lt;b&gt;id&lt;/b&gt;</displayName>
+</SimpleField>
+		<SimpleField type="int" name="version"><displayName>&lt;b&gt;version&lt;/b&gt;</displayName>
+</SimpleField>
+		<SimpleField type="int" name="icechartid"><displayName>&lt;b&gt;icechartid&lt;/b&gt;</displayName>
+</SimpleField>
+		<SimpleField type="string" name="icetype"><displayName>&lt;b&gt;icetype&lt;/b&gt;</displayName>
+</SimpleField>
 	</Schema>
-	<Style id="open_water">
+	<Style id="falseColor">
 		<BalloonStyle>
 			<text><![CDATA[<table border="0">
   <tr><td><b>id</b></td><td>$[icechartPolygon/id_2]</td></tr>
@@ -20,155 +24,27 @@
 		</BalloonStyle>
 		<PolyStyle>
 			<colorMode>random</colorMode>
-		</PolyStyle>
-		<IconStyle>
-			<color>0000ff80</color>
-			<colorMode>normal</colorMode>
-		</IconStyle>
-		<LineStyle>
-			<color>0000ff80</color>
-			<colorMode>normal</colorMode>
-		</LineStyle>
-		<PolyStyle>
-			<color>0000ff80</color>
-			<colorMode>normal</colorMode>
-		</PolyStyle>
-	</Style>
-	<Style id="fast_ice">
-		<BalloonStyle>
-			<text><![CDATA[<table border="0">
-  <tr><td><b>id</b></td><td>$[icechartPolygon/id_2]</td></tr>
-  <tr><td><b>version</b></td><td>$[icechartPolygon/version]</td></tr>
-  <tr><td><b>icechartid</b></td><td>$[icechartPolygon/icechartid]</td></tr>
-  <tr><td><b>icetype</b></td><td>$[icechartPolygon/icetype]</td></tr>
-</table>
-]]></text>
-		</BalloonStyle>
-		<PolyStyle>
-			<colorMode>random</colorMode>
-		</PolyStyle>
-		<IconStyle>
-			<color>ffffff80</color>
-			<colorMode>normal</colorMode>
-		</IconStyle>
-		<LineStyle>
-			<color>ffffff80</color>
-			<colorMode>normal</colorMode>
-		</LineStyle>
-		<PolyStyle>
-			<color>ffffff80</color>
-			<colorMode>normal</colorMode>
-		</PolyStyle>
-	</Style>
-	<Style id="very_open_drift_ice">
-		<BalloonStyle>
-			<text><![CDATA[<table border="0">
-  <tr><td><b>id</b></td><td>$[icechartPolygon/id_2]</td></tr>
-  <tr><td><b>version</b></td><td>$[icechartPolygon/version]</td></tr>
-  <tr><td><b>icechartid</b></td><td>$[icechartPolygon/icechartid]</td></tr>
-  <tr><td><b>icetype</b></td><td>$[icechartPolygon/icetype]</td></tr>
-</table>
-]]></text>
-		</BalloonStyle>
-		<PolyStyle>
-			<colorMode>random</colorMode>
-		</PolyStyle>
-		<IconStyle>
-			<color>ffffff80</color>
-			<colorMode>normal</colorMode>
-		</IconStyle>
-		<LineStyle>
-			<color>ffffff80</color>
-			<colorMode>normal</colorMode>
-		</LineStyle>
-		<PolyStyle>
-			<color>ffffff80</color>
-			<colorMode>normal</colorMode>
-		</PolyStyle>
-	</Style>
-	<Style id="open_drift_ice">
-		<BalloonStyle>
-			<text><![CDATA[<table border="0">
-  <tr><td><b>id</b></td><td>$[icechartPolygon/id_2]</td></tr>
-  <tr><td><b>version</b></td><td>$[icechartPolygon/version]</td></tr>
-  <tr><td><b>icechartid</b></td><td>$[icechartPolygon/icechartid]</td></tr>
-  <tr><td><b>icetype</b></td><td>$[icechartPolygon/icetype]</td></tr>
-</table>
-]]></text>
-		</BalloonStyle>
-		<PolyStyle>
-			<colorMode>random</colorMode>
-		</PolyStyle>
-		<IconStyle>
-			<color>8000ff80</color>
-			<colorMode>normal</colorMode>
-		</IconStyle>
-		<LineStyle>
-			<color>8000ff80</color>
-			<colorMode>normal</colorMode>
-		</LineStyle>
-		<PolyStyle>
-			<color>8000ff80</color>
-			<colorMode>normal</colorMode>
-		</PolyStyle>
-	</Style>
-	<Style id="close_drift_ice">
-		<BalloonStyle>
-			<text><![CDATA[<table border="0">
-  <tr><td><b>id</b></td><td>$[icechartPolygon/id_2]</td></tr>
-  <tr><td><b>version</b></td><td>$[icechartPolygon/version]</td></tr>
-  <tr><td><b>icechartid</b></td><td>$[icechartPolygon/icechartid]</td></tr>
-  <tr><td><b>icetype</b></td><td>$[icechartPolygon/icetype]</td></tr>
-</table>
-]]></text>
-		</BalloonStyle>
-		<PolyStyle>
-			<colorMode>random</colorMode>
-		</PolyStyle>
-		<IconStyle>
-			<color>ff808080</color>
-			<colorMode>normal</colorMode>
-		</IconStyle>
-		<LineStyle>
-			<color>ff808080</color>
-			<colorMode>normal</colorMode>
-		</LineStyle>
-		<PolyStyle>
-			<color>ff808080</color>
-			<colorMode>normal</colorMode>
-		</PolyStyle>
-	</Style>
-	<Style id="very_close_drift_ice">
-		<BalloonStyle>
-			<text><![CDATA[<table border="0">
-  <tr><td><b>id</b></td><td>$[icechartPolygon/id_2]</td></tr>
-  <tr><td><b>version</b></td><td>$[icechartPolygon/version]</td></tr>
-  <tr><td><b>icechartid</b></td><td>$[icechartPolygon/icechartid]</td></tr>
-  <tr><td><b>icetype</b></td><td>$[icechartPolygon/icetype]</td></tr>
-</table>
-]]></text>
-		</BalloonStyle>
-		<PolyStyle>
-			<colorMode>random</colorMode>
-		</PolyStyle>
-		<IconStyle>
-			<color>cccccc80</color>
-			<colorMode>normal</colorMode>
-		</IconStyle>
-		<LineStyle>
-			<color>cccccc80</color>
-			<colorMode>normal</colorMode>
-		</LineStyle>
-		<PolyStyle>
-			<color>cccccc80</color>
-			<colorMode>normal</colorMode>
 		</PolyStyle>
 	</Style>
 	<Folder id="layer 0">
 		<name>icechartPolygon</name>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318237</SimpleData>
@@ -189,7 +65,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318238</SimpleData>
@@ -210,7 +100,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318239</SimpleData>
@@ -231,7 +135,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Water</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318240</SimpleData>
@@ -289,7 +207,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318241</SimpleData>
@@ -310,7 +242,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318242</SimpleData>
@@ -338,7 +284,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318243</SimpleData>
@@ -359,7 +319,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318244</SimpleData>
@@ -380,7 +354,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318245</SimpleData>
@@ -401,7 +389,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318246</SimpleData>
@@ -422,7 +424,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318247</SimpleData>
@@ -443,7 +459,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318248</SimpleData>
@@ -471,7 +501,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318249</SimpleData>
@@ -492,7 +536,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318250</SimpleData>
@@ -513,7 +571,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318251</SimpleData>
@@ -534,7 +606,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318252</SimpleData>
@@ -555,7 +641,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318253</SimpleData>
@@ -576,7 +676,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318254</SimpleData>
@@ -597,7 +711,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318255</SimpleData>
@@ -618,7 +746,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318256</SimpleData>
@@ -639,7 +781,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318257</SimpleData>
@@ -660,7 +816,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Close Drift Ice</name>
-			<styleUrl>#very_close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318258</SimpleData>
@@ -681,7 +851,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Close Drift Ice</name>
-			<styleUrl>#very_close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318259</SimpleData>
@@ -702,7 +886,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318260</SimpleData>
@@ -723,7 +921,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318261</SimpleData>
@@ -744,7 +956,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318262</SimpleData>
@@ -772,7 +998,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318263</SimpleData>
@@ -793,7 +1033,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318264</SimpleData>
@@ -814,7 +1068,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318265</SimpleData>
@@ -835,7 +1103,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318266</SimpleData>
@@ -856,7 +1138,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318267</SimpleData>
@@ -877,7 +1173,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318268</SimpleData>
@@ -898,7 +1208,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318269</SimpleData>
@@ -919,7 +1243,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318270</SimpleData>
@@ -940,7 +1278,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318271</SimpleData>
@@ -961,7 +1313,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Fast Ice</name>
-			<styleUrl>#fast_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318272</SimpleData>
@@ -982,7 +1348,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318273</SimpleData>
@@ -1003,7 +1383,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318274</SimpleData>
@@ -1024,7 +1418,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318275</SimpleData>
@@ -1045,7 +1453,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318276</SimpleData>
@@ -1066,7 +1488,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318277</SimpleData>
@@ -1087,7 +1523,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318278</SimpleData>
@@ -1108,7 +1558,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318279</SimpleData>
@@ -1129,7 +1593,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318280</SimpleData>
@@ -1150,7 +1628,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318281</SimpleData>
@@ -1171,7 +1663,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318282</SimpleData>
@@ -1192,7 +1698,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318283</SimpleData>
@@ -1213,7 +1733,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318284</SimpleData>
@@ -1234,7 +1768,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318285</SimpleData>
@@ -1255,7 +1803,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318286</SimpleData>
@@ -1276,7 +1838,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318287</SimpleData>
@@ -1297,7 +1873,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318288</SimpleData>
@@ -1318,7 +1908,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318289</SimpleData>
@@ -1339,7 +1943,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318290</SimpleData>
@@ -1360,7 +1978,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318291</SimpleData>
@@ -1381,7 +2013,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318292</SimpleData>
@@ -1402,7 +2048,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318293</SimpleData>
@@ -1423,7 +2083,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318294</SimpleData>
@@ -1444,7 +2118,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318295</SimpleData>
@@ -1465,7 +2153,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318296</SimpleData>
@@ -1486,7 +2188,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318297</SimpleData>
@@ -1507,7 +2223,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318298</SimpleData>
@@ -1528,7 +2258,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318299</SimpleData>
@@ -1549,7 +2293,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318300</SimpleData>
@@ -1570,7 +2328,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318301</SimpleData>
@@ -1591,7 +2363,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318302</SimpleData>
@@ -1612,7 +2398,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318303</SimpleData>
@@ -1633,7 +2433,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318304</SimpleData>
@@ -1654,7 +2468,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318305</SimpleData>
@@ -1675,7 +2503,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318306</SimpleData>
@@ -1696,7 +2538,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318307</SimpleData>
@@ -1717,7 +2573,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318308</SimpleData>
@@ -1738,7 +2608,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318309</SimpleData>
@@ -1759,7 +2643,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318310</SimpleData>
@@ -1780,7 +2678,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318311</SimpleData>
@@ -1801,7 +2713,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318312</SimpleData>
@@ -1822,7 +2748,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318313</SimpleData>
@@ -1843,7 +2783,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318314</SimpleData>
@@ -1864,7 +2818,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318315</SimpleData>
@@ -1885,7 +2853,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318316</SimpleData>
@@ -1906,7 +2888,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318317</SimpleData>
@@ -1927,7 +2923,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318318</SimpleData>
@@ -1948,7 +2958,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318319</SimpleData>
@@ -1969,7 +2993,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318320</SimpleData>
@@ -1990,7 +3028,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318321</SimpleData>
@@ -2011,7 +3063,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318322</SimpleData>
@@ -2032,7 +3098,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318323</SimpleData>
@@ -2053,7 +3133,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318324</SimpleData>
@@ -2074,7 +3168,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318325</SimpleData>
@@ -2095,7 +3203,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318326</SimpleData>
@@ -2116,7 +3238,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318327</SimpleData>
@@ -2137,7 +3273,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318328</SimpleData>
@@ -2158,7 +3308,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318329</SimpleData>
@@ -2179,7 +3343,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318330</SimpleData>
@@ -2200,7 +3378,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318331</SimpleData>
@@ -2221,7 +3413,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318332</SimpleData>
@@ -2242,7 +3448,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Close Drift Ice</name>
-			<styleUrl>#very_close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318333</SimpleData>
@@ -2263,7 +3483,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318334</SimpleData>
@@ -2284,7 +3518,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318335</SimpleData>
@@ -2305,7 +3553,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318336</SimpleData>
@@ -2326,7 +3588,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318337</SimpleData>
@@ -2347,7 +3623,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318338</SimpleData>
@@ -2368,7 +3658,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318339</SimpleData>
@@ -2389,7 +3693,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318340</SimpleData>
@@ -2410,7 +3728,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318341</SimpleData>
@@ -2431,7 +3763,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318342</SimpleData>
@@ -2452,7 +3798,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318343</SimpleData>
@@ -2473,7 +3833,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318344</SimpleData>
@@ -2494,7 +3868,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318345</SimpleData>
@@ -2515,7 +3903,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Fast Ice</name>
-			<styleUrl>#fast_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318346</SimpleData>
@@ -2536,7 +3938,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318347</SimpleData>
@@ -2557,7 +3973,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318348</SimpleData>
@@ -2578,7 +4008,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318349</SimpleData>
@@ -2599,7 +4043,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318350</SimpleData>
@@ -2620,7 +4078,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318351</SimpleData>
@@ -2641,7 +4113,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318352</SimpleData>
@@ -2662,7 +4148,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318353</SimpleData>
@@ -2683,7 +4183,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318354</SimpleData>
@@ -2704,7 +4218,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318355</SimpleData>
@@ -2725,7 +4253,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318356</SimpleData>
@@ -2746,7 +4288,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318357</SimpleData>
@@ -2767,7 +4323,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318358</SimpleData>
@@ -2788,7 +4358,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318359</SimpleData>
@@ -2809,7 +4393,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318360</SimpleData>
@@ -2830,7 +4428,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318361</SimpleData>
@@ -2851,7 +4463,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318362</SimpleData>
@@ -2872,7 +4498,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318363</SimpleData>
@@ -2893,7 +4533,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318364</SimpleData>
@@ -2914,7 +4568,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318365</SimpleData>
@@ -2942,7 +4610,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318366</SimpleData>
@@ -2963,7 +4645,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318367</SimpleData>
@@ -2984,7 +4680,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318368</SimpleData>
@@ -3005,7 +4715,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318369</SimpleData>
@@ -3026,7 +4750,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318370</SimpleData>
@@ -3047,7 +4785,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318371</SimpleData>
@@ -3068,7 +4820,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318372</SimpleData>
@@ -3089,7 +4855,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318373</SimpleData>
@@ -3110,7 +4890,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318374</SimpleData>
@@ -3131,7 +4925,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318375</SimpleData>
@@ -3152,7 +4960,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Close Drift Ice</name>
-			<styleUrl>#very_close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318376</SimpleData>
@@ -3173,7 +4995,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318377</SimpleData>
@@ -3194,7 +5030,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318378</SimpleData>
@@ -3222,7 +5072,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318379</SimpleData>
@@ -3243,7 +5107,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318380</SimpleData>
@@ -3264,7 +5142,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318381</SimpleData>
@@ -3285,7 +5177,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318382</SimpleData>
@@ -3306,7 +5212,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318383</SimpleData>
@@ -3327,7 +5247,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318384</SimpleData>
@@ -3348,7 +5282,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318385</SimpleData>
@@ -3369,7 +5317,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318386</SimpleData>
@@ -3390,7 +5352,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318387</SimpleData>
@@ -3411,7 +5387,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318388</SimpleData>
@@ -3432,7 +5422,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318389</SimpleData>
@@ -3453,7 +5457,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318390</SimpleData>
@@ -3474,7 +5492,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318391</SimpleData>
@@ -3495,7 +5527,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318392</SimpleData>
@@ -3516,7 +5562,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318393</SimpleData>
@@ -3537,7 +5597,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318394</SimpleData>
@@ -3558,7 +5632,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318395</SimpleData>
@@ -3586,7 +5674,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318396</SimpleData>
@@ -3607,7 +5709,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318397</SimpleData>
@@ -3628,7 +5744,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318398</SimpleData>
@@ -3649,7 +5779,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318399</SimpleData>
@@ -3670,7 +5814,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Fast Ice</name>
-			<styleUrl>#fast_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318400</SimpleData>
@@ -3691,7 +5849,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Fast Ice</name>
-			<styleUrl>#fast_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318401</SimpleData>
@@ -3712,7 +5884,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318402</SimpleData>
@@ -3733,7 +5919,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Water</name>
-			<styleUrl>open_water</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318403</SimpleData>
@@ -3754,7 +5954,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318404</SimpleData>
@@ -3775,7 +5989,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318405</SimpleData>
@@ -3796,7 +6024,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318406</SimpleData>
@@ -3817,7 +6059,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318407</SimpleData>
@@ -3838,7 +6094,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318408</SimpleData>
@@ -3859,7 +6129,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318409</SimpleData>
@@ -3880,7 +6164,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318410</SimpleData>
@@ -3901,7 +6199,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318411</SimpleData>
@@ -3922,7 +6234,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318412</SimpleData>
@@ -3943,7 +6269,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Fast Ice</name>
-			<styleUrl>#fast_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318413</SimpleData>
@@ -3964,7 +6304,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318414</SimpleData>
@@ -3985,7 +6339,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318415</SimpleData>
@@ -4006,7 +6374,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318416</SimpleData>
@@ -4027,7 +6409,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318417</SimpleData>
@@ -4048,7 +6444,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318418</SimpleData>
@@ -4069,7 +6479,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318419</SimpleData>
@@ -4090,7 +6514,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318420</SimpleData>
@@ -4111,7 +6549,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318421</SimpleData>
@@ -4132,7 +6584,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318422</SimpleData>
@@ -4153,7 +6619,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318423</SimpleData>
@@ -4174,7 +6654,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318424</SimpleData>
@@ -4195,7 +6689,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318425</SimpleData>
@@ -4216,7 +6724,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318426</SimpleData>
@@ -4237,7 +6759,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318427</SimpleData>
@@ -4258,7 +6794,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318428</SimpleData>
@@ -4279,7 +6829,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318429</SimpleData>
@@ -4300,7 +6864,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318430</SimpleData>
@@ -4321,7 +6899,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318431</SimpleData>
@@ -4342,7 +6934,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318432</SimpleData>
@@ -4363,7 +6969,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Fast Ice</name>
-			<styleUrl>#fast_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318433</SimpleData>
@@ -4384,7 +7004,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318434</SimpleData>
@@ -4405,7 +7039,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318435</SimpleData>
@@ -4426,7 +7074,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318436</SimpleData>
@@ -4447,7 +7109,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318437</SimpleData>
@@ -4468,7 +7144,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318438</SimpleData>
@@ -4489,7 +7179,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318439</SimpleData>
@@ -4510,7 +7214,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318441</SimpleData>
@@ -4531,7 +7249,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318442</SimpleData>
@@ -4552,7 +7284,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318443</SimpleData>
@@ -4573,7 +7319,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318444</SimpleData>
@@ -4594,7 +7354,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Close Drift Ice</name>
-			<styleUrl>#very_close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318445</SimpleData>
@@ -4615,7 +7389,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318446</SimpleData>
@@ -4636,7 +7424,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318447</SimpleData>
@@ -4657,7 +7459,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318448</SimpleData>
@@ -4678,7 +7494,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318449</SimpleData>
@@ -4699,7 +7529,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318450</SimpleData>
@@ -4720,7 +7564,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318451</SimpleData>
@@ -4741,7 +7599,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318452</SimpleData>
@@ -4762,7 +7634,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318453</SimpleData>
@@ -4783,7 +7669,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Close Drift Ice</name>
-			<styleUrl>#very_close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318454</SimpleData>
@@ -4804,7 +7704,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318455</SimpleData>
@@ -4825,7 +7739,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318456</SimpleData>
@@ -4846,7 +7774,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318457</SimpleData>
@@ -4867,7 +7809,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318458</SimpleData>
@@ -4888,7 +7844,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318459</SimpleData>
@@ -4909,7 +7879,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318460</SimpleData>
@@ -4930,7 +7914,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Close Drift Ice</name>
-			<styleUrl>#very_close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318461</SimpleData>
@@ -5038,7 +8036,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318462</SimpleData>
@@ -5059,7 +8071,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318463</SimpleData>
@@ -5080,7 +8106,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318464</SimpleData>
@@ -5101,7 +8141,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318465</SimpleData>
@@ -5122,7 +8176,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Water</name>
-			<styleUrl>open_water</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318466</SimpleData>
@@ -5143,7 +8211,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318467</SimpleData>
@@ -5164,7 +8246,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318468</SimpleData>
@@ -5185,7 +8281,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Fast Ice</name>
-			<styleUrl>#fast_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318469</SimpleData>
@@ -5206,7 +8316,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318470</SimpleData>
@@ -5227,7 +8351,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318471</SimpleData>
@@ -5248,7 +8386,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Close Drift Ice</name>
-			<styleUrl>#very_close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318472</SimpleData>
@@ -5269,7 +8421,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318473</SimpleData>
@@ -5297,7 +8463,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Fast Ice</name>
-			<styleUrl>#fast_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318474</SimpleData>
@@ -5318,7 +8498,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Fast Ice</name>
-			<styleUrl>#fast_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318475</SimpleData>
@@ -5339,7 +8533,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318476</SimpleData>
@@ -5360,7 +8568,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318477</SimpleData>
@@ -5381,7 +8603,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318478</SimpleData>
@@ -5402,7 +8638,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318479</SimpleData>
@@ -5423,7 +8673,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318480</SimpleData>
@@ -5444,7 +8708,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Water</name>
-			<styleUrl>open_water</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318481</SimpleData>
@@ -5465,7 +8743,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Fast Ice</name>
-			<styleUrl>#fast_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318482</SimpleData>
@@ -5486,7 +8778,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Close Drift Ice</name>
-			<styleUrl>#very_close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318483</SimpleData>
@@ -5507,7 +8813,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318484</SimpleData>
@@ -5528,7 +8848,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318485</SimpleData>
@@ -5549,7 +8883,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318486</SimpleData>
@@ -5570,7 +8918,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Fast Ice</name>
-			<styleUrl>#fast_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318487</SimpleData>
@@ -5591,7 +8953,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318488</SimpleData>
@@ -5612,7 +8988,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Fast Ice</name>
-			<styleUrl>#fast_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318489</SimpleData>
@@ -5633,7 +9023,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Fast Ice</name>
-			<styleUrl>#fast_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318490</SimpleData>
@@ -5654,7 +9058,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318491</SimpleData>
@@ -5675,7 +9093,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318492</SimpleData>
@@ -5696,7 +9128,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318493</SimpleData>
@@ -5717,7 +9163,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Close Drift Ice</name>
-			<styleUrl>#very_close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318494</SimpleData>
@@ -5738,7 +9198,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Fast Ice</name>
-			<styleUrl>#fast_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318495</SimpleData>
@@ -5759,7 +9233,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318496</SimpleData>
@@ -5780,7 +9268,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Fast Ice</name>
-			<styleUrl>#fast_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318497</SimpleData>
@@ -5801,7 +9303,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318498</SimpleData>
@@ -5822,7 +9338,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318499</SimpleData>
@@ -5843,7 +9373,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318500</SimpleData>
@@ -5864,7 +9408,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Close Drift Ice</name>
-			<styleUrl>#close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318501</SimpleData>
@@ -5885,7 +9443,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318502</SimpleData>
@@ -5906,7 +9478,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Close Drift Ice</name>
-			<styleUrl>#very_close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318503</SimpleData>
@@ -5927,7 +9513,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Fast Ice</name>
-			<styleUrl>#fast_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318504</SimpleData>
@@ -5948,7 +9548,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Fast Ice</name>
-			<styleUrl>#fast_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318505</SimpleData>
@@ -5969,7 +9583,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Open Drift Ice</name>
-			<styleUrl>#open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318506</SimpleData>
@@ -5990,7 +9618,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Close Drift Ice</name>
-			<styleUrl>#very_close_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318507</SimpleData>
@@ -6011,7 +9653,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Fast Ice</name>
-			<styleUrl>#fast_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318508</SimpleData>
@@ -6032,7 +9688,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Fast Ice</name>
-			<styleUrl>#fast_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318509</SimpleData>
@@ -6053,7 +9723,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Very Open Drift Ice</name>
-			<styleUrl>#very_open_drift_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318510</SimpleData>
@@ -6074,7 +9758,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Fast Ice</name>
-			<styleUrl>#fast_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318511</SimpleData>
@@ -6095,7 +9793,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Fast Ice</name>
-			<styleUrl>#fast_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318512</SimpleData>
@@ -6116,7 +9828,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Fast Ice</name>
-			<styleUrl>#fast_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318513</SimpleData>
@@ -6137,7 +9863,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Fast Ice</name>
-			<styleUrl>#fast_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318514</SimpleData>
@@ -6158,7 +9898,21 @@
 		</Placemark>
 		<Placemark>
 			<name>Fast Ice</name>
-			<styleUrl>#fast_ice</styleUrl>
+			<styleUrl>#falseColor</styleUrl>
+			<Style id="inline">
+				<IconStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</IconStyle>
+				<LineStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</LineStyle>
+				<PolyStyle>
+					<color>ff000000</color>
+					<colorMode>normal</colorMode>
+				</PolyStyle>
+			</Style>
 			<ExtendedData>
 				<SchemaData schemaUrl="#S_icechartPolygon_IIIS">
 					<SimpleData name="id_2">318515</SimpleData>

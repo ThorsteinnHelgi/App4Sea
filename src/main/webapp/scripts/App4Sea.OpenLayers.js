@@ -5,6 +5,10 @@
  *
  * ========================================================================== */
 
+import $ from 'jquery';
+import 'ol/ol.css';
+import * as olproj from 'ol/proj';
+import * as olcoordinate from 'ol/coordinate';
 import TileLayer from 'ol/layer/Tile';
 import OSM from 'ol/source/OSM';
 import XYZ from 'ol/source/XYZ';
@@ -18,20 +22,18 @@ import Rotate from 'ol/control/Rotate';
 import MousePosition from 'ol/control/MousePosition';
 import OverviewMap from 'ol/control/OverviewMap';
 import ScaleLine from 'ol/control/ScaleLine';
-import * as proj from 'ol/proj';
-import * as coordinate from 'ol/coordinate';
 import App4Sea from './App4Sea';
-import 'ol/ol.css';
 
 // @ts-check
 const App4SeaOpenLayers = (function () {
   const my = {};
 
   // Some further definitions
-  my.Map;
+  my.Map = null;
+  my.overlayLayerPopUp = null;
   my.styleMaps = []; // array to hold styles as they are created
   my.layers = []; // array to hold layers as they are created
-  my.descriptionContainer;
+  my.descriptionContainer = document.getElementById('InfoPopup');
 
   let currentLayer;
   let osmTileLayer;
@@ -39,31 +41,15 @@ const App4SeaOpenLayers = (function () {
   let esriWITileLayer;
   let blackTileLayer;
 
-  // //////////////////////////////////////////////////////////////////////////
-  // initialize maps and models when page DOM is ready..
-  my.Init = function () {
-    initBasemapLayerTiles();
-
-    CreateBaseMap();
-
-    currentLayer = esriWSPTileLayer;
-
-    updateBaseMap();
-
-    SetMapControls();
-
-    initMenu();
-
-    InitPopup();
-
-    // let res = App4Sea.Utils.supports_html5_storage();
-    // if (App4Sea.logging) console.log("Support for html5 local storage: " + res);
-  };
+  let currentLayerMini;
+  let osmTileLayerMini;
+  let esriWSPTileLayerMini;
+  let esriWITileLayerMini;
+  let blackTileLayerMini;
 
   // //////////////////////////////////////////////////////////////////////////
   // Init all base maps
   function initBasemapLayerTiles() {
-    my.descriptionContainer = document.getElementById('InfoPopup');
     // overlayDescription = my.InitOverlay(my.descriptionContainer);
 
     // Init osmTileLayer base map
@@ -72,10 +58,24 @@ const App4SeaOpenLayers = (function () {
       crossOriginKeyword: 'anonymous',
       source: new OSM(),
     });
+    osmTileLayerMini = new TileLayer({
+      name: 'osmTileLayerMini',
+      crossOriginKeyword: 'anonymous',
+      source: new OSM(),
+    });
 
     // Init esriWSPTileLayer base map
     esriWSPTileLayer = new TileLayer({
       name: 'esriWSPTileLayer',
+      crossOriginKeyword: 'anonymous',
+      source: new XYZ({
+        attributions: ['&copy; <a href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/0">ArcGIS World Street Map</a>'],
+        // //                rendermode: 'image',
+        url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}',
+      }),
+    });
+    esriWSPTileLayerMini = new TileLayer({
+      name: 'esriWSPTileLayerMini',
       crossOriginKeyword: 'anonymous',
       source: new XYZ({
         attributions: ['&copy; <a href="https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/0">ArcGIS World Street Map</a>'],
@@ -94,9 +94,27 @@ const App4SeaOpenLayers = (function () {
         url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
       }),
     });
+    esriWITileLayerMini = new TileLayer({
+      name: 'esriWITileLayerMini',
+      crossOriginKeyword: 'anonymous',
+      source: new XYZ({
+        attributions: ['&copy; <a href="https://services.arcgisonline.com/arcgis/rest/services/World_Imagery/MapServer/0">ArcGIS World Imagery Map</a>'],
+        // rendermode: 'image',
+        url: 'https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
+      }),
+    });
 
     blackTileLayer = new TileLayer({
       name: 'blackTileLayer',
+      crossOriginKeyword: 'anonymous',
+      source: new XYZ({
+        attributions: ['&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'],
+        // rendermode: 'image',
+        url: 'http://{a-c}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}.png',
+      }),
+    });
+    blackTileLayerMini = new TileLayer({
+      name: 'blackTileLayerMini',
       crossOriginKeyword: 'anonymous',
       source: new XYZ({
         attributions: ['&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'],
@@ -133,27 +151,20 @@ const App4SeaOpenLayers = (function () {
   }
 
   // //////////////////////////////////////////////////////////////////////////
-  // MapChange
-  my.MapChange = function () {
-    const mapSelector2 = $('#MenuLayer_Select2');
-    const mapSelector = $('#MenuLayer_Select');
-    mapSelector[0].selectedIndex = mapSelector2[0].selectedIndex;
-    updateBaseMap();
-  };
-
-  // //////////////////////////////////////////////////////////////////////////
   // Update base map
   function updateBaseMap() {
     // Set base map
     const selectedMapLayer = $('#MenuLayer_Select').val();
     if (selectedMapLayer !== currentLayer.name) {
       my.Map.removeLayer(currentLayer);
+
       const el = $('#MenuContainer');
       const el2 = $('#ButtonsForMenu');
       const el3 = $('#ButtonsForTools');
       const el4 = $('#ButtonsForSettings');
       const el5 = $('#ButtonsForToolsInMap');
       const cursPos = document.getElementsByClassName('ol-mouse-position');
+
       if (selectedMapLayer === 'osmTileLayer') {
         // el[0].style.backgroundColor = 'white';
         el[0].style.backgroundImage = 'let(--gradientWhite)';
@@ -164,6 +175,7 @@ const App4SeaOpenLayers = (function () {
         el5[0].style.filter = 'invert(0%)';
         if (cursPos && cursPos.length > 0) cursPos[0].style.color = 'black';
         currentLayer = osmTileLayer;
+        currentLayerMini = osmTileLayerMini;
       } else if (selectedMapLayer === 'esriWSPTileLayer') {
         el[0].style.backgroundImage = 'let(--gradientBeige)';
         el[0].style.color = 'black';
@@ -173,6 +185,7 @@ const App4SeaOpenLayers = (function () {
         el5[0].style.filter = 'invert(0%)';
         if (cursPos && cursPos.length > 0) cursPos[0].style.color = 'black';
         currentLayer = esriWSPTileLayer;
+        currentLayerMini = esriWSPTileLayerMini;
       } else if (selectedMapLayer === 'esriWITileLayer') {
         // el[0].style.backgroundColor = '#163e6f';
         el[0].style.backgroundImage = 'let(--gradientBlue)';
@@ -183,6 +196,7 @@ const App4SeaOpenLayers = (function () {
         el5[0].style.filter = 'invert(100%)';
         if (cursPos && cursPos.length > 0) cursPos[0].style.color = 'beige';
         currentLayer = esriWITileLayer;
+        currentLayerMini = esriWITileLayerMini;
       } else if (selectedMapLayer === 'blackTileLayer') {
         // el[0].style.backgroundColor = '#0d0d0d';
         el[0].style.backgroundImage = 'let(--gradientGray)';
@@ -193,10 +207,11 @@ const App4SeaOpenLayers = (function () {
         el5[0].style.filter = 'invert(100%)';
         if (cursPos && cursPos.length > 0) cursPos[0].style.color = 'gray';
         currentLayer = blackTileLayer;
+        currentLayerMini = blackTileLayerMini;
       }
+
       const layers = my.Map.getLayerGroup().getLayers();
       layers.insertAt(0, currentLayer);
-      // my.Map.addLayer(currentLayer);
     }
   }
 
@@ -211,21 +226,30 @@ const App4SeaOpenLayers = (function () {
     const ctrl = new MousePosition({
       projection: App4Sea.prefProj,
       coordinateFormat(coord) {
-        const xy = proj.transform(coord, App4Sea.prefProj, App4Sea.prefViewProj);
-        let str = coordinate.toStringHDMS(coord);
-        str = `${str}<br>${coordinate.toStringXY(coord, 6)}`;
-        str = `${str}<br>${coordinate.toStringXY(xy, 0)}`;
+        const xy = olproj.transform(coord, App4Sea.prefProj, App4Sea.prefViewProj);
+        let str = olcoordinate.toStringHDMS(coord);
+        str = `${str}<br>${olcoordinate.toStringXY(coord, 6)}`;
+        str = `${str}<br>${olcoordinate.toStringXY(xy, 0)}`;
         return str;
       },
       undefinedHTML: '',
     });
     my.Map.addControl(ctrl);
     my.Map.addControl(new OverviewMap({
-      layers: [currentLayer],
+      layers: [currentLayerMini],
       collapsed: true,
     }));
-    my.Map.addControl(new ScaleLine());// Not correct scale
+    my.Map.addControl(new ScaleLine());
   }
+
+  // //////////////////////////////////////////////////////////////////////////
+  // MapChange
+  my.MapChange = function () {
+    const mapSelector2 = $('#MenuLayer_Select2');
+    const mapSelector = $('#MenuLayer_Select');
+    mapSelector[0].selectedIndex = mapSelector2[0].selectedIndex;
+    updateBaseMap();
+  };
 
   // //////////////////////////////////////////////////////////////////////////
   // Init all menu items
@@ -243,18 +267,6 @@ const App4SeaOpenLayers = (function () {
     $('#MenuContainer select').change(() => {
       updateBaseMap();
     });
-  }
-
-  function InitPopup() {
-    const popupContainer = document.getElementById('popup');
-    const popupCloser = document.getElementById('popup-closer');
-
-    // Create an overlay to anchor the popup to the map.
-    App4Sea.PopUps.overlayLayerPopUp = InitOverlay(popupContainer, popupCloser);
-
-    my.Map.addOverlay(App4Sea.PopUps.overlayLayerPopUp);
-
-    InitToolTip();
   }
 
   // //////////////////////////////////////////////////////////////////////////
@@ -277,7 +289,6 @@ const App4SeaOpenLayers = (function () {
 
       // if (App4Sea.logging) console.log('Features are: ' + features.length);
 
-      const tips = [];
       let txt = '';
       $('#ToolTipInfo').tooltip('hide');
       const inf = $('#ToolTipInfo');
@@ -333,6 +344,40 @@ const App4SeaOpenLayers = (function () {
 
     return overlay;
   }
+
+  function InitPopup() {
+    const popupContainer = document.getElementById('popup');
+    const popupCloser = document.getElementById('popup-closer');
+
+    // Create an overlay to anchor the popup to the map.
+    my.overlayLayerPopUp = InitOverlay(popupContainer, popupCloser);
+
+    my.Map.addOverlay(my.overlayLayerPopUp);
+
+    InitToolTip();
+  }
+
+  // //////////////////////////////////////////////////////////////////////////
+  // initialize maps and models when page DOM is ready..
+  my.Init = function () {
+    initBasemapLayerTiles();
+
+    CreateBaseMap();
+
+    currentLayer = esriWSPTileLayer;
+    currentLayerMini = esriWSPTileLayerMini;
+
+    updateBaseMap();
+
+    SetMapControls();
+
+    initMenu();
+
+    InitPopup();
+
+    // let res = App4Sea.Utils.supports_html5_storage();
+    // if (App4Sea.logging) console.log("Support for html5 local storage: " + res);
+  };
 
   return my;
 }());

@@ -272,7 +272,7 @@
                             <table width="100%">
                                 <tr style="text-align:center">
                                     <td colspan="3">
-                                        <select id="AniDataSelect" class="DocTitle" style="color:white; background-color:gray;">
+                                        <select id="AniDataSelect" class="DocTitle" style="color:white; background-color:gray;" onchange="$.App4Sea.Animation.SelectionChanged(event)">
                                             <option style="color:black;" value="esriWSPTileLayer">No data available</option>
                                         </select>
                                     </td>
@@ -389,6 +389,8 @@
 
         <!-- This is the main map container. It is populated in code -->
         <div id="MapContainer">
+            
+            <!-- This is the button to open the menu -->
             <div id="MenuButton" class="ol-custom ol-unselectable ol-control">
                <button title="Open Menu" type="button" class="ol-rotate" onclick="$.App4Sea.Utils.w3_open('MenuContainer')">
                     <span class="ol-compass">☰</span>
@@ -414,7 +416,7 @@
             </div>
 
             <!-- This is where we store tool buttons in the map -->
-            <div style="text-align:center;">
+            <div id="ToolButtons" style="text-align:center;">
                 <div id="ToolButtonsPlaceInMap" class="toolbuttonscontainerinmap">
                     <div id="ButtonsForToolsInMap" >
                         <button class="btn" title="Home" onclick="$.App4Sea.Utils.GoHome()"><i class="fa fa-home"></i></button>
@@ -439,7 +441,6 @@
 
             <img id="photo" src="" class="photo" alt="photo"/>
         </div>
-
     </body>
 
 
