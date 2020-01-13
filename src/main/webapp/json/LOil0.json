@@ -4,8 +4,7 @@
     { "id" : "L13", "parent" : "LOil0", "text" : "Incidents", "children" : false, "a_attr" : { "path" : "data/Incidents.kml"} },
     { "id" : "L15", "parent" : "LOil0", "text" : "Oil Spill Response Sites", "children" : false, "a_attr" : { "path" : "data/APP4SEA OSR Info3_UVS.kml"} },
     { "id" : "L16", "parent" : "LOil0", "text" : "Oil Spill Simulation: Bravo", "children" : false, "a_attr" : { "path" : "data/bravo.kmz", "tool" : "animation"} },
-    { "id" : "L17", "parent" : "LOil0", "text" : "Oil Spill Simulation: Helge Ingstad", "children" : false, "a_attr" : { "path" : "data/helgeingstad2.kmz", "tool" : "animation"} },
+    { "id" : "L17", "parent" : "LOil0", "text" : "Oil Spill Simulation: Helge Ingstad", "children" : false, "a_attr" : { "path" : "data/helgeingstad.kmz", "tool" : "animation"} },
     { "id" : "L18", "parent" : "LOil0", "text" : "Oil Spill Simulation: Northguider", "children" : false, "a_attr" : { "path" : "data/nordic4_northguider.kmz", "tool" : "animation"} },
-    { "id" : "L19", "parent" : "LOil0", "text" : "Oil Spill Simulation: Braer 1993", "children" : false, "a_attr" : { "path" : "data/braer_disp.kmz", "tool" : "animation"} },
-    { "id" : "L20", "parent" : "LOil0", "text" : "Drake passage ship tracks", "children" : false, "a_attr" : { "path" : "data/EE_GT_0001.kml"} }
+    { "id" : "L10", "parent" : "LOil0", "text" : "Drake passage ship tracks", "children" : false, "a_attr" : { "path" : "data/EE_GT_0001.kml"} }
 ]

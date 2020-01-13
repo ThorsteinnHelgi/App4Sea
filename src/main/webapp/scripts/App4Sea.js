@@ -5,7 +5,7 @@
  * ========================================================================== */
 
 import $ from 'jquery';
-import * as olproj from 'ol/proj';
+import * as proj from 'ol/proj';
 
 // @ts-check
 const App4Sea = (function a4s() {
@@ -32,8 +32,8 @@ const App4Sea = (function a4s() {
   // Just definition of a few constants
   my.prefProj = 'EPSG:4326'; // EPSG:4326 = WGS84
   my.prefViewProj = 'EPSG:3857'; // Default is EPSG:3857 (Spherical Mercator).
-  my.mapCenter = olproj.transform([-3, 65], my.prefProj, my.prefViewProj);// 'EPSG:3857');
-  my.mapExtent = olproj.transformExtent([-180, -90, 180, 90], my.prefProj, my.prefViewProj);
+  my.mapCenter = proj.transform([-3, 65], my.prefProj, my.prefViewProj);// 'EPSG:3857');
+  my.mapExtent = proj.transformExtent([-180, -90, 180, 90], my.prefProj, my.prefViewProj);
   my.minZoom = 2;
   my.maxZoom = 18;
   my.startZoom = 4;

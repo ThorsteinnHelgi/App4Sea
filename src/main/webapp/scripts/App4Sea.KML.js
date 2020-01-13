@@ -5,17 +5,17 @@
  * ========================================================================== */
 
 import qwest from 'qwest';
-import * as olproj from 'ol/proj';
 import VectorLayer from 'ol/layer/Vector';
 import Vector from 'ol/source/Vector';
 import Image from 'ol/layer/Image';
 import ImageStatic from 'ol/source/ImageStatic';
 import KML from 'ol/format/KML';
-import zip from '../static/js/zip';
+import * as proj from 'ol/proj';
 import App4Sea from './App4Sea';
 
 const App4SeaKML = (function () {
   const my = {};
+  let ynd = 0;
   let title = '';
 
   // //////////////////////////////////////////////////////////////////////////
@@ -43,6 +43,32 @@ const App4SeaKML = (function () {
 
     return vector;
   };
+
+  // //////////////////////////////////////////////////////////////////////////
+  // load kmz or kml and recurse through nested files
+  // See https://developers.google.com/kml/documentation/kmzarchives
+  my.loadKmlKmz = function (url, id, name) {
+    if (App4Sea.logging) console.log(`loadKmz: ${id} from ${url}`);
+    title = name;
+    repeat_kml_kmz_calls(url, id);
+  };
+
+  // //////////////////////////////////////////////////////////////////////////
+  // Recursion
+  function repeat_kml_kmz_calls(url, id) {
+    // make the ajax call to kmz that unzip and read the file
+    // this file reference other KMZ so we call each of them
+    // and add their content
+    const str = url.toLowerCase();
+    if (App4Sea.logging) console.log(str);
+    if (str.endsWith('kmz')) {
+      if (App4Sea.logging) console.log(`readAndAddFeatures kmz element: ${url}`);
+      ajaxKMZ(url, id, unzipFromBlob(readAndAddFeatures, id));
+    } else {
+      if (App4Sea.logging) console.log(`readAndAddFeatures non-kmz element: ${url}`);
+      ajaxKMZ(url, id, readAndAddFeatures);// kml
+    }
+  }
 
   // //////////////////////////////////////////////////////////////////////////
   // Function to make ajax call and make a callback on success (both kml and kmz)
@@ -167,6 +193,48 @@ const App4SeaKML = (function () {
   }
 
   // //////////////////////////////////////////////////////////////////////////
+  // Read a KML and add any features to the vector layer recursively
+  // This call will either be called with a kml file or the individual entries (as text)
+  // from the entries in the kmz file (of which the doc.kml file is one).
+  let readAndAddFeatures = function (text, path, id, entries) {
+    if (App4Sea.logging) console.log(`readAndAddFeatures >>>> ${path} from file ${id}`);
+
+    const str = path.toLowerCase();
+
+    if (str.endsWith('kml')) {
+      addKMLFeatures(text, str, id); // TBD this is used for simple kml data (placemarks and vectors). Should do all locally
+
+      const listFilesNested = parseKmlText(path, text, id, entries);
+      if (App4Sea.logging) console.log(`listFilesNested are ${listFilesNested.length}`);
+
+      listFilesNested.forEach((el) => {
+        if (App4Sea.logging) console.log('readAndAddFeatures ----------');
+        // Nested calls. Acceptable for a demo
+        // but could be "promisified" instead
+        repeat_kml_kmz_calls(el, id);
+      });
+    } else {
+      // /addKMLFeatures(text, str, id);
+    }
+    if (App4Sea.logging) console.log('readAndAddFeatures <<<<');
+  };
+
+  // //////////////////////////////////////////////////////////////////////////
+  // Function to ease KML feature reading
+  function addKMLFeatures(text, path, id) {
+    if (App4Sea.logging) console.log(`>>> addKMLFeatures: ${path}`);
+
+    if (path.endsWith('kml')) {
+      // if (App4Sea.logging) console.log(text); // log the whole kml file
+      loadKmlText(text, id, path);
+
+      if (App4Sea.logging) console.log(`addKMLFeatures: ${id} in file ${path} DONE`);
+    }
+
+    if (App4Sea.logging) console.log('<<< addKMLFeatures');
+  }
+
+  // //////////////////////////////////////////////////////////////////////////
   // Load kml content and return as Vector
   // See https://developers.google.com/kml/documentation/kmlreference
   function loadKmlText(text, id, path) {
@@ -251,9 +319,6 @@ const App4SeaKML = (function () {
     let newStyleMap;
 
     switch (node.nodeName) {
-      default:
-        if (App4Sea.logging) console.log(`addStyleMap for ${node.nodeName} is not defined`);
-        break;
       case 'StyleMap':
         newStyleMap = getStyleEntry(newID, parentId, node);
         App4Sea.OpenLayers.styleMaps.push(newStyleMap);
@@ -342,21 +407,6 @@ const App4SeaKML = (function () {
   }
 
   // //////////////////////////////////////////////////////////////////////////
-  // Function to ease KML feature reading
-  function addKMLFeatures(text, path, id) {
-    if (App4Sea.logging) console.log(`>>> addKMLFeatures: ${path}`);
-
-    if (path.endsWith('kml')) {
-      // if (App4Sea.logging) console.log(text); // log the whole kml file
-      loadKmlText(text, id, path);
-
-      if (App4Sea.logging) console.log(`addKMLFeatures: ${id} in file ${path} DONE`);
-    }
-
-    if (App4Sea.logging) console.log('<<< addKMLFeatures');
-  }
-
-  // //////////////////////////////////////////////////////////////////////////
   // addChild to the menu tree (jstree)
   // returns the new id for the node in the tree (format example: j1_4)
   function addChild(text, data, tree, parNode, disabled, icon) {
@@ -423,10 +473,10 @@ const App4SeaKML = (function () {
     };
 
     // //////////////////////////////////////////////////////////////////////////
-    function addOverlay(overlay, id0) {
+    function addOverlay(overlay, id) {
       //----------------------------------------------------------------------
       function loadImageFromKmz(ent1, url1, ext1, prj1, nam1, id1, leg1) {
-        const extendedCallback = function (ur, ex, pr, nm, en, id2, le) {
+        const extendedCallback = function (ur, ex, pr, nm, en, id, le) {
           return function (data) {
             const kmzurl = URL.createObjectURL(data);
 
@@ -444,7 +494,7 @@ const App4SeaKML = (function () {
               });
               if (image) {
                 if (App4Sea.logging) console.log(`Pushing image to: ${ex}`);
-                App4Sea.OpenLayers.layers.push({ id2, vector: image });
+                App4Sea.OpenLayers.layers.push({ id, vector: image });
                 // if (App4Sea.logging) console.log("Added image from kmz. Cached layers now are " + App4Sea.OpenLayers.layers.length + ": " + ur);
 
                 App4Sea.OpenLayers.Map.addLayer(image);
@@ -502,11 +552,32 @@ const App4SeaKML = (function () {
             findIn(entries, url, null, null, nameIs, id, true);
           } else addLegend(title, url);
         }
-      } else if (overlay.nodeName === 'PhotoOverlay') {
+      }
       //----------------------------------------------------------------------
+      else if (overlay.nodeName === 'PhotoOverlay') {
         if (App4Sea.logging) console.log(`PhotoOverlay: ${url}`);
-      } else { // GroundOverlay
+      }
       //----------------------------------------------------------------------
+      else { // GroundOverlay
+        /*
+                <GroundOverlay id="3">
+                    <name>growth at1989-01-01T00:00:00</name>
+                    <TimeStamp id="6">
+                        <when>1989-01-01T00:00:00Z</when>
+                    </TimeStamp>
+                    <Icon id="4">
+                        <href>http://opendap.deltares.nl/thredds/wms/opendap/imares/plaice_large_1989/plaice_large_1989_day_1.nc?VERSION=1.1.1&REQUEST=GetMap&bbox=-6.9166666666665,48.349629629499994,16.7500000000475,60.0622221915&SRS=EPSG%3A4326&WIDTH=512&HEIGHT=512&LAYERS=Band1&STYLES=boxfill/sst_36&TRANSPARENT=TRUE&FORMAT=image/gif&COLORSCALERANGE=-0.1,0.2</href>
+                        <refreshMode>onStop</refreshMode>
+                        <viewBoundScale>0.75</viewBoundScale>
+                    </Icon>
+                    <LatLonBox>
+                        <north>60.0622221915</north>
+                        <south>48.3496296295</south>
+                        <east>16.75</east>
+                        <west>-6.91666666667</west>
+                    </LatLonBox>
+                </GroundOverlay>
+                */
         if (App4Sea.logging) console.log(`GroundOverlay: ${url}`);
 
         url = url.replaceAll(/&amp;/, '&');
@@ -516,15 +587,16 @@ const App4SeaKML = (function () {
         const east = parseFloat(overlay.querySelector('east').innerHTML);
         const north = parseFloat(overlay.querySelector('north').innerHTML);
 
-        const viewExtent = olproj.transformExtent([west, south, east, north], App4Sea.prefProj, App4Sea.prefViewProj);
+        const viewExtent = proj.transformExtent([west, south, east, north], App4Sea.prefProj, App4Sea.prefViewProj);
         if (App4Sea.logging) console.log(`GroundOverlay: W:${west} S:${south} E:${east} N:${north} Pro:${App4Sea.prefProj} ViewProj:${App4Sea.prefViewProj}`);
 
         let image;
+        ynd += 1;// && ynd % 2 === 1
         if (!url.startsWith('http') && entries && entries.length > 1) {
           if (App4Sea.logging) console.log(`Getting image from kmz: ${url}`);
           findIn(entries, url, viewExtent, App4Sea.prefViewProj, nameIs, id);
         } else {
-          if (App4Sea.logging) console.log(`Getting image ${id} from url: ${url}`);
+          if (App4Sea.logging) console.log(`Getting image from url: ${url}`);
           const source = new ImageStatic({
             url,
             // crossOrigin: 'anonymous',
@@ -547,7 +619,7 @@ const App4SeaKML = (function () {
     }
 
     // //////////////////////////////////////////////////////////////////////////
-    function listChildren(id3, children) {
+    function listChildren(id, children) {
       for (let cind = 0; cind < children.length; cind++) {
         const child = children[cind];
         let newId;
@@ -566,7 +638,7 @@ const App4SeaKML = (function () {
           const description = child;
           if (description.innerHTML !== '') {
             const txt = App4Sea.Utils.NoXML(description.innerHTML);
-            newId = addChild('Description', txt, $('#TreeMenu'), id3, false, 'icons/description.png');
+            newId = addChild('Description', txt, $('#TreeMenu'), id, false, 'icons/description.png');
           }
         } else if (child.nodeName === 'author' || child.nodeName === 'atom:author') {
           const author = child;
@@ -578,10 +650,10 @@ const App4SeaKML = (function () {
             authText += txt;
           }
           authText += '</p>';
-          newId = addChild('Author', authText, $('#TreeMenu'), id3, false, 'icons/author.png');
+          newId = addChild('Author', authText, $('#TreeMenu'), id, false, 'icons/author.png');
         } else if (child.nodeName === 'Folder'
                         || child.nodeName === 'Document') {
-          newId = addChild(getName(child.children, child.nodeName), child.innerHTML, $('#TreeMenu'), id3, true, 'icons/folder.png');
+          newId = addChild(getName(child.children, child.nodeName), child.innerHTML, $('#TreeMenu'), id, true, 'icons/folder.png');
         } else if (child.nodeName === 'Camera') {
           let elems;
 
@@ -594,7 +666,7 @@ const App4SeaKML = (function () {
           elems = child.getElementsByTagName('altitude');
           const alt = parseFloat(elems[0].textContent);
 
-          // let center = olproj.transform([lon, lat], App4Sea.prefProj, App4Sea.prefViewProj);//'EPSG:3857');
+          // let center = ol.proj.transform([lon, lat], App4Sea.prefProj, App4Sea.prefViewProj);//'EPSG:3857');
           const zoom = App4Sea.Utils.altitudeToZoom(alt);
 
           App4Sea.Utils.FlyTo([lon, lat], null);
@@ -604,11 +676,11 @@ const App4SeaKML = (function () {
 
           if (App4Sea.logging) console.log(`Camera set to lon=${lon} lat=${lat} alt=${alt}m zoom=${zoom}`);
         } else if (child.nodeName === 'Placemark') { // Can move this later to a selectable section TBD
-          newId = addChild(getName(child.children, child.nodeName), child.innerHTML, $('#TreeMenu'), id3, true, 'icons/placemark.png');
+          newId = addChild(getName(child.children, child.nodeName), child.innerHTML, $('#TreeMenu'), id, true, 'icons/placemark.png');
         } else if (child.nodeName === 'GroundOverlay'
                         || child.nodeName === 'PhotoOverlay'
                         || child.nodeName === 'ScreenOverlay') {
-          newId = addChild(getName(child.children, child.nodeName), child.innerHTML, $('#TreeMenu'), id3, false, 'icons/overlay.png');
+          newId = addChild(getName(child.children, child.nodeName), child.innerHTML, $('#TreeMenu'), id, false, 'icons/overlay.png');
           addOverlay(child, newId);
 
           let href = '';
@@ -626,10 +698,10 @@ const App4SeaKML = (function () {
           }
         } else if (child.nodeName === 'StyleMap'
                         || child.nodeName === 'Style') { // Included in StyleMap
-          // if (App4Sea.logging) console.log("Not handling Style attributes: " + child.nodeName + ": " + child.id3);
+          // if (App4Sea.logging) console.log("Not handling Style attributes: " + child.nodeName + ": " + child.id);
           //    function addStyleMap (parentId, node) {
 
-          newId = addStyleMap(id3, child);
+          newId = addStyleMap(id, child);
         } else if (child.nodeName === 'TimeSpan') {
           // if (App4Sea.logging) console.log(child.nodeName + " item not handled: " + child.innerHTML);
         } else if (child.nodeName === 'TimeStamp') {
@@ -713,59 +785,6 @@ const App4SeaKML = (function () {
 
     return files;// , canAnimate;//, gol, golw, golb, gole;
   }
-
-  // //////////////////////////////////////////////////////////////////////////
-  // Read a KML and add any features to the vector layer recursively
-  // This call will either be called with a kml file or the individual entries (as text)
-  // from the entries in the kmz file (of which the doc.kml file is one).
-  const readAndAddFeatures = function (text, path, id, entries) {
-    if (App4Sea.logging) console.log(`readAndAddFeatures >>>> ${path} from file ${id}`);
-
-    const str = path.toLowerCase();
-
-    if (str.endsWith('kml')) {
-      addKMLFeatures(text, str, id); // TBD this is used for simple kml data (placemarks and vectors). Should do all locally
-
-      const listFilesNested = parseKmlText(path, text, id, entries);
-      if (App4Sea.logging) console.log(`listFilesNested are ${listFilesNested.length}`);
-
-      listFilesNested.forEach((el) => {
-        if (App4Sea.logging) console.log('readAndAddFeatures ----------');
-        // Nested calls. Acceptable for a demo
-        // but could be "promisified" instead
-        repeat_kml_kmz_calls(el, id);
-      });
-    } else {
-      // /addKMLFeatures(text, str, id);
-    }
-    if (App4Sea.logging) console.log('readAndAddFeatures <<<<');
-  };
-
-  // //////////////////////////////////////////////////////////////////////////
-  // Recursion
-  function repeat_kml_kmz_calls(url, id) {
-    // make the ajax call to kmz that unzip and read the file
-    // this file reference other KMZ so we call each of them
-    // and add their content
-    const str = url.toLowerCase();
-    if (App4Sea.logging) console.log(str);
-    if (str.endsWith('kmz')) {
-      if (App4Sea.logging) console.log(`readAndAddFeatures kmz element: ${url}`);
-      ajaxKMZ(url, id, unzipFromBlob(readAndAddFeatures, id));
-    } else {
-      if (App4Sea.logging) console.log(`readAndAddFeatures non-kmz element: ${url}`);
-      ajaxKMZ(url, id, readAndAddFeatures);// kml
-    }
-  }
-
-  // //////////////////////////////////////////////////////////////////////////
-  // load kmz or kml and recurse through nested files
-  // See https://developers.google.com/kml/documentation/kmzarchives
-  my.loadKmlKmz = function (url, id, name) {
-    if (App4Sea.logging) console.log(`loadKmz: ${id} from ${url}`);
-    title = name;
-    repeat_kml_kmz_calls(url, id);
-  };
 
   return my;
 }());

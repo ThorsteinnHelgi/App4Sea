@@ -9,45 +9,6 @@ import App4Sea from './App4Sea';
 const App4SeaAnimation = (function () {
   const my = {};
 
-  // ////////////////////////////////////////////////////////////////////////
-  // Members
-  my.AniData = [[], [], [], [], []];// [gol, golw, golb, gole, goll]
-
-  const golLink = 0;// Ground Overlay Link (index into AniData)
-  const golWhen = 1;// when
-  const golBegin = 2;// begin
-  const golEnd = 3;// end
-  const golLayerID = 4;// LayerID
-
-  let state = 'Stopped';
-  let count;
-  let endDate;
-  let startDate;
-  let currentDate;
-  let frameRate = 1; // frames per second
-  let timerId = null;
-  let anindex = 0;
-
-  const playstop = document.getElementById('playstop');
-  const progress = document.getElementById('progress');
-  progress.addEventListener('input', my.Progress, false, { passive: true });
-  progress.addEventListener('touch', my.Progress, false, { passive: true });
-
-  // //////////////////////////////////////////////////////////////////////////
-  // TryStop
-  const TryStop = function () {
-    state = 'Stopping';
-
-    // StopTimer
-    if (timerId !== null) {
-      window.clearInterval(timerId);
-      timerId = null;
-    }
-
-    playstop.classList.remove('fa-stop');
-    playstop.classList.add('fa-play');
-  };
-
   // //////////////////////////////////////////////////////////////////////////
   // Animate
   my.Animate = function (url, name) {
@@ -57,11 +18,9 @@ const App4SeaAnimation = (function () {
     if (App4Sea.logging) console.log(`Now animating ${url}`);
     if (App4Sea.logging) console.log(`   with title ${name}`);
 
-    if (url) {
-      const ext = url.substr(url.length - 3, 3).toLowerCase();
-      if (ext !== 'kml' && ext !== 'kmz' && ext !== 'wms') {
-        return;
-      }
+    const ext = url.substr(url.length - 3, 3).toLowerCase();
+    if (ext !== 'kml' && ext !== 'kmz' && ext !== 'wms') {
+      return;
     }
 
     count = my.AniData[golLink].length;
@@ -73,22 +32,13 @@ const App4SeaAnimation = (function () {
     const selector = document.getElementById('AniDataSelect');
 
     for (let i = 0; i < selector.length; i++) {
-      if (selector.options[i].text === 'No data available') selector.remove(i);
+      if (selector.options[i].text == 'No data available') selector.remove(i);
     }
 
     const opt = document.createElement('option');
     opt.innerHTML = name;
     selector.appendChild(opt);
     selector.value = name;
-
-    // Prepare();
-  };
-
-  // //////////////////////////////////////////////////////////////////////////
-  // SelectionChanged
-  my.SelectionChanged = function (event) {
-    // my.Animate(null, event.currentTarget.value);
-    // alert('This has no effect for the time being');
   };
 
   // //////////////////////////////////////////////////////////////////////////
@@ -130,10 +80,24 @@ const App4SeaAnimation = (function () {
   };
 
   // //////////////////////////////////////////////////////////////////////////
+  // aniDataForWMS
+  my.aniDataForWMS = function (url, stepHours, count) {
+    // Collect data for animation of WMS
+    let canAnimate = false;
+    const [gol, golw, golb, gole, goll] = getWMSlist(url, stepHours, count);
+    if (gol.length > 1) {
+      canAnimate = true;
+      my.AniData = [gol, golw, golb, gole, goll];
+    } else my.AniData = [null, null, null, null, null];
+
+    return [canAnimate, gol, golb, goll];
+  };
+
+  // //////////////////////////////////////////////////////////////////////////
   // http://halo-wms.met.no/halo/default.map?service=WMS&version=1.3.0&REQUEST=GetMap&LAYERS=sea_significant_wave_height&FORMAT=image%2Fpng
   // &STYLES=&CRS=EPSG:4326&BBOX=-180,-90,180,90&WIDTH=512&HEIGHT=512&TIME=2019-12-05T07:00Z
   // getWMSlist
-  function getWMSlist(url, stepHours, count_in) {
+  function getWMSlist(url, stepHours, count) {
     const gol = [];
     const golw = []; // when NodeListOf<Element>
     const golb = []; // begin
@@ -146,7 +110,7 @@ const App4SeaAnimation = (function () {
     date.setMinutes(0);
     date.setSeconds(0);
     // date.setMilliseconds(0);
-    for (let ind = 0; ind < count_in; ind++) {
+    for (let ind = 0; ind < count; ind++) {
       const dateB = new Date(date.toString());
       dateB.setHours(hours);
       let dateStringB = dateB.toISOString();
@@ -170,20 +134,6 @@ const App4SeaAnimation = (function () {
   }
 
   // //////////////////////////////////////////////////////////////////////////
-  // aniDataForWMS
-  my.aniDataForWMS = function (url, stepHours, in_count) {
-    // Collect data for animation of WMS
-    let canAnimate = false;
-    const [gol, golw, golb, gole, goll] = getWMSlist(url, stepHours, in_count);
-    if (gol.length > 1) {
-      canAnimate = true;
-      my.AniData = [gol, golw, golb, gole, goll];
-    } else my.AniData = [null, null, null, null, null];
-
-    return [canAnimate, gol, golb, goll];
-  };
-
-  // //////////////////////////////////////////////////////////////////////////
   // getAnimationState
   my.getAnimationState = function () {
     return state;
@@ -193,18 +143,13 @@ const App4SeaAnimation = (function () {
   // initInfo
   function initInfo() {
     const cut = 8;
-    let off = 8;
-
-    if (currentDate.endsWith('Z')) {
-      off = 9;
-    }
 
     let el = document.getElementById('start');
-    el.innerHTML = startDate.substr(startDate.length - off, cut);
+    el.innerHTML = startDate.substr(startDate.length - cut, cut);
     el = document.getElementById('current');
-    el.innerHTML = currentDate.substr(currentDate.length - off, cut);
+    el.innerHTML = currentDate.substr(currentDate.length - cut, cut);
     el = document.getElementById('end');
-    el.innerHTML = endDate.substr(endDate.length - off, cut);
+    el.innerHTML = endDate.substr(endDate.length - cut, cut);
 
     el = document.getElementById('startDate');
     el.innerHTML = startDate.substr(0, cut + 2);
@@ -215,48 +160,13 @@ const App4SeaAnimation = (function () {
   }
 
   // //////////////////////////////////////////////////////////////////////////
-  // Prepare
-  function Prepare() {
-    anindex = 0;
-    progress.value = 0;
-
-    if (count !== 0) {
-      // Turn off all the layer images
-      for (let aind = 0; aind < count; aind++) {
-        App4Sea.TreeMenu.Checkbox(my.AniData[golLayerID][aind], false);
-      }
-
-      if (my.AniData[golWhen].length !== 0) {
-        startDate = my.AniData[golWhen][0];
-        endDate = my.AniData[golWhen][my.AniData[1].length - 1];
-      } else {
-        startDate = my.AniData[golBegin][0];
-        endDate = my.AniData[golEnd][my.AniData[golEnd].length - 1];
-      }
-      currentDate = startDate;
-
-      initInfo();
-    }
-  }
-
-  // //////////////////////////////////////////////////////////////////////////
   // updateInfo
   function updateInfo() {
-    if (my.AniData[golWhen].length !== 0) {
-      currentDate = my.AniData[golWhen][anindex];
-    } else {
-      currentDate = my.AniData[golBegin][anindex];
-    }
-
     // Updage time stamps
     let el = document.getElementById('current');
     if (el === 'undefined') return;
 
-    if (currentDate.endsWith('Z')) {
-      el.innerHTML = currentDate.substr(currentDate.length - 9, 8);
-    } else {
-      el.innerHTML = currentDate.substr(currentDate.length - 8, 8);
-    }
+    el.innerHTML = currentDate.substr(currentDate.length - 8, 8);
 
     el = document.getElementById('currentDate');
     el.innerHTML = currentDate.substr(0, 10);
@@ -264,8 +174,8 @@ const App4SeaAnimation = (function () {
     //        let lind = findLayerIndex(layerid);
     const remember = 1;
 
-    if (App4Sea.logging) console.log(my.AniData[golLink][anindex]);
-    if (App4Sea.logging) console.log(layerid);
+    // if (App4Sea.logging) console.log(my.AniData[golLink][anindex]);
+    // if (App4Sea.logging) console.log(layerid);
 
     // Check if layer is active (layer is assumed to exist)
     App4Sea.TreeMenu.Checkbox(layerid, true);
@@ -279,21 +189,25 @@ const App4SeaAnimation = (function () {
     App4Sea.TreeMenu.Checkbox(layerid, false);
 
     // Update progress
-    progress.value = (anindex * 100) / (count - 1);
+    progress.value = anindex * 100 / (count - 1);
+
+    // Next id
+    anindex += 1;
+    if (anindex === count) anindex = 0;
   }
 
   // //////////////////////////////////////////////////////////////////////////
   // findLayerIndex
-  // function findLayerIndex(lind) {
-  //   for (let ynd = 0; ynd < App4Sea.OpenLayers.layers.length; ynd++) {
-  //     const item = App4Sea.OpenLayers.layers[ynd];
-  //     if (item.id === lind) {
-  //       return ynd;
-  //     }
-  //   }
+  function findLayerIndex(lind) {
+    for (let ynd = 0; ynd < App4Sea.OpenLayers.layers.length; ynd++) {
+      const item = App4Sea.OpenLayers.layers[ynd];
+      if (item.id === lind) {
+        return ynd;
+      }
+    }
 
-  //   return -1;
-  // }
+    return -1;
+  }
 
   // //////////////////////////////////////////////////////////////////////////
   // timeElapsed
@@ -310,10 +224,10 @@ const App4SeaAnimation = (function () {
       return;
     }
 
-    // Next id
-    anindex += 1;
-    if (anindex === count) {
-      anindex = 0;
+    if (my.AniData[golWhen].length !== 0) {
+      currentDate = my.AniData[golWhen][anindex];
+    } else {
+      currentDate = my.AniData[golBegin][anindex];
     }
 
     updateInfo();
@@ -381,18 +295,76 @@ const App4SeaAnimation = (function () {
   };
 
   // //////////////////////////////////////////////////////////////////////////
+  // Prepare
+  let Prepare = function () {
+    if (count !== 0) {
+      // Turn off all the layer images
+      for (let aind = 0; aind < count; aind++) {
+        App4Sea.TreeMenu.Checkbox(my.AniData[golLayerID][aind], false);
+      }
+
+      if (my.AniData[golWhen].length !== 0) {
+        startDate = my.AniData[golWhen][0];
+        endDate = my.AniData[golWhen][my.AniData[1].length - 1];
+      } else {
+        startDate = my.AniData[golBegin][0];
+        endDate = my.AniData[golEnd][my.AniData[golEnd].length - 1];
+      }
+      currentDate = startDate;
+
+      initInfo();
+    }
+  };
+
+  // //////////////////////////////////////////////////////////////////////////
+  // TryStop
+  let TryStop = function () {
+    state = 'Stopping';
+
+    // StopTimer
+    if (timerId !== null) {
+      window.clearInterval(timerId);
+      timerId = null;
+    }
+
+    playstop.classList.remove('fa-stop');
+    playstop.classList.add('fa-play');
+  };
+
+  // //////////////////////////////////////////////////////////////////////////
   // Progress
   my.Progress = function () {
     if (count === undefined) return;
-    anindex = parseInt(0.5 + ((progress.value * count) / 100), 10);
-    if (anindex === count) anindex = count - 1;
+    anindex = parseInt(0.5 + progress.value * count / 100);
     TryStop();
     state = 'Stopped';
-    if (currentDate === undefined) {
-      Prepare();
-    }
+    Prepare();
     updateInfo();
   };
+
+  // ////////////////////////////////////////////////////////////////////////
+  // Members
+  my.AniData = [[], [], [], [], []];// [gol, golw, golb, gole, goll]
+
+  const golLink = 0;// Ground Overlay Link (index into AniData)
+  const golWhen = 1;// when
+  const golBegin = 2;// begin
+  const golEnd = 3;// end
+  const golLayerID = 4;// LayerID
+
+  let state = 'Stopped';
+  let count;
+  let endDate;
+  let startDate;
+  let currentDate;
+  let frameRate = 1; // frames per second
+  let timerId = null;
+  let anindex = 0;
+
+  const playstop = document.getElementById('playstop');
+  const progress = document.getElementById('progress');
+  progress.addEventListener('input', my.Progress, false, { passive: true });
+  progress.addEventListener('touch', my.Progress, false, { passive: true });
 
   return my;
 }());

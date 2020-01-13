@@ -3,8 +3,8 @@
  *
  * ========================================================================== */
 
-import $ from 'jquery';
 import App4Sea from './App4Sea';
+
 
 const App4SeaTreeInfo = (function a() {
   const my = {};
@@ -50,8 +50,8 @@ const App4SeaTreeInfo = (function a() {
       });
     }
 
-    function getData(node) {
-      function onSuccess(parent_node, fnSetTree, ourJSONdata) {
+    function getData(node, setTree, getFileName, JSONdata) {
+      function onSuccess(parent_node, fnSetTree, fnGetFileName, ourJSONdata) {
         // @ts-ignore
         // @ts-ignore
         return function (data, status, jqXHR) {
@@ -61,7 +61,7 @@ const App4SeaTreeInfo = (function a() {
             thisNode.children = false;// Must be set to false as wwe are loading acync (sic!)
             ourJSONdata.push(thisNode);
 
-            if (children) getData(thisNode); // Do this recursively
+            if (children) getData(thisNode, fnSetTree, fnGetFileName, ourJSONdata); // Do this recursively
 
             // if (App4Sea.logging) console.log(parent_node.id + ': ' + thisNode.id + ", text: " + thisNode.text + ", path: " + thisNode.a_attr.path);
           }
@@ -94,19 +94,19 @@ const App4SeaTreeInfo = (function a() {
       const jsonURL = getFileName(node);
 
       ajaxCount++;
-      $.ajax({
+      jQuery.ajax({
         url: jsonURL,
         contentType: 'application/json; charset=utf-8',
         type: 'GET',
         dataType: 'JSON',
         cache: false,
         async: true,
-        success: onSuccess(node, setTree, JSONdata),
+        success: onSuccess(node, setTree, getFileName, JSONdata),
         error: onError(node, setTree, JSONdata),
       });
     }
 
-    getData({ id: '#' });
+    getData({ id: '#' }, setTree, getFileName, JSONdata);
 
     // @ts-ignore
     $('#TreeInfo').on('changed.jstree', (e, data) => {

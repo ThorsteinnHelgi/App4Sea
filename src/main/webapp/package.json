@@ -1,7 +1,7 @@
 {
   "name": "app4sea",
   "version": "1.0.0",
-  "description": "Web app for oil spill response information",
+  "description": "Web app for mobiles for oil spill response information",
   "private": true,
   "main": "App4Sea.js",
   "scripts": {
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/arnigeir/App4Sea.git"
   },
-  "author": "Þorsteinn Helgi Steinarsson, Árni Geir Sigurðsson",
+  "author": "",
   "license": "UNLICENSED",
   "bugs": {
     "url": "https://github.com/arnigeir/App4Sea/issues"
@@ -37,13 +37,11 @@
   },
   "dependencies": {
     "bootstrap": "^4.4.1",
-    "html-to-image": "^0.1.1",
     "html2canvas": "^1.0.0-rc.5",
     "jquery": "^3.4.1",
     "jquery-param": "^1.0.2",
     "jstree": "^3.3.8",
     "lodash": "^4.17.15",
-    "mustache": "^3.2.1",
     "ol": "^6.1.1",
     "popper.js": "^1.16.0",
     "proj4": "^2.6.0",

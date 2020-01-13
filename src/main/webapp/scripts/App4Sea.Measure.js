@@ -7,9 +7,7 @@
  * ========================================================================== */
 
 
-import {
-  Polygon, LineString, Point,
-} from 'ol/geom';
+import { Polygon, LineString } from 'ol/geom';
 import {
   Style, Fill, Stroke, Circle,
 } from 'ol/style';
@@ -24,6 +22,7 @@ import * as sphere from 'ol/sphere';
 import * as interaction from 'ol/interaction';
 import * as proj from 'ol/proj';
 import App4Sea from './App4Sea';
+
 
 const App4SeaMeasure = (function () {
   const my = {};
@@ -76,9 +75,9 @@ const App4SeaMeasure = (function () {
     const length = sphere.getLength(line);
     let output;
     if (length > 100) {
-      output = `${Math.round((length / 1000) * 100) / 100} km`;
+      output = `${Math.round(length / 1000 * 100) / 100} ` + 'km';
     } else {
-      output = `${Math.round(length * 100) / 100} m`;
+      output = `${Math.round(length * 100) / 100} ` + 'm';
     }
 
     return output;
@@ -92,13 +91,70 @@ const App4SeaMeasure = (function () {
     const area = sphere.getArea(polygon);
     let output;
     if (area > 10000) {
-      output = `${Math.round((area * 100) / 1000000) / 100} km<sup>2</sup>`;
+      output = `${Math.round(area / 1000000 * 100) / 100} ` + 'km<sup>2</sup>';
     } else {
-      output = `${Math.round(area * 100) / 100} m<sup>2</sup>`;
+      output = `${Math.round(area * 100) / 100} ` + 'm<sup>2</sup>';
     }
 
     return output;
   };
+
+  // //////////////////////////////////////////////////////////////////////////
+  function addInteraction(typ) {
+    type = typ;
+    draw = new interaction.Draw({
+      source,
+      type,
+      style: new Style({
+        fill: new Fill({ color: 'rgba(255, 55, 55, 0.2)' }),
+        stroke: new Stroke({ color: 'rgba(0, 0, 0, 0.5)', lineDash: [10, 10], width: 2 }),
+        image: new Circle({
+          radius: 5,
+          stroke: new Stroke({ color: 'rgba(0, 0, 0, 0.7)' }),
+          fill: new Fill({ color: 'rgba(255, 55, 55, 0.2)' }),
+        }),
+      }),
+    });
+    App4Sea.OpenLayers.Map.addInteraction(draw);
+
+    createMeasureTooltip();
+    createHelpTooltip();
+
+    let listener;
+    draw.on('drawstart',
+      (evt) => {
+        // set sketch
+        sketch = evt.feature;
+
+        let tooltipCoord = evt.coordinate; // @type {module:ol/coordinate~Coordinate|undefined}
+
+        listener = sketch.getGeometry().on('change', (evt) => {
+          const geom = evt.target;
+          let output;
+          if (geom instanceof Polygon) {
+            output = formatArea(geom);
+            tooltipCoord = geom.getInteriorPoint().getCoordinates();
+          } else if (geom instanceof LineString) {
+            output = formatLength(geom);
+            tooltipCoord = geom.getLastCoordinate();
+          }
+          measureTooltipElement.innerHTML = output;
+          measureTooltip.setPosition(tooltipCoord);
+        });
+      }, this);
+
+    draw.once('drawend',
+      () => {
+        measureTooltipElement.className = 'tooltip tooltip-static';
+        measureTooltip.setOffset([0, -7]);
+
+        // unset sketch
+        sketch = null;
+        // unset tooltip so that a new one can be created
+        measureTooltipElement = null;
+        createMeasureTooltip();
+      }, this);
+  }
 
   // //////////////////////////////////////////////////////////////////////////
   // Creates a new help tooltip
@@ -131,117 +187,6 @@ const App4SeaMeasure = (function () {
     });
     App4Sea.OpenLayers.Map.addOverlay(measureTooltip);
   }
-
-  // //////////////////////////////////////////////////////////////////////////
-  const InitVector = function () {
-    App4Sea.OpenLayers.Map.removeLayer(vector);
-
-    source = new Vector();
-    vector = new VectorLayer({
-      source,
-      style: new Style({
-        fill: new Fill({
-          color: 'rgba(255, 55, 55, 0.2)',
-        }),
-        stroke: new Stroke({
-          color: '#ffcc33',
-          width: 2,
-        }),
-        image: new Circle({
-          radius: 7,
-          fill: new Fill({
-            color: '#ffcc33',
-          }),
-        }),
-      }),
-    });
-
-    App4Sea.OpenLayers.Map.addLayer(vector);
-  };
-
-  // //////////////////////////////////////////////////////////////////////////
-  const DeinitVector = function () {
-    App4Sea.OpenLayers.Map.removeLayer(vector);
-    vector = null;
-    source = null;
-  };
-
-  // //////////////////////////////////////////////////////////////////////////
-  function addInteraction(typ) {
-    type = typ;
-    draw = new interaction.Draw({
-      source,
-      type,
-      style: new Style({
-        fill: new Fill({ color: 'rgba(255, 55, 55, 0.2)' }),
-        stroke: new Stroke({ color: 'rgba(0, 0, 0, 0.5)', lineDash: [10, 10], width: 2 }),
-        image: new Circle({
-          radius: 5,
-          stroke: new Stroke({ color: 'rgba(0, 0, 0, 0.7)' }),
-          fill: new Fill({ color: 'rgba(255, 55, 55, 0.2)' }),
-        }),
-      }),
-    });
-    App4Sea.OpenLayers.Map.addInteraction(draw);
-
-    createMeasureTooltip();
-    createHelpTooltip();
-
-    draw.on('drawstart',
-      (evt) => {
-        // set sketch
-        sketch = evt.feature;
-
-        let tooltipCoord = evt.coordinate; // @type {module:ol/coordinate~Coordinate|undefined}
-
-        const listener = sketch.getGeometry().on('change', (in_evt) => {
-          const geom = in_evt.target;
-          let output;
-          if (geom instanceof Polygon) {
-            output = formatArea(geom);
-            tooltipCoord = geom.getInteriorPoint().getCoordinates();
-          } else if (geom instanceof LineString) {
-            output = formatLength(geom);
-            tooltipCoord = geom.getLastCoordinate();
-          }
-          measureTooltipElement.innerHTML = output;
-          measureTooltip.setPosition(tooltipCoord);
-        });
-      }, this);
-
-    draw.once('drawend',
-      () => {
-        measureTooltipElement.className = 'tooltip tooltip-static';
-        measureTooltip.setOffset([0, -7]);
-
-        // unset sketch
-        sketch = null;
-        // unset tooltip so that a new one can be created
-        measureTooltipElement = null;
-        createMeasureTooltip();
-      }, this);
-  }
-
-  // //////////////////////////////////////////////////////////////////////////
-  //
-  const DeinitMeasure = function () {
-    type = 'NotActive';
-    App4Sea.OpenLayers.Map.removeInteraction(draw);
-  };
-
-  // //////////////////////////////////////////////////////////////////////////
-  // Creates a new measure tooltip
-  const InitMeasure = function (typ) {
-    if (!vector) InitVector();
-
-    addInteraction(typ);
-
-    App4Sea.OpenLayers.Map.on('pointermove', pointerMoveHandler);
-
-    App4Sea.OpenLayers.Map.getViewport().addEventListener('mouseout', () => {
-      helpTooltipElement.classList.add('hidden');
-    }, false, { passive: true });
-  };
 
   // //////////////////////////////////////////////////////////////////////////
   function removeAllMeasureToolTips(className) {
@@ -355,6 +300,61 @@ const App4SeaMeasure = (function () {
     my.DoClearAll();
 
     App4Sea.Utils.w3_close(id);
+  };
+
+  // //////////////////////////////////////////////////////////////////////////
+  let DeinitVector = function () {
+    App4Sea.OpenLayers.Map.removeLayer(vector);
+    vector = null;
+    source = null;
+  };
+
+  // //////////////////////////////////////////////////////////////////////////
+  const InitVector = function () {
+    App4Sea.OpenLayers.Map.removeLayer(vector);
+
+    source = new Vector();
+    vector = new VectorLayer({
+      source,
+      style: new Style({
+        fill: new Fill({
+          color: 'rgba(255, 55, 55, 0.2)',
+        }),
+        stroke: new Stroke({
+          color: '#ffcc33',
+          width: 2,
+        }),
+        image: new Circle({
+          radius: 7,
+          fill: new Fill({
+            color: '#ffcc33',
+          }),
+        }),
+      }),
+    });
+
+    App4Sea.OpenLayers.Map.addLayer(vector);
+  };
+
+  // //////////////////////////////////////////////////////////////////////////
+  // Creates a new measure tooltip
+  let InitMeasure = function (typ) {
+    if (!vector) InitVector();
+
+    addInteraction(typ);
+
+    App4Sea.OpenLayers.Map.on('pointermove', pointerMoveHandler);
+
+    App4Sea.OpenLayers.Map.getViewport().addEventListener('mouseout', () => {
+      helpTooltipElement.classList.add('hidden');
+    }, false, { passive: true });
+  };
+
+  // //////////////////////////////////////////////////////////////////////////
+  //
+  let DeinitMeasure = function () {
+    type = 'NotActive';
+    App4Sea.OpenLayers.Map.removeInteraction(draw);
   };
 
   // //////////////////////////////////////////////////////////////////////////
