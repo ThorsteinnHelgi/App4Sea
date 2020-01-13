@@ -3,8 +3,8 @@
  * Global event handlers
  * ========================================================================== */
 
+import $ from 'jquery';
 import App4Sea from './App4Sea';
-
 
 $(document).ready(() => {
   if (App4Sea.logging) console.log('Document ready');
@@ -26,11 +26,13 @@ $(document).ready(() => {
 $(window).on('load', () => {
   if (App4Sea.logging) console.log('Window load');
 
-  setTimeout(function () {
-    if (App4Sea.logging) console.log("setTimeout");
+  const onTimeout = function () {
+    if (App4Sea.logging) console.log('setTimeout');
 
-    $("#splash-overlay").fadeOut();
-  }, 2000);
+    $('#splash-overlay').fadeOut();
+  };
+
+  setTimeout(onTimeout, 2000);
 
   const info = $('#ToolTipInfo');
 

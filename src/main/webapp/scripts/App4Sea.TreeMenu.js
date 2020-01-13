@@ -4,15 +4,62 @@
  *
  * ========================================================================== */
 
-import Overlay from 'ol/Overlay';
-import * as proj from 'ol/proj';
-import App4Sea from './App4Sea';
+import $ from 'jquery';
 import 'jstree/dist/themes/default/style.css';
+import * as olproj from 'ol/proj';
+import Overlay from 'ol/Overlay';
+import App4Sea from './App4Sea';
+import App4SeaUtils from './App4Sea.Utils';
 
 const App4SeaTreeMenu = (function () {
   const my = {};
   let ajaxCount = 0;
   const JSONdata = [];
+
+  // //////////////////////////////////////////////////////////////////////////
+  // hideMetadata
+  function hideMetadata() {
+    const elem = App4Sea.OpenLayers.descriptionContainer;
+    elem.innerHTML = '';
+  }
+
+  // //////////////////////////////////////////////////////////////////////////
+  // showMetadata
+  function showMetadata(title, id, data) {
+    const elem = App4Sea.OpenLayers.descriptionContainer;
+
+    const txt = App4Sea.Utils.NoXML(data);
+    elem.innerHTML = txt;
+
+    const pos = olproj.fromLonLat([0, 55]);// TBD
+    const overlay = new Overlay({
+      position: pos,
+      positioning: 'center-center',
+      element: elem,
+      stopEvent: false,
+    });
+
+    App4Sea.OpenLayers.Map.addOverlay(overlay);
+  }
+
+  // //////////////////////////////////////////////////////////////////////////
+  // addChild to the menu tree (jstree)
+  // returns the new id for the node in the tree (format example: j1_4)
+  function addChild(text, data, tree, parNode, disabled, icon) {
+    let dis = disabled;
+    if (!App4Sea.disableSubItems) dis = false;
+    const newNode = {
+      state: { closed: true, checkbox_disabled: false, disabled: dis },
+      icon,
+      text,
+      data,
+      selected: true,
+      children: false,
+    };
+    const retVal = tree.jstree(true).create_node(parNode, newNode, 'last', false, false); // [par, node, pos, callback, is_loaded]
+    // if (App4Sea.logging) console.log("Adding " + text + " to tree under " + parNode + " returned " + retVal);
+    return retVal;
+  }
 
   // ////////////////////////////////////////////////////////////////////////
   // SetUp menu tree
@@ -60,8 +107,8 @@ const App4SeaTreeMenu = (function () {
       });
     }
 
-    function getData(node, setTree, getFileName, filename, JSONdata) {
-      function onSuccess(parent_node, fnSetTree, fnGetFileName, ourFilename, ourJSONdata) {
+    function getData(node, filename) {
+      function onSuccess(parent_node, fnSetTree, ourFilename, ourJSONdata) {
         return function (data, status, jqXHR) {
           for (let i_success = 0; i_success < data.length; i_success++) {
             const thisNode = data[i_success];
@@ -74,7 +121,7 @@ const App4SeaTreeMenu = (function () {
 
             ourJSONdata.push(thisNode);
 
-            if (children) getData(thisNode, fnSetTree, fnGetFileName, ourFilename, ourJSONdata); // Do this recursively
+            if (children) getData(thisNode, ourFilename); // Do this recursively
 
             // if (App4Sea.logging) console.log(parent_node.id + ': ' + thisNode.id + ", text: " + thisNode.text + ", path: " + thisNode.a_attr.path);
           }
@@ -107,19 +154,19 @@ const App4SeaTreeMenu = (function () {
       const jsonURL = getFileName(node, filename);
 
       ajaxCount++;
-      jQuery.ajax({
+      $.ajax({
         url: jsonURL,
         contentType: 'application/json; charset=utf-8',
         type: 'GET',
         dataType: 'JSON',
         cache: false,
         async: true,
-        success: onSuccess(node, setTree, getFileName, filename, JSONdata),
+        success: onSuccess(node, setTree, filename, JSONdata),
         error: onError(node, setTree, JSONdata),
       });
     }
 
-    getData({ id: '#' }, setTree, getFileName, 'a4s.json', JSONdata);
+    getData({ id: '#' }, 'a4s.json', JSONdata);
 
     // Catch event: changed
     $('#TreeMenu').on('changed.jstree', function (e, data) {
@@ -190,7 +237,7 @@ const App4SeaTreeMenu = (function () {
         // Go for first addition
         const { path } = nod.a_attr;
         const { tool } = nod.a_attr;
-        const proj = nod.a_attr.projection;
+        let proje = nod.a_attr.projection;
 
         if (tool === 'animation') {
           App4Sea.Utils.w3_open('AnimationContainer');
@@ -225,14 +272,6 @@ const App4SeaTreeMenu = (function () {
               App4Sea.OpenLayers.Map.addLayer(vect);
               App4Sea.Utils.LookAt(vect);
             }
-          } else if (ext === '6e4') { // 1326faa296b7e865683b67cdf8e5c6e4
-            if (index === -1) {
-              const vect = App4Sea.Weather.loadCityWeather(path, nod.id);
-              //                            App4Sea.OpenLayers.layers.push({"id": nod.id, "vector" : vect});
-              //                            if (App4Sea.logging) console.log("Cached layers now are " + App4Sea.OpenLayers.layers.length);
-
-              //                            App4Sea.OpenLayers.Map.addLayer(vect);
-            }
           } else if (ext === 'wms' || ext === 'gif' || ext === 'cgi' || ext === 'png' || ext === 'jpg' || ext === 'peg') {
             if (index === -1) {
               const parts = App4Sea.Utils.parseURL(path.toLowerCase());
@@ -242,19 +281,19 @@ const App4SeaTreeMenu = (function () {
               let imageExtent = [-10, 50, 10, 70]; // WSEN Defaut location for images that do not tell about themselves. SRS
               let center = [0, 0];
 
-              let proj = App4Sea.prefProj;// Default projection (in map coorinates, not view)
+              proje = App4Sea.prefProj;// Default projection (in map coorinates, not view)
               let isSRS = true;
               if (parts.searchObject.crs !== undefined) {
-                proj = parts.searchObject.crs;
+                proje = parts.searchObject.crs;
                 isSRS = false;
                 // CRS: S W N E
                 imageExtent = [50, -10, 70, 10]; // SWNE Defaut location for immages that do not tell about themselves.
                 if (App4Sea.logging) console.log('This is using CRS');
               } else if (parts.searchObject.srs !== undefined) {
-                proj = parts.searchObject.srs;
+                proje = parts.searchObject.srs;
                 // SRS: W S E N
               }
-              if (App4Sea.logging) console.log(`Now handling a ${ext} file with projection:  ${proj}`);
+              if (App4Sea.logging) console.log(`Now handling a ${ext} file with projection:  ${proje}`);
               if (wms) {
                 if (App4Sea.logging) console.log('This is a WMS file');
               }
@@ -262,7 +301,7 @@ const App4SeaTreeMenu = (function () {
               const ourProj = App4Sea.prefProj;
 
               if (nod.a_attr.center) {
-                center = App4Sea.Utils.TransformLocation(nod.a_attr.center, proj.toUpperCase(), ourProj);
+                center = App4Sea.Utils.TransformLocation(nod.a_attr.center, proje.toUpperCase(), ourProj);
               }
 
               if (bbox !== undefined) {
@@ -275,7 +314,7 @@ const App4SeaTreeMenu = (function () {
                   } else {
                     extent = [parseFloat(ex[1]), parseFloat(ex[0]), parseFloat(ex[3]), parseFloat(ex[2])];
                   }
-                  imageExtent = App4Sea.Utils.TransformExtent(extent, proj.toUpperCase(), ourProj);
+                  imageExtent = App4Sea.Utils.TransformExtent(extent, proje.toUpperCase(), ourProj);
                   if (App4Sea.logging) console.log(`Native extent ${ex}`);
                   if (App4Sea.logging) console.log(`Normalized extent ${imageExtent}`);
                 } catch (err) {
@@ -285,20 +324,20 @@ const App4SeaTreeMenu = (function () {
 
               let hei = parseFloat(parts.searchObject.height);
               let wid = parseFloat(parts.searchObject.width);
-              if (hei === null || hei !== hei) hei = parseFloat(nod.a_attr.height);
-              if (wid === null || wid !== wid) wid = parseFloat(nod.a_attr.width);
-              if (hei === null || hei !== hei) hei = 512; // Default value for images that do not tell about themselves or have attributes in json
-              if (wid === null || wid !== wid) wid = 512; // Default value for images that do not tell about themselves or have attributes in json
+              if (hei === null || App4SeaUtils.isNaN(hei)) hei = parseFloat(nod.a_attr.height);
+              if (wid === null || App4SeaUtils.isNaN(wid)) wid = parseFloat(nod.a_attr.width);
+              if (hei === null || App4SeaUtils.isNaN(hei)) hei = 512; // Default value for images that do not tell about themselves or have attributes in json
+              if (wid === null || App4SeaUtils.isNaN(wid)) wid = 512; // Default value for images that do not tell about themselves or have attributes in json
               if (App4Sea.logging) console.log(`Height and width are ${[hei, wid]}`);
 
               if (tool === 'animation') {
                 let count = 12;
                 if (nod.a_attr.count) count = parseFloat(nod.a_attr.count);
-                if (count === null || count != count) count = 12;
+                if (count === null || App4SeaUtils.isNaN(count)) count = 12;
 
                 let step = 1;
                 if (nod.a_attr.step) step = parseFloat(nod.a_attr.step);
-                if (step === null || step != step) step = 1;
+                if (step === null || App4SeaUtils.isNaN(step)) step = 1;
 
                 const [canAnimate, gol, golb, goll] = App4Sea.Animation.aniDataForWMS(path, step, count);
 
@@ -338,34 +377,17 @@ const App4SeaTreeMenu = (function () {
                 App4Sea.Utils.LookAt(vect);
               }
             }
-          } else { // Including kmz and kml
-            if (index === -1) {
-              App4Sea.KML.loadKmlKmz(path, nod.id, nod.text);
-            }
+          } else if (index === -1) {
+            // Including kmz and kml
+            App4Sea.KML.loadKmlKmz(path, nod.id, nod.text);
           }
+          // else {
+          //   if (App4Sea.logging) console.log(`Not handling extension type ${ext}`);
+          // }
         }
       }
     });
   };
-
-  // //////////////////////////////////////////////////////////////////////////
-  // addChild to the menu tree (jstree)
-  // returns the new id for the node in the tree (format example: j1_4)
-  function addChild(text, data, tree, parNode, disabled, icon) {
-    let dis = disabled;
-    if (!App4Sea.disableSubItems) dis = false;
-    const newNode = {
-      state: { closed: true, checkbox_disabled: false, disabled: dis },
-      icon,
-      text,
-      data,
-      selected: true,
-      children: false,
-    };
-    const retVal = tree.jstree(true).create_node(parNode, newNode, 'last', false, false); // [par, node, pos, callback, is_loaded]
-    // if (App4Sea.logging) console.log("Adding " + text + " to tree under " + parNode + " returned " + retVal);
-    return retVal;
-  }
 
   // ////////////////////////////////////////////////////////////////////////
   // Checkbox to check or uncheck item in tree
@@ -376,32 +398,6 @@ const App4SeaTreeMenu = (function () {
       $.jstree.reference('#TreeMenu').uncheck_node(layerid);
     }
   };
-
-  // //////////////////////////////////////////////////////////////////////////
-  // showMetadata
-  function showMetadata(title, id, data) {
-    const elem = App4Sea.OpenLayers.descriptionContainer;
-
-    const txt = App4Sea.Utils.NoXML(data);
-    elem.innerHTML = txt;
-
-    const pos = proj.fromLonLat([0, 55]);// TBD
-    const overlay = new Overlay({
-      position: pos,
-      positioning: 'center-center',
-      element: elem,
-      stopEvent: false,
-    });
-
-    App4Sea.OpenLayers.Map.addOverlay(overlay);
-  }
-
-  // //////////////////////////////////////////////////////////////////////////
-  // hideMetadata
-  function hideMetadata() {
-    const elem = App4Sea.OpenLayers.descriptionContainer;
-    elem.innerHTML = '';
-  }
 
   return my;
 }());

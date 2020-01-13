@@ -4,9 +4,7 @@
  *
  * ========================================================================== */
 
-
-import html2canvas from 'html2canvas';
-
+import $ from 'jquery';
 import KML from 'ol/format/KML';
 import Tile from 'ol/layer/Tile';
 import Heatmap from 'ol/layer/Heatmap';
@@ -18,20 +16,28 @@ import ImageStatic from 'ol/source/ImageStatic';
 import Style from 'ol/style/Style';
 import Icon from 'ol/style/Icon';
 import Feature from 'ol/Feature';
-import * as extent from 'ol/extent';
-import * as proj from 'ol/proj';
+import * as olextent from 'ol/extent';
+import * as olproj from 'ol/proj';
 import proj4 from 'proj4';
-
 import Point from 'ol/geom/Point';
 import Collection from 'ol/Collection';
 import Modify from 'ol/interaction/Modify';
+import { toPng } from 'html-to-image';
 import App4Sea from './App4Sea';
 
 
 const App4SeaUtils = (function App4SeaUtils() {
   const my = {};
 
-  // import {toPng} from '/node_modules/html-to-image';
+  const place = document.getElementById('ControlPlaceInMap');
+  const handle = document.getElementById('DragHandle');
+  const heat = document.getElementById('HeatContainer');
+  const anim = document.getElementById('AnimationContainer');
+  const logg = document.getElementById('LogContainer');
+  const meas = document.getElementById('MeasurementContainer');
+  const oper = document.getElementById('OperationContainer');
+  const tools = document.getElementById('ToolButtonsPlaceInMap');
+  const navs = document.getElementsByClassName('ol-control');
 
   // private property
   const _keyStr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
@@ -111,7 +117,7 @@ const App4SeaUtils = (function App4SeaUtils() {
     const C = 91610.74;
     const D = -40467.74;
 
-    return D + (A - D) / (1 + Math.pow(altitude / C, B));
+    return D + (A - D) / (1 + ((altitude / C) ** B));
   };
 
   // //////////////////////////////////////////////////////////////////////////
@@ -127,17 +133,14 @@ const App4SeaUtils = (function App4SeaUtils() {
   my.GetFeaturesExtent = function (features) {
     if (!features || features.length === 0) return null;
 
-    let ex = extent.createEmpty();
+    let ex = olextent.createEmpty();
     for (let ind = 0; ind < features.length; ind++) {
-      if (ind === 125) {
-        ind = ind;
-      }
-      ex = extent.extend(ex, features[ind].getGeometry().getExtent());
+      ex = olextent.extend(ex, features[ind].getGeometry().getExtent());
     }
 
-    if (App4Sea.logging) console.log(`Extent is: ${extent}`);
+    if (App4Sea.logging) console.log(`Extent is: ${ex}`);
 
-    return extent;
+    return ex;
   };
 
   // //////////////////////////////////////////////////////////////////////////
@@ -148,7 +151,7 @@ const App4SeaUtils = (function App4SeaUtils() {
     let exx = extent;
     if (source !== dest) {
       try {
-        ext = proj.transformExtent(extent, source, dest);
+        exx = olproj.transformExtent(extent, source, dest);
       } catch (e) {
         try {
           const ex1 = proj4(source, dest, [extent[0], extent[1]]);
@@ -193,6 +196,7 @@ const App4SeaUtils = (function App4SeaUtils() {
 
     if (vector.getSource) {
       const source = vector.getSource();
+      if (App4Sea.logging) console.log(`url is: ${source.url_}`);
 
       if (type === 'IMAGE') {
         if (source.getImageExtent) {
@@ -282,12 +286,13 @@ const App4SeaUtils = (function App4SeaUtils() {
   my.parseURL = function (url) {
     const parser = document.createElement('a');
     const searchObject = {};
-    let queries; let split; let
-      i;
+    let split;
+    let i;
+
     // Let the browser do the work
     parser.href = url;
     // Convert query string to object
-    queries = parser.search.replace(/^\?/, '').split('&');
+    const queries = parser.search.replace(/^\?/, '').split('&');
     for (i = 0; i < queries.length; i++) {
       split = queries[i].split('=');
       searchObject[split[0]] = split[1];
@@ -322,20 +327,20 @@ const App4SeaUtils = (function App4SeaUtils() {
     const aWe = document.getElementById('AuthorityWeather');
 
     if (val === 'Iceland') {
-      authNo = 'Operations Centre<br/> \
-            The Icelandic Coastguard<br/>  \
-            P.O. 7120 127 Reykjavik<br/> \
-            Tel:    +354-545 2100 (24 hr)<br/> \
-            Fax:    +354-545 2001<br/> \
-            Email:  sar@lhg.is<br/> \
-            Web: www.lhg.is<br/>';
-      authNa = 'Environmental Agency of Iceland (EAI) (Oil & HNS)<br/> \
-            Suðurlandsbraut 24 108 Reykjavik<br/> \
-            Tel:    +354-591 2000<br/> \
-            Mobile: +354 822 4003<br/> \
-            Fax:	+354-591 2010<br/> \
-            Email:  ust@ust.is<br/> \
-            Web:	www.ust.is<br/>';
+      authNo = `Operations Centre<br/>
+            The Icelandic Coastguard<br/>
+            P.O. 7120 127 Reykjavik<br/>
+            Tel:    +354-545 2100 (24 hr)<br/>
+            Fax:    +354-545 2001<br/>
+            Email:  sar@lhg.is<br/>
+            Web: www.lhg.is<br/>`;
+      authNa = `Environmental Agency of Iceland (EAI) (Oil & HNS)<br/>
+            Suðurlandsbraut 24 108 Reykjavik<br/>
+            Tel:    +354-591 2000<br/>
+            Mobile: +354 822 4003<br/>
+            Fax:	+354-591 2010<br/>
+            Email:  ust@ust.is<br/>
+            Web:	www.ust.is<br/>`;
       // authWe = "";
     }
 
@@ -375,7 +380,7 @@ const App4SeaUtils = (function App4SeaUtils() {
     const xhttp = new XMLHttpRequest();
     xhttp.open('GET', filename, false);
     xhttp.send();
-    return loadResonse(xhttp);
+    return my.loadResonse(xhttp);
   };
 
   // //////////////////////////////////////////////////////////////////////////
@@ -410,9 +415,9 @@ const App4SeaUtils = (function App4SeaUtils() {
       // 2012_Earthquakes_Mag5.kml stores the magnitude of each earthquake in a
       // standards-violating <magnitude> tag in each Placemark.  We extract it from
       // the Placemark's name instead.
-      const name = event.feature.get('name');
-      if (name) {
-        const magnitude = parseFloat(name.substr(2));
+      const sName = event.feature.get('name');
+      if (sName) {
+        const magnitude = parseFloat(sName.substr(2));
         event.feature.set('weight', magnitude - 5);
       } else {
         const surface = parseFloat(event.feature.values_.SURFACE);
@@ -443,8 +448,9 @@ const App4SeaUtils = (function App4SeaUtils() {
 
   // //////////////////////////////////////////////////////////////////////////
   // load an image
-  my.loadImage = function (node, mproj, imageExtent, flag, url, id, text, layers, isSRS, width, height, start, wms, center) {
-    url = url.replaceAll(/&amp;/, '&');
+  my.loadImage = function (node, mproj_in, imageExtent, flag, url_in, id, text, layers_in, isSRS, width, height, start, wms, center) {
+    let url = url_in.replaceAll(/&amp;/, '&');
+    let mproj = mproj_in;
 
     if (App4Sea.logging) console.log(`loadImage: ${url}`);
 
@@ -628,7 +634,7 @@ const App4SeaUtils = (function App4SeaUtils() {
     });
 
     const center = App4Sea.OpenLayers.Map.getView().getCenter();
-    let location = proj.transform([21, 63], // Math.random()*360-180, Math.random()*180-90
+    let location = olproj.transform([21, 63], // Math.random()*360-180, Math.random()*180-90
       App4Sea.prefProj,
       App4Sea.prefViewProj);
     location = center;
@@ -744,13 +750,11 @@ const App4SeaUtils = (function App4SeaUtils() {
         $(elName).jstree(false).close_all();
       }
     } else {
-      {
-        if (elem[0].style.visibility === 'hidden') {
-          elem[0].style.visibility = 'visible';
-          elem[0].style.height = '100%';
-        } else {
-          $(elName).jstree(false).open_all();
-        }
+      if (elem[0].style.visibility === 'hidden') {
+        elem[0].style.visibility = 'visible';
+        elem[0].style.height = '100%';
+      } else {
+        $(elName).jstree(false).open_all();
       }
     }
   };
@@ -834,10 +838,10 @@ const App4SeaUtils = (function App4SeaUtils() {
       }
     }
 
-    const heatIsOn = heat.style.display !== 'none';
-    const animIsOn = anim.style.display !== 'none';
-    const measIsOn = meas.style.display !== 'none';
-    const loggIsOn = logg.style.display !== 'none';
+    // const heatIsOn = heat.style.display !== 'none';
+    // const animIsOn = anim.style.display !== 'none';
+    // const measIsOn = meas.style.display !== 'none';
+    // const loggIsOn = logg.style.display !== 'none';
 
     if (id === 'HeatContainer') {
       if (heat !== null) {
@@ -939,29 +943,75 @@ const App4SeaUtils = (function App4SeaUtils() {
       // link.click();
     });
     App4Sea.OpenLayers.Map.renderSync();
+  };
 
-    return;
+  // //////////////////////////////////////////////////////////////////////////
+  my.isNaN = function (x) {
+    return x !== x; // Strange, but true for NaN
+  };
 
-    html2canvas(document.body, {
-      onrendered(canvas) {
-        const url = canvas.toDataURL();
-        my.copyToClipboard(url);
-        // $.post("save_screenshot.php", {data: img}, function (file) {
-        //    window.location.href =  "save_screenshot.php?file="+ file
-        // });
-      },
-    });
+  // //////////////////////////////////////////////////////////////////////////
+  // private method for UTF-8 encoding from http://www.webtoolkit.info/
+  const _utf8_encode = function (text_in) {
+    const text = text_in.replace(/\r\n/g, '\n');
+    let utftext = '';
+
+    for (let n = 0; n < text.length; n++) {
+      const c = text.charCodeAt(n);
+
+      if (c < 128) {
+        utftext += String.fromCharCode(c);
+      } else if ((c > 127) && (c < 2048)) {
+        utftext += String.fromCharCode((c >> 6) | 192);
+        utftext += String.fromCharCode((c & 63) | 128);
+      } else {
+        utftext += String.fromCharCode((c >> 12) | 224);
+        utftext += String.fromCharCode(((c >> 6) & 63) | 128);
+        utftext += String.fromCharCode((c & 63) | 128);
+      }
+    }
+
+    return utftext;
+  };
+
+  // //////////////////////////////////////////////////////////////////////////
+  // private method for UTF-8 decoding from http://www.webtoolkit.info/
+  const _utf8_decode = function (utftext) {
+    let string = '';
+    let i = 0;
+    let c = 0;
+    let c2 = 0;
+    let c3 = 0;
+
+    while (i < utftext.length) {
+      c = utftext.charCodeAt(i);
+
+      if (c < 128) {
+        string += String.fromCharCode(c);
+        i++;
+      } else if ((c > 191) && (c < 224)) {
+        c2 = utftext.charCodeAt(i + 1);
+        string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
+        i += 2;
+      } else {
+        c2 = utftext.charCodeAt(i + 1);
+        c3 = utftext.charCodeAt(i + 2);
+        string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
+        i += 3;
+      }
+    }
+    return string;
   };
 
   // //////////////////////////////////////////////////////////////////////////
   // public method for encoding from http://www.webtoolkit.info/
-  my.Base64Encode = function (input) {
+  my.Base64Encode = function (input_in) {
     let output = '';
-    let chr1; let chr2; let chr3; let enc1; let enc2; let enc3; let
-      enc4;
+    let chr1; let chr2; let chr3;
+    let enc1; let enc2; let enc3; let enc4;
     let i = 0;
 
-    input = _utf8_encode(input);
+    const input = _utf8_encode(input_in);
 
     while (i < input.length) {
       chr1 = input.charCodeAt(i++);
@@ -972,9 +1022,10 @@ const App4SeaUtils = (function App4SeaUtils() {
       enc3 = ((chr2 & 15) << 2) | (chr3 >> 6);
       enc4 = chr3 & 63;
 
-      if (isNaN(chr2)) {
-        enc3 = enc4 = 64;
-      } else if (isNaN(chr3)) {
+      if (my.isNaN(chr2)) {
+        enc3 = 64;
+        enc4 = 64;
+      } else if (my.isNaN(chr3)) {
         enc4 = 64;
       }
 
@@ -987,7 +1038,7 @@ const App4SeaUtils = (function App4SeaUtils() {
 
   // //////////////////////////////////////////////////////////////////////////
   // public method for decoding from http://www.webtoolkit.info/
-  my.Base64Decode = function (input) {
+  my.Base64Decode = function (input_in) {
     let output = '';
     let chr1; let chr2; let
       chr3;
@@ -995,7 +1046,7 @@ const App4SeaUtils = (function App4SeaUtils() {
       enc4;
     let i = 0;
 
-    input = input.replace(/[^A-Za-z0-9\+\/\=]/g, '');
+    const input = input_in.replace(/[^A-Za-z0-9+/=]/g, '');
 
     while (i < input.length) {
       enc1 = _keyStr.indexOf(input.charAt(i++));
@@ -1024,57 +1075,6 @@ const App4SeaUtils = (function App4SeaUtils() {
   };
 
   // //////////////////////////////////////////////////////////////////////////
-  // private method for UTF-8 encoding from http://www.webtoolkit.info/
-  let _utf8_encode = function (string) {
-    string = string.replace(/\r\n/g, '\n');
-    let utftext = '';
-
-    for (let n = 0; n < string.length; n++) {
-      const c = string.charCodeAt(n);
-
-      if (c < 128) {
-        utftext += String.fromCharCode(c);
-      } else if ((c > 127) && (c < 2048)) {
-        utftext += String.fromCharCode((c >> 6) | 192);
-        utftext += String.fromCharCode((c & 63) | 128);
-      } else {
-        utftext += String.fromCharCode((c >> 12) | 224);
-        utftext += String.fromCharCode(((c >> 6) & 63) | 128);
-        utftext += String.fromCharCode((c & 63) | 128);
-      }
-    }
-
-    return utftext;
-  };
-
-  // //////////////////////////////////////////////////////////////////////////
-  // private method for UTF-8 decoding from http://www.webtoolkit.info/
-  let _utf8_decode = function (utftext) {
-    let string = '';
-    let i = 0;
-    let c = c1 = c2 = 0;
-
-    while (i < utftext.length) {
-      c = utftext.charCodeAt(i);
-
-      if (c < 128) {
-        string += String.fromCharCode(c);
-        i++;
-      } else if ((c > 191) && (c < 224)) {
-        c2 = utftext.charCodeAt(i + 1);
-        string += String.fromCharCode(((c & 31) << 6) | (c2 & 63));
-        i += 2;
-      } else {
-        c2 = utftext.charCodeAt(i + 1);
-        c3 = utftext.charCodeAt(i + 2);
-        string += String.fromCharCode(((c & 15) << 12) | ((c2 & 63) << 6) | (c3 & 63));
-        i += 3;
-      }
-    }
-    return string;
-  };
-
-  // //////////////////////////////////////////////////////////////////////////
   // private method for UTF-8 decoding from http://www.webtoolkit.info/
   my.clearLog = function () {
     const logger = document.getElementById('Log');
@@ -1082,8 +1082,8 @@ const App4SeaUtils = (function App4SeaUtils() {
   };
 
   // //////////////////////////////////////////////////////////////////////////
-  const getPosition = function (e) {
-    e = e || window.event;
+  const getPosition = function (e_in) {
+    const e = (e_in || window.event);
 
     const pos = ['X', 'Y'];
 
@@ -1108,49 +1108,29 @@ const App4SeaUtils = (function App4SeaUtils() {
 
   // //////////////////////////////////////////////////////////////////////////
   /*
-        This is the order of events fired:
-        touchstart
-        touchmove
-        touchend
-        mouseover
-        mousemove
-        mousedown
-        mouseup
-        click
-     */
+      This is the order of events fired:
+      touchstart
+      touchmove
+      touchend
+      mouseover
+      mousemove
+      mousedown
+      mouseup
+      click
+  */
   my.dragElement = function (elmnt) {
-    let pos1 = 0; let pos2 = 0; let pos3 = 0; let
-      pos4 = 0;
-
-    elmnt.addEventListener(
-      'touchstart',
-      touchstart,
-      false,
-      { passive: false },
-    );
-    elmnt.addEventListener(
-      'touchmove',
-      touchmove,
-      false,
-      { passive: false },
-    );
-    elmnt.addEventListener(
-      'touchend',
-      touchend,
-      false,
-      { passive: false },
-    );
-
-    elmnt.onmousedown = dragMouseDown;
-    elmnt.touchstart = touchstart;
+    let pos1 = 0;
+    let pos2 = 0;
+    let pos3 = 0;
+    let pos4 = 0;
 
     // if (App4Sea.logging) console.log('Have added drag listeners');
 
-    function isDragTarget(e) {
+    function isDragTarget(el) {
       let retVal = false;
 
-      const isDragableLegend = function (e) {
-        let parent = e.target.parentElement;
+      const isDragableLegend = function (ele) {
+        let parent = ele.target.parentElement;
         while (parent) {
           if (parent.id === 'tableLegend') {
             return true;
@@ -1160,11 +1140,49 @@ const App4SeaUtils = (function App4SeaUtils() {
         return false;
       };
 
-      if (e.target.id === 'DragHandle' || isDragableLegend(e)) {
+      if (el.target.id === 'DragHandle' || isDragableLegend(el)) {
         retVal = true;
       }
 
       return retVal;
+    }
+
+    function elementDrag(e) {
+      e = e || window.event;
+
+      if (App4Sea.logging) console.log(`elementDrag: ${e.target.id}`);
+
+      e.preventDefault();
+
+      const pos = getPosition(e);
+      // calculate and set the new cursor position:
+      if (window.innerWidth > 500) {
+        pos1 = pos3 - pos.X;
+        pos3 = pos.X;
+        elmnt.style.left = `${elmnt.offsetLeft - pos1}px`;
+      } else {
+        pos1 = pos3 - pos.X;
+        pos3 = pos.X;
+        elmnt.style.left = '0px';
+      }
+
+      // if (App4Sea.logging) console.log('ew: ' + elmnt.clientWidth);
+      // if (App4Sea.logging) console.log('sl: ' + elmnt.style.left + ', ol: ' + elmnt.offsetLeft + ', or: '  + (elmnt.offsetLeft + elmnt.clientWidth) + ', iw: '  + window.innerWidth);
+
+      // Remember the 50% translation
+      const trans = (elmnt.clientWidth / 2 + 0.5);
+      if (elmnt.offsetLeft - trans > window.innerWidth - 40) {
+        elmnt.style.left = `${window.innerWidth - 40 + trans}px`;
+      } else if (elmnt.offsetLeft - trans + elmnt.clientWidth < 40) {
+        elmnt.style.left = `${40 - elmnt.clientWidth + trans}px`;
+      }
+
+      // if (App4Sea.logging) console.log('pos2: ' + pos2 + ', pos4: ' + pos4 + ', Y: ' + pos.Y);
+      pos2 = pos4 - pos.Y;
+      pos4 = pos.Y;
+      elmnt.style.top = `${elmnt.offsetTop - pos2}px`;
+
+      // if (App4Sea.logging) console.log('elementDrag DONE: ' + e.target.id);
     }
 
     function touchstart(e) {
@@ -1210,6 +1228,16 @@ const App4SeaUtils = (function App4SeaUtils() {
       }
     }
 
+    function endDragElement(e) {
+      e = e || window.event;
+
+      // stop moving when mouse button is released:
+      if (App4Sea.logging) console.log(`endDragElement: ${e.target.id}`);
+
+      document.onmouseup = null;
+      document.onmousemove = null;
+    }
+
     function dragMouseDown(e) {
       e = e || window.event;
 
@@ -1230,54 +1258,42 @@ const App4SeaUtils = (function App4SeaUtils() {
       }
     }
 
-    function elementDrag(e) {
-      e = e || window.event;
+    // elmnt.onmousedown = dragMouseDown;
+    // elmnt.touchstart = touchstart;
 
-      if (App4Sea.logging) console.log(`elementDrag: ${e.target.id}`);
-
-      e.preventDefault();
-
-      const pos = getPosition(e);
-      // calculate and set the new cursor position:
-      if (window.innerWidth > 500) {
-        pos1 = pos3 - pos.X;
-        pos3 = pos.X;
-        elmnt.style.left = `${elmnt.offsetLeft - pos1}px`;
-      } else {
-        pos1 = pos3 - pos.X;
-        pos3 = pos.X;
-        elmnt.style.left = '0px';
-      }
-
-      // if (App4Sea.logging) console.log('ew: ' + elmnt.clientWidth);
-      // if (App4Sea.logging) console.log('sl: ' + elmnt.style.left + ', ol: ' + elmnt.offsetLeft + ', or: '  + (elmnt.offsetLeft + elmnt.clientWidth) + ', iw: '  + window.innerWidth);
-
-      // Remember the 50% translation
-      const trans = (elmnt.clientWidth / 2 + 0.5);
-      if (elmnt.offsetLeft - trans > window.innerWidth - 40) {
-        elmnt.style.left = `${window.innerWidth - 40 + trans}px`;
-      } else if (elmnt.offsetLeft - trans + elmnt.clientWidth < 40) {
-        elmnt.style.left = `${40 - elmnt.clientWidth + trans}px`;
-      }
-
-      // if (App4Sea.logging) console.log('pos2: ' + pos2 + ', pos4: ' + pos4 + ', Y: ' + pos.Y);
-      pos2 = pos4 - pos.Y;
-      pos4 = pos.Y;
-      elmnt.style.top = `${elmnt.offsetTop - pos2}px`;
-
-      // if (App4Sea.logging) console.log('elementDrag DONE: ' + e.target.id);
-    }
-
-    function endDragElement(e) {
-      e = e || window.event;
-
-      // stop moving when mouse button is released:
-      if (App4Sea.logging) console.log(`endDragElement: ${e.target.id}`);
-
-      document.onmouseup = null;
-      document.onmousemove = null;
-    }
+    elmnt.addEventListener(
+      'onmousedown',
+      dragMouseDown,
+      false,
+      { passive: false },
+    );
+    elmnt.addEventListener(
+      'touchstart',
+      touchstart,
+      false,
+      { passive: false },
+    );
+    elmnt.addEventListener(
+      'touchstart',
+      touchstart,
+      false,
+      { passive: false },
+    );
+    elmnt.addEventListener(
+      'touchmove',
+      touchmove,
+      false,
+      { passive: false },
+    );
+    elmnt.addEventListener(
+      'touchend',
+      touchend,
+      false,
+      { passive: false },
+    );
   };
+  // Make the DIV element draggable:
+  my.dragElement(place);
 
   // //////////////////////////////////////////////////////////////////////////
   // FlyTo
@@ -1301,7 +1317,7 @@ const App4SeaUtils = (function App4SeaUtils() {
     // console.log('FlyTo: ' + location + ', zoom: ' + zoom);
 
     function callback(complete) {
-      --parts;
+      parts -= 1;
       if (called) {
         return;
       }
@@ -1311,24 +1327,11 @@ const App4SeaUtils = (function App4SeaUtils() {
       }
     }
 
-    const center = proj.transform(location, App4Sea.prefProj, App4Sea.prefViewProj);// 'EPSG:3857');
+    const center = olproj.transform(location, App4Sea.prefProj, App4Sea.prefViewProj);// 'EPSG:3857');
 
     view.animate({ center, duration }, callback);
     view.animate({ zoom: zoom - 1, duration: duration / 2 }, { zoom, duration: duration / 2 }, callback);
   };
-
-  const place = document.getElementById('ControlPlaceInMap');
-  const handle = document.getElementById('DragHandle');
-  const heat = document.getElementById('HeatContainer');
-  const anim = document.getElementById('AnimationContainer');
-  const logg = document.getElementById('LogContainer');
-  const meas = document.getElementById('MeasurementContainer');
-  const oper = document.getElementById('OperationContainer');
-  const tools = document.getElementById('ToolButtonsPlaceInMap');
-  const navs = document.getElementsByClassName('ol-control');
-
-  // Make the DIV element draggable:
-  my.dragElement(place);
 
   return my;
 }());
