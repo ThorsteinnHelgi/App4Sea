@@ -1,4 +1,5 @@
-var webpack = require("webpack");
+/* eslint-disable quotes */
+const webpack = require("webpack");
 
 module.exports = {
   mode: 'development',
@@ -10,23 +11,25 @@ module.exports = {
   devtool: 'eval-source-map',
   module: {
     rules: [
-      { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" },
-      { test: /\.css$/, use: [ 'style-loader', 'css-loader' ] },
+      { test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' },
+      { test: /\.css$/, use: ['style-loader', 'css-loader'] },
       {
         test: /\.(png|jpe?g|gif|svg|eot|ttf|woff|woff2)$/i,
         loader: 'url-loader',
         options: {
           limit: 8192,
         },
-      }
-    ]
+      },
+    ],
   },
   plugins: [
     new webpack.ProvidePlugin({
       $: 'jquery',
       jQuery: 'jquery',
-      'window.jQuery': 'jquery'
+      'window.jQuery': 'jquery',
     })
-  ]
+  ],
+  node: {
+    fs: 'empty',
+  },
 };
-

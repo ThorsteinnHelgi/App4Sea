@@ -33,7 +33,7 @@
 	var ERR_WRITE_DATA = "Error while writing file data.";
 	var ERR_READ_DATA = "Error while reading file data.";
 	var ERR_DUPLICATED_NAME = "File already exists.";
-	var CHUNK_SIZE = 512 * 1024;
+	var CHUNK_SIZE = 10 * 512 * 1024;
 	
 	var TEXT_PLAIN = "text/plain";
 

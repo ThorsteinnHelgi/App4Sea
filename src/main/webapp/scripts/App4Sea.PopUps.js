@@ -114,9 +114,9 @@ const App4SeaPopUps = (function () {
     if (osr.equipment_totalStorageCapacity) template += '<tr><td>Total storage capacity</td><td><b>{{equipment_totalStorageCapacity}} tonnes</b></td></tr>';
     if (osr.equipment_heatedStorage) template += '<tr><td>Heated storage</td><td><b>{{equipment_heatedStorage}} m3</b></td></tr>';
     if (osr.linkinfo) template = `${template}<tr><td>Information</td><td><b>${osr.linkinfo}</b></td></tr>`;
-    if (osr.linkicon) template = `${template}<tr><td>Icon</td><td><img class='osr-image' src='${osr.linkicon}' alt='{{name}}'></img></td></tr>`;
-    if (osr.linkimage) template = `${template}<tr><td>Image</td><td><img class='osr-image' src='${osr.inkimage}' alt='{{name}}'></img></td></tr>`;
-    if (osr.linkvideo) template = `${template}<tr><td>Video</td><td><video class='osr-video' src='${osr.linkvideo}' alt='{{name}}' autoplay controls></video></td></tr>`;
+    if (osr.linkicon) template = `${template}<tr><td>Icon</td><td><img class="osr-image" src="${osr.linkicon}" alt="{{name}}"></img></td></tr>`;
+    if (osr.linkimage) template = `${template}<tr><td>Image</td><td><img class="osr-image" src="${osr.linkimage}" alt="{{name}}"></img></td></tr>`;
+    if (osr.linkvideo) template = `${template}<tr><td>Video</td><td><video class="osr-video" src="${osr.linkvideo}" alt="{{name}}" autoplay controls></video></td></tr>`;
     template = `${template}</table></div>`;
     Mustache.parse(template);
     const description = Mustache.to_html(template, osr);
@@ -193,9 +193,9 @@ const App4SeaPopUps = (function () {
     if (osr.aircraft_specification_maximumFuelCapacity) template += '<tr><td>Fuel capacity</td><td><b>{{aircraft_specification_maximumFuelCapacity}}</b></td></tr>';
     if (osr.aircraft_specification_propellers) template += '<tr><td>Crane</td><td><b>{{aircraft_specification_propellers}}</b></td></tr>';
     if (osr.linkinfo) template = `${template}<tr><td>Information</td><td><b>${osr.linkinfo}</b></td></tr>`;
-    if (osr.linkicon) template = `${template}<tr><td>Icon</td><td><img class='osr-image' src='${osr.linkicon}' alt='{{name}}'></img></td></tr>`;
-    if (osr.linkimage) template = `${template}<tr><td>Image</td><td><img class='osr-image' src='${osr.linkimage}' alt='{{name}}'></img></td></tr>`;
-    if (osr.linkvideo) template = `${template}<tr><td>Video</td><td><video class='osr-video' src='${osr.linkvideo}' alt='{{name}}' autoplay controls></video></td></tr>`;
+    if (osr.linkicon) template = `${template}<tr><td>Icon</td><td><img class="osr-image" src="${osr.linkicon}" alt="{{name}}"></img></td></tr>`;
+    if (osr.linkimage) template = `${template}<tr><td>Image</td><td><img class="osr-image" src="${osr.linkimage}" alt="{{name}}"></img></td></tr>`;
+    if (osr.linkvideo) template = `${template}<tr><td>Video</td><td><video class="osr-video" src="${osr.linkvideo}" alt="{{name}}" autoplay controls></video></td></tr>`;
     template = `${template}</table></div>`;
     Mustache.parse(template);
     const description = Mustache.to_html(template, osr);
@@ -231,9 +231,9 @@ const App4SeaPopUps = (function () {
     if (osr.address) template += '<tr><td>Address</td><td><b>{{address}}</b></td></tr>';
     if (osr.description) template = `${template}<tr><td>Description</td><td><b>${osr.description}</b></td></tr>`;
     if (osr.linkinfo) template = `${template}<tr><td>Information</td><td><b>${osr.linkinfo}</b></td></tr>`;
-    if (osr.linkicon) template = `${template}<tr><td>Icon</td><td><img class='osr-image' src='${osr.linkicon}' alt='{{name}}'></img></td></tr>`;
-    if (osr.linkimage) template = `${template}<tr><td>Image</td><td><img class='osr-image' src='${osr.linkimage}' alt='{{name}}'></img></td></tr>`;
-    if (osr.linkvideo) template = `${template}<tr><td>Video</td><td><video class='osr-video' src='${osr.linkvideo}' alt='{{name}}' autoplay controls></video></td></tr>`;
+    if (osr.linkicon) template = `${template}<tr><td>Icon</td><td><img class="osr-image" src="${osr.linkicon}" alt="{{name}}"></img></td></tr>`;
+    if (osr.linkimage) template = `${template}<tr><td>Image</td><td><img class="osr-image" src="${osr.linkimage}" alt="{{name}}"></img></td></tr>`;
+    if (osr.linkvideo) template = `${template}<tr><td>Video</td><td><video class="osr-video" src="${osr.linkvideo}" alt="{{name}}" autoplay controls></video></td></tr>`;
     template = `${template}</table></div>`;
     Mustache.parse(template);
     const description = Mustache.to_html(template, osr);
@@ -352,7 +352,7 @@ const App4SeaPopUps = (function () {
       description = setShipPassageInfo(feature);
     }
 
-    if (description !== App4SeaUtils.isNaN(description)) {
+    if (!description || App4SeaUtils.isNaN(description)) {
       description = feature.get('name');
     }
 
@@ -413,8 +413,9 @@ const App4SeaPopUps = (function () {
 
     if (App4Sea.logging) console.log(`Features are: ${features.length}`);
 
-    popupTitle.innerHTML = 'Select one';
+    popupTitle.innerHTML = '';
     popupContent.innerHTML = '';
+    let cont = '';
     for (let ind = 0; ind < features.length; ind++) {
       // if (App4Sea.logging) console.log('SingleClick for feature: ' + my.getTitle(features[ind]));
 
@@ -424,25 +425,30 @@ const App4SeaPopUps = (function () {
         popupTitle.innerHTML = popup.title;
 
         if (popup.description) {
-          popupContent.innerHTML = popup.description;
-          App4Sea.OpenLayers.overlayLayerPopUp.setPosition(coordinate);
+          cont = popup.description;
         }
       } else {
-        const clean = popup.description.replaceAll("'", '`').replaceAll('\n', '');// replaceAll("\"", "`")
-        popupContent.innerHTML = `${popupContent.innerHTML
-        }<div onclick="{ document.getElementById('popup-title').innerHTML='${popup.title
-        }'; document.getElementById('popup-content').innerHTML='${clean
-        }'; }">${
-          ind.toString()} ${popup.title
-        }</div><br>`;
+        popupTitle.innerHTML = 'Select one';
+        let clean = popup.description;
+        clean = clean.replaceAll('\'', '"');
+        clean = clean.replaceAll('\n', '');
+        // clean = clean.replaceAll('"', '\'');
 
-        App4Sea.OpenLayers.overlayLayerPopUp.setPosition(coordinate);
+        cont = `${cont}
+        <div style="pointer-events: auto;" onclick="{ 
+          document.getElementById('popup-title').innerHTML='${popup.title}'; 
+          document.getElementById('popup-content').innerHTML='${clean}'; 
+        }">
+          ${ind.toString()} ${popup.title}
+        </div>`;
       }
     }
+    popupContent.innerHTML = cont;
     if (features.length === 0) {
       App4Sea.OpenLayers.overlayLayerPopUp.setPosition(undefined);
       popupCloser.blur();
     }
+    else App4Sea.OpenLayers.overlayLayerPopUp.setPosition(coordinate);
   };
 
   my.getTitle = function (feature) {

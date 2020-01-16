@@ -4,6 +4,7 @@
  *
  * ========================================================================== */
 
+import $ from 'jquery';
 import qwest from 'qwest';
 import * as olproj from 'ol/proj';
 import VectorLayer from 'ol/layer/Vector';
@@ -11,8 +12,11 @@ import Vector from 'ol/source/Vector';
 import Image from 'ol/layer/Image';
 import ImageStatic from 'ol/source/ImageStatic';
 import KML from 'ol/format/KML';
-import zip from '../static/js/zip';
+import * as jsZip from '../static/js/zip';
 import App4Sea from './App4Sea';
+
+console.log(qwest);
+console.log(jsZip);
 
 const App4SeaKML = (function () {
   const my = {};
@@ -20,7 +24,7 @@ const App4SeaKML = (function () {
 
   // //////////////////////////////////////////////////////////////////////////
   // Declare worker scripts path for zip manipulation
-  zip.workerScriptsPath = 'static/js/';
+  jsZip.zip.workerScriptsPath = 'static/js/';
 
   // //////////////////////////////////////////////////////////////////////////
   // load kml and return as Vector (This function only handle simple kml files)
@@ -106,7 +110,12 @@ const App4SeaKML = (function () {
       })
       .then(onSuccess(id, callback))
       .catch((e, xhr) => {
-        if (App4Sea.logging) console.log(`ajaxKMZ Error: ${e}: Url: ${xhr.responseURL}, id: ${id}`);
+        if (xhr) {
+          if (App4Sea.logging) console.log(`ajaxKMZ Error: ${e}: Url: ${xhr.responseURL}, id: ${id}`);
+        } else {
+          if (App4Sea.logging) console.log(`ajaxKMZ Error: ${e}: id: ${id}`);
+        }
+
         // if (App4Sea.logging) console.log(xhr);
         // Process the error
       })
@@ -121,10 +130,11 @@ const App4SeaKML = (function () {
   // We are getting data from local file
   function unzipFromBlob(callback, id) {
     return function unzip(blob) {
-      if (App4Sea.logging) console.log(`Unzip id ${id}`);
-      // use a BlobReader to read the zip from a Blob object
-      zip.createReader(
-        new zip.BlobReader(blob),
+      console.log(blob);
+      if (App4Sea.logging) console.log(`Unzip id ${id} with size ${blob.size} bytes`);
+      // use a BlobReader to read the zip from a Blob object7
+      jsZip.zip.createReader(
+        new jsZip.zip.BlobReader(blob),
         (reader) => {
           // get all entries (array of objects) from the zip
           reader.getEntries((entries) => {
@@ -134,7 +144,7 @@ const App4SeaKML = (function () {
                 return function (text) {
                   // if (App4Sea.logging) console.log("extendedCallback for " + id1 + " at " + str1 + " next call " + callb);
                   // text contains the entry data as a String (even though it may be a blob)
-                  // if (App4Sea.logging) console.log("About to call back for " + str1);
+                  if (App4Sea.logging) console.log(`About to call back for ${str1}`);
                   callb(text, str1, id1, ntries);
                 };
               };
@@ -146,11 +156,11 @@ const App4SeaKML = (function () {
                 // there is always only one KML in KMZ, namely the doc.kml (name can differ).
                 // we get the kml content as text, but also any other content (as text)
                 entries[ind].getData(/* writer, onend, onprogress, checkCrc32 */
-                  new zip.TextWriter(),
+                  new jsZip.zip.TextWriter(),
                   extendedCallback(str, id, callback, entries),
                   (current, total) => {
                     // onprogress callback
-                    // if (App4Sea.logging) console.log("unzipFromBlob Total: " + total.toString() + ", Current: " + current.toString());
+                    if (App4Sea.logging) console.log(`TextWriter in unzipFromBlob ${str} Total: ${total.toString()}, Current: ${current}`);
                   },
                 );
               }
@@ -443,9 +453,9 @@ const App4SeaKML = (function () {
                 source,
               });
               if (image) {
-                if (App4Sea.logging) console.log(`Pushing image to: ${ex}`);
-                App4Sea.OpenLayers.layers.push({ id2, vector: image });
-                // if (App4Sea.logging) console.log("Added image from kmz. Cached layers now are " + App4Sea.OpenLayers.layers.length + ": " + ur);
+                // if (App4Sea.logging) console.log(`Pushing image to: ${ex}`);
+                App4Sea.OpenLayers.layers.push({ id: id2, vector: image });
+                if (App4Sea.logging) console.log(`Added image ${id2}=${nm} from kmz. Cached layers now are ${App4Sea.OpenLayers.layers.length}: ${ur}`);
 
                 App4Sea.OpenLayers.Map.addLayer(image);
                 App4Sea.Utils.LookAt(image);
@@ -454,7 +464,17 @@ const App4SeaKML = (function () {
           };
         };
 
-        ent1.getData(new zip.BlobWriter('text/plain'), extendedCallback(url1, ext1, prj1, nam1, ent1, id1, leg1));
+        ent1.getData(
+          new jsZip.zip.BlobWriter('text/plain'),
+          extendedCallback(url1, ext1, prj1, nam1, ent1, id1, leg1),
+          (current, total) => {
+            // onprogress callback
+            if (App4Sea.logging) console.log(`BlobWriter in loadImageFromKmz ${nam1} Total: ${total.toString()}, Current: ${current}`);
+            if (current === 524288) {
+              const somethingiswrong = true;
+            }
+          },
+        );
       }
 
       //----------------------------------------------------------------------
@@ -499,7 +519,7 @@ const App4SeaKML = (function () {
         if (url) {
           if (!url.startsWith('http') && entries && entries.length > 1) {
             if (App4Sea.logging) console.log(`Getting legend from kmz: ${url}`);
-            findIn(entries, url, null, null, nameIs, id, true);
+            findIn(entries, url, null, null, nameIs, id0, true);
           } else addLegend(title, url);
         }
       } else if (overlay.nodeName === 'PhotoOverlay') {
@@ -521,10 +541,10 @@ const App4SeaKML = (function () {
 
         let image;
         if (!url.startsWith('http') && entries && entries.length > 1) {
-          if (App4Sea.logging) console.log(`Getting image from kmz: ${url}`);
-          findIn(entries, url, viewExtent, App4Sea.prefViewProj, nameIs, id);
+          if (App4Sea.logging) console.log(`Getting image ${id0} from kmz: ${url}`);
+          findIn(entries, url, viewExtent, App4Sea.prefViewProj, nameIs, id0);
         } else {
-          if (App4Sea.logging) console.log(`Getting image ${id} from url: ${url}`);
+          if (App4Sea.logging) console.log(`Getting image ${id0} from url: ${url}`);
           const source = new ImageStatic({
             url,
             // crossOrigin: 'anonymous',
@@ -553,7 +573,7 @@ const App4SeaKML = (function () {
         let newId;
 
         const timestamp = new Date().toLocaleString();
-        if (App4Sea.logging) console.log(`${timestamp} Ttem handled: ${child.nodeName}`);
+        if (App4Sea.logging) console.log(`${timestamp} Item handled: ${child.nodeName}`);
 
         if (child.nodeName === 'name' || child.nodeName === 'atom:name') {
           if (App4Sea.logging) console.log(`Name item not handled: ${child.innerHTML}`);
@@ -683,18 +703,20 @@ const App4SeaKML = (function () {
 
         } else if (child.innerHTML !== '') if (App4Sea.logging) console.log(`Not handling ${child.nodeName} with ${child.innerHTML}`);
 
-        if (child.children && child.children.length > 0) {
+        if (newId && child.children && child.children.length > 0) {
           const predecessors = [];
           let par = child.parentNode;
           while (par) {
             predecessors.push(par);
             par = par.parentNode;
           }
-          if (predecessors && predecessors.length < 4) listChildren(newId, child.children);
+          if (predecessors && predecessors.length < 4) {
+            listChildren(newId, child.children);
+          }
         }
       }
 
-      if (App4Sea.logging) console.log(`The count is  ${children.length}`);
+      if (App4Sea.logging) console.log(`The children count is  ${children.length}`);
     }
 
     if (kml) {
@@ -733,6 +755,7 @@ const App4SeaKML = (function () {
         if (App4Sea.logging) console.log('readAndAddFeatures ----------');
         // Nested calls. Acceptable for a demo
         // but could be "promisified" instead
+        // eslint-disable-next-line no-use-before-define
         repeat_kml_kmz_calls(el, id);
       });
     } else {

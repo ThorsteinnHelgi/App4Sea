@@ -170,7 +170,7 @@ const App4SeaTreeMenu = (function () {
 
     // Catch event: changed
     $('#TreeMenu').on('changed.jstree', function (e, data) {
-      // if (App4Sea.logging) console.log("On Action: " + data.action + " on node " + data.node.id);
+      if (App4Sea.logging) console.log(`On Action: ${data.action} on node ${data.node.id}`);
 
       if (typeof data.node === 'undefined') return;
 
@@ -227,7 +227,7 @@ const App4SeaTreeMenu = (function () {
 
           // Activate if not active
           if (activeIndex === -1) { // Layer is not active
-            // if (App4Sea.logging) console.log("Layer being activated from cache: " + nod.id + ": " + nod.text);
+            if (App4Sea.logging) console.log(`Layer being activated from cache: ${nod.id}: ${nod.text}`);
             App4Sea.OpenLayers.Map.addLayer(App4Sea.OpenLayers.layers[index].vector);
             App4Sea.Utils.LookAt(App4Sea.OpenLayers.layers[index].vector);
           }
@@ -246,11 +246,11 @@ const App4SeaTreeMenu = (function () {
         }
 
         if (!path || path === '') {
-          // if (App4Sea.logging) console.log("Error: not path for " + nod.id + ": " + nod.text);
+          if (App4Sea.logging) console.log(`Error: not path for: ${nod.id}: ${nod.text}`);
           continue;
         }
 
-        // if (App4Sea.logging) console.log("Layer being added: " + nod.id + ": " + nod.text);
+        if (App4Sea.logging) console.log(`Layer being added: ${nod.id}: ${nod.text}`);
 
         if (tool === 'heat') {
           if (index === -1) {
@@ -380,10 +380,9 @@ const App4SeaTreeMenu = (function () {
           } else if (index === -1) {
             // Including kmz and kml
             App4Sea.KML.loadKmlKmz(path, nod.id, nod.text);
+          } else {
+            if (App4Sea.logging) console.log(`Not handling extension type ${ext}`);
           }
-          // else {
-          //   if (App4Sea.logging) console.log(`Not handling extension type ${ext}`);
-          // }
         }
       }
     });
