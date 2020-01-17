@@ -141,7 +141,7 @@ const App4SeaOpenLayers = (function () {
 
     my.Map = map;
 
-    my.Map.on('singleclick', (evt) => {
+    my.Map.on('click', (evt) => {
       App4Sea.PopUps.SingleClick(evt);
     });
 

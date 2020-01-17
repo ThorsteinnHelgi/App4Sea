@@ -15,9 +15,6 @@ import KML from 'ol/format/KML';
 import * as jsZip from '../static/js/zip';
 import App4Sea from './App4Sea';
 
-console.log(qwest);
-console.log(jsZip);
-
 const App4SeaKML = (function () {
   const my = {};
   let title = '';
@@ -130,7 +127,7 @@ const App4SeaKML = (function () {
   // We are getting data from local file
   function unzipFromBlob(callback, id) {
     return function unzip(blob) {
-      console.log(blob);
+      // console.log(blob);
       if (App4Sea.logging) console.log(`Unzip id ${id} with size ${blob.size} bytes`);
       // use a BlobReader to read the zip from a Blob object7
       jsZip.zip.createReader(
@@ -160,7 +157,7 @@ const App4SeaKML = (function () {
                   extendedCallback(str, id, callback, entries),
                   (current, total) => {
                     // onprogress callback
-                    if (App4Sea.logging) console.log(`TextWriter in unzipFromBlob ${str} Total: ${total.toString()}, Current: ${current}`);
+                    // if (App4Sea.logging) console.log(`TextWriter in unzipFromBlob ${str} Total: ${total.toString()}, Current: ${current}`);
                   },
                 );
               }
@@ -236,7 +233,7 @@ const App4SeaKML = (function () {
       const y = ext[1] + ext[3];
       location = [x / 2, y / 2];
 
-      if (App4Sea.logging) console.log(`Extent: ${extent}, proj: ${prx}, ext: ${ext}`);
+      // if (App4Sea.logging) console.log(`Extent: ${extent}, proj: ${prx}, ext: ${ext}`);
     }
 
     App4Sea.OpenLayers.layers.push({ id, vector });
@@ -469,10 +466,10 @@ const App4SeaKML = (function () {
           extendedCallback(url1, ext1, prj1, nam1, ent1, id1, leg1),
           (current, total) => {
             // onprogress callback
-            if (App4Sea.logging) console.log(`BlobWriter in loadImageFromKmz ${nam1} Total: ${total.toString()}, Current: ${current}`);
-            if (current === 524288) {
-              const somethingiswrong = true;
-            }
+            // if (App4Sea.logging) console.log(`BlobWriter in loadImageFromKmz ${nam1} Total: ${total.toString()}, Current: ${current}`);
+            // if (current === 524288) {
+            //  const somethingiswrong = true;
+            // }
           },
         );
       }
@@ -573,7 +570,7 @@ const App4SeaKML = (function () {
         let newId;
 
         const timestamp = new Date().toLocaleString();
-        if (App4Sea.logging) console.log(`${timestamp} Item handled: ${child.nodeName}`);
+        // if (App4Sea.logging) console.log(`${timestamp} Item handled: ${child.nodeName}`);
 
         if (child.nodeName === 'name' || child.nodeName === 'atom:name') {
           if (App4Sea.logging) console.log(`Name item not handled: ${child.innerHTML}`);
@@ -716,7 +713,7 @@ const App4SeaKML = (function () {
         }
       }
 
-      if (App4Sea.logging) console.log(`The children count is  ${children.length}`);
+      // if (App4Sea.logging) console.log(`The children count is  ${children.length}`);
     }
 
     if (kml) {

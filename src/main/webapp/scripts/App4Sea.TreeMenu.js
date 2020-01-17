@@ -246,7 +246,7 @@ const App4SeaTreeMenu = (function () {
         }
 
         if (!path || path === '') {
-          if (App4Sea.logging) console.log(`Error: not path for: ${nod.id}: ${nod.text}`);
+          // if (App4Sea.logging) console.log(`Error: not path for: ${nod.id}: ${nod.text}`);
           continue;
         }
 

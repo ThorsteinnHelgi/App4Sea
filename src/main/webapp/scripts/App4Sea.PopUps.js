@@ -94,7 +94,10 @@ const App4SeaPopUps = (function () {
     osr.linkimage = feature.get('linkimage');
     osr.linkvideo = feature.get('linkvideo');
 
-    let template = '<div style="margin:2px;"><table>';
+    let template = `<div style="margin:2px;"
+      onmousemove="$.App4Sea.Utils.StopProp(event)" 
+      onpointermove="$.App4Sea.Utils.StopProp(event)"
+    ><table>`;
     if (osr.vessel_IMO) template += '<tr><td>IMO</td><td><b>{{vessel_IMO}}</b></td></tr>';
     if (osr.vessel_MMSI) template += '<tr><td>MMSI</td><td><b>{{vessel_MMSI}}</b></td></tr>';
     if (osr.SiteID) template += '<tr><td>Site ID</td><td><b>{{SiteID}}</b></td></tr>';
@@ -114,8 +117,8 @@ const App4SeaPopUps = (function () {
     if (osr.equipment_totalStorageCapacity) template += '<tr><td>Total storage capacity</td><td><b>{{equipment_totalStorageCapacity}} tonnes</b></td></tr>';
     if (osr.equipment_heatedStorage) template += '<tr><td>Heated storage</td><td><b>{{equipment_heatedStorage}} m3</b></td></tr>';
     if (osr.linkinfo) template = `${template}<tr><td>Information</td><td><b>${osr.linkinfo}</b></td></tr>`;
-    if (osr.linkicon) template = `${template}<tr><td>Icon</td><td><img class="osr-image" src="${osr.linkicon}" alt="{{name}}"></img></td></tr>`;
-    if (osr.linkimage) template = `${template}<tr><td>Image</td><td><img class="osr-image" src="${osr.linkimage}" alt="{{name}}"></img></td></tr>`;
+    if (osr.linkicon) template = `${template}<tr><td>Icon</td><td><img class="osr-image" src="${osr.linkicon}" alt="{{name}}"></td></tr>`;
+    if (osr.linkimage) template = `${template}<tr><td>Image</td><td><img class="osr-image" src="${osr.linkimage}" alt="{{name}}"></td></tr>`;
     if (osr.linkvideo) template = `${template}<tr><td>Video</td><td><video class="osr-video" src="${osr.linkvideo}" alt="{{name}}" autoplay controls></video></td></tr>`;
     template = `${template}</table></div>`;
     Mustache.parse(template);
@@ -177,7 +180,10 @@ const App4SeaPopUps = (function () {
     osr.linkimage = feature.get('linkimage');
     osr.linkvideo = feature.get('linkvideo');
 
-    let template = '<div style="margin:2px;"><table>';
+    let template = `<div style="margin:2px;"
+      onmousemove="$.App4Sea.Utils.StopProp(event)" 
+      onpointermove="$.App4Sea.Utils.StopProp(event)"
+    ><table>`;
     if (osr.SiteID) template += '<tr><td>Site ID</td><td><b>{{SiteID}}</b></td></tr>';
     if (osr.address) template += '<tr><td>Address</td><td><b>{{address}}</b></td></tr>';
     if (osr.location) template += '<tr><td>Location</td><td><b>{{location}}</b></td></tr>';
@@ -193,8 +199,8 @@ const App4SeaPopUps = (function () {
     if (osr.aircraft_specification_maximumFuelCapacity) template += '<tr><td>Fuel capacity</td><td><b>{{aircraft_specification_maximumFuelCapacity}}</b></td></tr>';
     if (osr.aircraft_specification_propellers) template += '<tr><td>Crane</td><td><b>{{aircraft_specification_propellers}}</b></td></tr>';
     if (osr.linkinfo) template = `${template}<tr><td>Information</td><td><b>${osr.linkinfo}</b></td></tr>`;
-    if (osr.linkicon) template = `${template}<tr><td>Icon</td><td><img class="osr-image" src="${osr.linkicon}" alt="{{name}}"></img></td></tr>`;
-    if (osr.linkimage) template = `${template}<tr><td>Image</td><td><img class="osr-image" src="${osr.linkimage}" alt="{{name}}"></img></td></tr>`;
+    if (osr.linkicon) template = `${template}<tr><td>Icon</td><td><img class="osr-image" src="${osr.linkicon}" alt="{{name}}"></td></tr>`;
+    if (osr.linkimage) template = `${template}<tr><td>Image</td><td><img class="osr-image" src="${osr.linkimage}" alt="{{name}}"></td></tr>`;
     if (osr.linkvideo) template = `${template}<tr><td>Video</td><td><video class="osr-video" src="${osr.linkvideo}" alt="{{name}}" autoplay controls></video></td></tr>`;
     template = `${template}</table></div>`;
     Mustache.parse(template);
@@ -226,13 +232,16 @@ const App4SeaPopUps = (function () {
     osr.linkimage = feature.get('linkimage');
     osr.linkvideo = feature.get('linkvideo');
 
-    let template = '<div style="margin:2px;"><table>';
+    let template = `<div style="margin:2px;"
+      onmousemove="$.App4Sea.Utils.StopProp(event)" 
+      onpointermove="$.App4Sea.Utils.StopProp(event)"
+    ><table>`;
     if (osr.SiteID) template += '<tr><td>Site ID</td><td><b>{{SiteID}}</b></td></tr>';
     if (osr.address) template += '<tr><td>Address</td><td><b>{{address}}</b></td></tr>';
     if (osr.description) template = `${template}<tr><td>Description</td><td><b>${osr.description}</b></td></tr>`;
     if (osr.linkinfo) template = `${template}<tr><td>Information</td><td><b>${osr.linkinfo}</b></td></tr>`;
-    if (osr.linkicon) template = `${template}<tr><td>Icon</td><td><img class="osr-image" src="${osr.linkicon}" alt="{{name}}"></img></td></tr>`;
-    if (osr.linkimage) template = `${template}<tr><td>Image</td><td><img class="osr-image" src="${osr.linkimage}" alt="{{name}}"></img></td></tr>`;
+    if (osr.linkicon) template = `${template}<tr><td>Icon</td><td><img class="osr-image" src="${osr.linkicon}" alt="{{name}}"></td></tr>`;
+    if (osr.linkimage) template = `${template}<tr><td>Image</td><td><img class="osr-image" src="${osr.linkimage}" alt="{{name}}"></td></tr>`;
     if (osr.linkvideo) template = `${template}<tr><td>Video</td><td><video class="osr-video" src="${osr.linkvideo}" alt="{{name}}" autoplay controls></video></td></tr>`;
     template = `${template}</table></div>`;
     Mustache.parse(template);
@@ -267,7 +276,10 @@ const App4SeaPopUps = (function () {
     shipinfo.cargotype = feature.get('Cargo_Type');
     shipinfo.flag = feature.get('Flag');
 
-    const template = `<div style="margin:2px;"><table>
+    const template = `<div style="margin:2px;"
+      onmousemove="$.App4Sea.Utils.StopProp(event)" 
+      onpointermove="$.App4Sea.Utils.StopProp(event)"
+    ><table>
       <tr><td>Call sign</td><td><b>{{callsign}}</b></td></tr>
       <tr><td>Type</td><td><b>{{type}}</b></td></tr>
       <tr><td>Cargo type</td><td><b>{{cargotype}}</b></td></tr>
@@ -430,20 +442,24 @@ const App4SeaPopUps = (function () {
       } else {
         popupTitle.innerHTML = 'Select one';
         let clean = popup.description;
-        clean = clean.replaceAll('\'', '"');
+        clean = clean.replaceAll('\'', '`');
         clean = clean.replaceAll('\n', '');
-        // clean = clean.replaceAll('"', '\'');
+        clean = clean.replaceAll('"', '`');
 
         cont = `${cont}
-        <div style="pointer-events: auto;" onclick="{ 
+        <div style="pointer-events: auto;" 
+        onmousemove="$.App4Sea.Utils.StopProp(event)" 
+        onpointermove="$.App4Sea.Utils.StopProp(event)"
+        onclick="{ 
           document.getElementById('popup-title').innerHTML='${popup.title}'; 
-          document.getElementById('popup-content').innerHTML='${clean}'; 
+          document.getElementById('popup-content').innerHTML=##'${clean}'##; 
         }">
           ${ind.toString()} ${popup.title}
         </div>`;
       }
     }
-    popupContent.innerHTML = cont;
+
+    popupContent.innerHTML = cont.replaceAll('`', '\'').replaceAll('##\'', '`').replaceAll('\'##', '`');
     if (features.length === 0) {
       App4Sea.OpenLayers.overlayLayerPopUp.setPosition(undefined);
       popupCloser.blur();

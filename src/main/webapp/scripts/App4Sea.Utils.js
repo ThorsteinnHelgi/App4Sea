@@ -138,7 +138,7 @@ const App4SeaUtils = (function App4SeaUtils() {
       ex = olextent.extend(ex, features[ind].getGeometry().getExtent());
     }
 
-    if (App4Sea.logging) console.log(`Extent is: ${ex}`);
+    // if (App4Sea.logging) console.log(`Extent is: ${ex}`);
 
     return ex;
   };
@@ -164,9 +164,15 @@ const App4SeaUtils = (function App4SeaUtils() {
         }
       }
     }
-    if (App4Sea.logging) console.log(`Transform extent from: ${source}: ${extent} to: ${dest}: ${exx}`);
+    // if (App4Sea.logging) console.log(`Transform extent from: ${source}: ${extent} to: ${dest}: ${exx}`);
 
     return exx;
+  };
+
+  // //////////////////////////////////////////////////////////////////////////
+  // StopProp
+  my.StopProp = function (event) {
+    event.stopPropagation();
   };
 
   // //////////////////////////////////////////////////////////////////////////

@@ -9,7 +9,6 @@ import App4Sea from './App4Sea';
 $(document).ready(() => {
   if (App4Sea.logging) console.log('Document ready');
 
-  if (App4Sea.logging) console.log(App4Sea.OpenLayers);
   // Init Map.OpenLayers
   App4Sea.OpenLayers.Init();
 
