@@ -16,4 +16,5 @@
 target/
 ignore/
 bin/
+webapp../
 

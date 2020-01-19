@@ -1264,8 +1264,8 @@ const App4SeaUtils = (function App4SeaUtils() {
       }
     }
 
-    // elmnt.onmousedown = dragMouseDown;
-    // elmnt.touchstart = touchstart;
+    elmnt.onmousedown = dragMouseDown;
+    elmnt.touchstart = touchstart;
 
     elmnt.addEventListener(
       'onmousedown',
