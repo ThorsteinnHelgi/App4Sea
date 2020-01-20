@@ -24,10 +24,10 @@ module.exports = {
     'camelcase': ["off"],
     'max-len': ["off"],
     'no-tabs': ["off"],
-    
+
     'no-bitwise': ["off"],
     //'no-use-before-define': ["off"],
-    
+
     'no-param-reassign': ["off"],
     'no-continue': ["off"],
     'prefer-destructuring': ["off"],

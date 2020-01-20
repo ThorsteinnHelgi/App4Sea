@@ -3,6 +3,4 @@
 *.log
 
 temp/
-node_modules/
-dist/
 nc/
