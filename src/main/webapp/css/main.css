@@ -40,6 +40,14 @@
   padding: 4px 4px 0px 4px;
 }
 
+.sourceinfo {
+  border: none;
+  background-color: transparent;
+  background: url('../icons/info.png');
+  float: right;
+  width: 10px;
+  height: 10px;
+}
 
 /**********************************
 * Modify ol controls
@@ -408,7 +416,6 @@ h6 {
     padding:0.3rem;
     position: relative;
     display: inline-block;
-    background-color: #404040;
 }
 .tooltip-inner {
     padding:0.3rem;

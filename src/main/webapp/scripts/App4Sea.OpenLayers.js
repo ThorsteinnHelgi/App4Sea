@@ -7,6 +7,7 @@
 
 import $ from 'jquery';
 import 'ol/ol.css';
+import '../css/main.css'
 import * as olproj from 'ol/proj';
 import * as olcoordinate from 'ol/coordinate';
 import TileLayer from 'ol/layer/Tile';

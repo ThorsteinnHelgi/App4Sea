@@ -166,8 +166,6 @@ const App4SeaTreeMenu = (function () {
       });
     }
 
-    getData({ id: '#' }, 'a4s.json', JSONdata);
-
     // Catch event: changed
     $('#TreeMenu').on('changed.jstree', function (e, data) {
       if (App4Sea.logging) console.log(`On Action: ${data.action} on node ${data.node.id}`);
@@ -386,6 +384,8 @@ const App4SeaTreeMenu = (function () {
         }
       }
     });
+
+    getData({ id: '#' }, 'a4s.json', JSONdata);
   };
 
   // ////////////////////////////////////////////////////////////////////////
