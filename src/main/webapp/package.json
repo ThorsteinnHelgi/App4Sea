@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "description": "Web app for oil spill response information",
   "private": true,
-  "main": "App4Sea.js",
+  "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint scripts/*.js",
-    "build": "webpack"
+    "build": "webpack",
+    "start": "webpack-dev-server --config webpack.config.js --hot --inline"
   },
   "repository": {
     "type": "git",
@@ -33,7 +34,8 @@
     "style-loader": "^1.1.3",
     "url-loader": "^3.0.0",
     "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1"
   },
   "dependencies": {
     "bootstrap": "^4.4.1",

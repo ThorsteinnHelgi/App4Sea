@@ -32,4 +32,9 @@ module.exports = {
   node: {
     fs: 'empty',
   },
+  devServer: {
+    contentBase: __dirname,
+    compress: true,
+    port: 9000
+  }
 };
