@@ -1,7 +1,6 @@
 /* ==========================================================================
  * (c) 2018 Arni Geir Sigurðsson            arni.geir.sigurdsson(at)gmail.com
  *          Þorsteinn Helgi Steinarsson     thorsteinn(at)asverk.is
- *          Gaute Hope                      gaute.hope(at)met.no
  *
  * ========================================================================== */
 

@@ -1,6 +1,5 @@
 /* ==========================================================================
  * (c) 2018 Þorsteinn Helgi Steinarsson     thorsteinn(at)asverk.is
- *          Gaute Hope                      gaute.hope(at)met.no
  *
  * Adapted from https://openlayers.org/en/latest/examples/measure.html
  *
