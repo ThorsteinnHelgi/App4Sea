@@ -9,17 +9,28 @@ Web app for mobiles for oil spill response information
 
 > Requires Node and NPM.
 
-1. Enter `src/main/webapp`
+1. Enter `src/main`
 2. npm ci
-3. npm run build
+3. npm run build:prod
 
-This builds the application to `dist/app4sea_bundle.js`.
+This builds the application to `dist/`. The development build can be built
+using:
+
+```sh
+$ npm run build
+```
+
+and a WAR file can be built (to `dist/app4sea.war`) using:
+
+```sh
+$ npm run build:war
+```
 
 ## Development server
 
-Using python from `src/main/webapp`:
+Start a live-reloading development server using:
 
 ```sh
-$ python -m http.server 8080
+$ npm start -- --watch --open
 ```
 

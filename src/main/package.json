@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Web app for oil spill response information",
   "private": true,
-  "main": "index.html",
+  "main": "webapp/index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint webapp/scripts/*.js",
