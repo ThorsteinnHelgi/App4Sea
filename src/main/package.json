@@ -9,6 +9,7 @@
     "lint": "eslint webapp/scripts/*.js",
     "build": "webpack",
     "build:war": "webpack --config webpack.war.js",
+    "build:prod": "webpack --config webpack.prod.js",
     "start": "webpack-dev-server --config webpack.config.js --hot --inline"
   },
   "repository": {
