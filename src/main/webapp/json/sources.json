@@ -1,4 +1,34 @@
-[
-    { "id" : "S1", "source" : "World Climate Map", "abstract" : "This something important", "usage" : "To use this ..." },
-    { "id" : "S2", "source" : "World Climate Map", "abstract" : "This something important", "usage" : "To use this ..." }
-]
+ { "list": [
+    { 
+        "id" : "S1", 
+        "title" : "Northern Periphery Area (NPA)", 
+        "authors" : "App4Sea based on data from ...",
+        "source" : "World Climate Map",
+        "about" : "Using region definition data from ...",
+        "usage" : "To use this ..." 
+    },
+    { 
+        "id" : "S2", 
+        "title" : "EEZ Marine Boundaries NPA",
+        "authors" : "John, Smith", 
+        "source" : "World Climate Map", 
+        "about" : "This something important", 
+        "usage" : "To use this ..." 
+    },
+    { 
+        "id" : "S3", 
+        "title" : "some title", 
+        "authors" : "John, Smith", 
+        "source" : "World Climate Map", 
+        "about" : "This something important", 
+        "usage" : "To use this ..." 
+    },
+    { 
+        "id" : "S4", 
+        "title" : "some title", 
+        "authors" : "John, Smith", 
+        "source" : "World Climate Map", 
+        "about" : "This something important", 
+        "usage" : "To use this ..." 
+    }
+]}
