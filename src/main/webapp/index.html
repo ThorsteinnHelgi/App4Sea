@@ -58,31 +58,6 @@
             <div id="ButtonsForMenu2">
             </div>
 
-            <!--div id="ButtonSection">
-                    <button class="btn"><i class="fa fa-home"></i></button>
-                    <button class="btn"><i class="fa fa-align-justify"></i></button>
-                    <button class="btn"><i class="fa fa-sun-o"></i></button>
-                    <button class="btn"><i class="fa fa-trash"></i></button>
-                    <button class="btn"><i class="fa fa-arrows-h"></i></button>
-                    <button class="btn"><i class="fa fa-folder"></i></button>
-                    <button class="btn"><i class="fa fa-plus"></i></button>
-                    <button class="btn"><i class="fa fa-minus"></i></button>
-                    <button class="btn"><i class="fa fa-plus-square"></i></button>
-                    <button class="btn"><i class="fa fa-minus-square"></i></button>
-                    <button class="btn"><i class="fa fa-plus-square-o"></i></button>
-                    <button class="btn"><i class="fa fa-minus-square-o"></i></button>
-                    <button class="btn"><i class="fa fa-caret-square-o-up"></i></button>
-                    <button class="btn"><i class="fa fa-caret-square-o-down"></i></button>
-                    <button class="btn"><i class="fa fa-play"></i></button>
-                    <button class="btn"><i class="fa fa-pause"></i></button>
-                    <button class="btn"><i class="fa fa-stop"></i></button>
-                    <button class="btn"><i class="fa fa-cloud"></i></button>
-                    <button class="btn"><i class="fa fa-map"></i></button>
-                    <button class="btn"><i class="fa fa-tint"></i></button>
-                    <button class="btn"><i class="fa fa-search"></i></button>
-                    <button class="btn-right" onclick="$.App4Sea.Utils.w3_close('ButtonSection')" ><i class="fa fa-close"></i></button>
-                </div-->
-
             <div id="ControlPlaceInMenu">
                 <div id='HeatContainer' class="SubMenuSection" style="display:none">
                     <button class="btn-right" onclick="$.App4Sea.Utils.w3_close('HeatContainer')" ><i class="fa fa-close"></i></button>
@@ -383,6 +358,20 @@
 
                 <div id="TreeInfo"></div>
             </div>
+
+        </div>
+
+        <!-- Container for source information data -->
+        <div id="SourceInfoContainer" class="sourceInfoContainer">
+            <div id="siDragHandle" class="draghandle">.....</div>
+                <div id='siContainer' class="SubMenuSection">
+                    <button class="btn-right" title="Close" onclick="$.App4Sea.TreeMenu.si_close('siContainer')"><i class="fa fa-close"></i></button>
+
+                    <h3 id="siHeader">About this data</h3>
+
+                    <div id="SourceInfo" class="sourceInfo">
+                </div>
+            </div>
         </div>
 
         <!-- This is the main map container. It is populated in code -->
@@ -408,7 +397,7 @@
 
             <!-- This is the heat and animation place container. It is populated in code -->
             <div id="ControlPlaceInMap">
-                <div id="DragHandle">.....</div>
+                <div id="DragHandle" class="draghandle">.....</div>
             </div>
 
             <!-- This is where we store tool buttons in the map -->

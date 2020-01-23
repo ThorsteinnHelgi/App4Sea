@@ -1,34 +1,112 @@
  { "list": [
     { 
+        "id" : "S0", 
+        "title" : "-- This is a placeholder for pending info --", 
+        "subtitle" : "-- no subtitle provided --", 
+        "authors" : "- no authors provided -",
+        "source" : "- no source information provided -",
+        "about" : "- no information about this provided -",
+        "link" : "- no link provided -" ,
+        "usage" : "- no usage guidance provided -" 
+    },
+    { 
         "id" : "S1", 
-        "title" : "Northern Periphery Area (NPA)", 
-        "authors" : "App4Sea based on data from ...",
-        "source" : "World Climate Map",
-        "about" : "Using region definition data from ...",
-        "usage" : "To use this ..." 
+        "title" : "ROMS Nordic 4km ocean model system",
+        "subtitle" : "-- no subtitle provided --", 
+        "authors" : "", 
+        "source" : "MET Norway", 
+        "about" : "ROMS Nordic4km ocean model system", 
+        "link" : "- no link provided -" ,
+        "usage" : "" 
     },
     { 
         "id" : "S2", 
-        "title" : "EEZ Marine Boundaries NPA",
-        "authors" : "John, Smith", 
-        "source" : "World Climate Map", 
-        "about" : "This something important", 
-        "usage" : "To use this ..." 
+        "title" : "Ice edge", 
+        "subtitle" : "-- no subtitle provided --", 
+        "authors" : "", 
+        "source" : "MET Norway ice service. See cryo.met.no", 
+        "about" : "", 
+        "link" : "- no link provided -" ,
+        "usage" : "" 
     },
     { 
         "id" : "S3", 
-        "title" : "some title", 
-        "authors" : "John, Smith", 
-        "source" : "World Climate Map", 
-        "about" : "This something important", 
-        "usage" : "To use this ..." 
+        "title" : "Ice coverage", 
+        "subtitle" : "-- no subtitle provided --", 
+        "authors" : "", 
+        "source" : "MET Norway ice service. See cryo.met.no", 
+        "about" : "", 
+        "link" : "- no link provided -" ,
+        "usage" : "" 
     },
     { 
         "id" : "S4", 
-        "title" : "some title", 
-        "authors" : "John, Smith", 
-        "source" : "World Climate Map", 
-        "about" : "This something important", 
-        "usage" : "To use this ..." 
+        "title" : "Ekofisk Bravo on 22 April 1977", 
+        "subtitle" : "OpenDrift simulation", 
+        "authors" : "",
+        "source" : "MET Norway",
+        "about" : "OpenDrift simulation of Ekofisk Bravo on 22 April 1977 using historical metocean forcing data from the MET Norway SVIM archive and ERA40 atmospheric data.",
+        "link" : "<a href='https://en.wikipedia.org/wiki/Ekofisk_oil_field'>Link to further information</a>",
+        "usage" : "" 
+    },
+    { 
+        "id" : "S5", 
+        "title" : "Potential oil spill if Norwegian frigate Helge Ingstad", 
+        "subtitle" : "OpenDrift simulation", 
+        "authors" : "",
+        "source" : "MET Norway",
+        "about" : "OpenDrift simulation of potential oil spill if Norwegian frigate Helge Ingstad\nhad ripped the hull of tanker Sola in the collision on 8 November 2018. link to.",
+        "link" : "<a href='https://en.wikipedia.org/wiki/HNoMS_Helge_Ingstad_(F313)'>Link to further information</a>",
+        "usage" : "" 
+    },
+    { 
+        "id" : "S6", 
+        "title" : "Northern Periphery Area (NPA)", 
+        "subtitle" : "Target zone for App4Sea",
+        "authors" : "Counties definitions: Nordregio. Composition: App4Sea",
+        "source" : "Nordregio at www.nordregio.se",
+        "about" : "Nordregio is an international research centre for regional development and planning.",
+        "link" : "<a href='http://www.nordregio.se'>Nordregio</a> and <a href='https://www.nordregio.org/maps/'>Nordregio maps</a>",
+        "usage" : "" 
+    },
+    { 
+        "id" : "S7", 
+        "title" : "EEZ boundaries", 
+        "subtitle" : "NPA region subset", 
+        "authors" : "Boundaries: Marine Regions. Composition: App4Sea",
+        "source" : "<a href='http://www.marineregions.org//downloads.php'>Marineregions.org</a>",
+        "about" : "Marine Regions is an integration of the VLIMAR Gazetteer\nand the VLIZ Maritime Boundaries Geodatabase.",
+        "link" : "<a href='http://www.marineregions.org/eez.php'>Marineregions.org</a>" ,
+        "usage" : "" 
+    },
+    { 
+        "id" : "S8", 
+        "title" : "-- This is a placeholder for pending info --", 
+        "subtitle" : "-- no subtitle provided --", 
+        "authors" : "- no authors provided -",
+        "source" : "- no source information provided -",
+        "about" : "- no information about this provided -",
+        "link" : "- no link provided -" ,
+        "usage" : "- no usage guidance provided -" 
+    },
+    { 
+        "id" : "S9", 
+        "title" : "-- This is a placeholder for pending info --", 
+        "subtitle" : "-- no subtitle provided --", 
+        "authors" : "- no authors provided -",
+        "source" : "- no source information provided -",
+        "about" : "- no information about this provided -",
+        "link" : "- no link provided -" ,
+        "usage" : "- no usage guidance provided -" 
+    },
+    { 
+        "id" : "10", 
+        "title" : "-- This is a placeholder for pending info --", 
+        "subtitle" : "-- no subtitle provided --", 
+        "authors" : "- no authors provided -",
+        "source" : "- no source information provided -",
+        "about" : "- no information about this provided -",
+        "link" : "- no link provided -" ,
+        "usage" : "- no usage guidance provided -" 
     }
 ]}

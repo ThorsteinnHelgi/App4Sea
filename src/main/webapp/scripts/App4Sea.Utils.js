@@ -31,6 +31,7 @@ const App4SeaUtils = (function App4SeaUtils() {
 
   const place = document.getElementById('ControlPlaceInMap');
   const handle = document.getElementById('DragHandle');
+  const sinfo = document.getElementById('SourceInfoContainer');
   const heat = document.getElementById('HeatContainer');
   const anim = document.getElementById('AnimationContainer');
   const logg = document.getElementById('LogContainer');
@@ -1146,7 +1147,7 @@ const App4SeaUtils = (function App4SeaUtils() {
         return false;
       };
 
-      if (el.target.id === 'DragHandle' || isDragableLegend(el)) {
+      if (el.target.classList.contains("draghandle") || isDragableLegend(el)) {
         retVal = true;
       }
 
@@ -1156,7 +1157,7 @@ const App4SeaUtils = (function App4SeaUtils() {
     function elementDrag(e) {
       e = e || window.event;
 
-      if (App4Sea.logging) console.log(`elementDrag: ${e.target.id}`);
+      // if (App4Sea.logging) console.log(`elementDrag: ${e.target.id}`);
 
       e.preventDefault();
 
@@ -1298,8 +1299,10 @@ const App4SeaUtils = (function App4SeaUtils() {
       { passive: false },
     );
   };
+  
   // Make the DIV element draggable:
   my.dragElement(place);
+  my.dragElement(sinfo);
 
   // //////////////////////////////////////////////////////////////////////////
   // FlyTo

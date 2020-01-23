@@ -1,11 +1,11 @@
 [
-    { "id" : "L11", "parent" : "LOil0", "text" : "Hydrocarbon fields in UK waters [DECC]", "children" : false, "a_attr" : { "path" : "data/DECC_OFF_Hydrocarbon_Fields.kmz", "source": "1"} },
-    { "id" : "L12", "parent" : "LOil0", "text" : "Hydrocarbon fields in Norwegian waters", "children" : false, "a_attr" : { "path" : "data/v_geo_fldarea.kmz", "source": "1"} },
-    { "id" : "L13", "parent" : "LOil0", "text" : "Incidents", "children" : false, "a_attr" : { "path" : "data/Incidents.kml", "source": "1"} },
-    { "id" : "L15", "parent" : "LOil0", "text" : "Oil Spill Response Sites", "children" : false, "a_attr" : { "path" : "data/APP4SEA OSR Info3_UVS.kml", "source": "1"} },
-    { "id" : "L16", "parent" : "LOil0", "text" : "Oil Spill Simulation: Bravo", "children" : false, "a_attr" : { "path" : "data/bravo.kmz", "tool" : "animation", "source": "1"} },
-    { "id" : "L17", "parent" : "LOil0", "text" : "Oil Spill Simulation: Helge Ingstad", "children" : false, "a_attr" : { "path" : "data/helgeingstad2.kmz", "tool" : "animation", "source": "1"} },
-    { "id" : "L18", "parent" : "LOil0", "text" : "Oil Spill Simulation: Northguider", "children" : false, "a_attr" : { "path" : "data/nordic4_northguider.kmz", "tool" : "animation", "source": "1"} },
-    { "id" : "L19", "parent" : "LOil0", "text" : "Oil Spill Simulation: Braer 1993", "children" : false, "a_attr" : { "path" : "data/braer_disp.kmz", "tool" : "animation", "source": "1"} },
-    { "id" : "L20", "parent" : "LOil0", "text" : "Drake passage ship tracks", "children" : false, "a_attr" : { "path" : "data/EE_GT_0001.kml", "source": "1"} }
+    { "id" : "L11", "parent" : "LOil0", "text" : "Hydrocarbon fields in UK waters [DECC]", "children" : false, "a_attr" : { "path" : "data/DECC_OFF_Hydrocarbon_Fields.kmz", "source": "0"} },
+    { "id" : "L12", "parent" : "LOil0", "text" : "Hydrocarbon fields in Norwegian waters", "children" : false, "a_attr" : { "path" : "data/v_geo_fldarea.kmz", "source": "0"} },
+    { "id" : "L13", "parent" : "LOil0", "text" : "Incidents", "children" : false, "a_attr" : { "path" : "data/Incidents.kml", "source": "0"} },
+    { "id" : "L15", "parent" : "LOil0", "text" : "Oil Spill Response Sites", "children" : false, "a_attr" : { "path" : "data/APP4SEA OSR Info3_UVS.kml", "source": "0"} },
+    { "id" : "L16", "parent" : "LOil0", "text" : "Oil Spill Simulation: Bravo", "children" : false, "a_attr" : { "path" : "data/bravo.kmz", "tool" : "animation", "source": "4"} },
+    { "id" : "L17", "parent" : "LOil0", "text" : "Oil Spill Simulation: Helge Ingstad", "children" : false, "a_attr" : { "path" : "data/helgeingstad2.kmz", "tool" : "animation", "source": "5"} },
+    { "id" : "L18", "parent" : "LOil0", "text" : "Oil Spill Simulation: Northguider", "children" : false, "a_attr" : { "path" : "data/nordic4_northguider.kmz", "tool" : "animation", "source": "0"} },
+    { "id" : "L20", "parent" : "LOil0", "text" : "Oil Spill Simulation: Braer 1993 - NEW", "children" : false, "a_attr" : { "path" : "data/braer.kmz", "tool" : "animation", "source": "0"} },
+    { "id" : "L21", "parent" : "LOil0", "text" : "Drake passage ship tracks", "children" : false, "a_attr" : { "path" : "data/EE_GT_0001.kml", "source": "0"} }
 ]

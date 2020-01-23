@@ -17,7 +17,7 @@ const App4SeaTreeMenu = (function () {
   let ajaxCountSI = 0;
   let JSONdata = [];
   let JSONdataSourceInfo = [];
-  let SourceInfo = [];
+  let sourceInfo = [];
 
   // //////////////////////////////////////////////////////////////////////////
   // hideMetadata
@@ -67,7 +67,7 @@ const App4SeaTreeMenu = (function () {
   // //////////////////////////////////////////////////////////////////////////
   // setSourceInfo
   function setSourceInfo(data) {
-    SourceInfo = data;
+    sourceInfo = data;
     console.log(data);
   }
 
@@ -118,6 +118,85 @@ const App4SeaTreeMenu = (function () {
       success: onSuccess(filename, JSONdataSourceInfo),
       error: onError(filename),
     });
+  }
+
+  // ////////////////////////////////////////////////////////////////////////
+  my.si_close = function (id) {
+    const container = document.getElementById('SourceInfoContainer');
+    const handle = document.getElementById('siDragHandle');
+    
+    container.style.visibility = 'hidden';
+    handle.style.visibility = 'hidden';
+  }
+
+  // ////////////////////////////////////////////////////////////////////////
+  function showSourceInfo(title, si) {
+    const head = document.getElementById('siHeader');
+    const par = document.getElementById('SourceInfo');
+    par.innerHTML = '';
+
+    const el = document.createElement('div');
+
+    if (title && title !== '') head.innerHTML = `${title}\n`;
+    else head.innerHTML = `About this data`;
+
+    if (si.title && si.title !== '') {
+      const title2 = document.createElement('div');
+      title2.classList.add('title');
+      title2.innerHTML = `General title: \t${si.title}\n`;
+      el.appendChild(title2);
+    }
+
+    if (si.subtitle && si.subtitle !== '') {
+      const subtitle = document.createElement('div');
+      subtitle.classList.add('subtitle');
+      subtitle.innerHTML = `Subtitle: \t\t${si.subtitle}\n`;
+      el.appendChild(subtitle);
+    }
+
+    if (si.authors && si.authors !== '') {
+      const authors = document.createElement('div');
+      authors.classList.add('authors');
+      authors.innerHTML = `Author(s): \t\t${si.authors}\n`;
+      el.appendChild(authors);
+    }
+
+    if (si.source && si.source !== '') {
+      const datasource = document.createElement('div');
+      datasource.classList.add('datasource');
+      datasource.innerHTML = `Data source: \t\t${si.source}\n`;
+      el.appendChild(datasource);
+    }
+
+    if (si.about && si.about !== '') {
+      const about = document.createElement('div');
+      about.classList.add('about');
+      about.innerHTML = `About: \t\t\t${si.about}\n`;
+      el.appendChild(about);
+    }
+
+    if (si.link && si.link !== '') {
+      const link = document.createElement('div');
+      link.classList.add('link');
+      link.innerHTML = `Link: \t\t\t${si.link}\n`;
+      el.appendChild(link);
+    }
+
+    if (si.usage && si.usage !== '') {
+      const usage = document.createElement('div');
+      usage.classList.add('usage');
+      usage.innerHTML = `<div><label>Usage: \t\t\t</label>${si.usage}</div><br>`;
+      el.appendChild(usage);
+    }
+
+    el.classList.add('sourceinfo');
+    par.appendChild(el);
+  
+    const container = document.getElementById('SourceInfoContainer');
+    const handle = document.getElementById('siDragHandle');
+
+    container.style.visibility = 'visible';
+    handle.style.visibility = 'visible';
   }
 
   // ////////////////////////////////////////////////////////////////////////
@@ -223,6 +302,27 @@ const App4SeaTreeMenu = (function () {
       });
     }
 
+    function setSourceInfoButton(child) {
+      const node = $(TreeMenu).jstree(true).get_node(child.id);
+      if (node && node.a_attr) {
+        const { source } = node.a_attr;
+        if (source) {
+          const el = document.createElement('button');
+          el.id = 'sib_' + child.id;
+          el.addEventListener(
+            'click',
+            () => {
+              showSourceInfo(child.outerText, sourceInfo[source]);
+            },
+            false,
+            { passive: true }
+          );
+          el.classList.add('sourceinfobutton');
+          child.appendChild(el);
+        }
+      }
+    }
+    
     function addSouceInfo(elem) {
       function recurseSourceInfo(par) {
         for (let ind = 0; ind < par.children.length; ind++) {
@@ -231,38 +331,55 @@ const App4SeaTreeMenu = (function () {
           recurseSourceInfo(child);
 
           if (child.localName === 'li') {
-            const node = $(TreeMenu).jstree(true).get_node(child.id);
-            if (node && node.a_attr) {
-              const { source } = node.a_attr;
-              if (source) {
-                const el = document.createElement('button');
-                el.id = 'si_' + child.id;
-                el.addEventListener(
-                  'click',
-                  () => {
-                    let txt = '\n';
-                    let si = SourceInfo[source];
-                    txt += si.id + '\n';
-                    txt += si.title + '\n';
-                    txt += si.authors + '\n';
-                    txt += si.source + '\n';
-                    txt += si.about + '\n';
-                    txt += si.usage + '\n';
-                    alert(child.outerText + txt);
-                  },
-                  false,
-                  { passive: true }
-                );
-                el.classList.add('sourceinfo');
-                child.appendChild(el);
-              }
-            }
+            setSourceInfoButton(child);
           }
         }
       }
 
       recurseSourceInfo(elem);
     }
+
+    // // Catch event: check_node
+    // $('#TreeMenu').on('check_node.jstree', function (e, data) {
+    //   const elem = document.getElementById(data.node.id);
+    //   addSouceInfo(elem);
+    // });
+
+    // // Catch event: load_node
+    // $('#TreeMenu').on('load_node.jstree', function (e, data) {
+    //   const elem = document.getElementById(data.node.id);
+    //   addSouceInfo(elem);
+    // });
+
+    // // Catch event: activate_node
+    // $('#TreeMenu').on('activate_node.jstree', function (e, data) {
+    //   const elem = document.getElementById(data.node.id);
+    //   addSouceInfo(elem);
+    // });
+    // // Catch event: select_node
+    // $('#TreeMenu').on('select_node.jstree', function (e, data) {
+    //   const elem = document.getElementById(data.node.id);
+    //   addSouceInfo(elem);
+    // });
+    // // Catch event: set_id
+    // $('#TreeMenu').on('set_id.jstree', function (e, data) {
+    //   const elem = document.getElementById(data.node.id);
+    //   addSouceInfo(elem);
+    // });
+    // // Catch event: refresh
+    // $('#TreeMenu').on('refresh.jstree', function (e, data) {
+    //   const elem = document.getElementById(data.node.id);
+    //   addSouceInfo(elem);
+    // });
+    // Catch event: create_node. 
+    // Need this to add button again as the li node is replaced the first time node is selected
+    $('#TreeMenu').on('create_node.jstree', function (e, data) {
+      const elem = document.getElementById(data.node.parent);
+      if (elem) {
+        setSourceInfoButton(elem);
+      }
+    });
+
 
     // Catch event: open_node
     $('#TreeMenu').on('open_node.jstree', function (e, data) {

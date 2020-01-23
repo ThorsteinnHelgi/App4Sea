@@ -40,14 +40,65 @@
   padding: 4px 4px 0px 4px;
 }
 
+.sourceInfoContainer {
+  position: absolute;
+  top: 50px;
+  left: 50%;
+  background-color: transparent;
+  margin: 0;
+  margin-right: -50%;
+  padding: 0;
+  transform: translate(-50%, 0%);
+  visibility: hidden;
+  z-index: 5000;
+}
+
 .sourceinfo {
+  background-color: white;
+  color: black;
+  padding: 5px;
+  max-width: 50rem;
+  white-space: pre;
+  overflow: auto;
+}
+
+.sourceinfobutton {
   border: none;
   background-color: transparent;
   background: url('../icons/Information.svg');
-  float: right;
   width: 24px;
   height: 24px;
 }
+
+.title {
+  font-weight: 700;
+  color: steelblue;
+}
+
+.subtitle {
+
+}
+
+.about {
+
+}
+
+.authors {
+
+}
+
+.datasource {
+
+}
+
+.link {
+  color: blue;
+}
+
+.useage {
+
+}
+
 
 /**********************************
 * Modify ol controls
@@ -243,7 +294,7 @@ content: "✖";
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 10000;
+    z-index: 2000;
     height: 100%;
     padding: 0.5rem;
     background-image: var(--gradientBeige);
@@ -271,17 +322,15 @@ content: "✖";
   visibility: hidden;
 }
 
-#DragHandle { 
+.draghandle { 
   width: 100%;
   background-color:darkgrey; 
   align-content: center;
   overflow: hidden;
   line-height: 1rem;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.3rem;
   cursor: move;
   vertical-align: middle;
-  /*margin-top: -.7rem;*/
-  /*margin-right: .3rem;*/
   font-size: 12px;
   font-family: sans-serif;
   font-weight: bolder;
@@ -423,6 +472,7 @@ h6 {
     position: relative;
     display: inline-block;
     color: #fff;
+    background-color: black;
 }
 
 /* Splash window */
@@ -435,7 +485,7 @@ h6 {
     height: 100%;
     background-color: black;
     opacity: 0.8;
-    z-index:10001;
+    z-index: 10000;
 }
 
 #splash-overlay-content { 
@@ -446,7 +496,6 @@ h6 {
     border: 1px white;
     background-color: red; /*transparent;*/
     opacity: 1.0;
-    z-index:10002;
 }        
 
 #splash_image, #splash_image_start {
@@ -705,7 +754,7 @@ input[type=range]:focus::-ms-fill-upper {
     transform: translate(0%);
     left: 0;
   }
-  #DragHandle {
+  .draghandle {
     line-height: 2rem;
   }
   .jstree-default .jstree-anchor {
