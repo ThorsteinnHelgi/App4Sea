@@ -270,13 +270,19 @@ const App4SeaAnimation = (function () {
     // Check if layer is active (layer is assumed to exist)
     App4Sea.TreeMenu.Checkbox(layerid, true);
 
-    // Find last index that should be active
-    let lastanindex = anindex - remember;
-    while (lastanindex < 0) lastanindex += count;
+    // Make other id's inactive
+    for (let ind=0; ind<my.AniData[golLayerID].length; ind++) {
+      if (ind === anindex) continue;
 
-    // Make last inactive
-    layerid = my.AniData[golLayerID][lastanindex];
-    App4Sea.TreeMenu.Checkbox(layerid, false);
+      App4Sea.TreeMenu.Checkbox(my.AniData[golLayerID][ind], false);  
+    }
+    // // Find last index that should be active
+    // let lastanindex = anindex - remember;
+    // while (lastanindex < 0) lastanindex += count;
+
+    // // Make last inactive
+    // layerid = my.AniData[golLayerID][lastanindex];
+    // App4Sea.TreeMenu.Checkbox(layerid, false);
 
     // Update progress
     progress.value = (anindex * 100) / (count - 1);

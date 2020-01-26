@@ -542,6 +542,10 @@ const App4SeaUtils = (function App4SeaUtils() {
       source: theSource,
     });
 
+    const { opacity } = node.a_attr;
+    const op = parseInt(opacity) / 100.0;
+    if (op) image.setOpacity(op);
+
     return image;
   };
 

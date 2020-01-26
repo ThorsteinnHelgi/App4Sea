@@ -137,56 +137,77 @@ const App4SeaTreeMenu = (function () {
 
     const el = document.createElement('div');
 
-    if (title && title !== '') head.innerHTML = `${title}\n`;
+    if (title && title !== '') head.innerHTML = `${title}`;
     else head.innerHTML = `About this data`;
 
     if (si.title && si.title !== '') {
       const title2 = document.createElement('div');
       title2.classList.add('title');
-      title2.innerHTML = `General title: \t${si.title}\n`;
+      title2.innerHTML = `<b>General title: ${si.title}</b>`;
       el.appendChild(title2);
     }
 
     if (si.subtitle && si.subtitle !== '') {
       const subtitle = document.createElement('div');
       subtitle.classList.add('subtitle');
-      subtitle.innerHTML = `Subtitle: \t\t${si.subtitle}\n`;
+      subtitle.innerHTML = `<b>Subtitle: </b>${si.subtitle}`;
       el.appendChild(subtitle);
     }
 
     if (si.authors && si.authors !== '') {
       const authors = document.createElement('div');
       authors.classList.add('authors');
-      authors.innerHTML = `Author(s): \t\t${si.authors}\n`;
+      authors.innerHTML = `<b>Author(s): </b>${si.authors}`;
       el.appendChild(authors);
     }
 
     if (si.source && si.source !== '') {
       const datasource = document.createElement('div');
       datasource.classList.add('datasource');
-      datasource.innerHTML = `Data source: \t\t${si.source}\n`;
+      datasource.innerHTML = `<b>Data source: </b>${si.source}`;
       el.appendChild(datasource);
     }
 
     if (si.about && si.about !== '') {
       const about = document.createElement('div');
       about.classList.add('about');
-      about.innerHTML = `About: \t\t\t${si.about}\n`;
+      about.innerHTML = `<b>About: </b>${si.about}`;
       el.appendChild(about);
     }
 
     if (si.link && si.link !== '') {
       const link = document.createElement('div');
       link.classList.add('link');
-      link.innerHTML = `Link: \t\t\t${si.link}\n`;
+      link.innerHTML = `<b>Link: </b>${si.link}\n`;
       el.appendChild(link);
     }
 
     if (si.usage && si.usage !== '') {
       const usage = document.createElement('div');
       usage.classList.add('usage');
-      usage.innerHTML = `<div><label>Usage: \t\t\t</label>${si.usage}</div><br>`;
+      usage.innerHTML = `<b>Usage: </b>${si.usage}`;
       el.appendChild(usage);
+    }
+
+    if (si.legend && si.legend !== '') {
+      const legend = document.createElement('div');
+      legend.classList.add('legend');
+      legend.innerHTML = `<div><b>Legend: </b>${si.legend}</div>`;
+      el.appendChild(legend);
+    }
+
+    if (si.image && si.image !== '') {
+      const image = document.createElement('div');
+      image.classList.add('image');
+      image.innerHTML = `<div><img src='${si.image}' alt='Image'>`;
+      el.appendChild(image);
+    }
+
+    if (si.license && si.license !== '') {
+      const license = document.createElement('div');
+      license.classList.add('license');
+      license.innerHTML = `<div><b>License: </b>${si.license}</div>`;
+      el.appendChild(license);
     }
 
     el.classList.add('sourceinfo');
@@ -317,6 +338,22 @@ const App4SeaTreeMenu = (function () {
             false,
             { passive: true }
           );
+          // el.addEventListener(
+          //   'mouseenter',
+          //   () => {
+          //     showSourceInfo(child.outerText, sourceInfo[source]);
+          //   },
+          //   false,
+          //   { passive: true }
+          // );
+          // el.addEventListener(
+          //   'mouseleave',
+          //   () => {
+          //     App4Sea.TreeMenu.si_close('siContainer')
+          //   },
+          //   false,
+          //   { passive: true }
+          // );
           el.classList.add('sourceinfobutton');
           child.appendChild(el);
         }
@@ -604,7 +641,7 @@ const App4SeaTreeMenu = (function () {
             }
           } else if (index === -1) {
             // Including kmz and kml
-            App4Sea.KML.loadKmlKmz(path, nod.id, nod.text);
+            App4Sea.KML.loadKmlKmz(path, nod.id, nod.text, nod);
           } else {
             if (App4Sea.logging) console.log(`Not handling extension type ${ext}`);
           }

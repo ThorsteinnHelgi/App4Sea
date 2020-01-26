@@ -1,7 +1,4 @@
 :root {
-  --width: 100%; /* This is a helper variable to carry width into calculations */
-  --scale: 1.00;
-  --temp: 1;
   --gradientBlue: linear-gradient(to right, rgba(22,62,111,1), rgba(22,62,111,0.2));
   --gradientWhite: linear-gradient(to right, rgba(255,255,255,1), rgba(255,255,255,0.2));
   --gradientBeige: linear-gradient(to right, rgba(245,245,220,1), rgba(245,245,222,0.2));
@@ -57,8 +54,8 @@
   background-color: white;
   color: black;
   padding: 5px;
-  max-width: 50rem;
-  white-space: pre;
+  width: 32rem;
+  /*white-space: pre;*/
   overflow: auto;
 }
 
@@ -71,7 +68,6 @@
 }
 
 .title {
-  font-weight: 700;
   color: steelblue;
 }
 
@@ -80,7 +76,6 @@
 }
 
 .about {
-
 }
 
 .authors {
@@ -92,13 +87,23 @@
 }
 
 .link {
-  color: blue;
 }
 
 .useage {
 
 }
 
+
+.legend {
+
+}
+
+.image {
+
+}
+.license {
+
+}
 
 /**********************************
 * Modify ol controls
