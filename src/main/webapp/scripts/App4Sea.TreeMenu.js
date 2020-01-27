@@ -432,7 +432,7 @@ const App4SeaTreeMenu = (function () {
 
     // Catch event: changed
     $('#TreeMenu').on('changed.jstree', function (e, data) {
-      if (App4Sea.logging) console.log(`On Action: ${data.action} on node ${data.node.id}`);
+      // if (App4Sea.logging) console.log(`On Action: ${data.action} on node ${data.node.id}`);
 
       if (typeof data.node === 'undefined') return;
 
@@ -601,7 +601,7 @@ const App4SeaTreeMenu = (function () {
                 if (nod.a_attr.step) step = parseFloat(nod.a_attr.step);
                 if (step === null || App4SeaUtils.isNaN(step)) step = 1;
 
-                const [canAnimate, gol, golb, goll] = App4Sea.Animation.aniDataForWMS(path, step, count);
+                const [canAnimate, gol, golb, goll] = App4Sea.Animation.aniDataForWMS(path, step, count, node.id, node.text);
 
                 for (let aind = 0; aind < gol.length; aind++) {
                   const vect = App4Sea.Utils.loadImage(nod, ourProj, imageExtent, true, gol[aind],
@@ -625,7 +625,7 @@ const App4SeaTreeMenu = (function () {
                   }
                 }
 
-                if (canAnimate) App4Sea.Animation.Animate(path, nod.text);
+                if (canAnimate) App4Sea.Animation.Animate(path, nod.text, nod.id);
               } else {
                 const vect = App4Sea.Utils.loadImage(nod, ourProj, imageExtent, true, path,
                   nod.id, nod.text, nod.text, isSRS,
@@ -641,7 +641,7 @@ const App4SeaTreeMenu = (function () {
             }
           } else if (index === -1) {
             // Including kmz and kml
-            App4Sea.KML.loadKmlKmz(path, nod.id, nod.text, nod);
+            App4Sea.KML.loadKmlKmz(path, nod.id, nod.text, nod.id);
           } else {
             if (App4Sea.logging) console.log(`Not handling extension type ${ext}`);
           }

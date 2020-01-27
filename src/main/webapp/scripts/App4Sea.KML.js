@@ -377,7 +377,7 @@ const App4SeaKML = (function () {
     const urls = oDOM.querySelectorAll('NetworkLink > Url > href');
 
     // Collect data for animation of GrounOverlay
-    const [canAnimate, gol, goll] = App4Sea.Animation.aniDataForGroundOverlay(oDOM);
+    const [canAnimate, gol, goll] = App4Sea.Animation.aniDataForGroundOverlay(oDOM, path, id, title);
     let count = 0;
     const kml = oDOM.querySelector('kml');
 
@@ -703,7 +703,7 @@ const App4SeaKML = (function () {
     if (kml) {
       listChildren(id, kml.children);
 
-      if (canAnimate) App4Sea.Animation.Animate(path, title);
+      if (canAnimate) App4Sea.Animation.Animate(path, title, id);
     }
 
     let files = Array.prototype.slice.call(links).map((el) => el.textContent);
