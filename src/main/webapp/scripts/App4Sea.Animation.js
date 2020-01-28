@@ -309,8 +309,8 @@ const App4SeaAnimation = (function () {
     //        let lind = findLayerIndex(layerid);
     const remember = 1;
 
-    if (App4Sea.logging) console.log(currSet[golLink][anindex]);
-    if (App4Sea.logging) console.log(layerid);
+    // if (App4Sea.logging) console.log(currSet[golLink][anindex]);
+    // if (App4Sea.logging) console.log(layerid);
 
     // Check if layer is active (layer is assumed to exist)
     App4Sea.TreeMenu.Checkbox(layerid, true);

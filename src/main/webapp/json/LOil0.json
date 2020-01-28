@@ -4,7 +4,7 @@
     { "id" : "L13", "parent" : "LOil0", "text" : "Oil spill incidents", "children" : false, "a_attr" : { "path" : "data/Incidents.kml", "source": "10"} },
     { "id" : "L15", "parent" : "LOil0", "text" : "Oil Spill Response Sites", "children" : false, "a_attr" : { "path" : "data/APP4SEA OSR Info3_UVS.kml", "source": "12"} },
     { "id" : "L16", "parent" : "LOil0", "text" : "Oil Spill Simulation: Bravo 1977", "children" : false, "a_attr" : { "path" : "data/bravo.kmz", "tool" : "animation", "source": "4"} },
-    { "id" : "L17", "parent" : "LOil0", "text" : "Oil Spill Simulation: Helge Ingstad 2018", "children" : false, "a_attr" : { "path" : "data/helgeingstad2.kmz", "tool" : "animation", "source": "5"} },
-    { "id" : "L18", "parent" : "LOil0", "text" : "Oil Spill Simulation: Northguider 2012", "children" : false, "a_attr" : { "path" : "data/nordic4_northguider.kmz", "tool" : "animation", "source": "14"} },
+    { "id" : "L17", "parent" : "LOil0", "text" : "Oil Spill Simulation: Helge Ingstad 2018", "children" : false, "a_attr" : { "path" : "data/helgeingstad.kmz", "tool" : "animation", "source": "5"} },
+    { "id" : "L18", "parent" : "LOil0", "text" : "Oil Spill Simulation: Northguider 2012", "children" : false, "a_attr" : { "path" : "data/northguider.kmz", "tool" : "animation", "source": "14"} },
     { "id" : "L20", "parent" : "LOil0", "text" : "Oil Spill Simulation: Braer 1993", "children" : false, "a_attr" : { "path" : "data/braer.kmz", "tool" : "animation", "source": "15"} }
 ]

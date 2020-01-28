@@ -37,6 +37,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.4.1",
+    "express": "^4.17.1",
     "html-to-image": "^0.1.1",
     "html2canvas": "^1.0.0-rc.5",
     "jquery": "^3.4.1",
@@ -44,6 +45,7 @@
     "jstree": "^3.3.8",
     "lodash": "^4.17.15",
     "mustache": "^3.2.1",
+    "net": "^1.0.2",
     "ol": "^6.1.1",
     "popper.js": "^1.16.0",
     "proj4": "^2.6.0",

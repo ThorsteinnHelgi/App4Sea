@@ -202,9 +202,11 @@ const App4SeaKML = (function () {
       }),
     });
 
-    const { opacity } = node.a_attr;
-    const op = parseInt(opacity) / 100.0;
-    if (op) vector.setOpacity(op);
+    if (node && node.a_attr) {
+      const { opacity } = node.a_attr;
+      const op = parseInt(opacity) / 100.0;
+      if (op) vector.setOpacity(op);
+    }
 
     const theSource = vector.getSource();
     theSource.addFeatures(kml_features);
@@ -412,6 +414,22 @@ const App4SeaKML = (function () {
     my.removeRow = function (input) {
       document.getElementById('tableLegend').removeChild(input.parentNode.parentNode);// tr.td.button
     };
+    
+    function getContentType(filename) {
+      const contentTypesByExtension = {
+        'css': 'text/css',
+        'js': 'application/javascript',
+        'png': 'image/png',
+        'jpg': 'image/jpeg',
+        'jpeg': 'image/jpeg',
+        'html': 'text/html',
+        'htm': 'text/html'
+      };
+
+      const tokens = filename.split('.');
+      const extension = tokens[tokens.length - 1];
+      return contentTypesByExtension[extension] || 'text/plain';
+    }
 
     // //////////////////////////////////////////////////////////////////////////
     function addOverlay(overlay, id0) {
@@ -439,6 +457,7 @@ const App4SeaKML = (function () {
                 if (App4Sea.logging) console.log(`Added image ${id2}=${nm} from kmz. Cached layers now are ${App4Sea.OpenLayers.layers.length}: ${ur}`);
 
                 App4Sea.OpenLayers.Map.addLayer(image);
+
                 App4Sea.Utils.LookAt(image);
               } else if (App4Sea.logging) console.log('No image created from kmz');
             }
@@ -446,7 +465,7 @@ const App4SeaKML = (function () {
         };
 
         ent1.getData(
-          new jsZip.zip.BlobWriter('text/plain'),
+          new jsZip.zip.BlobWriter(getContentType(url1)),
           extendedCallback(url1, ext1, prj1, nam1, ent1, id1, leg1),
           (current, total) => {
             // onprogress callback
@@ -755,7 +774,7 @@ const App4SeaKML = (function () {
     if (App4Sea.logging) console.log(str);
     if (str.endsWith('kmz')) {
       if (App4Sea.logging) console.log(`readAndAddFeatures kmz element: ${url}`);
-      ajaxKMZ(url, id, unzipFromBlob(readAndAddFeatures, id, node));
+      ajaxKMZ(url, id, unzipFromBlob(readAndAddFeatures, id, node), node);
     } else {
       if (App4Sea.logging) console.log(`readAndAddFeatures non-kmz element: ${url}`);
       ajaxKMZ(url, id, readAndAddFeatures, node);// kml

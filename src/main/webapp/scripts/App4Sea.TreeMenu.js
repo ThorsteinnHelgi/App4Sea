@@ -641,7 +641,7 @@ const App4SeaTreeMenu = (function () {
             }
           } else if (index === -1) {
             // Including kmz and kml
-            App4Sea.KML.loadKmlKmz(path, nod.id, nod.text, nod.id);
+            App4Sea.KML.loadKmlKmz(path, nod.id, nod.text, nod);
           } else {
             if (App4Sea.logging) console.log(`Not handling extension type ${ext}`);
           }
