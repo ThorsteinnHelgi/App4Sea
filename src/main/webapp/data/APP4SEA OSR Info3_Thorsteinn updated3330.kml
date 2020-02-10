@@ -126,7 +126,7 @@
 						<SimpleData name="vessel_IMO">9426893</SimpleData>
 						<SimpleData name="vessel_MMSI">251604000</SimpleData>
 						<SimpleData name="equipment_crane">Yes</SimpleData>
-						<SimpleData name="equipment_craneCapability(tonnes)"/>
+						<SimpleData name="equipment_craneCapability(tonnes)"></SimpleData>
 						<SimpleData name="equipment_totalStorageCapacity(tonnes)">640</SimpleData>
 						<SimpleData name="equipment_boom">1*300m ape_Norlense Offshore oil boom</SimpleData>
 						<SimpleData name="equipment_skimmer">Lamor free floating brush skimmer 100 2C</SimpleData>
@@ -631,6 +631,8 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="vessel_MMSI">230252000</SimpleData>
 						<SimpleData name="equipment_crane">Yes</SimpleData>
 						<SimpleData name="equipment_craneCapability(tonnes)"/>
+						<SimpleData name="equipment_totalStorageCapacity(tonnes)"/>
+						<SimpleData name="equipment_heatedstorage(m3)"/>
 						<SimpleData name="linkinfo">http://arctia.fi/en/ship/otso/</SimpleData>
 						<SimpleData name="linkimage">data/OSR/JPG/Otso.jpg</SimpleData>
 					</SchemaData>
@@ -660,8 +662,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="vessel_IMO">9682435</SimpleData>
 						<SimpleData name="vessel_MMSI">230024000</SimpleData>
 						<SimpleData name="equipment_crane">Yes</SimpleData>
-						<SimpleData name="equipment_skimmer">LAMOR Sternmax</SimpleData>
-						<SimpleData name="linkinfo">http://arctia.fi/en/ship/ahto/</SimpleData>
+						<SimpleData name="equipment_craneCapability(tonnes)"></SimpleData> 
+						<SimpleData name="equipment_totalStorageCapacity(tonnes)"></SimpleData> 
+						<SimpleData name="equipment_skimmer">LAMOR Sternmax</SimpleData> 
+                        <SimpleData name="linkinfo">http://arctia.fi/en/ship/ahto/</SimpleData>
 						<SimpleData name="linkimage">data/OSR/JPG/Ahto.jpg</SimpleData>
 						<SimpleData name="linkvideo">https://www.youtube.com/watch?v=qms7Ec2RQWE</SimpleData>
 					</SchemaData>
@@ -737,7 +741,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_craneCapability(tonnes)">0.7/16.8 range</SimpleData>
 						<SimpleData name="equipment_totalStorageCapacity(tonnes)">104 + 110 m3 oil bags</SimpleData>
 						<SimpleData name="equipment_heatedstorage(m3)">103</SimpleData>
-						<SimpleData name="ape_skimmers">LAMOR Brush skimmers</SimpleData>
+						<SimpleData name="ape_Skimmers">LAMOR Brush skmmers</SimpleData>
 						<SimpleData name="ape_sweepingArms">yes</SimpleData>
 						<SimpleData name="ape_freefloatingskimmers">2</SimpleData>
 						<SimpleData name="ape_responsedivers">yes</SimpleData>
@@ -772,7 +776,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_craneCapability(tonnes)">0.7/16.8 range</SimpleData>
 						<SimpleData name="equipment_totalStorageCapacity(tonnes)">104+110m3 oil bags</SimpleData>
 						<SimpleData name="equipment_heatedstorage(m3)">104</SimpleData>
-						<SimpleData name="ape_skimmers">LAMOR Brush skimmers</SimpleData>
+						<SimpleData name="ape_Skimmers">LAMOR Brush skmmers</SimpleData>
 						<SimpleData name="ape_sweepingArms">yes</SimpleData>
 						<SimpleData name="ape_freefloatingskimmers">2</SimpleData>
 						<SimpleData name="ape_responsedivers">yes</SimpleData>
@@ -908,7 +912,8 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="vessel_GT(tonnes)">801</SimpleData>
 						<SimpleData name="vessel_averagespeed(kn)">12</SimpleData>
 						<SimpleData name="vessel_Build year">2010</SimpleData>
-						<SimpleData name="vessel_IMO">9536583</SimpleData>
+						<SimpleData name="vessel_IMO"
+						>9536583</SimpleData>
 						<SimpleData name="equipment_crane">Yes</SimpleData>
 						<SimpleData name="equipment_craneCapability(tonnes)">1.9/19.3</SimpleData>
 						<SimpleData name="equipment_craneCapability(tonnes)">2.75/10</SimpleData>
@@ -1243,7 +1248,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				</Point>
 			</Placemark>
 		</Folder>
-		<Folder>
+         <Folder>
 			<name>Sweden</name>
 			<open>1</open>
 			<Placemark>
@@ -1256,17 +1261,17 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="Operator">Swedish Coast Guard</SimpleData>
 						<SimpleData name="location">Göteborg</SimpleData>
 						<SimpleData name="address">Hästeviksgatan 71, 426 71 Västra Frölunda</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="equipment_booms"/>
-						<SimpleData name="equipment_absorbent_pads"/>
-						<SimpleData name="equipment_skimmers"/>
+						<SimpleData name="linkicon">Ks Göteborg</SimpleData>
+						<SimpleData name="equipment_booms"></SimpleData>
+						<SimpleData name="equipment_absorbent_pads"></SimpleData>
+						<SimpleData name="equipment_skimmers"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
-					<coordinates>11.8706, 57.68165, 0</coordinates>
+					<coordinates>57.68165, 11.8706</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+            <Placemark>
 				<name>Ks Karslkrona</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1276,17 +1281,17 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="Operator">Swedish Coast Guard</SimpleData>
 						<SimpleData name="location">Karlskrona</SimpleData>
 						<SimpleData name="address">Östra Hamngatan 2, 371 32 Karlskrona</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="equipment_booms"/>
-						<SimpleData name="equipment_absorbent_pads"/>
-						<SimpleData name="equipment_skimmers"/>
+						<SimpleData name="linkicon">Ks Karlskrona</SimpleData>
+						<SimpleData name="equipment_booms"></SimpleData>
+						<SimpleData name="equipment_absorbent_pads"></SimpleData>
+						<SimpleData name="equipment_skimmers"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
-					<coordinates>15.5957433, 56.1626756, 0</coordinates>
+					<coordinates>56.1626756, 15.5957433, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+<Placemark>
 				<name>Ks Slite</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1296,17 +1301,17 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="Operator">Swedish Coast Guard</SimpleData>
 						<SimpleData name="location">Slite</SimpleData>
 						<SimpleData name="address">Kronbrunnsgatan 8, 624 48 Slite</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="equipment_booms"/>
-						<SimpleData name="equipment_absorbent_pads"/>
-						<SimpleData name="equipment_skimmers"/>
+						<SimpleData name="linkicon">Ks Slite</SimpleData>
+						<SimpleData name="equipment_booms"></SimpleData>
+						<SimpleData name="equipment_absorbent_pads"></SimpleData>
+						<SimpleData name="equipment_skimmers"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
-					<coordinates>18.8038726, 57.7059223, 0 </coordinates>
+					<coordinates>57.7059223, 18.8038726, 0 </coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+<Placemark>
 				<name>Ks Djurö</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1316,17 +1321,17 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="Operator">Swedish Coast Guard</SimpleData>
 						<SimpleData name="location">Djurö</SimpleData>
 						<SimpleData name="address">Djuröhällsvägen 8, 139 73 Djurhamn</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="equipment_booms"/>
-						<SimpleData name="equipment_absorbent_pads"/>
-						<SimpleData name="equipment_skimmers"/>
+						<SimpleData name="linkicon">Ks Djurö</SimpleData>
+						<SimpleData name="equipment_booms"></SimpleData>
+						<SimpleData name="equipment_absorbent_pads"></SimpleData>
+						<SimpleData name="equipment_skimmers"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
-					<coordinates>18.6752718, 59.300916, 0</coordinates>
+					<coordinates>59.300916, 18.6752718, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+<Placemark>
 				<name>Ks Härnösand</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1336,17 +1341,16 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="Operator">Swedish Coast Guard</SimpleData>
 						<SimpleData name="location">Härnösand</SimpleData>
 						<SimpleData name="address">Skeppsbron 71, 871 30 Härnösand</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="equipment_booms"/>
-						<SimpleData name="equipment_absorbent_pads"/>
-						<SimpleData name="equipment_skimmers"/>
+						<SimpleData name="linkicon">KV Härnösand</SimpleData>
+						<SimpleData name="equipment_booms"></SimpleData>
+						<SimpleData name="equipment_absorbent_pads"></SimpleData>
+						<SimpleData name="equipment_skimmers"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
-					<coordinates>17.9462415, 62.6390662, 0</coordinates>
+					<coordinates>62.6390662, 17.9462415, 0</coordinates>
 				</Point>
-			</Placemark>
-			<Placemark>
+			</Placemark><Placemark>
 				<name>MSB Göteborg</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1356,17 +1360,17 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="Operator">Swedish Civil Contingencies Agency MSB</SimpleData>
 						<SimpleData name="location">Göteborg</SimpleData>
 						<SimpleData name="address">Ks Göteborg, Hästeviksgatan 71, 426 71 Västra Frölunda</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="equipment_booms"/>
-						<SimpleData name="equipment_absorbent_pads"/>
-						<SimpleData name="equipment_skimmers"/>
+						<SimpleData name="linkicon">MSB Göteborg</SimpleData>
+						<SimpleData name="equipment_booms"></SimpleData>
+						<SimpleData name="equipment_absorbent_pads"></SimpleData>
+						<SimpleData name="equipment_skimmers"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
-					<coordinates>11.8706, 57.68165, 0</coordinates>
+					<coordinates>57.68165, 11.8706</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<name>MSB Oskarshamn</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1376,17 +1380,17 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="Operator">Swedish Civil Contingencies Agency MSB</SimpleData>
 						<SimpleData name="location">Oskarshamn</SimpleData>
 						<SimpleData name="address">Ks Oskarshman, Norra Strandgatan 32, 572 32 Oskarshamn</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="equipment_booms"/>
-						<SimpleData name="equipment_absorbent_pads"/>
-						<SimpleData name="equipment_skimmers"/>
+						<SimpleData name="linkicon">MSB Oskarshamn</SimpleData>
+						<SimpleData name="equipment_booms"></SimpleData>
+						<SimpleData name="equipment_absorbent_pads"></SimpleData>
+						<SimpleData name="equipment_skimmers"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
-					<coordinates>16.459, 57.26633, 0</coordinates>
+					<coordinates>57.26633, 16.459</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+<Placemark>
 				<name>MSB Slite</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1396,17 +1400,17 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="Operator">Swedish Civil Contingencies Agency MSB</SimpleData>
 						<SimpleData name="location">Slite</SimpleData>
 						<SimpleData name="address">Ks Slite, Kronbrunnsgatan 8, 624 48 Slite</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="equipment_booms"/>
-						<SimpleData name="equipment_absorbent_pads"/>
-						<SimpleData name="equipment_skimmers"/>
+						<SimpleData name="linkicon">MSB Slite</SimpleData>
+						<SimpleData name="equipment_booms"></SimpleData>
+						<SimpleData name="equipment_absorbent_pads"></SimpleData>
+						<SimpleData name="equipment_skimmers"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
-					<coordinates>18.8038726, 57.7059223, 0</coordinates>
+					<coordinates>57.7059223, 18.8038726, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+<Placemark>
 				<name>MSB Djurö</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1416,17 +1420,17 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="Operator">Swedish Civil Contingencies Agency MSB</SimpleData>
 						<SimpleData name="address">Ks Djurö, Djuröhällsvägen 8, 139 73 Djurhamn</SimpleData>
 						<SimpleData name="location">Djurö</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="equipment_booms"/>
-						<SimpleData name="equipment_absorbent_pads"/>
-						<SimpleData name="equipment_skimmers"/>
+						<SimpleData name="linkicon">MSB Djurö</SimpleData>
+						<SimpleData name="equipment_booms"></SimpleData>
+						<SimpleData name="equipment_absorbent_pads"></SimpleData>
+						<SimpleData name="equipment_skimmers"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
-					<coordinates>18.6762693, 59.3008287, 0</coordinates>
+					<coordinates>59.3008287, 18.6762693, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+<Placemark>
 				<name>MSB Härnösand</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1436,17 +1440,17 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="Operator">Swedish Civil Contingencies Agency MSB</SimpleData>
 						<SimpleData name="address">Ks Härnösand, Skeppsbron 71,  871 30 Härnösand</SimpleData>
 						<SimpleData name="location">Härnösand</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="equipment_booms"/>
-						<SimpleData name="equipment_absorbent_pads"/>
-						<SimpleData name="equipment_skimmers"/>
+						<SimpleData name="linkicon">MSB Härnösand</SimpleData>
+						<SimpleData name="equipment_booms"></SimpleData>
+						<SimpleData name="equipment_absorbent_pads"></SimpleData>
+						<SimpleData name="equipment_skimmers"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
-					<coordinates>17.9462415, 62.6390662, 0</coordinates>
+					<coordinates>62.6390662, 17.9462415, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+<Placemark>
 				<name>MSB Malmö</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1456,18 +1460,18 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="Operator">Swedish Civil Contingencies Agency MSB</SimpleData>
 						<SimpleData name="location">Malmö</SimpleData>
 						<SimpleData name="address">Ks Malmö, Terminalgatan 16, Magasin 21, 211 24 Malmö</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="equipment_booms"/>
-						<SimpleData name="equipment_absorbent_pads"/>
-						<SimpleData name="equipment_skimmers"/>
+						<SimpleData name="linkicon">MSB Malmö</SimpleData>
+						<SimpleData name="equipment_booms"></SimpleData>
+						<SimpleData name="equipment_absorbent_pads"></SimpleData>
+						<SimpleData name="equipment_skimmers"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
-					<coordinates>12.9990706, 55.618321, 0</coordinates>
+					<coordinates>55.618321, 12.9990706, 0</coordinates>
 				</Point>
 			</Placemark>
-		</Folder>
-		<Folder>
+                </Folder>
+                <Folder>
 			<name>Finland</name>
 			<open>1</open>
 			<Placemark>
@@ -1480,17 +1484,17 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="Operator">Finnish Border Guard</SimpleData>
 						<SimpleData name="location">Kalajoki</SimpleData>
 						<SimpleData name="address">Merivartiontie 72, 85180 Rahja</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="equipment_booms"/>
-						<SimpleData name="equipment_absorbent_pads"/>
-						<SimpleData name="equipment_skimmers"/>
+						<SimpleData name="linkicon">Kalajoki</SimpleData>
+						<SimpleData name="equipment_booms"></SimpleData>
+						<SimpleData name="equipment_absorbent_pads"></SimpleData>
+						<SimpleData name="equipment_skimmers"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>23.71575, 64.22104, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<name>Vaasa</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1499,18 +1503,18 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Vaasa</SimpleData>
 						<SimpleData name="Operator">Finnish Border Guard</SimpleData>
 						<SimpleData name="location">Vaasa</SimpleData>
-						<SimpleData name="address">Sundbådavägen 61, 65930 Södra Vallgrund</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="equipment_booms"/>
-						<SimpleData name="equipment_absorbent_pads"/>
-						<SimpleData name="equipment_skimmers"/>
+ 						<SimpleData name="address">Sundbådavägen 61, 65930 Södra Vallgrund</SimpleData>
+						<SimpleData name="linkicon">Vaasa</SimpleData>
+						<SimpleData name="equipment_booms"></SimpleData>
+						<SimpleData name="equipment_absorbent_pads"></SimpleData>
+						<SimpleData name="equipment_skimmers"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>21.24925, 63.16224, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+<Placemark>
 				<name>Pori</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1519,18 +1523,18 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Pori</SimpleData>
 						<SimpleData name="Operator">Finnish Border Guard</SimpleData>
 						<SimpleData name="location">Pori</SimpleData>
-						<SimpleData name="address">Kallontie 24, 28880 Pori</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="equipment_booms"/>
-						<SimpleData name="equipment_absorbent_pads"/>
-						<SimpleData name="equipment_skimmers"/>
+ 						<SimpleData name="address">Kallontie 24, 28880 Pori</SimpleData>
+						<SimpleData name="linkicon">Pori</SimpleData>
+						<SimpleData name="equipment_booms"></SimpleData>
+						<SimpleData name="equipment_absorbent_pads"></SimpleData>
+						<SimpleData name="equipment_skimmers"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>21.47844, 61.59615, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+<Placemark>
 				<name>Turku</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1539,18 +1543,18 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Turku</SimpleData>
 						<SimpleData name="Operator">Finnish Border Guard</SimpleData>
 						<SimpleData name="location">Turku</SimpleData>
-						<SimpleData name="address">20101 Turku</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="equipment_booms"/>
-						<SimpleData name="equipment_absorbent_pads"/>
-						<SimpleData name="equipment_skimmers"/>
+ 						<SimpleData name="address">20101 Turku</SimpleData>
+						<SimpleData name="linkicon">Turku</SimpleData>
+						<SimpleData name="equipment_booms"></SimpleData>
+						<SimpleData name="equipment_absorbent_pads"></SimpleData>
+						<SimpleData name="equipment_skimmers"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>22.13164, 60.44122, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+<Placemark>
 				<name>Nauvo</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1559,18 +1563,18 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Nauvo</SimpleData>
 						<SimpleData name="Operator">Finnish Border Guard</SimpleData>
 						<SimpleData name="location">Nauvo</SimpleData>
-						<SimpleData name="address">Saaristotie 5839, 21670 Pärnäinen</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="equipment_booms"/>
-						<SimpleData name="equipment_absorbent_pads"/>
-						<SimpleData name="equipment_skimmers"/>
+ 						<SimpleData name="address">Saaristotie 5839, 21670 Pärnäinen</SimpleData>
+						<SimpleData name="linkicon">Nauvo</SimpleData>
+						<SimpleData name="equipment_booms"></SimpleData>
+						<SimpleData name="equipment_absorbent_pads"></SimpleData>
+						<SimpleData name="equipment_skimmers"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>21.71027, 60.16420, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+<Placemark>
 				<name>Upinniemi</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1579,18 +1583,18 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Upinniemi</SimpleData>
 						<SimpleData name="Operator">Finnish Border Guard</SimpleData>
 						<SimpleData name="location">Upinniemi</SimpleData>
-						<SimpleData name="address">02471 Upinniemi</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="equipment_booms"/>
-						<SimpleData name="equipment_absorbent_pads"/>
-						<SimpleData name="equipment_skimmers"/>
+ 						<SimpleData name="address">02471 Upinniemi</SimpleData>
+						<SimpleData name="linkicon">Hanko</SimpleData>
+						<SimpleData name="equipment_booms"></SimpleData>
+						<SimpleData name="equipment_absorbent_pads"></SimpleData>
+						<SimpleData name="equipment_skimmers"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>24.36054, 60.035561, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+<Placemark>
 				<name>Hanko</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1599,18 +1603,18 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Hanko</SimpleData>
 						<SimpleData name="Operator">Finnish Border Guard</SimpleData>
 						<SimpleData name="location">Hanko</SimpleData>
-						<SimpleData name="address">Vapaasatama, 10900 Hanko</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="equipment_booms"/>
-						<SimpleData name="equipment_absorbent_pads"/>
-						<SimpleData name="equipment_skimmers"/>
+ 						<SimpleData name="address">Vapaasatama, 10900 Hanko</SimpleData>
+						<SimpleData name="linkicon">Hanko</SimpleData>
+						<SimpleData name="equipment_booms"></SimpleData>
+						<SimpleData name="equipment_absorbent_pads"></SimpleData>
+						<SimpleData name="equipment_skimmers"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>22.9124201, 59.8111974, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+<Placemark>
 				<name>Helsinki Santahamina </name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1619,18 +1623,18 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Helsinki Santahamina</SimpleData>
 						<SimpleData name="Operator">Finnish Border Guard</SimpleData>
 						<SimpleData name="location">Helsinki Santahamina</SimpleData>
-						<SimpleData name="address"/>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="equipment_booms"/>
-						<SimpleData name="equipment_absorbent_pads"/>
-						<SimpleData name="equipment_skimmers"/>
+						<SimpleData name="address"></SimpleData>
+						<SimpleData name="linkicon">Helsinki Santahamina</SimpleData>
+						<SimpleData name="equipment_booms"></SimpleData>
+						<SimpleData name="equipment_absorbent_pads"></SimpleData>
+						<SimpleData name="equipment_skimmers"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>25.03557, 60.14861, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+<Placemark>
 				<name> Helsinki Isosaari</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1638,19 +1642,19 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="SiteID">Helsinki Isosaari</SimpleData>
 						<SimpleData name="name">Helsinki Isosaari</SimpleData>
 						<SimpleData name="Operator">Finnish Border Guard</SimpleData>
-						<SimpleData name="location">Helsinki Isosaari</SimpleData>
-						<SimpleData name="address"/>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="equipment_booms"/>
-						<SimpleData name="equipment_absorbent_pads"/>
-						<SimpleData name="equipment_skimmers"/>
+						<SimpleData name="location">Helsinki Isosaari</SimpleData> 
+ 						<SimpleData name="address"></SimpleData>
+						<SimpleData name="linkicon">Helsinki Isosaari</SimpleData>
+						<SimpleData name="equipment_booms"></SimpleData>
+						<SimpleData name="equipment_absorbent_pads"></SimpleData>
+						<SimpleData name="equipment_skimmers"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>25.05919, 60.10529, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+<Placemark>
 				<name>Porvoo</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1658,19 +1662,19 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="SiteID">Porvoo</SimpleData>
 						<SimpleData name="name">Porvoo</SimpleData>
 						<SimpleData name="Operator">Finnish Border Guard</SimpleData>
-						<SimpleData name="location">Porvoo</SimpleData>
-						<SimpleData name="address">Tolkkistentie 990, 06750 Tolkkinen</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="equipment_booms"/>
-						<SimpleData name="equipment_absorbent_pads"/>
-						<SimpleData name="equipment_skimmers"/>
+						<SimpleData name="location">Porvoo</SimpleData> 
+ 						<SimpleData name="address">Tolkkistentie 990, 06750 Tolkkinen</SimpleData>
+						<SimpleData name="linkicon">Porvoo</SimpleData>
+						<SimpleData name="equipment_booms"></SimpleData>
+						<SimpleData name="equipment_absorbent_pads"></SimpleData>
+						<SimpleData name="equipment_skimmers"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>25.5896946, 60.3114354, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+<Placemark>
 				<name>Kotka</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1678,20 +1682,20 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="SiteID">Kotka</SimpleData>
 						<SimpleData name="name">Kotka</SimpleData>
 						<SimpleData name="Operator">Finnish Border Guard</SimpleData>
-						<SimpleData name="location">Kotka</SimpleData>
-						<SimpleData name="address">Juha Vainion katu 123, 48100 Kotka</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="equipment_booms"/>
-						<SimpleData name="equipment_absorbent_pads"/>
-						<SimpleData name="equipment_skimmers"/>
+						<SimpleData name="location">Kotka</SimpleData> 
+ 						<SimpleData name="address">Juha Vainion katu 123, 48100 Kotka</SimpleData>
+						<SimpleData name="linkicon">Kotka</SimpleData>
+						<SimpleData name="equipment_booms"></SimpleData>
+						<SimpleData name="equipment_absorbent_pads"></SimpleData>
+						<SimpleData name="equipment_skimmers"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>26.962758, 60.461599, 0</coordinates>
 				</Point>
 			</Placemark>
-		</Folder>
-		<Folder>
+                </Folder>
+                <Folder>
 			<name>Faroes</name>
 			<open>1</open>
 			<Placemark>
@@ -1703,7 +1707,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Torshavn</SimpleData>
 						<SimpleData name="Operator">Torshavn Fire Station </SimpleData>
 						<SimpleData name="location">Torshavn</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Torshavn</SimpleData>
 						<SimpleData name="equipment_booms">125m of Rolus 50 cm high</SimpleData>
 						<SimpleData name="equipment_absorbent_pads">125 m of 20/12,5 and 75m of 20/12,5 with a skirt</SimpleData>
 						<SimpleData name="equipment_skimmers">1*KOMARA 20</SimpleData>
@@ -1713,7 +1717,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 					<coordinates>-6.76538, 62.00637, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<name>Sund Port</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1722,7 +1726,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Sund Port</SimpleData>
 						<SimpleData name="Operator">Torshavn Harbour</SimpleData>
 						<SimpleData name="location">Sund</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Sund Port</SimpleData>
 						<SimpleData name="equipment_booms">250m of RO-clean</SimpleData>
 						<SimpleData name="equipment_skimmers">1*Desmi</SimpleData>
 					</SchemaData>
@@ -1731,8 +1735,8 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 					<coordinates>-6.85570, 62.05124, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
-				<name>Kollafjørður</name>
+                        <Placemark>
+                       <name>Kollafjørður</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
 					<SchemaData schemaUrl="#OSR_SiteSchema">
@@ -1740,7 +1744,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Kollafjørður</SimpleData>
 						<SimpleData name="Operator">Torshavn Fire Station</SimpleData>
 						<SimpleData name="location">Kollafjørður</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Kollafjørður</SimpleData>
 						<SimpleData name="equipment_absorbent pads">125 m of 20/12,5 and 75m of 20/12,5 with a skirt</SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -1748,7 +1752,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 					<coordinates>-6.90368, 62.11578, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<name>Runavík</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1757,17 +1761,17 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Runavík</SimpleData>
 						<SimpleData name="Operator">Skálafjarðar Fire Station</SimpleData>
 						<SimpleData name="location">Runavík</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Runavík</SimpleData>
 						<SimpleData name="equipment_booms">200m of Nofi boombag with a 25cm skirt</SimpleData>
 						<SimpleData name="equipment_absorbent pads">175 m of 20/12,5 and 125m of 20/12,5 with a skirt</SimpleData>
 						<SimpleData name="equipment_skimmers">1*KOMARA 20</SimpleData>
-					</SchemaData>
+                                </SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>-6.72471, 62.11288, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<name>Søldarfjørður</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1776,15 +1780,15 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Søldarfjørður</SimpleData>
 						<SimpleData name="Operator">Skálafjarðar Fire Station</SimpleData>
 						<SimpleData name="location">Søldarfjørður</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Søldarfjørður</SimpleData>
 						<SimpleData name="equipment_absorbent pads">150 m of 20/12,5 with a skirt</SimpleData>
-					</SchemaData>
+                                                </SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>-6.75429, 62.15575, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<name>Skála</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1793,15 +1797,15 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Skála</SimpleData>
 						<SimpleData name="Operator"> Skálafjarðar Fire Station</SimpleData>
 						<SimpleData name="location">Skála</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Skála</SimpleData>
 						<SimpleData name="equipment_absorbent pads">75m of 20/12,5 and 100m of 20/12,5 with a skirt</SimpleData>
-					</SchemaData>
+                                                </SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>-6.779509, 62.158645, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<name>Strendur</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1810,15 +1814,15 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Strendur</SimpleData>
 						<SimpleData name="Operator">Skálafjarðar Fire Station</SimpleData>
 						<SimpleData name="location">Strendur</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Strendur</SimpleData>
 						<SimpleData name="equipment_absorbent pads">50m of 20/12,5 with a skirt</SimpleData>
-					</SchemaData>
+                                                </SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>-6.75680, 62.11039, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<name>Vág</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1827,15 +1831,15 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Vág</SimpleData>
 						<SimpleData name="Operator">Suðuroyar Syðra Fire Station</SimpleData>
 						<SimpleData name="location">Vág</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Vág</SimpleData>
 						<SimpleData name="equipment_absorbent pads">75m of 20/12,5 with a skirt</SimpleData>
-					</SchemaData>
+                                </SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>-6.81384, 61.47252, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<name>Tvøroyri</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1844,15 +1848,15 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Tvøroyri</SimpleData>
 						<SimpleData name="Operator"> Tvøroyri Fire Station </SimpleData>
 						<SimpleData name="location">Tvøroyri</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Tvøroyri</SimpleData>
 						<SimpleData name="equipment_absorbent pads">100m of 20/12,5 and 100m of 20/12,5 with a skirt</SimpleData>
-					</SchemaData>
+                                </SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>-6.821383, 61.557616, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<name>Klaksvík</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1861,17 +1865,17 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Klaksvík</SimpleData>
 						<SimpleData name="Operator">Klaksvíkar Fire Station </SimpleData>
 						<SimpleData name="location">Klaksvík</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Klaksvík</SimpleData>
 						<SimpleData name="equipment_booms">200m of Nofi boombag with 25cm skirt </SimpleData>
 						<SimpleData name="equipment_absorbent pads">375m of 20/12,5 and 400m of 20/12,5 with a skirt</SimpleData>
 						<SimpleData name="equipment_skimmers">1*KOMARA 20</SimpleData>
-					</SchemaData>
+                                </SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>-6.59471, 62.23043, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<name>Leirvík</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1880,15 +1884,15 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Leirvík</SimpleData>
 						<SimpleData name="Operator">Eysturkommuna</SimpleData>
 						<SimpleData name="location">Leirvík</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Leirvík</SimpleData>
 						<SimpleData name="equipment_absorbent pads">25m of 20/12,5 with a skirt</SimpleData>
-					</SchemaData>
+                                </SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>-6.705490, 62.211124, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<name>Sørvágur</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1897,15 +1901,15 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Sørvágur</SimpleData>
 						<SimpleData name="Operator">Sørvágs Fire Station </SimpleData>
 						<SimpleData name="location">Sørvágur</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Sørvágur</SimpleData>
 						<SimpleData name="equipment_absorbent pads">50m of 20/12,5 and 150 of 20/12,5 with a skirt</SimpleData>
-					</SchemaData>
+                                </SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>-7.32033, 62.07062, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<name>Miðvágur</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1914,15 +1918,15 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Miðvágur</SimpleData>
 						<SimpleData name="Operator">Miðvágur/Sandavág Slø.</SimpleData>
 						<SimpleData name="location">Miðvágur</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Miðvágur</SimpleData>
 						<SimpleData name="equipment_absorbent pads">200m of 20/12,5</SimpleData>
-					</SchemaData>
+                                </SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>-7.189436, 62.046662, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<name>Fuglafjørður</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1931,16 +1935,16 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Fuglafjørður</SimpleData>
 						<SimpleData name="Operator">Fuglafirði Fire Station</SimpleData>
 						<SimpleData name="location">Fuglafjørður</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Fuglafjørður</SimpleData>
 						<SimpleData name="equipment_booms">300m of Norlense with 65cm skirt and 175m of Nofi boombag with 25cm skirt</SimpleData>
 						<SimpleData name="equipment_skimmers">1*KOMARA 20</SimpleData>
-					</SchemaData>
+                                </SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>-6.812768, 62.241629, 0</coordinates>
 				</Point>
-			</Placemark>
-			<Placemark>
+                                </Placemark>
+                                <Placemark>
 				<name>Fuglafjørður Havn</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1949,16 +1953,16 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Fuglafjørður Havn</SimpleData>
 						<SimpleData name="Operator"> Fuglafjørður Habour </SimpleData>
 						<SimpleData name="location">Fuglafjørður</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Fuglafjørður</SimpleData>
 						<SimpleData name="equipment_absorbent pads">150m of 20/12,5 and 150m of 20/15 with skirt</SimpleData>
 						<SimpleData name="equipment_skimmers">1*Lamor PowerPack</SimpleData>
-					</SchemaData>
+                                </SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>-6.812768, 62.241629, 0</coordinates>
 				</Point>
-			</Placemark>
-			<Placemark>
+			        </Placemark>			
+                                <Placemark>
 				<name>Oyrabakki</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1967,14 +1971,14 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Oyrabakki</SimpleData>
 						<SimpleData name="Operator"> Sundalagið Fire Station </SimpleData>
 						<SimpleData name="location">Oyrabakki</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-					</SchemaData>
+						<SimpleData name="linkicon">Oyrabakki</SimpleData>
+                                </SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>-7.004621, 62.210193, 0</coordinates>
 				</Point>
-			</Placemark>
-			<Placemark>
+			        </Placemark>
+                                <Placemark>
 				<name>Pauli Einarsson</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -1983,16 +1987,16 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Pauli Einarsson</SimpleData>
 						<SimpleData name="Operator">Pauli Einarsson</SimpleData>
 						<SimpleData name="location">Tórshavn</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Tórshavn</SimpleData>
 						<SimpleData name="equipment_booms">300m of exspandia 25 cm</SimpleData>
 						<SimpleData name="equipment_absorbent pads">625m of 20/12,5 and 625m of 20/15 of with skirts</SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
-					<coordinates>-6.771301, 62.003839, 0</coordinates>
+					<coordinates>62.003839, -6.771301, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+	        <Placemark>
 				<name>Vest Pack</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -2001,15 +2005,15 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Vest Pack</SimpleData>
 						<SimpleData name="Operator">Vest Pack</SimpleData>
 						<SimpleData name="location">Vestmanna</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Sund</SimpleData>
 						<SimpleData name="equipment_absorbent pads">875m</SimpleData>
-					</SchemaData>
+                    </SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>-7.14757, 62.15170, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+            <Placemark>
 				<name>SEV Sund</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -2018,16 +2022,16 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">SEV Sund</SimpleData>
 						<SimpleData name="Operator">SEV</SimpleData>
 						<SimpleData name="location">Sund</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Sund</SimpleData>
 						<SimpleData name="equipment_absorbent_pads">75m of 20/15 with skirts and 100*Ergon 50*40</SimpleData>
 						<SimpleData name="equipment_absorbent_mats">100*Ergon 50X40</SimpleData>
-					</SchemaData>
+                                </SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>-6.85443, 62.05008, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+<Placemark>
 				<name>SEV Vágur</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -2036,14 +2040,14 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">SEV Vágur</SimpleData>
 						<SimpleData name="Operator">SEV</SimpleData>
 						<SimpleData name="location">Vágur</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-					</SchemaData>
+						<SimpleData name="linkicon">Vágur</SimpleData>
+                                </SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>-6.81447, 61.46986, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<name>SEV Strond</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -2052,15 +2056,15 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">SEV Strond</SimpleData>
 						<SimpleData name="Operator">SEV</SimpleData>
 						<SimpleData name="location">Strond</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Strond</SimpleData>
 						<SimpleData name="equipment_absorbent_mats">100*Ergon 50X40</SimpleData>
-					</SchemaData>
+                                </SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>-6.755679, 62.011705, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<name>Magn</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -2069,15 +2073,15 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Magn</SimpleData>
 						<SimpleData name="Operator">Magn</SimpleData>
 						<SimpleData name="location">Tórshavn</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Tórshavn</SimpleData>
 						<SimpleData name="equipment_absorbent pads">80m of 20/15</SimpleData>
-					</SchemaData>
+                                </SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>-6.77216, 62.00508, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+            <Placemark>
 				<name>FVE</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -2086,17 +2090,17 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">FVE</SimpleData>
 						<SimpleData name="Operator">Faroese Fisheries Inspection FVE</SimpleData>
 						<SimpleData name="location">FVE</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">FVE</SimpleData>
 						<SimpleData name="equipment_booms">400m of Rolus 50 cm high</SimpleData>
 						<SimpleData name="equipment_absorbent pads">1200m of 20/30 and 30m of 10/30</SimpleData>
 						<SimpleData name="equipment_skimmers">1*Lamor PowerPack and 1*KOMARA 20</SimpleData>
-					</SchemaData>
+                    </SchemaData>
 				</ExtendedData>
 				<Point>
-					<coordinates>0, 0, 0</coordinates>
+					<coordinates>0, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<name>Landsverk Havnadalur</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -2105,15 +2109,15 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Landsverk Havnadalur</SimpleData>
 						<SimpleData name="Operator">Faroese Road Authority Landsverk</SimpleData>
 						<SimpleData name="location">Havnadalur</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Landsverk Havnadalur</SimpleData>
 						<SimpleData name="equipment_absorbent pads">200m of 10/12,5 and 50m of 12,5/25 and 125m 20/5 and 225m of 20/12,5 with a skirt</SimpleData>
-					</SchemaData>
+                                </SchemaData>
 				</ExtendedData>
 				<Point>
-					<coordinates>0, 0, 0</coordinates>
+					<coordinates>0, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<name>Landsverk Hvannasund</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -2122,15 +2126,15 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Landsverk Hvannasund</SimpleData>
 						<SimpleData name="Operator">Faroese Road Authority Landsverk</SimpleData>
 						<SimpleData name="location">Hvannasund</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Landsverk Hvannasund</SimpleData>
 						<SimpleData name="equipment_absorbent pads">25m of 20/12,5</SimpleData>
-					</SchemaData>
+                                </SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>-6.52166, 62.29764, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                         <Placemark>
 				<name>Landsverk Syðradalur</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
@@ -2139,15 +2143,17 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Landsverk Hvannasund</SimpleData>
 						<SimpleData name="Operator">Faroese Road Authority Landsverk</SimpleData>
 						<SimpleData name="location">Hvannasund</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Landsverk Hvannasund</SimpleData>
 						<SimpleData name="equipment_absorbent pads">25m of 20/12,5</SimpleData>
-					</SchemaData>
+                                               
+                                </SchemaData>
 				</ExtendedData>
 				<Point>
-					<coordinates>0, 0, 0</coordinates>
+					<coordinates>0, 0</coordinates>
 				</Point>
 			</Placemark>
-		</Folder>
+                </Folder>
+
 		<Folder>
 			<name>Norway</name>
 			<open>1</open>
@@ -2161,7 +2167,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="Operator">Norwegian Coastal authority</SimpleData>
 						<SimpleData name="NCA region">Southeast</SimpleData>
 						<SimpleData name="region">Vestfold</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Horten</SimpleData>
 						<SimpleData name="address">Moloveien 7, 3187 Horten</SimpleData>
 						<SimpleData name="equipment_boats">20 feet long NOR-SUB boat, 22 foot long inspection boat T650KYV and GB Cat catamaram with a crane, 9 meter long "GroEva" utility boat, Sea hunter utility boat</SimpleData>
 						<SimpleData name="equipment_booms_ENG">1925m of absorbing booms with a skirt</SimpleData>
@@ -2185,7 +2191,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="operator">Norwegian Coastal Authority</SimpleData>
 						<SimpleData name="NCA region">West</SimpleData>
 						<SimpleData name="region">Bergen</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Mongstad</SimpleData>
 						<SimpleData name="address">Storemyra 161/163, 5954 Mongstad</SimpleData>
 						<SimpleData name="equipment_boats">22 foot long inspection boat T650KYV, 20 foot long inspection boat Rana 20, GB Cat catamaran with a crane</SimpleData>
 						<SimpleData name="equipment_booms_ENG">2050m of absorbing booms with a skirt</SimpleData>
@@ -2209,7 +2215,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="operator">Norwegian Coastal Authority</SimpleData>
 						<SimpleData name="NCA region">Southwest</SimpleData>
 						<SimpleData name="region">Middle Agder</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Kristiansand</SimpleData>
 						<SimpleData name="address">Sjølystveien 27, 4610 Kristiansand S</SimpleData>
 						<SimpleData name="equipment_boats">22 foot long inspection boat T650KYV and GB Cat catamaram with a crane</SimpleData>
 						<SimpleData name="equipment_booms_ENG">425m of absorbing booms with a skirt and 516m of absorbing boom without a skirt</SimpleData>
@@ -2233,7 +2239,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">Solund</SimpleData>
 						<SimpleData name="linkimage">Vest</SimpleData>
 						<SimpleData name="description">Sogn og Fjordane</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Solund</SimpleData>
 						<SimpleData name="address">Solund Verft AS, 6924 Hardbakke</SimpleData>
 						<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/015-SOLUND.pdf target=_blank >More information</a>]]></SimpleData>
 						<SimpleData name="linkvideo">Bergen</SimpleData>
@@ -2252,7 +2258,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="operator">Norwegian Coastal Authority</SimpleData>
 						<SimpleData name="NCA region">Troms and Finnmark</SimpleData>
 						<SimpleData name="region">Middle and North Troms</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Tromsø</SimpleData>
 						<SimpleData name="address">Terminalgata 177, 9019 Tromsø</SimpleData>
 						<SimpleData name="equipment_boats">GB Cat catamaram with a crane</SimpleData>
 						<SimpleData name="equipment_booms_ENG">850m of absorbing booms with a skirt and 1600m of absorbing boom without a skirt</SimpleData>
@@ -2276,7 +2282,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="operator">Norwegian Coastal Authority</SimpleData>
 						<SimpleData name="NCA region">Nordland</SimpleData>
 						<SimpleData name="region">Salten</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Bodø</SimpleData>
 						<SimpleData name="address">Jernbaneveien 96, 8006 Bodø</SimpleData>
 						<SimpleData name="equipment_boats">22 fett long inspection boat T650KYV</SimpleData>
 						<SimpleData name="equipment_booms_ENG">1000m of absorbing booms with a skirt and 100m of absorbing boom without a skirt</SimpleData>
@@ -2301,7 +2307,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="operator">Norwegian Coastal Authority</SimpleData>
 						<SimpleData name="NCA region">Troms and Finnmark</SimpleData>
 						<SimpleData name="region">East Finnmark</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Vadsø</SimpleData>
 						<SimpleData name="address">Fabrikkveien 35, 9800 Vadsø</SimpleData>
 						<SimpleData name="equipment_boats">20 feet long inspection boat Rana</SimpleData>
 						<SimpleData name="equipment_booms_ENG">1850m of absorbing booms with a skirt and 1200m of absorbing boom without a skirt</SimpleData>
@@ -2326,7 +2332,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="operator">Norwegian Coastal Authority</SimpleData>
 						<SimpleData name="NCA region">Vest</SimpleData>
 						<SimpleData name="region">South Rogaland</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Randaberg</SimpleData>
 						<SimpleData name="address">Harestadveien 77, 4070 Randaberg</SimpleData>
 						<SimpleData name="equipment_boats">22 fett long inspection boat T650KYV, 20 feet long inspection boat Rana</SimpleData>
 						<SimpleData name="equipment_booms_ENG">1000m of absorbing booms with a skirt</SimpleData>
@@ -2350,7 +2356,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="operator">Norwegian Coastal Authority</SimpleData>
 						<SimpleData name="NCA region">Vest</SimpleData>
 						<SimpleData name="region">Sogn and Sunnfjord</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Flora</SimpleData>
 						<SimpleData name="address">Saga fjordbase, Botnaneset, Hall 5, 6900 Florø</SimpleData>
 						<SimpleData name="equipment_boats">20 feet long inspection boat Rana, GB Cat catamaram with a crane</SimpleData>
 						<SimpleData name="equipment_booms_ENG">1000m of absorbing booms with a skirt</SimpleData>
@@ -2374,7 +2380,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="operator">Norwegian Coastal Authority</SimpleData>
 						<SimpleData name="NCA region">Troms and Finnmark</SimpleData>
 						<SimpleData name="region">West Finnmark</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Hammerfest</SimpleData>
 						<SimpleData name="address">Meridiangata 34, 9600 Hammerfest</SimpleData>
 						<SimpleData name="equipment_boats">22 foot long inspection boat T650KYV and GB Cat catamaram with a crane</SimpleData>
 						<SimpleData name="equipment_boom ENG">1175m of absorbing booms with a skirt</SimpleData>
@@ -2398,7 +2404,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="operator">Norwegian Coastal Authority</SimpleData>
 						<SimpleData name="NCA region">Nordland</SimpleData>
 						<SimpleData name="region">Ofoten</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Lødingen</SimpleData>
 						<SimpleData name="address">Sjøvegen 43, 8410 Lødingen</SimpleData>
 						<SimpleData name="equipment_boats">22 foot long inspection boat T650KYV and GB Cat catamaram with a crane</SimpleData>
 						<SimpleData name="equipment_booms_ENG">1000m of absorbing booms with a skirt and 200m of absorbing boom without a skirt</SimpleData>
@@ -2420,8 +2426,8 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="SiteID">Utstyr i aksjon</SimpleData>
 						<SimpleData name="name">Utstyr i aksjon</SimpleData>
 						<SimpleData name="linkimage">Vest</SimpleData>
-						<SimpleData name="description">Kontinental-sokkelen. Sokkelen nord for 62 grader Nord</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="description">Kontinental-sokkelen</SimpleData>
+						<SimpleData name="linkicon">Sokkelen nord for 62 grader Nord</SimpleData>
 						<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/AKSJON.pdf target=_blank >More information</a>]]></SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -2438,7 +2444,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="operator">Norwegian Coastal Authority</SimpleData>
 						<SimpleData name="NCA region">Middle</SimpleData>
 						<SimpleData name="region">South Trøndelag</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Ørland</SimpleData>
 						<SimpleData name="address">Ulriksbygget, Industrigt 7, 7130 Brekkstad</SimpleData>
 						<SimpleData name="equipment_boats">22 foot long inspection boat T650KYV</SimpleData>
 						<SimpleData name="equipment_booms_ENG">1012m of absorbing booms with a skirt</SimpleData>
@@ -2462,7 +2468,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="operator">Norwegian Coastal Authority</SimpleData>
 						<SimpleData name="NCA region">Troms and Finnmark</SimpleData>
 						<SimpleData name="region">Svalbard</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Spitsbergen</SimpleData>
 						<SimpleData name="address"/>
 						<SimpleData name="equipment_booms_ENG">1200m of absorbing booms with a skirt, 450m of absorbing booms without a skirt</SimpleData>
 						<SimpleData name="equipment_booms_L">4*NOFI 250EP 4x25m, 7*NOFI 350EP 4x25m, 8*NO 35 F 4x25m </SimpleData>
@@ -2473,7 +2479,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 					</SchemaData>
 				</ExtendedData>
 				<Point>
-					<coordinates>15.6502211113083, 78.22272230697909,0</coordinates>
+					<coordinates>15.6502211113083,78.22272230697909,0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
@@ -2485,7 +2491,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="Operator">Norwegian Coastal Authority</SimpleData>
 						<SimpleData name="NCA region">Middle</SimpleData>
 						<SimpleData name="region">Sunnmøre</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Ålesund</SimpleData>
 						<SimpleData name="address">Kollvika, Nørvevika 56, 6008 ÅLESUND</SimpleData>
 						<SimpleData name="equipment_boats">22 foot long inspection boat T650KYV and GB Cat catamaram with a crane</SimpleData>
 						<SimpleData name="equipment_booms_ENG">1000m of absorbing booms with a skirt, 250m of absorbing booms without a skirt</SimpleData>
@@ -2497,7 +2503,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 					</SchemaData>
 				</ExtendedData>
 				<Point>
-					<coordinates>6.21370367032809, 62.4698304162315,0</coordinates>
+					<coordinates>6.21370367032809,62.4698304162315,0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
@@ -2509,7 +2515,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="operator">Norwegian Coastal Authority</SimpleData>
 						<SimpleData name="NCA region">Nordland</SimpleData>
 						<SimpleData name="region">Helgeland</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Brønnøy</SimpleData>
 						<SimpleData name="address">Torolv Kveldulvsonsgt 5, 8800 Sandnessjøen</SimpleData>
 						<SimpleData name="equipment_boats">22 foot long inspection boat T650KYV, GB Cat catamaran with a crane</SimpleData>
 						<SimpleData name="equipment_booms_ENG">1000m of absorbing booms with a skirt</SimpleData>
@@ -2521,7 +2527,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 					</SchemaData>
 				</ExtendedData>
 				<Point>
-					<coordinates>12.6395, 66.024166, 0</coordinates>
+					<coordinates>12.6395,66.0241669999899,0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
@@ -2533,7 +2539,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="operator">Norwegian Coastal Authority</SimpleData>
 						<SimpleData name="NCA region">West</SimpleData>
 						<SimpleData name="region">Bergen</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Fedje</SimpleData>
 						<SimpleData name="address">Kopper 13, 5947 Fedje</SimpleData>
 						<SimpleData name="equipment_boats">20 feet long inspection boat Rana</SimpleData>
 						<SimpleData name="equipment_booms_ENG">6500m of absorbing booms with a skirt, 400m of absorbing booms without a skirt</SimpleData>
@@ -2541,122 +2547,11 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_booms_T/M">2*Expandi 4300 152m, 1*Current Buster 2 (light)</SimpleData>
 						<SimpleData name="equipment_skimmers">1*NorMar30, 1*Lamor LWS 500 m, 3*Foxtail VAB 4-9</SimpleData>
 						<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/016-FEDJE.pdf target=_blank >More information</a>]]></SimpleData>
+						<SimpleData name="linkvideo">Bergen</SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
-					<coordinates>4.7227, 60.78069, 0</coordinates>
-				</Point>
-			</Placemark>
-			<Placemark>
-				<styleUrl>#msn_ranger_station</styleUrl>
-				<ExtendedData>
-					<SchemaData schemaUrl="#OSR_SiteSchema">
-						<SimpleData name="SiteID">NOFO Stavanger</SimpleData>
-						<SimpleData name="name">NOFO Stavanger</SimpleData>
-						<SimpleData name="operator">Norwegian clean seas association for operating companies (NOFO)</SimpleData>
-						<SimpleData name="location">Tananger</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="address">Risavika Havnering 14, Bygg 100 Port N-25, 4056 Tanager</SimpleData>
-					</SchemaData>
-				</ExtendedData>
-				<Point>
-					<coordinates>58.935289, 5.588211</coordinates>
-				</Point>
-			</Placemark>
-			<Placemark>
-				<styleUrl>#msn_ranger_station</styleUrl>
-				<ExtendedData>
-					<SchemaData schemaUrl="#OSR_SiteSchema">
-						<SimpleData name="SiteID">NOFO Hammerfest</SimpleData>
-						<SimpleData name="name">NOFO Hammerfest</SimpleData>
-						<SimpleData name="operator">Norwegian clean seas association for operating companies (NOFO)</SimpleData>
-						<SimpleData name="location">Hammerfest</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="address">Havneveien 50, 9610 Rypefjord</SimpleData>
-					</SchemaData>
-				</ExtendedData>
-				<Point>
-					<coordinates>23.666631, 70.634812, 0</coordinates>
-				</Point>
-			</Placemark>
-			<Placemark>
-				<styleUrl>#msn_ranger_station</styleUrl>
-				<ExtendedData>
-					<SchemaData schemaUrl="#OSR_SiteSchema">
-						<SimpleData name="SiteID">NOFO Kristiansund</SimpleData>
-						<SimpleData name="name">NOFO Kristiansund</SimpleData>
-						<SimpleData name="operator">Norwegian clean seas association for operating companies (NOFO)</SimpleData>
-						<SimpleData name="location">Kristiansund</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="address">Hall 42C, 6517 Kristiansund</SimpleData>
-					</SchemaData>
-				</ExtendedData>
-				<Point>
-					<coordinates>7.872852, 63.116154, 0</coordinates>
-				</Point>
-			</Placemark>
-			<Placemark>
-				<styleUrl>#msn_ranger_station</styleUrl>
-				<ExtendedData>
-					<SchemaData schemaUrl="#OSR_SiteSchema">
-						<SimpleData name="SiteID">NOFO Sandnessjøen</SimpleData>
-						<SimpleData name="name">NOFO Sandnessjøen</SimpleData>
-						<SimpleData name="operator">Norwegian clean seas association for operating companies (NOFO)</SimpleData>
-						<SimpleData name="location">Sandnessjøen</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="address">c/o Træna Båtservice AS, Horvneset, 8805 Sandnessjøen</SimpleData>
-					</SchemaData>
-				</ExtendedData>
-				<Point>
-					<coordinates>12.66316, 66.02423, 0</coordinates>
-				</Point>
-			</Placemark>
-			<Placemark>
-				<styleUrl>#msn_ranger_station</styleUrl>
-				<ExtendedData>
-					<SchemaData schemaUrl="#OSR_SiteSchema">
-						<SimpleData name="SiteID">NOFO Mongstad</SimpleData>
-						<SimpleData name="name">NOFO Mongstad</SimpleData>
-						<SimpleData name="operator">Norwegian clean seas association for operating companies (NOFO)</SimpleData>
-						<SimpleData name="location">Mongstad</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="address">Storemyra 167, 5954 Mongstad</SimpleData>
-					</SchemaData>
-				</ExtendedData>
-				<Point>
-					<coordinates>5.072836, 60.790668, 0</coordinates>
-				</Point>
-			</Placemark>
-			<Placemark>
-				<styleUrl>#msn_ranger_station</styleUrl>
-				<ExtendedData>
-					<SchemaData schemaUrl="#OSR_SiteSchema">
-						<SimpleData name="SiteID">NOFO Hasvik</SimpleData>
-						<SimpleData name="name">NOFO Hasvik</SimpleData>
-						<SimpleData name="operator">Norwegian clean seas association for operating companies (NOFO)</SimpleData>
-						<SimpleData name="location">Hasvik</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="address">Finnrorveien 9, 9590 Hasvik</SimpleData>
-					</SchemaData>
-				</ExtendedData>
-				<Point>
-					<coordinates>22.159760, 70.480170, 0</coordinates>
-				</Point>
-			</Placemark>
-			<Placemark>
-				<styleUrl>#msn_ranger_station</styleUrl>
-				<ExtendedData>
-					<SchemaData schemaUrl="#OSR_SiteSchema">
-						<SimpleData name="SiteID">NOFO Havøysund</SimpleData>
-						<SimpleData name="name">NOFO Havøysund</SimpleData>
-						<SimpleData name="operator">Norwegian clean seas association for operating companies (NOFO)</SimpleData>
-						<SimpleData name="location">Havøysund</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="address">Strandgtata 20, 9690 Havøysund</SimpleData>
-					</SchemaData>
-				</ExtendedData>
-				<Point>
-					<coordinates>24.698226, 70.998850, 0</coordinates>
+					<coordinates>4.72277910337168,60.7806912368235,0</coordinates>
 				</Point>
 			</Placemark>
 		</Folder>
@@ -2952,7 +2847,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="vessel_GT(tonnes)">16</SimpleData>
 						<SimpleData name="vessel_averagespeed(kn)">21</SimpleData>
 						<SimpleData name="vessel_build year">1977</SimpleData>
-						<SimpleData name="vessel_IMO"/>
+						<SimpleData name="vessel_IMO"></SimpleData>
 						<SimpleData name="equipment_totalStorageCapacity(tonnes)">0.4</SimpleData>
 						<SimpleData name="ape_skimmers">1*Minimax 10 skimmer</SimpleData>
 						<SimpleData name="linkimage">data/OSR/JPG/Miljoe 101.jpg</SimpleData>
@@ -2961,7 +2856,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<Point>
 					<gx:drawOrder>1</gx:drawOrder>
 					<coordinates>11.13195, 55.33426, 0</coordinates>
-				</Point>
+                </Point>
 			</Placemark>
 		</Folder>
 		<Folder>
@@ -3127,7 +3022,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="vessel_IMO">9426893</SimpleData>
 						<SimpleData name="vessel_MMSI">251604000</SimpleData>
 						<SimpleData name="equipment_crane">Yes</SimpleData>
-						<SimpleData name="equipment_craneCapability(tonnes)"/>
+						<SimpleData name="equipment_craneCapability(tonnes)"></SimpleData>
 						<SimpleData name="equipment_totalStorageCapacity(tonnes)">640</SimpleData>
 						<SimpleData name="equipment_boom">1*300m ape_Norlense Offshore oil boom</SimpleData>
 						<SimpleData name="equipment_skimmer">Lamor free floating brush skimmer 100 2C</SimpleData>
@@ -3167,7 +3062,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_craneCapability(tonnes)">-</SimpleData>
 						<SimpleData name="equipment_totalStorageCapacity(tonnes)">2880</SimpleData>
 						<SimpleData name="equipment_heatedstorage(m3)">1163</SimpleData>
-						<SimpleData name="equipment_sweepingarms"> 2 Koseq rigid sweeping arms with weir skimmer</SimpleData>
+                        <SimpleData name="equipment_sweepingarms"> 2 Koseq rigid sweeping arms with weir skimmer</SimpleData>
 						<SimpleData name="eqipment_boom"> 2X250m Desmi heavy duty boom and Vikoma weir boom 180</SimpleData>
 						<SimpleData name="equipment_skimmer">High-capacity skimmer Transrec 150 and Desmi weir skimmer Tarantula as a back up stored at the warehouse</SimpleData>
 						<SimpleData name="equipment_slisckdetection">Miros oil slick detection system</SimpleData>
@@ -3211,7 +3106,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_boom">2*Expandi 4300 152m"></SimpleData>
 						<SimpleData name="equipment_skimmer">Foxtail VAB 4-9"></SimpleData>
 						<SimpleData name="linkinfo">http://153.44.6.23/Documents/beredskap/depot/201-OV-01.pdf</SimpleData>
-						<SimpleData name="linkicon"/>
+						<SimpleData name="linkicon"></SimpleData>
 						<SimpleData name="linkimage">data/OSR/JPG/OLJEVERN 01.jpg</SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -3278,7 +3173,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_heatedstorage(m3)">90</SimpleData>
 						<SimpleData name="equipment_boom">2*Expandi 4300 152m"></SimpleData>
 						<SimpleData name="equipment_skimmer">Foxtail VAB 4-9"></SimpleData>
-						<SimpleData name="linkinfo"/>
+						<SimpleData name="linkinfo"></SimpleData>
 						<SimpleData name="linkimage">data/OSR/JPG/OLJEVERN 03.jpg</SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -3614,7 +3509,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
 						<SimpleData name="SiteID">KV NORNEN</SimpleData>
 						<SimpleData name="name">KV NORNEN</SimpleData>
-						<SimpleData name="location"/>
+						<SimpleData name="location"></SimpleData>
 						<SimpleData name="operator">Norwegian Coast Guard</SimpleData>
 						<SimpleData name="operation">Oil spill response</SimpleData>
 						<SimpleData name="vessel_class">Patrol Vessel Capable of Oil Spill Response</SimpleData>
@@ -3802,7 +3697,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_heatedstorage(m3)">1510</SimpleData>
 						<SimpleData name="equipment_skimmer">Foxtail VAB 4-9 and NorMAR 200TI multi skimmer"></SimpleData>
 						<SimpleData name="equipment_boom">1*NO 35 300m"></SimpleData>
-						<SimpleData name="linkinfo">http://153.44.6.23/Documents/beredskap/depot/240-POLARS.pdf</SimpleData>
+				         	<SimpleData name="linkinfo">http://153.44.6.23/Documents/beredskap/depot/240-POLARS.pdf</SimpleData>
 						<SimpleData name="linkimage">data/OSR/JPG/POLARSYSSEL.jpg</SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -3833,7 +3728,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_crane">Yes</SimpleData>
 						<SimpleData name="equipment_craneCapability(tonnes)">2.8 per 21.4m/7 per 11m</SimpleData>
 						<SimpleData name="linkinfo">http://153.44.6.23/Documents/beredskap/depot/210-BOKFJO.pdf</SimpleData>
-						<SimpleData name="linkimage"/>
+						<SimpleData name="linkimage"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
@@ -3874,7 +3769,8 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<ExtendedData>
 					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
 						<SimpleData name="SiteID">LINDESNES</SimpleData>
-						<SimpleData name="name">LINDESNES</SimpleData>
+						<SimpleData name="name">LINDESNES (NCA)</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
 						<SimpleData name="operator">Norwegian Coastal Administration</SimpleData>
 						<SimpleData name="location">West Norway</SimpleData>
 						<SimpleData name="operation">Coastal</SimpleData>
@@ -3951,7 +3847,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="vessel_MMSI">257371500</SimpleData>
 						<SimpleData name="equipment_crane">Yes</SimpleData>
 						<SimpleData name="equipment_craneCapability(tonnes)">2.8 per 7m</SimpleData>
-						<SimpleData name="equipment">Equipment transferred onboard at oil spills"</SimpleData>
+						<SimpleData name="equipment">Equipment transferred onboard at oil spills</SimpleData>
 						<SimpleData name="linkimage">data/OSR/JPG/TRAENEN.jpg</SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -4026,6 +3922,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
 						<SimpleData name="SiteID">BOA ODIN</SimpleData>
 						<SimpleData name="name">BOA ODIN</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
 						<SimpleData name="operator">BOA Tugs</SimpleData>
 						<SimpleData name="location">Trondheim</SimpleData>
 						<SimpleData name="operation">Salvage tug</SimpleData>
@@ -4090,6 +3987,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
 						<SimpleData name="SiteID">Island Chieftain</SimpleData>
 						<SimpleData name="name">Island Chieftain</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
 						<SimpleData name="operator">Island Offshore Management AS</SimpleData>
 						<SimpleData name="location">Aalesund</SimpleData>
 						<SimpleData name="operation">Oil spill response. Part of NOFO's stand-by fleet, which can be equipped with OSR resources from NOFO's depots</SimpleData>
@@ -4195,7 +4093,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="vessel_BuildYear">2007</SimpleData>
 						<SimpleData name="vessel_IMO">9742766</SimpleData>
 						<SimpleData name="vessel_MMSI">258613000</SimpleData>
-						<SimpleData name="equipment_total_recovered_oil_storage_capacity(m3)">1962</SimpleData>
+					        <SimpleData name="equipment_total_recovered_oil_storage_capacity(m3)">1962</SimpleData>
 						<SimpleData name="equipment">OSR equipment can be loaded onboard from NOFO's depots</SimpleData>
 						<SimpleData name="linkinfo">http://www.gulfmark.com/pdfs/North_Barents.pdf</SimpleData>
 						<SimpleData name="linkimage">data/OSR/JPG/North Barents.jpg</SimpleData>
@@ -4332,7 +4230,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 					<coordinates>7.791043, 63.10436, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                       <Placemark>
 				<name>M/V Sjoberg</name>
 				<styleUrl>#msn_ferry</styleUrl>
 				<ExtendedData>
@@ -4433,6 +4331,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
 						<SimpleData name="SiteID">Skandi Mongstad</SimpleData>
 						<SimpleData name="name">Skandi Mongstad</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
 						<SimpleData name="operator">DOF Rederi AS</SimpleData>
 						<SimpleData name="location">Bergen</SimpleData>
 						<SimpleData name="operation">Oil spill response. Part of NOFO's stand-by fleet, which can be equipped with OSR resources from NOFO's depots</SimpleData>
@@ -4465,6 +4364,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
 						<SimpleData name="SiteID">Stril Luna</SimpleData>
 						<SimpleData name="name">Stril Luna</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
 						<SimpleData name="operator">Simon Mkøster Rederi AS</SimpleData>
 						<SimpleData name="location">Hammerfest</SimpleData>
 						<SimpleData name="operation">Oil spill response. Part of NOFO's stand-by fleet, which can be equipped with OSR resources from NOFO's depots</SimpleData>
@@ -4478,7 +4378,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="vessel_IMO">9666546</SimpleData>
 						<SimpleData name="vessel_MMSI">257597000</SimpleData>
 						<SimpleData name="equipment_crane">2</SimpleData>
-						<SimpleData name="equipment_craneCapability(tonnes)"/>
+						<SimpleData name="equipment_craneCapability(tonnes)"></SimpleData>
 						<SimpleData name="equipment_total_recovered_oil_storage_capacity(m3)">1603</SimpleData>
 						<SimpleData name="equipment">OSR equipment can be loaded onboard from NOFO's depots</SimpleData>
 						<SimpleData name="linkinfo">http://www.mokster.no/ShowFile.ashx?FileInstanceId=c87f6134-2c7e-41d2-a049-646b72698d56</SimpleData>
@@ -4497,6 +4397,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
 						<SimpleData name="SiteID">Troms Arcturus</SimpleData>
 						<SimpleData name="name">Troms Arcturus</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
 						<SimpleData name="operator">Norway Tidewater Marine AS</SimpleData>
 						<SimpleData name="location">Tromso</SimpleData>
 						<SimpleData name="operation">Oil spill response. Part of NOFO's stand-by fleet, which can be equipped with OSR resources from NOFO's depots</SimpleData>
@@ -4529,6 +4430,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
 						<SimpleData name="SiteID">Viking Avant</SimpleData>
 						<SimpleData name="name">Viking Avant</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
 						<SimpleData name="operator">Eidesvik Offshore ASA</SimpleData>
 						<SimpleData name="location">Haugesund</SimpleData>
 						<SimpleData name="operation">Oil spill response. Part of NOFO's stand-by fleet, which can be equipped with OSR resources from NOFO's depots</SimpleData>
@@ -4559,6 +4461,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
 						<SimpleData name="SiteID">Viking Lady</SimpleData>
 						<SimpleData name="name">Viking Lady</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
 						<SimpleData name="operator">Eidesvik Shipping AS</SimpleData>
 						<SimpleData name="location">Haugesund</SimpleData>
 						<SimpleData name="operation">Oil spill response. Part of NOFO's stand-by fleet, which can be equipped with OSR resources from NOFO's depots</SimpleData>
@@ -4628,7 +4531,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="SiteID">Esvagt Bergen</SimpleData>
 						<SimpleData name="name">Esvagt Bergen</SimpleData>
 						<SimpleData name="operator">Esvagt for Equinor ASA</SimpleData>
-						<SimpleData name="location">Sleipner and Utsira Sør oil fields</SimpleData>
+						<SimpleData name="location">Sleipner/Utsira Sør oil fields</SimpleData>
 						<SimpleData name="operation">Oil spill response. Part of NOFO's stand-by fleet, which has OSR equipment permanently on board</SimpleData>
 						<SimpleData name="vessel_class">Multirole offshore vessel capable of OSR</SimpleData>
 						<SimpleData name="vessel_loa(m)">80</SimpleData>
@@ -4661,7 +4564,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="SiteID">Esvagt Stavanger</SimpleData>
 						<SimpleData name="name">Esvagt Stavanger</SimpleData>
 						<SimpleData name="operator">Esvagt for Equinor ASA</SimpleData>
-						<SimpleData name="location">Sleipner and Utsira Nord oil fields</SimpleData>
+						<SimpleData name="location">Sleipner/Utsira Nord oil fields</SimpleData>
 						<SimpleData name="operation">Oil spill response. Part of NOFO's stand-by fleet, which has OSR equipment permanently on board</SimpleData>
 						<SimpleData name="vessel_class">Multirole offshore vessel capable of OSR</SimpleData>
 						<SimpleData name="vessel_loa(m)">80</SimpleData>
@@ -4698,7 +4601,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="SiteID">Havila Troll</SimpleData>
 						<SimpleData name="name">Havila Troll</SimpleData>
 						<SimpleData name="operator">Havila Shipping for Equinor ASA</SimpleData>
-						<SimpleData name="location">Aasta Hansteen oil field</SimpleData>
+						<SimpleData name="location">Aasta Hansteen oilfield</SimpleData>
 						<SimpleData name="operation">Oil spill response. Part of NOFO's stand-by fleet, which has OSR equipment permanently on board</SimpleData>
 						<SimpleData name="vessel_class">Multirole offshore vessel capable of OSR</SimpleData>
 						<SimpleData name="vessel_loa(m)">92.4</SimpleData>
@@ -4719,7 +4622,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="ape__sensors">1*Aptomar with infrared camera, high definition daylight camera and 300W searchlight</SimpleData>
 						<SimpleData name="linkinfo">https://www.havilashipping.no/fleet/rrv/havila-troll</SimpleData>
 						<SimpleData name="linkimage"/>
-					</SchemaData>
+						</SchemaData>
 				</ExtendedData>
 				<Point>
 					<gx:drawOrder>1</gx:drawOrder>
@@ -4734,7 +4637,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="SiteID">Ocean Alden</SimpleData>
 						<SimpleData name="name">Ocean Alden</SimpleData>
 						<SimpleData name="operator">Atlantic Offshore for Neptune Energy Norge AS</SimpleData>
-						<SimpleData name="location">Gjøa oil field</SimpleData>
+						<SimpleData name="location">Gjøa oilfield </SimpleData>
 						<SimpleData name="operation">Oil spill response. Part of NOFO's stand-by fleet, which has OSR equipment permanently on board</SimpleData>
 						<SimpleData name="vessel_class">Multirole offshore vessel capable of OSR</SimpleData>
 						<SimpleData name="vessel_loa(m)">67</SimpleData>
@@ -4771,7 +4674,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="SiteID">Ocean Response</SimpleData>
 						<SimpleData name="name">Ocean Response</SimpleData>
 						<SimpleData name="operator">Atlantic Offshore for Equinor ASA</SimpleData>
-						<SimpleData name="location">Sleipner and Utsira Sør oil fields</SimpleData>
+						<SimpleData name="location">Sleipner/Utsira Sør oil fields</SimpleData>
 						<SimpleData name="operation">Oil spill response. Part of NOFO's stand-by fleet, which has OSR equipment permanently on board</SimpleData>
 						<SimpleData name="vessel_class">Multirole offshore vessel capable of OSR</SimpleData>
 						<SimpleData name="vessel_loa(m)">75</SimpleData>
@@ -4808,7 +4711,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="SiteID">Skandi Hugen</SimpleData>
 						<SimpleData name="name">Skandi Hugen</SimpleData>
 						<SimpleData name="operator">DOF ASA for Conoco Phillips Norge</SimpleData>
-						<SimpleData name="location">Ekofisk oil field</SimpleData>
+						<SimpleData name="location">Tanager/Ekofisk oil fields</SimpleData>
 						<SimpleData name="operation">Oil spill response. Part of NOFO's stand-by fleet, which has OSR equipment permanently on board</SimpleData>
 						<SimpleData name="vessel_class">Multirole offshore vessel capable of OSR</SimpleData>
 						<SimpleData name="vessel_loa(m)">82.2</SimpleData>
@@ -4901,6 +4804,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="ape__sensors">1*Aptomar with infrared camera, high definition daylight camera and 300W searchlight</SimpleData>
 						<SimpleData name="linkinfo">http://www.mokster.no/ShowFile.ashx?FileInstanceId=d6b4fb0a-809c-4d96-b360-6741645d29c8</SimpleData>
 						<SimpleData name="linkimage">data/OSR/JPG/Stril Herkules.jpg</SimpleData>
+
 					</SchemaData>
 				</ExtendedData>
 				<Point>
@@ -4916,7 +4820,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="SiteID">Stril Mariner</SimpleData>
 						<SimpleData name="name">Stril Mariner</SimpleData>
 						<SimpleData name="operator">Simon Møkster Shipping AS for Aker BP ASA</SimpleData>
-						<SimpleData name="location">Ula and Gyda oil fields</SimpleData>
+						<SimpleData name="location">Tanager/Ula/Gyda oil fields</SimpleData>
 						<SimpleData name="operation">Oil spill response. Part of NOFO's stand-by fleet, which has OSR equipment permanently on board</SimpleData>
 						<SimpleData name="vessel_class">Multirole offshore vessel capable of OSR</SimpleData>
 						<SimpleData name="vessel_loa(m)">79</SimpleData>
@@ -4993,7 +4897,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="SiteID">Stril Poseidon</SimpleData>
 						<SimpleData name="name">Stril Poseidon</SimpleData>
 						<SimpleData name="operator">Simon Møkster Shipping AS for Equinor ASA</SimpleData>
-						<SimpleData name="location">Heidrun oil field at Haltenbanken</SimpleData>
+						<SimpleData name="location">Heidrun oil field at Halten bank</SimpleData>
 						<SimpleData name="operation">Oil spill response. Part of NOFO's stand-by fleet, which has OSR equipment permanently on board</SimpleData>
 						<SimpleData name="vessel_class">Multirole offshore vessel capable of OSR</SimpleData>
 						<SimpleData name="vessel_loa(m)">91.4</SimpleData>
@@ -5026,33 +4930,33 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 		<Folder>
 			<name>United Kingdom</name>
 			<open>1</open>
-			<Placemark>
+                        <Placemark>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
 					<SchemaData schemaUrl="#OSR_SiteSchema">
 						<SimpleData name="SiteID">UKDS Inverness</SimpleData>
 						<SimpleData name="name">UKDS Inverness</SimpleData>
 						<SimpleData name="operator">The United Kingdom Continental Shelf Dispersant Stockpile (UKDS) for Oil Spill Response Ltd</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Inverness</SimpleData>
 						<SimpleData name="address">17A Dalcross IndEst, Inverness, Highland, IV2 7XB</SimpleData>
 						<SimpleData name="dispersants">200 x Slickgone NS 1000 litre IBCs</SimpleData>
 						<SimpleData name="vessel mounted dispersant spray systems">Boat Spray 50 vessel spray system</SimpleData>
 						<SimpleData name="aerial dispersant spray systems">TC3 helo spray system</SimpleData>
 						<SimpleData name="linkinfo">https://www.oilspillresponse.com/globalassets/services/member-response-services/uk-response-services/ukds-logistics-planning-guide.pdf</SimpleData>
-					</SchemaData>
+						</SchemaData>
 				</ExtendedData>
-				<Point>
-					<coordinates>57.54150,-4.06711</coordinates>
+				<Point><gx:drawOrder>1</gx:drawOrder>
+					<coordinates>57.54150,-4.06711, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
 					<SchemaData schemaUrl="#OSR_SiteSchema">
 						<SimpleData name="SiteID">UKDS Scalloway</SimpleData>
 						<SimpleData name="name">UKDS Scalloway</SimpleData>
 						<SimpleData name="operator">The United Kingdom Continental Shelf Dispersant Stockpile (UKDS) for Oil Spill Response Ltd</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">UKDS Scalloway</SimpleData>
 						<SimpleData name="address">Scalloway Harbour Office Saga Buildings Blacksness, Scalloway, ZE1 0TQ</SimpleData>
 						<SimpleData name="dispersants">300 x Slickgone NS 1000 litre IBCs</SimpleData>
 						<SimpleData name="seabourne dispersant spray systems">Boat Spray 50 vessel spray system</SimpleData>
@@ -5061,10 +4965,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 					</SchemaData>
 				</ExtendedData>
 				<Point>
-					<coordinates>-1.275821, 60.133413, 0</coordinates>
+					<coordinates>60.133413,-1.275821, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
 					<SchemaData schemaUrl="#OSR_SiteSchema">
@@ -5073,7 +4977,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="operator">Maritime and Coastguards Agency (MCA)</SimpleData>
 						<SimpleData name="location">Barnsley, South Yorkshire</SimpleData>
 						<SimpleData name="address">Unit 5, Spring Hill Road, Park Springs, Barnsley, S72 7PD</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">MCA Barnsley</SimpleData>
 						<SimpleData name="equipment_current buster systems">1 x Current Buster 6, 1 x Current Buster 4, 1 x Current Buster2</SimpleData>
 						<SimpleData name="equipment_Heavy Oil Skimmer">1</SimpleData>
 						<SimpleData name="equipment_TarBall Skimmer (Scan Trawl)">2 x small</SimpleData>
@@ -5095,10 +4999,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 					</SchemaData>
 				</ExtendedData>
 				<Point>
-					<coordinates>-1.38567, 53.57132,0</coordinates>
+					<coordinates>-1.38567, 53.57132, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
 					<SchemaData schemaUrl="#OSR_SiteSchema">
@@ -5107,7 +5011,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="operator">Maritime and Coastguards Agency (MCA)</SimpleData>
 						<SimpleData name="location">Bristol, Bristol</SimpleData>
 						<SimpleData name="address">Unit 2, Willment Way, Avonmouth, BS11 8DJ</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">MCA Bristol</SimpleData>
 						<SimpleData name="equipment_current buster systems">1x CB6</SimpleData>
 						<SimpleData name="equipment_Heavy Oil Skimmer">1</SimpleData>
 						<SimpleData name="equipment_TarBall Skimmer (Scan Trawl)">1*large</SimpleData>
@@ -5127,8 +5031,8 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<Point>
 					<coordinates>-2.68387, 51.50325, 0</coordinates>
 				</Point>
-			</Placemark>
-			<Placemark>
+			</Placemark> 
+                        <Placemark>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
 					<SchemaData schemaUrl="#OSR_SiteSchema">
@@ -5137,7 +5041,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="operator">Maritime and Coastguards Agency MCA</SimpleData>
 						<SimpleData name="location">Dundee, Dundee</SimpleData>
 						<SimpleData name="address">Baluniefield Balunie Drive, Dundee, DD4 8UX</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">MCA Dundee</SimpleData>
 						<SimpleData name="equipment_current buster systems">1x CB6</SimpleData>
 						<SimpleData name="equipment_Heavy Oil Skimmer">1</SimpleData>
 						<SimpleData name="equipment_TarBall Skimmer (Scan Trawl)">1*large</SimpleData>
@@ -5159,7 +5063,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 					<coordinates>-2.89276, 56.48052, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
 					<SchemaData schemaUrl="#OSR_SiteSchema">
@@ -5167,7 +5071,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">MCA Glasgow</SimpleData>
 						<SimpleData name="operator">Maritime and Coastguards Agency (MCA)</SimpleData>
 						<SimpleData name="location">Glasgow City, Glasgow</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">MCA Glasgow</SimpleData>
 						<SimpleData name="dispersants_dasic slickgone NS">79 tonnes</SimpleData>
 						<SimpleData name="dispersants_dasic slickgone LSTW">21 tonnes</SimpleData>
 						<SimpleData name="dispersants_dasic slickgone EW">10 tonnes</SimpleData>
@@ -5175,13 +5079,13 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="dispersant_AGMA superconcentrate DR 379">119 tonnes</SimpleData>
 						<SimpleData name="dispersant_finasol OSR 51">48 tonnes</SimpleData>
 						<SimpleData name="linkinfo">https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/775783/Counter_Pollution_Equipment_Manual.pdf</SimpleData>
-					</SchemaData>
+						</SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>-4.28636, 55.85769, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
 					<SchemaData schemaUrl="#OSR_SiteSchema">
@@ -5189,18 +5093,18 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">MCA Milford Haven</SimpleData>
 						<SimpleData name="operator">Maritime and Coastguards Agency (MCA)</SimpleData>
 						<SimpleData name="location">Milford Haven, Pembrokeshire</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">MCA Milford Haven</SimpleData>
 						<SimpleData name="dispersants_dasic slickgone NS">17 tonnes</SimpleData>
 						<SimpleData name="dispersants_dasic slickgone LSTW">3 tonnes</SimpleData>
 						<SimpleData name="dispersant_superdispersant 25">6 tonnes</SimpleData>
 						<SimpleData name="linkinfo">https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/775783/Counter_Pollution_Equipment_Manual.pdf</SimpleData>
-					</SchemaData>
+						</SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>-5.05345, 51.70776, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
 					<SchemaData schemaUrl="#OSR_SiteSchema">
@@ -5208,17 +5112,17 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">MCA Belfast</SimpleData>
 						<SimpleData name="operator">Maritime and Coastguards Agency (MCA)</SimpleData>
 						<SimpleData name="location">Bangor, Co Down</SimpleData>
-						<SimpleData name="address">HM Coastguard, Bregenz House, Quay Street, Bangor, Co Down, BT20 5ED</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="address">HM Coastguard, Bregenz House, Quay Street, Bangor, Co Down, BT20 5ED</SimpleData> 
+						<SimpleData name="linkicon">MCA Belfast</SimpleData>
 						<SimpleData name="dispersants_Dasic Slickgone NS">29 tonnes</SimpleData>
 						<SimpleData name="linkinfo">https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/775783/Counter_Pollution_Equipment_Manual.pdf</SimpleData>
-					</SchemaData>
+						</SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>-5.66976, 54.66452, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
 					<SchemaData schemaUrl="#OSR_SiteSchema">
@@ -5227,16 +5131,16 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="operator">Maritime and Coastguards Agency (MCA)</SimpleData>
 						<SimpleData name="location">Stornoway, Isle of Levis, Western Isles</SimpleData>
 						<SimpleData name="address"> HM Coastguard, Clan Macquarrie House, Battery Point, Stornoway, Isle of Lewis, Western Isles, HS1 2RT </SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">MCA Stornoway</SimpleData>
 						<SimpleData name="dispersants_AGMA Superconcentrate DR 379">31 tonnes</SimpleData>
 						<SimpleData name="linkinfo">https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/775783/Counter_Pollution_Equipment_Manual.pdf</SimpleData>
-					</SchemaData>
+						</SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>-6.37561, 58.20342, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
 					<SchemaData schemaUrl="#OSR_SiteSchema">
@@ -5245,17 +5149,17 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="operator">Maritime and Coastguards Agency (MCA)</SimpleData>
 						<SimpleData name="location">Lerwick, Shetland Isles</SimpleData>
 						<SimpleData name="address">HM Coastguard, The Knab, Knab Road, Lerwick, Shetland, ZE1 0AX</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">Shetland</SimpleData>
 						<SimpleData name="dispersants_dasic slickgone LSTW">39 tonnes</SimpleData>
 						<SimpleData name="dispersant_enersperse 1583">3 tonnes</SimpleData>
 						<SimpleData name="linkinfo">https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/775783/Counter_Pollution_Equipment_Manual.pdf</SimpleData>
-					</SchemaData>
+						</SchemaData>
 				</ExtendedData>
 				<Point>
-					<coordinates>-1.275821, 60.133413, 0</coordinates>
+					<coordinates>60.133413,-1.275821</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
 					<SchemaData schemaUrl="#OSR_SiteSchema">
@@ -5263,16 +5167,16 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">MCA Prestwick Airport</SimpleData>
 						<SimpleData name="operator">Maritime and Coastguards Agency (MCA)</SimpleData>
 						<SimpleData name="location">Prestwick Airport, Ayrshire</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">MCA Prestwick Airport</SimpleData>
 						<SimpleData name="dispersant_superdispersant 25">49 tonnes</SimpleData>
 						<SimpleData name="linkinfo">https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/775783/Counter_Pollution_Equipment_Manual.pdf</SimpleData>
-					</SchemaData>
+						</SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>-4.58248, 55.51088, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
 					<SchemaData schemaUrl="#OSR_SiteSchema">
@@ -5280,7 +5184,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="name">MCA East Midlands Airport</SimpleData>
 						<SimpleData name="operator">Maritime and Coastguards Agency (MCA)</SimpleData>
 						<SimpleData name="location">East Midlands Airport, Derbyshire</SimpleData>
-						<SimpleData name="linkicon"></SimpleData>
+						<SimpleData name="linkicon">MCA Prestwick Airport</SimpleData>
 						<SimpleData name="dispersants_dasic slickgone NS">86 tonnes</SimpleData>
 						<SimpleData name="dispersants_dasic slickgone LSTW">17 tonnes</SimpleData>
 						<SimpleData name="dispersants_dasic slickgone EW">9 tonnes</SimpleData>
@@ -5290,7 +5194,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="dispersant_Enersperse 1583 25">21 tonnes</SimpleData>
 						<SimpleData name="dispersant_Enersperse Corexit 9500A">11 tonnes</SimpleData>
 						<SimpleData name="linkinfo">https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/775783/Counter_Pollution_Equipment_Manual.pdf</SimpleData>
-					</SchemaData>
+						</SchemaData>
 				</ExtendedData>
 				<Point>
 					<coordinates>-1.33642, 52.82800, 0</coordinates>
@@ -5318,8 +5222,8 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_crane">yes</SimpleData>
 						<SimpleData name="equipment_craneCapability(tonnes)">2 tonnes/10 meters</SimpleData>
 						<SimpleData name="linkinfo">https://www.marnavi.it/public/flotta/ievoli_black_brochure1.pdf</SimpleData>
-						<SimpleData name="linkinfo">https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/775783/Counter_Pollution_Equipment_Manual.pdf</SimpleData>
 						<SimpleData name="linkimage">data/OSR/JPG/DSCN1300.jpg</SimpleData>
+						<SimpleData name="linkvideo">https://assets.publishing.service.gov.uk/government/uploads/system/uploads/attachment_data/file/775783/Counter_Pollution_Equipment_Manual.pdf</SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
@@ -5329,8 +5233,8 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 			</Placemark>
 		</Folder>
 		<Folder>
-			<name>Aircraft</name>
-			<open>1</open>
+		<name>Aircraft</name>	
+                        <open>1</open>
 			<Placemark>
 				<name>OH-MVN</name>
 				<styleUrl>#msn_aircraft</styleUrl>
@@ -5361,7 +5265,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 					<coordinates>22.2880, 60.5128, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<name>OH-MVO</name>
 				<styleUrl>#msn_aircraft</styleUrl>
 				<ExtendedData>
@@ -5410,7 +5314,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="aircraft_specification_maximumSpeed(km/h)">500</SimpleData>
 						<SimpleData name="aircraft_specification_engine">2*Pratt and Whitney 862hp</SimpleData>
 						<SimpleData name="aircraft_specification_maximum_range(km)">2800</SimpleData>
-						<SimpleData name="aircraft_equipment"/>
+						<SimpleData name="aircraft_equipment"></SimpleData>
 						<SimpleData name="linkimage">data/OSR/JPG/Beech King Air B200.jpg</SimpleData>
 					</SchemaData>
 				</ExtendedData>
@@ -5451,7 +5355,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 					<coordinates>11.07896, 60.20913, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<name>TF-SIF</name>
 				<styleUrl>#msn_aircraft</styleUrl>
 				<ExtendedData>
@@ -5474,7 +5378,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="aircraft_equipment_surveillance_camera">Electro-optic Wescam MX 15</SimpleData>
 						<SimpleData name="aircraft_equipment_cargo_door">A large cargo door in the rear, which can be opened in flight</SimpleData>
 						<SimpleData name="linkinfo">http://www.lhg.is/media/arsskyrslur/LHG_TFSIF_baeklingur.pdf</SimpleData>
-						<SimpleData name="linkimage"/>
+						<SimpleData name="linkimage"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
@@ -5590,8 +5494,8 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				<ExtendedData>
 					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
 						<SimpleData name="SiteID">G-TURF</SimpleData>
-						<SimpleData name="name">G-TURF</SimpleData>
-						<SimpleData name="aircraft_type">Reims Cessna F406</SimpleData>
+						<SimpleData name="name">Reims Cessna F406</SimpleData>
+						<SimpleData name="description">Some text</SimpleData>
 						<SimpleData name="operator">RVL Aviation for the UK Maritime and Coastguard Agency (MCA)</SimpleData>
 						<SimpleData name="location">East Midlands Airport</SimpleData>
 						<SimpleData name="operation">Aerial verification</SimpleData>
@@ -5613,9 +5517,10 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				</ExtendedData>
 				<Point>
 					<gx:drawOrder>1</gx:drawOrder>
-					<coordinates>-1.33912, 52.82822, 0</coordinates>
+					<coordinates>1.33912, 52.82822, 0</coordinates>
 				</Point>
 			</Placemark>
+			
 			<Placemark>
 				<name>G-FIND</name>
 				<styleUrl>#msn_aircraft</styleUrl>
@@ -5624,7 +5529,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="SiteID">G-FIND</SimpleData>
 						<SimpleData name="name">G-FIND</SimpleData>
 						<SimpleData name="aircraft_type">Reims Cessna F406</SimpleData>
-						<SimpleData name="operator">RVL Aviation for the UK Maritime and Coastguard Agency (MCA)</SimpleData>
+						<SimpleData name="operator">RVL Aviation</SimpleData>
 						<SimpleData name="location">East Midlands Airport</SimpleData>
 						<SimpleData name="operation">Dispersant test spray and aerial verification</SimpleData>
 						<SimpleData name="aircraft_specification_class">Spraying Aircraft</SimpleData>
@@ -5645,11 +5550,11 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 				</ExtendedData>
 				<Point>
 					<gx:drawOrder>1</gx:drawOrder>
-					<coordinates>-1.33912, 52.82822, 0</coordinates>
+					<coordinates>1.33912, 52.82822, 0</coordinates>
 				</Point>
 			</Placemark>
 			<Placemark>
-				<name>G-UKCS</name>
+                                <name>G-UKCS</name>
 				<styleUrl>#msn_aircraft</styleUrl>
 				<ExtendedData>
 					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
@@ -5669,7 +5574,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="aircraft_specification_maximum_range(km)">1900</SimpleData>
 						<SimpleData name="aircraft_equipment_surveillance_camera">Infrared/Ultraviolet and visual camera</SimpleData>
 						<SimpleData name="linkinfo">https://www.oilspillresponse.com/globalassets/services/member-response-services/uk-response-services/tis-ukcsaviation.pdf, https://www.oilspillresponse.com/globalassets/services/member-response-services/uk-response-services/ukcs_logistics_and_mobilisation_plan.pdf</SimpleData>
-						<SimpleData name="linkimage"/>
+						<SimpleData name="linkimage"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
@@ -5677,7 +5582,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 					<coordinates>-1.00076, 53.48217, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+                        <Placemark>
 				<name>G-OSRA</name>
 				<styleUrl>#msn_aircraft</styleUrl>
 				<ExtendedData>
@@ -5707,14 +5612,14 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 					<coordinates>-1.00076, 53.48217, 0</coordinates>
 				</Point>
 			</Placemark>
-			<Placemark>
+<Placemark>
 				<name>G-OSRB</name>
 				<styleUrl>#msn_aircraft</styleUrl>
 				<ExtendedData>
 					<SchemaData schemaUrl="APP4SEA OSR Info.kml#OSR_Schema">
 						<SimpleData name="SiteID">G-OSRB</SimpleData>
 						<SimpleData name="name">G-OSRB</SimpleData>
-						<SimpleData name="aircraft_type">Boeing 727-2S2F</SimpleData>
+			                        <SimpleData name="aircraft_type">Boeing 727-2S2F</SimpleData>
 						<SimpleData name="operator">2Excel Aviation for Oil Spill Response Ltd</SimpleData>
 						<SimpleData name="location">Doncaster Sheffield Airport</SimpleData>
 						<SimpleData name="operation">Large scale dispersant application</SimpleData>

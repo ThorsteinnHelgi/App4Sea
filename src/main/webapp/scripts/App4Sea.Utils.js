@@ -136,6 +136,7 @@ const App4SeaUtils = (function App4SeaUtils() {
 
     let ex = olextent.createEmpty();
     for (let ind = 0; ind < features.length; ind++) {
+      //console.log(ind);
       ex = olextent.extend(ex, features[ind].getGeometry().getExtent());
     }
 

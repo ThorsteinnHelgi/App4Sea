@@ -137,12 +137,12 @@ const App4SeaKML = (function () {
           reader.getEntries((entries) => {
             if (App4Sea.logging) console.log(`Got entries: ${entries.length}`);
             for (let ind = 0; ind < entries.length; ind++) {
-              const extendedCallback = function (str1, id1, callb, ntries, node) {
+              const extendedCallback = function (str1, id1, callb, ntries, node1) {
                 return function (text) {
                   // if (App4Sea.logging) console.log("extendedCallback for " + id1 + " at " + str1 + " next call " + callb);
                   // text contains the entry data as a String (even though it may be a blob)
                   if (App4Sea.logging) console.log(`About to call back for ${str1}`);
-                  callb(text, str1, id1, ntries, node);
+                  callb(text, str1, id1, ntries, node1);
                 };
               };
 

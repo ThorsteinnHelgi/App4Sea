@@ -65,16 +65,9 @@ const App4SeaTreeMenu = (function () {
   }
 
   // //////////////////////////////////////////////////////////////////////////
-  // setSourceInfo
-  function setSourceInfo(data) {
-    sourceInfo = data;
-    console.log(data);
-  }
-
-  // //////////////////////////////////////////////////////////////////////////
   // Init all menu items
   function getSourceInfo() {
-    function onSuccess(ourFilename, ourJSONdata) {
+    function onSISuccess(ourFilename, ourJSONdata) {
       return function (data, status, jqXHR) {
         for (let i_success = 0; i_success < data.list.length; i_success++) {
           const thisNode = data.list[i_success];
@@ -82,18 +75,18 @@ const App4SeaTreeMenu = (function () {
           ourJSONdata.push(thisNode);
 
           // if (App4Sea.logging) console.log(parent_node.id + ': ' + thisNode.id + ", text: " + thisNode.text + ", path: " + thisNode.a_attr.path);
-        }-
+        }
 
         ajaxCountSI--;
         if (ajaxCountSI === 0) {
-          if (App4Sea.logging) console.log("WE ARE DONE GETTING SOURCEINFO!");
+          if (App4Sea.logging) console.log('WE ARE DONE GETTING SOURCEINFO!');
 
-          setSourceInfo(ourJSONdata);
+          sourceInfo = ourJSONdata;
         }
       };
     }
 
-    function onError(ourFilename) {
+    function onSIError(ourFilename) {
       return function (jqXHR, status, errorThrown) {
         if (App4Sea.logging) console.log(jqXHR);
         if (App4Sea.logging) console.log(status);
@@ -115,8 +108,8 @@ const App4SeaTreeMenu = (function () {
       dataType: 'JSON',
       cache: false,
       async: true,
-      success: onSuccess(filename, JSONdataSourceInfo),
-      error: onError(filename),
+      success: onSISuccess(filename, JSONdataSourceInfo),
+      error: onSIError(filename),
     });
   }
 
@@ -124,7 +117,7 @@ const App4SeaTreeMenu = (function () {
   my.si_close = function (id) {
     const container = document.getElementById('SourceInfoContainer');
     const handle = document.getElementById('siDragHandle');
-    
+
     container.style.visibility = 'hidden';
     handle.style.visibility = 'hidden';
   }
