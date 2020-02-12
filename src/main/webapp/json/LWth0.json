@@ -10,5 +10,6 @@
     { "id" : "LWth11", "parent" : "LWth0", "text" : "Temperature", "children" : false, "a_attr" : { "path" : "https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=6a3e86f0825c7e6e605105c24d5ec1cd"} },
     { "id" : "LWth12", "parent" : "LWth0", "text" : "Precipitation ", "children" : false, "a_attr" : { "path" : "https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=6a3e86f0825c7e6e605105c24d5ec1cd"} },
     { "id" : "LWth13", "parent" : "LWth0", "text" : "Ice edge", "children" : false, "a_attr" : { "path" : "data/iceedgeLine.shp.kmz"} },
-    { "id" : "LWth14", "parent" : "LWth0", "text" : "Ice coverage", "children" : false, "a_attr" : { "path" : "data/icechartPolygon.shp.kmz"} }
+    { "id" : "LWth14", "parent" : "LWth0", "text" : "Ice coverage", "children" : false, "a_attr" : { "path" : "data/icechartPolygon.shp.kmz"} },
+    { "id" : "LWth15", "parent" : "LWth0", "text" : "MASIE", "children" : false, "a_attr" : { "path" : "https://cors-anywhere.herokuapp.com/http://masie_web.apps.nsidc.org/pub/DATASETS/NOAA/G02186/latest/4km/masie_ice_r00.kmz"} }
 ]
