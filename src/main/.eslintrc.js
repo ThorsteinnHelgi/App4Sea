@@ -15,7 +15,7 @@ module.exports = {
     sourceType: 'module',
   },
   rules: {
-    'linebreak-style': ['error', 'windows'],
+    // 'linebreak-style': ['error', 'windows'],
     'no-plusplus': ["off"],
     'func-names': ["off"],
     'no-unused-vars': ["off"],
@@ -24,10 +24,11 @@ module.exports = {
     'camelcase': ["off"],
     'max-len': ["off"],
     'no-tabs': ["off"],
-    
+    'quotes': ['off'],
+
     'no-bitwise': ["off"],
     //'no-use-before-define': ["off"],
-    
+
     'no-param-reassign': ["off"],
     'no-continue': ["off"],
     'prefer-destructuring': ["off"],

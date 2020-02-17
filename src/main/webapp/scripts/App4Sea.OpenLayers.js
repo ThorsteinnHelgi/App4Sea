@@ -1,13 +1,12 @@
 /* ==========================================================================
  * (c) 2018 Arni Geir Sigurðsson            arni.geir.sigurdsson(at)gmail.com
  *          Þorsteinn Helgi Steinarsson     thorsteinn(at)asverk.is
- *          Gaute Hope                      gaute.hope(at)met.no
  *
  * ========================================================================== */
 
 import $ from 'jquery';
 import 'ol/ol.css';
-import '../css/main.css'
+import '../css/main.css';
 import * as olproj from 'ol/proj';
 import * as olcoordinate from 'ol/coordinate';
 import TileLayer from 'ol/layer/Tile';

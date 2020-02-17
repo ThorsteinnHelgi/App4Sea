@@ -2,8 +2,10 @@ language: node_js
 node_js: 10
 
 script:
-  - cd src/main/webapp
+  - cd src/main
   - npm ci
   - npm run lint
   - npm run build
+  - npm run build:prod
+  - npm run build:war
 

@@ -95,7 +95,7 @@ const App4SeaPopUps = (function () {
     osr.linkvideo = feature.get('linkvideo');
 
     let template = `<div style="margin:2px;"
-      onmousemove="$.App4Sea.Utils.StopProp(event)" 
+      onmousemove="$.App4Sea.Utils.StopProp(event)"
       onpointermove="$.App4Sea.Utils.StopProp(event)"
     ><table>`;
     if (osr.vessel_IMO) template += '<tr><td>IMO</td><td><b>{{vessel_IMO}}</b></td></tr>';
@@ -181,7 +181,7 @@ const App4SeaPopUps = (function () {
     osr.linkvideo = feature.get('linkvideo');
 
     let template = `<div style="margin:2px;"
-      onmousemove="$.App4Sea.Utils.StopProp(event)" 
+      onmousemove="$.App4Sea.Utils.StopProp(event)"
       onpointermove="$.App4Sea.Utils.StopProp(event)"
     ><table>`;
     if (osr.SiteID) template += '<tr><td>Site ID</td><td><b>{{SiteID}}</b></td></tr>';
@@ -233,7 +233,7 @@ const App4SeaPopUps = (function () {
     osr.linkvideo = feature.get('linkvideo');
 
     let template = `<div style="margin:2px;"
-      onmousemove="$.App4Sea.Utils.StopProp(event)" 
+      onmousemove="$.App4Sea.Utils.StopProp(event)"
       onpointermove="$.App4Sea.Utils.StopProp(event)"
     ><table>`;
     if (osr.SiteID) template += '<tr><td>Site ID</td><td><b>{{SiteID}}</b></td></tr>';
@@ -277,7 +277,7 @@ const App4SeaPopUps = (function () {
     shipinfo.flag = feature.get('Flag');
 
     const template = `<div style="margin:2px;"
-      onmousemove="$.App4Sea.Utils.StopProp(event)" 
+      onmousemove="$.App4Sea.Utils.StopProp(event)"
       onpointermove="$.App4Sea.Utils.StopProp(event)"
     ><table>
       <tr><td>Call sign</td><td><b>{{callsign}}</b></td></tr>
@@ -447,12 +447,12 @@ const App4SeaPopUps = (function () {
         clean = clean.replaceAll('"', '`');
 
         cont = `${cont}
-        <div style="pointer-events: auto;" 
-        onmousemove="$.App4Sea.Utils.StopProp(event)" 
+        <div style="pointer-events: auto;"
+        onmousemove="$.App4Sea.Utils.StopProp(event)"
         onpointermove="$.App4Sea.Utils.StopProp(event)"
-        onclick="{ 
-          document.getElementById('popup-title').innerHTML='${popup.title}'; 
-          document.getElementById('popup-content').innerHTML=##'${clean}'##; 
+        onclick="{
+          document.getElementById('popup-title').innerHTML='${popup.title}';
+          document.getElementById('popup-content').innerHTML=##'${clean}'##;
         }">
           ${ind.toString()} ${popup.title}
         </div>`;
@@ -463,8 +463,9 @@ const App4SeaPopUps = (function () {
     if (features.length === 0) {
       App4Sea.OpenLayers.overlayLayerPopUp.setPosition(undefined);
       popupCloser.blur();
+    } else {
+      App4Sea.OpenLayers.overlayLayerPopUp.setPosition(coordinate);
     }
-    else App4Sea.OpenLayers.overlayLayerPopUp.setPosition(coordinate);
   };
 
   my.getTitle = function (feature) {
