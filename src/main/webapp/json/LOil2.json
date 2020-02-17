@@ -1,0 +1,6 @@
+[
+    { "id" : "LOil2_1", "parent" : "LOil2", "text" : "Bravo 1977", "children" : false, "a_attr" : { "path" : "data/bravo.kmz", "tool" : "animation", "source": "4"} },
+    { "id" : "LOil2_2", "parent" : "LOil2", "text" : "Helge Ingstad 2018", "children" : false, "a_attr" : { "path" : "data/helgeingstad.kmz", "tool" : "animation", "source": "5"} },
+    { "id" : "LOil2_3", "parent" : "LOil2", "text" : "Northguider 2018", "children" : false, "a_attr" : { "path" : "data/northguider.kmz", "tool" : "animation", "source": "14"} },
+    { "id" : "LOil2_4", "parent" : "LOil2", "text" : "Braer 1993", "children" : false, "a_attr" : { "path" : "data/braer.kmz", "tool" : "animation", "source": "15"} }
+]

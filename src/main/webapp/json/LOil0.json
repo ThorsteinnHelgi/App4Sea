@@ -1,12 +1,8 @@
 [
-    { "id" : "L11", "parent" : "LOil0", "text" : "Hydrocarbon fields in UK waters [DECC]", "children" : false, "a_attr" : { "path" : "data/DECC_OFF_Hydrocarbon_Fields.kmz", "source": "8"} },
-    { "id" : "L12", "parent" : "LOil0", "text" : "Hydrocarbon fields in Norwegian waters", "children" : false, "a_attr" : { "path" : "data/v_geo_fldarea.kmz", "source": "9"} },
-    { "id" : "L13", "parent" : "LOil0", "text" : "Oil spill incidents", "children" : false, "a_attr" : { "path" : "data/Incidents.kml", "source": "10"} },
-    { "id" : "L15", "parent" : "LOil0", "text" : "Oil Spill Response Sites", "children" : false, "a_attr" : { "path" : "data/APP4SEA OSR Info.kml", "source": "12"} },
-    { "id" : "L16", "parent" : "LOil0", "text" : "Oil Spill Simulation: Bravo 1977", "children" : false, "a_attr" : { "path" : "data/bravo.kmz", "tool" : "animation", "source": "4"} },
-    { "id" : "L17", "parent" : "LOil0", "text" : "Oil Spill Simulation: Helge Ingstad 2018", "children" : false, "a_attr" : { "path" : "data/helgeingstad.kmz", "tool" : "animation", "source": "5"} },
-    { "id" : "L18", "parent" : "LOil0", "text" : "Oil Spill Simulation: Northguider 2012", "children" : false, "a_attr" : { "path" : "data/northguider.kmz", "tool" : "animation", "source": "14"} },
-    { "id" : "L20", "parent" : "LOil0", "text" : "Oil Spill Simulation: Braer 1993", "children" : false, "a_attr" : { "path" : "data/braer.kmz", "tool" : "animation", "source": "15"} },
-    { "id" : "L21", "parent" : "LOil0", "text" : "Oil Spill Simulation: Full City 2009", "children" : false, "a_attr" : { "path" : "data/fullcity.kmz", "tool" : "animation", "source": "0"} },
-    { "id" : "L22", "parent" : "LOil0", "text" : "Oil Spill Simulation: Godafoss 2011", "children" : false, "a_attr" : { "path" : "data/godafoss.kmz", "tool" : "animation", "source": "0"} }
+    { "id" : "LOil0_1", "parent" : "LOil0", "text" : "Hydrocarbon fields in UK waters [DECC]", "children" : false, "a_attr" : { "path" : "data/DECC_OFF_Hydrocarbon_Fields.kmz", "source": "8"} },
+    { "id" : "LOil0_2", "parent" : "LOil0", "text" : "Hydrocarbon fields in Norwegian waters", "children" : false, "a_attr" : { "path" : "data/v_geo_fldarea.kmz", "source": "9"} },
+    { "id" : "LOil0_3", "parent" : "LOil0", "text" : "Oil spill incidents", "children" : false, "a_attr" : { "path" : "data/Incidents.kml", "source": "10"} },
+    { "id" : "LOil0_5", "parent" : "LOil0", "text" : "Oil Spill Response Sites", "children" : false, "a_attr" : { "path" : "data/APP4SEA OSR Info.kml", "source": "12"} },
+    { "id" : "LOil1", "parent" : "LOil0", "text" : "Oil Spill Simulation: Actual Incidents",     "state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : ""} },
+    { "id" : "LOil2", "parent" : "LOil0", "text" : "Oil Spill Simulation: Hypothetical Incidents", 	"state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : ""} }
 ]

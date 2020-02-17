@@ -2,6 +2,7 @@
     { "id" : "LExm0_001", "parent" : "LExm0", "text" : "World Climate 1986-2010 10 arc min", "children" : false, "a_attr" : { "path" : "data/Global_1986-2010_KG_10m.kmz", "center" : [0, 66] } },
     { "id" : "LExm0_002", "parent" : "LExm0", "text" : "World Climate Change 1876-2100 30 arc min", "children" : false, "a_attr" : { "path" : "data/Global_Shift_A1FI_1876-2100_30m.kmz", "center" : [0, 66], "tool" : "animation"} },
     { "id" : "LExm0_003", "parent" : "LExm0", "text" : "Drake passage ship tracks", "children" : false, "a_attr" : { "path" : "data/EE_GT_0001.kml", "source": "0"} },
+    { "id" : "LExm0_004", "parent" : "LExm0", "text" : "Ice type", "children" : false, "a_attr" : { "path" : "http://halo-wms.met.no/halo/default.map?version=1.3.0&REQUEST=GetMap&LAYERS=ice.type&STYLES=&CRS=EPSG:4326&BBOX=-180,-90,180,90&WIDTH=512&HEIGHT=512&FORMAT=image%2Fpng&service=WMS", "source": "3", "opacity" : "50"} }
 
     { "id" : "LExm0_101", "parent" : "LExm0", "text" : "Seabirds 1",	"children" : false, "a_attr" : { "path" : "data/Birds/Seabirds 001.kml"} },
     { "id" : "LExm0_102", "parent" : "LExm0", "text" : "Seabirds 2",	"children" : false, "a_attr" : { "path" : "data/Birds/Seabirds 002.kml"} },

@@ -2169,7 +2169,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_booms_T/M">8*Expandi 4300 152m, 8*NOFI 500EP 1x25m, 1*NO 450S 200m, 1*NO 800R 300m, 1*Desmi RO1500, 1*Current Buster 4 (medium), 1*Current Buster 2 (light), 1*NO-T-1000S</SimpleData>
 						<SimpleData name="equipment_skimmers">1*Uniskim Multiskimmer 30, 1*Lamor Minimax 40, 1*NorMar 30, 2*KLK 402/Foxdrum, 1*KLK 602/Foxdrum, 1*Foilex TDS200, 1*NorMar, 5*Foxtail VAB 8-14, 3*Foxtail VAB 4-9, 1*Foxtail VAB 2-9, 2*Foxtail VAB 2-6, 1*Foxtail Arctic VAB 4-9, 1*Sandvik, 1*Lamor Bow Collector</SimpleData>
 						<SimpleData name="equipment_pump">1*Honda WB20XT, 1*Rabbit P265, 1*Elro-Honda, 1*Rekord/Vogelsang R60</SimpleData>
-						<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/001-HORTEN.pdf target=_blank >More information</a>]]></SimpleData>
+						<SimpleData name="linkinfo">http://153.44.6.23/documents/beredskap/depot/001-HORTEN.pdf</SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
@@ -2193,7 +2193,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_booms_T/M">8*Expandi 4300 152m, 3*NOFI 500EP  100m, 1*NO 800R 300m, 1*Current Buster 6 with pump, 1*Current Buster 6, 2*Current Buster 4 (medium), 2*Current Buster 2 (light)</SimpleData>
 						<SimpleData name="equipment_skimmers">2*KLK 602/Foxdrum, 1*Foilex TDS200, 2*Lamor LWS 500 m, 1*Transrec 125, 1*Desmi Terminator, 3*Foxtail VAB 4-9, 3*Foxtail VAB 2-6</SimpleData>
 						<SimpleData name="equipment_pump">TK 150</SimpleData>
-						<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/004-MONGST.pdf target=_blank >More information</a>]]></SimpleData>
+						<SimpleData name="linkinfo">http://153.44.6.23/documents/beredskap/depot/004-MONGST.pdf</SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
@@ -2217,8 +2217,8 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_booms_T/M">4*Expandi 4300 152m, 1*NO 800R 300m, 1*Current Buster 2 (light)</SimpleData>
 						<SimpleData name="equipment_skimmers">1*KLK 402/Foxdrum, 1*KLK 602/Foxdrum, 1*Lamor LWS 500 m, 1*Desmi Terminator, 1*Foxtail VAB 4-9, 2*Foxtail VAB 2-6</SimpleData>
 						<SimpleData name="equipment_pump">1*Rabbit P265, 1*Elro-Honda</SimpleData>
-						<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/002-KR.SAN.pdf target=_blank >More information</a>]]></SimpleData>
-						<SimpleData name="linkvideo">Midt-Agder</SimpleData>
+						<SimpleData name="linkinfo">http://153.44.6.23/documents/beredskap/depot/002-KR.SAN.pdf</SimpleData>
+						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
@@ -2235,8 +2235,8 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="description">Sogn og Fjordane</SimpleData>
 						<SimpleData name="linkicon"></SimpleData>
 						<SimpleData name="address">Solund Verft AS, 6924 Hardbakke</SimpleData>
-						<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/015-SOLUND.pdf target=_blank >More information</a>]]></SimpleData>
-						<SimpleData name="linkvideo">Bergen</SimpleData>
+						<SimpleData name="linkinfo">http://153.44.6.23/documents/beredskap/depot/015-SOLUND.pdf</SimpleData>
+						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
@@ -2259,8 +2259,8 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_booms_T/M">3*Expandi 4300 152m, 1*NO 450S. 200m, 1*NO 800R 300m</SimpleData>
 						<SimpleData name="equipment_skimmers">2KLK 402/Foxdrum, 1*KLK 602/Foxdrum, 1*Foilex TDS200, 1*Lamor LWS 500 m, 1*Desmi Terminator, 2*Foxtail VAB 4-9, 1*Foxtail VAB 2-6, 1*Sandvik</SimpleData>
 						<SimpleData name="equipment_pump">1*Rabbit P265, 1*Elro-Honda, 1*Rekord/Vogelsang R120</SimpleData>
-						<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/010-TROMSØ.pdf target=_blank >More information</a>]]></SimpleData>
-						<SimpleData name="linkvideo">Midt- og Nord-Troms</SimpleData>
+						<SimpleData name="linkinfo">http://153.44.6.23/documents/beredskap/depot/010-TROMSØ.pdf</SimpleData>
+						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
@@ -2284,8 +2284,8 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_booms_T/M">5*Expandi 4300 152m, 1*NO 450S. 200m, 1*NO 800R 300m, 1*Current Buster 4 (medium), 1*Current Buster 2 (medium)</SimpleData>
 						<SimpleData name="equipment_skimmers">1*KLK 402/Foxdrum, 1*KLK 602/Foxdrum, 1*Lamor LWS 500 m, 1*Foxtail VAB 4-9, 2*Foxtail VAB 2-6</SimpleData>
 						<SimpleData name="equipment_pump">1*Rabbit P265, 1*Elro-Honda, 1*Honda WB20XT</SimpleData>
-						<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/008-BODØ.pdf target=_blank >More information</a>]]></SimpleData>
-						<SimpleData name="linkvideo">Salten</SimpleData>
+						<SimpleData name="linkinfo">http://153.44.6.23/documents/beredskap/depot/008-BODØ.pdf</SimpleData>
+						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
@@ -2309,8 +2309,8 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_booms_T/M">4*Expandi 4300 152m, 1*NO 800R 300m, 1*Current Buster 4 (Medium), Current Buster 2 (light)</SimpleData>
 						<SimpleData name="equipment_skimmers">1*KLK 402/Foxdrum, 1*KLK 602/Foxdrum, 1*Lamor LWS 500 m, 1*Desmi Termite, 1*Foxtail VAB 4-9, 1*Foxtail VAB 2-6</SimpleData>
 						<SimpleData name="equipment_pump">1*Rabbit P265, 1*Elro-Honda, 1*Rekord/Vogelsang R120</SimpleData>
-						<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/012-VADSØ.pdf target=_blank >More information</a>]]></SimpleData>
-						<SimpleData name="linkvideo">Øst-Finnmark</SimpleData>
+						<SimpleData name="linkinfo">http://153.44.6.23/documents/beredskap/depot/012-VADSØ.pdf</SimpleData>
+						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
@@ -2334,7 +2334,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_booms_T/M">4*Expandi 4300 152m, 1*Current Buster 4 (medium), 1*Current Buster 2 (light)</SimpleData>
 						<SimpleData name="equipment_skimmers">KLK 402/Foxdrum i pakkramme, KLK 602/Foxdrum. Dbl pakkramme, Lamor LWS 500 m/ børste/skive, Desmi Termite. Overløp, Foxtail VAB 4-9 i trsp.cont, Foxtail VAB 2-9i trsp.cont</SimpleData>
 						<SimpleData name="equipment_pump">Rabbit P265 Brannpumpe</SimpleData>
-						<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/003-STAVAN.pdf target=_blank >More information</a>]]></SimpleData>
+						<SimpleData name="linkinfo">http://153.44.6.23/documents/beredskap/depot/003-STAVAN.pdf</SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
@@ -2358,7 +2358,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_booms_T/M">4*Expandi 4300 152m, 1*NO 800R 300m, 1*Current Buster 4(medium), 1*Current Buster 2 (light)</SimpleData>
 						<SimpleData name="equipment_skimmers">1*KLK 602 / Foxdrum, 1*Foilex TDS200, 1*Lamor LWS 500 m, 1*Foxtail VAB 4-9, 1*Foxtail VAB 2-6, 1*Lamor Bow Collector</SimpleData>
 						<SimpleData name="equipment_pumps">1*Rabbit P265 firepump and 1*Elro-Honda</SimpleData>
-						<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/014-FLORØ.pdf target=_blank >More information</a>]]></SimpleData>
+						<SimpleData name="linkinfo">http://153.44.6.23/documents/beredskap/depot/014-FLORØ.pdf</SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
@@ -2382,7 +2382,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_booms_T/M">1*NO450S. 200m, 1*NO 800R 300m, 1*Current Buster 4 and 1*Current Buster 2</SimpleData>
 						<SimpleData name="equipment_skimmers">Uniskim Multiskimmer 30,Lamor Minimax 40,KLK 402/Foxdrum i pakkramme, KLK 602 / Foxdrum m/ trsp.cont, Lamor LWS 500 m/ børste/skive, Desmi Terminator. Skive/børste, Desmi Terminator. Overløp, Foxtail VAB 4-9 i trsp.cont, Foxtail VAB 2-6 i trsp.cont </SimpleData>
 						<SimpleData name="equipment_pump">Honda WB20XT Spylepumpe, Rabbit P265 Brannpumpe, Elro-Honda slangepumpe</SimpleData>
-						<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/011-HAMMER.pdf target=_blank >More information</a>]]></SimpleData>
+						<SimpleData name="linkinfo">http://153.44.6.23/documents/beredskap/depot/011-HAMMER.pdf</SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
@@ -2406,7 +2406,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_booms_T/M">2*Expandi 4300 152m på pall, 1*NO 800R 300m, 1*Current Buster 4 (medium), 1*Current Buster 2 (light)</SimpleData>
 						<SimpleData name="equipment_skimmers">1*KLK 402/Foxdrum, 1*KLK 602/Foxdrum, 1*Lamor LWS 500 m/, 1*Foxtail VAB 4-9, 1*Foxtail VAB 2-9</SimpleData>
 						<SimpleData name="equipment_pump">Rabbit P265 Brannpumpe,Elro-Honda slangepumpe</SimpleData>
-						<SimpleData name="linkvideo">Ofoten</SimpleData>
+						<SimpleData name="linkvideo"></SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
@@ -2422,7 +2422,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="linkimage">Vest</SimpleData>
 						<SimpleData name="description">Kontinental-sokkelen. Sokkelen nord for 62 grader Nord</SimpleData>
 						<SimpleData name="linkicon"></SimpleData>
-						<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/AKSJON.pdf target=_blank >More information</a>]]></SimpleData>
+						<SimpleData name="linkinfo">http://153.44.6.23/documents/beredskap/depot/AKSJON.pdf</SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
@@ -2446,7 +2446,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_booms_T/M">2*Expandi 4300 152m, 1*NO 450S 200m, 1*NO 800R 300m, 1*Current Buster  (medium), 1*Current Buster 2 (light)</SimpleData>
 						<SimpleData name="equipment_skimmers">1*KLK 602/Foxdrum, 1*Lamor LWS 500 m, 2*Desmi Terminator, 1*Foxtail VAB 4-9, 1*Foxtail VAB 2-9, 1*Foxtail VAB 2-6</SimpleData>
 						<SimpleData name="equipment_pump">1*Rabbit P265, 1*Elro-Honda</SimpleData>
-						<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/006-ØRLAND.pdf target=_blank >More information</a>]]></SimpleData>
+						<SimpleData name="linkinfo">http://153.44.6.23/documents/beredskap/depot/006-ØRLAND.pdf</SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
@@ -2469,7 +2469,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_booms_T/M">2*Expandi 4300 152m, 4*NOFI 500EP  100m, 1*Current Buster 4 (medium), 1*Current Buster 2 (light)</SimpleData>
 						<SimpleData name="equipment_skimmers">2*Uniskim Multiskimmer 30, 1*Lamor LWS 500 m, 1*Desmi Terminato, 1*Foxtail VAB 2-9, 2*Foxtail VAB 2-6</SimpleData>
 						<SimpleData name="equipment_pump">Rabbit P265 Brannpumpe,Elro-Honda slangepumpe</SimpleData>
-						<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/013-SVALBA.pdf target=_blank >More information</a>]]></SimpleData>
+						<SimpleData name="linkinfo">http://153.44.6.23/documents/beredskap/depot/013-SVALBA.pdf</SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
@@ -2493,7 +2493,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_booms_T/M">5*Expandi 4300 152m, 1*NOFI 500EP 100m, 1*NO 450S 200m, 1*NO 800R 300m, 1*Current Buster 4 (medium), 1*Current Buster 2 (light)</SimpleData>
 						<SimpleData name="equipment_skimmers">2*KLK 402/Foxdrum, 1*KLK 602/Foxdrum, 1*Lamor LWS 500 m, 2*Foxtail VAB 4-9, 2*Foxtail VAB 2-6</SimpleData>
 						<SimpleData name="equipment_pump">1*Rabbit P265, 1*Elro-Honda</SimpleData>
-						<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/005-ÅLESUN.pdf target=_blank >More information</a>]]></SimpleData>
+						<SimpleData name="linkinfo">http://153.44.6.23/documents/beredskap/depot/005-ÅLESUN.pdf</SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
@@ -2517,7 +2517,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_booms_T/M">5*Expandi 4300 152m, 1*NO 800R 300m, 1*Current Buster 4 (medium), 1*Current Buster 2 (light)t</SimpleData>
 						<SimpleData name="equipment_skimmers">2*KLK 402/Foxdrum, 1*KLK 602/Foxdrum, 1*Lamor LWS 500 m, 2*Foxtail VAB 4-9, 2*Foxtail VAB 2-6, 1*Lamor Bow Collector</SimpleData>
 						<SimpleData name="equipment_pump">1*Rabbit P265, 1*Elro-Honda</SimpleData>
-						<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/007-SANDNE.pdf target=_blank >More information</a>]]></SimpleData>
+						<SimpleData name="linkinfo">http://153.44.6.23/documents/beredskap/depot/007-SANDNE.pdf</SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
@@ -2540,7 +2540,7 @@ US Navy facilities at Helguvik and Hvalfjördur have limited containment and rec
 						<SimpleData name="equipment_booms_L">1*NOFI 350 EP 200m</SimpleData>
 						<SimpleData name="equipment_booms_T/M">2*Expandi 4300 152m, 1*Current Buster 2 (light)</SimpleData>
 						<SimpleData name="equipment_skimmers">1*NorMar30, 1*Lamor LWS 500 m, 3*Foxtail VAB 4-9</SimpleData>
-						<SimpleData name="linkinfo"><![CDATA[<a href=http://153.44.6.23/documents/beredskap/depot/016-FEDJE.pdf target=_blank >More information</a>]]></SimpleData>
+						<SimpleData name="linkinfo">http://153.44.6.23/documents/beredskap/depot/016-FEDJE.pdf</SimpleData>
 					</SchemaData>
 				</ExtendedData>
 				<Point>
