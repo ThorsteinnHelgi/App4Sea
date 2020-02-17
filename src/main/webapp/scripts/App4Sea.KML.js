@@ -18,6 +18,9 @@ const App4SeaKML = (function () {
   const my = {};
   let title = '';
 
+  // KML always uses the WGS84 projection
+  my.proj = 'EPSG:4326'; // EPSG:4326 = WGS84
+
   // //////////////////////////////////////////////////////////////////////////
   // Declare worker scripts path for zip manipulation
   jsZip.zip.workerScriptsPath = 'static/js/';
@@ -535,25 +538,30 @@ const App4SeaKML = (function () {
         const east = parseFloat(overlay.querySelector('east').innerHTML);
         const north = parseFloat(overlay.querySelector('north').innerHTML);
 
-        const viewExtent = olproj.transformExtent([west, south, east, north], App4Sea.prefProj, App4Sea.prefViewProj);
-        if (App4Sea.logging) console.log(`GroundOverlay: W:${west} S:${south} E:${east} N:${north} Pro:${App4Sea.prefProj} ViewProj:${App4Sea.prefViewProj}`);
+        const viewExtent = olproj.transformExtent([west, south, east, north], my.proj, App4Sea.prefViewProj);
+        if (App4Sea.logging) console.log(`GroundOverlay: W:${west} S:${south} E:${east} N:${north} Pro:${my.proj} ViewProj:${App4Sea.prefViewProj}`);
 
         let image;
         if (!url.startsWith('http') && entries && entries.length > 1) {
           if (App4Sea.logging) console.log(`Getting image ${id0} from kmz: ${url}`);
-          findIn(entries, url, viewExtent, App4Sea.prefViewProj, nameIs, id0);
+          findIn(entries, url, [west, south, east, north], my.proj, nameIs, id0);
         } else {
           if (App4Sea.logging) console.log(`Getting image ${id0} from url: ${url}`);
+
+          // ImageStatic does not support wrapX, so images will only be shown in the first revelation around
+          // the origin (https://github.com/openlayers/openlayers/issues/7288).
           const source = new ImageStatic({
             url,
             // crossOrigin: 'anonymous',
-            imageExtent: viewExtent, // [west, south, east, north],
-            projection: App4Sea.prefViewProj,
+            imageExtent: [west, south, east, north],
+            projection: my.proj,
           });
+
           image = new Image({
             name: nameIs,
             source,
           });
+
           if (image) {
             App4Sea.OpenLayers.layers.push({ id, vector: image });
             if (App4Sea.logging) console.log(`Added image from url. Cached layers now are ${App4Sea.OpenLayers.layers.length}: ${url}`);
