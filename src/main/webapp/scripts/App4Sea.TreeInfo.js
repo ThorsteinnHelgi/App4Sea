@@ -108,7 +108,7 @@ const App4SeaTreeInfo = (function a() {
 
     // @ts-ignore
     $('#TreeInfo').on('changed.jstree', (e, data) => {
-      if (App4Sea.logging) console.log(`On: ${data.selected}`);
+      //if (App4Sea.logging) console.log(`On: ${data.selected}`);
 
       if (typeof data.node !== 'undefined') if (data.node.a_attr.path !== '') window.open(data.node.a_attr.path);
     });

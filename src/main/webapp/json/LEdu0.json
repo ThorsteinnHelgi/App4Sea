@@ -5,3 +5,5 @@
     { "id" : "LPhy0", "parent" : "LEdu0", "text" : "Physical earth",		"state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : ""} },
     { "id" : "LPrj0", "parent" : "LEdu0", "text" : "Project specific data", "state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : ""} }
 ]
+
+{ "id" : "LEdu0", "parent" : "#", "text" : "Educational data", 			            "state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : ""} }

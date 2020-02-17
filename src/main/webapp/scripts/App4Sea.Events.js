@@ -26,8 +26,7 @@ $(window).on('load', () => {
   if (App4Sea.logging) console.log('Window load');
 
   const onTimeout = function () {
-    if (App4Sea.logging) console.log('setTimeout');
-
+    if (App4Sea.logging) console.log('onTimeout');
     $('#splash-overlay').fadeOut();
   };
 

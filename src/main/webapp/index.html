@@ -58,31 +58,6 @@
             <div id="ButtonsForMenu2">
             </div>
 
-            <!--div id="ButtonSection">
-                    <button class="btn"><i class="fa fa-home"></i></button>
-                    <button class="btn"><i class="fa fa-align-justify"></i></button>
-                    <button class="btn"><i class="fa fa-sun-o"></i></button>
-                    <button class="btn"><i class="fa fa-trash"></i></button>
-                    <button class="btn"><i class="fa fa-arrows-h"></i></button>
-                    <button class="btn"><i class="fa fa-folder"></i></button>
-                    <button class="btn"><i class="fa fa-plus"></i></button>
-                    <button class="btn"><i class="fa fa-minus"></i></button>
-                    <button class="btn"><i class="fa fa-plus-square"></i></button>
-                    <button class="btn"><i class="fa fa-minus-square"></i></button>
-                    <button class="btn"><i class="fa fa-plus-square-o"></i></button>
-                    <button class="btn"><i class="fa fa-minus-square-o"></i></button>
-                    <button class="btn"><i class="fa fa-caret-square-o-up"></i></button>
-                    <button class="btn"><i class="fa fa-caret-square-o-down"></i></button>
-                    <button class="btn"><i class="fa fa-play"></i></button>
-                    <button class="btn"><i class="fa fa-pause"></i></button>
-                    <button class="btn"><i class="fa fa-stop"></i></button>
-                    <button class="btn"><i class="fa fa-cloud"></i></button>
-                    <button class="btn"><i class="fa fa-map"></i></button>
-                    <button class="btn"><i class="fa fa-tint"></i></button>
-                    <button class="btn"><i class="fa fa-search"></i></button>
-                    <button class="btn-right" onclick="$.App4Sea.Utils.w3_close('ButtonSection')" ><i class="fa fa-close"></i></button>
-                </div-->
-
             <div id="ControlPlaceInMenu">
                 <div id='HeatContainer' class="SubMenuSection" style="display:none">
                     <button class="btn-right" onclick="$.App4Sea.Utils.w3_close('HeatContainer')" ><i class="fa fa-close"></i></button>
@@ -123,8 +98,8 @@
 
                 <div id='OperationContainer' class="SubMenuSection" style="display:none">
                     <button class="btn-right" title="Close" onclick="$.App4Sea.Utils.w3_close('OperationContainer')" ><i class="fa fa-close"></i></button>
-                    <button class="btn-right" title="Area" onclick="$.App4Sea.Measure.DoArea()" id="btnArea"><i class="fa fa-square-o"></i></button>
-                    <button class="btn-right" title="Length" onclick="$.App4Sea.Measure.DoLength()" id="btnLength"><i class="fa fa-arrows-h"></i></button>
+                    <button class="btn-right" title="Area" onclick="$.App4Sea.Measure.DoArea()" id="btnAreaOp"><i class="fa fa-square-o"></i></button>
+                    <button class="btn-right" title="Length" onclick="$.App4Sea.Measure.DoLength()" id="btnLengthOp"><i class="fa fa-arrows-h"></i></button>
                     <button class="btn-right" title="Clear content" onclick="$.App4Sea.Measure.DoClearAll()"><i class="fa fa-eraser"></i></button>
                     <button class="btn-right" title="Save contents as KML (no style)" onclick="$.App4Sea.Measure.DoSaveAll()"><i class="fa fa-save"></i></button>
                     <button class="btn-right" title="Open (simple) KML file" onclick="$.App4Sea.Measure.DoAcceptDragAndDrop()"><i class="fa fa-file-o"></i></button>
@@ -238,20 +213,20 @@
 
                         <div class="bannerButtons">
                             <div class="mechanical">
-                                <button class="a4s a4s-single-vessel-with-outrigger" title="A single vessel with an outrigger" onclick="window.open('/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page42.png')"></button>
-                                <button class="a4s a4s-two-vessels-with-boom" title="Two vessels with a boom" onclick="window.open('/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page41.png')"></button>
-                                <button class="a4s a4s-three-vessels-with-boom" title="Three vessels with a boom" onclick="window.open('/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page43.png')"></button>
-                                <button class="a4s a4s-single-vessel-in-ice" title="A single vessel in ice" onclick="window.open('/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page44.png')"></button>
+                                <button class="a4s a4s-single-vessel-with-outrigger" title="A single vessel with an outrigger" onclick="window.open('2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page42.png')"></button>
+                                <button class="a4s a4s-two-vessels-with-boom" title="Two vessels with a boom" onclick="window.open('2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page41.png')"></button>
+                                <button class="a4s a4s-three-vessels-with-boom" title="Three vessels with a boom" onclick="window.open('2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page43.png')"></button>
+                                <button class="a4s a4s-single-vessel-in-ice" title="A single vessel in ice" onclick="window.open('2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page44.png')"></button>
                             </div>
                             <div class="disperant">
-                                    <button class="a4s a4s-single-vessel-dispersant" title="A single vessel with a dispersant" onclick="window.open('/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page45.png')"></button>
-                                <button class="a4s a4s-fixed_wing-dispersant" title="A single vessel with an outrigger" onclick="window.open('/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page46.png')"></button>
-                                <button class="a4s a4s-helicopter-dispersant" title="A single vessel with an outrigger" onclick="window.open('/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page47.png')"></button>
+                                    <button class="a4s a4s-single-vessel-dispersant" title="A single vessel with a dispersant" onclick="window.open('2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page45.png')"></button>
+                                <button class="a4s a4s-fixed_wing-dispersant" title="A single vessel with an outrigger" onclick="window.open('2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page46.png')"></button>
+                                <button class="a4s a4s-helicopter-dispersant" title="A single vessel with an outrigger" onclick="window.open('2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page47.png')"></button>
                             </div>
                             <div class="insitu">
-                                <button class="a4s a4s-vessel-with-fire-boom" title="A single vessel with an outrigger" onclick="window.open('/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page48.png')"></button>
-                                <button class="a4s a4s-helicopter-with-ice-containment" title="A single vessel with an outrigger" onclick="window.open('/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page49.png')"></button>
-                                <button class="a4s a4s-helicopter-with-herders" title="A single vessel with an outrigger" onclick="window.open('/2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page50.png')"></button>
+                                <button class="a4s a4s-vessel-with-fire-boom" title="A single vessel with an outrigger" onclick="window.open('2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page48.png')"></button>
+                                <button class="a4s a4s-helicopter-with-ice-containment" title="A single vessel with an outrigger" onclick="window.open('2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page49.png')"></button>
+                                <button class="a4s a4s-helicopter-with-herders" title="A single vessel with an outrigger" onclick="window.open('2017-05-09-EPPR-COSRVA/EPPR-COSRVA_Page50.png')"></button>
                             </div>
                         </div>
                     </div>
@@ -270,14 +245,14 @@
                             <table width="100%">
                                 <tr style="text-align:center">
                                     <td colspan="3">
-                                        <select id="AniDataSelect" class="DocTitle" style="color:white; background-color:gray;">
+                                        <select id="AniDataSelect" class="DocTitle" style="color:white; background-color:gray;" onchange="$.App4Sea.Animation.SelectionChanged(event)">
                                             <option style="color:black;" value="esriWSPTileLayer">No data available</option>
                                         </select>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td colspan="3">
-                                        <input id="progress" type="range" min="0" max="99" step="1" value="0"/>
+                                        <input id="progress" type="range" min="0" max="99" step="1" value="0" oninput="$.App4Sea.Animation.Progress()"/>
                                     </td>
                                 </tr>
                                 <tr>
@@ -383,6 +358,20 @@
 
                 <div id="TreeInfo"></div>
             </div>
+
+        </div>
+
+        <!-- Container for source information data -->
+        <div id="SourceInfoContainer" class="sourceInfoContainer">
+            <div id="siDragHandle" class="draghandle">.....</div>
+                <div id='siContainer' class="SubMenuSection">
+                    <button class="btn-right" title="Close" onclick="$.App4Sea.TreeMenu.si_close('siContainer')"><i class="fa fa-close"></i></button>
+
+                    <h3 id="siHeader">About this data</h3>
+
+                    <div id="SourceInfo" class="sourceInfo">
+                </div>
+            </div>
         </div>
 
         <!-- This is the main map container. It is populated in code -->
@@ -408,7 +397,7 @@
 
             <!-- This is the heat and animation place container. It is populated in code -->
             <div id="ControlPlaceInMap">
-                <div id="DragHandle">.....</div>
+                <div id="DragHandle" class="draghandle">.....</div>
             </div>
 
             <!-- This is where we store tool buttons in the map -->

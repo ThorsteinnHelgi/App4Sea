@@ -1,5 +1,6 @@
 [
-    { "id" : "I30", "parent" : "IREL0", "text" : "Copenhagen agreement", "children" : false, "a_attr" : { "path" : "http://copenhagenagreement.org"} },
-    { "id" : "I31", "parent" : "IREL0", "text" : "Bonn agreement", "children" : false, "a_attr" : { "path" : "https://www.bonnagreement.org/projects/ii/final-report"} },
-    { "id" : "I32", "parent" : "IREL0", "text" : "Important Bird Areas Map", "children" : false, "a_attr" : { "path" : "https://maps.birdlife.org/marineIBAs/default.html"} }
+    { "id" : "I30", "parent" : "IREL0", "text" : "Norwegian FishInfo", "children" : false, "a_attr" : { "path" : "https://www.barentswatch.no/en/fishinfo/"} },
+    { "id" : "I31", "parent" : "IREL0", "text" : "Copenhagen agreement", "children" : false, "a_attr" : { "path" : "http://copenhagenagreement.org"} },
+    { "id" : "I32", "parent" : "IREL0", "text" : "Bonn agreement", "children" : false, "a_attr" : { "path" : "https://www.bonnagreement.org/projects/ii/final-report"} },
+    { "id" : "I33", "parent" : "IREL0", "text" : "Important Bird Areas Map", "children" : false, "a_attr" : { "path" : "https://maps.birdlife.org/marineIBAs/default.html"} }
 ]

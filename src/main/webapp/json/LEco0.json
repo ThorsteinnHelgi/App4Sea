@@ -1,7 +1,7 @@
 [
-    { "id" : "Eco1", "parent" : "LEco0", "text" : "Seabirds Breeding SOSI",	"children" : false, "a_attr" : { "path" : "data/Birds/BreedingSummedSOSIseabirdICES.kmz"} },
-    { "id" : "Eco2", "parent" : "LEco0", "text" : "Seabirds Non-Breeding SOSI ", "children" : false, "a_attr" : { "path" : "data/Birds/nonBreedingSummedSOSIseabirdICES.kmz"} },
-    { "id" : "Eco3", "parent" : "LEco0", "text" : "Large Marine Ecosystem",	"children" : false, "a_attr" : { "path" : "data/LME66.kmz"} },
-    { "id" : "Eco4", "parent" : "LEco0", "text" : "Seabirds Breeding OVI ", "children" : false, "a_attr" : { "path" : "data/Birds/OVIbreedingNoLowRisk.kmz"} },
-    { "id" : "Eco5", "parent" : "LEco0", "text" : "Seabirds Non-Breeding OVI ", "children" : false, "a_attr" : { "path" : "data/Birds/OVInonbreedingNoLowRisk.kmz"} }
+    { "id" : "Eco1", "parent" : "LEco0", "text" : "Seabirds Breeding SOSI",	"children" : false, "a_attr" : { "path" : "data/Birds/BreedingSummedSOSIseabirdICES.kmz", "source": "26", "opacity" : "60"} },
+    { "id" : "Eco2", "parent" : "LEco0", "text" : "Seabirds Non-Breeding SOSI ", "children" : false, "a_attr" : { "path" : "data/Birds/nonBreedingSummedSOSIseabirdICES.kmz", "source": "27", "opacity" : "60"} },
+    { "id" : "Eco3", "parent" : "LEco0", "text" : "Large Marine Ecosystem",	"children" : false, "a_attr" : { "path" : "data/LME66.kmz", "source": "25", "opacity" : "50"} },
+    { "id" : "Eco4", "parent" : "LEco0", "text" : "Seabirds Breeding OVI ", "children" : false, "a_attr" : { "path" : "data/Birds/OVIbreedingNoLowRisk.kmz", "source": "21", "opacity" : "40"} },
+    { "id" : "Eco5", "parent" : "LEco0", "text" : "Seabirds Non-Breeding OVI ", "children" : false, "a_attr" : { "path" : "data/Birds/OVInonbreedingNoLowRisk.kmz", "source": "22", "opacity" : "50"} }
 ]
