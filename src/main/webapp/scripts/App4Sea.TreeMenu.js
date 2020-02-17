@@ -13,7 +13,10 @@ import App4SeaUtils from './App4Sea.Utils';
 const App4SeaTreeMenu = (function () {
   const my = {};
   let ajaxCount = 0;
-  const JSONdata = [];
+  let ajaxCountSI = 0;
+  let JSONdata = [];
+  let JSONdataSourceInfo = [];
+  let sourceInfo = [];
 
   // //////////////////////////////////////////////////////////////////////////
   // hideMetadata
@@ -58,6 +61,155 @@ const App4SeaTreeMenu = (function () {
     const retVal = tree.jstree(true).create_node(parNode, newNode, 'last', false, false); // [par, node, pos, callback, is_loaded]
     // if (App4Sea.logging) console.log("Adding " + text + " to tree under " + parNode + " returned " + retVal);
     return retVal;
+  }
+
+  // //////////////////////////////////////////////////////////////////////////
+  // Init all menu items
+  function getSourceInfo() {
+    function onSISuccess(ourFilename, ourJSONdata) {
+      return function (data, status, jqXHR) {
+        for (let i_success = 0; i_success < data.list.length; i_success++) {
+          const thisNode = data.list[i_success];
+
+          ourJSONdata.push(thisNode);
+
+          // if (App4Sea.logging) console.log(parent_node.id + ': ' + thisNode.id + ", text: " + thisNode.text + ", path: " + thisNode.a_attr.path);
+        }
+
+        ajaxCountSI--;
+        if (ajaxCountSI === 0) {
+          if (App4Sea.logging) console.log('WE ARE DONE GETTING SOURCEINFO!');
+
+          sourceInfo = ourJSONdata;
+        }
+      };
+    }
+
+    function onSIError(ourFilename) {
+      return function (jqXHR, status, errorThrown) {
+        if (App4Sea.logging) console.log(jqXHR);
+        if (App4Sea.logging) console.log(status);
+        if (App4Sea.logging) console.log(errorThrown);
+
+        ajaxCountSI--;
+        if (ajaxCountSI === 0) {
+          if (App4Sea.logging) console.log(`WE ARE DONE WITH ERROR WHEN GETTING SOURCEINFO! ${ourFilename}`);
+        }
+      };
+    }
+
+    const filename = 'json/sources.json';
+    ajaxCountSI++;
+    $.ajax({
+      url: filename,
+      contentType: 'application/json; charset=utf-8',
+      type: 'GET',
+      dataType: 'JSON',
+      cache: false,
+      async: true,
+      success: onSISuccess(filename, JSONdataSourceInfo),
+      error: onSIError(filename),
+    });
+  }
+
+  // ////////////////////////////////////////////////////////////////////////
+  my.si_close = function (id) {
+    const container = document.getElementById('SourceInfoContainer');
+    const handle = document.getElementById('siDragHandle');
+
+    container.style.visibility = 'hidden';
+    handle.style.visibility = 'hidden';
+  }
+
+  // ////////////////////////////////////////////////////////////////////////
+  function showSourceInfo(title, si) {
+    const head = document.getElementById('siHeader');
+    const par = document.getElementById('SourceInfo');
+    par.innerHTML = '';
+
+    const el = document.createElement('div');
+
+    if (title && title !== '') head.innerHTML = `${title}`;
+    else head.innerHTML = `About this data`;
+
+    if (si.title && si.title !== '') {
+      const title2 = document.createElement('div');
+      title2.classList.add('title');
+      title2.innerHTML = `<b>General title: ${si.title}</b>`;
+      el.appendChild(title2);
+    }
+
+    if (si.subtitle && si.subtitle !== '') {
+      const subtitle = document.createElement('div');
+      subtitle.classList.add('subtitle');
+      subtitle.innerHTML = `<b>Subtitle: </b>${si.subtitle}`;
+      el.appendChild(subtitle);
+    }
+
+    if (si.authors && si.authors !== '') {
+      const authors = document.createElement('div');
+      authors.classList.add('authors');
+      authors.innerHTML = `<b>Author(s): </b>${si.authors}`;
+      el.appendChild(authors);
+    }
+
+    if (si.source && si.source !== '') {
+      const datasource = document.createElement('div');
+      datasource.classList.add('datasource');
+      datasource.innerHTML = `<b>Data source: </b>${si.source}`;
+      el.appendChild(datasource);
+    }
+
+    if (si.about && si.about !== '') {
+      const about = document.createElement('div');
+      about.classList.add('about');
+      about.innerHTML = `<b>About: </b>${si.about}`;
+      el.appendChild(about);
+    }
+
+    if (si.link && si.link !== '') {
+      const link = document.createElement('div');
+      link.classList.add('link');
+      link.innerHTML = `<b>Link: </b>${si.link}\n`;
+      el.appendChild(link);
+    }
+
+    if (si.usage && si.usage !== '') {
+      const usage = document.createElement('div');
+      usage.classList.add('usage');
+      usage.innerHTML = `<b>Usage: </b>${si.usage}`;
+      el.appendChild(usage);
+    }
+
+    if (si.legend && si.legend !== '') {
+      const legend = document.createElement('div');
+      legend.classList.add('legend');
+      legend.innerHTML = `<div><b>Legend: </b>${si.legend}</div>`;
+      el.appendChild(legend);
+    }
+
+    if (si.image && si.image !== '') {
+      const image = document.createElement('div');
+      image.classList.add('image');
+      image.innerHTML = `<div><img src='${si.image}' alt='Image'>`;
+      el.appendChild(image);
+    }
+
+    if (si.license && si.license !== '') {
+      const license = document.createElement('div');
+      license.classList.add('license');
+      license.innerHTML = `<div><b>License: </b>${si.license}</div>`;
+      el.appendChild(license);
+    }
+
+    el.classList.add('sourceinfo');
+    par.appendChild(el);
+  
+    const container = document.getElementById('SourceInfoContainer');
+    const handle = document.getElementById('siDragHandle');
+
+    container.style.visibility = 'visible';
+    handle.style.visibility = 'visible';
   }
 
   // ////////////////////////////////////////////////////////////////////////
@@ -106,13 +258,13 @@ const App4SeaTreeMenu = (function () {
       });
     }
 
-    function getData(node, filename) {
+    function getData(node, filename) {    
       function onSuccess(parent_node, fnSetTree, ourFilename, ourJSONdata) {
         return function (data, status, jqXHR) {
           for (let i_success = 0; i_success < data.length; i_success++) {
             const thisNode = data[i_success];
             const { children } = thisNode;
-            thisNode.children = false;// Must be set to false as wwe are loading acync (sic!)
+            thisNode.children = false;// Must be set to false as we are loading acync (sic!)
 
             if (thisNode.a_attr.tool && thisNode.a_attr.tool === 'animation') {
               thisNode.icon = 'icons/animation_16.png';
@@ -123,7 +275,7 @@ const App4SeaTreeMenu = (function () {
             if (children) getData(thisNode, ourFilename); // Do this recursively
 
             // if (App4Sea.logging) console.log(parent_node.id + ': ' + thisNode.id + ", text: " + thisNode.text + ", path: " + thisNode.a_attr.path);
-          }
+          }-
 
           ajaxCount--;
           if (ajaxCount === 0) {
@@ -134,7 +286,7 @@ const App4SeaTreeMenu = (function () {
         };
       }
 
-      function onError(parent_node, fnSetTree, ourJSONdata) {
+      function onError(parent_node, ourFilename) {
         return function (jqXHR, status, errorThrown) {
           if (App4Sea.logging) console.log(jqXHR);
           if (App4Sea.logging) console.log(status);
@@ -143,9 +295,7 @@ const App4SeaTreeMenu = (function () {
 
           ajaxCount--;
           if (ajaxCount === 0) {
-            if (App4Sea.logging) console.log(`WE ARE DONE WITH ERROR! ${fnSetTree}`);
-
-            fnSetTree(ourJSONdata);
+            if (App4Sea.logging) console.log(`WE ARE DONE WITH ERROR! ${ourFilename}`);
           }
         };
       }
@@ -161,17 +311,124 @@ const App4SeaTreeMenu = (function () {
         cache: false,
         async: true,
         success: onSuccess(node, setTree, filename, JSONdata),
-        error: onError(node, setTree, JSONdata),
+        error: onError(node, filename),
       });
     }
 
+    function setSourceInfoButton(child) {
+      const node = $(TreeMenu).jstree(true).get_node(child.id);
+      if (node && node.a_attr) {
+        const { source } = node.a_attr;
+        if (source) {
+          const el = document.createElement('button');
+          el.id = 'sib_' + child.id;
+          el.addEventListener(
+            'click',
+            () => {
+              showSourceInfo(child.outerText, sourceInfo[source]);
+            },
+            false,
+            { passive: true }
+          );
+          // el.addEventListener(
+          //   'mouseenter',
+          //   () => {
+          //     showSourceInfo(child.outerText, sourceInfo[source]);
+          //   },
+          //   false,
+          //   { passive: true }
+          // );
+          // el.addEventListener(
+          //   'mouseleave',
+          //   () => {
+          //     App4Sea.TreeMenu.si_close('siContainer')
+          //   },
+          //   false,
+          //   { passive: true }
+          // );
+          el.classList.add('sourceinfobutton');
+          child.appendChild(el);
+        }
+      }
+    }
+    
+    function addSouceInfo(elem) {
+      function recurseSourceInfo(par) {
+        for (let ind = 0; ind < par.children.length; ind++) {
+          const child = par.children[ind];
+          
+          recurseSourceInfo(child);
+
+          if (child.localName === 'li') {
+            setSourceInfoButton(child);
+          }
+        }
+      }
+
+      recurseSourceInfo(elem);
+    }
+
+    // // Catch event: check_node
+    // $('#TreeMenu').on('check_node.jstree', function (e, data) {
+    //   const elem = document.getElementById(data.node.id);
+    //   addSouceInfo(elem);
+    // });
+
+    // // Catch event: load_node
+    // $('#TreeMenu').on('load_node.jstree', function (e, data) {
+    //   const elem = document.getElementById(data.node.id);
+    //   addSouceInfo(elem);
+    // });
+
+    // // Catch event: activate_node
+    // $('#TreeMenu').on('activate_node.jstree', function (e, data) {
+    //   const elem = document.getElementById(data.node.id);
+    //   addSouceInfo(elem);
+    // });
+    // // Catch event: select_node
+    // $('#TreeMenu').on('select_node.jstree', function (e, data) {
+    //   const elem = document.getElementById(data.node.id);
+    //   addSouceInfo(elem);
+    // });
+    // // Catch event: set_id
+    // $('#TreeMenu').on('set_id.jstree', function (e, data) {
+    //   const elem = document.getElementById(data.node.id);
+    //   addSouceInfo(elem);
+    // });
+    // // Catch event: refresh
+    // $('#TreeMenu').on('refresh.jstree', function (e, data) {
+    //   const elem = document.getElementById(data.node.id);
+    //   addSouceInfo(elem);
+    // });
+    // Catch event: create_node. 
+    // Need this to add button again as the li node is replaced the first time node is selected
+    $('#TreeMenu').on('create_node.jstree', function (e, data) {
+      const elem = document.getElementById(data.node.parent);
+      if (elem) {
+        setSourceInfoButton(elem);
+      }
+    });
+
+
+    // Catch event: open_node
+    $('#TreeMenu').on('open_node.jstree', function (e, data) {
+      const elem = document.getElementById(data.node.id);
+      addSouceInfo(elem);
+    });
+
+    // Catch event: loaded
+    $('#TreeMenu').on('loaded.jstree', function (e, data) {
+      const root = $('#TreeMenu')[0];
+      addSouceInfo(root);
+    });
+
     // Catch event: changed
     $('#TreeMenu').on('changed.jstree', function (e, data) {
-      if (App4Sea.logging) console.log(`On Action: ${data.action} on node ${data.node.id}`);
+      // if (App4Sea.logging) console.log(`On Action: ${data.action} on node ${data.node.id}`);
 
       if (typeof data.node === 'undefined') return;
 
-      const node = $(this).jstree('get_node', data.node.id);
+      const node = data.node; 
 
       // Remove overlay
       hideMetadata();
@@ -211,7 +468,7 @@ const App4SeaTreeMenu = (function () {
 
       // Add layer
       for (let ind = 0; ind < data.selected.length; ind++) {
-        const nod = $(this).jstree('get_node', data.selected[ind]);
+        const nod = $('#TreeMenu').jstree(true).get_node(data.selected[ind]);
 
         // Check if layer exists in cache
         const index = App4Sea.Utils.alreadyLayer(nod.id, App4Sea.OpenLayers.layers);
@@ -336,7 +593,7 @@ const App4SeaTreeMenu = (function () {
                 if (nod.a_attr.step) step = parseFloat(nod.a_attr.step);
                 if (step === null || App4SeaUtils.isNaN(step)) step = 1;
 
-                const [canAnimate, gol, golb, goll] = App4Sea.Animation.aniDataForWMS(path, step, count);
+                const [canAnimate, gol, golb, goll] = App4Sea.Animation.aniDataForWMS(path, step, count, node.id, node.text);
 
                 for (let aind = 0; aind < gol.length; aind++) {
                   const vect = App4Sea.Utils.loadImage(nod, ourProj, imageExtent, true, gol[aind],
@@ -360,7 +617,7 @@ const App4SeaTreeMenu = (function () {
                   }
                 }
 
-                if (canAnimate) App4Sea.Animation.Animate(path, nod.text);
+                if (canAnimate) App4Sea.Animation.Animate(path, nod.text, nod.id);
               } else {
                 const vect = App4Sea.Utils.loadImage(nod, ourProj, imageExtent, true, path,
                   nod.id, nod.text, nod.text, isSRS,
@@ -376,7 +633,7 @@ const App4SeaTreeMenu = (function () {
             }
           } else if (index === -1) {
             // Including kmz and kml
-            App4Sea.KML.loadKmlKmz(path, nod.id, nod.text);
+            App4Sea.KML.loadKmlKmz(path, nod.id, nod.text, nod);
           } else {
             if (App4Sea.logging) console.log(`Not handling extension type ${ext}`);
           }
@@ -384,6 +641,9 @@ const App4SeaTreeMenu = (function () {
       }
     });
 
+    JSONdataSourceInfo = [];
+    getSourceInfo();
+    JSONdata = [];
     getData({ id: '#' }, 'a4s.json', JSONdata);
   };
 

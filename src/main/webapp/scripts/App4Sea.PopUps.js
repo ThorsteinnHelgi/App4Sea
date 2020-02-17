@@ -116,7 +116,7 @@ const App4SeaPopUps = (function () {
     if (osr.equipment_craneCapability) template += '<tr><td>Crane capability</td><td><b>{{equipment_craneCapability}} tonnes</b></td></tr>';
     if (osr.equipment_totalStorageCapacity) template += '<tr><td>Total storage capacity</td><td><b>{{equipment_totalStorageCapacity}} tonnes</b></td></tr>';
     if (osr.equipment_heatedStorage) template += '<tr><td>Heated storage</td><td><b>{{equipment_heatedStorage}} m3</b></td></tr>';
-    if (osr.linkinfo) template = `${template}<tr><td>Information</td><td><b>${osr.linkinfo}</b></td></tr>`;
+    if (osr.linkinfo) template = `${template}<tr><td>Information</td><td><a href="${osr.linkinfo}" target="_blank">Link</a></td></tr>`;
     if (osr.linkicon) template = `${template}<tr><td>Icon</td><td><img class="osr-image" src="${osr.linkicon}" alt="{{name}}"></td></tr>`;
     if (osr.linkimage) template = `${template}<tr><td>Image</td><td><img class="osr-image" src="${osr.linkimage}" alt="{{name}}"></td></tr>`;
     if (osr.linkvideo) template = `${template}<tr><td>Video</td><td><video class="osr-video" src="${osr.linkvideo}" alt="{{name}}" autoplay controls></video></td></tr>`;
@@ -198,7 +198,7 @@ const App4SeaPopUps = (function () {
     if (osr.aircraft_specification_engineManufacturer) template += '<tr><td>Engine Manufacturer</td><td><b>{{aircraft_specification_engineManufacturer}}</b></td></tr>';
     if (osr.aircraft_specification_maximumFuelCapacity) template += '<tr><td>Fuel capacity</td><td><b>{{aircraft_specification_maximumFuelCapacity}}</b></td></tr>';
     if (osr.aircraft_specification_propellers) template += '<tr><td>Crane</td><td><b>{{aircraft_specification_propellers}}</b></td></tr>';
-    if (osr.linkinfo) template = `${template}<tr><td>Information</td><td><b>${osr.linkinfo}</b></td></tr>`;
+    if (osr.linkinfo) template = `${template}<tr><td>Information</td><td><a href="${osr.linkinfo}" target="_blank">Link</a></td></tr>`;
     if (osr.linkicon) template = `${template}<tr><td>Icon</td><td><img class="osr-image" src="${osr.linkicon}" alt="{{name}}"></td></tr>`;
     if (osr.linkimage) template = `${template}<tr><td>Image</td><td><img class="osr-image" src="${osr.linkimage}" alt="{{name}}"></td></tr>`;
     if (osr.linkvideo) template = `${template}<tr><td>Video</td><td><video class="osr-video" src="${osr.linkvideo}" alt="{{name}}" autoplay controls></video></td></tr>`;
@@ -215,6 +215,17 @@ const App4SeaPopUps = (function () {
       SiteID: '',
       address: '',
       description: '',
+      operator: '',
+      
+      equipment_totalStorageCapacity: '',
+      equipment_heatedStorage: '',
+      equipment_boats: '',
+      equipment_booms_ENG: '',
+      equipment_booms_L: '',
+      equipment_booms_T_M: '',
+      equipment_skimmers: '',
+      equipment_pumps: '',
+
       linkinfo: '',
       linkicon: '',
       linkimage: '',
@@ -225,8 +236,15 @@ const App4SeaPopUps = (function () {
     osr.SiteID = feature.get('SiteID');
     osr.address = feature.get('address');
     osr.description = feature.get('description');
+    osr.operator = feature.get('operator');
     osr.equipment_totalStorageCapacity = feature.get('equipment_totalStorageCapacity');
     osr.equipment_heatedStorage = feature.get('equipment_heatedStorage');
+    osr.equipment_boats = feature.get('equipment_boats');
+    osr.equipment_booms_ENG = feature.get('equipment_booms_ENG');
+    osr.equipment_booms_L = feature.get('equipment_booms_L');
+    osr.equipment_booms_T_M = feature.get('equipment_booms_T_M');
+    osr.equipment_skimmers = feature.get('equipment_skimmers');
+    osr.equipment_pumps = feature.get('equipment_pumps');
     osr.linkinfo = feature.get('linkinfo');
     osr.linkicon = feature.get('linkicon');
     osr.linkimage = feature.get('linkimage');
@@ -239,7 +257,18 @@ const App4SeaPopUps = (function () {
     if (osr.SiteID) template += '<tr><td>Site ID</td><td><b>{{SiteID}}</b></td></tr>';
     if (osr.address) template += '<tr><td>Address</td><td><b>{{address}}</b></td></tr>';
     if (osr.description) template = `${template}<tr><td>Description</td><td><b>${osr.description}</b></td></tr>`;
-    if (osr.linkinfo) template = `${template}<tr><td>Information</td><td><b>${osr.linkinfo}</b></td></tr>`;
+    if (osr.operator) template = `${template}<tr><td>Operator</td><td><b>${osr.operator}</b></td></tr>`;
+
+    if (osr.equipment_totalStorageCapacity) template = `${template}<tr><td>Total Storage Capacity</td><td><b>${osr.equipment_totalStorageCapacity}</b></td></tr>`;
+    if (osr.equipment_heatedStorage) template = `${template}<tr><td>Heated Storage</td><td><b>${osr.equipment_heatedStorage}</b></td></tr>`;
+    if (osr.equipment_boats) template = `${template}<tr><td>Boats</td><td><b>${osr.equipment_boats}</b></td></tr>`;
+    if (osr.equipment_booms_ENG) template = `${template}<tr><td>Booms ENG</td><td><b>${osr.equipment_booms_ENG}</b></td></tr>`;
+    if (osr.equipment_booms_L) template = `${template}<tr><td>Booms L</td><td><b>${osr.equipment_booms_L}</b></td></tr>`;
+    if (osr.equipment_booms_T_M) template = `${template}<tr><td>Booms T/M</td><td><b>${osr.equipment_booms_T_M}</b></td></tr>`;
+    if (osr.equipment_skimmers) template = `${template}<tr><td>Skimmers</td><td><b>${osr.equipment_skimmers}</b></td></tr>`;
+    if (osr.equipment_pumps) template = `${template}<tr><td>Pumps</td><td><b>${osr.equipment_pumps}</b></td></tr>`;
+
+    if (osr.linkinfo) template = `${template}<tr><td>Information</td><td><a href="${osr.linkinfo}" target="_blank">Link</a></td></tr>`;
     if (osr.linkicon) template = `${template}<tr><td>Icon</td><td><img class="osr-image" src="${osr.linkicon}" alt="{{name}}"></td></tr>`;
     if (osr.linkimage) template = `${template}<tr><td>Image</td><td><img class="osr-image" src="${osr.linkimage}" alt="{{name}}"></td></tr>`;
     if (osr.linkvideo) template = `${template}<tr><td>Video</td><td><video class="osr-video" src="${osr.linkvideo}" alt="{{name}}" autoplay controls></video></td></tr>`;
@@ -459,7 +488,9 @@ const App4SeaPopUps = (function () {
       }
     }
 
-    popupContent.innerHTML = cont.replaceAll('`', '\'').replaceAll('##\'', '`').replaceAll('\'##', '`');
+    cont = cont.replaceAll('`', '\'').replaceAll('##\'', '`').replaceAll('\'##', '`');
+    popupContent.innerHTML = cont;
+    console.log(popupContent.innerHTML);
     if (features.length === 0) {
       App4Sea.OpenLayers.overlayLayerPopUp.setPosition(undefined);
       popupCloser.blur();

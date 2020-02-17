@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+    <Document id="1">
+        <description>MET OpenDrift Oil Drift forecast of 2009 Full City oil spill, based on SVIM ROMS archive currents and ERA Interim wind, https://www.aibn.no/Marine/Reports/2013-08-eng</description>
+        <Camera>
+            <longitude>8.05617904663086</longitude>
+            <latitude>58.46337890625</latitude>
+            <altitude>60000</altitude>
+            <tilt>0</tilt>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <roll>0</roll>
+        </Camera>
+        <GroundOverlay id="3">
+            <name>fullcity at 2009-07-31T01:00:00Z</name>
+            <TimeSpan id="4">
+                <begin>2009-07-31T01:00:00Z</begin>
+                <end>2009-07-31T07:00:00Z</end>
+            </TimeSpan>
+            <Icon id="5">
+                <href>fullcity0.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>58.99937438964844</north>
+                <south>57.92738342285156</south>
+                <east>6.367703437805176</east>
+                <west>9.744654655456543</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="7">
+            <name>fullcity at 2009-07-31T07:00:00Z</name>
+            <TimeSpan id="8">
+                <begin>2009-07-31T07:00:00Z</begin>
+                <end>2009-07-31T13:00:00Z</end>
+            </TimeSpan>
+            <Icon id="9">
+                <href>fullcity6.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>58.99937438964844</north>
+                <south>57.92738342285156</south>
+                <east>6.367703437805176</east>
+                <west>9.744654655456543</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="11">
+            <name>fullcity at 2009-07-31T13:00:00Z</name>
+            <TimeSpan id="12">
+                <begin>2009-07-31T13:00:00Z</begin>
+                <end>2009-07-31T19:00:00Z</end>
+            </TimeSpan>
+            <Icon id="13">
+                <href>fullcity12.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>58.99937438964844</north>
+                <south>57.92738342285156</south>
+                <east>6.367703437805176</east>
+                <west>9.744654655456543</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="15">
+            <name>fullcity at 2009-07-31T19:00:00Z</name>
+            <TimeSpan id="16">
+                <begin>2009-07-31T19:00:00Z</begin>
+                <end>2009-08-01T01:00:00Z</end>
+            </TimeSpan>
+            <Icon id="17">
+                <href>fullcity18.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>58.99937438964844</north>
+                <south>57.92738342285156</south>
+                <east>6.367703437805176</east>
+                <west>9.744654655456543</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="19">
+            <name>fullcity at 2009-08-01T01:00:00Z</name>
+            <TimeSpan id="20">
+                <begin>2009-08-01T01:00:00Z</begin>
+                <end>2009-08-01T07:00:00Z</end>
+            </TimeSpan>
+            <Icon id="21">
+                <href>fullcity24.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>58.99937438964844</north>
+                <south>57.92738342285156</south>
+                <east>6.367703437805176</east>
+                <west>9.744654655456543</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="23">
+            <name>fullcity at 2009-08-01T07:00:00Z</name>
+            <TimeSpan id="24">
+                <begin>2009-08-01T07:00:00Z</begin>
+                <end>2009-08-01T13:00:00Z</end>
+            </TimeSpan>
+            <Icon id="25">
+                <href>fullcity30.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>58.99937438964844</north>
+                <south>57.92738342285156</south>
+                <east>6.367703437805176</east>
+                <west>9.744654655456543</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="27">
+            <name>fullcity at 2009-08-01T13:00:00Z</name>
+            <TimeSpan id="28">
+                <begin>2009-08-01T13:00:00Z</begin>
+                <end>2009-08-01T19:00:00Z</end>
+            </TimeSpan>
+            <Icon id="29">
+                <href>fullcity36.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>58.99937438964844</north>
+                <south>57.92738342285156</south>
+                <east>6.367703437805176</east>
+                <west>9.744654655456543</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="31">
+            <name>fullcity at 2009-08-01T19:00:00Z</name>
+            <TimeSpan id="32">
+                <begin>2009-08-01T19:00:00Z</begin>
+                <end>2009-08-02T01:00:00Z</end>
+            </TimeSpan>
+            <Icon id="33">
+                <href>fullcity42.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>58.99937438964844</north>
+                <south>57.92738342285156</south>
+                <east>6.367703437805176</east>
+                <west>9.744654655456543</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="35">
+            <name>fullcity at 2009-08-02T01:00:00Z</name>
+            <TimeSpan id="36">
+                <begin>2009-08-02T01:00:00Z</begin>
+                <end>2009-08-02T07:00:00Z</end>
+            </TimeSpan>
+            <Icon id="37">
+                <href>fullcity48.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>58.99937438964844</north>
+                <south>57.92738342285156</south>
+                <east>6.367703437805176</east>
+                <west>9.744654655456543</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="39">
+            <name>fullcity at 2009-08-02T07:00:00Z</name>
+            <TimeSpan id="40">
+                <begin>2009-08-02T07:00:00Z</begin>
+                <end>2009-08-02T13:00:00Z</end>
+            </TimeSpan>
+            <Icon id="41">
+                <href>fullcity54.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>58.99937438964844</north>
+                <south>57.92738342285156</south>
+                <east>6.367703437805176</east>
+                <west>9.744654655456543</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="43">
+            <name>fullcity at 2009-08-02T13:00:00Z</name>
+            <TimeSpan id="44">
+                <begin>2009-08-02T13:00:00Z</begin>
+                <end>2009-08-02T19:00:00Z</end>
+            </TimeSpan>
+            <Icon id="45">
+                <href>fullcity60.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>58.99937438964844</north>
+                <south>57.92738342285156</south>
+                <east>6.367703437805176</east>
+                <west>9.744654655456543</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <ScreenOverlay id="47">
+            <name>Legend_oil</name>
+            <visibility>1</visibility>
+            <Icon id="48">
+                <href>legend_oil.png</href>
+            </Icon>
+            <overlayXY x="0" xunits="fraction" y="0" yunits="fraction"/>
+            <screenXY x="0.015" xunits="fraction" y="0.075" yunits="fraction"/>
+            <size x="0" xunits="fraction" y="0" yunits="fraction"/>
+        </ScreenOverlay>
+    </Document>
+</kml>

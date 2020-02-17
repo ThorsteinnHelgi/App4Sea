@@ -47,10 +47,10 @@ const App4SeaKML = (function () {
   // //////////////////////////////////////////////////////////////////////////
   // Function to make ajax call and make a callback on success (both kml and kmz)
   // We are getting data from the internet
-  function ajaxKMZ(url, id, callback) {
+  function ajaxKMZ(url, id, callback, node) {
     if (App4Sea.logging) console.log(`ajaxKMZ: ${url}`);
 
-    const onSuccess = function (_id, _callback) {
+    const onSuccess = function (_id, _callback, nod) {
       return function (xhr, response) {
         // Run when the request is successful
         // $("#DebugWindow").append("ajaxKMZ Response: " + response + "<br/>");
@@ -59,12 +59,12 @@ const App4SeaKML = (function () {
         const str = xhr.responseURL.toLowerCase();
         const rspTp = typeof (response);
         if (str.endsWith('kml') && (rspTp === 'object' || rspTp === 'string')) {
-          const extendedCallback = function (str1, id1, callb) {
+          const extendedCallback = function (str1, id1, callb, no) {
             return function (e) {
               if (App4Sea.logging) console.log(`Callback: ${id1}: ${str1}`);
               const text = e.srcElement.result;
               if (App4Sea.logging) console.log(text);
-              callb(text, str1, id1);
+              callb(text, str1, id1, no);
             };
           };
 
@@ -72,10 +72,10 @@ const App4SeaKML = (function () {
 
           // This will fire after the blob has been read/loaded.
           const reader = new FileReader();
-          reader.addEventListener('loadend', extendedCallback(str, _id, _callback), false, { passive: true });
+          reader.addEventListener('loadend', extendedCallback(str, _id, _callback, nod), false, { passive: true });
 
           if (rspTp === 'string') {
-            _callback(response, str, _id);
+            _callback(response, str, _id, null, nod);
           } else {
             // Start reading the blob as text. readAsText
             reader.readAsBinaryString(response);
@@ -83,7 +83,7 @@ const App4SeaKML = (function () {
         } else {
           if (App4Sea.logging) console.log(`Now handling ${str}`);
 
-          _callback(response, str, id);
+          _callback(response, str, id, nod);
         }
       };
     };
@@ -104,7 +104,7 @@ const App4SeaKML = (function () {
         },
         // Before
       })
-      .then(onSuccess(id, callback))
+      .then(onSuccess(id, callback, node))
       .catch((e, xhr) => {
         if (xhr) {
           if (App4Sea.logging) console.log(`ajaxKMZ Error: ${e}: Url: ${xhr.responseURL}, id: ${id}`);
@@ -124,7 +124,7 @@ const App4SeaKML = (function () {
   // //////////////////////////////////////////////////////////////////////////
   // Function to unzip content from blob and execute callback
   // We are getting data from local file
-  function unzipFromBlob(callback, id) {
+  function unzipFromBlob(callback, id, node) {
     return function unzip(blob) {
       // console.log(blob);
       if (App4Sea.logging) console.log(`Unzip id ${id} with size ${blob.size} bytes`);
@@ -136,12 +136,12 @@ const App4SeaKML = (function () {
           reader.getEntries((entries) => {
             if (App4Sea.logging) console.log(`Got entries: ${entries.length}`);
             for (let ind = 0; ind < entries.length; ind++) {
-              const extendedCallback = function (str1, id1, callb, ntries) {
+              const extendedCallback = function (str1, id1, callb, ntries, node1) {
                 return function (text) {
                   // if (App4Sea.logging) console.log("extendedCallback for " + id1 + " at " + str1 + " next call " + callb);
                   // text contains the entry data as a String (even though it may be a blob)
                   if (App4Sea.logging) console.log(`About to call back for ${str1}`);
-                  callb(text, str1, id1, ntries);
+                  callb(text, str1, id1, ntries, node1);
                 };
               };
 
@@ -153,7 +153,7 @@ const App4SeaKML = (function () {
                 // we get the kml content as text, but also any other content (as text)
                 entries[ind].getData(/* writer, onend, onprogress, checkCrc32 */
                   new jsZip.zip.TextWriter(),
-                  extendedCallback(str, id, callback, entries),
+                  extendedCallback(str, id, callback, entries, node),
                   (current, total) => {
                     // onprogress callback
                     // if (App4Sea.logging) console.log(`TextWriter in unzipFromBlob ${str} Total: ${total.toString()}, Current: ${current}`);
@@ -175,7 +175,7 @@ const App4SeaKML = (function () {
   // //////////////////////////////////////////////////////////////////////////
   // Load kml content and return as Vector
   // See https://developers.google.com/kml/documentation/kmlreference
-  function loadKmlText(text, id, path) {
+  function loadKmlText(text, id, path, node) {
     if (App4Sea.logging) console.log(`loadKmlText: ${path}`);
 
     const formatter = new KML({
@@ -194,33 +194,19 @@ const App4SeaKML = (function () {
 
     if (App4Sea.logging) console.log(`kml_features are: ${kml_features.length}`);
 
-    if (kml_features.length > 0) {
-      //            let description = kml_features[0].get('description');
-      //
-      //            if (description) {
-      //                addChild('Description', description, $('#TreeMenu'), id, false);
-      //            }
-    }
-    // else {
-    //     let listFilesNested = parseKmlText(path, text, id, null);
-
-    //     if (App4Sea.logging) console.log("listFilesNested are " + listFilesNested.length);
-
-    //     listFilesNested.forEach(function (el) {
-    //         if (App4Sea.logging) console.log("readAndAddFeatures ----------");
-    //         // Nested calls. Acceptable for a demo
-    //         // but could be "promisified" instead
-    //         repeat_kml_kmz_calls(el, id);
-    //     });
-    //     return;
-    // }
-
     const vector = new VectorLayer({
       source: new Vector({
         crossOrigin: 'anonymous',
         format: formatter,
       }),
     });
+
+    if (node && node.a_attr) {
+      const { opacity } = node.a_attr;
+      const op = parseInt(opacity) / 100.0;
+      if (op) vector.setOpacity(op);
+    }
+
     const theSource = vector.getSource();
     theSource.addFeatures(kml_features);
     const extent = App4Sea.Utils.GetFeaturesExtent(kml_features);
@@ -349,12 +335,12 @@ const App4SeaKML = (function () {
 
   // //////////////////////////////////////////////////////////////////////////
   // Function to ease KML feature reading
-  function addKMLFeatures(text, path, id) {
+  function addKMLFeatures(text, path, id, node) {
     if (App4Sea.logging) console.log(`>>> addKMLFeatures: ${path}`);
 
     if (path.endsWith('kml')) {
       // if (App4Sea.logging) console.log(text); // log the whole kml file
-      loadKmlText(text, id, path);
+      loadKmlText(text, id, path, node);
 
       if (App4Sea.logging) console.log(`addKMLFeatures: ${id} in file ${path} DONE`);
     }
@@ -392,7 +378,7 @@ const App4SeaKML = (function () {
     const urls = oDOM.querySelectorAll('NetworkLink > Url > href');
 
     // Collect data for animation of GrounOverlay
-    const [canAnimate, gol, goll] = App4Sea.Animation.aniDataForGroundOverlay(oDOM);
+    const [canAnimate, gol, goll] = App4Sea.Animation.aniDataForGroundOverlay(oDOM, path, id, title);
     let count = 0;
     const kml = oDOM.querySelector('kml');
 
@@ -427,6 +413,22 @@ const App4SeaKML = (function () {
     my.removeRow = function (input) {
       document.getElementById('tableLegend').removeChild(input.parentNode.parentNode);// tr.td.button
     };
+    
+    function getContentType(filename) {
+      const contentTypesByExtension = {
+        'css': 'text/css',
+        'js': 'application/javascript',
+        'png': 'image/png',
+        'jpg': 'image/jpeg',
+        'jpeg': 'image/jpeg',
+        'html': 'text/html',
+        'htm': 'text/html'
+      };
+
+      const tokens = filename.split('.');
+      const extension = tokens[tokens.length - 1];
+      return contentTypesByExtension[extension] || 'text/plain';
+    }
 
     // //////////////////////////////////////////////////////////////////////////
     function addOverlay(overlay, id0) {
@@ -454,6 +456,7 @@ const App4SeaKML = (function () {
                 if (App4Sea.logging) console.log(`Added image ${id2}=${nm} from kmz. Cached layers now are ${App4Sea.OpenLayers.layers.length}: ${ur}`);
 
                 App4Sea.OpenLayers.Map.addLayer(image);
+
                 App4Sea.Utils.LookAt(image);
               } else if (App4Sea.logging) console.log('No image created from kmz');
             }
@@ -461,7 +464,7 @@ const App4SeaKML = (function () {
         };
 
         ent1.getData(
-          new jsZip.zip.BlobWriter('text/plain'),
+          new jsZip.zip.BlobWriter(getContentType(url1)),
           extendedCallback(url1, ext1, prj1, nam1, ent1, id1, leg1),
           (current, total) => {
             // onprogress callback
@@ -718,7 +721,7 @@ const App4SeaKML = (function () {
     if (kml) {
       listChildren(id, kml.children);
 
-      if (canAnimate) App4Sea.Animation.Animate(path, title);
+      if (canAnimate) App4Sea.Animation.Animate(path, title, id);
     }
 
     let files = Array.prototype.slice.call(links).map((el) => el.textContent);
@@ -736,15 +739,15 @@ const App4SeaKML = (function () {
   // Read a KML and add any features to the vector layer recursively
   // This call will either be called with a kml file or the individual entries (as text)
   // from the entries in the kmz file (of which the doc.kml file is one).
-  const readAndAddFeatures = function (text, path, id, entries) {
+  const readAndAddFeatures = function (text, path, id, entries, no) {
     if (App4Sea.logging) console.log(`readAndAddFeatures >>>> ${path} from file ${id}`);
 
     const str = path.toLowerCase();
 
     if (str.endsWith('kml')) {
-      addKMLFeatures(text, str, id); // TBD this is used for simple kml data (placemarks and vectors). Should do all locally
+      addKMLFeatures(text, str, id, no); // TBD this is used for simple kml data (placemarks and vectors). Should do all locally
 
-      const listFilesNested = parseKmlText(path, text, id, entries);
+      const listFilesNested = parseKmlText(path, text, id, entries, no);
       if (App4Sea.logging) console.log(`listFilesNested are ${listFilesNested.length}`);
 
       listFilesNested.forEach((el) => {
@@ -752,17 +755,17 @@ const App4SeaKML = (function () {
         // Nested calls. Acceptable for a demo
         // but could be "promisified" instead
         // eslint-disable-next-line no-use-before-define
-        repeat_kml_kmz_calls(el, id);
+        repeat_kml_kmz_calls(el, id, no);
       });
     } else {
-      // /addKMLFeatures(text, str, id);
+      // /addKMLFeatures(text, str, id, no);
     }
     if (App4Sea.logging) console.log('readAndAddFeatures <<<<');
   };
 
   // //////////////////////////////////////////////////////////////////////////
   // Recursion
-  function repeat_kml_kmz_calls(url, id) {
+  function repeat_kml_kmz_calls(url, id, node) {
     // make the ajax call to kmz that unzip and read the file
     // this file reference other KMZ so we call each of them
     // and add their content
@@ -770,20 +773,20 @@ const App4SeaKML = (function () {
     if (App4Sea.logging) console.log(str);
     if (str.endsWith('kmz')) {
       if (App4Sea.logging) console.log(`readAndAddFeatures kmz element: ${url}`);
-      ajaxKMZ(url, id, unzipFromBlob(readAndAddFeatures, id));
+      ajaxKMZ(url, id, unzipFromBlob(readAndAddFeatures, id, node), node);
     } else {
       if (App4Sea.logging) console.log(`readAndAddFeatures non-kmz element: ${url}`);
-      ajaxKMZ(url, id, readAndAddFeatures);// kml
+      ajaxKMZ(url, id, readAndAddFeatures, node);// kml
     }
   }
 
   // //////////////////////////////////////////////////////////////////////////
   // load kmz or kml and recurse through nested files
   // See https://developers.google.com/kml/documentation/kmzarchives
-  my.loadKmlKmz = function (url, id, name) {
+  my.loadKmlKmz = function (url, id, name, node) {
     if (App4Sea.logging) console.log(`loadKmz: ${id} from ${url}`);
     title = name;
-    repeat_kml_kmz_calls(url, id);
+    repeat_kml_kmz_calls(url, id, node);
   };
 
   return my;

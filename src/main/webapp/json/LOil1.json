@@ -1,0 +1,4 @@
+[
+    { "id" : "LOil1_1", "parent" : "LOil1", "text" : "Full City 2009", "children" : false, "a_attr" : { "path" : "data/fullcity.kmz", "tool" : "animation", "source": "0"} },
+    { "id" : "LOil1_2", "parent" : "LOil1", "text" : "Godafoss 2011", "children" : false, "a_attr" : { "path" : "data/godafoss.kmz", "tool" : "animation", "source": "0"} }
+]

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+    <Document id="1">
+        <description>MET OpenDrift Oil Drift simulation of 2011 Godafoss oil spill, based on SVIM ROMS archive currents and ERA Interim wind, https://www.aibn.no/Marine/Published-reports/2012-09-eng</description>
+        <Camera>
+            <longitude>10.651561737060547</longitude>
+            <latitude>58.91949462890625</latitude>
+            <altitude>60000</altitude>
+            <tilt>0</tilt>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <roll>0</roll>
+        </Camera>
+        <GroundOverlay id="3">
+            <name>godafoss at 2011-02-17T20:00:00Z</name>
+            <TimeSpan id="4">
+                <begin>2011-02-17T20:00:00Z</begin>
+                <end>2011-02-18T02:00:00Z</end>
+            </TimeSpan>
+            <Icon id="5">
+                <href>godafoss0.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>59.14732360839844</north>
+                <south>58.69166564941406</south>
+                <east>10.227231979370117</east>
+                <west>11.075891494750977</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="7">
+            <name>godafoss at 2011-02-18T02:00:00Z</name>
+            <TimeSpan id="8">
+                <begin>2011-02-18T02:00:00Z</begin>
+                <end>2011-02-18T08:00:00Z</end>
+            </TimeSpan>
+            <Icon id="9">
+                <href>godafoss6.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>59.14732360839844</north>
+                <south>58.69166564941406</south>
+                <east>10.227231979370117</east>
+                <west>11.075891494750977</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="11">
+            <name>godafoss at 2011-02-18T08:00:00Z</name>
+            <TimeSpan id="12">
+                <begin>2011-02-18T08:00:00Z</begin>
+                <end>2011-02-18T14:00:00Z</end>
+            </TimeSpan>
+            <Icon id="13">
+                <href>godafoss12.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>59.14732360839844</north>
+                <south>58.69166564941406</south>
+                <east>10.227231979370117</east>
+                <west>11.075891494750977</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="15">
+            <name>godafoss at 2011-02-18T14:00:00Z</name>
+            <TimeSpan id="16">
+                <begin>2011-02-18T14:00:00Z</begin>
+                <end>2011-02-18T20:00:00Z</end>
+            </TimeSpan>
+            <Icon id="17">
+                <href>godafoss18.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>59.14732360839844</north>
+                <south>58.69166564941406</south>
+                <east>10.227231979370117</east>
+                <west>11.075891494750977</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="19">
+            <name>godafoss at 2011-02-18T20:00:00Z</name>
+            <TimeSpan id="20">
+                <begin>2011-02-18T20:00:00Z</begin>
+                <end>2011-02-19T02:00:00Z</end>
+            </TimeSpan>
+            <Icon id="21">
+                <href>godafoss24.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>59.14732360839844</north>
+                <south>58.69166564941406</south>
+                <east>10.227231979370117</east>
+                <west>11.075891494750977</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="23">
+            <name>godafoss at 2011-02-19T02:00:00Z</name>
+            <TimeSpan id="24">
+                <begin>2011-02-19T02:00:00Z</begin>
+                <end>2011-02-19T08:00:00Z</end>
+            </TimeSpan>
+            <Icon id="25">
+                <href>godafoss30.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>59.14732360839844</north>
+                <south>58.69166564941406</south>
+                <east>10.227231979370117</east>
+                <west>11.075891494750977</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="27">
+            <name>godafoss at 2011-02-19T08:00:00Z</name>
+            <TimeSpan id="28">
+                <begin>2011-02-19T08:00:00Z</begin>
+                <end>2011-02-19T14:00:00Z</end>
+            </TimeSpan>
+            <Icon id="29">
+                <href>godafoss36.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>59.14732360839844</north>
+                <south>58.69166564941406</south>
+                <east>10.227231979370117</east>
+                <west>11.075891494750977</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="31">
+            <name>godafoss at 2011-02-19T14:00:00Z</name>
+            <TimeSpan id="32">
+                <begin>2011-02-19T14:00:00Z</begin>
+                <end>2011-02-19T20:00:00Z</end>
+            </TimeSpan>
+            <Icon id="33">
+                <href>godafoss42.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>59.14732360839844</north>
+                <south>58.69166564941406</south>
+                <east>10.227231979370117</east>
+                <west>11.075891494750977</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="35">
+            <name>godafoss at 2011-02-19T20:00:00Z</name>
+            <TimeSpan id="36">
+                <begin>2011-02-19T20:00:00Z</begin>
+                <end>2011-02-20T02:00:00Z</end>
+            </TimeSpan>
+            <Icon id="37">
+                <href>godafoss48.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>59.14732360839844</north>
+                <south>58.69166564941406</south>
+                <east>10.227231979370117</east>
+                <west>11.075891494750977</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="39">
+            <name>godafoss at 2011-02-20T02:00:00Z</name>
+            <TimeSpan id="40">
+                <begin>2011-02-20T02:00:00Z</begin>
+                <end>2011-02-20T08:00:00Z</end>
+            </TimeSpan>
+            <Icon id="41">
+                <href>godafoss54.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>59.14732360839844</north>
+                <south>58.69166564941406</south>
+                <east>10.227231979370117</east>
+                <west>11.075891494750977</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <GroundOverlay id="43">
+            <name>godafoss at 2011-02-20T08:00:00Z</name>
+            <TimeSpan id="44">
+                <begin>2011-02-20T08:00:00Z</begin>
+                <end>2011-02-20T14:00:00Z</end>
+            </TimeSpan>
+            <Icon id="45">
+                <href>godafoss60.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>59.14732360839844</north>
+                <south>58.69166564941406</south>
+                <east>10.227231979370117</east>
+                <west>11.075891494750977</west>
+                <rotation>0</rotation>
+            </LatLonBox>
+        </GroundOverlay>
+        <ScreenOverlay id="47">
+            <name>Legend_oil</name>
+            <visibility>1</visibility>
+            <Icon id="48">
+                <href>legend_oil.png</href>
+            </Icon>
+            <overlayXY x="0" xunits="fraction" y="0" yunits="fraction"/>
+            <screenXY x="0.015" xunits="fraction" y="0.075" yunits="fraction"/>
+            <size x="0" xunits="fraction" y="0" yunits="fraction"/>
+        </ScreenOverlay>
+    </Document>
+</kml>
