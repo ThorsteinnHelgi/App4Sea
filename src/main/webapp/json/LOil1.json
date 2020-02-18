@@ -1,6 +1,6 @@
 [
-    { "id" : "LOil1_1", "parent" : "LOil1", "text" : "Full City 2009", "children" : false, "a_attr" : { "path" : "data/fullcity.kmz", "tool" : "animation", "source": "0"} },
-    { "id" : "LOil1_2", "parent" : "LOil1", "text" : "Godafoss 2011", "children" : false, "a_attr" : { "path" : "data/godafoss.kmz", "tool" : "animation", "source": "0"} },
-    { "id" : "LOil1_3", "parent" : "LOil1", "text" : "Bravo 1977", "children" : false, "a_attr" : { "path" : "data/bravo.kmz", "tool" : "animation", "source": "4"} },
-    { "id" : "LOil1_4", "parent" : "LOil1", "text" : "Braer 1993", "children" : false, "a_attr" : { "path" : "data/braer.kmz", "tool" : "animation", "source": "15"} }
+    { "id" : "LOil1_1", "parent" : "LOil1", "text" : "Full City 2009", "children" : false, "a_attr" : { "path" : "data/fullcity.kmz", "tool" : "animation", "source": "0", "projection" : "EPSG:3857"} },
+    { "id" : "LOil1_2", "parent" : "LOil1", "text" : "Godafoss 2011", "children" : false, "a_attr" : { "path" : "data/godafoss.kmz", "tool" : "animation", "source": "0", "projection" : "EPSG:3857"} },
+    { "id" : "LOil1_3", "parent" : "LOil1", "text" : "Bravo 1977", "children" : false, "a_attr" : { "path" : "data/bravo.kmz", "tool" : "animation", "source": "4", "projection" : "EPSG:3857"} },
+    { "id" : "LOil1_4", "parent" : "LOil1", "text" : "Braer 1993", "children" : false, "a_attr" : { "path" : "data/braer.kmz", "tool" : "animation", "source": "15", "projection" : "EPSG:3857"} }
 ]
