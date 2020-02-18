@@ -18,9 +18,6 @@ const App4SeaKML = (function () {
   const my = {};
   let title = '';
 
-  // KML always uses the WGS84 projection
-  my.proj = 'EPSG:4326'; // EPSG:4326 = WGS84
-
   // //////////////////////////////////////////////////////////////////////////
   // Declare worker scripts path for zip manipulation
   jsZip.zip.workerScriptsPath = 'static/js/';
@@ -373,7 +370,7 @@ const App4SeaKML = (function () {
   // //////////////////////////////////////////////////////////////////////////
   // Function to parse KML text to get link reference to list any other
   // nested files (kmz or kml)
-  function parseKmlText(path, text, id, entries) {
+  function parseKmlText(path, text, id, entries, node) {
     if (App4Sea.logging) console.log(`parseKmlText: ${path}`);
     const oParser = new DOMParser();
     const oDOM = oParser.parseFromString(text, 'text/xml');
@@ -434,7 +431,7 @@ const App4SeaKML = (function () {
     }
 
     // //////////////////////////////////////////////////////////////////////////
-    function addOverlay(overlay, id0) {
+    function addOverlay(overlay, id0, node) {
       //----------------------------------------------------------------------
       function loadImageFromKmz(ent1, url1, ext1, prj1, nam1, id1, leg1) {
         const extendedCallback = function (ur, ex, pr, nm, en, id2, le) {
@@ -538,13 +535,20 @@ const App4SeaKML = (function () {
         const east = parseFloat(overlay.querySelector('east').innerHTML);
         const north = parseFloat(overlay.querySelector('north').innerHTML);
 
-        const viewExtent = olproj.transformExtent([west, south, east, north], my.proj, App4Sea.prefViewProj);
-        if (App4Sea.logging) console.log(`GroundOverlay: W:${west} S:${south} E:${east} N:${north} Pro:${my.proj} ViewProj:${App4Sea.prefViewProj}`);
+        const viewExtent = olproj.transformExtent([west, south, east, north], App4Sea.prefProj, App4Sea.prefViewProj);
+        if (App4Sea.logging) console.log(`GroundOverlay: W:${west} S:${south} E:${east} N:${north} Pro:${App4Sea.prefProj} ViewProj:${App4Sea.prefViewProj}`);
 
         let image;
         if (!url.startsWith('http') && entries && entries.length > 1) {
           if (App4Sea.logging) console.log(`Getting image ${id0} from kmz: ${url}`);
-          findIn(entries, url, [west, south, east, north], my.proj, nameIs, id0);
+
+          const { projection } = node.a_attr;
+
+          if (projection === App4Sea.prefViewProj) {
+            findIn(entries, url, viewExtent, App4Sea.prefViewProj, nameIs, id0);
+          } else {
+            findIn(entries, url, [west, south, east, north], App4Sea.prefProj, nameIs, id0);
+          }
         } else {
           if (App4Sea.logging) console.log(`Getting image ${id0} from url: ${url}`);
 
@@ -553,8 +557,8 @@ const App4SeaKML = (function () {
           const source = new ImageStatic({
             url,
             // crossOrigin: 'anonymous',
-            imageExtent: [west, south, east, north],
-            projection: my.proj,
+            imageExtent: viewExtent, //[west, south, east, north],
+            projection: App4Sea.prefViewProj,
           });
 
           image = new Image({
@@ -563,6 +567,12 @@ const App4SeaKML = (function () {
           });
 
           if (image) {
+            if (node && node.a_attr) {
+              const { opacity } = node.a_attr;
+              const op = parseInt(opacity) / 100.0;
+              if (op) image.setOpacity(op);
+            }
+  
             App4Sea.OpenLayers.layers.push({ id, vector: image });
             if (App4Sea.logging) console.log(`Added image from url. Cached layers now are ${App4Sea.OpenLayers.layers.length}: ${url}`);
 
@@ -574,7 +584,7 @@ const App4SeaKML = (function () {
     }
 
     // //////////////////////////////////////////////////////////////////////////
-    function listChildren(id3, children) {
+    function listChildren(id3, children, nod) {
       for (let cind = 0; cind < children.length; cind++) {
         const child = children[cind];
         let newId;
@@ -636,7 +646,7 @@ const App4SeaKML = (function () {
                         || child.nodeName === 'PhotoOverlay'
                         || child.nodeName === 'ScreenOverlay') {
           newId = addChild(getName(child.children, child.nodeName), child.innerHTML, $('#TreeMenu'), id3, false, 'icons/overlay.png');
-          addOverlay(child, newId);
+          addOverlay(child, newId, nod);
 
           let href = '';
           for (let hind = 0; hind < child.children.length; hind++) {
@@ -718,7 +728,7 @@ const App4SeaKML = (function () {
             par = par.parentNode;
           }
           if (predecessors && predecessors.length < 4) {
-            listChildren(newId, child.children);
+            listChildren(newId, child.children, node);
           }
         }
       }
@@ -727,7 +737,7 @@ const App4SeaKML = (function () {
     }
 
     if (kml) {
-      listChildren(id, kml.children);
+      listChildren(id, kml.children, node);
 
       if (canAnimate) App4Sea.Animation.Animate(path, title, id);
     }
