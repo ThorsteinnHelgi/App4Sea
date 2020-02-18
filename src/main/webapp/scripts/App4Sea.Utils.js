@@ -135,7 +135,6 @@ const App4SeaUtils = (function App4SeaUtils() {
 
     let ex = olextent.createEmpty();
     for (let ind = 0; ind < features.length; ind++) {
-      //console.log(ind);
       ex = olextent.extend(ex, features[ind].getGeometry().getExtent());
     }
 
@@ -543,7 +542,7 @@ const App4SeaUtils = (function App4SeaUtils() {
     });
 
     const { opacity } = node.a_attr;
-    const op = parseInt(opacity) / 100.0;
+    const op = parseInt(opacity, 10) / 100.0;
     if (op) image.setOpacity(op);
 
     return image;
@@ -1303,7 +1302,7 @@ const App4SeaUtils = (function App4SeaUtils() {
       { passive: false },
     );
   };
-  
+
   // Make the DIV element draggable:
   my.dragElement(place);
   my.dragElement(sinfo);

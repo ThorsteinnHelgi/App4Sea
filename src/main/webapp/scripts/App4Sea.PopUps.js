@@ -216,7 +216,7 @@ const App4SeaPopUps = (function () {
       address: '',
       description: '',
       operator: '',
-      
+
       equipment_totalStorageCapacity: '',
       equipment_heatedStorage: '',
       equipment_boats: '',

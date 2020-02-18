@@ -203,7 +203,7 @@ const App4SeaKML = (function () {
 
     if (node && node.a_attr) {
       const { opacity } = node.a_attr;
-      const op = parseInt(opacity) / 100.0;
+      const op = parseInt(opacity, 10) / 100.0;
       if (op) vector.setOpacity(op);
     }
 
@@ -413,16 +413,16 @@ const App4SeaKML = (function () {
     my.removeRow = function (input) {
       document.getElementById('tableLegend').removeChild(input.parentNode.parentNode);// tr.td.button
     };
-    
+
     function getContentType(filename) {
       const contentTypesByExtension = {
-        'css': 'text/css',
-        'js': 'application/javascript',
-        'png': 'image/png',
-        'jpg': 'image/jpeg',
-        'jpeg': 'image/jpeg',
-        'html': 'text/html',
-        'htm': 'text/html'
+        css: 'text/css',
+        js: 'application/javascript',
+        png: 'image/png',
+        jpg: 'image/jpeg',
+        jpeg: 'image/jpeg',
+        html: 'text/html',
+        htm: 'text/html',
       };
 
       const tokens = filename.split('.');
@@ -431,7 +431,7 @@ const App4SeaKML = (function () {
     }
 
     // //////////////////////////////////////////////////////////////////////////
-    function addOverlay(overlay, id0, node) {
+    function addOverlay(overlay, id0, mynode) {
       //----------------------------------------------------------------------
       function loadImageFromKmz(ent1, url1, ext1, prj1, nam1, id1, leg1) {
         const extendedCallback = function (ur, ex, pr, nm, en, id2, le) {
@@ -542,7 +542,7 @@ const App4SeaKML = (function () {
         if (!url.startsWith('http') && entries && entries.length > 1) {
           if (App4Sea.logging) console.log(`Getting image ${id0} from kmz: ${url}`);
 
-          const { projection } = node.a_attr;
+          const { projection } = mynode.a_attr;
 
           if (projection === App4Sea.prefViewProj) {
             findIn(entries, url, viewExtent, App4Sea.prefViewProj, nameIs, id0);
@@ -557,7 +557,7 @@ const App4SeaKML = (function () {
           const source = new ImageStatic({
             url,
             // crossOrigin: 'anonymous',
-            imageExtent: viewExtent, //[west, south, east, north],
+            imageExtent: viewExtent, // [west, south, east, north],
             projection: App4Sea.prefViewProj,
           });
 
@@ -567,12 +567,12 @@ const App4SeaKML = (function () {
           });
 
           if (image) {
-            if (node && node.a_attr) {
-              const { opacity } = node.a_attr;
-              const op = parseInt(opacity) / 100.0;
+            if (mynode && mynode.a_attr) {
+              const { opacity } = mynode.a_attr;
+              const op = parseInt(opacity, 10) / 100.0;
               if (op) image.setOpacity(op);
             }
-  
+
             App4Sea.OpenLayers.layers.push({ id, vector: image });
             if (App4Sea.logging) console.log(`Added image from url. Cached layers now are ${App4Sea.OpenLayers.layers.length}: ${url}`);
 
