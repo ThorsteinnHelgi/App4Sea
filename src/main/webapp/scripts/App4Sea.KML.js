@@ -433,7 +433,7 @@ const App4SeaKML = (function () {
     // //////////////////////////////////////////////////////////////////////////
     function addOverlay(overlay, id0, node) {
       //----------------------------------------------------------------------
-      function loadImageFromKmz(ent1, url1, ext1, prj1, nam1, id1, leg1) {
+      function loadImageFromKmz(ent1, url1, ext1, prj1, nam1, id1, leg1, nod1) {
         const extendedCallback = function (ur, ex, pr, nm, en, id2, le) {
           return function (data) {
             const kmzurl = URL.createObjectURL(data);
@@ -451,6 +451,12 @@ const App4SeaKML = (function () {
                 source,
               });
               if (image) {
+                if (nod1 && nod1.a_attr) {
+                  const { opacity } = nod1.a_attr;
+                  const op = parseInt(opacity) / 100.0;
+                  if (op) image.setOpacity(op);
+                }    
+
                 // if (App4Sea.logging) console.log(`Pushing image to: ${ex}`);
                 App4Sea.OpenLayers.layers.push({ id: id2, vector: image });
                 if (App4Sea.logging) console.log(`Added image ${id2}=${nm} from kmz. Cached layers now are ${App4Sea.OpenLayers.layers.length}: ${ur}`);
@@ -477,11 +483,11 @@ const App4SeaKML = (function () {
       }
 
       //----------------------------------------------------------------------
-      function findIn(filesInKmz, url_, ext, prj_, nam, ide, isLeg) {
+      function findIn(filesInKmz, url_, ext, prj_, nam, ide, isLeg, nod) {
         let found = false;
         for (let ind = 0; ind < filesInKmz.length; ind++) {
           if (filesInKmz[ind].filename === url_) {
-            loadImageFromKmz(filesInKmz[ind], url_, ext, prj_, nam, ide, isLeg);
+            loadImageFromKmz(filesInKmz[ind], url_, ext, prj_, nam, ide, isLeg, nod);
             found = true;
           }
         }
@@ -518,7 +524,7 @@ const App4SeaKML = (function () {
         if (url) {
           if (!url.startsWith('http') && entries && entries.length > 1) {
             if (App4Sea.logging) console.log(`Getting legend from kmz: ${url}`);
-            findIn(entries, url, null, null, nameIs, id0, true);
+            findIn(entries, url, null, null, nameIs, id0, true, null);
           } else addLegend(title, url);
         }
       } else if (overlay.nodeName === 'PhotoOverlay') {
@@ -545,9 +551,9 @@ const App4SeaKML = (function () {
           const { projection } = node.a_attr;
 
           if (projection === App4Sea.prefViewProj) {
-            findIn(entries, url, viewExtent, App4Sea.prefViewProj, nameIs, id0);
+            findIn(entries, url, viewExtent, App4Sea.prefViewProj, nameIs, id0, false, node);
           } else {
-            findIn(entries, url, [west, south, east, north], App4Sea.prefProj, nameIs, id0);
+            findIn(entries, url, [west, south, east, north], App4Sea.prefProj, nameIs, id0, false, node);
           }
         } else {
           if (App4Sea.logging) console.log(`Getting image ${id0} from url: ${url}`);
