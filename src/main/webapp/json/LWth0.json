@@ -10,5 +10,6 @@
     { "id" : "LWth10", "parent" : "LWth0", "text" : "Current temperature", "children" : false, "a_attr" : { "path" : "https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=6a3e86f0825c7e6e605105c24d5ec1cd", "source": "19"} },
     { "id" : "LWth11", "parent" : "LWth0", "text" : "Current precipitation ", "children" : false, "a_attr" : { "path" : "https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=6a3e86f0825c7e6e605105c24d5ec1cd", "source": "20"} },
     { "id" : "LWth12", "parent" : "LWth0", "text" : "Ice edge", "children" : false, "a_attr" : { "path" : "http://halo-wms.met.no/halo/default.map?version=1.3.0&REQUEST=GetMap&LAYERS=ice.edge&STYLES=&CRS=EPSG:4326&BBOX=-180,-90,180,90&WIDTH=512&HEIGHT=512&FORMAT=image%2Fpng&service=WMS", "source": "2", "opacity" : "50"} },
-    { "id" : "LWth15", "parent" : "LWth0", "text" : "MASIE", "children" : false, "a_attr" : { "path" : "https://cors-anywhere.herokuapp.com/http://masie_web.apps.nsidc.org/pub/DATASETS/NOAA/G02186/latest/4km/masie_ice_r00.kmz", "source": "0", "opacity" : "70"} }
+    { "id" : "LWth15", "parent" : "LWth0", "text" : "MASIE (latest)", "children" : false, "a_attr" : { "path" : "https://cors-anywhere.herokuapp.com/http://masie_web.apps.nsidc.org/pub/DATASETS/NOAA/G02186/latest/4km/masie_ice_r00.kmz", "source": "28"} },
+    { "id" : "LWth16", "parent" : "LWth0", "text" : "MASIE (animation, monthly since 2006)", "children" : false, "a_attr" : { "path" : "data/masie/masie.kmz", "tool" : "animation", "source": "28"} }
 ]

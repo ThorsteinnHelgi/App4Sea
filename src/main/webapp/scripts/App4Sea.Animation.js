@@ -51,7 +51,7 @@ const App4SeaAnimation = (function () {
 
   // //////////////////////////////////////////////////////////////////////////
   // addOption
-  function addOption (name, url, node_id) {
+  function addOption(name, url, node_id) {
     const selector = document.getElementById('AniDataSelect');
 
     let alreadyIn = false;
@@ -102,12 +102,6 @@ const App4SeaAnimation = (function () {
 
     const currSet = my.AniData[currSel];
     count = currSet[golLink].length;
-
-    if (count < 2) {
-      return;
-    }
-
-    // Prepare();
   };
 
   // //////////////////////////////////////////////////////////////////////////
@@ -116,7 +110,7 @@ const App4SeaAnimation = (function () {
     currSel = event.currentTarget.selectedIndex;
     const options = event.currentTarget.options;
 
-    let oldstate = state;
+    const oldstate = state;
 
     my.Animate(options[currSel].url, event.currentTarget.value, options[currSel].node_id);
 
@@ -304,7 +298,7 @@ const App4SeaAnimation = (function () {
 
     el = document.getElementById('currentDate');
     el.innerHTML = currentDate.substr(0, 10);
-    let layerid = currSet[golLayerID][anindex];
+    const layerid = currSet[golLayerID][anindex];
     //        let lind = findLayerIndex(layerid);
     const remember = 1;
 
@@ -315,10 +309,10 @@ const App4SeaAnimation = (function () {
     App4Sea.TreeMenu.Checkbox(layerid, true);
 
     // Make other id's inactive
-    for (let ind=0; ind<currSet[golLayerID].length; ind++) {
+    for (let ind = 0; ind < currSet[golLayerID].length; ind++) {
       if (ind === anindex) continue;
 
-      App4Sea.TreeMenu.Checkbox(currSet[golLayerID][ind], false);  
+      App4Sea.TreeMenu.Checkbox(currSet[golLayerID][ind], false);
     }
     // // Find last index that should be active
     // let lastanindex = anindex - remember;
