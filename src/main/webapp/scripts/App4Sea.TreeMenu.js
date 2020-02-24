@@ -119,7 +119,7 @@ const App4SeaTreeMenu = (function () {
 
     container.style.visibility = 'hidden';
     handle.style.visibility = 'hidden';
-  }
+  };
 
   // ////////////////////////////////////////////////////////////////////////
   function showSourceInfo(title, si) {
@@ -204,7 +204,7 @@ const App4SeaTreeMenu = (function () {
 
     el.classList.add('sourceinfo');
     par.appendChild(el);
-  
+
     const container = document.getElementById('SourceInfoContainer');
     const handle = document.getElementById('siDragHandle');
 
@@ -258,7 +258,7 @@ const App4SeaTreeMenu = (function () {
       });
     }
 
-    function getData(node, filename) {    
+    function getData(node, filename) {
       function onSuccess(parent_node, fnSetTree, ourFilename, ourJSONdata) {
         return function (data, status, jqXHR) {
           for (let i_success = 0; i_success < data.length; i_success++) {
@@ -275,7 +275,7 @@ const App4SeaTreeMenu = (function () {
             if (children) getData(thisNode, ourFilename); // Do this recursively
 
             // if (App4Sea.logging) console.log(parent_node.id + ': ' + thisNode.id + ", text: " + thisNode.text + ", path: " + thisNode.a_attr.path);
-          }-
+          }
 
           ajaxCount--;
           if (ajaxCount === 0) {
@@ -316,19 +316,19 @@ const App4SeaTreeMenu = (function () {
     }
 
     function setSourceInfoButton(child) {
-      const node = $(TreeMenu).jstree(true).get_node(child.id);
+      const node = $('#TreeMenu').jstree(true).get_node(child.id);
       if (node && node.a_attr) {
         const { source } = node.a_attr;
         if (source) {
           const el = document.createElement('button');
-          el.id = 'sib_' + child.id;
+          el.id = `sib_${child.id}`;
           el.addEventListener(
             'click',
             () => {
               showSourceInfo(child.outerText, sourceInfo[source]);
             },
             false,
-            { passive: true }
+            { passive: true },
           );
           // el.addEventListener(
           //   'mouseenter',
@@ -351,12 +351,12 @@ const App4SeaTreeMenu = (function () {
         }
       }
     }
-    
+
     function addSouceInfo(elem) {
       function recurseSourceInfo(par) {
         for (let ind = 0; ind < par.children.length; ind++) {
           const child = par.children[ind];
-          
+
           recurseSourceInfo(child);
 
           if (child.localName === 'li') {
@@ -400,9 +400,9 @@ const App4SeaTreeMenu = (function () {
     //   const elem = document.getElementById(data.node.id);
     //   addSouceInfo(elem);
     // });
-    // Catch event: create_node. 
+    // Catch event: create_node.
     // Need this to add button again as the li node is replaced the first time node is selected
-    $('#TreeMenu').on('create_node.jstree', function (e, data) {
+    $('#TreeMenu').on('create_node.jstree', (e, data) => {
       const elem = document.getElementById(data.node.parent);
       if (elem) {
         setSourceInfoButton(elem);
@@ -411,24 +411,24 @@ const App4SeaTreeMenu = (function () {
 
 
     // Catch event: open_node
-    $('#TreeMenu').on('open_node.jstree', function (e, data) {
+    $('#TreeMenu').on('open_node.jstree', (e, data) => {
       const elem = document.getElementById(data.node.id);
       addSouceInfo(elem);
     });
 
     // Catch event: loaded
-    $('#TreeMenu').on('loaded.jstree', function (e, data) {
+    $('#TreeMenu').on('loaded.jstree', (e, data) => {
       const root = $('#TreeMenu')[0];
       addSouceInfo(root);
     });
 
     // Catch event: changed
-    $('#TreeMenu').on('changed.jstree', function (e, data) {
+    $('#TreeMenu').on('changed.jstree', (e, data) => {
       // if (App4Sea.logging) console.log(`On Action: ${data.action} on node ${data.node.id}`);
 
       if (typeof data.node === 'undefined') return;
 
-      const node = data.node; 
+      const node = data.node;
 
       // Remove overlay
       hideMetadata();

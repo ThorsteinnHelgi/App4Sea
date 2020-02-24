@@ -215,7 +215,7 @@ const App4SeaOpenLayers = (function () {
 
       for (let ind = 0; ind < my.Map.controls; ind++) {
         if (my.Map.controls[ind] === 'OverviewMap') {
-          my.Map.controls.splice(ind, 1); 
+          my.Map.controls.splice(ind, 1);
         }
         break;
       }
@@ -223,7 +223,7 @@ const App4SeaOpenLayers = (function () {
       my.Map.addControl(new OverviewMap({
         layers: [currentLayerMini],
         collapsed: true,
-      }));  
+      }));
     }
   }
 
@@ -280,7 +280,7 @@ const App4SeaOpenLayers = (function () {
       updateBaseMap();
     });
   }
-  
+
   // //////////////////////////////////////////////////////////////////////////
   // InitToolTip
   function InitToolTip() {
