@@ -1,8 +1,8 @@
  { "list": [
-    { 
-        "id" : "S0", 
-        "title" : "-- This is a placeholder for pending info --", 
-        "subtitle" : "-- no subtitle provided --", 
+    {
+        "id" : "S0",
+        "title" : "-- This is a placeholder for pending info --",
+        "subtitle" : "-- no subtitle provided --",
         "authors" : "- no authors provided -",
         "source" : "- no source information provided -",
         "about" : "- no information about this provided -",
@@ -12,11 +12,11 @@
         "image" : "- no image provided -",
         "license" : "- no license provided -"
     },
-    { 
-        "id" : "S1", 
+    {
+        "id" : "S1",
         "title" : "Sea surface temperature",
         "subtitle" : "24 hours prognosis",
-        "authors" : "MET Norway", 
+        "authors" : "MET Norway",
         "source" : "MET Norway",
         "about" : "ROMS Nordic4km ocean model system used for 24 hours prognosis of sea surface temperature",
         "link" : "",
@@ -25,10 +25,10 @@
         "image" : "images/SeaTemp.png",
         "license" : ""
     },
-    { 
-        "id" : "S2", 
-        "title" : "Ice edge", 
-        "subtitle" : "", 
+    {
+        "id" : "S2",
+        "title" : "Ice edge",
+        "subtitle" : "",
         "authors" : "MET Norway",
         "source" : "MET Norway ice service. See <a href='http://halo-wms.met.no/halo/default.map?service=WMS&REQUEST=GetCapabilities&VERSION=1.3.0' target='_blank'>here</a>",
         "about" : "These maps are based on automatic processing from satellite images (Ocean and Sea Ice Satellite Application Facility (OSI SAF). The resolution is rough (about 10 km) and it is therefore not recommended to zoom in these maps. For a more detailed view of the ice condition then we recommend to use the Ice concentration map. The ice-edge map give an overview of the prevalence of various type of ice in the Arctic.",
@@ -38,23 +38,23 @@
         "image" : "images/IceEdge.png",
         "license" : ""
     },
-    { 
-        "id" : "S3", 
-        "title" : "Ice coverage", 
-        "subtitle" : "", 
-        "authors" : "MET Norway", 
+    {
+        "id" : "S3",
+        "title" : "Ice coverage",
+        "subtitle" : "",
+        "authors" : "MET Norway",
         "source" : "MET Norway ice service. See <a href='http://halo-wms.met.no/halo/default.map?service=WMS&REQUEST=GetCapabilities&VERSION=1.3.0' target='_blank'>here</a>",
-        "about" : "These maps are based on automatic processing from satellite images (Ocean and Sea Ice Satellite Application Facility (OSI SAF). The resolution is rough (about 10 km) and it is therefore not recommended to zoom in these maps. For a more detailed view of the ice condition then we recommend to use the Ice concentration map. The ice-edge map give an overview of the prevalence of various type of ice in the Arctic.", 
+        "about" : "These maps are based on automatic processing from satellite images (Ocean and Sea Ice Satellite Application Facility (OSI SAF). The resolution is rough (about 10 km) and it is therefore not recommended to zoom in these maps. For a more detailed view of the ice condition then we recommend to use the Ice concentration map. The ice-edge map give an overview of the prevalence of various type of ice in the Arctic.",
         "link" : "<a href='https://cryo.met.no/' target='_blank'>Cryo from MET Norway</a>",
         "usage" : "",
         "legend" : "",
         "image" : "images/IceType.png",
         "license" : ""
     },
-    { 
-        "id" : "S4", 
-        "title" : "Ekofisk Bravo on 22 April 1977", 
-        "subtitle" : "OpenDrift simulation", 
+    {
+        "id" : "S4",
+        "title" : "Ekofisk Bravo on 22 April 1977",
+        "subtitle" : "OpenDrift simulation",
         "authors" : "App4Sea: MET Norway",
         "source" : "MET Norway",
         "about" : "OpenDrift simulation of Ekofisk Bravo on 22 April 1977 using historical metocean forcing data from the MET Norway SVIM archive and ERA40 atmospheric data.",
@@ -64,10 +64,10 @@
         "image" : "images/Bravo.png",
         "license" : ""
     },
-    { 
-        "id" : "S5", 
+    {
+        "id" : "S5",
         "title" : "If the Helge Ingstad incident had caused oil spill",
-        "subtitle" : "OpenDrift simulation", 
+        "subtitle" : "OpenDrift simulation",
         "authors" : "App4Sea: MET Norway",
         "source" : "MET Norway",
         "about" : "OpenDrift simulation of potential oil spill if Norwegian frigate Helge Ingstad\nhad ripped the hull of tanker Sola in the collision on 8 November 2018.",
@@ -77,9 +77,9 @@
         "image" : "images/HelgeIngstad.png",
         "license" : ""
     },
-    { 
-        "id" : "S6", 
-        "title" : "Northern Periphery Area (NPA)", 
+    {
+        "id" : "S6",
+        "title" : "Northern Periphery Area (NPA)",
         "subtitle" : "Target zone for App4Sea",
         "authors" : "Counties definitions: Nordregio. Composition: App4Sea: University of Iceland",
         "source" : "<a href='http://www.nordregio.se' target='_blank'>Nordregio</a>",
@@ -90,10 +90,10 @@
         "image" : "images/NPA.png",
         "license" : ""
     },
-    { 
-        "id" : "S7", 
-        "title" : "EEZ boundaries", 
-        "subtitle" : "NPA region subset", 
+    {
+        "id" : "S7",
+        "title" : "EEZ boundaries",
+        "subtitle" : "NPA region subset",
         "authors" : "Boundaries: Marine Regions. Composition: App4Sea: University of Iceland",
         "source" : "<a href='http://www.marineregions.org//downloads.php' target='_blank'>Marineregions.org</a>",
         "about" : "Marine Regions is an integration of the VLIMAR Gazetteer\nand the VLIZ Maritime Boundaries Geodatabase.",
@@ -103,10 +103,10 @@
         "image" : "images/MarineBoundaries.png",
         "license" : ""
     },
-    { 
-        "id" : "S8", 
+    {
+        "id" : "S8",
         "title" : "DECC Hydrocarbon Fields",
-        "subtitle" : "", 
+        "subtitle" : "",
         "authors" : "<a href='https://www.ogauthority.co.uk' target='_blank'>Oil and gas authority</a>",
         "source" : "<a href='https://www.gov.uk/government/organisations/department-for-business-energy-and-industrial-strategy' target='_blank'>Department for Business, Energy & Industrial Strategy</a>",
         "about" : "",
@@ -116,10 +116,10 @@
         "image" : "images/HydrocarbonUK.png",
         "license" : ""
     },
-    { 
-        "id" : "S9", 
-        "title" : "Hydrocarbon fields in Norway", 
-        "subtitle" : "", 
+    {
+        "id" : "S9",
+        "title" : "Hydrocarbon fields in Norway",
+        "subtitle" : "",
         "authors" : "",
         "source" : "",
         "about" : "",
@@ -129,10 +129,10 @@
         "image" : "images/HydrocarbonNO.png",
         "license" : ""
     },
-    { 
-        "id" : "S10", 
-        "title" : "Oil spill incidents", 
-        "subtitle" : "Location and links to further information", 
+    {
+        "id" : "S10",
+        "title" : "Oil spill incidents",
+        "subtitle" : "Location and links to further information",
         "authors" : "Data in country profiles from ITOPF. Composition: App4Sea: University of Iceland",
         "source" : "<a href='http://www.itopf.org' target='_blank'>ITOPF</a>",
         "about" : "Building on data from ITOPF App4Sea has created this data to show the sites of major oil spills in the NPA and to provide links to futher information",
@@ -142,10 +142,10 @@
         "image" : "images/Incidents.png",
         "license" : ""
     },
-    { 
-        "id" : "S11", 
-        "title" : "Köppen-Geiger climate map of the world", 
-        "subtitle" : "", 
+    {
+        "id" : "S11",
+        "title" : "Köppen-Geiger climate map of the world",
+        "subtitle" : "",
         "authors" : "Peel et al (2007)",
         "source" : "University of Melbourne",
         "about" : "",
@@ -155,10 +155,10 @@
         "image" : "images/Koppen.png",
         "license" : "<a href='https://creativecommons.org/licenses/by-nc-sa/2.0/deed.en' target='_blank'>Creative Commons Attribution, NonCommercial and ShareAlike License</a>"
     },
-    { 
-        "id" : "S12", 
-        "title" : "Oil Spill Response (OSR)", 
-        "subtitle" : "Sites, vessels and aircraft", 
+    {
+        "id" : "S12",
+        "title" : "Oil Spill Response (OSR)",
+        "subtitle" : "Sites, vessels and aircraft",
         "authors" : "App4Sea: University of Oulu",
         "source" : "",
         "about" : "",
@@ -168,10 +168,10 @@
         "image" : "images/OSR.png",
         "license" : ""
     },
-    { 
-        "id" : "S13", 
+    {
+        "id" : "S13",
         "title" : "Significant Wave Height",
-        "subtitle" : "24 hours prognosis", 
+        "subtitle" : "24 hours prognosis",
         "authors" : "MET Norway",
         "source" : "MET Norway",
         "about" : "ROMS Nordic4km ocean model system for 24 hours prognosis of significant wage height. The map shows the significant wave height as a palette. The wave height is given in meters (m). The interval in the colour scale is 0.5 m for wave heights ranging from 0 to 6 meters, 1 m for wave heights ranging from 6 to 10 meters, and 2 m for wave heights ranging from 10 to 14 meters. The map consists of a mosaic of areas with different horizontal resolution and coverage. The biggest area is a 4km wave model (MyWaveWam4). Near the Norwegian coast a wave model with 800 meter horizontal resolution (wam800) is used. Five different areas with this 800meter wave model cover the entire Norwegian coast. The MyWaveWam4 modell is updated four times a day, at 00UTC, 06UTC, 12 UTC and 18UTC, while the wam800 modell is updated once a day, at 00UTC. The forecast length is 66 hours for both models.",
@@ -181,10 +181,10 @@
         "image" : "images/SignWaveHeight.png",
         "license" : ""
     },
-    { 
-        "id" : "S14", 
-        "title" : "Northguider on 28 December, 2018", 
-        "subtitle" : "OpenDrift simulation", 
+    {
+        "id" : "S14",
+        "title" : "Northguider on 28 December, 2018",
+        "subtitle" : "OpenDrift simulation",
         "authors" : "App4Sea: MET Norway",
         "source" : "MET Norway",
         "about" : "OpenDrift simulation of Northguider on 28 December, 2018 using historical metocean forcing data from the MET Norway SVIM archive and ERA40 atmospheric data.",
@@ -194,10 +194,10 @@
         "image" : "images/Northguider.png",
         "license" : ""
     },
-    { 
-        "id" : "S15", 
-        "title" : "Braer 1993", 
-        "subtitle" : "OpenDrift simulation", 
+    {
+        "id" : "S15",
+        "title" : "Braer 1993",
+        "subtitle" : "OpenDrift simulation",
         "authors" : "App4Sea: MET Norway",
         "source" : "MET Norway",
         "about" : "OpenDrift simulation of Braer 1993 using historical metocean forcing data from the MET Norway SVIM archive and ERA40 atmospheric data.",
@@ -207,10 +207,10 @@
         "image" : "images/Braer.png",
         "license" : ""
     },
-    { 
-        "id" : "S16", 
-        "title" : "Ocean Current Direction", 
-        "subtitle" : "24 hours prognosis", 
+    {
+        "id" : "S16",
+        "title" : "Ocean Current Direction",
+        "subtitle" : "24 hours prognosis",
         "authors" : "MET Norway",
         "source" : "MET Norway",
         "about" : "ROMS Nordic4km ocean model system used for 24 hours prognosis of ocean current direction. The map shows ocean current direction shown as arrows. The map consists of a mosaic of areas with different model resolution. The biggest area is a 20km ocean model (Arctic20), then a 4km ocean model (Nordic4) and closest to Norway a 800m ocean model (Norkyst800). For all areas the ROMS ocean model is used. There are two model runs each day, at 00UTC and 12UTC.",
@@ -220,10 +220,10 @@
         "image" : "images/CurrentDir.png",
         "license" : ""
     },
-    { 
-        "id" : "S17", 
+    {
+        "id" : "S17",
         "title" : "Ocean Current Speed",
-        "subtitle" : "24 hours prognosis", 
+        "subtitle" : "24 hours prognosis",
         "authors" : "MET Norway",
         "source" : "MET Norway",
         "about" : "ROMS Nordic4km ocean model system used for 24 hours prognosis of ocean current speed. The map shows ocean current strength as a palette. The strength is given in m/s and the interval of the colours is 0.1 m/s. The map consists of a mosaic of areas with different model resolution. The biggest area is a 20km ocean model (Arctic20), then a 4km ocean model (Nordic4) and closest to Norway a 800m ocean model (Norkyst800). For all areas the ROMS ocean model is used. There are two model runs each day, at 00UTC and 12UTC.",
@@ -233,9 +233,9 @@
         "image" : "images/CurrentSpeed.png",
         "license" : ""
     },
-    { 
-        "id" : "S18", 
-        "title" : "Temperature lines at 2m height", 
+    {
+        "id" : "S18",
+        "title" : "Temperature lines at 2m height",
         "subtitle" : "First 48 hours from a 240 hours prognosis",
         "authors" : "MET Norway",
         "source" : "MET Norway",
@@ -246,10 +246,10 @@
         "image" : "images/TemperatureLines.png",
         "license" : ""
     },
-    { 
+    {
         "id" : "S19",
-        "title" : "Current temperature", 
-        "subtitle" : "-- no subtitle provided --", 
+        "title" : "Current temperature",
+        "subtitle" : "-- no subtitle provided --",
         "authors" : "Open Weather",
         "source" : "- no source information provided -",
         "about" : "- no information about this provided -",
@@ -259,10 +259,10 @@
         "image" : "images/Temperature.png",
         "license" : ""
     },
-    { 
-        "id" : "20", 
-        "title" : "Current precipitation", 
-        "subtitle" : "-- no subtitle provided --", 
+    {
+        "id" : "20",
+        "title" : "Current precipitation",
+        "subtitle" : "-- no subtitle provided --",
         "authors" : "Open Weather",
         "source" : "- no source information provided -",
         "about" : "- no information about this provided -",
@@ -272,10 +272,10 @@
         "image" : "images/Precipitation.png",
         "license" : ""
     },
-    { 
+    {
         "id" : "S21",
-        "title" : "Breeding OVI", 
-        "subtitle" : "", 
+        "title" : "Breeding OVI",
+        "subtitle" : "",
         "authors" : "",
         "source" : "",
         "about" : "",
@@ -285,10 +285,10 @@
         "image" : "images/B_OVI.png",
         "license" : ""
     },
-    { 
+    {
         "id" : "S22 ",
-        "title" : "Non-breeding OVI", 
-        "subtitle" : "", 
+        "title" : "Non-breeding OVI",
+        "subtitle" : "",
         "authors" : "",
         "source" : "",
         "about" : "",
@@ -298,9 +298,9 @@
         "image" : "images/NB_OVI.png",
         "license" : ""
     },
-    { 
+    {
         "id" : "S23",
-        "title" : "Precipitation 1 hour (mm), palette, regional", 
+        "title" : "Precipitation 1 hour (mm), palette, regional",
         "subtitle" : "First 48 hours from a 66 hours prognosis",
         "authors" : "MET Norway",
         "source" : "MET Norway",
@@ -311,9 +311,9 @@
         "image" : "images/PrecipitationWMS.png",
         "license" : ""
     },
-    { 
-        "id" : "S24", 
-        "title" : "Temperature at 2m height", 
+    {
+        "id" : "S24",
+        "title" : "Temperature at 2m height",
         "subtitle" : "48 hours prognosis",
         "authors" : "MET Norway",
         "source" : "MET Norway",
@@ -324,8 +324,8 @@
         "image" : "images/TemperatureArea.png",
         "license" : ""
     },
-    { 
-        "id" : "S25", 
+    {
+        "id" : "S25",
         "title" : "Large Marine Ecosystems",
         "subtitle" : "",
         "authors" : "PAME",
@@ -337,8 +337,8 @@
         "image" : "images/LME.png",
         "license" : ""
     },
-    { 
-        "id" : "S26", 
+    {
+        "id" : "S26",
         "title" : "Seabirds Breeding SOSI",
         "subtitle" : "",
         "authors" : "App4Sea: University of the Highlands",
@@ -350,8 +350,8 @@
         "image" : "images/SOSI.png",
         "license" : ""
     },
-    { 
-        "id" : "S27", 
+    {
+        "id" : "S27",
         "title" : "Seabirds Non-Breeding SOSI",
         "subtitle" : "",
         "authors" : "App4Sea: University of the Highlands",
@@ -362,5 +362,18 @@
         "legend" : "",
         "image" : "images/NO_SOSI.png",
         "license" : ""
+    },
+    {
+        "id" : "S28",
+        "title" : "Multisensor Analyzed Sea Ice Extent - Northern Hemisphere (MASIE-NH)",
+        "subtitle" : "",
+        "authors" : "National Ice Center and National Snow and Ice Data Center. Compiled by F. Fetterer, M. Savoie, S. Helfrich, and P. Clemente-Colón. 2010, updated daily. Multisensor Analyzed Sea Ice Extent - Northern Hemisphere (MASIE-NH), Version 1. Boulder, Colorado USA. NSIDC: National Snow and Ice Data Center. doi: https://doi.org/10.7265/N5GT5K3K.",
+        "source" : "<a href='https://nsidc.org/data/masie' target='_blank'>https://nsidc.org/data/masie</a>",
+        "about" : "MASIE-NH stands for the Multisensor Analyzed Sea Ice Extent – Northern Hemisphere. It is similar to the Sea Ice Index (SII) product in that it is easy to use and gives a graphical view of ice extent in various formats. However, it relies more on visible imagery than on passive microwave data, so the ice edge position will generally be more accurate than that of the Sea Ice Index. The input is the daily 4-km sea ice component of the National Ice Center (NIC) Interactive Multisensor Snow and Ice Mapping System (IMS) product which is available separately at the NIC IMS Products Web page and IMS Daily Northern Hemisphere Snow and Ice Analysis at 4 km and 24 km Resolution data set at NSDIC. MASIE sea ice products are developed from NIC data with support from the U.S. Navy and from NOAA. MASIE is hosted by NOAA@NSIDC.",
+        "link" : "<a href='https://nsidc.org/data/G02186/versions/1' target='_blank'>https://nsidc.org/data/G02186/versions/1</a>" ,
+        "usage" : "",
+        "legend" : "",
+        "image" : "http://masie_web.apps.nsidc.org/pub/DATASETS/NOAA/G02186/latest/4km/masie_all_zoom_4km.png",
+        "license" : "<a href='http://nsidc.org/about/use_copyright.html' target='_blank'>http://nsidc.org/about/use_copyright.html</a>"
     }
 ]}

@@ -1,0 +1,2227 @@
+<?xml version="1.0"?>
+<kml xmlns="http://earth.google.com/kml/2.2">
+
+    <Document>
+        <description>Multisensor Analyzed Sea Ice Extent - Northern Hemisphere (MASIE-NH)</description>
+        <LookAt>
+            <longitude>-105</longitude>
+            <latitude>90</latitude>
+            <range>3500000</range>
+            <altitude>1200000</altitude>
+            <altitudeMode>relativeToGround</altitudeMode>
+            <tilt>3.0</tilt>
+        </LookAt>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2006-01-01T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2006-01-01T00:00:00Z</begin>
+        <end>2006-01-31T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2006001.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2006-01-31T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2006-01-31T00:00:00Z</begin>
+        <end>2006-03-02T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2006031.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2006-03-02T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2006-03-02T00:00:00Z</begin>
+        <end>2006-04-01T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2006061.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2006-04-01T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2006-04-01T00:00:00Z</begin>
+        <end>2006-05-01T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2006091.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2006-05-01T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2006-05-01T00:00:00Z</begin>
+        <end>2006-05-31T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2006121.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2006-05-31T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2006-05-31T00:00:00Z</begin>
+        <end>2006-06-30T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2006151.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2006-06-30T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2006-06-30T00:00:00Z</begin>
+        <end>2006-07-30T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2006181.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2006-07-30T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2006-07-30T00:00:00Z</begin>
+        <end>2006-08-29T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2006211.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2006-08-29T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2006-08-29T00:00:00Z</begin>
+        <end>2007-01-26T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2006241.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2007-01-26T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2007-01-26T00:00:00Z</begin>
+        <end>2007-02-25T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2007026.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2007-02-25T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2007-02-25T00:00:00Z</begin>
+        <end>2007-03-27T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2007056.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2007-03-27T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2007-03-27T00:00:00Z</begin>
+        <end>2007-04-26T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2007086.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2007-04-26T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2007-04-26T00:00:00Z</begin>
+        <end>2007-05-26T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2007116.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2007-05-26T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2007-05-26T00:00:00Z</begin>
+        <end>2007-06-25T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2007146.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2007-06-25T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2007-06-25T00:00:00Z</begin>
+        <end>2007-07-25T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2007176.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2007-07-25T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2007-07-25T00:00:00Z</begin>
+        <end>2007-08-24T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2007206.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2007-08-24T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2007-08-24T00:00:00Z</begin>
+        <end>2008-01-21T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2007236.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2008-01-21T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2008-01-21T00:00:00Z</begin>
+        <end>2008-02-20T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2008021.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2008-02-20T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2008-02-20T00:00:00Z</begin>
+        <end>2008-03-21T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2008051.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2008-03-21T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2008-03-21T00:00:00Z</begin>
+        <end>2008-04-20T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2008081.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2008-04-20T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2008-04-20T00:00:00Z</begin>
+        <end>2008-05-20T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2008111.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2008-05-20T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2008-05-20T00:00:00Z</begin>
+        <end>2008-06-19T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2008141.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2008-06-19T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2008-06-19T00:00:00Z</begin>
+        <end>2008-07-19T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2008171.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2008-07-19T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2008-07-19T00:00:00Z</begin>
+        <end>2008-08-18T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2008201.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2008-08-18T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2008-08-18T00:00:00Z</begin>
+        <end>2008-09-17T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2008231.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2008-09-17T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2008-09-17T00:00:00Z</begin>
+        <end>2009-01-15T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2008261.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2009-01-15T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2009-01-15T00:00:00Z</begin>
+        <end>2009-02-14T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2009015.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2009-02-14T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2009-02-14T00:00:00Z</begin>
+        <end>2009-03-16T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2009045.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2009-03-16T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2009-03-16T00:00:00Z</begin>
+        <end>2009-04-15T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2009075.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2009-04-15T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2009-04-15T00:00:00Z</begin>
+        <end>2009-05-15T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2009105.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2009-05-15T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2009-05-15T00:00:00Z</begin>
+        <end>2009-06-14T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2009135.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2009-06-14T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2009-06-14T00:00:00Z</begin>
+        <end>2009-07-14T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2009165.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2009-07-14T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2009-07-14T00:00:00Z</begin>
+        <end>2009-08-13T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2009195.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2009-08-13T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2009-08-13T00:00:00Z</begin>
+        <end>2009-09-12T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2009225.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2009-09-12T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2009-09-12T00:00:00Z</begin>
+        <end>2010-02-09T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2009255.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2010-02-09T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2010-02-09T00:00:00Z</begin>
+        <end>2010-03-11T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2010040.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2010-03-11T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2010-03-11T00:00:00Z</begin>
+        <end>2010-04-10T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2010070.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2010-04-10T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2010-04-10T00:00:00Z</begin>
+        <end>2010-05-10T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2010100.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2010-05-10T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2010-05-10T00:00:00Z</begin>
+        <end>2010-06-09T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2010130.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2010-06-09T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2010-06-09T00:00:00Z</begin>
+        <end>2010-07-09T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2010160.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2010-07-09T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2010-07-09T00:00:00Z</begin>
+        <end>2010-08-08T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2010190.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2010-08-08T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2010-08-08T00:00:00Z</begin>
+        <end>2010-09-07T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2010220.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2010-09-07T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2010-09-07T00:00:00Z</begin>
+        <end>2011-01-05T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2010250.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2011-01-05T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2011-01-05T00:00:00Z</begin>
+        <end>2011-02-04T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2011005.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2011-02-04T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2011-02-04T00:00:00Z</begin>
+        <end>2011-03-06T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2011035.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2011-03-06T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2011-03-06T00:00:00Z</begin>
+        <end>2011-04-05T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2011065.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2011-04-05T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2011-04-05T00:00:00Z</begin>
+        <end>2011-05-05T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2011095.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2011-05-05T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2011-05-05T00:00:00Z</begin>
+        <end>2011-06-04T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2011125.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2011-06-04T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2011-06-04T00:00:00Z</begin>
+        <end>2011-07-04T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2011155.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2011-07-04T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2011-07-04T00:00:00Z</begin>
+        <end>2011-08-03T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2011185.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2011-08-03T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2011-08-03T00:00:00Z</begin>
+        <end>2011-09-02T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2011215.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2011-09-02T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2011-09-02T00:00:00Z</begin>
+        <end>2012-01-30T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2011245.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2012-01-30T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2012-01-30T00:00:00Z</begin>
+        <end>2012-02-29T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2012030.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2012-02-29T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2012-02-29T00:00:00Z</begin>
+        <end>2012-03-30T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2012060.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2012-03-30T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2012-03-30T00:00:00Z</begin>
+        <end>2012-04-29T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2012090.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2012-04-29T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2012-04-29T00:00:00Z</begin>
+        <end>2012-05-29T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2012120.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2012-05-29T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2012-05-29T00:00:00Z</begin>
+        <end>2012-06-28T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2012150.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2012-06-28T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2012-06-28T00:00:00Z</begin>
+        <end>2012-07-28T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2012180.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2012-07-28T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2012-07-28T00:00:00Z</begin>
+        <end>2012-08-27T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2012210.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2012-08-27T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2012-08-27T00:00:00Z</begin>
+        <end>2013-01-24T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2012240.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2013-01-24T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2013-01-24T00:00:00Z</begin>
+        <end>2013-02-23T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2013024.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2013-02-23T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2013-02-23T00:00:00Z</begin>
+        <end>2013-03-25T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2013054.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2013-03-25T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2013-03-25T00:00:00Z</begin>
+        <end>2013-04-24T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2013084.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2013-04-24T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2013-04-24T00:00:00Z</begin>
+        <end>2013-05-24T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2013114.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2013-05-24T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2013-05-24T00:00:00Z</begin>
+        <end>2013-06-23T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2013144.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2013-06-23T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2013-06-23T00:00:00Z</begin>
+        <end>2013-07-23T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2013174.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2013-07-23T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2013-07-23T00:00:00Z</begin>
+        <end>2013-08-22T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2013204.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2013-08-22T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2013-08-22T00:00:00Z</begin>
+        <end>2013-09-21T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2013234.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2013-09-21T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2013-09-21T00:00:00Z</begin>
+        <end>2014-01-19T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2013264.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2014-01-19T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2014-01-19T00:00:00Z</begin>
+        <end>2014-02-18T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2014019.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2014-02-18T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2014-02-18T00:00:00Z</begin>
+        <end>2014-03-20T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2014049.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2014-03-20T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2014-03-20T00:00:00Z</begin>
+        <end>2014-04-19T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2014079.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2014-04-19T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2014-04-19T00:00:00Z</begin>
+        <end>2014-05-19T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2014109.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2014-05-19T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2014-05-19T00:00:00Z</begin>
+        <end>2014-06-18T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2014139.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2014-06-18T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2014-06-18T00:00:00Z</begin>
+        <end>2014-07-18T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2014169.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2014-07-18T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2014-07-18T00:00:00Z</begin>
+        <end>2014-08-17T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2014199.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2014-08-17T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2014-08-17T00:00:00Z</begin>
+        <end>2014-09-16T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2014229.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2014-09-16T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2014-09-16T00:00:00Z</begin>
+        <end>2015-10-11T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2014259.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2015-10-11T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2015-10-11T00:00:00Z</begin>
+        <end>2015-11-10T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2015284.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2015-11-10T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2015-11-10T00:00:00Z</begin>
+        <end>2015-12-10T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2015314.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2015-12-10T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2015-12-10T00:00:00Z</begin>
+        <end>2016-01-09T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2015344.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2016-01-09T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2016-01-09T00:00:00Z</begin>
+        <end>2016-02-08T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2016009.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2016-02-08T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2016-02-08T00:00:00Z</begin>
+        <end>2016-03-09T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2016039.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2016-03-09T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2016-03-09T00:00:00Z</begin>
+        <end>2016-04-08T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2016069.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2016-04-08T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2016-04-08T00:00:00Z</begin>
+        <end>2016-05-08T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2016099.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2016-05-08T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2016-05-08T00:00:00Z</begin>
+        <end>2016-06-07T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2016129.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2016-06-07T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2016-06-07T00:00:00Z</begin>
+        <end>2016-07-07T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2016159.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2016-07-07T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2016-07-07T00:00:00Z</begin>
+        <end>2016-08-06T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2016189.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2016-08-06T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2016-08-06T00:00:00Z</begin>
+        <end>2016-09-05T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2016219.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2016-09-05T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2016-09-05T00:00:00Z</begin>
+        <end>2016-10-05T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2016249.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2016-10-05T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2016-10-05T00:00:00Z</begin>
+        <end>2016-11-04T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2016279.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2016-11-04T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2016-11-04T00:00:00Z</begin>
+        <end>2016-12-04T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2016309.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2016-12-04T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2016-12-04T00:00:00Z</begin>
+        <end>2017-01-03T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2016339.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2017-01-03T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2017-01-03T00:00:00Z</begin>
+        <end>2017-02-02T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2017003.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2017-02-02T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2017-02-02T00:00:00Z</begin>
+        <end>2017-03-04T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2017033.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2017-03-04T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2017-03-04T00:00:00Z</begin>
+        <end>2017-04-03T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2017063.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2017-04-03T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2017-04-03T00:00:00Z</begin>
+        <end>2017-05-03T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2017093.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2017-05-03T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2017-05-03T00:00:00Z</begin>
+        <end>2017-06-02T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2017123.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2017-06-02T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2017-06-02T00:00:00Z</begin>
+        <end>2017-07-02T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2017153.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2017-07-02T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2017-07-02T00:00:00Z</begin>
+        <end>2017-08-01T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2017183.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2017-08-01T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2017-08-01T00:00:00Z</begin>
+        <end>2017-08-31T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2017213.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2017-08-31T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2017-08-31T00:00:00Z</begin>
+        <end>2017-09-30T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2017243.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2017-09-30T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2017-09-30T00:00:00Z</begin>
+        <end>2017-10-30T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2017273.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2017-10-30T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2017-10-30T00:00:00Z</begin>
+        <end>2017-11-29T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2017303.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2017-11-29T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2017-11-29T00:00:00Z</begin>
+        <end>2017-12-29T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2017333.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2017-12-29T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2017-12-29T00:00:00Z</begin>
+        <end>2018-01-28T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2017363.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2018-01-28T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2018-01-28T00:00:00Z</begin>
+        <end>2018-02-27T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2018028.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2018-02-27T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2018-02-27T00:00:00Z</begin>
+        <end>2018-03-29T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2018058.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2018-03-29T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2018-03-29T00:00:00Z</begin>
+        <end>2018-04-28T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2018088.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2018-04-28T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2018-04-28T00:00:00Z</begin>
+        <end>2018-05-28T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2018118.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2018-05-28T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2018-05-28T00:00:00Z</begin>
+        <end>2018-06-27T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2018148.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2018-06-27T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2018-06-27T00:00:00Z</begin>
+        <end>2018-07-27T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2018178.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2018-07-27T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2018-07-27T00:00:00Z</begin>
+        <end>2018-08-26T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2018208.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2018-08-26T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2018-08-26T00:00:00Z</begin>
+        <end>2018-09-25T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2018238.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2018-09-25T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2018-09-25T00:00:00Z</begin>
+        <end>2018-10-25T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2018268.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2018-10-25T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2018-10-25T00:00:00Z</begin>
+        <end>2018-11-24T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2018298.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2018-11-24T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2018-11-24T00:00:00Z</begin>
+        <end>2018-12-24T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2018328.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2018-12-24T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2018-12-24T00:00:00Z</begin>
+        <end>2019-01-23T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2018358.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2019-01-23T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2019-01-23T00:00:00Z</begin>
+        <end>2019-02-22T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2019023.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2019-02-22T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2019-02-22T00:00:00Z</begin>
+        <end>2019-03-24T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2019053.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2019-03-24T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2019-03-24T00:00:00Z</begin>
+        <end>2019-04-23T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2019083.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2019-04-23T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2019-04-23T00:00:00Z</begin>
+        <end>2019-05-23T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2019113.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2019-05-23T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2019-05-23T00:00:00Z</begin>
+        <end>2019-06-22T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2019143.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2019-06-22T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2019-06-22T00:00:00Z</begin>
+        <end>2019-07-22T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2019173.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2019-07-22T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2019-07-22T00:00:00Z</begin>
+        <end>2019-08-21T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2019203.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2019-08-21T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2019-08-21T00:00:00Z</begin>
+        <end>2019-09-20T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2019233.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2019-09-20T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2019-09-20T00:00:00Z</begin>
+        <end>2019-10-20T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2019263.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2019-10-20T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2019-10-20T00:00:00Z</begin>
+        <end>2019-11-19T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2019293.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2019-11-19T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2019-11-19T00:00:00Z</begin>
+        <end>2019-12-19T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2019323.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+<GroundOverlay>
+    <name>Sea Ice extent at 2019-12-19T00:00:00Z</name>
+    <TimeSpan>
+        <begin>2019-12-19T00:00:00Z</begin>
+        <end>2020-01-18T00:00:00Z</end>
+    </TimeSpan>
+    <Icon>
+        <href>images/masie_ice_2019353.png</href>
+    </Icon>
+    <LatLonBox>
+        <north>90</north>
+        <south>0</south>
+        <east>180</east>
+        <west>-180</west>
+    </LatLonBox>
+</GroundOverlay>
+            
+</Document>
+</kml>
+        
