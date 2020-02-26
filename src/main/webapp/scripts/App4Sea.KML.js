@@ -453,9 +453,9 @@ const App4SeaKML = (function () {
               if (image) {
                 if (nod1 && nod1.a_attr) {
                   const { opacity } = nod1.a_attr;
-                  const op = parseInt(opacity) / 100.0;
+                  const op = parseInt(opacity, 10) / 100.0;
                   if (op) image.setOpacity(op);
-                }    
+                }
 
                 // if (App4Sea.logging) console.log(`Pushing image to: ${ex}`);
                 App4Sea.OpenLayers.layers.push({ id: id2, vector: image });
