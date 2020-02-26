@@ -10,6 +10,7 @@ from tqdm import tqdm
 url = 'http://masie_web.apps.nsidc.org/pub/DATASETS/NOAA/G02186/kmz/4km/'
 
 start = date(2006, 1, 1)
+# end = date(2007, 1, 1)
 end   = date.today()
 step = timedelta(days=30)
 
@@ -30,7 +31,7 @@ with ZipFile('masie.kmz', 'a') as kmz:
             murl = url + mfname
 
             png = 'masie_ice_%d%03d.png' % (day.timetuple().tm_year, day.timetuple().tm_yday)
-            zname = 'images/%s' % png
+            zname = '%s' % png
 
             # print("fetching: %s.." % murl, end='')
 
@@ -61,7 +62,6 @@ with ZipFile('masie.kmz', 'a') as kmz:
     with open('doc.kml', 'w') as kml:
         kml.write("""<?xml version="1.0"?>
 <kml xmlns="http://earth.google.com/kml/2.2">
-
     <Document>
         <description>Multisensor Analyzed Sea Ice Extent - Northern Hemisphere (MASIE-NH)</description>
         <LookAt>
@@ -72,19 +72,18 @@ with ZipFile('masie.kmz', 'a') as kmz:
             <altitudeMode>relativeToGround</altitudeMode>
             <tilt>3.0</tilt>
         </LookAt>
-            """)
+""")
 
         i = 2
         for j, (day, png) in enumerate(frames[:-1]):
-            kml.write("""
-<GroundOverlay>
+            kml.write("""<GroundOverlay>
     <name>Sea Ice extent at {begin}</name>
     <TimeSpan>
         <begin>{begin}</begin>
         <end>{end}</end>
     </TimeSpan>
     <Icon>
-        <href>images/{png}</href>
+        <href>{png}</href>
     </Icon>
     <LatLonBox>
         <north>90</north>
@@ -93,18 +92,16 @@ with ZipFile('masie.kmz', 'a') as kmz:
         <west>-180</west>
     </LatLonBox>
 </GroundOverlay>
-            """.format(
+""".format(
                 begin = day.strftime("%Y-%m-%dT%H:%M:%SZ"),
                 end = frames[j+1][0].strftime("%Y-%m-%dT%H:%M:%SZ"),
                 png = png
             ))
             i += 3
 
-        kml.write("""
-</Document>
-</kml>
-        """)
-        kmz.write('doc.kml')
+        kml.write("""</Document>
+</kml>""")
+    kmz.write('doc.kml')
 
 
 
