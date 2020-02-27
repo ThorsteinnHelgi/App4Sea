@@ -6,11 +6,12 @@ from urllib.error import HTTPError
 from urllib.request import urlopen
 from io import BytesIO
 from tqdm import tqdm
+import numpy as np
 
 url = 'http://masie_web.apps.nsidc.org/pub/DATASETS/NOAA/G02186/kmz/4km/'
 
 start = date(2006, 1, 1)
-# end = date(2007, 1, 1)
+# end = date(2006, 5, 1)
 end   = date.today()
 step = timedelta(days=30)
 
@@ -32,6 +33,7 @@ with ZipFile('masie.kmz', 'a') as kmz:
 
             png = 'masie_ice_%d%03d.png' % (day.timetuple().tm_year, day.timetuple().tm_yday)
             zname = '%s' % png
+            jpg = 'masie_ice_%d%03d.jpg' % (day.timetuple().tm_year, day.timetuple().tm_yday)
 
             # print("fetching: %s.." % murl, end='')
 
@@ -45,7 +47,29 @@ with ZipFile('masie.kmz', 'a') as kmz:
                             daykmz = BytesIO(r.read())
                             with ZipFile(daykmz, 'r') as daykmz_fd:
                                 with daykmz_fd.open(png, 'r') as png_fd:
-                                    kmz.writestr(zname, png_fd.read())
+                                    from PIL import Image
+                                    im = Image.open(png_fd).convert('RGBA')
+                                    (x, y) = im.size
+
+                                    d = np.array(im)
+
+                                    if len(d.shape) > 2:
+                                        ice = [0xF1, 0xF2, 0xF2, 0xff]
+                                        v = d[:,:,:4][d[:,:,0] == 254]
+                                        v[:,:] = np.tile(ice, (v.shape[0], 1))
+                                        d[:,:,:4][d[:,:,0] == 254] = v
+
+                                        im = Image.fromarray(d)
+                                    else:
+                                        print("weird im:", d.shape)
+
+                                    (x2, y2) = (x//4, y//4)
+                                    rim = im.resize((x2, y2), Image.NEAREST)
+
+                                    resized_png = BytesIO()
+                                    rim.save(resized_png, format = 'png', optimize = True, compress_level = 9, dpi = (75, 75), quality = 20)
+
+                                    kmz.writestr(png, resized_png.getvalue())
                             # print ("done.")
 
                         frames.append((day, png))
