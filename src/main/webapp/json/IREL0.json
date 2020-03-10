@@ -2,5 +2,7 @@
     { "id" : "I30", "parent" : "IREL0", "text" : "Norwegian FishInfo", "children" : false, "a_attr" : { "path" : "https://www.barentswatch.no/en/fishinfo/"} },
     { "id" : "I31", "parent" : "IREL0", "text" : "Copenhagen agreement", "children" : false, "a_attr" : { "path" : "http://copenhagenagreement.org"} },
     { "id" : "I32", "parent" : "IREL0", "text" : "Bonn agreement", "children" : false, "a_attr" : { "path" : "https://www.bonnagreement.org/projects/ii/final-report"} },
-    { "id" : "I33", "parent" : "IREL0", "text" : "Important Bird Areas Map", "children" : false, "a_attr" : { "path" : "https://maps.birdlife.org/marineIBAs/default.html"} }
+    { "id" : "I33", "parent" : "IREL0", "text" : "Important Bird Areas Map", "children" : false, "a_attr" : { "path" : "https://maps.birdlife.org/marineIBAs/default.html"} },
+    { "id" : "I34", "parent" : "IREL0", "text" : "Protection of the Arctic Marine Environment (PAME)", "children" : false, "a_attr" : { "path" : "https://pame.is"} },
+    { "id" : "I35", "parent" : "IREL0", "text" : "Digital map of European ecological regions", "children" : false, "a_attr" : { "path" : "https://www.eea.europa.eu/data-and-maps/data/digital-map-of-european-ecological-regions"} }
 ]

@@ -20,5 +20,10 @@
     { "id" : "I4F2", "parent" : "IIDE0", "text" : "NOAA Office of Response and Restoration", "children" : false, "a_attr" : { "path" : "https://response.restoration.noaa.gov/esi_downloading"} },
     { "id" : "I4G", "parent" : "IIDE0", "text" : "ITOPF for Kids", "children" : false, "a_attr" : { "path" : "https://kids.itopf.com/"} },
     { "id" : "I4H", "parent" : "IIDE0", "text" : "The puffin", "children" : false, "a_attr" : { "path" : "https://www1.nams.is/fuglar/birdinfo.php?val=1&id=46"} },
-    { "id" : "I4I", "parent" : "IIDE0", "text" : "In flight", "children" : false, "a_attr" : { "path" : "https://www.theguardian.com/world/ng-interactive/2014/aviation-100-years"} }
+    { "id" : "I4I", "parent" : "IIDE0", "text" : "In flight", "children" : false, "a_attr" : { "path" : "https://www.theguardian.com/world/ng-interactive/2014/aviation-100-years"} },
+
+{ "Warning": "This should not be here." },
+    { "id" : "ICON0", "parent" : "#", "text" : "Conferences", "children" : true, "a_attr" : { "path" : ""} }
+    { "id" : "IIDE0", "parent" : "#", "text" : "Sources of inspiration", "children" : true, "a_attr" : { "path" : ""} },
+
 ]

@@ -23,6 +23,7 @@ const App4SeaPopUps = (function () {
       address: '',
       location: '',
       description: '',
+      operator: '',
       operation: '',
       vessel_class: '',
       vessel_loa: '',
@@ -35,6 +36,8 @@ const App4SeaPopUps = (function () {
       equipment_craneCapability: '',
       equipment_totalStorageCapacity: '',
       equipment_heatedStorage: '',
+      ape_sweepingArms: '',
+      ape_sweepingWidth: '',      
       linkinfo: '',
       linkicon: '',
       linkimage: '',
@@ -77,6 +80,7 @@ const App4SeaPopUps = (function () {
     osr.address = feature.get('address');
     osr.location = feature.get('location');
     osr.description = feature.get('description');
+    osr.operator = feature.get('operator');
     osr.operation = feature.get('operation');
     osr.vessel_class = feature.get('vessel_class');
     osr.vessel_loa = feature.get('vessel_loa');
@@ -89,6 +93,10 @@ const App4SeaPopUps = (function () {
     osr.equipment_craneCapability = feature.get('equipment_craneCapability');
     osr.equipment_totalStorageCapacity = feature.get('equipment_totalStorageCapacity');
     osr.equipment_heatedStorage = feature.get('equipment_heatedStorage');
+
+    osr.ape_sweepingArms = feature.get('ape_sweepingArms');
+    osr.ape_sweepingWidth = feature.get('ape_sweepingWidth');
+
     osr.linkinfo = feature.get('linkinfo');
     osr.linkicon = feature.get('linkicon');
     osr.linkimage = feature.get('linkimage');
@@ -104,6 +112,7 @@ const App4SeaPopUps = (function () {
     if (osr.address) template += '<tr><td>Address</td><td><b>{{address}}</b></td></tr>';
     if (osr.location) template += '<tr><td>Location</td><td><b>{{location}}</b></td></tr>';
     if (osr.description) template = `${template}<tr><td>Description</td><td><b>${osr.description}</b></td></tr>`;
+    if (osr.operator) template = `${template}<tr><td>Operator</td><td><b>${osr.operator}</b></td></tr>`;
     if (osr.operation) template += '<tr><td>Operation</td><td><b>{{operation}}</b></td></tr>';
     if (osr.vessel_class) template += '<tr><td>Class</td><td><b>{{vessel_class}}</b></td></tr>';
     if (osr.vessel_loa) template += '<tr><td>LOA</td><td><b>{{vessel_loa}} m</b></td></tr>';
@@ -116,6 +125,10 @@ const App4SeaPopUps = (function () {
     if (osr.equipment_craneCapability) template += '<tr><td>Crane capability</td><td><b>{{equipment_craneCapability}} tonnes</b></td></tr>';
     if (osr.equipment_totalStorageCapacity) template += '<tr><td>Total storage capacity</td><td><b>{{equipment_totalStorageCapacity}} tonnes</b></td></tr>';
     if (osr.equipment_heatedStorage) template += '<tr><td>Heated storage</td><td><b>{{equipment_heatedStorage}} m3</b></td></tr>';
+
+    if (osr.ape_sweepingArms) template += '<tr><td>APE Sweeping Arms</td><td><b>{{ape_sweepingArms}} m3</b></td></tr>';
+    if (osr.ape_sweepingWidth) template += '<tr><td>APE Sweeping Width</td><td><b>{{ape_sweepingWidth}} m3</b></td></tr>';
+
     if (osr.linkinfo) template = `${template}<tr><td>Information</td><td><a href="${osr.linkinfo}" target="_blank">Link</a></td></tr>`;
     if (osr.linkicon) template = `${template}<tr><td>Icon</td><td><img class="osr-image" src="${osr.linkicon}" alt="{{name}}"></td></tr>`;
     if (osr.linkimage) template = `${template}<tr><td>Image</td><td><img class="osr-image" src="${osr.linkimage}" alt="{{name}}"></td></tr>`;
@@ -220,11 +233,13 @@ const App4SeaPopUps = (function () {
       equipment_totalStorageCapacity: '',
       equipment_heatedStorage: '',
       equipment_boats: '',
+      equipment_booms: '',
       equipment_booms_ENG: '',
       equipment_booms_L: '',
       equipment_booms_T_M: '',
       equipment_skimmers: '',
       equipment_pumps: '',
+      equipment_absorbent_pads: '',
 
       linkinfo: '',
       linkicon: '',
@@ -240,11 +255,13 @@ const App4SeaPopUps = (function () {
     osr.equipment_totalStorageCapacity = feature.get('equipment_totalStorageCapacity');
     osr.equipment_heatedStorage = feature.get('equipment_heatedStorage');
     osr.equipment_boats = feature.get('equipment_boats');
+    osr.equipment_booms = feature.get('equipment_booms');
     osr.equipment_booms_ENG = feature.get('equipment_booms_ENG');
     osr.equipment_booms_L = feature.get('equipment_booms_L');
     osr.equipment_booms_T_M = feature.get('equipment_booms_T_M');
     osr.equipment_skimmers = feature.get('equipment_skimmers');
     osr.equipment_pumps = feature.get('equipment_pumps');
+    osr.equipment_absorbent_pads = feature.get('equipment_absorbent_pads');
     osr.linkinfo = feature.get('linkinfo');
     osr.linkicon = feature.get('linkicon');
     osr.linkimage = feature.get('linkimage');
@@ -262,11 +279,13 @@ const App4SeaPopUps = (function () {
     if (osr.equipment_totalStorageCapacity) template = `${template}<tr><td>Total Storage Capacity</td><td><b>${osr.equipment_totalStorageCapacity}</b></td></tr>`;
     if (osr.equipment_heatedStorage) template = `${template}<tr><td>Heated Storage</td><td><b>${osr.equipment_heatedStorage}</b></td></tr>`;
     if (osr.equipment_boats) template = `${template}<tr><td>Boats</td><td><b>${osr.equipment_boats}</b></td></tr>`;
+    if (osr.equipment_booms) template = `${template}<tr><td>Booms</td><td><b>${osr.equipment_booms}</b></td></tr>`;
     if (osr.equipment_booms_ENG) template = `${template}<tr><td>Booms ENG</td><td><b>${osr.equipment_booms_ENG}</b></td></tr>`;
     if (osr.equipment_booms_L) template = `${template}<tr><td>Booms L</td><td><b>${osr.equipment_booms_L}</b></td></tr>`;
     if (osr.equipment_booms_T_M) template = `${template}<tr><td>Booms T/M</td><td><b>${osr.equipment_booms_T_M}</b></td></tr>`;
     if (osr.equipment_skimmers) template = `${template}<tr><td>Skimmers</td><td><b>${osr.equipment_skimmers}</b></td></tr>`;
     if (osr.equipment_pumps) template = `${template}<tr><td>Pumps</td><td><b>${osr.equipment_pumps}</b></td></tr>`;
+    if (osr.equipment_absorbent_pads) template = `${template}<tr><td>Absorbent Pads</td><td><b>${osr.equipment_absorbent_pads}</b></td></tr>`;
 
     if (osr.linkinfo) template = `${template}<tr><td>Information</td><td><a href="${osr.linkinfo}" target="_blank">Link</a></td></tr>`;
     if (osr.linkicon) template = `${template}<tr><td>Icon</td><td><img class="osr-image" src="${osr.linkicon}" alt="{{name}}"></td></tr>`;

@@ -98,8 +98,9 @@
 
 }
 
-.image {
-
+.image div img {
+  max-width: 31rem;
+  max-height: 18rem;
 }
 .license {
 

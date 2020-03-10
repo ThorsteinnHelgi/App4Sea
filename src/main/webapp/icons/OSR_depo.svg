@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Creator: CorelDRAW 2018 (64-Bit) -->
+<svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" width="210mm" height="297mm" version="1.1" style="shape-rendering:geometricPrecision; text-rendering:geometricPrecision; image-rendering:optimizeQuality; fill-rule:evenodd; clip-rule:evenodd"
+viewBox="0 0 21000 29700"
+ xmlns:xlink="http://www.w3.org/1999/xlink"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns:cc="http://creativecommons.org/ns#"
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:svg="http://www.w3.org/2000/svg"
+ xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+ xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+ <defs>
+  <style type="text/css">
+   <![CDATA[
+    .str0 {stroke:#00000;stroke-width:20;stroke-miterlimit:22.9256}
+    .fil0 {fill:#000000  }
+    .fil1 {fill:#80FF80}
+   ]]>
+  </style>
+ </defs>
+ <g id="Layer_x0020_1">
+  <metadata id="CorelCorpID_0Corel-Layer"/>
+  <g id="_2442233842912">
+   <path class="fil0" d="M10500 5669.06l-177.19 85.31 -8400 3990 354.38 754.69 1292.81 -616.87 0 8432.81 0 420 420 0 13020 0 420 0 0 -420 0 -8432.81 1292.81 616.87 354.38 -754.69 -8400 -3990 -177.19 -85.31zm0 925.31l6090 2894.07 0 8406.56 -2100 0 0 -5250 0 -420 -420 0 -7140 0 -420 0 0 420 0 5250 -2100 0 0 -8406.56 6090 -2894.07zm0 1430.63c-806.88,0 -1470,663.11 -1470,1470 0,806.88 663.12,1470 1470,1470 806.88,0 1470,-663.12 1470,-1470 0,-806.89 -663.12,-1470 -1470,-1470zm0 840c352.91,0 630,277.08 630,630 0,352.91 -277.09,630 -630,630 -352.91,0 -630,-277.09 -630,-630 0,-352.92 277.09,-630 630,-630zm-3150 4200l6300 0 0 1050 -6300 0 0 -1050zm0 1890l6300 0 0 1050 -6300 0 0 -1050zm0 1890l6300 0 0 1050 -6300 0 0 -1050z"/>
+  </g>
+  <path class="fil1 str0" d="M10500 6594.37l-6090 2894.07 0 8406.56 2100 0 0 -5250 0 -420 420 0 7140 0 420 0 0 420 0 5250 2100 0 0 -8406.56 -6090 -2894.07zm0 4370.63c-806.88,0 -1470,-663.12 -1470,-1470 0,-806.89 663.12,-1470 1470,-1470 806.88,0 1470,663.11 1470,1470 0,806.88 -663.12,1470 -1470,1470z"/>
+ </g>
+</svg>
