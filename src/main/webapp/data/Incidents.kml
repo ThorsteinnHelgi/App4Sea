@@ -7,18 +7,18 @@
 	<name>Oil Spill Incidents</name>
 	<Style id="sh_caution">
 		<IconStyle>
-			<scale>0.40</scale>
+			<scale>0.04</scale>
 			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/caution.png</href>
+				<href>/icons/New_ship_spilling.svg</href>
 			</Icon>
 			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
 		</IconStyle>
 	</Style>
 	<Style id="sn_caution">
 		<IconStyle>
-			<scale>0.36</scale>
+			<scale>0.036</scale>
 			<Icon>
-				<href>http://maps.google.com/mapfiles/kml/shapes/caution.png</href>
+				<href>/icons/New_ship_spilling.svg</href>
 			</Icon>
 			<hotSpot x="0.5" y="0" xunits="fraction" yunits="fraction"/>
 		</IconStyle>

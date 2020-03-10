@@ -4,6 +4,11 @@
     { "id" : "LExm0_003", "parent" : "LExm0", "text" : "Drake passage ship tracks", "children" : false, "a_attr" : { "path" : "data/EE_GT_0001.kml", "source": "0"} },
     { "id" : "LExm0_004", "parent" : "LExm0", "text" : "Ice type", "children" : false, "a_attr" : { "path" : "http://halo-wms.met.no/halo/default.map?version=1.3.0&REQUEST=GetMap&LAYERS=ice.type&STYLES=&CRS=EPSG:4326&BBOX=-180,-90,180,90&WIDTH=512&HEIGHT=512&FORMAT=image%2Fpng&service=WMS", "source": "3", "opacity" : "50"} }
 
+    { "id" : "LExm0_015", "parent" : "LExm0", "text" : "Seabirds Breeding SOSI",	"children" : false, "a_attr" : { "path" : "data/Birds/BreedingSummedSOSIseabirdICES.kmz", "source": "26", "opacity" : "60"} },
+    { "id" : "LExm0_016", "parent" : "LExm0", "text" : "Seabirds Non-Breeding SOSI", "children" : false, "a_attr" : { "path" : "data/Birds/nonBreedingSummedSOSIseabirdICES.kmz", "source": "27", "opacity" : "60"} },
+    { "id" : "LExm0_017", "parent" : "LExm0", "text" : "Seabirds Breeding OVI High Risk", "children" : false, "a_attr" : { "path" : "data/Birds/OVIbreedingLargeScaleHigherRisks.kmz", "source": "21", "opacity" : "40"} },
+    { "id" : "LExm0_018", "parent" : "LExm0", "text" : "Seabirds Non-Breeding OVI High Risk", "children" : false, "a_attr" : { "path" : "data/Birds/OVInonbreedingLargeScaleHigherRisks.kmz", "source": "22", "opacity" : "50"} }
+
     { "id" : "LExm0_101", "parent" : "LExm0", "text" : "Seabirds 1",	"children" : false, "a_attr" : { "path" : "data/Birds/Seabirds 001.kml"} },
     { "id" : "LExm0_102", "parent" : "LExm0", "text" : "Seabirds 2",	"children" : false, "a_attr" : { "path" : "data/Birds/Seabirds 002.kml"} },
     { "id" : "LExm0_103", "parent" : "LExm0", "text" : "Barents1 Oil Spill", "children" : false, "a_attr" : { "path" : "data/barents1.kmz", "tool" : "animation"} },

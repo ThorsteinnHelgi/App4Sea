@@ -1,6 +1,6 @@
 [
-    { "id" : "LReg0", "parent" : "#", "text" : "Regional boundaries",                   "state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : ""} },
-    { "id" : "LOil0", "parent" : "#", "text" : "Oil industry, transport and response", 	"state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : ""} },
-    { "id" : "LEco0", "parent" : "#", "text" : "Ecological zones",			            "state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : ""} },
-    { "id" : "LWth0", "parent" : "#", "text" : "Climate, ocean and weather",            "state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : ""} }
+    { "id" : "LReg0", "parent" : "#", "text" : "Regional boundaries",                   "state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : "", "source": "29" } },
+    { "id" : "LOil0", "parent" : "#", "text" : "Oil industry, transport and response", 	"state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : "", "source": "30" } },
+    { "id" : "LWth0", "parent" : "#", "text" : "Climate, ocean and weather",            "state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : "", "source": "31" } },
+    { "id" : "LEco0", "parent" : "#", "text" : "Ecological zones",			            "state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : "", "source": "32" } }
 ]

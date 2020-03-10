@@ -325,7 +325,7 @@ const App4SeaTreeMenu = (function () {
           el.addEventListener(
             'click',
             () => {
-              showSourceInfo(child.outerText, sourceInfo[source]);
+              showSourceInfo(child.childNodes[1].innerText, sourceInfo[source]);
             },
             false,
             { passive: true },

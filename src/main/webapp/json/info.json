@@ -3,8 +3,5 @@
     { "id" : "IOIL0", "parent" : "#", "text" : "Oil spill incidents and response", "children" : true, "a_attr" : { "path" : ""} },
     { "id" : "IOSR0", "parent" : "#", "text" : "OSR best practice", "children" : true, "a_attr" : { "path" : ""} },
     { "id" : "ITOPF", "parent" : "#", "text" : "ITOPF Country Profiles", "children" : true, "a_attr" : { "path" : ""} },
-    { "id" : "IARC0", "parent" : "#", "text" : "The arctic environment", "children" : true, "a_attr" : { "path" : ""} },
-    { "id" : "IREL0", "parent" : "#", "text" : "Related sites and projects", "children" : true, "a_attr" : { "path" : ""} },
-    { "id" : "IIDE0", "parent" : "#", "text" : "Sources of inspiration", "children" : true, "a_attr" : { "path" : ""} },
-    { "id" : "ICON0", "parent" : "#", "text" : "Conferences", "children" : true, "a_attr" : { "path" : ""} }
+    { "id" : "IREL0", "parent" : "#", "text" : "Related sites and projects", "children" : true, "a_attr" : { "path" : ""} }
 ]
