@@ -37,7 +37,7 @@ const App4SeaPopUps = (function () {
       equipment_totalStorageCapacity: '',
       equipment_heatedStorage: '',
       ape_sweepingArms: '',
-      ape_sweepingWidth: '',      
+      ape_sweepingWidth: '',
       linkinfo: '',
       linkicon: '',
       linkimage: '',
