@@ -478,5 +478,18 @@
         "legend" : "",
         "image" : "",
         "license" : ""
+    },
+    {
+        "id" : "S37",
+        "title" : "Wind at 10m height",
+        "subtitle" : "First 48 hours from a 240 hours prognosis",
+        "authors" : "MET Norway",
+        "source" : "MET Norway",
+        "about" : "The map shows the wind speed at 10 meters above ground as arrows. The wind speed is given in knots (kt). A short line is 5 kt, a long line is 10 kt and a flag is 50kt. The model that calculates the wind is a regional atmospheric weather model with 2,5km horizontal resolution and is called Arome. The forecast length is 66 hours and the model is run four times a day (model runs initiated at 00UTC, 06UTC, 12UTC and 18UTC). There is one map per hour.",
+        "link" : "",
+        "usage" : "NOTE: There may be a problem with the animated display of this data on some computers",
+        "legend" : "",
+        "image" : "",
+        "license" : ""
     }
 ]}
