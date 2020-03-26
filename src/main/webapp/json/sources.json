@@ -491,5 +491,44 @@
         "legend" : "",
         "image" : "",
         "license" : ""
+    },
+    {
+        "id" : "S38",
+        "title" : "Gramsci 1979",
+        "subtitle" : "OpenDrift simulation",
+        "authors" : "App4Sea: MET Norway",
+        "source" : "MET Norway",
+        "about" : "MET OpenDrift Oil Drift forecast of 1979 Antonio Gramsci oil spill, based on SVIM ROMS archive currents and ERA 40 wind",
+        "link" : "<a href='https://www.sciencedirect.com/science/article/abs/pii/0025326X81900801' target='_blank'>Link to further information on Wikipedia</a>",
+        "usage" : "",
+        "legend" : "",
+        "image" : "",
+        "license" : ""
+    },
+    {
+        "id" : "S39",
+        "title" : "Gramsci 1987",
+        "subtitle" : "OpenDrift simulation",
+        "authors" : "App4Sea: MET Norway",
+        "source" : "MET Norway",
+        "about" : "MET OpenDrift Oil Drift forecast of 1987 Antonio Gramsci oil spill, based on SVIM ROMS archive currents and ERA 40 wind",
+        "link" : "<a href='https://tinyurl.com/qoyr556' target='_blank'>Link to further information on Wikipedia</a>",
+        "usage" : "",
+        "legend" : "",
+        "image" : "",
+        "license" : ""
+    },
+    {
+        "id" : "S40",
+        "title" : "Whiddy Island 1979",
+        "subtitle" : "OpenDrift simulation",
+        "authors" : "App4Sea: MET Norway",
+        "source" : "MET Norway",
+        "about" : "MET OpenDrift Oil Drift forecast of 1979 Whiddy Island oil spill, based on SVIM ROMS archive currents and ERA 40 wind",
+        "link" : "<a href='https://en.wikipedia.org/wiki/Whiddy_Island_disaster' target='_blank'>Link to further information on Wikipedia</a>",
+        "usage" : "",
+        "legend" : "",
+        "image" : "",
+        "license" : ""
     }
 ]}

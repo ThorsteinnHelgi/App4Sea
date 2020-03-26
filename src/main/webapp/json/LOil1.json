@@ -2,5 +2,8 @@
     { "id" : "LOil1_1", "parent" : "LOil1", "text" : "Full City 2009", "children" : false, "a_attr" : { "path" : "data/fullcity.kmz", "tool" : "animation", "source": "35", "projection" : "EPSG:3857"} },
     { "id" : "LOil1_2", "parent" : "LOil1", "text" : "Godafoss 2011", "children" : false, "a_attr" : { "path" : "data/godafoss.kmz", "tool" : "animation", "source": "36", "projection" : "EPSG:3857"} },
     { "id" : "LOil1_3", "parent" : "LOil1", "text" : "Bravo 1977", "children" : false, "a_attr" : { "path" : "data/bravo.kmz", "tool" : "animation", "source": "4", "projection" : "EPSG:3857"} },
-    { "id" : "LOil1_4", "parent" : "LOil1", "text" : "Braer 1993", "children" : false, "a_attr" : { "path" : "data/braer.kmz", "tool" : "animation", "source": "15", "projection" : "EPSG:3857"} }
+    { "id" : "LOil1_4", "parent" : "LOil1", "text" : "Braer 1993", "children" : false, "a_attr" : { "path" : "data/braer.kmz", "tool" : "animation", "source": "15", "projection" : "EPSG:3857"} },
+    { "id" : "LOil1_5", "parent" : "LOil1", "text" : "Gramsci 1979", "children" : false, "a_attr" : { "path" : "data/gramsci_1979.kmz", "tool" : "animation", "source": "38", "projection" : "EPSG:3857"} },
+    { "id" : "LOil1_6", "parent" : "LOil1", "text" : "Gramsci 1987", "children" : false, "a_attr" : { "path" : "data/gramsci_1987.kmz", "tool" : "animation", "source": "39", "projection" : "EPSG:3857"} },
+    { "id" : "LOil1_7", "parent" : "LOil1", "text" : "Whiddy Island 1979", "children" : false, "a_attr" : { "path" : "data/whiddyisland.kmz", "tool" : "animation", "source": "40", "projection" : "EPSG:3857"} }
 ]
