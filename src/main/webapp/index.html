@@ -43,7 +43,7 @@
                 <button class="btn" title="Home" onclick="$.App4Sea.Utils.GoHome()"><i class="fa fa-home"></i></button>
                 <!--button class="btn" title="Operation" onclick="$.App4Sea.Utils.section_toggle('OperationContainer')"><i class="fa fa-tint"></i></button-->
                 <button class="btn" title="Animation" onclick="$.App4Sea.Utils.section_toggle('AnimationContainer')"><i class="fa fa-play-circle-o"></i></button>
-                <button class="btn" title="Heat-graph" onclick="$.App4Sea.Utils.section_toggle('HeatContainer')"><i class="fa fa-bullseye"></i></button>
+                <!--button class="btn" title="Heat-graph" onclick="$.App4Sea.Utils.section_toggle('HeatContainer')"><i class="fa fa-bullseye"></i></button-->
                 <button class="btn" title="Measurements" onclick="$.App4Sea.Utils.section_toggle('MeasurementContainer')"><i class="fa fa-arrows"></i></button>
                 <!--button class="btn" title="Full Screen" onclick="$.App4Sea.Utils.toggleFullscreen()"><i class="fa fa-arrows-alt"></i></button-->
                 <!--button class="btn" title="Log" onclick="$.App4Sea.Utils.section_toggle('LogContainer')"><i class="fa fa-file-text-o"></i></button-->
@@ -59,7 +59,7 @@
             </div>
 
             <div id="ControlPlaceInMenu">
-                <div id='HeatContainer' class="SubMenuSection" style="display:none">
+                <!--div id='HeatContainer' class="SubMenuSection" style="display:none">
                     <button class="btn-right" onclick="$.App4Sea.Utils.w3_close('HeatContainer')" ><i class="fa fa-close"></i></button>
 
                     <h3>Heatmap settings</h3>
@@ -94,7 +94,7 @@
                             </table>
                         </form>
                     </div>
-                </div>
+                </div-->
 
                 <div id='OperationContainer' class="SubMenuSection" style="display:none">
                     <button class="btn-right" title="Close" onclick="$.App4Sea.Utils.w3_close('OperationContainer')" ><i class="fa fa-close"></i></button>
@@ -407,7 +407,7 @@
                         <button class="btn" title="Home" onclick="$.App4Sea.Utils.GoHome()"><i class="fa fa-home"></i></button>
                         <!--button class="btn" title="Operation" onclick="$.App4Sea.Utils.section_toggle('OperationContainer')"><i class="fa fa-tint"></i></button-->
                         <button class="btn" title="Animation" onclick="$.App4Sea.Utils.section_toggle('AnimationContainer')"><i class="fa fa-play-circle-o"></i></button>
-                        <button class="btn" title="Heat-graph" onclick="$.App4Sea.Utils.section_toggle('HeatContainer')"><i class="fa fa-bullseye"></i></button>
+                        <!--button class="btn" title="Heat-graph" onclick="$.App4Sea.Utils.section_toggle('HeatContainer')"><i class="fa fa-bullseye"></i></button-->
                         <button class="btn" title="Measurements" onclick="$.App4Sea.Utils.section_toggle('MeasurementContainer')"><i class="fa fa-arrows"></i></button>
                         <!--button class="btn" title="Full Screen" onclick="$.App4Sea.Utils.toggleFullscreen()"><i class="fa fa-arrows-alt"></i></button-->
                         <!--button class="btn" title="Log" onclick="$.App4Sea.Utils.section_toggle('LogContainer')"><i class="fa fa-file-text-o"></i></button-->
@@ -434,7 +434,7 @@
         ['cut', 'copy', 'paste'].forEach(function(event) {
             //console.log('forEach ' + event);
             document.addEventListener(event, function(e) {
-                console.log('addEventListener ' + event);
+                if (App4Sea.logging) console.log('addEventListener ' + event);
             });
         });
     </script>

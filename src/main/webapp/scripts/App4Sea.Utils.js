@@ -135,7 +135,7 @@ const App4SeaUtils = (function App4SeaUtils() {
 
     let ex = olextent.createEmpty();
     for (let ind = 0; ind < features.length; ind++) {
-      console.log(`Feature ind: ${features[ind].values_.SiteID}`);
+      if (App4Sea.logging) console.log(`Feature ind: ${features[ind].values_.SiteID}`);
       ex = olextent.extend(ex, features[ind].getGeometry().getExtent());
     }
 
@@ -659,7 +659,7 @@ const App4SeaUtils = (function App4SeaUtils() {
       });
 
       iconFeature.on('change', function () {
-        console.log(`Feature Moved To:${this.getGeometry().getCoordinates()}`);
+        if (App4Sea.logging) console.log(`Feature Moved To:${this.getGeometry().getCoordinates()}`);
       }, iconFeature);
 
       vectorSource.addFeature(iconFeature);
@@ -687,8 +687,8 @@ const App4SeaUtils = (function App4SeaUtils() {
   // //////////////////////////////////////////////////////////////////////////
   // toMap
   const toMap = function () {
-    heat.remove('#ControlPlaceInMenu');
-    $(heat).appendTo('#ControlPlaceInMap');
+    //heat.remove('#ControlPlaceInMenu');
+    //$(heat).appendTo('#ControlPlaceInMap');
 
     anim.remove('#ControlPlaceInMenu');
     $(anim).appendTo('#ControlPlaceInMap');
@@ -702,7 +702,7 @@ const App4SeaUtils = (function App4SeaUtils() {
     oper.remove('#ControlPlaceInMenu');
     $(oper).appendTo('#ControlPlaceInMap');
 
-    const heatIsOn = heat.style.display !== 'none';
+    const heatIsOn = false; // heat.style.display !== 'none';
     const animIsOn = anim.style.display !== 'none';
     const measIsOn = meas.style.display !== 'none';
     const loggIsOn = logg.style.display !== 'none';
@@ -720,8 +720,8 @@ const App4SeaUtils = (function App4SeaUtils() {
   // //////////////////////////////////////////////////////////////////////////
   // toMenu
   const toMenu = function () {
-    heat.remove('#ControlPlaceInMap');
-    $(heat).appendTo('#ControlPlaceInMenu');
+    //heat.remove('#ControlPlaceInMap');
+    //$(heat).appendTo('#ControlPlaceInMenu');
 
     anim.remove('#ControlPlaceInMap');
     $(anim).appendTo('#ControlPlaceInMenu');
@@ -856,7 +856,7 @@ const App4SeaUtils = (function App4SeaUtils() {
 
     if (id === 'HeatContainer') {
       if (heat !== null) {
-        heat.style.display = 'none';
+        //heat.style.display = 'none';
       }
     }
     if (id === 'AnimationContainer') {
@@ -891,11 +891,11 @@ const App4SeaUtils = (function App4SeaUtils() {
   // //////////////////////////////////////////////////////////////////////////
   // https://bl.ocks.org/dvreed77/c37759991b0723eebef3647015495253
   my.copyToClipboard = function (url) {
-    console.log(url);
+    if (App4Sea.logging) console.log(url);
     const img = document.createElement('img');
     img.src = url;
     // img.alt = "App4Sea Screenshot";
-    console.log(url);
+    if (App4Sea.logging) console.log(url);
 
     document.body.appendChild(img);
 
@@ -912,9 +912,9 @@ const App4SeaUtils = (function App4SeaUtils() {
     try {
       const successful = document.execCommand('Copy');
       const msg = successful ? 'successful' : 'NOT successful';
-      console.log(`Copying was ${msg}`);
+      if (App4Sea.logging) console.log(`Copying was ${msg}`);
     } catch (err) {
-      console.log(`Oops, unable to copy: ${err}`);
+      if (App4Sea.logging) console.log(`Oops, unable to copy: ${err}`);
     }
 
     document.body.removeChild(img);
@@ -931,9 +931,9 @@ const App4SeaUtils = (function App4SeaUtils() {
   // //////////////////////////////////////////////////////////////////////////
   //
   my.take_screenshot = function () {
-    console.log('take_screenshot');
+    if (App4Sea.logging) console.log('take_screenshot');
     /*      import('/node_modules/html-to-image').then(module => {
-            console.log('toPng');
+            if (App4Sea.logging) console.log('toPng');
             module.toPng(document.body, exportOptions).then(function(dataURL) {
                 my.copyToClipboard(dataURL);
                 //let link = document.getElementById('image-download');
@@ -942,7 +942,7 @@ const App4SeaUtils = (function App4SeaUtils() {
             });;
         })
         .catch(err => {
-            console.log(err);
+            if (App4Sea.logging) console.log(err);
           //main.textContent = err.message;
         });
 */

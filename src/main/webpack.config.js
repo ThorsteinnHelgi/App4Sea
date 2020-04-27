@@ -34,6 +34,8 @@ module.exports = {
       { from: 'webapp/css', to: 'css/' },
       { from: 'webapp/static', to: 'static/' },
       { from: 'webapp/icons', to: 'icons/' },
+      { from: 'webapp/2017-05-09-EPPR-COSRVA', to: '2017-05-09-EPPR-COSRVA/' },
+      { from: 'webapp/files', to: 'files/' },
       { from: 'webapp/data', to: 'data/' },
       { from: 'webapp/data/OSR', to: 'data/OSR' },
       { from: 'webapp/data/OSR/JPG', to: 'data/OSR/JPG' },
