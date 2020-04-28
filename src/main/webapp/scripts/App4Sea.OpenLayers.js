@@ -282,58 +282,6 @@ const App4SeaOpenLayers = (function () {
   }
 
   // //////////////////////////////////////////////////////////////////////////
-  // InitToolTip
-  function InitToolTip() {
-    const map = my.Map;
-
-    const displayFeatureInfo = function (pixel) {
-      $('#ToolTipInfo').css({
-        left: `${pixel[0]}px`,
-        top: `${pixel[1] - 15}px`,
-      });
-
-      const features = [];
-
-      map.forEachFeatureAtPixel(pixel, (feature, layer) => {
-        // if (App4Sea.logging) console.log('displayFeatureInfo for feature: ' + App4Sea.PopUps.getTitle(feature));
-        features.push(feature);
-      });
-
-      // if (App4Sea.logging) console.log('Features are: ' + features.length);
-
-      let txt = '';
-      $('#ToolTipInfo').tooltip('hide');
-      const inf = $('#ToolTipInfo');
-      inf.innerHTML = '';
-      for (let ind = 0; ind < features.length; ind++) {
-        const name = App4Sea.PopUps.getTitle(features[ind]);
-        if (name) {
-          if (features.length === 1) {
-            txt = name;
-          } else {
-            txt = `${txt + ind.toString()} ${name}<br>`;
-            // if (App4Sea.logging) console.log('Tooltip: ' + txt);
-          }
-          inf.tooltip('hide')
-            .attr('data-original-title', txt)
-            .tooltip('show');
-        }
-      }
-    };
-    map.on('pointermove', (evt) => {
-      if (evt.dragging) {
-        $('#ToolTipInfo').tooltip('hide');
-        return;
-      }
-      displayFeatureInfo(map.getEventPixel(evt.originalEvent));
-    });
-
-    $(map.getViewport()).on('mousemove', (evt) => {
-      displayFeatureInfo(map.getEventPixel(evt.originalEvent));
-    });
-  }
-
-  // //////////////////////////////////////////////////////////////////////////
   // Overlay with auto pan
   function InitOverlay(container, closer) {
     const overlay = new Overlay({
@@ -365,8 +313,62 @@ const App4SeaOpenLayers = (function () {
     my.overlayLayerPopUp = InitOverlay(popupContainer, popupCloser);
 
     my.Map.addOverlay(my.overlayLayerPopUp);
+  }
 
-    InitToolTip();
+    // //////////////////////////////////////////////////////////////////////////
+  // InitToolTip
+  function InitToolTip() {
+    const map = my.Map;
+
+    const displayFeatureInfo = function (pixel) {
+      $('#ToolTipInfo').css({
+        left: `${pixel[0]}px`,
+        top: `${pixel[1] - 15}px`,
+      });
+
+      const features = [];
+
+      map.forEachFeatureAtPixel(pixel, (feature, layer) => {
+        // if (App4Sea.logging) console.log('displayFeatureInfo for feature: ' + App4Sea.PopUps.getTitle(feature));
+        features.push(feature);
+      });
+
+      // if (App4Sea.logging) console.log('Features are: ' + features.length);
+
+      let txt = '';
+      $('#ToolTipInfo').tooltip('hide');
+      const inf = $('#ToolTipInfo');
+      inf.innerHTML = '';
+     
+      for (let ind = 0; ind < features.length; ind++) {
+        const name = App4Sea.PopUps.getTitle(features[ind]);
+        if (name) {
+          if (features.length === 1) {
+            txt = name;
+          } else {
+            txt = `${txt}${ind} ${name}<br>`;
+            // if (App4Sea.logging) console.log('Tooltip: ' + txt);
+          }
+          if (ind > 0 && (ind % 25) === 0) {
+            txt += '</div><div>';
+          }
+          inf.tooltip('hide')
+            .attr('data-original-title', '<div><div>' + txt + '</div></div>')
+            .tooltip('show');
+        }
+      }
+    };
+    map.on('pointermove', (evt) => {
+      if (evt.dragging) {
+        $('#ToolTipInfo').tooltip('hide');
+        return;
+      }
+      displayFeatureInfo(map.getEventPixel(evt.originalEvent));
+    });
+
+    $(map.getViewport()).on('mousemove', (evt) => {
+      displayFeatureInfo(map.getEventPixel(evt.originalEvent));
+    });
   }
 
   // //////////////////////////////////////////////////////////////////////////
@@ -386,6 +388,8 @@ const App4SeaOpenLayers = (function () {
     initMenu();
 
     InitPopup();
+    
+    InitToolTip();
 
     // let res = App4Sea.Utils.supports_html5_storage();
     // if (App4Sea.logging) console.log("Support for html5 local storage: " + res);

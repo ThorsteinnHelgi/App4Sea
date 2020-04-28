@@ -148,7 +148,7 @@
 }
 
 #MapContainer .ol-zoomslider-thumb {
-  z-index: 1000;
+  /*z-index: 1000;*/
   border-radius: 20px;
 }
 #MapContainer .ol-touch .ol-zoom .ol-zoom-out {
@@ -480,6 +480,12 @@ h6 {
     color: #fff;
     background-color: black;
 }
+.tooltip-inner > div {
+  display: flex;
+}
+.tooltip-inner > div > div {
+  float: left;
+}
 
 /* Splash window */
 #splash-overlay{
@@ -593,9 +599,10 @@ h6 {
   border: 1px solid #ccc;
   bottom: 12px;
   left: -50px;
-  min-width: 200px;
-  width: 360px;
   z-index: 200;
+  width: max-content;
+  min-width: 360px;
+  max-width: 600px;
 }
 
 .PopUp h4 {
@@ -611,6 +618,13 @@ h6 {
   margin: 1px;
   line-height: 1;
 }
+.PopUpContent > div {
+  display: flex;
+}
+.PopUpContent > div > div {
+  float: left;
+}
+
 
 .osr-image {
   height: 120px;
