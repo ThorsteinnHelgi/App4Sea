@@ -218,7 +218,7 @@ const App4SeaKML = (function () {
       const y = ext[1] + ext[3];
       location = [x / 2, y / 2];
 
-      // if (App4Sea.logging) console.log(`Extent: ${extent}, proj: ${prx}, ext: ${ext}`);
+      if (App4Sea.logging) console.log(`Extent: ${extent}, proj: ${prx}, ext: ${ext}`);
     }
 
     App4Sea.OpenLayers.layers.push({ id, vector });
@@ -563,8 +563,8 @@ const App4SeaKML = (function () {
           const source = new ImageStatic({
             url,
             // crossOrigin: 'anonymous',
-            imageExtent: viewExtent, // [west, south, east, north],
-            projection: App4Sea.prefViewProj,
+            imageExtent: [west, south, east, north],
+            projection: App4Sea.prefProj,
           });
 
           image = new Image({
