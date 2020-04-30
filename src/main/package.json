@@ -47,7 +47,7 @@
     "express": "^4.17.1",
     "html-to-image": "^0.1.1",
     "html2canvas": "^1.0.0-rc.5",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "jquery-param": "^1.0.2",
     "jstree": "^3.3.8",
     "lodash": "^4.17.15",
