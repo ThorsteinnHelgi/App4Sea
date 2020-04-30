@@ -599,7 +599,7 @@ const App4SeaKML = (function () {
         // if (App4Sea.logging) console.log(`${timestamp} Item handled: ${child.nodeName}`);
 
         if (child.nodeName === 'name' || child.nodeName === 'atom:name') {
-          //if (App4Sea.logging) console.log(`Name item not handled: ${child.innerHTML}`);
+          // if (App4Sea.logging) console.log(`Name item not handled: ${child.innerHTML}`);
           // TBD
           //                    let name = child;
           //                    if(name.innerHTML !== "") {

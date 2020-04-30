@@ -36,8 +36,6 @@ const App4SeaPopUps = (function () {
       vessel_build_year: '',
 
       equipment: '',
-      equipment_total_storage_capacity: '',
-      equipment_heated_storage: '',
       equipment_boats: '',
       equipment_booms: '',
       equipment_booms_ENG: '',
@@ -98,7 +96,7 @@ const App4SeaPopUps = (function () {
   function populateOSR(feature, osr) {
     osr.name = feature.get('name');
 
-    for (let key in osr) {
+    for (const key in osr) {
       osr[key] = feature.get(key);
     }
   }
@@ -156,7 +154,7 @@ const App4SeaPopUps = (function () {
     if (osr.ape_sweeping_system) template += `<tr><td>APE Sweeping system</td><td><b>{{ape_sweeping_system}} m3</b></td></tr>`;
     if (osr.ape_free_floating_skimmers) template += `<tr><td>APE Free floating skimmers</td><td><b>{{ape_free_floating_skimmers}} m3</b></td></tr>`;
 
-    if (osr.linkinfo) { 
+    if (osr.linkinfo) {
       const links = osr.linkinfo.split(',');
       for (let ind = 0; ind < links.length; ind++) {
         const link = links[ind];
@@ -165,7 +163,7 @@ const App4SeaPopUps = (function () {
     }
     if (osr.linkicon) template += `<tr><td>Icon</td><td><img class="osr-image" src="{{linkicon}}" alt="{{name}}"></td></tr>`;
     if (osr.linkimage) template += `<tr><td>Image</td><td><img class="osr-image" src="{{linkimage}}" alt="{{name}}"></td></tr>`;
-    //if (osr.linkvideo) template += `<tr><td>Video</td><td><video class="osr-video" src="{{linkvideo}}" alt="{{name}}" autoplay controls></video></td></tr>`;
+    // if (osr.linkvideo) template += `<tr><td>Video</td><td><video class="osr-video" src="{{linkvideo}}" alt="{{name}}" autoplay controls></video></td></tr>`;
     if (osr.linkvideo) template += `<tr><td>Video</td><td><iframe height="120px" src="{{linkvideo}}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></td></tr>`;
 
     if (osr.aircraft_type) template += `<tr><td>Type</td><td><b>{{aircraft_type}}</b></td></tr>`;
@@ -296,12 +294,12 @@ const App4SeaPopUps = (function () {
   function popUpFeature(feature) {
     let description = feature.get('description');
 
-    //if (App4Sea.logging) console.log(`SchemaUrl: ${feature.get('schemaUrl')}`);
+    // if (App4Sea.logging) console.log(`SchemaUrl: ${feature.get('schemaUrl')}`);
 
-    const styleUrl =  feature.get('styleUrl');
-    //const vessel_IMO = feature.get('vessel_IMO');
-    //const site_ID = feature.get('site_ID');
-    //const aircraft_specification_class = feature.get('aircraft_specification_class');
+    const styleUrl = feature.get('styleUrl');
+    // const vessel_IMO = feature.get('vessel_IMO');
+    // const site_ID = feature.get('site_ID');
+    // const aircraft_specification_class = feature.get('aircraft_specification_class');
     const Id = feature.get('Id');
     if (styleUrl.endsWith('msn_ferry')) {
       description = setA4SOSRGlobalInfo(feature);
@@ -317,7 +315,7 @@ const App4SeaPopUps = (function () {
       description = feature.get('name');
     }
 
-    //const styleUrl = feature.get('styleUrl');
+    // const styleUrl = feature.get('styleUrl');
     let template;
     for (let i = App4Sea.OpenLayers.styleMaps.length - 1; i >= 0; i--) {
       const styleUrlCore = App4Sea.Utils.parseURL(styleUrl);
@@ -368,11 +366,11 @@ const App4SeaPopUps = (function () {
     const features = [];
 
     App4Sea.OpenLayers.Map.forEachFeatureAtPixel(evt.pixel, (feature) => {
-      //if (App4Sea.logging) console.log(`SingleClick for feature: ${my.getTitle(feature)}`);
+      // if (App4Sea.logging) console.log(`SingleClick for feature: ${my.getTitle(feature)}`);
       features.push(feature);
     });
 
-    //if (App4Sea.logging) console.log(`Features are: ${features.length}`);
+    // if (App4Sea.logging) console.log(`Features are: ${features.length}`);
 
     popupTitle.innerHTML = '';
     popupContent.innerHTML = '';
@@ -413,8 +411,8 @@ const App4SeaPopUps = (function () {
     }
 
     cont = cont.replaceAll('`', '\'').replaceAll('##\'', '`').replaceAll('\'##', '`');
-    popupContent.innerHTML = '<div><div>' + cont + '</div></div>';
-    //console.log(popupContent.innerHTML);
+    popupContent.innerHTML = `<div><div>${cont}</div></div>`;
+    // console.log(popupContent.innerHTML);
     if (features.length === 0) {
       App4Sea.OpenLayers.overlayLayerPopUp.setPosition(undefined);
       popupCloser.blur();
