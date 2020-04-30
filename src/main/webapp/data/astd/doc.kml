@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2">
+    <Document id="1">
+        <description>ASTD</description>
+        <GroundOverlay id="3">
+            <name>ASTD</name>
+            <Icon id="5">
+                <href>data/astd/hist.png</href>
+            </Icon>
+            <gx:altitudeMode>absolute</gx:altitudeMode>
+            <LatLonBox>
+                <north>89</north>
+                <south>40</south>
+                <east>180</east>
+                <west>-179</west>
+            </LatLonBox>
+        </GroundOverlay>
+    </Document>
+</kml>
