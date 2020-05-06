@@ -14,31 +14,31 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/arnigeir/App4Sea.git"
+    "url": "git+https://github.com/ThorsteinnHelgi/App4Sea.git"
   },
   "author": "Þorsteinn Helgi Steinarsson, Árni Geir Sigurðsson",
   "license": "UNLICENSED",
   "bugs": {
-    "url": "https://github.com/arnigeir/App4Sea/issues"
+    "url": "https://github.com/ThorsteinnHelgi/App4Sea/issues"
   },
-  "homepage": "https://github.com/arnigeir/App4Sea#readme",
+  "homepage": "https://github.com/ThorsteinnHelgi/App4Sea/blob/newmaster/README.md",
   "devDependencies": {
-    "@babel/core": "^7.8.3",
-    "@babel/preset-env": "^7.8.3",
-    "babel-loader": "^8.0.6",
+    "@babel/core": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "babel-loader": "^8.1.0",
     "copy-webpack-plugin": "^5.1.1",
-    "css-loader": "^3.4.2",
+    "css-loader": "^3.5.3",
     "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-plugin-import": "^2.20.0",
-    "file-loader": "^5.0.2",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "file-loader": "^5.1.0",
     "html-webpack-plugin": "^3.2.0",
     "source-map-loader": "^0.2.4",
-    "style-loader": "^1.1.3",
+    "style-loader": "^1.2.1",
     "url-loader": "^3.0.0",
-    "webpack": "^4.41.5",
+    "webpack": "^4.43.0",
     "webpack-cli": "^3.3.11",
-    "webpack-dev-server": "^3.10.1",
+    "webpack-dev-server": "^3.10.3",
     "webpack-merge": "^4.2.2",
     "webpack-war-plugin": "^1.0.0-beta.3"
   },
@@ -47,15 +47,15 @@
     "express": "^4.17.1",
     "html-to-image": "^0.1.1",
     "html2canvas": "^1.0.0-rc.5",
-    "jquery": "^3.4.1",
-    "jquery-param": "^1.0.2",
-    "jstree": "^3.3.8",
+    "jquery": "^3.5.1",
+    "jquery-param": "^1.0.5",
+    "jstree": "^3.3.9",
     "lodash": "^4.17.15",
     "mustache": "^3.2.1",
     "net": "^1.0.2",
-    "ol": "^6.1.1",
-    "popper.js": "^1.16.0",
-    "proj4": "^2.6.0",
+    "ol": "^6.3.1",
+    "popper.js": "^1.16.1",
+    "proj4": "^2.6.1",
     "qwest": "^4.5.0"
   }
 }

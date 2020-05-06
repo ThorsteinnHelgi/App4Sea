@@ -530,5 +530,18 @@
         "legend" : "",
         "image" : "",
         "license" : ""
+    },
+    {
+        "id" : "S41",
+        "title" : "Arctic Shipping Traffic Density",
+        "subtitle" : "",
+        "authors" : "PAME",
+        "source" : "PAME",
+        "about" : "PAME's Arctic Ship Traffic Data (ASTD) project has been developed in response to a growing need to collect and distribute accurate, reliable, and up-to-date information on shipping activities in the Arctic.",
+        "link" : "<a href='https://pame.is/projects/arctic-marine-shipping/astd' target='_blank'>Link to further information at PAME</a>",
+        "usage" : "",
+        "legend" : "",
+        "image" : "",
+        "license" : ""
     }
 ]}

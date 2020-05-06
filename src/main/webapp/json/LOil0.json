@@ -5,6 +5,6 @@
     { "id" : "LOil2", "parent" : "LOil0", "text" : "Oil Spill Simulation: Hypothetical Incidents", "state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : "", "source": "34"} },
     { "id" : "LOil05", "parent" : "LOil0", "text" : "Hydrocarbon fields in UK waters [DECC]", "children" : false, "a_attr" : { "path" : "data/DECC_OFF_Hydrocarbon_Fields.kmz", "source": "8"} },
     { "id" : "LOil06", "parent" : "LOil0", "text" : "Hydrocarbon fields in Norwegian waters", "children" : false, "a_attr" : { "path" : "data/v_geo_fldarea.kmz", "source": "9"} },
-    { "id" : "LOil07", "parent" : "LOil0", "text" : "Arctic Shipping Traffic", "children" : false, "a_attr" : { "path" : "data/astd/doc.kml", "source": "9"} }
+    { "id" : "LOil07", "parent" : "LOil0", "text" : "Arctic Shipping Traffic Density", "children" : false, "a_attr" : { "path" : "data/astd/doc.kml", "source": "41"} }
 ]
 
