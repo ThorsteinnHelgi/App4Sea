@@ -687,8 +687,8 @@ const App4SeaUtils = (function App4SeaUtils() {
   // //////////////////////////////////////////////////////////////////////////
   // toMap
   const toMap = function () {
-    //heat.remove('#ControlPlaceInMenu');
-    //$(heat).appendTo('#ControlPlaceInMap');
+    // heat.remove('#ControlPlaceInMenu');
+    // $(heat).appendTo('#ControlPlaceInMap');
 
     anim.remove('#ControlPlaceInMenu');
     $(anim).appendTo('#ControlPlaceInMap');
@@ -720,8 +720,8 @@ const App4SeaUtils = (function App4SeaUtils() {
   // //////////////////////////////////////////////////////////////////////////
   // toMenu
   const toMenu = function () {
-    //heat.remove('#ControlPlaceInMap');
-    //$(heat).appendTo('#ControlPlaceInMenu');
+    // heat.remove('#ControlPlaceInMap');
+    // $(heat).appendTo('#ControlPlaceInMenu');
 
     anim.remove('#ControlPlaceInMap');
     $(anim).appendTo('#ControlPlaceInMenu');
@@ -856,7 +856,7 @@ const App4SeaUtils = (function App4SeaUtils() {
 
     if (id === 'HeatContainer') {
       if (heat !== null) {
-        //heat.style.display = 'none';
+        // heat.style.display = 'none';
       }
     }
     if (id === 'AnimationContainer') {

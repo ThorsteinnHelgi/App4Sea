@@ -315,7 +315,7 @@ const App4SeaOpenLayers = (function () {
     my.Map.addOverlay(my.overlayLayerPopUp);
   }
 
-    // //////////////////////////////////////////////////////////////////////////
+  // //////////////////////////////////////////////////////////////////////////
   // InitToolTip
   function InitToolTip() {
     const map = my.Map;
@@ -339,7 +339,7 @@ const App4SeaOpenLayers = (function () {
       $('#ToolTipInfo').tooltip('hide');
       const inf = $('#ToolTipInfo');
       inf.innerHTML = '';
-     
+
       for (let ind = 0; ind < features.length; ind++) {
         const name = App4Sea.PopUps.getTitle(features[ind]);
         if (name) {
@@ -353,7 +353,7 @@ const App4SeaOpenLayers = (function () {
             txt += '</div><div>';
           }
           inf.tooltip('hide')
-            .attr('data-original-title', '<div><div>' + txt + '</div></div>')
+            .attr('data-original-title', `<div><div>${txt}</div></div>`)
             .tooltip('show');
         }
       }
@@ -388,7 +388,7 @@ const App4SeaOpenLayers = (function () {
     initMenu();
 
     InitPopup();
-    
+
     InitToolTip();
 
     // let res = App4Sea.Utils.supports_html5_storage();
