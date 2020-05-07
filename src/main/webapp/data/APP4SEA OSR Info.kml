@@ -1028,7 +1028,7 @@ The provincial authorities require oil terminals and other oil handling faciliti
 						<SimpleData name="equipment_crane">Yes</SimpleData>
 						<SimpleData name="equipment_crane_capability">0.7 tonnes with 16.8m range</SimpleData>
 						<SimpleData name="equipment_total_storage_capacity">104m3 + 110m3 oil bags</SimpleData>
-						<SimpleData name="equipment_heated_storage">103</SimpleData>
+						<SimpleData name="equipment_heated_storage">103m3</SimpleData>
 						<SimpleData name="ape_skimmers">LAMOR Brush skimmers</SimpleData>
 						<SimpleData name="ape_sweeping_arms">yes</SimpleData>
 						<SimpleData name="ape_free_floating_skimmers">2</SimpleData>
@@ -6784,6 +6784,7 @@ Most major terminals, especially those handling crude oil, e.g. Fawley, Hamble, 
 				</Point>
 			</Placemark>
 			<Placemark>
+				<name>UKDS Inverness</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
 					<SchemaData schemaUrl="#OSR_SiteSchema">
@@ -6803,6 +6804,7 @@ Most major terminals, especially those handling crude oil, e.g. Fawley, Hamble, 
 				</Point>
 			</Placemark>
 			<Placemark>
+				<name>UKDS Scalloway</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
 					<SchemaData schemaUrl="#OSR_SiteSchema">
@@ -6822,6 +6824,7 @@ Most major terminals, especially those handling crude oil, e.g. Fawley, Hamble, 
 				</Point>
 			</Placemark>
 			<Placemark>
+				<name>MCA Barnsley</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
 					<SchemaData schemaUrl="#OSR_SiteSchema">
@@ -6856,6 +6859,7 @@ Most major terminals, especially those handling crude oil, e.g. Fawley, Hamble, 
 				</Point>
 			</Placemark>
 			<Placemark>
+				<name>MCA Bristol</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
 					<SchemaData schemaUrl="#OSR_SiteSchema">
@@ -6886,6 +6890,7 @@ Most major terminals, especially those handling crude oil, e.g. Fawley, Hamble, 
 				</Point>
 			</Placemark>
 			<Placemark>
+				<name>MCA Dundee</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
 					<SchemaData schemaUrl="#OSR_SiteSchema">
@@ -6917,6 +6922,7 @@ Most major terminals, especially those handling crude oil, e.g. Fawley, Hamble, 
 				</Point>
 			</Placemark>
 			<Placemark>
+				<name>MCA Glasgow</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
 					<SchemaData schemaUrl="#OSR_SiteSchema">
@@ -6939,6 +6945,7 @@ Most major terminals, especially those handling crude oil, e.g. Fawley, Hamble, 
 				</Point>
 			</Placemark>
 			<Placemark>
+				<name>MCA Milford Haven</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
 					<SchemaData schemaUrl="#OSR_SiteSchema">
@@ -6958,6 +6965,7 @@ Most major terminals, especially those handling crude oil, e.g. Fawley, Hamble, 
 				</Point>
 			</Placemark>
 			<Placemark>
+				<name>MCA Belfast</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
 					<SchemaData schemaUrl="#OSR_SiteSchema">
@@ -6976,6 +6984,7 @@ Most major terminals, especially those handling crude oil, e.g. Fawley, Hamble, 
 				</Point>
 			</Placemark>
 			<Placemark>
+				<name>MCA Stornoway</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
 					<SchemaData schemaUrl="#OSR_SiteSchema">
@@ -6994,6 +7003,7 @@ Most major terminals, especially those handling crude oil, e.g. Fawley, Hamble, 
 				</Point>
 			</Placemark>
 			<Placemark>
+				<name>MCA Shetland</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
 					<SchemaData schemaUrl="#OSR_SiteSchema">
@@ -7013,6 +7023,7 @@ Most major terminals, especially those handling crude oil, e.g. Fawley, Hamble, 
 				</Point>
 			</Placemark>
 			<Placemark>
+				<name>MCA Prestwick Airport</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
 					<SchemaData schemaUrl="#OSR_SiteSchema">
@@ -7030,6 +7041,7 @@ Most major terminals, especially those handling crude oil, e.g. Fawley, Hamble, 
 				</Point>
 			</Placemark>
 			<Placemark>
+				<name>MCA East Midlands Airport</name>
 				<styleUrl>#msn_ranger_station</styleUrl>
 				<ExtendedData>
 					<SchemaData schemaUrl="#OSR_SiteSchema">

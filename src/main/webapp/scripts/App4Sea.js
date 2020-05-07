@@ -36,7 +36,7 @@ const App4Sea = (function a4s() {
   my.minZoom = 2;
   my.maxZoom = 18;
   my.startZoom = 4;
-  my.logging = 0; // 0=off, 
+  my.logging = 5; // 0=off, 
   my.useIconsInMenu = true;
   my.disableSubItems = true;
 

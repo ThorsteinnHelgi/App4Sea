@@ -7,3 +7,5 @@
 ]
 
 { "id" : "LEdu0", "parent" : "#", "text" : "Educational data", 			            "state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : ""} }
+{ "id" : "LWth10", "parent" : "LWth0", "text" : "Current temperature", "children" : false, "a_attr" : { "path" : "https://tile.openweathermap.org/map/temp_new/{z}/{x}/{y}.png?appid=6a3e86f0825c7e6e605105c24d5ec1cd", "source": "19"} },
+{ "id" : "LWth11", "parent" : "LWth0", "text" : "Current precipitation ", "children" : false, "a_attr" : { "path" : "https://tile.openweathermap.org/map/precipitation_new/{z}/{x}/{y}.png?appid=6a3e86f0825c7e6e605105c24d5ec1cd", "source": "20"} },

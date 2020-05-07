@@ -122,7 +122,7 @@ const App4SeaPopUps = (function () {
     if (osr.vessel_loa) template += `<tr><td>LOA</td><td><b>{{vessel_loa}} m</b></td></tr>`;
     if (osr.vessel_breadth) template += `<tr><td>Breadth</td><td><b>{{vessel_breadth}} m</b></td></tr>`;
     if (osr.vessel_draught) template += `<tr><td>Draught</td><td><b>{{vessel_draught}} m</b></td></tr>`;
-    if (osr.vessel_GT) template += `<tr><td>GT</td><td><b>{{vessel_GT}} tonnes</b></td></tr>`;
+    if (osr.vessel_GT) template += `<tr><td>GT</td><td><b>{{vessel_GT}}</b></td></tr>`;
     if (osr.vessel_average_speed) template += `<tr><td>Average speed</td><td><b>{{vessel_average_speed}} kn</b></td></tr>`;
     if (osr.vessel_build_year) template += `<tr><td>Build year</td><td><b>{{vessel_build_year}}</b></td></tr>`;
 
@@ -139,20 +139,19 @@ const App4SeaPopUps = (function () {
     if (osr.equipment_absorbent_pads) template += `<tr><td>Absorbent Pads</td><td><b>{{equipment_absorbent_pads}}</b></td></tr>`;
     if (osr.equipment_absorbent_mats) template += `<tr><td>Absorbent Mats</td><td><b>{{equipment_absorbent_mats}}</b></td></tr>`;
     if (osr.equipment_crane) template += `<tr><td>Crane</td><td><b>{{equipment_crane}}</b></td></tr>`;
-    if (osr.equipment_crane_capability) template += `<tr><td>Crane capability</td><td><b>{{equipment_crane_capability}} tonnes</b></td></tr>`;
-    if (osr.equipment_total_storage_capacity) template += `<tr><td>Total storage capacity</td><td><b>{{equipment_total_storage_capacity}} tonnes</b></td></tr>`;
-    if (osr.equipment_heated_storage) template += `<tr><td>Heated storage</td><td><b>{{equipment_heated_storage}} m3</b></td></tr>`;
+    if (osr.equipment_crane_capability) template += `<tr><td>Crane capability</td><td><b>{{equipment_crane_capability}}</b></td></tr>`;
+    if (osr.equipment_heated_storage) template += `<tr><td>Heated storage</td><td><b>{{equipment_heated_storage}}</b></td></tr>`;
 
-    if (osr.ape_sweeping_arms) template += `<tr><td>APE Sweeping Arms</td><td><b>{{ape_sweeping_arms}} m3</b></td></tr>`;
-    if (osr.ape_sweeping_width) template += `<tr><td>APE Sweeping Width</td><td><b>{{ape_sweeping_width}} m3</b></td></tr>`;
-    if (osr.ape_booms) template += `<tr><td>APE Booms</td><td><b>{{ape_booms}} m3</b></td></tr>`;
-    if (osr.ape_ro_boom) template += `<tr><td>APE RO Booms</td><td><b>{{ape_ro_boom}} m3</b></td></tr>`;
-    if (osr.ape_bucket_skimmer) template += `<tr><td>APE Bucket skimmers</td><td><b>{{ape_bucket_skimmer}} m3</b></td></tr>`;
-    if (osr.ape_brush_skimmers) template += `<tr><td>APE Brush skimmers</td><td><b>{{ape_brush_skimmers}} m3</b></td></tr>`;
-    if (osr.ape_response_divers) template += `<tr><td>APE Response divers</td><td><b>{{ape_response_divers}} m3</b></td></tr>`;
-    if (osr.ape_skimmers) template += `<tr><td>APE Skimmers</td><td><b>{{ape_skimmers}} m3</b></td></tr>`;
-    if (osr.ape_sweeping_system) template += `<tr><td>APE Sweeping system</td><td><b>{{ape_sweeping_system}} m3</b></td></tr>`;
-    if (osr.ape_free_floating_skimmers) template += `<tr><td>APE Free floating skimmers</td><td><b>{{ape_free_floating_skimmers}} m3</b></td></tr>`;
+    if (osr.ape_sweeping_arms) template += `<tr><td>APE Sweeping Arms</td><td><b>{{ape_sweeping_arms}}</b></td></tr>`;
+    if (osr.ape_sweeping_width) template += `<tr><td>APE Sweeping Width</td><td><b>{{ape_sweeping_width}}</b></td></tr>`;
+    if (osr.ape_booms) template += `<tr><td>APE Booms</td><td><b>{{ape_booms}}</b></td></tr>`;
+    if (osr.ape_ro_boom) template += `<tr><td>APE RO Booms</td><td><b>{{ape_ro_boom}}</b></td></tr>`;
+    if (osr.ape_bucket_skimmer) template += `<tr><td>APE Bucket skimmers</td><td><b>{{ape_bucket_skimmer}}</b></td></tr>`;
+    if (osr.ape_brush_skimmers) template += `<tr><td>APE Brush skimmers</td><td><b>{{ape_brush_skimmers}}</b></td></tr>`;
+    if (osr.ape_response_divers) template += `<tr><td>APE Response divers</td><td><b>{{ape_response_divers}}</b></td></tr>`;
+    if (osr.ape_skimmers) template += `<tr><td>APE Skimmers</td><td><b>{{ape_skimmers}}</b></td></tr>`;
+    if (osr.ape_sweeping_system) template += `<tr><td>APE Sweeping system</td><td><b>{{ape_sweeping_system}}</b></td></tr>`;
+    if (osr.ape_free_floating_skimmers) template += `<tr><td>APE Free floating skimmers</td><td><b>{{ape_free_floating_skimmers}}</b></td></tr>`;
 
     if (osr.linkinfo) {
       const links = osr.linkinfo.split(',');
