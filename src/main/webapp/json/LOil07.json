@@ -1,0 +1,23 @@
+[
+  {
+    "id": "LOil07_1",
+    "parent": "LOil07",
+    "text": "Arctic Shipping Traffic Density (2019)",
+    "children": false,
+    "a_attr": {
+      "path": "data/astd/2019/2019.kmz",
+      "tool": "animation"
+    }
+  },
+  {
+    "id": "LOil07_2",
+    "parent": "LOil07",
+    "text": "Arctic Shipping Traffic Density (2020)",
+    "children": false,
+    "a_attr": {
+      "path": "data/astd/2020/2020.kmz",
+      "tool": "animation"
+    }
+  }
+]
+
