@@ -1,5 +1,15 @@
 [
   {
+    "id": "LOil07_4",
+    "parent": "LOil07",
+    "text": "Arctic Shipping Traffic Density (2017)",
+    "children": false,
+    "a_attr": {
+      "path": "data/astd/2017/2017.kmz",
+      "tool": "animation"
+    }
+  },
+  {
     "id": "LOil07_3",
     "parent": "LOil07",
     "text": "Arctic Shipping Traffic Density (2018)",
