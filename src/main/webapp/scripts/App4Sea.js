@@ -36,7 +36,7 @@ const App4Sea = (function a4s() {
   my.minZoom = 2;
   my.maxZoom = 18;
   my.startZoom = 4;
-  my.logging = 5; // 0=off, 
+  my.logging = 5; // 0=off,
   my.useIconsInMenu = true;
   my.disableSubItems = true;
 
@@ -50,6 +50,7 @@ const App4Sea = (function a4s() {
   my.TreeMenu = {};
   my.Utils = {};
   my.Weather = {};
+  my.DayNight = {};
 
   if (my.logging) console.log(`Map extent ${[-180, 90, 180, -90]}`);
   if (my.logging) console.log(`Map extent ${my.mapExtent}`);

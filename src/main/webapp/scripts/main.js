@@ -18,6 +18,7 @@ import './App4Sea.TreeInfo';
 import './App4Sea.TreeMenu';
 import './App4Sea.Utils';
 import './App4Sea.Weather';
+import './App4Sea.DayNight';
 
 window.jQuery = $;
 window.$ = $;
