@@ -1,0 +1,53 @@
+[
+  {
+    "id": "LOil07_5",
+    "parent": "LOil07",
+    "text": "Arctic Shipping Traffic Density (2016)",
+    "children": false,
+    "a_attr": {
+      "path": "data/astd/2016/2016.kmz",
+      "tool": "animation"
+    }
+  },
+  {
+    "id": "LOil07_4",
+    "parent": "LOil07",
+    "text": "Arctic Shipping Traffic Density (2017)",
+    "children": false,
+    "a_attr": {
+      "path": "data/astd/2017/2017.kmz",
+      "tool": "animation"
+    }
+  },
+  {
+    "id": "LOil07_3",
+    "parent": "LOil07",
+    "text": "Arctic Shipping Traffic Density (2018)",
+    "children": false,
+    "a_attr": {
+      "path": "data/astd/2018/2018.kmz",
+      "tool": "animation"
+    }
+  },
+  {
+    "id": "LOil07_2",
+    "parent": "LOil07",
+    "text": "Arctic Shipping Traffic Density (2019)",
+    "children": false,
+    "a_attr": {
+      "path": "data/astd/2019/2019.kmz",
+      "tool": "animation"
+    }
+  },
+  {
+    "id": "LOil07_1",
+    "parent": "LOil07",
+    "text": "Arctic Shipping Traffic Density (2020)",
+    "children": false,
+    "a_attr": {
+      "path": "data/astd/2020/2020.kmz",
+      "tool": "animation"
+    }
+  }
+]
+
