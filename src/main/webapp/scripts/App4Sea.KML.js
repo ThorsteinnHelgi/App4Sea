@@ -392,15 +392,17 @@ const App4SeaKML = (function () {
 
     // //////////////////////////////////////////////////////////////////////////
     function addLegend(name, url) {
-      const tr = document.createElement('tr');
+      const tr = document.createElement('div');
       tr.style.backgroundColor = 'white';
-      tr.style.position = 'absolute';
+      tr.style.float = 'right';
+      tr.style.display = 'inline-flex';
+      // tr.style.position = 'absolute';
       App4Sea.Utils.dragElement(tr);
 
       tr.name = name;
 
-      tr.innerHTML = `<td><p class="legendTitle">${name}</p><img class="imgLegend" src="${url}" alt="Legend"/></td>\
-                <td><button class="btn-right" title="Close" onclick="$.App4Sea.KML.removeRow(this)"><i class="fa fa-close"></i></button></td>`;
+      tr.innerHTML = `<div><p class="legendTitle">${name}</p><img class="imgLegend" src="${url}" alt="Legend"/></div>\
+                <div><button class="btn-right" title="Close" onclick="$.App4Sea.KML.removeRow(this)"><i class="fa fa-close"></i></button></div>`;
       // <img class="imgLegend" src="url" alt="Legend"/>
       // <button class="btn-right" title="Close" onclick="$.App4Sea.Utils.w3_close('name')"><i class="fa fa-close"></i></button>
       // <input type="button" value="x" onclick="$.App4Sea.KML.removeRow(this)">

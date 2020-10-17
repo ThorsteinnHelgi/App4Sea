@@ -545,6 +545,7 @@ h6 {
 #overlayLegend{
   z-index:100;
   position: absolute;
+  right: 45px;
   /*top: 5px;
   width: 80%;
   text-align: -webkit-center;*/

@@ -32,5 +32,7 @@ Start a live-reloading development server using:
 
 ```sh
 $ npm start -- --watch --open
+
+It will open the page on localhost:9000
 ```
 
