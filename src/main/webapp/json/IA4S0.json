@@ -1,5 +1,5 @@
 [
     { "id" : "I00", "parent" : "IA4S0", "text" : "App4Sea Website", "children" : false, "a_attr" : { "path" : "http://app4sea.interreg-npa.eu"} },
-    { "id" : "I01", "parent" : "IA4S0", "text" : "App4Sea on Facebook", "children" : false, "a_attr" : { "path" : "https://www.facebook.com/search/top/?q=app4sea"} },
+    { "id" : "I01", "parent" : "IA4S0", "text" : "App4Sea on Facebook", "children" : false, "a_attr" : { "path" : "https://www.facebook.com/APP4SEA/"} },
     { "id" : "I02", "parent" : "IA4S0", "text" : "About NPA 2014-2020", "children" : false, "a_attr" : { "path" : "https://32145644aam941fnzjoj6nn5-wpengine.netdna-ssl.com/wp-content/uploads/2015/12/npa_2014-2020_factsheet.pdf"} }
 ]

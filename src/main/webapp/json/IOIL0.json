@@ -1,9 +1,11 @@
 [
     { "id" : "I10", "parent" : "IOIL0", "text" : "Computer Modelling in Oil Spill Response", "children" : false, "a_attr" : { "path" : "files/DT3.2.1_Report_on_existing_oil_spill_response_models.pdf"} },
+    { "id" : "I10b", "parent" : "IOIL0", "text" : "Existing oil weathering databases for Arctic marine conditions", "children" : false, "a_attr" : { "path" : "files/D.T3.1.1 Report on existing oil weathering databases.pdf"} },
+    { "id" : "I10c", "parent" : "IOIL0", "text" : "NOOA’s oil weathering database ADIOS", "children" : false, "a_attr" : { "path" : "https://response.restoration.noaa.gov/oil-and-chemical-spills/oil-spills/response-tools/adios.html"} },
     { "id" : "I11", "parent" : "IOIL0", "text" : "ITOPF", "children" : false, "a_attr" : { "path" : "http://www.itopf.org/"} },
     { "id" : "I12", "parent" : "IOIL0", "text" : "Report on Previous Oil Spill Incidents", "children" : false, "a_attr" : { "path" : "http://killspill.eu/sites/default/files/d1.6_report_on_previous_oil_spill_incidents_and_efficiency_of_mitigation_measures.pdf"} },
     { "id" : "I13", "parent" : "IOIL0", "text" : "HELCOM BALEX DELTA 2018 (Oil Spill Exercise)", "children" : false, "a_attr" : { "path" : "https://balexdelta2018.files.wordpress.com/2018/08/booklet_final_small.pdf"} },
-    { "id" : "I14", "parent" : "IOIL0", "text" : "IPIECA: At-sea containment and recovery", "children" : false, "a_attr" : { "path" : "http://www.oilspillresponseproject.org/wp-content/uploads/2016/02/GPG-At-sea-containment-and-recovery.pdf"} },
+    { "id" : "I14", "parent" : "IOIL0", "text" : "IPIECA: At-sea containment and recovery", "children" : false, "a_attr" : { "path" : "https://www.ipieca.org/resources/good-practice/at-sea-containment-and-recovery/"} },
     { "id" : "I15", "parent" : "IOIL0", "text" : "Oil spills - Experience from incidents", "children" : false, "a_attr" : { "path" : "https://wiki.met.no/_media/opnet/hilde_oljedrift.ppt"} },
     { "id" : "I16", "parent" : "IOIL0", "text" : "Oil spills in cold climates", "children" : false, "a_attr" : { "path" : "http://www.itopf.org/knowledge-resources/library/video-library/video/8oil-spills-in-cold-climates"} },
     { "id" : "I17", "parent" : "IOIL0", "text" : "Circumpolar Oil Spill Response Viability Analysis", "children" : false, "a_attr" : { "path" : "https://oaarchive.arctic-council.org/bitstream/handle/11374/1928/2017-05-09-EPPR-COSRVA-guts-and-cover-letter-size-digital-complete.pdf?sequence=1&isAllowed=y"} },
