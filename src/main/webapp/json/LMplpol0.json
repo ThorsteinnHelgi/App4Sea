@@ -1,0 +1,14 @@
+[
+    {
+        "id": "Mplpol0_0",
+        "parent": "LMplpol0",
+        "text": "Simulation of plastic outside Norwegian West coast.",
+        "children": false,
+        "a_attr": {
+            "path": "data/dung/Bergen/B2.1000.kmz",
+            "tool": "animation",
+            "source": "44",
+            "projection" : "EPSG:3857"
+        }
+    }
+]

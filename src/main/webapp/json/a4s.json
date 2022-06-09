@@ -2,5 +2,6 @@
     { "id" : "LReg0", "parent" : "#", "text" : "Regional boundaries",                   "state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : "", "source": "29" } },
     { "id" : "LOil0", "parent" : "#", "text" : "Oil industry, transport and response", 	"state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : "", "source": "30" } },
     { "id" : "LWth0", "parent" : "#", "text" : "Climate, ocean and weather",            "state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : "", "source": "31" } },
-    { "id" : "LEco0", "parent" : "#", "text" : "Ecological zones",			            "state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : "", "source": "32" } }
+    { "id" : "LEco0", "parent" : "#", "text" : "Ecological zones",		        "state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : "", "source": "32" } },
+    { "id" : "LMplpol", "parent" : "#", "text" : "Marine plastic pollution",	        "state" : { "opened" : false, "checkbox_disabled" : true}, "children" : true, "a_attr" : { "path" : "", "source": "43" } }
 ]

@@ -1,0 +1,16 @@
+[
+  {
+    "id": "LMplpol0",
+    "parent": "LMplpol",
+    "text": "Plastic simulations",
+    "state": {
+      "opened": false,
+      "checkbox_disabled": true
+    },
+    "children": true,
+    "a_attr": {
+      "path": "",
+      "source": "43"
+    }
+  }
+]

@@ -554,5 +554,31 @@
         "legend" : "",
         "image" : "http://masie_web.apps.nsidc.org/pub/DATASETS/NOAA/G02186/latest/4km/masie_all_zoom_4km.png",
         "license" : "<a href='http://nsidc.org/about/use_copyright.html' target='_blank'>http://nsidc.org/about/use_copyright.html</a>"
+    },
+    {
+        "id" : "S43",
+        "title" : "Marine plastic pollution",
+        "subtitle" : "",
+        "authors" : "MET Norway",
+        "source" : "MET Norway",
+        "about" : "This section contains simulations of marine plastic pollution.",
+        "link" : "" ,
+        "usage" : "",
+        "legend" : "",
+        "image" : "",
+        "license" : ""
+    },
+    {
+        "id" : "S44",
+        "title" : "Marine plastic pollution",
+        "subtitle" : "",
+        "authors" : "MET Norway",
+        "source" : "MET Norway",
+        "about" : "This section contains simulations of marine plastic pollution.",
+        "link" : "" ,
+        "usage" : "",
+        "legend" : "",
+        "image" : "",
+        "license" : ""
     }
 ]}
