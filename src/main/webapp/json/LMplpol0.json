@@ -5,7 +5,7 @@
         "text": "Simulation of plastic outside Norwegian West coast.",
         "children": false,
         "a_attr": {
-            "path": "data/dung/Bergen/B2.1000.kmz",
+            "path": "data/dung/Bergen/Bergen.kmz",
             "tool": "animation",
             "source": "44",
             "projection" : "EPSG:3857"
