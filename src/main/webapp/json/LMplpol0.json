@@ -2,10 +2,34 @@
     {
         "id": "Mplpol0_0",
         "parent": "LMplpol0",
-        "text": "Simulation of plastic outside Norwegian West coast.",
+        "text": "Simulation of plastic outside Norwegian West coast",
         "children": false,
         "a_attr": {
-            "path": "data/dung/Bergen/Bergen.kmz",
+            "path": "data/dung/Bergen.kmz",
+            "tool": "animation",
+            "source": "44",
+            "projection" : "EPSG:3857"
+        }
+    },
+    {
+        "id": "Mplpol0_1",
+        "parent": "LMplpol0",
+        "text": "Fishing gear in Scottish waters",
+        "children": false,
+        "a_attr": {
+            "path": "data/dung/Thurso.kmz",
+            "tool": "animation",
+            "source": "44",
+            "projection" : "EPSG:3857"
+        }
+    },
+    {
+        "id": "Mplpol0_2",
+        "parent": "LMplpol0",
+        "text": "Sweet wrapper in Bay of Bothnia",
+        "children": false,
+        "a_attr": {
+            "path": "data/dung/Turku.kmz",
             "tool": "animation",
             "source": "44",
             "projection" : "EPSG:3857"
