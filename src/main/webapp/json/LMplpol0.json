@@ -2,7 +2,7 @@
     {
         "id": "Mplpol0_0",
         "parent": "LMplpol0",
-        "text": "Simulation of plastic outside Norwegian West coast",
+        "text": "Plastic bottle outside Norwegian West coast",
         "children": false,
         "a_attr": {
             "path": "data/dung/Bergen.kmz",
@@ -19,19 +19,31 @@
         "a_attr": {
             "path": "data/dung/Thurso.kmz",
             "tool": "animation",
-            "source": "44",
+            "source": "45",
             "projection" : "EPSG:3857"
         }
     },
     {
         "id": "Mplpol0_2",
         "parent": "LMplpol0",
-        "text": "Sweet wrapper in Bay of Bothnia",
+        "text": "Cigarette butts in the Archipelago Sea",
         "children": false,
         "a_attr": {
             "path": "data/dung/Turku.kmz",
             "tool": "animation",
-            "source": "44",
+            "source": "46",
+            "projection" : "EPSG:3857"
+        }
+    },
+    {
+        "id": "Mplpol0_3",
+        "parent": "LMplpol0",
+        "text": "Sweet wrapper in Bay of Bothnia",
+        "children": false,
+        "a_attr": {
+            "path": "data/dung/Oulu.kmz",
+            "tool": "animation",
+            "source": "47",
             "projection" : "EPSG:3857"
         }
     }
