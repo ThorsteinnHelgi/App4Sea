@@ -1,7 +1,7 @@
 [
-    { "id" : "I03", "parent" : "IA4S0", "text" : "Popcorn Website", "children" : false, "a_attr" : { "path" : "https://popcorn.interreg-npa.eu/"} },
-    { "id" : "I04", "parent" : "IA4S0", "text" : "POPCORN publication – Under the surface marine pollution issues", "children" : false, "a_attr" : { "path" : "https://popcorn.interreg-npa.eu/subsites/popcorn/POPCORN_publication2022_accessible-ua.pdf"} },
-    { "id" : "I05", "parent" : "IA4S0", "text" : "OILSPILL website", "children" : false, "a_attr" : { "path" : "https://blogit.utu.fi/oilspill/"} },
-    { "id" : "I06", "parent" : "IA4S0", "text" : "Circular Ocean website", "children" : false, "a_attr" : { "path" : "http://www.circularocean.eu/"} },
-    { "id" : "I07", "parent" : "IA4S0", "text" : "Blue Circular Economy", "children" : false, "a_attr" : { "path" : "https://bluecirculareconomy.eu/"} }
+    { "id" : "I03", "parent" : "IPOP0", "text" : "Popcorn Website", "children" : false, "a_attr" : { "path" : "https://popcorn.interreg-npa.eu/"} },
+    { "id" : "I04", "parent" : "IPOP0", "text" : "POPCORN publication – Under the surface marine pollution issues", "children" : false, "a_attr" : { "path" : "https://popcorn.interreg-npa.eu/subsites/popcorn/POPCORN_publication2022_accessible-ua.pdf"} },
+    { "id" : "I05", "parent" : "IPOP0", "text" : "OILSPILL website", "children" : false, "a_attr" : { "path" : "https://blogit.utu.fi/oilspill/"} },
+    { "id" : "I06", "parent" : "IPOP0", "text" : "Circular Ocean website", "children" : false, "a_attr" : { "path" : "http://www.circularocean.eu/"} },
+    { "id" : "I07", "parent" : "IPOP0", "text" : "Blue Circular Economy", "children" : false, "a_attr" : { "path" : "https://bluecirculareconomy.eu/"} }
 ]
